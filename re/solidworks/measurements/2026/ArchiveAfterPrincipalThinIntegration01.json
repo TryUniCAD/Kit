@@ -1,0 +1,31 @@
+{
+  "assemblies": 8,
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "464ae555808680dfae15863b891ba2fe2b832b26"
+  },
+  "codec_revision": "d00e45fbc24b8da87c02999c914aa45dbfaa2f62",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "complete_receipt_sha256": "212d92d01a989ff93fdc26f945936061bad1336c5fa4d56d219a5b6459f54f2d",
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "per_stream_results_equal": true,
+  "previous_exact_receipt_sha256": "d16a49c5d6e7bdafa442c915797c70183cbc782c19380770fefb87f1e1e4cd32",
+  "schema": "kit.sw2026.archive-corpus-principal-thin-integration.v1",
+  "script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  }
+}

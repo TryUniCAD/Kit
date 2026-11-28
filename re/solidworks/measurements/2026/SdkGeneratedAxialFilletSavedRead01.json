@@ -1,0 +1,28 @@
+{
+  "heldout_credit": 0,
+  "native_launches": 0,
+  "native_result_sha256": "ed4b234a0e8b922d5a3a379277525665e701cbfa5fc69067838f1e7894e2eb79",
+  "result": {
+    "body_counts": {
+      "edges": 15,
+      "faces": 7,
+      "vertices": 10
+    },
+    "curve_senses": [
+      "+",
+      "-"
+    ],
+    "guarded_package_grammar_reads": 0,
+    "history_only_unchanged": true,
+    "native_numeric_comparisons": 5,
+    "refusals": [],
+    "round_spans_radians": [
+      1.5707963267948966,
+      1.5707963267948966
+    ],
+    "source_sha256": "2c29407f931e290fa0cd1262f20af19cb345052432a7ee8f544bc91615b6d743",
+    "typed_edge_slot": 226,
+    "unexpected_external_access_attempts": 0
+  },
+  "schema": "kit.sw2026.generated-fillet-edited-read.v1"
+}

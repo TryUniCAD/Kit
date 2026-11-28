@@ -1,0 +1,494 @@
+{
+  "first_postflight_error": "ValueError('public native read imported a CAD runtime dependency')",
+  "first_summary_passed": false,
+  "first_summary_sha256": "8efd93beb3f017240bd6eb1ab27678fcef1f21252023fc38180853dfd62951a4",
+  "frozen_control_sha256": "d932660fd055e80c12c1fa3fce4413083b9e21fd36104a47b6dba6afc92ff35e",
+  "frozen_fixture_sha256": "33d6f617549610329ef93badc5ec163264de7a5a5440d9f4bb29c09a09ff5160",
+  "frozen_observer_sha256": "2685b650ff596fd6ba689f658f508d3748b436251c31f2ba6535c8e88a00db8f",
+  "frozen_recipe_sha256": "4363a20d3ff5c2d71eda6b3fea213bfe3f54294317848012eed93fd6f8191df1",
+  "frozen_source_manifest_sha256": "67513b8292b53282fc0a8c3c874e37dad50aa65095dbd265f6930014739b2cc9",
+  "input_identities_preserved": true,
+  "native_lifecycle": {
+    "child_stamp_after_fresh_rebuild": 158,
+    "child_stamp_on_fresh_reopen": 144,
+    "controls_healthy": true,
+    "native_mass_and_geometry": {
+      "generated": {
+        "edited": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0024161399999999998,
+            "com": [
+              6.137386221881434e-19,
+              0.0,
+              0.004649999999999999
+            ],
+            "mass": 6.417557999999999e-06,
+            "volume": 6.417557999999999e-06
+          },
+          "mass": {
+            "area": 0.0048322799999999996,
+            "com": [
+              0.03557244297913766,
+              0.021374080108767252,
+              0.033515
+            ],
+            "mass": 0.012835115999999997,
+            "volume": 1.2835115999999997e-05
+          }
+        },
+        "initial": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0024161399999999998,
+            "com": [
+              5.646560307631507e-19,
+              0.0,
+              0.004649999999999999
+            ],
+            "mass": 6.417557999999999e-06,
+            "volume": 6.417557999999999e-06
+          },
+          "mass": {
+            "area": 0.0048322799999999996,
+            "com": [
+              0.03557244297913766,
+              0.021374080108767252,
+              0.025650000000000003
+            ],
+            "mass": 0.012835115999999997,
+            "volume": 1.2835115999999997e-05
+          }
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0024161399999999998,
+            "com": [
+              6.137386221881434e-19,
+              0.0,
+              0.004649999999999999
+            ],
+            "mass": 6.417557999999999e-06,
+            "volume": 6.417557999999999e-06
+          },
+          "mass": {
+            "area": 0.0048322799999999996,
+            "com": [
+              0.03557244297913766,
+              0.021374080108767252,
+              0.025650000000000003
+            ],
+            "mass": 0.012835115999999997,
+            "volume": 1.2835115999999997e-05
+          }
+        }
+      },
+      "reopen": {
+        "initial": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0024161399999999998,
+            "com": [
+              6.137386221881434e-19,
+              0.0,
+              0.004649999999999999
+            ],
+            "mass": 6.417557999999999e-06,
+            "volume": 6.417557999999999e-06
+          },
+          "mass": {
+            "area": 0.0048322799999999996,
+            "com": [
+              0.03557244297913766,
+              0.021374080108767252,
+              0.033515
+            ],
+            "mass": 0.012835115999999997,
+            "volume": 1.2835115999999997e-05
+          }
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0024161399999999998,
+            "com": [
+              5.646560307631507e-19,
+              0.0,
+              0.004649999999999999
+            ],
+            "mass": 6.417557999999999e-06,
+            "volume": 6.417557999999999e-06
+          },
+          "mass": {
+            "area": 0.0048322799999999996,
+            "com": [
+              0.03557244297913766,
+              0.021374080108767252,
+              0.033515
+            ],
+            "mass": 0.012835115999999997,
+            "volume": 1.2835115999999997e-05
+          }
+        }
+      }
+    },
+    "native_numeric_checks": 360,
+    "native_process_count": 4,
+    "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "oracle_version": "34.5.2.0604",
+    "ordered_distinct_lifetimes": true,
+    "phases": {
+      "after": {
+        "native_checks": 80,
+        "open_status": [
+          0,
+          0
+        ],
+        "ordered_tree_rows": [
+          27,
+          25
+        ],
+        "phase_sha256": "9256303ba4fbddca5bf6c86cfadfae3f9b4c5562f08d17f7efe3820303215107",
+        "process_creation_filetime": 134396862217872639,
+        "process_id": 10300,
+        "record_sha256": "ce9ba79e99802c12d24e25f52a00894b45a15387a7598bd25d679037618deb12",
+        "verified_tree_and_owner_signature_sha256": "3f3150979f34ae3d7bb6c279bc074a7787c272fb1b5a1dd94e4ac1d22df52aa9"
+      },
+      "before": {
+        "native_checks": 80,
+        "open_status": [
+          0,
+          0
+        ],
+        "ordered_tree_rows": [
+          27,
+          25
+        ],
+        "phase_sha256": "c8ce2a261dd3afda9fd5983037ffef22941a2e8bc45e30a902a7f580d38f01ab",
+        "process_creation_filetime": 134396859705688198,
+        "process_id": 1888,
+        "record_sha256": "b4adb5485fb6decd2b1e39e4364416bd198edd6975ab6c21b818e1736e8a9b64",
+        "verified_tree_and_owner_signature_sha256": "3f3150979f34ae3d7bb6c279bc074a7787c272fb1b5a1dd94e4ac1d22df52aa9"
+      },
+      "generated": {
+        "native_checks": 120,
+        "open_status": [
+          0,
+          0
+        ],
+        "ordered_tree_rows": [
+          26,
+          25
+        ],
+        "phase_sha256": "4f86b706c4fe9a4f0a65ab4eb96eae89ad527ffdf72d0cbd5578078afce0b063",
+        "process_creation_filetime": 134396860315627461,
+        "process_id": 984,
+        "record_sha256": "b1da9587005d5d172b6514d67ff25f721d1a48b314d6a81bad8bd9def6e621b2",
+        "verified_tree_and_owner_signature_sha256": "e20677f58c5de0b559d01c8031a37a1b79403a6e7580c7883eb902f4b5274888"
+      },
+      "reopen": {
+        "native_checks": 80,
+        "open_status": [
+          0,
+          0
+        ],
+        "ordered_tree_rows": [
+          26,
+          25
+        ],
+        "phase_sha256": "c8e653ae9ebfe5e4ecd9f119f24c682c6bcc65bfd61d8d559fc3ca0da2cc0006",
+        "process_creation_filetime": 134396861327477771,
+        "process_id": 11036,
+        "record_sha256": "c40ad9940a5745bab7d1b1d71cde10f8a13f0e36d87cfd24ff31fcdd9d3369c6",
+        "verified_tree_and_owner_signature_sha256": "e20677f58c5de0b559d01c8031a37a1b79403a6e7580c7883eb902f4b5274888"
+      }
+    },
+    "tree_and_owner_signatures_retained": true
+  },
+  "native_processes_started": 0,
+  "new_heldout_credit": 0,
+  "passed": true,
+  "prior_source_inputs_read": 0,
+  "recovery_tool_sha256": "c76bf4501691e64181275e5603b053ffec347d2472df4f877e7d7225879f072d",
+  "saved_readback": {
+    "display": {
+      "exact_differences": [
+        {
+          "generated": 0.0,
+          "path": "/height/away_axis/1",
+          "saved": 6.123233995736766e-17
+        },
+        {
+          "generated": 0.0,
+          "path": "/width/away_axis/0",
+          "saved": 6.123233995736766e-17
+        }
+      ],
+      "frozen_gate_discrepancies": [],
+      "frozen_tolerance": 1e-12,
+      "generated": {
+        "height": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "away_m": 0.009275000000000002,
+          "centerline_route": false,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D2",
+          "driver_slot": 1,
+          "end_m": [
+            0.01855,
+            0.0093,
+            0.0
+          ],
+          "metres": 0.0186,
+          "profile": "Sketch1",
+          "start_m": [
+            0.01855,
+            -0.0093,
+            0.0
+          ],
+          "text_m": [
+            0.027825000000000003,
+            0.0,
+            0.0
+          ],
+          "under_text": 64
+        },
+        "width": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.00465,
+          "centerline_route": false,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D1",
+          "driver_slot": 0,
+          "end_m": [
+            0.01855,
+            -0.0093,
+            0.0
+          ],
+          "metres": 0.0371,
+          "profile": "Sketch1",
+          "start_m": [
+            -0.01855,
+            -0.0093,
+            0.0
+          ],
+          "text_m": [
+            0.0,
+            -0.013949999999999999,
+            0.0
+          ],
+          "under_text": 64
+        }
+      },
+      "passed": true,
+      "saved": {
+        "height": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            1.0,
+            6.123233995736766e-17,
+            0.0
+          ],
+          "away_m": 0.009275000000000002,
+          "centerline_route": false,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D2",
+          "driver_slot": 1,
+          "end_m": [
+            0.01855,
+            0.0093,
+            0.0
+          ],
+          "metres": 0.0186,
+          "profile": "Sketch1",
+          "start_m": [
+            0.01855,
+            -0.0093,
+            0.0
+          ],
+          "text_m": [
+            0.027825000000000003,
+            0.0,
+            0.0
+          ],
+          "under_text": 64
+        },
+        "width": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            6.123233995736766e-17,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.00465,
+          "centerline_route": false,
+          "display_class": "moDisplayDistanceDim_c",
+          "driver": "D1",
+          "driver_slot": 0,
+          "end_m": [
+            0.01855,
+            -0.0093,
+            0.0
+          ],
+          "metres": 0.0371,
+          "profile": "Sketch1",
+          "start_m": [
+            -0.01855,
+            -0.0093,
+            0.0
+          ],
+          "text_m": [
+            0.0,
+            -0.013949999999999999,
+            0.0
+          ],
+          "under_text": 64
+        }
+      }
+    },
+    "passed": true,
+    "strict_public_read_process": {
+      "com_imports": [],
+      "interpreter_version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+      "isolated_python_argv": [
+        "-I",
+        "-B"
+      ],
+      "reader_sha256": "3b808a43e62c691197b386bd8e46f2631553ae746352d6748e9e7ba8906df46d",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4fc421bcba1e2f778d6e4b230e86d845ef8a07501d18471ee8b33c1525bae08f",
+      "supervisor_pid": 73952,
+      "worker_pid": 74774
+    },
+    "strict_public_readback": {
+      "diagnostic_codes": [
+        "sldasm.native_record_unresolved"
+      ],
+      "driver_count": 3,
+      "entities": 4,
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "mates": 2,
+      "occurrences": 2,
+      "passed": true
+    },
+    "typed_linked_replays": {
+      "PublicDatumPrism.SLDPRT": {
+        "passed": true,
+        "streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2537,
+            "sha256": "f7de82bf5c4d93942397037b71b3bafb707b47b13c0f7bdd756326fcd6bbcd28"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 185,
+            "sha256": "89709ded157c161b8bd41c23cc844e8af0161ff9de0e647689f4f95d6aaba1cc"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 25999,
+            "sha256": "f6a19707e70bf33cc02daaa8c008ce18d8f83972023dc77aad9d7cd13825f286"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1251,
+            "sha256": "3bb1ef211dca828a7a6205283dd2be9a9a9a919260348062e0910d0f40139026"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 19155,
+            "sha256": "88158bc97611ac39b8e5f5fd20a15584345b8b2e149940c04f2aa4be8f28d5de"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1251,
+            "sha256": "3bb1ef211dca828a7a6205283dd2be9a9a9a919260348062e0910d0f40139026"
+          }
+        }
+      },
+      "PublicPlanarPair2.SLDASM": {
+        "passed": true,
+        "streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3103,
+            "sha256": "d5c79e2af7183d71e7c8c9674e3806ff71bdd2cb52e66b62af421de819211638"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 197,
+            "sha256": "11510f46f10ddbe4a85762c1668c2b70d1e2d4fe524a3204408188a2e610668d"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 25534,
+            "sha256": "54ad6b0410b29d3d2442e0a98e558415a9d3fec02ba2d06e6f6cdea503fd95b4"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 9023,
+            "sha256": "6eb465ea5bef0977a48c15b49c80ff976686a9102366fe18358f03d865081b2e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1905,
+            "sha256": "e4bc6ef0faf00aa4bc1335d78ecad1b2118fdfeec47e1e6796d4180b57d26086"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 5295,
+            "sha256": "ba56f00094776536fe32d1793d36ffc2b0ef145a0cdaac1e44e77315e3b0901b"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1905,
+            "sha256": "b6151c213a47c1d6e4d02466a4efea41c99babbbdbb66b60a055e07582715218"
+          }
+        }
+      }
+    },
+    "typed_linked_stream_count": 13
+  },
+  "saved_sha256": {
+    "PublicDatumPrism.SLDPRT": "670d8a2fb9c9c03a643dceceb5ac35ce9c1c6095ba7384a08b48b0b710dc1702",
+    "PublicPlanarPair2.SLDASM": "ab1164708763381c3498ad8bc7b6841a09823f94bf52038685f67ad61902af56"
+  },
+  "schema": "kit.sw2026.disclosed-planar-registry-readback-recovery.v1",
+  "writer_output_count": 0
+}

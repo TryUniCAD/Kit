@@ -1,0 +1,115 @@
+{
+  "schema": "kit.sw2026.revolve-family-models.v1",
+  "family": "thin",
+  "split": "discovery",
+  "cases": [
+    {
+      "plane": "front",
+      "axis_x_m": 0.00471,
+      "axis_axial_m": [
+        -0.06893,
+        0.07319
+      ],
+      "axial_m": [
+        -0.01411,
+        0.01997
+      ],
+      "angle_deg": 72.5,
+      "edit_angle_deg": 108.25,
+      "reverse": false,
+      "profile_radius_m": 0.03217,
+      "first_wall_sign": null,
+      "name": "ThinOne",
+      "wall_mode": "one",
+      "wall_m": [
+        0.00173,
+        0
+      ],
+      "edit_wall_m": [
+        0.00239,
+        0
+      ]
+    },
+    {
+      "plane": "front",
+      "axis_x_m": 0.00471,
+      "axis_axial_m": [
+        -0.06893,
+        0.07319
+      ],
+      "axial_m": [
+        -0.01411,
+        0.01997
+      ],
+      "angle_deg": 72.5,
+      "edit_angle_deg": 108.25,
+      "reverse": false,
+      "profile_radius_m": 0.03217,
+      "first_wall_sign": null,
+      "name": "ThinOpposite",
+      "wall_mode": "opposite",
+      "wall_m": [
+        0.00173,
+        0
+      ],
+      "edit_wall_m": [
+        0.00239,
+        0
+      ]
+    },
+    {
+      "plane": "front",
+      "axis_x_m": 0.00471,
+      "axis_axial_m": [
+        -0.06893,
+        0.07319
+      ],
+      "axial_m": [
+        -0.01411,
+        0.01997
+      ],
+      "angle_deg": 72.5,
+      "edit_angle_deg": 108.25,
+      "reverse": false,
+      "profile_radius_m": 0.03217,
+      "first_wall_sign": null,
+      "name": "ThinMidplane",
+      "wall_mode": "midplane",
+      "wall_m": [
+        0.00173,
+        0
+      ],
+      "edit_wall_m": [
+        0.00239,
+        0
+      ]
+    },
+    {
+      "plane": "front",
+      "axis_x_m": 0.00471,
+      "axis_axial_m": [
+        -0.06893,
+        0.07319
+      ],
+      "axial_m": [
+        -0.01411,
+        0.01997
+      ],
+      "angle_deg": 72.5,
+      "edit_angle_deg": 108.25,
+      "reverse": false,
+      "profile_radius_m": 0.03217,
+      "first_wall_sign": null,
+      "name": "ThinUnequal",
+      "wall_mode": "two",
+      "wall_m": [
+        0.00173,
+        0.00343
+      ],
+      "edit_wall_m": [
+        0.00239,
+        0.00407
+      ]
+    }
+  ]
+}

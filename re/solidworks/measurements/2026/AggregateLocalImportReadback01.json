@@ -1,0 +1,57 @@
+{
+  "accepted_main": "086870fac1253918919bbd467f1a8797f65e60fa",
+  "disclosed_cases": {
+    "Disclosed": {
+      "generated": {
+        "bytes": 11412,
+        "sha256": "daa186d54dae0bff48e820c27ca34fd40d5b1139550ca723422a4dce259ef799"
+      },
+      "manager": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "reads": 0,
+      "streams": 16
+    },
+    "OtherShape": {
+      "generated": {
+        "bytes": 11414,
+        "sha256": "38685c68479cb4969152eead8d5af88dfe904e68b622da27a38453a5e6c7c8a0"
+      },
+      "manager": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "reads": 0,
+      "streams": 16
+    },
+    "RenamedBody": {
+      "bodies_linked": true,
+      "name": "Casting Ω72",
+      "owns_name": true,
+      "source": "2814fd13c29c840f2079485d47856333e756860fd0abee927703fc47a7cb7f43"
+    },
+    "RenamedFeature": {
+      "generated": {
+        "bytes": 11485,
+        "sha256": "b29c5be5279dc5f58d24b05f969e6b35fd206c3fe9198354a9753d84b612af5e"
+      },
+      "manager": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "reads": 0,
+      "streams": 16
+    }
+  },
+  "exact_before_after_sha256": "42bb69b27c5232fab9e55d0f45b440db26ebbf25481b476dda33039af9e913a3",
+  "heldout_sources_read": 0,
+  "native_processes_started": 0,
+  "previous_aggregate": "eaf655afcd1ba39dd1d39eec1c4f8c82282ef5d5",
+  "schema": "kit.sw2026.local-import-main-integration.v1",
+  "source_code_sha256": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "0ba2de0528045e61c00278c53b2daf9dd7c0d0291700bb1fc65e2f8ab808fb7c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/Local/ReadLocalNamedBody.py": "a27e9410e5490ab96e9de1376d5abdce7b0f1e94eb38c35ffba4cc80abe92421",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/FindLocalOwner.py": "91968f7c360158fad72bfbef6657a6463de6d717e355d06efb8865913fdf9a14"
+  }
+}

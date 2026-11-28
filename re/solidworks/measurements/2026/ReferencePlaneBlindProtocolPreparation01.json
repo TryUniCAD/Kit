@@ -1,0 +1,32 @@
+{
+  "schema": "kit.sw2026.offset-plane-blind-protocol-preparation.v1",
+  "schema_sha256": "78af0f9365b539e7d3bbb75779e6dfc31480215657acbb5e900acfb1e0bb081d",
+  "draft_recipe_sha256": "743f83977780ac127f9cd47efc194c6fb2c2ef403d882d24ed96f2de2f3d7d98",
+  "validator": {
+    "jsonschema": "4.25.1",
+    "dialect": "2020-12"
+  },
+  "structural_admission_checks": {
+    "source_pending_draft_valid": true,
+    "premature_execution_rejected": true,
+    "premature_frozen_rejected": true,
+    "unlocked_writer_stage_rejected": true,
+    "private_payload_field_rejected": true,
+    "source_pending_writer_fingerprint_rejected": true,
+    "unbracketed_stage_order_rejected": true
+  },
+  "plan_state": "source_pending",
+  "execution_enabled": false,
+  "fixed_discovery_case_minimum": null,
+  "qualification_rule": "authenticated evidence sufficient for the declared supported semantics; no arbitrary case quota",
+  "source_lock_available": false,
+  "writer_implemented": false,
+  "writer_code_frozen": false,
+  "native_observer_qualified": false,
+  "heldout_values_created": 0,
+  "heldout_payloads_read": 0,
+  "native_processes_started": 0,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "limits": "schema and protocol only; no executable blind writer runner or qualified source/generation packet exists"
+}

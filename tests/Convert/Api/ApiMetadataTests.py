@@ -76,7 +76,12 @@ def CheckReadme() -> None:
         SuffixText.casefold()
         for RowText in ReadmeText.splitlines()
         if RowText.startswith("|")
-        and RowText.split("|")[-2].strip() == "Reader and writer"
+        and RowText.split("|")[-2].strip()
+        in {
+            "Reader and writer",
+            "Reader and bounded writer",
+            "Partial reader and bounded writer",
+        }
         for SuffixText in RegexLib.findall(r"`(\.[A-Za-z0-9]+)`", RowText)
     }
     ReaderSuffixes, WriterSuffixes = (

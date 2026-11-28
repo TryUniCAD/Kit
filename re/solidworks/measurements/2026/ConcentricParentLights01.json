@@ -1,0 +1,458 @@
+{
+  "baseline": "a794b0b3adfbf619ad00bd177203eefddda571d5",
+  "changed_sources_sha256": {
+    "re/tooling/sw2026/para/concentric/ProveConcentricParentLights.py": "8acca95952c6792f817e3a8c220eaab51a89140592c72fa2ba5fd14ae35af039",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/AssemblySysIn.py": "88877b296efa0a984ba35a4cc411bce0f8dfa5c1a0190765c6b45a951f114003",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmSysMut.py": "cf4b3c02110c4d0f02eac9b41610eab486984ee6d3794beea495d8ad3a5c3a42",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmKeyNodes.py": "d294c1868b1843c726e91bc83e9fb1437919ef2f08de60b736a1fef8b6110d40",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmXmlRoles.py": "fddf06cbb5a94feca99f45f1ddf8cbb70cda52630139a11c23d8fc3421f7d45a",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/MakeAsmKeys.py": "fdaf3d0a4ba41c369c33ef54ad3907b2430926793be15f72f6ffb219f6eb42cb",
+    "src/convert/adapters/solidworks/Archive/Construction/NestedAssemblies/MakeNestedKeys.py": "555126e1f95d782a74fd815b3837ab36140cf8039f691e662fdbd56b5501398f"
+  },
+  "disclosed_inputs_unchanged": true,
+  "disclosed_sources": [
+    {
+      "case": "D01Source",
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "environment_id": 7,
+      "environment_name": "Lights and Cameras",
+      "original_parent_model_sha256": "867df44e63b48ab905eac9dbdb2374b48e0a6b95aeebd3ecfbff9e90a6d5bcd8",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "public_keyword_rows": [
+        [
+          12,
+          "Ambient",
+          "Ambient"
+        ],
+        [
+          13,
+          "Directional1",
+          "Directional"
+        ],
+        [
+          14,
+          "Directional2",
+          "Directional"
+        ],
+        [
+          15,
+          "Directional3",
+          "Directional"
+        ]
+      ],
+      "source_creation_instants": [
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        },
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        },
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        },
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        }
+      ]
+    },
+    {
+      "case": "D01Edited",
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "environment_id": 7,
+      "environment_name": "Lights and Cameras",
+      "original_parent_model_sha256": "efa966d28abbce6585bc438342f5f396a24be3befbb01bb3dd5d58800724814c",
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "public_keyword_rows": [
+        [
+          12,
+          "Ambient",
+          "Ambient"
+        ],
+        [
+          13,
+          "Directional1",
+          "Directional"
+        ],
+        [
+          14,
+          "Directional2",
+          "Directional"
+        ],
+        [
+          15,
+          "Directional3",
+          "Directional"
+        ]
+      ],
+      "source_creation_instants": [
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        },
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        },
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        },
+        {
+          "FractionTicks": 5046049,
+          "SecondsValue": 1794529626
+        }
+      ]
+    },
+    {
+      "case": "RadialNativeSaved",
+      "child_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "environment_id": 8,
+      "environment_name": "Lights and Cameras",
+      "original_parent_model_sha256": "5825e375b5d16153e5214ca22e2031a1ef2e5e572b05d74093903cb9d4ff78e8",
+      "parent_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "public_keyword_rows": [
+        [
+          20,
+          "Ambient",
+          "Ambient"
+        ],
+        [
+          21,
+          "Directional1",
+          "Directional"
+        ],
+        [
+          22,
+          "Directional2",
+          "Directional"
+        ],
+        [
+          23,
+          "Directional3",
+          "Directional"
+        ]
+      ],
+      "source_creation_instants": [
+        {
+          "FractionTicks": 3042188,
+          "SecondsValue": 1795122889
+        },
+        {
+          "FractionTicks": 3042188,
+          "SecondsValue": 1795122889
+        },
+        {
+          "FractionTicks": 3042188,
+          "SecondsValue": 1795122889
+        },
+        {
+          "FractionTicks": 3042188,
+          "SecondsValue": 1795122889
+        }
+      ]
+    }
+  ],
+  "emission": {
+    "changed_streams": [
+      "Contents/CMgr",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Header2",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "child_sha256": "1f57dc2b626d97a737b8b1dddd1eebd415e30530c018425c1db9cfcec598bab2",
+    "config_stream_bytes": {
+      "empty": 22563,
+      "longer_light_name": 23877,
+      "source": 23839
+    },
+    "contrast_parent_sha256": "04222363245ac6f6ffe812fb72ee6cc29c35a67beb93866fcc39b086fdfac410",
+    "empty_environment_sha256": "976a38d062e23093f2ad90e63ed781cfffd156ad3391d516295ecd9ce2b29da1",
+    "mate_readback": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.031369999999999995
+        ],
+        [
+          0.0,
+          -0.03137000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "1f57dc2b626d97a737b8b1dddd1eebd415e30530c018425c1db9cfcec598bab2",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        143,
+        196
+      ],
+      "mate_bytes": 3562,
+      "mate_sha256": "21f36f6dc58f28395242add8eadf48e5446bf5b0c91a44f950bceb6083996800",
+      "occurrence_names": [
+        "D01SignedChild-1",
+        "D01SignedChild-2"
+      ],
+      "occurrences": [
+        21,
+        22
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.031270000000000006,
+          0.2558
+        ]
+      ]
+    },
+    "normal_reader_feature_count": 22,
+    "normal_reader_keyword_rows": [
+      [
+        17,
+        "Ambient",
+        "Ambient"
+      ],
+      [
+        18,
+        "Directional1",
+        "Directional"
+      ],
+      [
+        19,
+        "Directional2",
+        "Directional"
+      ],
+      [
+        20,
+        "Directional3",
+        "Directional"
+      ]
+    ],
+    "parent_sha256": "94281a87134de185727a914108993acbc8db97401c19e5a18ce1fda9677a32ae",
+    "repeat_count": 2,
+    "runtime_file_process_network_attempts": 0,
+    "writer_refusals": {
+      "duplicate_caption": "assembly light names must be distinct system captions",
+      "duplicate_flat_keyword": "assembly keyword rows contain duplicate feature identities",
+      "foreign_keyword_owner": "assembly keys require the actual resolved environment root",
+      "foreign_member_class": "assembly keyword environment contains an unsupported member",
+      "foreign_member_owner": "assembly keyword light has a different environment owner",
+      "system_caption_collision": "assembly light names must be distinct system captions",
+      "untyped_input": "assembly lighting requires ordered typed light inputs"
+    }
+  },
+  "native_processes_started": 0,
+  "parent_lighting_intent": [
+    {
+      "AmbientValue": 0.5,
+      "ColourValue": 16777215,
+      "DiffuseValue": 0.0,
+      "DirectionValue": null,
+      "EnabledInPv": false,
+      "ExternalName": "Ambient-1",
+      "KeepInScene": false,
+      "KindValue": "ambient",
+      "NameValue": "Ambient",
+      "PvBrightness": 1.0,
+      "PvQuality": 16.0,
+      "PvShadows": true,
+      "ShadowSoftness": null,
+      "SpecularValue": 0.0,
+      "UseCartesian": true
+    },
+    {
+      "AmbientValue": 0.0,
+      "ColourValue": 16777215,
+      "DiffuseValue": 0.4,
+      "DirectionValue": [
+        0.5417,
+        0.7071,
+        -0.4545
+      ],
+      "EnabledInPv": false,
+      "ExternalName": "Directional-1",
+      "KeepInScene": false,
+      "KindValue": "directional",
+      "NameValue": "Directional1",
+      "PvBrightness": 1.0,
+      "PvQuality": 16.0,
+      "PvShadows": true,
+      "ShadowSoftness": 0.0,
+      "SpecularValue": 0.4,
+      "UseCartesian": true
+    },
+    {
+      "AmbientValue": 0.0,
+      "ColourValue": 16777215,
+      "DiffuseValue": 0.2,
+      "DirectionValue": [
+        -0.3971,
+        0.342,
+        0.8517
+      ],
+      "EnabledInPv": false,
+      "ExternalName": "Directional-1",
+      "KeepInScene": false,
+      "KindValue": "directional",
+      "NameValue": "Directional2",
+      "PvBrightness": 1.0,
+      "PvQuality": 16.0,
+      "PvShadows": true,
+      "ShadowSoftness": 0.0,
+      "SpecularValue": 0.4,
+      "UseCartesian": true
+    },
+    {
+      "AmbientValue": 0.0,
+      "ColourValue": 16777215,
+      "DiffuseValue": 0.2,
+      "DirectionValue": [
+        -0.8067,
+        -0.1736,
+        -0.5649
+      ],
+      "EnabledInPv": false,
+      "ExternalName": "Directional-1",
+      "KeepInScene": false,
+      "KindValue": "directional",
+      "NameValue": "Directional3",
+      "PvBrightness": 1.0,
+      "PvQuality": 16.0,
+      "PvShadows": true,
+      "ShadowSoftness": 0.0,
+      "SpecularValue": 0.4,
+      "UseCartesian": true
+    }
+  ],
+  "passed": true,
+  "prior_default_flat": [
+    {
+      "alignment": 1,
+      "fixture": "ConcentricFeatureNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralAlphaDerived.SLDASM": "c13378f6876be09b2d102b52d84c1cb3661ea4711485598f13b484f6b1afab7a",
+        "NeutralCylinderAlphaDerived.SLDPRT": "615e14358679180c4c07dceca47b1683dc57b909528b5b73075ba66b016038a6"
+      },
+      "input_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+      "locked": false,
+      "ordered_occurrences": [
+        "Cylinder-1",
+        "Cylinder-2"
+      ],
+      "same_receipt_and_archive_bytes": true
+    },
+    {
+      "alignment": 2,
+      "fixture": "ConcentricBrepNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralBetaAuthored.SLDASM": "301e9ffedf9f3860f730c4ba67b302346db7a395810162952e088144fa09fe5f",
+        "NeutralCylinderBetaAuthored.SLDPRT": "1d7ba96b077cd192724f10e780fbabba5136e3b8549b7e8457a730c1955c8398"
+      },
+      "input_sha256": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63",
+      "locked": true,
+      "ordered_occurrences": [
+        "Cylinder-2",
+        "Cylinder-1"
+      ],
+      "same_receipt_and_archive_bytes": true
+    }
+  ],
+  "prior_default_nested": [
+    {
+      "full_document_sha256": {
+        "frame": "b28fb14b68601deb25cd405c4385d07269f8e68291935be57541435e4febba28",
+        "module": "11713d093fff9eb94db251276b49e3aefaca8cac2e5eda981bdb6926d69db0cd",
+        "plate": "8ac2cb78071168d4a462e18a1d2d514006823fb0b8b0d9e8c5c3d61c88c707f7"
+      },
+      "identical_default_bytes": true,
+      "input_sha256": "deaf07d8169e7c5178e49bba88d80742ef460dff828789e9b44631c512886452",
+      "linked_reemissions": 34,
+      "mixed": false
+    },
+    {
+      "full_document_sha256": {
+        "frame": "dbd31983f4e6d796de9b8b3e388f3ca323764015eeb0884e65d28035055deccc",
+        "gauge": "0eff946292bc5f665ebb26f1375de602ff92284abc84f12e7fe567bd4a51d3c6",
+        "module": "007a02f3a8a309175a8c329276c15074daf2b3556e363522fb2ecc4ad8053d05",
+        "plate": "8ac2cb78071168d4a462e18a1d2d514006823fb0b8b0d9e8c5c3d61c88c707f7"
+      },
+      "identical_default_bytes": true,
+      "input_sha256": "cd20a99f3d555f176647094c93f737f9fcbc04ae4ba2e84e191da1293daf7818",
+      "linked_reemissions": 44,
+      "mixed": true
+    }
+  ],
+  "public_writer_enabled": false,
+  "root_refusal": "assembly root contains unprojected model content",
+  "schema": "kit.sw2026.disclosed-parent-light-projection.v1",
+  "sealed_inputs_read": 0,
+  "source_closures": {
+    "after": {
+      "paths": 6080,
+      "sha256": "ce0e3060874aa49e35e6ceb1610580bbcad5420b4de873910256eb8ccfa848ba"
+    },
+    "before": {
+      "paths": 6078,
+      "sha256": "0a687f0b80788c127407ffb49331222c7b255f2099e3b7200dfa6a6dfba10554"
+    }
+  },
+  "source_refusals": {
+    "duplicate_child": "system owner children have duplicate identities",
+    "extra_list_state": "source environment contains unsupported list or item state",
+    "foreign_class": "source light class is outside the qualified member profile",
+    "foreign_environment": "the actual configuration environment is not its unique resolved root",
+    "hidden_user_state": "source light has unsupported status coordinate or user property state"
+  },
+  "whole_source_admitted": false
+}

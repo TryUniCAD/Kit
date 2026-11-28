@@ -1,0 +1,297 @@
+{
+  "schema": "kit.sw2026.original-blind-drawing-native-receipt.v1",
+  "scope": "original two one-front-view drawing and linked ordinary rectangle pairs",
+  "oracle": {
+    "application": "SOLIDWORKS 2026 SP05.2",
+    "build": "34.5.2.0604",
+    "sldworks_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "protocol_commit": "9384ad1da9023d9fb0ade267381ad211dcfef790",
+  "command_deck_sha256": "18fdd826051499716c7cd88f2518d39ae9ee579a34850634ba83a2fd8b85da1c",
+  "evaluation_freeze_sha256": "382e49fa7e0b99129f48ce16a5d6b9fd94becb29a14bcb47886acd243e13211b",
+  "before_unseal_verification_sha256": "9c713d1f051d16323ba6f310f5647e9158581a4c22c1ac4b716574ae4b4c499a",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "source_specs_sha256": "2174e5c33aa724610eb90723125281953634bf0d9dd5cd7be65e18339e20c9f1",
+  "writer_closure_sha256": "ba27d8eb41a580553678995b9d863a1162325b2d3dcf17c31a9e5c8b96840293",
+  "host_preparation_sha256": "e8c35f8758a91f19d5236a765e3feaddcd2d8f2159b3b3694cbf35ebcf4dc03b",
+  "generation_evidence_freeze_sha256": "c8ef848913f10f752763853a47757ceebe7bf101c81866a54a4afcfa81423075",
+  "generation_evidence_frozen_count": 22,
+  "native_packet_sha256": "64f401e8ddad96ee97b7220073831a0080b723e471fe9afb54076cfba3e86c65",
+  "native_tools_sha256": "be6e5d6f2ca7e1be468d5915c8c45ab2cb65a2e316cc9fe00d7748f08268b349",
+  "native_runner_sha256": "d03d73ed1cd964142562905c0955e9a528d341f2c62fedb41b446ba2e2eea2fa",
+  "native_verify_only_sha256": "65a0453c54f4f1fe568f2426d3a4f0ddfb59aa4ba38057563c0be59d220f2220",
+  "native_result_sha256": "9b20691f7cb547baa48352178d33875662fa3c91221518a6ef7a3cce92390679",
+  "host_transport_sha256": "c32d6a950cc56c58dfcc1d347a0652ac2c64e323b41c99861b9af0690913df48",
+  "native_terminal_exit": 0,
+  "cases": [
+    {
+      "name": "H01SheetA",
+      "qualified_pass": true,
+      "comparison_visits": 950,
+      "comparison_visits_by_gate": [
+        164,
+        164,
+        164,
+        65,
+        164,
+        164,
+        65
+      ],
+      "mismatch_count": 0,
+      "source_paths_and_child_identity_independently_checked": true,
+      "approved_path_role_fields": [
+        "reference_name",
+        "resolved_reference_path"
+      ],
+      "approved_volatile_fields": [
+        "child_update_stamp"
+      ],
+      "generated_drawing": {
+        "bytes": 7345,
+        "sha256": "aa7330bb0a7df35bd05605fd6900c94d7acf858e891ae0ac0bc455abb0a08184"
+      },
+      "generated_part": {
+        "bytes": 8284,
+        "sha256": "9e5c109d87ba07a4f149964f92f279932ca605c6d1d3fb8f0f242804f35726fd"
+      },
+      "guarded_generation_sha256": "b6bd941face2dec9663d69e73a463cbfb2e272b9a04cbf1207c59712fd4c4749",
+      "guarded_writer_runs": 2
+    },
+    {
+      "name": "H02SheetB",
+      "qualified_pass": true,
+      "comparison_visits": 950,
+      "comparison_visits_by_gate": [
+        164,
+        164,
+        164,
+        65,
+        164,
+        164,
+        65
+      ],
+      "mismatch_count": 0,
+      "source_paths_and_child_identity_independently_checked": true,
+      "approved_path_role_fields": [
+        "reference_name",
+        "resolved_reference_path"
+      ],
+      "approved_volatile_fields": [
+        "child_update_stamp"
+      ],
+      "generated_drawing": {
+        "bytes": 7362,
+        "sha256": "a4d0812867ae0e56d39ad457e9a465e5536514e2abf55c10be68ae12d5cc815b"
+      },
+      "generated_part": {
+        "bytes": 8284,
+        "sha256": "300ca5b2f6048f3bd312171922b98a2e4c0a5a3df574a859bee6f98e2d104718"
+      },
+      "guarded_generation_sha256": "1622505e7cfa52815680b6806e2542a191bd3660208c1967a1cd5d3eeed2ca0a",
+      "guarded_writer_runs": 2
+    }
+  ],
+  "lanes": [
+    {
+      "name": "ControlBefore",
+      "source_drawing_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "child_part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "bf723525869f655631ede3b3249a23c8acb57cd4b28e16c5380673872e63e337",
+      "phases": [
+        {
+          "phase": "OpenEditSave",
+          "record_sha256": "708365cf5ab1b62c2b29110840950b3b1c0dd71038c7dc852bb3ee84b38cb988",
+          "process_creation_filetime": 134394234316483223,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        },
+        {
+          "phase": "FreshReopen",
+          "record_sha256": "332629d7f33fee36a03766c3d6f1b87e0c229a1ea9098592d996e08f58c9ec47",
+          "process_creation_filetime": 134394234746585918,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        }
+      ]
+    },
+    {
+      "name": "H01SheetASource",
+      "source_drawing_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "child_part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "6ebfd3503ac927f0e10f43c7ae505428413c2cfcc3b8c5948451fb89828365e0",
+      "phases": [
+        {
+          "phase": "OpenEditSave",
+          "record_sha256": "e6cc5217a03d80a14663903838c39a07a424f4e853b7e834ab8a111d047ea930",
+          "process_creation_filetime": 134394235059339400,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        },
+        {
+          "phase": "FreshReopen",
+          "record_sha256": "65ec97f5a21a03764ba023411d5469041ebc7fccd3683a5694211bfef66cf950",
+          "process_creation_filetime": 134394235447894076,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        }
+      ]
+    },
+    {
+      "name": "H01SheetAGenerated",
+      "source_drawing_sha256": "aa7330bb0a7df35bd05605fd6900c94d7acf858e891ae0ac0bc455abb0a08184",
+      "child_part_sha256": "9e5c109d87ba07a4f149964f92f279932ca605c6d1d3fb8f0f242804f35726fd",
+      "passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "db7c9dac438dc2af8c47d6dcfcb4f3d4272b29aa555f92e97c4606e6ccab8f5c",
+      "phases": [
+        {
+          "phase": "OpenEditSave",
+          "record_sha256": "0f745cf962c3411b60926278c7fb82170e48216cdaf664adcd1aae8d930e3024",
+          "process_creation_filetime": 134394235732621093,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        },
+        {
+          "phase": "FreshReopen",
+          "record_sha256": "b6e48a11b33b3aa1fe5f1493ffc999e483bde29719a517dc7fdd277777da183f",
+          "process_creation_filetime": 134394236138321376,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        }
+      ]
+    },
+    {
+      "name": "H02SheetBSource",
+      "source_drawing_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "child_part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "2ccf5de896f2036a9907bd50eaa9402bda44dea571e48e472a36ed09d59bae65",
+      "phases": [
+        {
+          "phase": "OpenEditSave",
+          "record_sha256": "35921226e143a8e9e35e29b57009a4145795765e57d0abbb656a38bc7f62942f",
+          "process_creation_filetime": 134394236442698145,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        },
+        {
+          "phase": "FreshReopen",
+          "record_sha256": "9fd24f202ae4baab791d7c2febd39f408639659da4907bc7dc7845332b45b180",
+          "process_creation_filetime": 134394236855778910,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        }
+      ]
+    },
+    {
+      "name": "H02SheetBGenerated",
+      "source_drawing_sha256": "a4d0812867ae0e56d39ad457e9a465e5536514e2abf55c10be68ae12d5cc815b",
+      "child_part_sha256": "300ca5b2f6048f3bd312171922b98a2e4c0a5a3df574a859bee6f98e2d104718",
+      "passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "d803843ec06193ddce81d21ed57f0ac7d1fcee7126bfaa9beabb2c37d8c818c1",
+      "phases": [
+        {
+          "phase": "OpenEditSave",
+          "record_sha256": "b429d37548ac99dee3ef9752f1966d40e9de7ced9cc618aeb4c4e4b55f977754",
+          "process_creation_filetime": 134394237214491565,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        },
+        {
+          "phase": "FreshReopen",
+          "record_sha256": "041a78ec162441bb258f8739b88267ed4f0fccb5d75954f91a364332a3b4f337",
+          "process_creation_filetime": 134394237649112158,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        }
+      ]
+    },
+    {
+      "name": "ControlAfter",
+      "source_drawing_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "child_part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "d3a085397656738c0af70c311241e33988e2c343d2074dedd2aa0c99d244abf6",
+      "phases": [
+        {
+          "phase": "OpenEditSave",
+          "record_sha256": "9de67501bf965f8b8fbe2f41be23212d3aff2671605ef1be9075c96c0c7d3e6e",
+          "process_creation_filetime": 134394237964078372,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        },
+        {
+          "phase": "FreshReopen",
+          "record_sha256": "4d1023fb616ba19aba9625acf5877b25afb9906312439ae2b732423d384db4cf",
+          "process_creation_filetime": 134394238331714203,
+          "load_errors": 0,
+          "load_warnings": 0,
+          "drawing_rows": 16,
+          "rebuilt_child_rows": 27
+        }
+      ]
+    }
+  ],
+  "distinct_processes": 12,
+  "pristine_control_count": 2,
+  "comparison_visits": 1900,
+  "terminal_phase_records_rehashed": true,
+  "native_sources_and_observations_read_after_frozen_generation": true,
+  "all_inputs_immutable": true,
+  "heldout_profile_passed": true,
+  "complete_cad_acceptance": false,
+  "public_writer_qualified": false
+}

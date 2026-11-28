@@ -15,6 +15,8 @@ from PartTextProbe import (
     refuse_write,
 )
 from CheckOrdinaryCfg import LANE, guard_runtime, read_scope
+from CheckTextFallback import check_config_fallback
+from VerifyLiteralPartText import compare_document, old_read
 from convert import convert, write_document
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 from convert.adapters.solidworks.Archive.Tags.EncodeTag import EncodeTag
@@ -56,7 +58,7 @@ def variants(archive):
     return cases, [start, end, slot, wrong_slot]
 
 
-def exercise(archive, original, baseline, config, reason, absent_xml):
+def exercise(archive, original, baseline, config, reason, absent_xml, *, config_rejected):
     streams = dict(archive.streams)
     streams[LANE] = config
     for name in absent_xml:
@@ -65,7 +67,11 @@ def exercise(archive, original, baseline, config, reason, absent_xml):
     if SldprtArchive.from_bytes(data).streams != streams:
         raise ValueError("the physical control changed unrelated streams")
     observed = read_part(data)
-    check_model(original, observed)
+    compare_document(observed, old_read(read_part, data))
+    if config_rejected:
+        check_config_fallback(original, observed)
+    else:
+        check_model(original, observed)
     state = model_state(observed)
     detail = state["status"]
     if (detail["status"] != "unsupported"
@@ -91,6 +97,7 @@ def exercise(archive, original, baseline, config, reason, absent_xml):
     state["config_bytes"] = len(config)
     state["removed_property_xml"] = list(absent_xml)
     state["geometry_equal"] = True
+    state["typed_body_binding"] = not config_rejected
     return state
 
 
@@ -108,7 +115,7 @@ def inspect(path):
     with guard_runtime() as events:
         inputs, owner = variants(archive)
     rows = {
-        name: exercise(archive, original, baseline, *case)
+        name: exercise(archive, original, baseline, *case, config_rejected=True)
         for name, case in inputs.items()
     }
     if events or path.read_bytes() != native:
@@ -116,7 +123,7 @@ def inspect(path):
     if any(name.startswith(("win32com", "pythoncom")) for name in sys.modules):
         raise ValueError("inspection crossed the native runtime boundary")
     return {
-        "schema": "kit.sw2026.literal-part-text-physical.v1",
+        "schema": "kit.sw2026.literal-part-text-physical.v2",
         "source_sha256": source_sha,
         "config_sha256": config_sha,
         "native_unit_owner": owner,

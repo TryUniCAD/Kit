@@ -1,0 +1,643 @@
+{
+  "baseline_revision": "b069434fd7c163d467bf0bf7e1e5ba75a3e90088",
+  "exact_integrated_replay_sha256": "157753236371edfa97ea1cb623b08b7a6a81893122be81296a78629b474431d4",
+  "face_owner_delivery_sha256": "9e625832fa26a2e06a00d8050d4af7d474ebe52710bf11cbf29c3ca6629d1080",
+  "face_owner_exact_replay_sha256": "c513fec2627535be9aed8e0522f52e886333e14e1e008e768b9fd5328d1c03b1",
+  "layouts_and_shared_context_files": [
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/CylinderFields.py",
+      "sha256": "539aa9884854bcc13d67b283e6057cf4549e76b76bbc8098bf5c0e44abfcf141"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/FacetFields.py",
+      "sha256": "42d8048e73d2e73202f591f321f9f39e74cb8eb907cb6f049e8bcc9461fe9906"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/MakeMatesCtx.py",
+      "sha256": "c6b87b2da30a934c4cc66ac56375868e85ca7d3c5fd3baa4c7a01df86db6ecba"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/MateFields.py",
+      "sha256": "b55791fba469718923d85c80931df6c43779f1f6be08c6f2e9d20424be92886a"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/MatesGraph.py",
+      "sha256": "db8721aa98d04f8116f80012d412cd2f8fd01ccde2d09c34cde03f5934982882"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/MatesLayouts.py",
+      "sha256": "7c7ff2356875db921347a6747f92fec39f8c20d9d9b447f5331ed44e7e30004c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/MatesSchemas.py",
+      "sha256": "87405efdf0033d6f7b9d7cdd4a7a042d792e646df718266cb5253fae96c2b95d"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/MatesVirtuals.py",
+      "sha256": "409402b5f54f603dbcad83465fc7e5a2b6c3f03b3b233b72a8922b2d3051b669"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/PlaneFields.py",
+      "sha256": "5c281f3559e8be3f1e268dd96222ed4b3d259d2b93c31c0fc6446c7c2dba733e"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/ReadMatesMut.py",
+      "sha256": "8b3dd39641effc38447d9cc0be955dc8c7194703bf22791f432f1678ab04ae98"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/RequireCylEnds.py",
+      "sha256": "dec17c27d45895bfc452e46fdb1c95bf2a4ff6f20de6321647df08c537bd2dee"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/RequireCylMate.py",
+      "sha256": "334b6d8503cf547ee80931e690af66651a78c85c68fa64b06b15b949b2044089"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/RequireCylRefs.py",
+      "sha256": "7a63d9dc7e8ca321c342275012a578066673ef72659193e74fd100d4e5b53af0"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/RequireMates.py",
+      "sha256": "79e7f417b9cfcf5b9392ff27f7812b386bafb7426f218a13644a9e3e79249ba6"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/SurfaceTail.py",
+      "sha256": "5e51316c9060fa367001c0b30f10579c51efbc370e269ba0b2e0b64eb1c9f3b6"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/WrapperFields.py",
+      "sha256": "c76584e1e72c012429bd36fc7ea30791515897f325f526d7cc1d8fb9342f3382"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/WrapperTail.py",
+      "sha256": "0de876993be18a7923f1a023d5de933d80dde106a0a71ba5fec1879b66e3c85f"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Mates/WriteMatesMut.py",
+      "sha256": "264758133c64863b0953fb349ff2170e87d6ce575adf16b7d0845947fcc96a21"
+    }
+  ],
+  "pinned_2026_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "process_result_sha256": "157753236371edfa97ea1cb623b08b7a6a81893122be81296a78629b474431d4",
+  "result": {
+    "concentric": 6,
+    "generative_writer_qualified": false,
+    "heldout_inputs_read": 0,
+    "malformed_refusals": 14,
+    "manifest_sha256": "8073f09131c175f1808bb49c811b282de67a156621f9cab28de0747e6a0eae31",
+    "native_processes_started": 0,
+    "passed": true,
+    "planar": 6,
+    "public_concentric_projection_qualified": false,
+    "reports": [
+      {
+        "case": "D01-source",
+        "result": {
+          "archive_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+          "classes": [
+            "moMateConcentric"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 220,
+          "map_terminal": 221,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25494,
+              "sha256": "d21092467c6df28ebaeee769c3f0341e475faefb4232e2f54f47c6d3ad8ac2a9"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3690,
+              "sha256": "1c3c24062e7af587d8538815832eba6fb4472212ba46f0c8c0c7ccf6f0cf8ea4"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "07107bcd13538a103ff0a25fc72acf3fb1484a65b190d7da186142d236934776"
+            }
+          }
+        },
+        "stdout_sha256": "6d8bfd3ec8ca8d691cde322134f7174b0924495987663a5e3fdda361c9ad251d"
+      },
+      {
+        "case": "D01-edited",
+        "result": {
+          "archive_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+          "classes": [
+            "moMateConcentric"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 220,
+          "map_terminal": 221,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25834,
+              "sha256": "5684d4aba5d8bc447f85b3ec361aa3cfd8503eddd2dd5a1042b0da64b8423ff9"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3762,
+              "sha256": "f7fd14d3312cdf480300e207e2f6b5b67576ce77f761282bc78c8aa24caef3bc"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "1e0d968cde08c85369e9bf5944b8fe84cb012d9087fbc35e76273b1eac95aad5"
+            }
+          }
+        },
+        "stdout_sha256": "dc102b1613dfe9be68d2afdbdec2242ac7646411690e794ccd6cc6ef63fe506b"
+      },
+      {
+        "case": "D02-source",
+        "result": {
+          "archive_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+          "classes": [
+            "moMateConcentric"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 220,
+          "map_terminal": 221,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25494,
+              "sha256": "a8554b45c08a75d3942b78abcac8a63c76c121d5485576ef31a4d0f444b677e9"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3690,
+              "sha256": "640f1f615dc913868a63a7a96c7fea579d5cf4284b90b9db439cf867667b6026"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "4fa90646e1d8823d6cfcedc5829ce1e8e1dab2bf8669fad7e4c4892bd2a455c3"
+            }
+          }
+        },
+        "stdout_sha256": "d11fbe35d322371837328a49313762d1e6fe51459f4e6ce91573d07b82756933"
+      },
+      {
+        "case": "D02-edited",
+        "result": {
+          "archive_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+          "classes": [
+            "moMateConcentric"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 220,
+          "map_terminal": 221,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25846,
+              "sha256": "b6726c33ab1555c23a8622af4b54c147159add3dcdfddb74f37f52d5ea6d2569"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3770,
+              "sha256": "7d5099ba273439586cc8a767a1ea89ad09c9a6e7dd1474e244bae03e97aec7a5"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "bfa5a9c919fbc8e7d36a5e88232e3ae19464324333decf66ff6616180e37e6be"
+            }
+          }
+        },
+        "stdout_sha256": "5a0c7386ada0ad4aa6540f9307fe040223d4b020a9975b196bafdd4dfffc8f7d"
+      },
+      {
+        "case": "D03-source",
+        "result": {
+          "archive_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+          "classes": [
+            "moMateConcentric"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 220,
+          "map_terminal": 221,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25566,
+              "sha256": "5797beb1055c32398ccf23409175ec48688603436ec58b17c511b7b436fc7097"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3906,
+              "sha256": "c2b6582181e6140ccbe1fe5cf2502febfb1d49c4ca71d8083769580a78c4fbd6"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "59584b970a580cf395941484fda3187ab73c6dc4a9eb788e92622b78f88e476b"
+            }
+          }
+        },
+        "stdout_sha256": "b2e20e5842e09e00254bb775221bbcfe8d0c81ccea6f9190b88a460486550d8f"
+      },
+      {
+        "case": "D03-edited",
+        "result": {
+          "archive_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+          "classes": [
+            "moMateConcentric"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 220,
+          "map_terminal": 221,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25888,
+              "sha256": "29bbb1aa536c894b0afb0544328d56798ca9a895f3aee8ff104a0ceb757618c2"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3966,
+              "sha256": "7dc8bf8acde8b4b673f8f73355d3a0ad5a687031bf131055ee0f2fb81617351d"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "64568d759096d7d6bd0d6b1f90fc85e9c245bc3cd9b4b4e24cf6d7d1bfab3db1"
+            }
+          }
+        },
+        "stdout_sha256": "535f2ad3271e90c47678ec9015b6a7e4dd776efa7da75064732b7f4c95bba68b"
+      },
+      {
+        "case": "disclosed-coincident",
+        "result": {
+          "archive_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+          "classes": [
+            "moMateCoincident"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 195,
+          "map_terminal": 196,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25438,
+              "sha256": "bdca86fea8eff997064bd8888a46c3ee16c583bb56f66543ab7c751a10a49916"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3304,
+              "sha256": "4a2f58c037314e32a62852ab03fc3d18cf83320b357e9d73c8fb5a6d2ec47694"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "83ab1385e7d9bce693e6d3451b5d770aa855321acaafb025227a2dfd1a989667"
+            }
+          }
+        },
+        "stdout_sha256": "49fa9b4f0f9fb4da9839b07dd526db5ab3644a3c34338257f6f0bee58a107491"
+      },
+      {
+        "case": "disclosed-distance",
+        "result": {
+          "archive_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+          "classes": [
+            "moMateDistanceDim_c"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 206,
+          "map_terminal": 207,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25438,
+              "sha256": "4ad369e7e97f850fa69901a15c7b97fbc63378b6b6a95ed43ba5a70faffe2b51"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 5117,
+              "sha256": "69918e4021805c0f8dadb0c5a0a75efd5887420591d459799474cdd7306c7963"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "1dee93444dc92f54745a72ca3b1cb66fab84fc554229642261a603629121459c"
+            }
+          }
+        },
+        "stdout_sha256": "67d2fec9dd0917d722ae6255293ee83add60ba4a6749898789333f957fefe869"
+      },
+      {
+        "case": "disclosed-parallel",
+        "result": {
+          "archive_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+          "classes": [
+            "moMateParallel"
+          ],
+          "map_base": 168,
+          "map_owned_entries": 195,
+          "map_terminal": 196,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 25438,
+              "sha256": "d42e6fa68733532766ccd92d41c255b159867d0652e269af45ee964f627602ca"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3234,
+              "sha256": "5ee10ddcd3e5e31e6599cd4f3888f69f8b7f70868d31cfa707d02d1928a8e32e"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "07ac4ecc0e13ce832770a22b47ac4c562560e64579739f323cdfd28cc64584ba"
+            }
+          }
+        },
+        "stdout_sha256": "59279408103b5cf0c49e67b6bba347613d2e5c3114ae174dff15f7dedda59944"
+      },
+      {
+        "case": "generated-perpendicular",
+        "result": {
+          "archive_sha256": "a1d1210db7f37701f9f6be394c4c88974ea7ec1cdf6a1ca27a12bb85325c1f00",
+          "classes": [
+            "moMatePerpendicular"
+          ],
+          "map_base": 133,
+          "map_owned_entries": 160,
+          "map_terminal": 161,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 21625,
+              "sha256": "36e3aa7baa3bdbe5e1b01581ee7733a06af20888c9ee7b9fec4a213134d42b8c"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3073,
+              "sha256": "4f9468d41f00b9299784461afcb68c6ac16ae5cf816195a0839ce66fa5ffd2dc"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 4839,
+              "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+            }
+          }
+        },
+        "stdout_sha256": "447c67836ce296f6b4ecae3376ec9de5f4c856ad55999cdb4c566dcc40c8fc77"
+      },
+      {
+        "case": "saved-perpendicular",
+        "result": {
+          "archive_sha256": "264eee216856aa72d355bad3bb2598adf6023755c6cadded275472016b88c45a",
+          "classes": [
+            "moMatePerpendicular"
+          ],
+          "map_base": 167,
+          "map_owned_entries": 194,
+          "map_terminal": 195,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 24392,
+              "sha256": "a836091710328c25b63c85c5fab3c9ba01e41d17699a5f6c7c8be0c93f1b88e6"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 3645,
+              "sha256": "0ccb7297928e8470e443858b763b105c5c4c4075466fa0a3cdda97f2369583d6"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "92c05c3170671309bdb60512c204d88c0298a68abe310a347ae2be1c390508ee"
+            }
+          }
+        },
+        "stdout_sha256": "a28dc5d30a6956e0b3004382f71d87b5ae3cdd31dacb554239a82a1faac50ee0"
+      },
+      {
+        "case": "saved-distance",
+        "result": {
+          "archive_sha256": "04c074552af8822b4ffde860c68f067cf6f7c812917b3de75d0db47d91ef968d",
+          "classes": [
+            "moMateDistanceDim_c"
+          ],
+          "map_base": 167,
+          "map_owned_entries": 205,
+          "map_terminal": 206,
+          "mode": "roundtrip",
+          "passed": true,
+          "runtime_access_attempts": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 24312,
+              "sha256": "47b1faed7ba8af1b7b21933e8d53f4abee18d1814601a7982255221014f3376c"
+            },
+            "Contents/Config-0-MatesList": {
+              "bytes": 5293,
+              "sha256": "090bd22cdf18b5d21d176d38d7be15e13edfebe36b81c57659fb0bfda12f1fa8"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "a784ac23dce76e39e54229955771d92833b62514e4cc034ae623d38f540afa97"
+            }
+          }
+        },
+        "stdout_sha256": "82b29ed95b50e387a1fc137b1776364c628fb38536bb2c1e0caa72a0c9b7b539"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "mate list prefix differs from its actual resolved snapshot",
+          "exception": "BodyUnsupported",
+          "malformed": "counter",
+          "mode": "read-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "8497b470967be850c44efcfec9e2a82723e5e9bc798d67db6e1b33a0a727dd51"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "mate list has 1 trailing bytes",
+          "exception": "BodyUnsupported",
+          "malformed": "trailing",
+          "mode": "read-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "3ec08ef7c3529c9093a8a9986b4176c2123cf07d934dc74fe3670319157e550c"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "SOLIDWORKS body moMateConcentric field f4c4 at 3686: truncated SOLIDWORKS archive field at 3686",
+          "exception": "ValueError",
+          "malformed": "truncated",
+          "mode": "read-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "cf69e3996ef06d024802638489179f692a427c65eedf3489fb3a5d57606a01e6"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric alignment or position is unqualified",
+          "exception": "BodyUnsupported",
+          "malformed": "lock",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "202bf6e3eea7db4a3b945231dfa630f18142fabb4c102a04c4cee2e14697c508"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric alignment or position is unqualified",
+          "exception": "BodyUnsupported",
+          "malformed": "position",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "be3e968b5a0788736eeac1002f60153dddc91b5f137ebe41868172e70d9c07ea"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric alignment or position is unqualified",
+          "exception": "BodyUnsupported",
+          "malformed": "alignment",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "4ca9c8a98705aacd981d7885aea78347469681544f3e7904dc05c96971bf9eb1"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric endpoint and support state differs",
+          "exception": "BodyUnsupported",
+          "malformed": "radius",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "f91c389cbffc3168d5d3b56b2c9be39d8589442557ba0f75d6a355783aafaab9"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric endpoint and support state differs",
+          "exception": "BodyUnsupported",
+          "malformed": "local-vector",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "6d1bb442105adca7547c6e972c8cc5eac3780b693ead9e712fa2ebb2f1d3848b"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric endpoint and support state differs",
+          "exception": "BodyUnsupported",
+          "malformed": "same-wrapper",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "25e357ce44a2e14c262fc27f14aef3a4c726866281de93323c0b518ea277416b"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric face or snapshot uses unqualified data",
+          "exception": "BodyUnsupported",
+          "malformed": "facet-points",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "ae95d5371b0ec632748244b1f83fcc5de33df5ea36d67d481828cb7adc75df97"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric face or snapshot uses unqualified data",
+          "exception": "BodyUnsupported",
+          "malformed": "facet-text",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "d32af965e2bffd5f27c30ad9d99f3fba4510f2f90da0e95c75abc312d4ce2b32"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric face or snapshot uses unqualified data",
+          "exception": "BodyUnsupported",
+          "malformed": "face-alias",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "8c6345f65d9387b45d4e7f9c92abeeeeaa2271d981f620a4c53f1f757ebefbe8"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "planar mate graph expected concrete moEndFaceSurfIdRep_c",
+          "exception": "ValueError",
+          "malformed": "missing-cap",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "8772a0f4c9d03d1d963f93b6042b6e254bf77d5707d15f5f59ec4f7cac927881"
+      },
+      {
+        "case": "D01-source",
+        "result": {
+          "diagnostic": "concentric face support requires its two null entries",
+          "exception": "BodyUnsupported",
+          "malformed": "lost-null",
+          "mode": "write-refusal",
+          "passed": true,
+          "runtime_access_attempts": 0
+        },
+        "stdout_sha256": "cf416b6d1ddd88f1aabc98c17878ff53a7fe4fe841f9c959bc8fa7c5c125cdd2"
+      }
+    ],
+    "schema": "kit.sw2026.concentric-sdk-archive-replay.v1",
+    "tool_sha256": "a85ab9a5b4a6b39ae1af3685664a72f10b52f697a96797ccca91d14260a676f2",
+    "workers": 26
+  },
+  "schema": "kit.sw2026.concentric-sdk-archive-receipt.v1",
+  "shared_feature_slots": {
+    "moMateConcentric": {
+      "serializer": "0x4b669080",
+      "vtable": "0x4cfa8fb0"
+    },
+    "moRefCylinder_c": {
+      "serializer": "0x4c27cef0",
+      "vtable": "0x4d159330"
+    },
+    "shared": {
+      "lightweight": "0x4c17a7b0",
+      "resolved": "0x4c17b570",
+      "resolved_test": "0x4c03e170",
+      "xml": "0x4bb2a650"
+    }
+  }
+}

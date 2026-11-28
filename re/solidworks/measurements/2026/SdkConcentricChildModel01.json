@@ -1,0 +1,879 @@
+{
+  "alternate_epoch_comparator_bundles": 1,
+  "base_revision": "e0294ddea0a35818b18d02f12606b0042a427267",
+  "cases": {
+    "aligned": {
+      "case": "aligned",
+      "explicit_alternate_epoch": 1795303000,
+      "files": {
+        "child": {
+          "bytes": 10828,
+          "sha256": "3f780b3e39122c1741864701e31b037af4261a2722ba6efd6c9fa4b4b9239d21",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 9932,
+          "sha256": "e63c7939da30e91af57954cb1b1089932d6f468a8441b1dc91288b934eff4b14",
+          "streams": 12
+        }
+      },
+      "mate_readback": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.031369999999999995
+          ],
+          [
+            0.0,
+            -0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "3f780b3e39122c1741864701e31b037af4261a2722ba6efd6c9fa4b4b9239d21",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3548,
+        "mate_sha256": "addb00c4c60912109f8561a534535dc2c4fe5e309a5f0c0729394439b55dcc7b",
+        "occurrence_names": [
+          "D01SignedChild-1",
+          "D01SignedChild-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ]
+        ]
+      },
+      "native_exact_pair": false,
+      "native_launches": 0,
+      "native_receipt_sha256": "b37b7b0f38f268bbe7542bd99fa4c2e131a6a9cff8e60ea597e48e133702d2c6",
+      "ordinary_circle_control": {
+        "changed_streams": [
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ],
+        "plain_sha256": "a66e62bd14abb5d3c7034098d07b9c7b730fae26762197488ac46e59c3260e58"
+      },
+      "part_readback": {
+        "active_nodes": 72,
+        "child_owner": {
+          "ArcMarker": 1,
+          "AxisValue": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "BodyAtom": 101,
+          "CapSelectors": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "CreatedAt": 2592000,
+          "FaceNodeId": 5,
+          "FaceTag": 6,
+          "FeatureId": 20,
+          "OriginValue": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "RadiusValue": 0.00719,
+          "RimCentres": [
+            [
+              0.00263,
+              -0.00417,
+              0.0
+            ],
+            [
+              0.00263,
+              -0.00417,
+              0.03137
+            ]
+          ]
+        },
+        "hidden_pointer_allocations": 11,
+        "linked_streams": 5,
+        "physical_removals": 53,
+        "retained_marks": [
+          4,
+          2,
+          1
+        ],
+        "scene_count": 4,
+        "typed_public_read": {
+          "design_only_body_name": "Solid Bodies",
+          "full_body_name": "CurveBoss",
+          "live_d1_mm": [
+            7.19,
+            31.37
+          ],
+          "live_d1_owner_ids": [
+            "sldprt:feature:18",
+            "sldprt:feature:20"
+          ],
+          "strict_modes": 2,
+          "topology": [
+            1,
+            3,
+            2,
+            2
+          ]
+        }
+      },
+      "protected_reads": 0,
+      "refusals": {
+        "crossed_light_owner": "concentric attachment requires unique owned scene names",
+        "crossed_side_tag": "concentric face tag differs from its minted kernel owner",
+        "empty_scene": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "foreign_driver_value": "radial driving length disagrees with the actual circle",
+        "reversed_scene_order": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "stale_light_epoch": "concentric child light times must follow the modeled generation event",
+        "unrepresented_source_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_output_kind": "native self path extension differs from its actual model kind",
+        "wrong_support_or_direction": "circle preparation is not qualified for this support driver or end profile"
+      },
+      "repeat_pairs": 2,
+      "trial_sha256": "8e0feb327fdacd559f9a9a56bcbb24ecf679bb4a40e9bff29f23f3cf7b03ae45",
+      "variation": {
+        "bytes": 10895,
+        "config_bytes": 23735,
+        "readback": {
+          "active_nodes": 72,
+          "child_owner": {
+            "ArcMarker": 1,
+            "AxisValue": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "BodyAtom": 101,
+            "CapSelectors": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "CreatedAt": 2592000,
+            "FaceNodeId": 5,
+            "FaceTag": 6,
+            "FeatureId": 20,
+            "OriginValue": [
+              0.00263,
+              -0.00417,
+              0.0
+            ],
+            "RadiusValue": 0.007504,
+            "RimCentres": [
+              [
+                0.00263,
+                -0.00417,
+                0.0
+              ],
+              [
+                0.00263,
+                -0.00417,
+                0.032487
+              ]
+            ]
+          },
+          "hidden_pointer_allocations": 11,
+          "linked_streams": 5,
+          "physical_removals": 53,
+          "retained_marks": [
+            4,
+            2,
+            1
+          ],
+          "scene_count": 4,
+          "typed_public_read": {
+            "design_only_body_name": "Solid Bodies",
+            "full_body_name": "CurveBoss",
+            "live_d1_mm": [
+              7.5040000000000004,
+              32.487
+            ],
+            "live_d1_owner_ids": [
+              "sldprt:feature:18",
+              "sldprt:feature:20"
+            ],
+            "strict_modes": 2,
+            "topology": [
+              1,
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        "sha256": "b4701fb874f2ce3ebd21cf25bf30d1f3bd98745f4f675eb423e470ae73da11d3"
+      },
+      "writer_input_reads": 0
+    },
+    "locked": {
+      "authored_brep_refused": "plain boss candidate does not admit assemblies drawings or native boundary payloads",
+      "case": "locked",
+      "generated": 0,
+      "native_launches": 0,
+      "native_receipt_sha256": "b37b7b0f38f268bbe7542bd99fa4c2e131a6a9cff8e60ea597e48e133702d2c6",
+      "protected_reads": 0,
+      "trial_sha256": "3ba299ea8e9413aaf82dc3313e5cf8f570ac89f3b50ceb0079a574f5a158d199",
+      "writer_input_reads": 0
+    },
+    "persistence": {
+      "case": "persistence",
+      "explicit_alternate_epoch": null,
+      "files": {
+        "child": {
+          "bytes": 10839,
+          "sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 10760,
+          "sha256": "929c8e4260b62d8c16fd1a7369a46bebc9d0bcec104b36b8fbddfd3fb5b75bdd",
+          "streams": 12
+        }
+      },
+      "mate_readback": {
+        "active_intervals": [
+          [
+            0.0,
+            0.022819
+          ],
+          [
+            0.0,
+            0.022819
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 4018,
+        "mate_sha256": "99a50b5a4580b22c5b4a35349f894eaf024ffb3eb17620b4687a3559bd0b292c",
+        "occurrence_names": [
+          "NeutralCylinderAlphaDerived-1",
+          "NeutralCylinderAlphaDerived-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            -0.18065529823420404,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_origins": [
+          [
+            -0.015460606420462484,
+            0.014658111018034136,
+            0.007964246252471139
+          ],
+          [
+            -0.025165228386305687,
+            -0.012979273374909369,
+            0.052994527812958374
+          ]
+        ]
+      },
+      "native_exact_pair": true,
+      "native_launches": 0,
+      "native_receipt_sha256": "b95d6e806fdb7f167a46cd3ebbbfbf669a0bd1ac7696ec6287ba72b01376d785",
+      "ordinary_circle_control": {
+        "changed_streams": [
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ],
+        "plain_sha256": "13f97d3420a80a3accaa24b744a4190e090e7b732e2ec73143873cb3a4ca3a61"
+      },
+      "part_readback": {
+        "active_nodes": 72,
+        "child_owner": {
+          "ArcMarker": 1,
+          "AxisValue": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "BodyAtom": 101,
+          "CapSelectors": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "CreatedAt": 2592000,
+          "FaceNodeId": 5,
+          "FaceTag": 6,
+          "FeatureId": 20,
+          "OriginValue": [
+            0.003913,
+            -0.0074210000000000005,
+            0.0
+          ],
+          "RadiusValue": 0.005137,
+          "RimCentres": [
+            [
+              0.003913,
+              -0.0074210000000000005,
+              0.0
+            ],
+            [
+              0.003913,
+              -0.0074210000000000005,
+              0.022819
+            ]
+          ]
+        },
+        "hidden_pointer_allocations": 11,
+        "linked_streams": 5,
+        "physical_removals": 53,
+        "retained_marks": [
+          4,
+          2,
+          1
+        ],
+        "scene_count": 1,
+        "typed_public_read": {
+          "design_only_body_name": "Body 1",
+          "full_body_name": "RoundBoss",
+          "live_d1_mm": [
+            10.274,
+            22.819
+          ],
+          "live_d1_owner_ids": [
+            "sldprt:feature:18",
+            "sldprt:feature:20"
+          ],
+          "strict_modes": 2,
+          "topology": [
+            1,
+            3,
+            2,
+            2
+          ]
+        }
+      },
+      "protected_reads": 0,
+      "refusals": {
+        "crossed_light_owner": "concentric attachment requires unique owned scene names",
+        "crossed_side_tag": "concentric face tag differs from its minted kernel owner",
+        "empty_scene": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "foreign_driver_value": "radial driving length disagrees with the actual circle",
+        "stale_light_epoch": "concentric child light times must follow the modeled generation event",
+        "unrepresented_source_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_output_kind": "native self path extension differs from its actual model kind",
+        "wrong_support_or_direction": "circle preparation is not qualified for this support driver or end profile"
+      },
+      "repeat_pairs": 2,
+      "trial_sha256": "9b7e52d198a7e2a70902b3794fff1987451bc6a599ca1d557493eddc75a580c9",
+      "variation": {
+        "bytes": 10881,
+        "config_bytes": 22844,
+        "readback": {
+          "active_nodes": 72,
+          "child_owner": {
+            "ArcMarker": 1,
+            "AxisValue": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "BodyAtom": 101,
+            "CapSelectors": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "CreatedAt": 2592000,
+            "FaceNodeId": 5,
+            "FaceTag": 6,
+            "FeatureId": 20,
+            "OriginValue": [
+              0.003913,
+              -0.0074210000000000005,
+              0.0
+            ],
+            "RadiusValue": 0.005294,
+            "RimCentres": [
+              [
+                0.003913,
+                -0.0074210000000000005,
+                0.0
+              ],
+              [
+                0.003913,
+                -0.0074210000000000005,
+                0.023936
+              ]
+            ]
+          },
+          "hidden_pointer_allocations": 11,
+          "linked_streams": 5,
+          "physical_removals": 53,
+          "retained_marks": [
+            4,
+            2,
+            1
+          ],
+          "scene_count": 1,
+          "typed_public_read": {
+            "design_only_body_name": "Body 1",
+            "full_body_name": "RoundBoss",
+            "live_d1_mm": [
+              10.588000000000001,
+              23.936
+            ],
+            "live_d1_owner_ids": [
+              "sldprt:feature:18",
+              "sldprt:feature:20"
+            ],
+            "strict_modes": 2,
+            "topology": [
+              1,
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        "sha256": "660d05c3f343b393bfba6cdcd908b8daf0bb8da0b129dfb62b797d38aef65d19"
+      },
+      "writer_input_reads": 0
+    },
+    "store": {
+      "case": "store",
+      "explicit_alternate_epoch": null,
+      "files": {
+        "child": {
+          "bytes": 10962,
+          "sha256": "b877a05784e23ae16c49e5ee74d01cc31ba62a87a24b21780c1327934c352970",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 11098,
+          "sha256": "55d998baba269aba1513fc599ffd08e7aaa44f0577ac5fd8da673f8eb4f9488d",
+          "streams": 13
+        }
+      },
+      "mate_readback": {
+        "active_intervals": [
+          [
+            0.0,
+            0.031369999999999995
+          ],
+          [
+            0.0,
+            0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "b877a05784e23ae16c49e5ee74d01cc31ba62a87a24b21780c1327934c352970",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3764,
+        "mate_sha256": "072407bc7c060fbb76e4b897a451fcdeb4121fd6521c43e77240bc19c00d9a87",
+        "occurrence_names": [
+          "DisclosedRadialSceneProbe-1",
+          "DisclosedRadialSceneProbe-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.2558
+          ]
+        ]
+      },
+      "native_exact_pair": true,
+      "native_launches": 0,
+      "native_receipt_sha256": "d128bf6b61c69b3525743c596ee2d20a02f7b5d4b41c4d28ab088c0bc8300009",
+      "ordinary_circle_control": {
+        "changed_streams": [
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ],
+        "plain_sha256": "9fa44619b9707c2fff2e1adacfb40501c5c35385fa9791c7d88f6d1fb2163744"
+      },
+      "part_readback": {
+        "active_nodes": 72,
+        "child_owner": {
+          "ArcMarker": 1,
+          "AxisValue": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "BodyAtom": 101,
+          "CapSelectors": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "CreatedAt": 2592000,
+          "FaceNodeId": 5,
+          "FaceTag": 6,
+          "FeatureId": 20,
+          "OriginValue": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "RadiusValue": 0.00719,
+          "RimCentres": [
+            [
+              0.00263,
+              -0.00417,
+              0.0
+            ],
+            [
+              0.00263,
+              -0.00417,
+              0.03137
+            ]
+          ]
+        },
+        "hidden_pointer_allocations": 11,
+        "linked_streams": 5,
+        "physical_removals": 53,
+        "retained_marks": [
+          4,
+          2,
+          1
+        ],
+        "scene_count": 4,
+        "typed_public_read": {
+          "design_only_body_name": "Solid Bodies",
+          "full_body_name": "CurveBoss",
+          "live_d1_mm": [
+            7.19,
+            31.37
+          ],
+          "live_d1_owner_ids": [
+            "sldprt:feature:18",
+            "sldprt:feature:20"
+          ],
+          "strict_modes": 2,
+          "topology": [
+            1,
+            3,
+            2,
+            2
+          ]
+        }
+      },
+      "protected_reads": 0,
+      "refusals": {
+        "crossed_light_owner": "concentric attachment requires unique owned scene names",
+        "crossed_side_tag": "concentric face tag differs from its minted kernel owner",
+        "empty_scene": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "foreign_driver_value": "radial driving length disagrees with the actual circle",
+        "reversed_scene_order": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "stale_light_epoch": "concentric child light times must follow the modeled generation event",
+        "unrepresented_source_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_output_kind": "native self path extension differs from its actual model kind",
+        "wrong_support_or_direction": "circle preparation is not qualified for this support driver or end profile"
+      },
+      "repeat_pairs": 2,
+      "trial_sha256": "ac2696da314b7e2d4939fd75664270acecfe0274a479eafb9c2c6d5440aaed4b",
+      "variation": {
+        "bytes": 11023,
+        "config_bytes": 23757,
+        "readback": {
+          "active_nodes": 72,
+          "child_owner": {
+            "ArcMarker": 1,
+            "AxisValue": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "BodyAtom": 101,
+            "CapSelectors": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "CreatedAt": 2592000,
+            "FaceNodeId": 5,
+            "FaceTag": 6,
+            "FeatureId": 20,
+            "OriginValue": [
+              0.00263,
+              -0.00417,
+              0.0
+            ],
+            "RadiusValue": 0.007504,
+            "RimCentres": [
+              [
+                0.00263,
+                -0.00417,
+                0.0
+              ],
+              [
+                0.00263,
+                -0.00417,
+                0.032487
+              ]
+            ]
+          },
+          "hidden_pointer_allocations": 11,
+          "linked_streams": 5,
+          "physical_removals": 53,
+          "retained_marks": [
+            4,
+            2,
+            1
+          ],
+          "scene_count": 4,
+          "typed_public_read": {
+            "design_only_body_name": "Solid Bodies",
+            "full_body_name": "CurveBoss",
+            "live_d1_mm": [
+              7.5040000000000004,
+              32.487
+            ],
+            "live_d1_owner_ids": [
+              "sldprt:feature:18",
+              "sldprt:feature:20"
+            ],
+            "strict_modes": 2,
+            "topology": [
+              1,
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        "sha256": "15b16bca2510527428ca182543c12af3dd698c8df1badca7e9c3819e75f61c69"
+      },
+      "writer_input_reads": 0
+    }
+  },
+  "changed_python_files": 38,
+  "default_import_history_removal_empty_control": {
+    "baseline_revision": "e0294ddea0a35818b18d02f12606b0042a427267",
+    "byte_identical": true,
+    "history_sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75",
+    "retained_archive_marks": [
+      2,
+      3
+    ]
+  },
+  "exact_code_manifest_sha256": "96fb4e2a5898e22654135810876db5ea5fe0cf99962da3c795a60ec8003baa7e",
+  "exact_code_sha256_by_path": {
+    "re/tooling/sw2026/para/concentric/ProveSdkCylChild.py": "6b201a37199970bfb5d11c980a2fe1bc131ba313d42e9c946ffe472bf692d385",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/AddCylLights.py": "5b90d57c98a72ff6f26cabe5f84eb4b26936721d52054b6eeae2d68a22549676",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/BindCylMarksMut.py": "09646140ac886e180db3be0ca2c20d9732b55b7e2063613baadaadf69db93450",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/CheckCylLights.py": "63402d9f650d07d508bed704a627f79968df5813c5cf4b8dce72c8e071573f07",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/CheckFreshCyl.py": "ae1db46fafd181886c335387f58c6ee0360b5746b1e896640ef031f12b28fed3",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/CylChild.py": "ab00b36c9e5bf18c2ac8288f45d54645ea77a383f3b7057d2c5e345c851e89bd",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/EmitCylChild.py": "99f2c7f733940e340429656d0b2ddc5b19d28b85a8af344d5c18b29876660d29",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/LogCylUpdateMut.py": "b6add8edc013cff24e88572ab02c9babf8b45734f12cf22f6d4ce1f188537ce4",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/MakeCylChild.py": "59632d8af7012e272725cd0239cef88f8e796548d1706ea45f5dabc569f253ac",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/ReadAttCyl.py": "67578e38830a08dbce9ec56571b710ad12c0e0432be07a8cca9608b18ffade76",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/BindCylAttrRows.py": "958d44695c4de47a4d8c3b331639a4d7e6f272d54a5302222fa755ddc77f4e00",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/BodyTrackIn.py": "bede8771b5f9df9e793950d3835448fada0590cc89a87aa31ccfbcb0bf8d29ac",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/CylAttrDef.py": "19b22760b7c84eb31ca013a77a624fba1a56d182f4457a999e97ad4078a2398b",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/CylAttrDefs.py": "8b1e809bbf3dda031cce1f567a4654714e74040830c5201a88afaa43790f3a4a",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/CylAttrIn.py": "52802b76d3db53416f09152e02bbaf9c5197279db75950c7c8b5c8a38232a9c0",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/CylAttrIntents.py": "5df0deb4311afef876dc87e9cdac368fcab0d47581a2e6cfd45015715935cdbd",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/CylAttrRows.py": "f448adcaeb08e8817393130bc74172216e31cb23f1458795644b8f753bb0085e",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/MakeCylAttrList.py": "e5551d7698835760f6ad6b0ec6767553a2e402cb8a992a6758cd59814e68abf3",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/MakeCylAttrs.py": "798b77924f65bc413a175409c8c73d54b80d45178bd279147e3d4890f1c09d89",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/MakeCylDefs.py": "6953cf85332067b99de139f1b4b5a32cfdf70b8f948f1a0e405657aa41f8eb95",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/MakeCylTags.py": "9c2ae4f08defd3763a790c774e0a6e252be79befe1cefad0f42142a1d77b5944",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Attributes/MakeCylValues.py": "3bb90c11a41362adb5978573c5cd09cbad8d65bd651282a5bd62e10233b20110",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/CylJournal.py": "71167c96967bd405758816d52c4a27e014d1ef08572b72f75b00e502f9b5c7dd",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/CylPartition.py": "a6de5fa00b3b4c8968e14fddc6e6686b48ff21fd3c6fb137cf8c83e249fab2b3",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/CylKeys.py": "daa92c31c0f53f28116aaead6051b9c04b74172daa0f66f1d832e06d2abf4deb",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/CylRimRef.py": "cb97f5b00ce54907a7cb86936d439ca6f44a1965cc99d5b40c0e942013a538d3",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/CylSpan.py": "a984115c6e578fb051c783718f9b53fa821636dfae7a3b1c79d401bc6aadff20",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/MakeAttCylFaces.py": "6878cf3b1539beb15a0581225b3fcc859536d5fde47457befa047eb98abe0a32",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/MakeAttCylSide.py": "bf6d16cb4fb9c35c65d95641e903e87cc6f8d3b88d858480e86cd4e61b297928",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/MakeAttRim.py": "14ff78db1e5cd7837aeff6ae6e0737674747f2c8ef49cfda4b56aa21ca295d52",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/MakeCircFin.py": "3ccd4b8aad24e2fe4fbea643f2fa23bfc7b61750023d1b7740d4457c3024b013",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/MakeCylBoundary.py": "c08dfd33272c5068423084c43b6cb1eb206b6c7d0869a6d8068ad4cc3bc179fe",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/Geometry/MakeCylRimRef.py": "732a5e209eeed28751874cc353a1e6c2be63093139cbc77c2977d21f51f1bac7",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/MakeCylMarks.py": "8816f40bc308aa1b065ecf5fbdc519a38e21fa326087efe32ff2c5696cecdf32",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/MakeCylTrans.py": "a1dfb93fbace75ae4d97385d1a0e6b8ec8c42b5e1535a66c8ab39905c6701b74",
+    "src/convert/adapters/solidworks/Archive/Partition/AttachedCylinder/WriteCylHist.py": "9091383d948428eaf3ca905c07a51c47f5608e528358f64de6350f9cbab322d2",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/WriteRollMut.py": "9f363f97ed56528762e46f379a4dcbc700306b34dd39a25f643afc9a96b8f0d1",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/PrepCylChild.py": "47a15d3d96800b5425ddae78530c163f29d46355708d75173df305c16429b49b"
+  },
+  "exact_native_tested_bundles": 2,
+  "exact_native_tested_streams": 47,
+  "fresh_host_processes": 4,
+  "guarded_scope_refusals": 27,
+  "native_heldout_or_fcstd_credit": 0,
+  "native_processes_started": 0,
+  "native_receipts_build": "34.5.2.0604",
+  "profile": "neutral feature-only forward Front circular blind boss with an ordered authored scene",
+  "protected_inputs_read": 0,
+  "public_route_added": false,
+  "writer_file_reads": 0
+}

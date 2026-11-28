@@ -1,0 +1,106 @@
+{
+  "application_idle": true,
+  "build": "34.5.2.0604",
+  "cases": {
+    "SquareEndMidA": {
+      "candidate_phases": [
+        "3f45fd2180b1cbd752f2ab110559469e76fd8155cf93f883844d8e1fdeb1c321",
+        "7d3dae87b0c410b5e45f473402e993d417f462bcf37c1341a7994369117226ea"
+      ],
+      "candidate_sha256": "d266214fda0a975275b528bb5d06419e3582fd582980c42a81030ff6ff54e56e",
+      "comparisons": {
+        "edited": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "edited_fresh_reopen": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "reopened": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        }
+      },
+      "exact_streams": 10,
+      "failure": null,
+      "native_phase_failures": [
+        null,
+        null
+      ],
+      "passed": true,
+      "source_phases": [
+        "ace6faf223c3baadf6ed9b8a2284c6566ad04bea4228e8926b56e028c9d6b0be",
+        "11928d099f376b5823c70df7cac58e163b6d261c3242702797b7b55f87b0f965"
+      ],
+      "source_sha256": "eee9b2325e20cc302f43b6ae72c52215ea05dce6f503fb2b3aeffd318dfdcc7c"
+    },
+    "SquareEndTwoB": {
+      "candidate_phases": [
+        "06366f93223f3ff8fa8e90db05ce1b1e8fadd263f64bf45e9b5fa158887620e7",
+        "c9a76f645ff538ff40d57895eef23d8dad3ad68ba8a44341c9109e88d98c8764"
+      ],
+      "candidate_sha256": "e0b5f5f89f3ae1e54fd77bf4cdc979ecf7f6b099224085f8d80ffa4336f5b37c",
+      "comparisons": {
+        "after-d1": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "edited": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "edited_fresh_reopen": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "reopened": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        }
+      },
+      "exact_streams": 10,
+      "failure": null,
+      "native_phase_failures": [
+        null,
+        null
+      ],
+      "passed": true,
+      "source_phases": [
+        "c0d56644c24646884ffe5b718190d61090504037bf7cb54bff8864be442b5fbe",
+        "74cac1cdfd2372b19856e0e3f989ca1f58e450a45fe1554f9e72815e7cc81cf3"
+      ],
+      "source_sha256": "07f54e3b513b2c3ab08a1683b1cde31d2be7792dbeadb96e300cde3046f1afd5"
+    }
+  },
+  "controls": {
+    "after": {
+      "passed": true,
+      "sha256": "c93080f9e46e258c1ecb4ac01db94d28b6e39a9d4536a4a78c4b101ec9567fd1"
+    },
+    "before": {
+      "passed": true,
+      "sha256": "a570be804c64bec49557b6a8f5e8ea9ff947aa97342928407f7c73a0ad50b34c"
+    }
+  },
+  "distinct_processes": 10,
+  "freeze_sha256": "d403feaf378fb2b10369668dcab1dbe0cc935194d080da92a1a127140402fe35",
+  "generation_sha256": "35494c8d90ff8dace0c6f12ca912f92a315311d458a35f427db452d5d6e14d98",
+  "heldout_writer_cases_qualified": 0,
+  "method_revision": "53e466690689746c3a68e301531482fd8f0ea006",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "schema": "kit.sw2026.square-revolve-comparison.v1",
+  "source_lock_sha256": "d693e56fe4bd12b8c2c263f8f78d1dc10a17a14499d3268105637875d6a2edfc",
+  "split": "discovery",
+  "writer_external_access_attempts": 0,
+  "writer_revision": "bc49a5acff6c3a5488b47623f6e2353f7cfad2be",
+  "writer_source_tree": "d69a52436090865d5d442acb090912fd3b4a7d88"
+}

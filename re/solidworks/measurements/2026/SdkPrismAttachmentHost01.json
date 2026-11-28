@@ -1,0 +1,96 @@
+{
+  "first_observer_prewarm_failure_archives_emitted": 0,
+  "heldout_inputs_read": 0,
+  "independent_guarded_workers": 2,
+  "native_acceptance": false,
+  "old_cache_replay": {
+    "all_bytes_match": true,
+    "guarded_processes": 4,
+    "parts": {
+      "Prism1Linked": "72a3ffc44f16652332b7df771bb3528ebb6c77aa8de572d2ae8f3e4b08a52a70",
+      "Prism1SameLocator": "1768b5e3c882cd217c813fe1b5e7f659ae571286d7a389533dab863e8c99a04f",
+      "Prism2Linked": "08e4d5280882662ec0ee6791de1939800ce1e237d93a79199025f8f5293cfb7c",
+      "Prism2SameLocator": "7b597b804f21bfbd98d6ecac1701c4920a80640edf43e1bf24bbd3c48fc58e69"
+    },
+    "passed": true,
+    "schema": "kit.sw2026.shared-prism-builder-fixed-byte-replay.v1"
+  },
+  "old_cache_replay_sha256": "c7c72abbfefed7474f8d9d22f3bbeef5820459fc0ff83f2b823884b4e2628592",
+  "passed": true,
+  "result": {
+    "SdkPrismConcave": {
+      "source": {
+        "actual_sketch_segment_ids": [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "archive_bytes": 13224,
+        "body_atom_id": 101,
+        "case": "SdkPrismConcave",
+        "depth_m": 0.018625,
+        "depth_parameter": "D1@Boss-Extrude1",
+        "face_count": 8,
+        "geometry": {
+          "area_m2": 0.002839,
+          "body_count": 1,
+          "centre_of_mass_m": [
+            0.010271618625277161,
+            0.010264966740576496,
+            0.0093125
+          ],
+          "volume_m3": 8.399875e-06
+        },
+        "native_feature_owner": 19,
+        "neutral_sha256": "4cd3e42f1fbab1eed4ce9f5b7123a5f48f08d9ba9fa71c0767294ef9f9b7ad47",
+        "part_sha256": "35321e35f19b624cb5b76bae566197ce3f632d4c5eed94bc50c7f538d8108c1f",
+        "partition_sha256": "b8e16a4e75d0566399a576638a6f1bb09a9c8af38feb257889213f0137192c48"
+      },
+      "worker_receipt_sha256": "5f2c3deb1e4f047d2374eb75a75e09c89cceceac318435c66447fb8e821f3882"
+    },
+    "SdkPrismRectangle": {
+      "source": {
+        "actual_sketch_segment_ids": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "archive_bytes": 12370,
+        "body_atom_id": 101,
+        "case": "SdkPrismRectangle",
+        "depth_m": 0.012750000000000001,
+        "depth_parameter": "D1@Boss-Extrude1",
+        "face_count": 6,
+        "geometry": {
+          "area_m2": 0.0029934000000000002,
+          "body_count": 1,
+          "centre_of_mass_m": [
+            0.01575,
+            0.00305,
+            0.0063750000000000005
+          ],
+          "volume_m3": 9.6217875e-06
+        },
+        "native_feature_owner": 19,
+        "neutral_sha256": "5ab231f9ddfd2cab0b63da90db3c0da8ce46894fd496fc2304da6169f7a84d61",
+        "part_sha256": "fbc55140007ffbb9fc01264246f3754d16df076f96d23e616dc99e87e0a68a7f",
+        "partition_sha256": "72acbf342449004290a20da94a0e37b9df2d2a8b44a234026104e34d336ae574"
+      },
+      "worker_receipt_sha256": "5888ba60a0d8d775d615576d67efcd6482c062bf42e66565df68ac6da955e924"
+    }
+  },
+  "schema": "kit.sw2026.sdk-prism-attachment-replay.v1",
+  "source_tools_sha256": {
+    "re/tooling/sw2026/PrepareSdkPrismAttachment.py": "38575ed3e7f83a8fa7fef3f2b546c623fba9e4f747749f811e0c5279bfc06602",
+    "re/tooling/sw2026/para/prism/SdkPrismAttachment.py": "139d1aa7f3be789131428122352c496e4ce056173249618846492607f7396e32",
+    "re/tooling/sw2026/para/prism/SdkPrismPartition.py": "d4c67c0bdb10ae34c205c1f27c47e80a16a85524568689901fb29aa6ae328e62",
+    "re/tooling/sw2026/para/rectangle/Allocate.py": "9129349e35481bae9373677a49e9d2fac5a55ff71d90b9f11f7e6e579f723140",
+    "re/tooling/sw2026/para/rectangle/RectangleAttributes.py": "341db83c635ad4a38016ff2d60852c52a8856cacb0c0227c9b83de751dea5292",
+    "re/tooling/sw2026/para/rectangle/RectanglePartition.py": "471a8920b86ba4f206d17421c5aa5551cc61baa2c28c86931660f7739755c0d4"
+  },
+  "writer_runtime_io_attempts": 0
+}

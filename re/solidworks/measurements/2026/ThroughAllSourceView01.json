@@ -1,0 +1,121 @@
+{
+  "complete_source_refusal_unchanged": true,
+  "delivery_pr": 121,
+  "earlier_private_observations_preserved": {
+    "authoritative": "the final immutable closure and full65-process run supersede those setup observations; earlier files stay private and unchanged",
+    "smoke01": "observer initially applied factory-only owner checks to reparsed archives; no product failure counted",
+    "smoke02": "source-only requested destination label differed from the earlier member proof, so full fragment hashes correctly differed; no relaxation was made",
+    "smoke03": "same explicit destination and wire-only check gave exact previous six fragments",
+    "static01": "declaration exceeded steering by two logical lines, then split into its own representation-check module; initial donor invocation also lacked the tools import path"
+  },
+  "fresh_process_count": 65,
+  "git_mutations": false,
+  "heldout_inputs_read": 0,
+  "measured": {
+    "construction_runtime_reads": 0,
+    "independent_fragment_round_trips": 35,
+    "independently_authored_poses": 2,
+    "manager_frontiers_before_and_after": [
+      29,
+      29,
+      29
+    ],
+    "old_complete_container_public_read_pairs": 2,
+    "old_default_definition_pairs": 3,
+    "old_six_member_fragment_pairs": 3,
+    "owner_inventory_stream_round_trips": 12,
+    "preexisting_pyright_config_messages": 3,
+    "sdk_donor_scan_python_sources": 4735,
+    "source_after_definition_frontiers": [
+      13,
+      13,
+      13
+    ],
+    "source_before_definition_frontiers": [
+      16,
+      18,
+      18
+    ],
+    "source_static_errors": 0,
+    "source_view_bit_identical": 3
+  },
+  "native_processes": 0,
+  "native_rule_ledger_sha256": "7f83f9b03a5c27bff05d109c6f4628cadc024c65d42dd36b738a215c90adf093",
+  "negative_process_count": 31,
+  "negative_scope": {
+    "corrupt_linked_wire": 3,
+    "typed_semantic_input": 12,
+    "typed_source_camera_representation": 16
+  },
+  "new_complete_native_outputs": 0,
+  "owner": "configuration-header lane; root owns integration and native oracle",
+  "owner_summary_sha256": "c2e1be8f5699b901145badb91a0c7aef3e09d6c09875624c75bbeec71c4d31fc",
+  "positive_cases": [
+    {
+      "all_six_prior_member_fragments_exact": true,
+      "case": "D01",
+      "complete_refusal_unchanged": true,
+      "old_default_definition_exact": true,
+      "remaining_definition_frontiers": 13,
+      "remaining_manager_frontiers": 29,
+      "seven_round_trips": true,
+      "source_document_sha256": "220b058dad01a550543ef8b7961761cc77efa3aca16f68ef54388c258e031af8",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "source_view_bit_identity": true
+    },
+    {
+      "all_six_prior_member_fragments_exact": true,
+      "case": "D02",
+      "complete_refusal_unchanged": true,
+      "old_default_definition_exact": true,
+      "remaining_definition_frontiers": 13,
+      "remaining_manager_frontiers": 29,
+      "seven_round_trips": true,
+      "source_document_sha256": "d7cc49de60ad656ef131d5a501f39cd4f6ed97e2b40f99603f3982a1208749a4",
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "source_view_bit_identity": true
+    },
+    {
+      "all_six_prior_member_fragments_exact": true,
+      "case": "D03",
+      "complete_refusal_unchanged": true,
+      "old_default_definition_exact": true,
+      "remaining_definition_frontiers": 13,
+      "remaining_manager_frontiers": 29,
+      "seven_round_trips": true,
+      "source_document_sha256": "a35c98d88e785c5cccd0fd786ddc95bde92c9db5610de479c3a237c5f14d142a",
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "source_view_bit_identity": true
+    },
+    {
+      "case": "independent_camera_1",
+      "distinct_analytic_rotation": true,
+      "explicit_positive_scale": 0.375,
+      "nonzero_three_axis_translation": true,
+      "prior_six_fragment_identity": true,
+      "seven_round_trips": true
+    },
+    {
+      "case": "independent_camera_2",
+      "distinct_analytic_rotation": true,
+      "explicit_positive_scale": 2.343,
+      "nonzero_three_axis_translation": true,
+      "prior_six_fragment_identity": true,
+      "seven_round_trips": true
+    }
+  ],
+  "process_report_sha256": "07dc7d0b7ac6f7cd996d9af0cb49d15dad3d639c6d35d8194b00c8c907082e3f",
+  "public_activation": false,
+  "schema": "kit.sw2026.throughall-source-view-host-receipt.v1",
+  "shared_source_edits": false,
+  "source_and_native_qualification": "only previously disclosed D01/D02/D03 typed camera composition; no new native lifecycle or full original-source acceptance",
+  "source_envelope_unchanged": true,
+  "source_manifest_sha256": "fb754f6703afdb228f386519221873fc90b0330985c44a0b9e1e49afefa5073f",
+  "source_paths": {
+    "baseline": 4772,
+    "candidate": 4776,
+    "sdk_delta": 4
+  },
+  "static_report_sha256": "8f9ecb2c4a1e37895a3c30b9b1ef25439a2d8a1f6548fe2843ec9ebc94f09929",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL/source-definition-view"
+}

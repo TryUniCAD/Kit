@@ -1,0 +1,63 @@
+{
+  "schema": "kit.sw2026.through-all-packet-process-proof.v1",
+  "packet_sha256": "6ff86683ab5da1f99aab8b6efaccb978ce115a1d0d3013a73c315cb0c5d1362c",
+  "tool_sha256": "7608bb3264b08b7747020933bbb1f9cdc5a5027562d2e7f92ef311265056b645",
+  "python_version": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]",
+  "workers": 7,
+  "results": {
+    "positive": {
+      "returncode": 0,
+      "result": {
+        "native_processes_started": 0,
+        "new_heldout_inputs_read": 0,
+        "passed": true
+      }
+    },
+    "wrong-packet-hash": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "missing-control": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "changed-disclosed": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "changed-tool": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "inherited-state-shadow": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "noncanonical-prior-seal": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    }
+  },
+  "passed": true,
+  "native_processes_started": 0,
+  "new_heldout_inputs_read": 0,
+  "writer_output_count": 0
+}

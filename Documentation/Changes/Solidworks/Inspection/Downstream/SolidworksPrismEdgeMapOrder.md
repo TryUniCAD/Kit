@@ -1,0 +1,7 @@
+# Fresh prism downstream edge-map order
+
+Adds exact-build source pins and a bounded independent numeric process for downstream `f380` ordering. The ordinary twelve-edge allocation `7..18` grows from eight to sixty-four buckets before entry nine and retains forward-list order. Signed edge wire keys and unsigned face keys share the same insertion helper; scalar type does not supply an iteration sort. Native load-side count reserve is recorded separately.
+
+The research tool takes explicit integer keys and wire type from stdin, verifies the pinned original model DLL and shared source verifier, and writes a numeric receipt to a new path. It refuses duplicate/zero/out-of-range keys, larger profiles and actual insertion/rehash collisions outside this scope. It produces no CAD file and changes no writer, registration or public capability. [Usage and field/order evidence](../../../../../re/solidworks/records/DownstreamEdgeRegistrationOrder2026.md) · [Actual process evidence](../../../../../re/solidworks/measurements/2026/DownstreamEdgeRegistrationOrder01.json) · [Ordering gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Downstream/IdentityMapSignedKeysDoNotDefineOrder.md)
+
+Native edge operands, component/reference wrappers and complete downstream cache acceptance remain independent work in PR #121. This tranche opens no model or held-out input and retains all prior packets unchanged.

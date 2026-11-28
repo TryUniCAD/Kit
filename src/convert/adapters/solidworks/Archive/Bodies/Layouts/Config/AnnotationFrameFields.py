@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# ordinary tolerance frames retain their own strings references and conditional branch boundaries
+# tolerance frames share field order across complete and restricted configuration reads
 KAnnotationFrameFields = MappingProxyType(
     {
         "moGTolDlgDataFrame_c": (
@@ -27,7 +27,21 @@ KAnnotationFrameFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "f148",
-                BodyValue=(NativeField("Fail", "moGTolDlgDataFrame_c datum owners"),),
+                BodyValue=(
+                    NativeField(
+                        "Branch",
+                        "bounded_config_annotations",
+                        BodyValue=(
+                            NativeField("Fail", "moGTolDlgDataFrame_c datum owners"),
+                        ),
+                        OtherValue=(
+                            NativeField("Embed", "f150", "moGtolItemDatum2022_c"),
+                            NativeField("Embed", "f1c8", "moGtolItemDatum2022_c"),
+                            NativeField("Embed", "f240", "moGtolItemDatum2022_c"),
+                        ),
+                        ModeValue="Context",
+                    ),
+                ),
                 ModeValue="NotEquals",
             ),
             NativeField(
@@ -35,7 +49,19 @@ KAnnotationFrameFields = MappingProxyType(
                 "f2b8",
                 "i32",
                 BodyValue=(
-                    NativeField("Fail", "moGTolDlgDataFrame_c indicator owners"),
+                    NativeField(
+                        "Branch",
+                        "bounded_config_annotations",
+                        BodyValue=(
+                            NativeField(
+                                "Fail", "moGTolDlgDataFrame_c indicator owners"
+                            ),
+                        ),
+                        OtherValue=(
+                            NativeField("Embed", "e", "moGtolItemIndicator_c"),
+                        ),
+                        ModeValue="Context",
+                    ),
                 ),
                 CountValue="n2b8",
                 ModeValue="Positive",

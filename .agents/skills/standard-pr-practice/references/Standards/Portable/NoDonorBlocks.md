@@ -5,10 +5,12 @@ original source: `.agents/skills/no-donor-blocks/SKILL.md`
 This section replaces the preserved "THE STATE OF THE WORK" paragraph below where they disagree.
 [AGENTS.md](../../../../../../AGENTS.md) takes precedence over the preserved text.
 
-Kit writes native `.SLDPRT` files for the measured version-19000 ordinary
-Front-plane line-loop blind boss family. The part writer derives every
-stream from the neutral model and the documented archive rules. The
-assembly identifier has reader registration.
+Kit registers bounded generative SOLIDWORKS 2026 writers. Public standalone
+part output requires an exact offline measurement for the complete generated
+archive. The principal-plane assembly and blank drawing routes have their
+own documented scopes. Each additional profile requires independent held-out
+oracle qualification. The writer derives every emitted structure from the model
+and documented format rules. [Current adapter scope](../../../../../../Documentation/Reference/Adapters/Solidworks.md)
 
 The removed writer did not generate its streams from format rules.
 Each supported family was one vendor-saved stream, re-encoded as typed field operations.

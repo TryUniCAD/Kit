@@ -1,0 +1,912 @@
+{
+  "additional_heldout_credit": 0,
+  "base_revision": "1f2130d9fcf4f3fa4abdf8b0af0a6c4c018cdb58",
+  "comparisons": [
+    {
+      "after": {
+        "derived_source_seal": "3cbddabb074cb811f47cb834c328134a14a06df2b90e328d50cb3191b538b7f8",
+        "diagnostic": null,
+        "document_sha256": "528c96f58b066f9c7fe31f45941ac74b3cf8f69082bbfa1a68738c409f55fec2",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 7831,
+              "sha256": "c62ba59c014a3079379f5855631d15ec3b3a85a0febd9dcb35318ab1a8bda9a7"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "eced5d2b73d5891e89ae2b87da85a8b34d0ee9c6123fdfda7da7d0c4896a55a0"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 166,
+          "mate_map_base": 168,
+          "mate_map_terminal": 226,
+          "name": "Mates",
+          "native_id": 11,
+          "neutral_group": "sldasm:definition:2:mate-group:11",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0",
+            "sldasm:mate:2:0:1"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateCoincident",
+              "f0c": 256,
+              "map_slot": 169,
+              "name": "Coincident1",
+              "native_id": 26,
+              "span": [
+                6,
+                3088
+              ]
+            },
+            {
+              "class": "moMateDistanceDim_c",
+              "f0c": 256,
+              "map_slot": 197,
+              "name": "Distance1",
+              "native_id": 28,
+              "span": [
+                3088,
+                7831
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "group_refusal": "mate group has unprojected extensions",
+        "only_cad_inputs": [
+          "A20HeldoutPlaneCoincidentDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25425,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "3a0bda29d818485a5c3f0cf8913fd70aaa1a9ea598fae7379b4f6baf506323a0"
+      },
+      "before": {
+        "derived_source_seal": "e38cd71f50c5a6c37ed03199e84707a071dd94f79e9b975fb969b393467c2448",
+        "diagnostic": null,
+        "document_sha256": "6db034151e22e61eeed0eb4d792c810f719eb234b9d215f89c4b3cb1582d784d",
+        "group_count": 0,
+        "group_refusal": "one complete ordered mate group is required",
+        "only_cad_inputs": [
+          "A20HeldoutPlaneCoincidentDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25424,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "3a0bda29d818485a5c3f0cf8913fd70aaa1a9ea598fae7379b4f6baf506323a0"
+      },
+      "case": "A20",
+      "child_sha256": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+      "native_record_sha256": "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+      "parent_sha256": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd",
+      "view": "metadata"
+    },
+    {
+      "after": {
+        "derived_source_seal": "d1386f5340bfc1758eecb4235e17297e5c86dd53c30679a4bed70bb07a10b739",
+        "diagnostic": null,
+        "document_sha256": "323936e8d0db693c3a296926394afa936829c77ce92359b29470d25458a8d7c9",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 7831,
+              "sha256": "c62ba59c014a3079379f5855631d15ec3b3a85a0febd9dcb35318ab1a8bda9a7"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "eced5d2b73d5891e89ae2b87da85a8b34d0ee9c6123fdfda7da7d0c4896a55a0"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 166,
+          "mate_map_base": 168,
+          "mate_map_terminal": 226,
+          "name": "Mates",
+          "native_id": 11,
+          "neutral_group": "sldasm:definition:2:mate-group:11",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0",
+            "sldasm:mate:2:0:1"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateCoincident",
+              "f0c": 256,
+              "map_slot": 169,
+              "name": "Coincident1",
+              "native_id": 26,
+              "span": [
+                6,
+                3088
+              ]
+            },
+            {
+              "class": "moMateDistanceDim_c",
+              "f0c": 256,
+              "map_slot": 197,
+              "name": "Distance1",
+              "native_id": 28,
+              "span": [
+                3088,
+                7831
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "group_refusal": "mate group has unprojected extensions",
+        "only_cad_inputs": [
+          "A20HeldoutPlaneCoincidentDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25430,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "bd9dad5df53fa9acfb7ce1549b92a6f9653067698e86f0a6725078f4804cdc0b"
+      },
+      "before": {
+        "derived_source_seal": "4fd88f2e5fd39b913d5672a6f601b781fe1a2092be4b698052cbf348042baec7",
+        "diagnostic": null,
+        "document_sha256": "77e7019ec68701b7719f8eb79bbeac57ce1d97c0733ea2d0378016ed2d106281",
+        "group_count": 0,
+        "group_refusal": "one complete ordered mate group is required",
+        "only_cad_inputs": [
+          "A20HeldoutPlaneCoincidentDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25427,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "bd9dad5df53fa9acfb7ce1549b92a6f9653067698e86f0a6725078f4804cdc0b"
+      },
+      "case": "A20",
+      "child_sha256": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+      "native_record_sha256": "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+      "parent_sha256": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd",
+      "view": "default"
+    },
+    {
+      "after": {
+        "derived_source_seal": "f4ccde2e5e5cb602bed3bf4d5baec097915ec39ba796e5db076707e9d65aa78a",
+        "diagnostic": null,
+        "document_sha256": "4aee7a016e3b7fb818ce0d6215d8f57a068c38ccd7651e6789a27e423a252f4f",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 8279,
+              "sha256": "c75e355208919c0340214063a79c5932596bc3231402e4fee7cad10e7a8ffb41"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "100a5646562cbbda36f7328d395e90f0d9461374eb1b97239e401a1d0c42a14f"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 170,
+          "mate_map_base": 172,
+          "mate_map_terminal": 232,
+          "name": "Mates",
+          "native_id": 11,
+          "neutral_group": "sldasm:definition:2:mate-group:11",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0",
+            "sldasm:mate:2:0:1"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateParallel",
+              "f0c": 256,
+              "map_slot": 173,
+              "name": "Parallel1",
+              "native_id": 27,
+              "span": [
+                6,
+                3298
+              ]
+            },
+            {
+              "class": "moMateDistanceDim_c",
+              "f0c": 256,
+              "map_slot": 201,
+              "name": "Distance1",
+              "native_id": 29,
+              "span": [
+                3298,
+                8279
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "group_refusal": "mate group has unprojected extensions",
+        "only_cad_inputs": [
+          "A21HeldoutPlaneParallelDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25442,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "1994c263f9a41d8a830f6637f139307ab8efe3d0274ebdebbe56a09831e5460a"
+      },
+      "before": {
+        "derived_source_seal": "b8149fedcfe5acaacf4fa0556345c6197873ecbb8a210bc9847ff11315657ca6",
+        "diagnostic": null,
+        "document_sha256": "f1b67e04c0e7142bc09f88aa114de172af42e00154d46add427f6288ca100b17",
+        "group_count": 0,
+        "group_refusal": "one complete ordered mate group is required",
+        "only_cad_inputs": [
+          "A21HeldoutPlaneParallelDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25438,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "1994c263f9a41d8a830f6637f139307ab8efe3d0274ebdebbe56a09831e5460a"
+      },
+      "case": "A21",
+      "child_sha256": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+      "native_record_sha256": "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+      "parent_sha256": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0",
+      "view": "metadata"
+    },
+    {
+      "after": {
+        "derived_source_seal": "85a4635d7426393262d414350bda0510752cccd5a53bbc348f1f7aca58cd03ad",
+        "diagnostic": null,
+        "document_sha256": "66a8a1dda64064e7b56d3856fc28d2f9d3d1ceb82dfca43b600cbb4a9861ce41",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 8279,
+              "sha256": "c75e355208919c0340214063a79c5932596bc3231402e4fee7cad10e7a8ffb41"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "100a5646562cbbda36f7328d395e90f0d9461374eb1b97239e401a1d0c42a14f"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 170,
+          "mate_map_base": 172,
+          "mate_map_terminal": 232,
+          "name": "Mates",
+          "native_id": 11,
+          "neutral_group": "sldasm:definition:2:mate-group:11",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0",
+            "sldasm:mate:2:0:1"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateParallel",
+              "f0c": 256,
+              "map_slot": 173,
+              "name": "Parallel1",
+              "native_id": 27,
+              "span": [
+                6,
+                3298
+              ]
+            },
+            {
+              "class": "moMateDistanceDim_c",
+              "f0c": 256,
+              "map_slot": 201,
+              "name": "Distance1",
+              "native_id": 29,
+              "span": [
+                3298,
+                8279
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "group_refusal": "mate group has unprojected extensions",
+        "only_cad_inputs": [
+          "A21HeldoutPlaneParallelDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25447,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "c0db7ae85b402d99fe9098e7fd05618a1272eab1d8a653780b75b171cb06ad73"
+      },
+      "before": {
+        "derived_source_seal": "72ff06c040af556186edae42233c7659c0a8172a4d91477960de6012a4ad9426",
+        "diagnostic": null,
+        "document_sha256": "bb988cde154fbf10148133ef29be627080291defa9b6f8e9aca298ccb55cb8db",
+        "group_count": 0,
+        "group_refusal": "one complete ordered mate group is required",
+        "only_cad_inputs": [
+          "A21HeldoutPlaneParallelDistance.SLDASM",
+          "CohortChild.SLDPRT"
+        ],
+        "pid": 25443,
+        "reader_rule_files": [],
+        "root_refusal": "assembly root contains unprojected model content",
+        "without_group_and_derived_seal_sha256": "c0db7ae85b402d99fe9098e7fd05618a1272eab1d8a653780b75b171cb06ad73"
+      },
+      "case": "A21",
+      "child_sha256": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+      "native_record_sha256": "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+      "parent_sha256": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0",
+      "view": "default"
+    },
+    {
+      "after": {
+        "derived_source_seal": "e9b09a9558beeb33925c9c72c656b804e8743fac67b87ca15fba6e45372d97d3",
+        "diagnostic": null,
+        "document_sha256": "2ff84d9dd416954db876eef7005c8db39abd751d2ebde27275b8d69ff50fd238",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 7737,
+              "sha256": "ec55a54d85579750b3aca49c8d9d6fb17fb11c3f03a7dddaa0d22c42d5e18c30"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 4839,
+              "sha256": "6a294afc8828fc9f82aad0cdfa6f6b1a49d8b48c7caed724129ed8d081ad222c"
+            }
+          },
+          "f0c": 1,
+          "map_slot": 131,
+          "mate_map_base": 133,
+          "mate_map_terminal": 195,
+          "name": "Mates",
+          "native_id": 16,
+          "neutral_group": "sldasm:definition:2:mate-group:16",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0",
+            "sldasm:mate:2:0:1"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateCoincident",
+              "f0c": 1,
+              "map_slot": 134,
+              "name": "CoincidentY",
+              "native_id": 19,
+              "span": [
+                6,
+                3064
+              ]
+            },
+            {
+              "class": "moMateDistanceDim_c",
+              "f0c": 1,
+              "map_slot": 162,
+              "name": "DistanceZ",
+              "native_id": 21,
+              "span": [
+                3064,
+                7737
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            4645,
+            4839
+          ]
+        },
+        "group_count": 1,
+        "only_cad_inputs": [
+          "PublicDatumPrism.SLDPRT",
+          "PublicPlanarPair2.SLDASM"
+        ],
+        "pid": 28190,
+        "reader_rule_files": [],
+        "without_group_and_derived_seal_sha256": "82f03f12126bea8b8d6dd9f34a6f0ad11ca87fd1f1b9b5512c0bd992b1c4d528"
+      },
+      "before": {
+        "derived_source_seal": "8900021d672c6e3b5133dcf6be997c50d598f6c1dfee6ae17694fe203a19d888",
+        "diagnostic": null,
+        "document_sha256": "e8374610d1979a3afdf73eb1e9a9e264fea8ca89ac60ff972b12df5a3b219996",
+        "group_count": 0,
+        "only_cad_inputs": [
+          "PublicDatumPrism.SLDPRT",
+          "PublicPlanarPair2.SLDASM"
+        ],
+        "pid": 25448,
+        "reader_rule_files": [],
+        "without_group_and_derived_seal_sha256": "82f03f12126bea8b8d6dd9f34a6f0ad11ca87fd1f1b9b5512c0bd992b1c4d528"
+      },
+      "case": "PlanarGenerated",
+      "child_sha256": "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b",
+      "parent_sha256": "d31950eb971645908a82c26ecb881880525a3c8aa9478bc971b065bc5bdcf2f4",
+      "view": "metadata"
+    },
+    {
+      "after": {
+        "derived_source_seal": "63c73878e68bd304ef4e83c2ea80ab1444f8f751fba457cdfc05ed780ad9312b",
+        "diagnostic": null,
+        "document_sha256": "a3ec52387f7db73873674cb2c87dbc29e73448b92c15e62010b9704320974f8d",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 9023,
+              "sha256": "6eb465ea5bef0977a48c15b49c80ff976686a9102366fe18358f03d865081b2e"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "ba56f00094776536fe32d1793d36ffc2b0ef145a0cdaac1e44e77315e3b0901b"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 165,
+          "mate_map_base": 167,
+          "mate_map_terminal": 225,
+          "name": "Mates",
+          "native_id": 16,
+          "neutral_group": "sldasm:definition:2:mate-group:16",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0",
+            "sldasm:mate:2:0:1"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateCoincident",
+              "f0c": 256,
+              "map_slot": 168,
+              "name": "CoincidentY",
+              "native_id": 19,
+              "span": [
+                6,
+                3648
+              ]
+            },
+            {
+              "class": "moMateDistanceDim_c",
+              "f0c": 256,
+              "map_slot": 196,
+              "name": "DistanceZ",
+              "native_id": 21,
+              "span": [
+                3648,
+                9023
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "only_cad_inputs": [
+          "PublicDatumPrism.SLDPRT",
+          "PublicPlanarPair2.SLDASM"
+        ],
+        "pid": 28201,
+        "reader_rule_files": [],
+        "without_group_and_derived_seal_sha256": "ee1c2c619c3a0d578fb7b07df6ff341d3819dbf251256b816f2f0f4e7e95c811"
+      },
+      "before": {
+        "derived_source_seal": "e0e52458514da3863568308abcae68633591a6959fd0ed0cbd1f00f284fb1b75",
+        "diagnostic": null,
+        "document_sha256": "311cf4a96f411c8677c07a3776bcadfc6efbafc3fe544807137be4a4558c0745",
+        "group_count": 0,
+        "only_cad_inputs": [
+          "PublicDatumPrism.SLDPRT",
+          "PublicPlanarPair2.SLDASM"
+        ],
+        "pid": 28195,
+        "reader_rule_files": [],
+        "without_group_and_derived_seal_sha256": "ee1c2c619c3a0d578fb7b07df6ff341d3819dbf251256b816f2f0f4e7e95c811"
+      },
+      "case": "PlanarSaved",
+      "child_sha256": "670d8a2fb9c9c03a643dceceb5ac35ce9c1c6095ba7384a08b48b0b710dc1702",
+      "parent_sha256": "ab1164708763381c3498ad8bc7b6841a09823f94bf52038685f67ad61902af56",
+      "view": "metadata"
+    },
+    {
+      "after": {
+        "diagnostic": "typed planar mate graph rejected: perpendicular mate is outside the solved repeated part profile",
+        "only_cad_inputs": [
+          "NeutralPerpPair.SLDASM",
+          "NeutralPerpPrism.SLDPRT"
+        ],
+        "pid": 28216,
+        "reader_rule_files": []
+      },
+      "before": {
+        "diagnostic": "typed planar mate graph rejected: perpendicular mate is outside the solved repeated part profile",
+        "only_cad_inputs": [
+          "NeutralPerpPair.SLDASM",
+          "NeutralPerpPrism.SLDPRT"
+        ],
+        "pid": 28213,
+        "reader_rule_files": []
+      },
+      "case": "PerpendicularGenerated",
+      "child_sha256": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6",
+      "parent_sha256": "0a740c7a632ad769174c3d145710ca68502c33d07f575ac02ccb583363293187",
+      "view": "metadata"
+    },
+    {
+      "after": {
+        "derived_source_seal": "d86197ce3ae790e9f6b29242306757ea8d613a713b3e46f7e26bd9bbc8f65a84",
+        "diagnostic": null,
+        "document_sha256": "977bc0e6270a9a36ba7cb398df5e7116a2a9b419c9a31ddaacf531af2b3814b7",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 3645,
+              "sha256": "ef32542308c99df47eb3c5e8afcc905bba5e4f0023eeab3cf06bf21c72cd04ca"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "afd3127c660e5bbb25e7b436089cc5c6a29e43f4d8d4f4f9e70cdcd1137b2098"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 165,
+          "mate_map_base": 167,
+          "mate_map_terminal": 195,
+          "name": "Mates",
+          "native_id": 16,
+          "neutral_group": "sldasm:definition:2:mate-group:16",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMatePerpendicular",
+              "f0c": 256,
+              "map_slot": 168,
+              "name": "Perpendicular1",
+              "native_id": 19,
+              "span": [
+                6,
+                3645
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "only_cad_inputs": [
+          "NeutralPerpPair.SLDASM",
+          "NeutralPerpPrism.SLDPRT"
+        ],
+        "pid": 28243,
+        "reader_rule_files": [],
+        "without_group_and_derived_seal_sha256": "db30727b84ec9d12821d2f47aeac99e9b607bfced294b18ef89d6853b1368604"
+      },
+      "before": {
+        "derived_source_seal": "3ca2bd3aad527a1b6ff69401ead7f118626bd53680c4600fa4a67d03bf66cf23",
+        "diagnostic": null,
+        "document_sha256": "5322ec507f2473e7003e4734ce0df36b6d2cb004c0295e40ff93b572aef7d886",
+        "group_count": 0,
+        "only_cad_inputs": [
+          "NeutralPerpPair.SLDASM",
+          "NeutralPerpPrism.SLDPRT"
+        ],
+        "pid": 28218,
+        "reader_rule_files": [],
+        "without_group_and_derived_seal_sha256": "db30727b84ec9d12821d2f47aeac99e9b607bfced294b18ef89d6853b1368604"
+      },
+      "case": "PerpendicularSaved",
+      "child_sha256": "9b457e330949020af9d34a80b32d7df2fccd43b17aee0d623aa8723b6917a94c",
+      "parent_sha256": "d0d873c121c150efe93e6ffb29a0b498ae8de4b2c4079d8b70af0ff54c548f51",
+      "view": "metadata"
+    },
+    {
+      "after": {
+        "derived_source_seal": "ddf9481f75da9586f8df22cbabdd6f5df53e89f8382416519db088ae279d0dcd",
+        "diagnostic": null,
+        "document_sha256": "9964d4daa7d1cd19ab74345290b6071ac8cae3309f9d601f40b015c28ad9bc32",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 3690,
+              "sha256": "1c3c24062e7af587d8538815832eba6fb4472212ba46f0c8c0c7ccf6f0cf8ea4"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "07107bcd13538a103ff0a25fc72acf3fb1484a65b190d7da186142d236934776"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 166,
+          "mate_map_base": 168,
+          "mate_map_terminal": 221,
+          "name": "Mates",
+          "native_id": 11,
+          "neutral_group": "sldasm:definition:2:mate-group:11",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateConcentric",
+              "f0c": 256,
+              "map_slot": 169,
+              "name": "Concentric1",
+              "native_id": 26,
+              "span": [
+                6,
+                3690
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "only_cad_inputs": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "pid": 28261,
+        "reader_rule_files": [
+          "src/convert/adapters/solidworks/Config/RootLayout.json"
+        ],
+        "without_group_and_derived_seal_sha256": "26ae9b0d58c4b0aaf8c9fef3f1b195b849cc1cc5d8a5a99349b3ee26611db282"
+      },
+      "before": {
+        "derived_source_seal": "ddf9481f75da9586f8df22cbabdd6f5df53e89f8382416519db088ae279d0dcd",
+        "diagnostic": null,
+        "document_sha256": "9964d4daa7d1cd19ab74345290b6071ac8cae3309f9d601f40b015c28ad9bc32",
+        "group": {
+          "exact_typed_streams": {
+            "Contents/Config-0-MatesList": {
+              "bytes": 3690,
+              "sha256": "1c3c24062e7af587d8538815832eba6fb4472212ba46f0c8c0c7ccf6f0cf8ea4"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "sha256": "07107bcd13538a103ff0a25fc72acf3fb1484a65b190d7da186142d236934776"
+            }
+          },
+          "f0c": 0,
+          "map_slot": 166,
+          "mate_map_base": 168,
+          "mate_map_terminal": 221,
+          "name": "Mates",
+          "native_id": 11,
+          "neutral_group": "sldasm:definition:2:mate-group:11",
+          "neutral_mate_ids": [
+            "sldasm:mate:2:0:0"
+          ],
+          "neutral_root": "sldasm:definition:2",
+          "ordered_members": [
+            {
+              "class": "moMateConcentric",
+              "f0c": 256,
+              "map_slot": 169,
+              "name": "Concentric1",
+              "native_id": 26,
+              "span": [
+                6,
+                3690
+              ]
+            }
+          ],
+          "resolved_ordinal": 15,
+          "span": [
+            5101,
+            5295
+          ]
+        },
+        "group_count": 1,
+        "only_cad_inputs": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "pid": 28254,
+        "reader_rule_files": [
+          "src/convert/adapters/solidworks/Config/RootLayout.json"
+        ],
+        "without_group_and_derived_seal_sha256": "26ae9b0d58c4b0aaf8c9fef3f1b195b849cc1cc5d8a5a99349b3ee26611db282"
+      },
+      "case": "ConcentricSaved",
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "view": "metadata"
+    }
+  ],
+  "delivery_pr": 121,
+  "fresh_sdk_processes": 28,
+  "in_memory_refusals": [
+    {
+      "derived_source_seal": "3467306eff37f45b25c22685db5746e503b67bb9deb16fb65f71a0b683bbf3b2",
+      "diagnostic": "typed mates require one actual top-level native group",
+      "document_sha256": "2bee47f78a4536709dae45365ad79a46db4e50af5bf80856270e0df1b0c07e36",
+      "fault": "ambiguous-group",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 28262,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "254d044e16528ecfd17b789c708da3ee1f3a09db996208b11d91b45155f4849e"
+    },
+    {
+      "derived_source_seal": "3467306eff37f45b25c22685db5746e503b67bb9deb16fb65f71a0b683bbf3b2",
+      "diagnostic": "typed mates require one actual top-level native group",
+      "document_sha256": "2bee47f78a4536709dae45365ad79a46db4e50af5bf80856270e0df1b0c07e36",
+      "fault": "detached-group",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29051,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "254d044e16528ecfd17b789c708da3ee1f3a09db996208b11d91b45155f4849e"
+    },
+    {
+      "derived_source_seal": "3467306eff37f45b25c22685db5746e503b67bb9deb16fb65f71a0b683bbf3b2",
+      "diagnostic": "typed mates require one actual top-level native group",
+      "document_sha256": "2bee47f78a4536709dae45365ad79a46db4e50af5bf80856270e0df1b0c07e36",
+      "fault": "crossed-slot",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29052,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "254d044e16528ecfd17b789c708da3ee1f3a09db996208b11d91b45155f4849e"
+    },
+    {
+      "derived_source_seal": "3467306eff37f45b25c22685db5746e503b67bb9deb16fb65f71a0b683bbf3b2",
+      "diagnostic": "typed mates require one actual top-level native group",
+      "document_sha256": "2bee47f78a4536709dae45365ad79a46db4e50af5bf80856270e0df1b0c07e36",
+      "fault": "nested-group",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29053,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "254d044e16528ecfd17b789c708da3ee1f3a09db996208b11d91b45155f4849e"
+    },
+    {
+      "derived_source_seal": "ee596e1d88b7c22c8d6b8716e2a66a8d6b4cffb84d93b76f7a1527893449c446",
+      "diagnostic": "typed mate group has unsupported native state or contents",
+      "document_sha256": "a1fc8703b7ddf5675c8e2069f996f5f2497ea569e36d9dbb81c7c4cb4849f21e",
+      "fault": "inline-member",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29450,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "b8e3b7b88218e0b2b34f7bf5f823fba9b1ba78ad7c6673cef0801e7ae1f1b369"
+    },
+    {
+      "derived_source_seal": "ee596e1d88b7c22c8d6b8716e2a66a8d6b4cffb84d93b76f7a1527893449c446",
+      "diagnostic": "typed mate group has unsupported native state or contents",
+      "document_sha256": "a1fc8703b7ddf5675c8e2069f996f5f2497ea569e36d9dbb81c7c4cb4849f21e",
+      "fault": "group-ids",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29461,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "b8e3b7b88218e0b2b34f7bf5f823fba9b1ba78ad7c6673cef0801e7ae1f1b369"
+    },
+    {
+      "derived_source_seal": "ee596e1d88b7c22c8d6b8716e2a66a8d6b4cffb84d93b76f7a1527893449c446",
+      "diagnostic": "typed mate group has unsupported native state or contents",
+      "document_sha256": "a1fc8703b7ddf5675c8e2069f996f5f2497ea569e36d9dbb81c7c4cb4849f21e",
+      "fault": "crossed-update",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29463,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "b8e3b7b88218e0b2b34f7bf5f823fba9b1ba78ad7c6673cef0801e7ae1f1b369"
+    },
+    {
+      "derived_source_seal": "6a190f023e330870fe20190715113c20352caa14b2ef08209b48e204e50bfe6c",
+      "diagnostic": "typed mate group membership differs from the owned native list",
+      "document_sha256": "8714018f094764bbd8726d5c94321a11dacc62df559eee3c2c3e6a585b02d9e9",
+      "fault": "foreign-rule",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29464,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "fe48daabbf6ada88b430d2862cedf1910ae043a68c2b82bd8625c11ce22de406"
+    },
+    {
+      "derived_source_seal": "6a190f023e330870fe20190715113c20352caa14b2ef08209b48e204e50bfe6c",
+      "diagnostic": "typed mate group membership differs from the owned native list",
+      "document_sha256": "8714018f094764bbd8726d5c94321a11dacc62df559eee3c2c3e6a585b02d9e9",
+      "fault": "crossed-spans",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 29467,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "fe48daabbf6ada88b430d2862cedf1910ae043a68c2b82bd8625c11ce22de406"
+    },
+    {
+      "derived_source_seal": "6a190f023e330870fe20190715113c20352caa14b2ef08209b48e204e50bfe6c",
+      "diagnostic": "typed mate group membership differs from the owned native list",
+      "document_sha256": "8714018f094764bbd8726d5c94321a11dacc62df559eee3c2c3e6a585b02d9e9",
+      "fault": "reordered-rules",
+      "group_count": 0,
+      "only_cad_inputs": [
+        "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "CohortChild.SLDPRT"
+      ],
+      "pid": 31056,
+      "reader_rule_files": [],
+      "without_group_and_derived_seal_sha256": "fe48daabbf6ada88b430d2862cedf1910ae043a68c2b82bd8625c11ce22de406"
+    }
+  ],
+  "native_processes": 0,
+  "owner": "assembly_frontier",
+  "passed": true,
+  "prior_public_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "root_layout_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+  "schema": "kit.sw2026.planar-mate-group-read.v1",
+  "source_files": {
+    "Cylinders/ReadCylGroup.py": "bb41c0d608debec31ff733b95e7f10c7e5743a1d228fb7400968062497849a19",
+    "ReadMateGroup.py": "838ac6eb7780bc211b14caf6e02a6b4041b5d01ea3a9514805d52745cd631a01",
+    "ReadPublicMates.py": "f896bcc4b2b14dd01d54ca96961a7689ae5a7981b0108e9ca92212338002ca25"
+  },
+  "source_inputs_unchanged": true,
+  "source_manifest_sha256": "f1b22f2160bc16a4557e2f16eee51ef7af67d18da7a4ada240da20a4fc94100d",
+  "task": "B04-SW2026-MATES-PLANAR/saved-group-read",
+  "tool_sha256": "651315f9a84b9532e2bb693fbb695d268dc6ff2fc9cfd0573e27c1f9a664c9ad",
+  "unseen_heldout_reads": 0,
+  "writer_outputs": 0
+}

@@ -1,0 +1,1438 @@
+{
+  "attestation": {
+    "application_usable_for_four_measured_candidates": true,
+    "clock_inputs_measured_in_disclosed_scope": true,
+    "complete_typed_origin_join_passed": true,
+    "fully_parametric_disclosed_lifecycle_measured": true,
+    "heldout_acceptance": false,
+    "hidden_inputs_read": false,
+    "original_source_output_verdict_changed": false,
+    "proprietary_listing_or_binary_in_delivery": false,
+    "public_constructor_expansion_qualified": false,
+    "sdk_or_test_execution_by_worker": false,
+    "vendor_loadable_for_four_measured_candidates": true,
+    "vm_calls_by_worker": false
+  },
+  "candidate_native_phases": 16,
+  "cases": [
+    {
+      "changed_clock_axis": "none",
+      "clock_ownership": {
+        "case": "ClockBaseline",
+        "checks": {
+          "child_history_event_count_stable": true,
+          "child_history_first_event_stable": true,
+          "child_history_provenance_stable": true,
+          "child_self_and_manager_save_times_equal": true,
+          "child_stable_identity_archive_and_root_clocks": true,
+          "child_update_time_advances_only_in_edit_save": true,
+          "drawing_history_event_count_stable": true,
+          "drawing_history_first_event_stable": true,
+          "drawing_history_provenance_stable": true,
+          "drawing_stable_identity_archive_and_root_clocks": true,
+          "drawing_update_time_stays_modeled": true,
+          "edited_saved_and_reopened_clock_owners_equal": true,
+          "first_saved_and_reopened_clock_owners_equal": true,
+          "self_creation_alias_preserved": true,
+          "updated_child_and_save_times_in_phase_window": true
+        },
+        "child_header_log_counts": {
+          "constructed": 1,
+          "edited": 7
+        },
+        "child_manager_saved_at": 1795031227,
+        "computed_latest_log_tail_time": 1795031203,
+        "constructed": {
+          "child": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1760000123,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1760000220,
+              "RootFirstEventAt": 1760000123,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1760001323,
+              "UpdatedAt": 1760000152
+            }
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1761001447,
+              "UpdatedAt": 1761000276
+            }
+          }
+        },
+        "edited": {
+          "child": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1760000123,
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1760000220,
+              "RootFirstEventAt": 1760000123,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1795031227,
+              "UpdatedAt": 1795031218
+            },
+            "root_log_label_matches_model": true
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1795031313,
+              "UpdatedAt": 1761000276
+            },
+            "root_log_label_matches_model": false
+          }
+        },
+        "latest_log_tail_is_derived_not_live_api_measurement": true,
+        "new_child_log_captions": [
+          "Ambient",
+          "Directional1",
+          "Directional2",
+          "Directional3",
+          "Notes",
+          "Notes1___EndTag___"
+        ]
+      },
+      "modeled_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      },
+      "name": "ClockBaseline",
+      "phases": [
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "2ce01e16219dde5a0bdc5136fae6b79e831da70cffbd69a97f6d3a74ce7fefef",
+          "drawing_sha256": "90b8a6339065bb703b409c07e63fdcfe5c4b675486c136d6efd1190fee425645",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "0c581655c8650a1ff32ceb9e9280fd3ccd5d96a9102a8177067a8f279712b3b8",
+          "numeric_checks": 210,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "open-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "2ce01e16219dde5a0bdc5136fae6b79e831da70cffbd69a97f6d3a74ce7fefef",
+          "drawing_sha256": "90b8a6339065bb703b409c07e63fdcfe5c4b675486c136d6efd1190fee425645",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "5a69ff9f3809bf8c9947054e7216025a3c1b3eae071ebd1825f93e519b67ccb0",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "869446289b80a826c1eb97e39bf6b804120d38388f0fe89e0e3dee72edfde3bf",
+          "drawing_sha256": "2ab239c54092ef05dac2d0b0da4ad9b77dbecb7136d39f710ee85aae9c51fafb",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "28b0728d745e6524acff6c5d16eb6d3fce4c04b5b611fa31e758caacf3cf047b",
+          "numeric_checks": 342,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "edit-move-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "869446289b80a826c1eb97e39bf6b804120d38388f0fe89e0e3dee72edfde3bf",
+          "drawing_sha256": "2ab239c54092ef05dac2d0b0da4ad9b77dbecb7136d39f710ee85aae9c51fafb",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "0c17cbc6d794dddc7a49fc204f8ca1d69a843bba52f2d59739c24b88867f694d",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen-edited",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "typed_origin_join_states": [
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "constructed"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial_reopen"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited_reopen"
+        }
+      ]
+    },
+    {
+      "changed_clock_axis": "ModifiedAt",
+      "clock_ownership": {
+        "case": "EarlierArchiveTime",
+        "checks": {
+          "child_history_event_count_stable": true,
+          "child_history_first_event_stable": true,
+          "child_history_provenance_stable": true,
+          "child_self_and_manager_save_times_equal": true,
+          "child_stable_identity_archive_and_root_clocks": true,
+          "child_update_time_advances_only_in_edit_save": true,
+          "drawing_history_event_count_stable": true,
+          "drawing_history_first_event_stable": true,
+          "drawing_history_provenance_stable": true,
+          "drawing_stable_identity_archive_and_root_clocks": true,
+          "drawing_update_time_stays_modeled": true,
+          "edited_saved_and_reopened_clock_owners_equal": true,
+          "first_saved_and_reopened_clock_owners_equal": true,
+          "self_creation_alias_preserved": true,
+          "updated_child_and_save_times_in_phase_window": true
+        },
+        "child_header_log_counts": {
+          "constructed": 1,
+          "edited": 7
+        },
+        "child_manager_saved_at": 1795031579,
+        "computed_latest_log_tail_time": 1795031557,
+        "constructed": {
+          "child": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1760000123,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1759956906,
+              "RootFirstEventAt": 1760000123,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1760001323,
+              "UpdatedAt": 1760000152
+            }
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1761001447,
+              "UpdatedAt": 1761000276
+            }
+          }
+        },
+        "edited": {
+          "child": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1760000123,
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1759956906,
+              "RootFirstEventAt": 1760000123,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1795031579,
+              "UpdatedAt": 1795031570
+            },
+            "root_log_label_matches_model": true
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1795031655,
+              "UpdatedAt": 1761000276
+            },
+            "root_log_label_matches_model": false
+          }
+        },
+        "latest_log_tail_is_derived_not_live_api_measurement": true,
+        "new_child_log_captions": [
+          "Ambient",
+          "Directional1",
+          "Directional2",
+          "Directional3",
+          "Notes",
+          "Notes1___EndTag___"
+        ]
+      },
+      "modeled_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1759956906,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      },
+      "name": "EarlierArchiveTime",
+      "phases": [
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "e0d5aa937306ad1a3ed47ed21356fe968f711e7b249f921a4aab2e8ab4f34eb7",
+          "drawing_sha256": "b0f09326b03524d9172c1e95880147e306d664164903107eb25d3762549674b5",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "5eb7189cca0e4cf0baa1fa012bb21dd34758073f23d8799741f3b68bd206e603",
+          "numeric_checks": 210,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "open-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "e0d5aa937306ad1a3ed47ed21356fe968f711e7b249f921a4aab2e8ab4f34eb7",
+          "drawing_sha256": "b0f09326b03524d9172c1e95880147e306d664164903107eb25d3762549674b5",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "2fe79393c3838fed701a200b3aed65df6355a694d6495268cf977196ffe31c6d",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "f5cc632a5824fc91ca8b328922d9858567633ed3496fc999b301642076bdbaf1",
+          "drawing_sha256": "7b193718900b253a00acb1b667b40c3a2d83d05269b2fdf0a8e4d9effe8fa774",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "764c4a10a08de64ce521114b4f52d7b823c13b7e308e1a4d8860d2b80d4ef2c6",
+          "numeric_checks": 342,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "edit-move-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "f5cc632a5824fc91ca8b328922d9858567633ed3496fc999b301642076bdbaf1",
+          "drawing_sha256": "7b193718900b253a00acb1b667b40c3a2d83d05269b2fdf0a8e4d9effe8fa774",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "3881eda48fe9997cd0f8a95a6fc73b5d911ccb6075f3c6d27ef565772e055be4",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen-edited",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "typed_origin_join_states": [
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "constructed"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial_reopen"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited_reopen"
+        }
+      ]
+    },
+    {
+      "changed_clock_axis": "RootFirstEventAt",
+      "clock_ownership": {
+        "case": "EarlierRootEvent",
+        "checks": {
+          "child_history_event_count_stable": true,
+          "child_history_first_event_stable": true,
+          "child_history_provenance_stable": true,
+          "child_self_and_manager_save_times_equal": true,
+          "child_stable_identity_archive_and_root_clocks": true,
+          "child_update_time_advances_only_in_edit_save": true,
+          "drawing_history_event_count_stable": true,
+          "drawing_history_first_event_stable": true,
+          "drawing_history_provenance_stable": true,
+          "drawing_stable_identity_archive_and_root_clocks": true,
+          "drawing_update_time_stays_modeled": true,
+          "edited_saved_and_reopened_clock_owners_equal": true,
+          "first_saved_and_reopened_clock_owners_equal": true,
+          "self_creation_alias_preserved": true,
+          "updated_child_and_save_times_in_phase_window": true
+        },
+        "child_header_log_counts": {
+          "constructed": 1,
+          "edited": 7
+        },
+        "child_manager_saved_at": 1795031917,
+        "computed_latest_log_tail_time": 1795031895,
+        "constructed": {
+          "child": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1760000123,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1760000220,
+              "RootFirstEventAt": 1759913710,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1760001323,
+              "UpdatedAt": 1760000152
+            }
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1761001447,
+              "UpdatedAt": 1761000276
+            }
+          }
+        },
+        "edited": {
+          "child": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1760000123,
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1760000220,
+              "RootFirstEventAt": 1759913710,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1795031917,
+              "UpdatedAt": 1795031907
+            },
+            "root_log_label_matches_model": true
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1795032000,
+              "UpdatedAt": 1761000276
+            },
+            "root_log_label_matches_model": false
+          }
+        },
+        "latest_log_tail_is_derived_not_live_api_measurement": true,
+        "new_child_log_captions": [
+          "Ambient",
+          "Directional1",
+          "Directional2",
+          "Directional3",
+          "Notes",
+          "Notes1___EndTag___"
+        ]
+      },
+      "modeled_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1759913710,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      },
+      "name": "EarlierRootEvent",
+      "phases": [
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "53478b13add7f711529aa70a1809aa01b6ba312aba4481de96f628b3f0ec6296",
+          "drawing_sha256": "5f4abb4a3ca7f1e74eef20d5c8f99d4f5a7af48ae16e5827cdea2299798d8aea",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "5b0a7e0dbc15cdaaa2f2b3e9c345bde5ef6eb694e1036bd6918e49ff73360802",
+          "numeric_checks": 210,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "open-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "53478b13add7f711529aa70a1809aa01b6ba312aba4481de96f628b3f0ec6296",
+          "drawing_sha256": "5f4abb4a3ca7f1e74eef20d5c8f99d4f5a7af48ae16e5827cdea2299798d8aea",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "f948f147bd276981c8d087b365b4a2268e71800f6714c8ecf46f74184c930e23",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "df3a3514bfca10ce97cb7f3f97ffa50e33713396ba9ea7cbccffac6b51d97da7",
+          "drawing_sha256": "806e7f356c5736443ad2f8f23e1678d7a48ac79739449a70f3c873e60d46ef19",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "15f76fbf9119e4cc677c92283ed5de862f999e004bb6474c96b72cc57185bbd8",
+          "numeric_checks": 342,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "edit-move-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "df3a3514bfca10ce97cb7f3f97ffa50e33713396ba9ea7cbccffac6b51d97da7",
+          "drawing_sha256": "806e7f356c5736443ad2f8f23e1678d7a48ac79739449a70f3c873e60d46ef19",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "0b22213af2be50de409526ae3d6cfa3a841d4d4c27e39cd54d5a283b97262811",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen-edited",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "typed_origin_join_states": [
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "constructed"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial_reopen"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited_reopen"
+        }
+      ]
+    },
+    {
+      "changed_clock_axis": "VersionHistoryFirstEventAt",
+      "clock_ownership": {
+        "case": "LaterHistoryEvent",
+        "checks": {
+          "child_history_event_count_stable": true,
+          "child_history_first_event_stable": true,
+          "child_history_provenance_stable": true,
+          "child_self_and_manager_save_times_equal": true,
+          "child_stable_identity_archive_and_root_clocks": true,
+          "child_update_time_advances_only_in_edit_save": true,
+          "drawing_history_event_count_stable": true,
+          "drawing_history_first_event_stable": true,
+          "drawing_history_provenance_stable": true,
+          "drawing_stable_identity_archive_and_root_clocks": true,
+          "drawing_update_time_stays_modeled": true,
+          "edited_saved_and_reopened_clock_owners_equal": true,
+          "first_saved_and_reopened_clock_owners_equal": true,
+          "self_creation_alias_preserved": true,
+          "updated_child_and_save_times_in_phase_window": true
+        },
+        "child_header_log_counts": {
+          "constructed": 1,
+          "edited": 7
+        },
+        "child_manager_saved_at": 1795032248,
+        "computed_latest_log_tail_time": 1795032230,
+        "constructed": {
+          "child": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1760000382,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1760000220,
+              "RootFirstEventAt": 1760000123,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1760001323,
+              "UpdatedAt": 1760000152
+            }
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "history_provenance": {
+              "f28": 0,
+              "f2c": 4294967295,
+              "f30": 0,
+              "f38": 1033,
+              "f3c": 0,
+              "f40": 0
+            },
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1761001447,
+              "UpdatedAt": 1761000276
+            }
+          }
+        },
+        "edited": {
+          "child": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1760000382,
+            "model_header": {
+              "CreatedAt": 1760000123,
+              "ModifiedAt": 1760000220,
+              "RootFirstEventAt": 1760000123,
+              "SelfCreatedAt": 1760000123,
+              "SelfSavedAt": 1795032248,
+              "UpdatedAt": 1795032240
+            },
+            "root_log_label_matches_model": true
+          },
+          "drawing": {
+            "history_codes": [
+              [
+                2026001,
+                2026306
+              ]
+            ],
+            "history_first_event": 1761000247,
+            "model_header": {
+              "CreatedAt": 1761000247,
+              "ModifiedAt": 1761000344,
+              "RootFirstEventAt": 1761000247,
+              "SelfCreatedAt": 1761000247,
+              "SelfSavedAt": 1795032324,
+              "UpdatedAt": 1761000276
+            },
+            "root_log_label_matches_model": false
+          }
+        },
+        "latest_log_tail_is_derived_not_live_api_measurement": true,
+        "new_child_log_captions": [
+          "Ambient",
+          "Directional1",
+          "Directional2",
+          "Directional3",
+          "Notes",
+          "Notes1___EndTag___"
+        ]
+      },
+      "modeled_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000382
+      },
+      "name": "LaterHistoryEvent",
+      "phases": [
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "19b693acb41d1d7b454bc35c28a6dbb81cb5a4137da8e8c60638dc18bfd0c15e",
+          "drawing_sha256": "6dc2bd6af58bbec85989f66cedbb409d63107cb460052c1b5a90a782c492120a",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "8969eccf33aef78b73ec9e759c53558eb38e4e642e4e3b5409daeeb8a1c67a55",
+          "numeric_checks": 210,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "open-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "19b693acb41d1d7b454bc35c28a6dbb81cb5a4137da8e8c60638dc18bfd0c15e",
+          "drawing_sha256": "6dc2bd6af58bbec85989f66cedbb409d63107cb460052c1b5a90a782c492120a",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.007183,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0022782234220000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.0035915
+            ],
+            "mass": 5.336954583719001e-06,
+            "volume": 5.336954583719001e-06
+          },
+          "native_record_sha256": "97a59e3522ab39be12115b888b3c5a8d4c38a87564b523fdca7ebcd47b24aa0c",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "13086160add2b25ce615866e6695dcbcfbfc9dccabbb922ea5d9f6f37472839c",
+          "drawing_sha256": "da8cd937a6d9db0a9dc3b7483b1dcd97392919f16b19ebed7de0bb07637ee226",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "e6a5e870186c5314fd278cc367b6bc838b0bea52dddabc6540ba18f4a2f1b8d4",
+          "numeric_checks": 342,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "edit-move-save",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "analytic_match_six_significant_figures": true,
+          "child_sha256": "13086160add2b25ce615866e6695dcbcfbfc9dccabbb922ea5d9f6f37472839c",
+          "drawing_sha256": "da8cd937a6d9db0a9dc3b7483b1dcd97392919f16b19ebed7de0bb07637ee226",
+          "driving_dimensions_m": {
+            "D1@EpochBoss": 0.009114,
+            "D1@EpochProfile": 0.031729,
+            "D2@EpochProfile": 0.023417000000000004
+          },
+          "fully_constrained_status": 3,
+          "mass": {
+            "area": 0.0024911972740000003,
+            "com": [
+              0.0158645,
+              0.011708500000000002,
+              0.004557000000000001
+            ],
+            "mass": 6.771683708202001e-06,
+            "volume": 6.771683708202001e-06
+          },
+          "native_record_sha256": "d5bbc11c484daa1a22803778e4304568c765161d7676a6845f38ab579bff7d79",
+          "numeric_checks": 140,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen-edited",
+          "single_solid_body_api_counts": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "typed_origin_join_states": [
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "constructed"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "initial_reopen"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited"
+        },
+        {
+          "actual_creation_time": 2592000,
+          "actual_origin_id": 17,
+          "all_predicates_passed": true,
+          "config_owner_field_present": false,
+          "configuration_class": "moPartConfiguration_c",
+          "configuration_id": 0,
+          "passed": true,
+          "state": "edited_reopen"
+        }
+      ]
+    }
+  ],
+  "clock_classification": {
+    "clock_attribution": "phase-wide archived changes; no live setter or archive-helper mode measured",
+    "drawing_f48": "retains the modeled value through view move/save/reopen in these cases",
+    "history": "event and six provenance fields retained; existing date-code list appends observed native build code at first save",
+    "persisted_through_all_phases": [
+      "header f70",
+      "header f50",
+      "root first event",
+      "History first event",
+      "self shared f28"
+    ],
+    "root_logs": "six regenerated helper-caption logs appear when the child is saved; the original root event is retained",
+    "updated_in_child_edit_save_phase": [
+      "child header f48",
+      "child self f60",
+      "child manager-header f60"
+    ],
+    "updated_in_drawing_save_phases": [
+      "drawing self f60"
+    ]
+  },
+  "clock_observation_sha256": "a8f7c0c47b19c059da70b8486040dc469d83627d6c226d67d1e653edd32a36ae",
+  "clock_ownership_case_count": 4,
+  "controls": {
+    "ControlAfter": {
+      "body_count": 1,
+      "mass": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06,
+        "volume": 8.000000000000001e-06
+      },
+      "passed": true
+    },
+    "ControlBefore": {
+      "body_count": 1,
+      "mass": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06,
+        "volume": 8.000000000000001e-06
+      },
+      "passed": true
+    }
+  },
+  "delivery_pr": 121,
+  "distinct_native_processes": 18,
+  "guarded_process_result_sha256": "2ba35c5237cd84576e234aaba3bb60d043147b11224b2175ebc8c31d5019a83f",
+  "independent_data_audit_sha256": "6f9b366f54fadb91cac75d0cd2198e8fa3e032985764dab94c229bce82426a30",
+  "limits": [
+    "Controlled discovery cases only; original full-source metadata and other unsupported semantics still require complete portable construction",
+    "No general live setter, callback or helper-mode claim",
+    "No new default epoch or native build-code constant inferred",
+    "CMgr global part-owner alias across independent maps is not admitted; exact configuration directory and selected object aliases are checked",
+    "Original-source verdict, hidden custody and public constructor policy are unchanged"
+  ],
+  "native_processes": 18,
+  "native_result_sha256": "93e2df4a270b472b13d8d44700c913da4e9d746ae73935d7799d0da4682298e3",
+  "numeric_checks": 3328,
+  "packet_sha256": "e01c2bcc71d824c82e58f096d6741fbe10da79e9732b3e0fe5ab9bec3233e5e9",
+  "schema": "kit.sw2026.drawing-epoch-disclosed-native-receipt.v1",
+  "scope": "Four independently modeled source-epoch discovery pairs; no original hidden input or broad constructor admission",
+  "single_solid_body_api_calls": 96,
+  "source_and_raw_immutable": true,
+  "source_file_count": 5047,
+  "source_manifest_sha256": "7e0b70e7d1cf2933641d99214a9919601f9aabae3f3c8c3246c7668fcd5bfcf2",
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "typed_join_method_sha256": "d8f53c071574918b9cf3cba8e20c09f11edbe93837c05e3fd0d5346f8475711d",
+  "typed_join_processes": 5,
+  "typed_join_reports": [
+    {
+      "pairs_sha256": "7355d7d784c105c41a2c38efc30e2f6102f8dcf28c2017d0b0b23f5ec6d80b57",
+      "passed": true,
+      "report_sha256": "32b26609f9981f6c9d661aef12dfe27239d7e7746af060c47e8aeb7027eee072",
+      "state": "constructed"
+    },
+    {
+      "pairs_sha256": "e9ef727b5beda1417fed25093099f369de17984acc8c2bb53d8d816a7b449a47",
+      "passed": true,
+      "report_sha256": "22fad22d929030651cd9f94e4848b8911fc0bfe4498f16ad21ac019faa9f72e4",
+      "state": "initial"
+    },
+    {
+      "pairs_sha256": "92684dfcb6ed28e9ca2abcd1e1044ad81d5e463941d3c0b1e2fa25ff07db8495",
+      "passed": true,
+      "report_sha256": "a8581b2e56a67eca84a93367fa79b4a51c3c366dde675c50d05346ea63b5cfef",
+      "state": "initial_reopen"
+    },
+    {
+      "pairs_sha256": "8b9b3594286c5e315927a741f4c6ef29ae3ad6909b5f53fb9520dded872a6cb4",
+      "passed": true,
+      "report_sha256": "aadbc5e04af7ad7ebb07b1a8ca6cbbbc92eb58297f35fcee2eaa06b537b74fb0",
+      "state": "edited"
+    },
+    {
+      "pairs_sha256": "2e7cab2e1f06f1676372423958be6f8d31a271b7880361f6bea826ab5f67982d",
+      "passed": true,
+      "report_sha256": "91852227b7dc7c0698b317e67d4d28b5741303619e8563987fffd8de732b9b16",
+      "state": "edited_reopen"
+    }
+  ],
+  "typed_join_result_sha256": "cb47a4cc4ba7c7901e06d57e884feb4a506247f6aecf3d3c66b93782d9c4c6da",
+  "typed_joined_pairs": 20
+}

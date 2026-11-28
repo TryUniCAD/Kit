@@ -1,0 +1,581 @@
+{
+  "build": "34.5.2.0604",
+  "cases": {
+    "DatumHeightShort.SLDPRT": {
+      "datum": {
+        "angle": 0.7853981633974483,
+        "dimension_id": 44,
+        "hinge_inputs": [
+          "Top Plane",
+          "Right Plane"
+        ],
+        "hinge_name": "EnvelopeHinge",
+        "kind": "angle",
+        "physical_faces": 16,
+        "plane_inputs": [
+          "Right Plane",
+          "EnvelopeHinge"
+        ],
+        "pre_datum_features_sha256": "b9b640719bb4c261e91b3a09247502cef88e71c9e00ad1b073508909ba0d6b79",
+        "unit": "rad"
+      },
+      "geometry_sha256": "854b199c105d6a30e754aaa2ca7aff4f64da5c7c1840c163cc7479e5360e773f",
+      "native_observation_sha256": "8e02465235cb6b6df2234a4a6a8fb2fc0d62108deb6d344693e8001205d59105",
+      "native_source_sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          60.359439922320824,
+          44.87672853350081,
+          2.9141721717588767
+        ],
+        "count": 2,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:52:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 46,
+              "dimension_index": 434,
+              "display_index": 431,
+              "end": 24560,
+              "field_span": false,
+              "handle_index": 432,
+              "object_index": 436,
+              "offset": 24497,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 2
+          },
+          "D3": {
+            "id": "sldprt:parameter:52:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 47,
+              "dimension_index": 441,
+              "display_index": 439,
+              "end": 26065,
+              "field_span": false,
+              "handle_index": 440,
+              "object_index": 442,
+              "offset": 26022,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 20.0
+          }
+        },
+        "face_count": 16,
+        "parameter_ids": [
+          "sldprt:parameter:52:D1",
+          "sldprt:parameter:52:D3"
+        ],
+        "parents": [
+          "SeedBoss",
+          "EnvelopeDirection"
+        ],
+        "physical_body_node": 2,
+        "plane": "EnvelopeDirection",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:45"
+        ],
+        "signed_direction": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ],
+        "spacing_mm": 20.0,
+        "volume_mm3": 62669.24999999999,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:41 (solidworks.sldprt:Axis); <memory>: sldprt:feature:45 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      }
+    },
+    "DatumHeightTall.SLDPRT": {
+      "datum": {
+        "angle": 0.7853981633974483,
+        "dimension_id": 44,
+        "hinge_inputs": [
+          "Top Plane",
+          "Right Plane"
+        ],
+        "hinge_name": "EnvelopeHinge",
+        "kind": "angle",
+        "physical_faces": 16,
+        "plane_inputs": [
+          "Right Plane",
+          "EnvelopeHinge"
+        ],
+        "pre_datum_features_sha256": "616df43818b78909bc438f3e0e4b55366ff5a98da6fc5d646a07dd7b61ff25a1",
+        "unit": "rad"
+      },
+      "geometry_sha256": "6a478c3c6ad0492283602d1522e9e90ff27519fb6eb693bd81a2d096bb93e8b1",
+      "native_observation_sha256": "3a00c33a491a0bf56de2cab0c1fe20a1a8f0a76e8429d1fe4caf39db12f7c9d6",
+      "native_source_sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          61.76300634451036,
+          44.39536939544187,
+          3.328882801952435
+        ],
+        "count": 2,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:52:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 46,
+              "dimension_index": 434,
+              "display_index": 431,
+              "end": 24560,
+              "field_span": false,
+              "handle_index": 432,
+              "object_index": 436,
+              "offset": 24497,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 2
+          },
+          "D3": {
+            "id": "sldprt:parameter:52:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 47,
+              "dimension_index": 441,
+              "display_index": 439,
+              "end": 26065,
+              "field_span": false,
+              "handle_index": 440,
+              "object_index": 442,
+              "offset": 26022,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 20.0
+          }
+        },
+        "face_count": 16,
+        "parameter_ids": [
+          "sldprt:parameter:52:D1",
+          "sldprt:parameter:52:D3"
+        ],
+        "parents": [
+          "SeedBoss",
+          "EnvelopeDirection"
+        ],
+        "physical_body_node": 2,
+        "plane": "EnvelopeDirection",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:45"
+        ],
+        "signed_direction": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ],
+        "spacing_mm": 20.0,
+        "volume_mm3": 64995.75,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:41 (solidworks.sldprt:Axis); <memory>: sldprt:feature:45 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      }
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "datum": {
+        "angle": 0.7853981633974483,
+        "dimension_id": 44,
+        "hinge_inputs": [
+          "Top Plane",
+          "Right Plane"
+        ],
+        "hinge_name": "EnvelopeHinge",
+        "kind": "angle",
+        "physical_faces": 16,
+        "plane_inputs": [
+          "Right Plane",
+          "EnvelopeHinge"
+        ],
+        "pre_datum_features_sha256": "906592a3916e5f7833c5aec4ba6c63dcc71d8fbee9456c58d8c9b9d36c122828",
+        "unit": "rad"
+      },
+      "geometry_sha256": "f2f4a2504bf91a166fec35b01b34f569ca650263d80d73ee09cd0e62bc7a7a7a",
+      "native_observation_sha256": "867f7729b426cb118fcb59435f901fd75ed76cc76d31e99d930c6a48529af477",
+      "native_source_sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          60.80344493782433,
+          44.72445510477115,
+          2.999361067726821
+        ],
+        "count": 2,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:52:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 46,
+              "dimension_index": 434,
+              "display_index": 431,
+              "end": 24560,
+              "field_span": false,
+              "handle_index": 432,
+              "object_index": 436,
+              "offset": 24497,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 2
+          },
+          "D3": {
+            "id": "sldprt:parameter:52:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 47,
+              "dimension_index": 441,
+              "display_index": 439,
+              "end": 26065,
+              "field_span": false,
+              "handle_index": 440,
+              "object_index": 442,
+              "offset": 26022,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 20.0
+          }
+        },
+        "face_count": 16,
+        "parameter_ids": [
+          "sldprt:parameter:52:D1",
+          "sldprt:parameter:52:D3"
+        ],
+        "parents": [
+          "SeedBoss",
+          "EnvelopeDirection"
+        ],
+        "physical_body_node": 2,
+        "plane": "EnvelopeDirection",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:45"
+        ],
+        "signed_direction": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ],
+        "spacing_mm": 20.0,
+        "volume_mm3": 63387.0,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:41 (solidworks.sldprt:Axis); <memory>: sldprt:feature:45 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      }
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "datum": {
+        "angle": 0.7853981633974483,
+        "dimension_id": 44,
+        "hinge_inputs": [
+          "Top Plane",
+          "Right Plane"
+        ],
+        "hinge_name": "EnvelopeHinge",
+        "kind": "angle",
+        "physical_faces": 17,
+        "plane_inputs": [
+          "Right Plane",
+          "EnvelopeHinge"
+        ],
+        "pre_datum_features_sha256": "0cfb37c23d892f7f062ab36fcd11120c6e227ad96433b4bf4245d4bb623d2d5f",
+        "unit": "rad"
+      },
+      "geometry_sha256": "57ed0ec6eeececc7d84cc6f86b42e146e8abe3d07ee0167ca07aa0f02c27ecf9",
+      "native_observation_sha256": "a2ee260d2ae5d382c5dfe586319bc0acc15581df49e35ff5d24007152b5e7bbb",
+      "native_source_sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168",
+      "pattern": null
+    }
+  },
+  "codec_sha256": {
+    "ApplyPatDoc.py": "d9fc1cae9fccc790df20dd7f4f904bee98fe919fe4b6340f09fb3db0f2424174",
+    "ApplyTiltDoc.py": "8ae7440fbee3c8accc6d35786af1abd86a492eaab758b71ed7fb4114112b4dd1",
+    "BindPatBody.py": "94b5e68ff0c5d408e8fc5bd3a8094365a6de0f4d8204d6d38cf409a209f325c0",
+    "BindPatStep.py": "f77b845f9af0514fb28512f8078f292690f429ececf6ecdc8f87012871f2e310",
+    "CheckPatMode.py": "f4936d4b4b31fc3c665c862ba881e82eab606db3b2dc8dac7fda3f5712a7fcca",
+    "CheckPatOrig.py": "f0494172122fb881b3e18f1590188c90e7b49d7e3df8442ac7ad23e76327f96b",
+    "CheckPatPick.py": "51ed60e6ccc74a98a3bf1cd2eba97d6662003e473555d8596c1f6e86c2f92be2",
+    "MakePatParam.py": "d3654bcfd2bbf4614c029206b3d7f9ce2cae28a548f8b57d5b6697934dbd832f",
+    "MakePatSelect.py": "8f78a5c4ac98c9d0cd0cad1f6e575a2274c9972b31d79c7ab41b4dfd803b40a9",
+    "PatternDatum.py": "93116a6abce733a6737afc6da3c2d8b778f30c18e1706903ffa21f8363fc1239",
+    "PatternDim.py": "3695ae1c68da6ab874ec2230a2733b6f16f185d3ceebff196ee58a954bc20850",
+    "PatternOwner.py": "4d71655443b81517524c0d8bc1399d7a0ed65d0efff5e5a387dee26b36cbf1f9",
+    "ReadPatBody.py": "8649b091e235e18955c46912e527c8c46ecc68105e69be3c044a85550bb83348",
+    "ReadPatChain.py": "7c72ce860d5ac4a91587c00faf6c5f77c7cb61aaf3dbd7140c783399840d9d2b",
+    "ReadPatDatum.py": "92f79df294ae8bd862bdc9a7fb6374a103acd7f0cc8f882fe7bed48ecd2252c6",
+    "ReadPatDim.py": "3b52e796d33d6101e4e566c2b7628c7a177ae90bd46997fa073830c654b5c457",
+    "ReadPatDrivers.py": "ecd5ed0a233350ed08e9edb404492d4a3a08c598222d3e04928f5057b6a77398",
+    "ReadPatOwner.py": "a0063bf381913dbb61b9ea81e2323cd93327cd68eb6588784cc6c2b70137d08f",
+    "ReadPatTilt.py": "7b1efd317104ea79126233233cfd1e88881a83a4681c494c62232682aac58403",
+    "ReadTiltFrame.py": "7978b5ed73b2e54c83bbe9a7ff2d1747335f7556dc3823e4474e0a936d94968d",
+    "ReadTiltHinge.py": "9a4d6d80518437f81f6ca5e759ad4c2576735105bbb518da12a339a57ab09a3c",
+    "ReadTiltRef.py": "777719a98d6b6f4f9b37afbb049339ac2dc603ad49431e75af8b698fdece2064",
+    "TiltOwner.py": "781610ad241e30c10a8ac78def68a805d878c45f176f5a24e49db5b2f4aeca40",
+    "WithPatternDoc.py": "882b3fb8e9048cdbf2ad4bb0855a26de6f79345137bb0a397c11378a4e691c9e"
+  },
+  "guarded_processes": 29,
+  "heldout_inputs_read": 0,
+  "native_files_published": 0,
+  "native_processes_started": 0,
+  "owner_refusals": [
+    {
+      "field": "f148",
+      "refusal": "angular datum requires its local unreversed live driver"
+    },
+    {
+      "field": "f10",
+      "refusal": "angular datum requires its local unreversed live driver"
+    },
+    {
+      "field": "f58",
+      "refusal": "angular datum requires its local unreversed live driver"
+    },
+    {
+      "field": "f08",
+      "refusal": "angular datum selection contradicts its registered creation"
+    },
+    {
+      "field": "b3",
+      "refusal": "angular datum border contradicts the finite hinge"
+    },
+    {
+      "field": "fc8",
+      "refusal": "pattern direction contradicts its angular plane border or signed normal"
+    }
+  ],
+  "schema": "kit.sw2026.warm-angular-pattern-read.v1",
+  "sdk_baseline": "bfac46e67751493f1f25c7453b7e8f09d0c30234",
+  "unchanged_controls": {
+    "ColdRaisedPatternA.SLDPRT": {
+      "source_sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+      "strict_refusal": "SLDPRT contains no readable Parasolid payload",
+      "without_brep": {
+        "brep_ids": [],
+        "design_ids": [
+          "sldprt:body:1"
+        ],
+        "document_sha256": "d1e25ca75151917acb6121503caadf8d6f740d947c893b56453ab1853a3898cd",
+        "feature_ids": [
+          "sldprt:feature:1",
+          "sldprt:feature:2",
+          "sldprt:feature:3",
+          "sldprt:feature:4",
+          "sldprt:feature:5",
+          "sldprt:feature:6",
+          "sldprt:feature:7",
+          "sldprt:feature:8",
+          "sldprt:feature:10",
+          "sldprt:feature:11",
+          "sldprt:feature:12",
+          "sldprt:feature:13",
+          "sldprt:feature:14",
+          "sldprt:feature:15",
+          "sldprt:feature:16",
+          "sldprt:feature:17",
+          "sldprt:feature:18",
+          "sldprt:feature:19",
+          "sldprt:feature:21",
+          "sldprt:feature:22",
+          "sldprt:feature:24",
+          "sldprt:feature:26",
+          "sldprt:feature:33",
+          "sldprt:feature:9"
+        ],
+        "final_feature_ids": [
+          "sldprt:feature:33"
+        ],
+        "general_features_sha256": "674bcc9a68a7f9573f7c692cec0c62a501bd4194026ef0ca4304510ef0d82c15",
+        "geometry_sha256": null,
+        "last_type": "NativeFeatureDefinition",
+        "pattern": null,
+        "payload_sha256": [],
+        "sketches_and_planes_sha256": "6e010594a3c3f62af3c33c792237147a3883967bdd0c08e95edc0877700163ec"
+      }
+    },
+    "ColdRaisedPatternB.SLDPRT": {
+      "source_sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+      "strict_refusal": "SLDPRT contains no readable Parasolid payload",
+      "without_brep": {
+        "brep_ids": [],
+        "design_ids": [
+          "sldprt:body:1"
+        ],
+        "document_sha256": "7bbc8abaaabe3946f0426f11531a6c741a1be22beb918589b7ee8a1608c20b1a",
+        "feature_ids": [
+          "sldprt:feature:1",
+          "sldprt:feature:2",
+          "sldprt:feature:3",
+          "sldprt:feature:4",
+          "sldprt:feature:5",
+          "sldprt:feature:6",
+          "sldprt:feature:7",
+          "sldprt:feature:8",
+          "sldprt:feature:10",
+          "sldprt:feature:11",
+          "sldprt:feature:12",
+          "sldprt:feature:13",
+          "sldprt:feature:14",
+          "sldprt:feature:15",
+          "sldprt:feature:16",
+          "sldprt:feature:17",
+          "sldprt:feature:18",
+          "sldprt:feature:19",
+          "sldprt:feature:21",
+          "sldprt:feature:22",
+          "sldprt:feature:24",
+          "sldprt:feature:26",
+          "sldprt:feature:33",
+          "sldprt:feature:9"
+        ],
+        "final_feature_ids": [
+          "sldprt:feature:33"
+        ],
+        "general_features_sha256": "2076412a3fe3908c80ac1ce483f25ad47842e619a5fdf5c46747f65a270df9d1",
+        "geometry_sha256": null,
+        "last_type": "NativeFeatureDefinition",
+        "pattern": null,
+        "payload_sha256": [],
+        "sketches_and_planes_sha256": "4d15bf9b9e3dc59502ddb58308d60f3b9991e15f354cb2afff8067edaeb85b18"
+      }
+    },
+    "D01X.SLDPRT": {
+      "document_sha256": "f03579f15f2824ec442974ab5b360bc2189a7b4204224baf9991d2cddbf75c7c",
+      "source_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839"
+    },
+    "D01XInstances.SLDPRT": {
+      "document_sha256": "2642c110670b45c206dd1529769b7f8ac44ce527ea4966717f36d52bfc9c4496",
+      "source_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600"
+    },
+    "D01XSpacing.SLDPRT": {
+      "document_sha256": "ec010f728a6c3a22e9c288de67d7cae93a1ea3402be242865c7dfbc1dcf2b941",
+      "source_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403"
+    },
+    "D02Y.SLDPRT": {
+      "document_sha256": "0e159e333aecf8b98e85502005870e35a82f2f1a5cd758b136df5bcf55a8b206",
+      "source_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371"
+    },
+    "D02YInstances.SLDPRT": {
+      "document_sha256": "67b407638dffb765eef4f698c06bf1fe14ec4e13deaf757ba47183b15717cc96",
+      "source_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2"
+    },
+    "D02YSpacing.SLDPRT": {
+      "document_sha256": "04c387f309084cfe610a0d1d926f5460110d99863efe461deca0f3e9a5c444c7",
+      "source_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d"
+    },
+    "L1_boss.SLDPRT": {
+      "document_sha256": "463debecbdc247f1f12e386a9d2951f26f7fb4b31d4de1ab9b1ece3e344ad891",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "PrincipalRevolveTopForward.SLDPRT": {
+      "document_sha256": "167b4900bb64e4aba5261886b3176dad1fc5e4bcad28f20b2a03d18a0713d3d5",
+      "source_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0"
+    }
+  }
+}

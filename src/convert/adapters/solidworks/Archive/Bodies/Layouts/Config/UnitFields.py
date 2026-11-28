@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# native field order lets the read profile recover each concrete unit owner
+# current native field order supplies both directions without saved document values
 KUnitFields = MappingProxyType(
     {
         "moAngleUserUnits_c": (

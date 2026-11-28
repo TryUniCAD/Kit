@@ -1,0 +1,134 @@
+{
+  "additional_actual_f14_inputs_rejected": 11,
+  "candidate": {
+    "bytes": 9971,
+    "sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "5a6cc90e12c5df9ce3d47e5ad9d48568284c17d396c723c9b74522927268694b"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+      },
+      "Contents/Config-0": {
+        "bytes": 22242,
+        "sha256": "26ae5eea251c08890d3335374c1b81632e4e1020346c9d4a236d676148717cc3"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 567,
+        "sha256": "334ca63db6897f040134ab19f780f2291b3522e323cf9a4d632f177fa9a59e2d"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 17885,
+        "sha256": "dad72557242dff1cd02292d45aac933ac127bf38efaf0a26c49ceba0935e3d4b"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 567,
+        "sha256": "7010556b689de2d26d7ff6c8a8e30a9ef1613d21d7917e06d780e0d552e98520"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+      },
+      "docProps/core.xml": {
+        "bytes": 490,
+        "sha256": "d47869957d32c60d1f0b933b95365669a5485fe973318fa06fc4503436285ed3"
+      },
+      "docProps/custom.xml": {
+        "bytes": 4630,
+        "sha256": "5b6c53c462a5d2ec14397e03da7fa2fc2b86150ab7f0f7cc5c8c093705bff8ec"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1492,
+        "sha256": "8837ea960d90d430086a984d1366f3d45d4e74bf3382e137fbdea3ead39a4a83"
+      }
+    }
+  },
+  "delivery_pr": 121,
+  "fcstd_corpus_parts_counted": 0,
+  "frozen_build_stdout_sha256": "1cf2820721c4d5eb604309696711fa57281b5f4f49a15143acfd6e73ad3c5e41",
+  "geometry": {
+    "area_m2": 0.0021999999999999997,
+    "body_count": 1,
+    "bounds_mm": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        20.0,
+        30.0,
+        10.0
+      ]
+    ],
+    "centre_m": [
+      0.01,
+      0.015,
+      0.005
+    ],
+    "source_cache_compared": true,
+    "volume_m3": 6e-06
+  },
+  "guarded_build_processes": 4,
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "native_packet_sha256": "e828e6f4cbbb1a97e9d016f67dad83e6cc326900418bae95a4ef0a6d6821d8a7",
+  "native_processes": 0,
+  "normal_full_brep_read": {
+    "include_brep": true,
+    "passed": false,
+    "reason": "no readable Parasolid payload",
+    "strict": true
+  },
+  "normal_history_read": {
+    "compatible_text_status": "complete",
+    "include_brep": false,
+    "include_tessellation": false,
+    "info": [
+      "sldprt.native_record_unresolved"
+    ],
+    "modeled_drivers": 3,
+    "native_model_rows": 19,
+    "strict": true
+  },
+  "passed": true,
+  "projected_file_text_fields": 13,
+  "public_writer_qualified": false,
+  "recorded_vendor_payloads_forwarded": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.sdk-freecad-origin-box-build-receipt.v1",
+  "source": {
+    "disclosed": true,
+    "name": "recipe-0.21.2-F14a.FCStd",
+    "sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d",
+    "source_feature": "PartDesign::AdditiveBox",
+    "strict_neutral_request_sha256": "26a4c08a8625ad04a1f0d49d293c027616c7310ed4b3a596789c2fbbf175225d",
+    "verified_original_benchmark_member": false
+  },
+  "source_body_label": "Body",
+  "source_closure_file_count": 5105,
+  "source_closure_sha256": "85713a393eb2c67e11f3322b91ac582cea3a9d6d844012055b121ce8046fe493",
+  "source_dims_mm": [
+    20.0,
+    30.0,
+    10.0
+  ],
+  "source_driver_to_native_owner": {
+    "freecad:parameter:AdditiveBox:Height": "D1@AdditiveBox",
+    "freecad:parameter:AdditiveBox:Length": "D1@AdditiveBox Profile",
+    "freecad:parameter:AdditiveBox:Width": "D2@AdditiveBox Profile"
+  },
+  "source_feature_label": "AdditiveBox",
+  "task": "B04-SW2026-FCSTD-BOX"
+}

@@ -1,0 +1,337 @@
+{
+  "schema": "kit.sw2026.through-all-disclosed-source-read-evidence.v1",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "owner": "assembly_occurrence",
+  "delivery_pr": 121,
+  "source_case": "Packet03/D01",
+  "source_designs": 1,
+  "native_source_lock_sha256": "e1928c8d6ab8ad4f0944a488f789a48fea32e8b85f4215651643baf901d39e46",
+  "native_source_snapshot_sha256": "1fce1d50c3d30aba4b9e55cae0f9854ec2a8941b233efce6f172d66aa17643e5",
+  "source_phases": {
+    "before": {
+      "sha256": "2bdb1f4713e211501ee56bf3515b1af9376148989310981fe69c2ab98a9082ee",
+      "identity": {
+        "process_id": 10448,
+        "process_creation_filetime": 134394938335547948,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true,
+      "numeric_checks": 0
+    },
+    "author": {
+      "sha256": "e860edd89f22365ceb76424014fce744e5f3d4d9c6ae37cc7d7b4e6a1b4e45b6",
+      "identity": {
+        "process_id": 8564,
+        "process_creation_filetime": 134394938640225131,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true,
+      "numeric_checks": 36
+    },
+    "reopen-source": {
+      "sha256": "cea1fabe7366d73f3ba8708cd2bee4afdd0b67d8d22fbfe5d79061b7d541ff1e",
+      "identity": {
+        "process_id": 1184,
+        "process_creation_filetime": 134394939296622572,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true,
+      "numeric_checks": 22
+    },
+    "reopen-edited": {
+      "sha256": "0b6174c28f7ae4643f00330a68d57c1d28f6b13e9435361bbc529ef7bf736ba1",
+      "identity": {
+        "process_id": 2740,
+        "process_creation_filetime": 134394939648475191,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true,
+      "numeric_checks": 22
+    },
+    "after": {
+      "sha256": "bb697978a61c06c152e69dece2a8058605f744528ac9599402f5bffabe839e17",
+      "identity": {
+        "process_id": 7612,
+        "process_creation_filetime": 134394939983273553,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true,
+      "numeric_checks": 0
+    }
+  },
+  "native_process_count": 5,
+  "native_source_controls_healthy": true,
+  "source_files": {
+    "source": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+    "edited": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144"
+  },
+  "read_process_receipt_sha256": "e2ce5101c7e703747400c29ff2a29be09dfe21007b4a602789f052e692b835f3",
+  "sdk_snapshot_manifest_sha256": "6f329da9ef6116d0e2658133f7252060268eae68630195cbc75ab092c9203c7d",
+  "source_only_workers": 8,
+  "scoped_stream_round_trips": 12,
+  "retained_decoded_bytes": {
+    "source": 47696,
+    "edited": 48980
+  },
+  "negative_mutations": {
+    "active-distance": "the through-all end cannot supply an active distance, draft or custom direction owner",
+    "second-distance": "the through-all end cannot supply an active distance, draft or custom direction owner",
+    "second-end": "the disclosed grammar requires one forward type-one cut end",
+    "chooser-owner": "cut body chooser does not alias its owning feature",
+    "consumes-output": "cut body dependency does not alias its managed boss output",
+    "wrapper-atom": "cut selection wrapper differs from the consumed boss atom"
+  },
+  "end_fields": {
+    "f08": 1,
+    "f0c": 1,
+    "f10": 0,
+    "f100": {
+      "items": [],
+      "n": 0
+    },
+    "f128": 1,
+    "f12c": 0,
+    "f130": 0,
+    "f138": null,
+    "f140": {
+      "class": "moFromEndSpec_c",
+      "end_offset": 14592,
+      "index": 325,
+      "name": null,
+      "native_f08": null,
+      "schema": 1,
+      "start_offset": 14586
+    },
+    "f148": 0,
+    "f14c": 0,
+    "f150": 0,
+    "f154": 0,
+    "f158": 1119080160,
+    "f18": null,
+    "f20": null,
+    "f28": {
+      "items": [],
+      "n": 0
+    },
+    "f48": {
+      "items": [],
+      "n": 0
+    },
+    "f88": 0,
+    "f8c": 1,
+    "f90": null,
+    "fa0": 0.0,
+    "fa8": 0,
+    "fac": 0,
+    "fb0": 0,
+    "fb4": 0,
+    "fb8": 0,
+    "fbc": 0,
+    "fc0": 0,
+    "fc4": 0,
+    "fc8": null,
+    "fd0": null,
+    "fd8": 0,
+    "fdc": 0,
+    "fe0": {
+      "items": [],
+      "n": 0
+    },
+    "has_f28": 1,
+    "has_f48": 1
+  },
+  "body_ownership": {
+    "consumed_atom_id": 101,
+    "managed_atoms": [
+      {
+        "atom_id": 101,
+        "class": "moAtom_c",
+        "end_offset": 3258,
+        "index": 59,
+        "name": null,
+        "native_f08": -1,
+        "producer_id": 32,
+        "schema": 1,
+        "start_offset": 3170
+      },
+      {
+        "atom_id": 102,
+        "class": "moAtom_c",
+        "end_offset": 3170,
+        "index": 58,
+        "name": null,
+        "native_f08": -1,
+        "producer_id": 40,
+        "schema": 1,
+        "start_offset": 3070
+      }
+    ],
+    "result_atom_id": 102,
+    "scope_code": 1,
+    "selection_component_owner_alias": true,
+    "selection_owner_alias": true,
+    "selection_wrapper": {
+      "f100": 0,
+      "f104": 0,
+      "f108": 32,
+      "f110": [
+        {
+          "v": 101
+        }
+      ],
+      "f18": 101,
+      "f1c": 101,
+      "f20": 0,
+      "f30": 0,
+      "f34": 0,
+      "f48": 0,
+      "f4c": 19000,
+      "f58": {
+        "class": "moUnitComponent_c",
+        "end_offset": 13525,
+        "index": 291,
+        "name": null,
+        "native_f08": null,
+        "schema": 1,
+        "start_offset": 13520
+      },
+      "f68": 0,
+      "f70": 0,
+      "f84": 0,
+      "f90": -1,
+      "f94": -1,
+      "f98": -1,
+      "f9c": -1,
+      "fa0": 0,
+      "ff0": {
+        "class": "moFaceRef_c",
+        "end_offset": 13775,
+        "index": 292,
+        "name": null,
+        "native_f08": 6,
+        "schema": 1,
+        "start_offset": 13605
+      },
+      "has_fb0": 0,
+      "has_fb8": 0,
+      "has_fc0": 0,
+      "has_fc8": 0,
+      "has_fd0": 0,
+      "n110": 1
+    }
+  },
+  "stock_depth_m": {
+    "source": 0.02791,
+    "edited": 0.04153
+  },
+  "native_geometry": {
+    "source": {
+      "body_count": 1,
+      "mass": {
+        "area": 0.013967801633414718,
+        "com": [
+          0.0034967773433163024,
+          -0.002607191405961744,
+          -0.00023031201141308197
+        ],
+        "mass": 8.996273307849843e-05,
+        "volume": 8.996273307849843e-05
+      },
+      "prediction": {
+        "analytic_qualified": true,
+        "area": 0.013967801633414718,
+        "axial_span_m": 0.013955,
+        "body_count": 1,
+        "com": [
+          0.0034967773433163037,
+          -0.0026071914059617456,
+          -0.00023031201141308176
+        ],
+        "com_local": [
+          0.0034967773433163037,
+          -0.0026071914059617456,
+          -0.00023031201141308176
+        ],
+        "removed_volume": 2.969473021501564e-06,
+        "volume": 8.996273307849845e-05
+      },
+      "tree_rows": 27
+    },
+    "edited": {
+      "body_count": 1,
+      "mass": {
+        "area": 0.017534270922096497,
+        "com": [
+          0.003496777343316305,
+          -0.002607191405961745,
+          -0.00034270361282641643
+        ],
+        "mass": 0.00013386428895557293,
+        "volume": 0.00013386428895557293
+      },
+      "prediction": {
+        "analytic_qualified": true,
+        "area": 0.017534270922096497,
+        "axial_span_m": 0.020765,
+        "body_count": 1,
+        "com": [
+          0.003496777343316304,
+          -0.0026071914059617456,
+          -0.0003427036128264166
+        ],
+        "com_local": [
+          0.003496777343316304,
+          -0.0026071914059617456,
+          -0.0003427036128264166
+        ],
+        "removed_volume": 4.4185673444270855e-06,
+        "volume": 0.0001338642889555729
+      },
+      "tree_rows": 27
+    }
+  },
+  "typed_projection": {
+    "cut_circle": "qualified disclosed geometric facet with no radial driver",
+    "stock_profile": "unsupported active contour projection: 8 point rows and 5 line rows with retired entries and four axis constraints",
+    "end": "isolated forward through-all grammar, no active length owner",
+    "normal_public_status": {
+      "source": {
+        "archive_version": 19000,
+        "configuration_id": 0,
+        "diagnostic": "extrusion end mode is outside ordinary boss semantics",
+        "full_linked_graph": false,
+        "public_writer_qualified": false,
+        "status": "unsupported",
+        "typed_assembly_mates": false,
+        "typed_geometry_projection": false
+      },
+      "edited": {
+        "archive_version": 19000,
+        "configuration_id": 0,
+        "diagnostic": "extrusion end mode is outside ordinary boss semantics",
+        "full_linked_graph": false,
+        "public_writer_qualified": false,
+        "status": "unsupported",
+        "typed_assembly_mates": false,
+        "typed_geometry_projection": false
+      }
+    },
+    "normal_public_enabled": false
+  },
+  "unclassified_save_fields": {
+    "f150": 0,
+    "f154": 0,
+    "f158": 1119080160,
+    "writer_rule": null
+  },
+  "native_generated_acceptance": false,
+  "source_reader_coverage_complete": false,
+  "hidden_inputs_read": 0,
+  "writer_output_count": 0,
+  "native_processes_started_by_auditor": 0
+}

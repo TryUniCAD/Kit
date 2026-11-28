@@ -1,0 +1,67 @@
+{
+  "assembly_overwrite_enabled": false,
+  "default_and_explicit_native_bytes_match": true,
+  "direct_windows_filesystem_execution": false,
+  "dispatch_source_paths": 8,
+  "distinct_processes": 29,
+  "known_shared_publication_race_reproduced": true,
+  "limitations": [
+    "shared publication check-to-replace race remains",
+    "overwrite partial-backup path is closed",
+    "no crash atomicity claim",
+    "genuine Windows direct-path filesystem execution is pending",
+    "native lifecycle evidence is the prior scoped private-registry trial"
+  ],
+  "native_input_files": {
+    "child": {
+      "bytes": 8727,
+      "sha256": "e0daf24884bcc664076bb02d00038afd96c414aa0e34a619b4d44b8571724ed2"
+    },
+    "parent": {
+      "bytes": 10833,
+      "sha256": "c6680b3c42c593e6f926031f24852b3e7e8d8a94f08748b19c7735da4440d92e"
+    }
+  },
+  "native_processes_started": 0,
+  "new_vendor_or_heldout_credit": false,
+  "ordinary_rejection_and_handled_failure_cases": 16,
+  "passed": true,
+  "race_diagnostic_is_acceptance": false,
+  "raw_result_sha256": "9420119ab96b95d3d895c60d23e1de85f5180a4acfff5929b03db08fa4457b61",
+  "reader_implementation_changed": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.default-assembly-registration-process-proof.v1",
+  "sdk_source_files": 4237,
+  "source_manifest_sha256": "a564303f0bce24c74e00e1678d6b811a8b0bec1d6ad8b91534b667b643d8e2b4",
+  "source_scope": "private overlay, normal public registry, unchanged measured compiler",
+  "streams_enabled": false,
+  "tool_sha256": {
+    "CheckPublicAssemblyRegistration.py": "1023a088358bfd998c362ca9a7be2e385b29f93d4bbf0ac511d9689989123e6b",
+    "PublicAssemblyRegistryProcess.py": "22962e6d68b82f8a2d77c50c41f3566770daa4e9d58effd6b7e46912a281bcd8",
+    "PublicPartWriteParityProcess.py": "804e60790999624afb7ae42a23b91d27d1b2e91a297742b65c6d66d1b09ae0c0"
+  },
+  "unchanged_part_profiles": [
+    {
+      "bytes": 8084,
+      "exact": true,
+      "profile": "polygon",
+      "sha256": "d42c7b05244e660af2aae2601728038190dfdfbf3224cfe0796e61ae953849f1",
+      "strict_document_json_sha256": "407a31b05224be727a6a4466949c1349838c0a673b1523c192bbc8ed6e6c0d08"
+    },
+    {
+      "bytes": 8413,
+      "exact": true,
+      "profile": "diameter-front",
+      "sha256": "ede4aa896df215b90ccf3a5d1e923759e56dfc7a397dc1dd93bb940ef45a929f",
+      "strict_document_json_sha256": "23a8b274cab1e4f145f6b9c61756c5bed6833a1454f2d4d2746761a4c4018ae8"
+    },
+    {
+      "bytes": 8431,
+      "exact": true,
+      "profile": "radius-top-reverse",
+      "sha256": "457901acc43fbc988c5e4ebd5966ca6b4620fbf0906be7b908eb8e9b9748837f",
+      "strict_document_json_sha256": "0fa59b9363d145c4a169f552fc0546b325db1cce0afb3bf9770ba88d6367d9ef"
+    }
+  ],
+  "worker_count": 29
+}

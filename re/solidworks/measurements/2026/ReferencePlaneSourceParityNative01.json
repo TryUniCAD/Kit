@@ -1,0 +1,193 @@
+{
+  "schema": "kit.sw2026.offset-plane-source-parity-native-discovery-receipt.v1",
+  "writer_revision": "f41de8c27699fce1e9fc6d96c85bbfd7e51d6209",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "5e2c76d41e38498c874c1b645608ef99ce86939287163beff8759f3d15209500",
+  "generation_closure_sha256": "cd1cb412b35955679ab1c6dd3bc1bea36b92471f55666d4d8f3105e6f461ffea",
+  "observer_sha256": "4054e64c5ad56deb3260147f57979e0a7e094e4fef8e05783c4dcd9531771b25",
+  "native_source_sha256": "32e0ff7e00be032841c1e9ec62a4f68b14695e42025d4de1830f054d209df296",
+  "generated_sha256": "9a565b31ab2fcb750f993ab3e7249316f1437712aed879445f2a3986b72d922e",
+  "generated_bytes": 8634,
+  "source_lock_sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703",
+  "native_result_sha256": "381ec5033f864322f457ca82fd1f1ffef5e4dc953a5dd00fd4567621a06fd2d1",
+  "host_transport_sha256": "d165129238b4679342ab01195f25f8735993c2f89e7e4588e11e44fdfffdd539",
+  "phases": [
+    {
+      "role": "ControlBefore",
+      "record_sha256": "8dd6a6e28b13497cb2d79a970782fb906260c44443fa507571d989ed81ae2d41",
+      "process_creation_filetime": 134394242533851672,
+      "numeric_comparisons": 16,
+      "native_tree_rows": 26,
+      "input_bodies": 1,
+      "rebuilt_bodies": 1
+    },
+    {
+      "role": "Generated",
+      "record_sha256": "f35f45d024b6020a08d52c8c0af3a0f5d4a2161926ce76803d3f28756580ce72",
+      "process_creation_filetime": 134394242822846027,
+      "numeric_comparisons": 33,
+      "native_tree_rows": 26,
+      "input_bodies": 1,
+      "rebuilt_bodies": 1,
+      "save": {
+        "status": [
+          true,
+          0,
+          0
+        ],
+        "sha256": "42f417e7d5ff9298dae80bc06ab2745e248f2a3acdd8253add13853f76e658b8",
+        "bytes": 61469
+      }
+    },
+    {
+      "role": "Reopen",
+      "record_sha256": "137649478b8f95e04f4b72219fa18a5ea65a8c3dcbdd3679a762c5a5661b6d77",
+      "process_creation_filetime": 134394243222949328,
+      "numeric_comparisons": 16,
+      "native_tree_rows": 26,
+      "input_bodies": 1,
+      "rebuilt_bodies": 1
+    },
+    {
+      "role": "ControlAfter",
+      "record_sha256": "b4b4359e5e32093a900ff8bcf240f282aec3826632c89f80b99d09fbde89cfd8",
+      "process_creation_filetime": 134394243477961147,
+      "numeric_comparisons": 16,
+      "native_tree_rows": 26,
+      "input_bodies": 1,
+      "rebuilt_bodies": 1
+    }
+  ],
+  "numeric_comparisons": 81,
+  "observations": {
+    "ControlBefore": {
+      "components": {
+        "plane_distance": 0.01379,
+        "radius": 0.00831,
+        "boss_depth": 0.00647
+      },
+      "mass_properties": {
+        "volume": 1.4036415028027867e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965236e-20,
+          1.0895718255931566e-50,
+          0.017025
+        ],
+        "mass": 1.4036415028027867e-06
+      }
+    },
+    "Generated": {
+      "components": {
+        "plane_distance": 0.01379,
+        "radius": 0.00831,
+        "boss_depth": 0.00647
+      },
+      "mass_properties": {
+        "volume": 1.4036415028027867e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965236e-20,
+          1.0895718255931566e-50,
+          0.017025
+        ],
+        "mass": 1.4036415028027867e-06
+      }
+    },
+    "GeneratedEdited": {
+      "components": {
+        "plane_distance": 0.02453,
+        "radius": 0.00831,
+        "boss_depth": 0.00647
+      },
+      "mass_properties": {
+        "volume": 1.403641502802787e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965235e-20,
+          1.0895718255931566e-50,
+          0.027764999999999998
+        ],
+        "mass": 1.403641502802787e-06
+      }
+    },
+    "Reopen": {
+      "components": {
+        "plane_distance": 0.02453,
+        "radius": 0.00831,
+        "boss_depth": 0.00647
+      },
+      "mass_properties": {
+        "volume": 1.4036415028027867e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965236e-20,
+          1.0895718255931566e-50,
+          0.027764999999999998
+        ],
+        "mass": 1.4036415028027867e-06
+      }
+    },
+    "ControlAfter": {
+      "components": {
+        "plane_distance": 0.01379,
+        "radius": 0.00831,
+        "boss_depth": 0.00647
+      },
+      "mass_properties": {
+        "volume": 1.4036415028027867e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965236e-20,
+          1.0895718255931566e-50,
+          0.017025
+        ],
+        "mass": 1.4036415028027867e-06
+      }
+    }
+  },
+  "source_generated_identity": {
+    "passed": true,
+    "checks": {
+      "complete_ordered_native_tree_equal": true,
+      "plane_constraint_and_types_equal": true,
+      "native_plane_frame_equal": true,
+      "native_sketch_origin_and_normal_equal": true,
+      "native_body_count_equal": true,
+      "plane_exact_parameter_identity": true,
+      "plane_exact_display_bindings": true,
+      "radius_exact_parameter_identity": true,
+      "radius_exact_display_bindings": true,
+      "driving_values_match": true
+    },
+    "source_nodes": 26,
+    "generated_nodes": 26,
+    "tree_differences": []
+  },
+  "source_control_bracket_identity": {
+    "passed": true,
+    "checks": {
+      "complete_ordered_native_tree_equal": true,
+      "plane_constraint_and_types_equal": true,
+      "native_plane_frame_equal": true,
+      "native_sketch_origin_and_normal_equal": true,
+      "native_body_count_equal": true,
+      "plane_exact_parameter_identity": true,
+      "plane_exact_display_bindings": true,
+      "radius_exact_parameter_identity": true,
+      "radius_exact_display_bindings": true,
+      "driving_values_match": true
+    },
+    "source_nodes": 26,
+    "generated_nodes": 26,
+    "tree_differences": []
+  },
+  "controls_healthy": true,
+  "immutable_inputs": true,
+  "distinct_processes": 4,
+  "perturbation_and_reopen_passed": true,
+  "heldout_inputs_read": 0,
+  "native_source_parity_passed": true,
+  "public_writer_qualified": false
+}

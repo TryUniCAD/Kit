@@ -1,0 +1,93 @@
+{
+  "candidate_native_status": {
+    "bytes": 718936,
+    "executable": "SLDWORKS.exe",
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "pe_machine": "0x8664",
+    "process_creation_filetime": 134396586059413604,
+    "process_id": 10388,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version_matches": true
+  },
+  "completed_numeric_stock_checks": 22,
+  "first_failure": {
+    "error": "ValueError('native FeatureCut4 refused the requested scope')",
+    "pending_capability": false,
+    "stage": "FeatureCut4",
+    "type": "ValueError"
+  },
+  "native_com": "SldWorks.Application.34",
+  "native_result": {
+    "api_sha256": "e8823336d0d478bb4cdd58586db292bcf0680a1ed374ba56283f165f8458645e",
+    "distinct_processes": 3,
+    "freeze_sha256": "e5dc2ec85f2cb44d22d5736b6bda3eb9002706b0e6db6b1868b5aa4a8bbb5188",
+    "heldout_coverage": 0,
+    "outcomes": {},
+    "passed": false,
+    "phase_receipts": {
+      "After": "abbd6f5f584ee408de9f274bedd0fc530ad9bd38499e92d75a3742f2433c9b08",
+      "Before": "56b9516ef2a3f4031e611011d45564019b2d73e0c08e52f2c62fb1b3cd0d2545",
+      "ExplicitAuthor": "43e921c1783cab8f30e42cd3f95c4a0fe309e5ecb208b6b10d06ba04bed11ab4"
+    },
+    "phase_status": {
+      "After": true,
+      "Before": true,
+      "ExplicitAuthor": false
+    },
+    "production_coverage": 0,
+    "schema": "kit.sw2026.disclosed-through-all-multistock.v1",
+    "sealed_payloads_read": 0,
+    "serial": true
+  },
+  "native_summary_sha256": "edd3cc4e2b1c835bd87f7ae8db980b486f590e4117565cf876174c15d138f3b0",
+  "observed_request": {
+    "arguments": [
+      true,
+      false,
+      true,
+      1,
+      0,
+      0.012,
+      0.006,
+      false,
+      false,
+      false,
+      false,
+      0.0,
+      0.0,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      0,
+      0.0,
+      false,
+      false
+    ],
+    "body_mark": 1,
+    "preselected_producer": "SteadyStock",
+    "profile_mark": 0
+  },
+  "oracle_version": "34.5.2.0604",
+  "schema": "kit.sw2026.disclosed-through-all-multistock.failure-receipt.v1",
+  "tool_revision": "b5be9025e07492b7d7749b34af83e67963d9971a",
+  "tool_sha256": "e17275d637b29d0484bdbd967af98be1b06bd54991dfc4ec9e9d55de4bb691e5"
+}

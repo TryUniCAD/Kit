@@ -1,0 +1,20 @@
+{
+  "schema": "kit.sw2026.sdk-end-condition-observer-attempt.v1",
+  "sdk_revision": "449aaf53117eeac0b9560401c686b6e863bfa7d8",
+  "generated_freeze_sha256": "004e45df3c85327e5a2a87f81439ea58a036956fc16bd497a5639a9e0166fb86",
+  "attachment_sha256": "ba4ced74b254b2c5c2c20ad1814576ff46b6f34e3aeb2ce27247b660c62c391b",
+  "packet_sha256": "9c092e857638fc6eab67bbbff15bfc1dc0d251193010f3701a0fa336adf2f2e0",
+  "native_result_sha256": "7e59db66b58ef36a6f289d87eac92268cb329ef7ebec4b61f3d696afb28137c7",
+  "failed_phase_sha256": "7d938c06d948743cef0a37995650469e29a37202e7d931d286612101976bbd12",
+  "controls_healthy": true,
+  "inputs_immutable": true,
+  "native_processes": 3,
+  "distinct_processes": 3,
+  "generated_files_opened": 0,
+  "heldout_credits": 0,
+  "native_acceptance": false,
+  "failed_case": "H03MidPlane",
+  "failed_phase": "open-save",
+  "failed_member": "IBody2.IsSolidBody",
+  "observed_original_tree_rows_before_error": 25
+}

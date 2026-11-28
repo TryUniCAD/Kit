@@ -1,0 +1,117 @@
+{
+  "schema": "kit.sw2026.rectangle-attachment-native-comparison.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "controls_healthy": [
+    true,
+    true
+  ],
+  "distinct_processes": 4,
+  "inputs_immutable": true,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "job_sha256": "4d96c7c2ac81e3e5ca32ef12b79fa78f2fb0873acb99b3627944c8b1e47529ea",
+  "freeze_sha256": "b171a3421ab6c1ec62e1ee3952bff11e4f7f0029505d272322c8a5142542e943",
+  "private_observations_sha256": "fe459aa872381bbbb9a5d7f402cd7e2a83bd889db850152a6256a0f4677aacd3",
+  "host_transport_sha256": "37f370be4ae2fd44857aaea6ca12595ed073ff38b9b418203c52bc1f3032cff0",
+  "tool_sha256": {
+    "InspectRectanglePartitionOpen.py": "54467c0ff5f260a49bc7ece872043e9b8d07223a6e877fae6c9d95e477657161",
+    "InspectPartitionOpen.py": "4bdbb913f1cba294ee50cb029eb6769b2a9566f3a7ef38d0efb89406a97723c6",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "cases": [
+    {
+      "name": "WithoutPartition",
+      "native_source_sha256": "282168b2e080b6f0d450fa9b52a657e16b17e297043a92a5d90bf2a133b7b192",
+      "open_status": [
+        true,
+        0,
+        0
+      ],
+      "rebuild_return": true,
+      "record_sha256": "5fa2c07ade84be8f8709694784996581e2d4319ccb6b8874d7f126032aed85fc",
+      "after_open": {
+        "body_count": 1,
+        "model_update_stamp": 117,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": {
+          "volume": 2.94984375e-06,
+          "area": 0.001334875,
+          "com": [
+            0.01425,
+            -0.0055,
+            0.004375
+          ],
+          "mass": 2.94984375e-06
+        },
+        "extrusion_owned_faces": 6
+      },
+      "after_rebuild": {
+        "body_count": 1,
+        "model_update_stamp": 132,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": {
+          "volume": 2.94984375e-06,
+          "area": 0.001334875,
+          "com": [
+            0.01425,
+            -0.0055,
+            0.004375
+          ],
+          "mass": 2.94984375e-06
+        },
+        "extrusion_owned_faces": 6
+      }
+    },
+    {
+      "name": "WithAttachment",
+      "native_source_sha256": "8dbf7463a15f14c9905720a47e24863b702d98cdf3d695dfca51e20b8d8deede",
+      "open_status": [
+        true,
+        0,
+        32
+      ],
+      "rebuild_return": true,
+      "record_sha256": "64df7691cba580458d9be0ed592f88adf9df175ec8b2594cf69ff20a924988e9",
+      "after_open": {
+        "body_count": 0,
+        "model_update_stamp": 110,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": null
+      },
+      "after_rebuild": {
+        "body_count": 1,
+        "model_update_stamp": 125,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": {
+          "volume": 2.94984375e-06,
+          "area": 0.001334875,
+          "com": [
+            0.01425,
+            -0.0055,
+            0.004375
+          ],
+          "mass": 2.94984375e-06
+        },
+        "extrusion_owned_faces": 6
+      }
+    }
+  ]
+}

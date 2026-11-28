@@ -1,0 +1,169 @@
+{
+  "custody": {
+    "cad_or_vm_calls": false,
+    "foreign_hopper_or_cleanup_changed": false,
+    "git_mutations": false,
+    "saved_CAD_payloads_read": false,
+    "sealed_inputs_read": false,
+    "shared_source_changed": false,
+    "vendor_binary_or_listing_in_delivery": false
+  },
+  "delivery_pr": 121,
+  "disclosed_observations": [
+    {
+      "bytes": 1268,
+      "cad_payload_read": false,
+      "logical_name": "PlainNoteBuild01/PlainPositionFields01.json",
+      "reported_native_calls": 0,
+      "reported_private_inputs": 0,
+      "rows": [
+        {
+          "case": "Disclosed01",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.10667466278912806,
+          "distance_m": 0.10667466278912806,
+          "file_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+          "residual_m": 0.0
+        },
+        {
+          "case": "Disclosed01Edit",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.1128176154031641,
+          "distance_m": 0.11281761540316408,
+          "file_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+          "residual_m": 0.0
+        },
+        {
+          "case": "Disclosed02",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.11374421610765413,
+          "distance_m": 0.11374421610765413,
+          "file_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+          "residual_m": 0.0
+        },
+        {
+          "case": "Disclosed02Edit",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.09972288432335474,
+          "distance_m": 0.09972288432335474,
+          "file_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+          "residual_m": 0.0
+        }
+      ],
+      "sha256": "2a75bde32506c30d0ae51211844cc89b0d502a32ac5ad5e5a9d65b6902525fe4"
+    },
+    {
+      "bytes": 6301,
+      "cad_payload_read": false,
+      "controls_healthy": true,
+      "diagnostic_completed": true,
+      "file_saves": 0,
+      "fresh_processes": 4,
+      "generated_after": {
+        "name_nonempty": false,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "generated_before": {
+        "name_nonempty": false,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "logical_name": "PlainNoteBuild01/ObserverState02/Inspection/Result.json",
+      "native_acceptance": false,
+      "sha256": "82ee562bea717a6997bdf81fe19dabe7eac291d9cb0eccae7451a70995202505",
+      "source_immutable": true
+    },
+    {
+      "bytes": 6946,
+      "cad_payload_read": false,
+      "controls_healthy": true,
+      "diagnostic_completed": true,
+      "file_saves": 0,
+      "fresh_processes": 4,
+      "generated_after": {
+        "name_nonempty": true,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "generated_before": {
+        "name_nonempty": true,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "logical_name": "PlainNoteBuild01/ObserverState03/Inspection/Result.json",
+      "native_acceptance": false,
+      "sha256": "6992c7c11202be1cf8e1dcad78dc3f480b06620cd73b1c56dac22a33d24d63d5",
+      "source_immutable": true
+    }
+  ],
+  "instruction_boundaries": {
+    "passed": true,
+    "ranges": 14,
+    "report_sha256": "d131a54843fb32787dc92934818535aa0c407117ed6ba7ad6e82081949157dc1"
+  },
+  "limitations": [
+    "root diagnostic retries measured wrong generated position before/after rebuild; success is explicitly false",
+    "four disclosed source rows corroborate planar reconstruction; no fields are transplanted into a generator",
+    "glyph layout, general note modes and ordinary text backlink producer remain separately scoped"
+  ],
+  "qualification": {
+    "application_usable": false,
+    "archive_round_trip": false,
+    "held_out": false,
+    "new_native_lifecycle": false,
+    "public_admission": false,
+    "vendor_loadable": false
+  },
+  "registered_metadata": {
+    "name": "AnnotationPlacementApi.json",
+    "native_processes_started": 0,
+    "sha256": "5b6457113837dd7acbf4fa2c6edbb7aac8479f05d05a811244883e05db318b74"
+  },
+  "schema": "drawing-plain-note-position-source-v1",
+  "source_record": {
+    "path": "re/solidworks/records/DrawingPlainNotePositionOwners2026.json",
+    "sha256": "6c341b12421d717532638d9ce8f5830feda34774a575ac09574c7c6653069738"
+  },
+  "source_verification": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 22,
+    "data_windows": 0,
+    "imports": 21,
+    "instruction_windows": 14,
+    "modules": 2,
+    "native_execution": false,
+    "record_sha256": "6c341b12421d717532638d9ce8f5830feda34774a575ac09574c7c6653069738",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 16
+  },
+  "task": "B04-SW2026-DRAWING-PLAIN-NOTE-CONSTRUCTION"
+}

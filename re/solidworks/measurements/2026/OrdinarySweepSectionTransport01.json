@@ -1,0 +1,278 @@
+{
+  "disclosed": {
+    "blocked_runtime_calls": 0,
+    "completed": 6,
+    "generated_part_count": 0,
+    "mode": "disclosed section comparison",
+    "observations": [
+      {
+        "compressed_wrapper_bytes": 524,
+        "compressed_wrapper_exact": true,
+        "outer_bytes": 530,
+        "outer_extent_exact": true,
+        "outer_sha256": "40593a27a3cdc27de5271e353e7ea1c8a213b03a25da6dde1e48c3f47693a2e6",
+        "part_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+        "raw_bytes": 873,
+        "raw_exact": true,
+        "raw_sha256": "0e21e3d798f7a41fb90ac24d06eb3d1d872e83b10f50f1b6e223d0f34ef81cce",
+        "role": "original",
+        "slot": 1,
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "stored_highest_node_id": 11,
+        "stored_next": 2
+      },
+      {
+        "compressed_wrapper_bytes": 522,
+        "compressed_wrapper_exact": true,
+        "outer_bytes": 528,
+        "outer_extent_exact": true,
+        "outer_sha256": "82a5ecb142894aab212761b947d150d9a4d2ed71d61b8aa7fa64274e2b560b23",
+        "part_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+        "raw_bytes": 873,
+        "raw_exact": true,
+        "raw_sha256": "9ddb7f1f7b473e32849a3dfb138ba7d27cde5d9797b6e74a501806146b090ecf",
+        "role": "section",
+        "slot": 1,
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "stored_highest_node_id": 11,
+        "stored_next": 2
+      },
+      {
+        "compressed_wrapper_bytes": 524,
+        "compressed_wrapper_exact": true,
+        "outer_bytes": 530,
+        "outer_extent_exact": true,
+        "outer_sha256": "40593a27a3cdc27de5271e353e7ea1c8a213b03a25da6dde1e48c3f47693a2e6",
+        "part_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+        "raw_bytes": 873,
+        "raw_exact": true,
+        "raw_sha256": "0e21e3d798f7a41fb90ac24d06eb3d1d872e83b10f50f1b6e223d0f34ef81cce",
+        "role": "path",
+        "slot": 1,
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "stored_highest_node_id": 11,
+        "stored_next": 2
+      },
+      {
+        "compressed_wrapper_bytes": 523,
+        "compressed_wrapper_exact": true,
+        "outer_bytes": 529,
+        "outer_extent_exact": true,
+        "outer_sha256": "f8c4a9a3058479f1b060359fd224a00754fc26dfc44c3163683632385d304fbe",
+        "part_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+        "raw_bytes": 873,
+        "raw_exact": true,
+        "raw_sha256": "7262934c5d1fd87df8757d6cab8ae45cede95832d8fdd40083bd61d582871463",
+        "role": "original",
+        "slot": 2,
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "stored_highest_node_id": 11,
+        "stored_next": 2
+      },
+      {
+        "compressed_wrapper_bytes": 522,
+        "compressed_wrapper_exact": true,
+        "outer_bytes": 528,
+        "outer_extent_exact": true,
+        "outer_sha256": "e984d5022a89e44e7d2526fe4f50ce0d93abbe6718d318930b399f652d21f8da",
+        "part_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+        "raw_bytes": 873,
+        "raw_exact": true,
+        "raw_sha256": "9a30751f5feffbb7a803268139ac5636f9eaf17d69b0fe6d0c70268af4a7e32c",
+        "role": "section",
+        "slot": 2,
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "stored_highest_node_id": 11,
+        "stored_next": 2
+      },
+      {
+        "compressed_wrapper_bytes": 523,
+        "compressed_wrapper_exact": true,
+        "outer_bytes": 529,
+        "outer_extent_exact": true,
+        "outer_sha256": "f8c4a9a3058479f1b060359fd224a00754fc26dfc44c3163683632385d304fbe",
+        "part_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+        "raw_bytes": 873,
+        "raw_exact": true,
+        "raw_sha256": "7262934c5d1fd87df8757d6cab8ae45cede95832d8fdd40083bd61d582871463",
+        "role": "path",
+        "slot": 2,
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "stored_highest_node_id": 11,
+        "stored_next": 2
+      }
+    ],
+    "source_revision": "038a8fc7aaf0ad3ba8541c325a23ef70646e9ba6"
+  },
+  "disclosed_archive_proof_revision": "f49ffe50f3b18b9900e62c66547e5cfbf1b234bb",
+  "generated_parts": 0,
+  "native_candidate_checks": 0,
+  "neutral": {
+    "blocked_runtime_calls": 0,
+    "completed": 2,
+    "generated_part_count": 0,
+    "invalid_radius_refusals": 4,
+    "mode": "model only section",
+    "observations": [
+      {
+        "area_m2": 4.472223332636445e-05,
+        "existing_generic_sheet": {
+          "raw_bytes": 581,
+          "raw_sha256": "4ab74043368b5f152511dc4bb30dbf987cd02aa67e6e4974eaeafa25e9fc3995",
+          "retained_seam_vertices": 1,
+          "schema": "SCH_1200000_12006",
+          "vertexless_refusals": [
+            "B-rep edge rim references a missing start vertex",
+            "B-rep edge rim references a missing end vertex"
+          ]
+        },
+        "model_highest_node_id": 7,
+        "model_next": 0,
+        "outer_bytes": 527,
+        "outer_sha256": "0b01a8129a9543609916c5b81d89ba467202b0911edb7d542e5b2806b167a965",
+        "radius_m": 0.003773,
+        "raw_bytes": 873,
+        "raw_sha256": "7a9e5e0b6e30805dacc82e2443eebe00100e0b05d6dcbca578ba126bbfe06637",
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "typed_sheet": {
+          "body_type": 3,
+          "center_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "declared_body_bytes": 522,
+          "kernel_word": 0,
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "radius_m": 0.003773,
+          "schema_roles": {
+            "BODY": [
+              1
+            ],
+            "CIRCLE": [
+              5
+            ],
+            "EDGE": [
+              6
+            ],
+            "FACE": [
+              10
+            ],
+            "HALFEDGE": [
+              7,
+              9
+            ],
+            "LOOP": [
+              8
+            ],
+            "PLANE": [
+              4
+            ],
+            "REGION": [
+              2
+            ],
+            "SHELL": [
+              3
+            ]
+          },
+          "span": [
+            0,
+            527
+          ],
+          "transmit_schema": "SCH_3701250_37102_13006",
+          "transmit_sha256": "7a9e5e0b6e30805dacc82e2443eebe00100e0b05d6dcbca578ba126bbfe06637",
+          "uncompressed_bytes": 873
+        }
+      },
+      {
+        "area_m2": 8.361437126282802e-05,
+        "existing_generic_sheet": {
+          "raw_bytes": 581,
+          "raw_sha256": "3ae93acf6d470ef151c152c842f1bcc5e009356499453439aa0a33a3083a8953",
+          "retained_seam_vertices": 1,
+          "schema": "SCH_1200000_12006",
+          "vertexless_refusals": [
+            "B-rep edge rim references a missing start vertex",
+            "B-rep edge rim references a missing end vertex"
+          ]
+        },
+        "model_highest_node_id": 7,
+        "model_next": 0,
+        "outer_bytes": 524,
+        "outer_sha256": "f25fb5396087d35d99b251077055d6b0f36e38da3949cdf1c7a033c525484891",
+        "radius_m": 0.005159,
+        "raw_bytes": 873,
+        "raw_sha256": "2f3666f352e66181c5a2d7b1aa5fd522268499fe41624cb15b58fe85209fc31a",
+        "standalone_brep_diagnostic": "partition contains no decoded faces",
+        "typed_sheet": {
+          "body_type": 3,
+          "center_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "declared_body_bytes": 519,
+          "kernel_word": 0,
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "radius_m": 0.005159,
+          "schema_roles": {
+            "BODY": [
+              1
+            ],
+            "CIRCLE": [
+              5
+            ],
+            "EDGE": [
+              6
+            ],
+            "FACE": [
+              10
+            ],
+            "HALFEDGE": [
+              7,
+              9
+            ],
+            "LOOP": [
+              8
+            ],
+            "PLANE": [
+              4
+            ],
+            "REGION": [
+              2
+            ],
+            "SHELL": [
+              3
+            ]
+          },
+          "span": [
+            0,
+            524
+          ],
+          "transmit_schema": "SCH_3701250_37102_13006",
+          "transmit_sha256": "2f3666f352e66181c5a2d7b1aa5fd522268499fe41624cb15b58fe85209fc31a",
+          "uncompressed_bytes": 873
+        }
+      }
+    ]
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "prewriter_revision": "9a98691d85fbbdbbaea74f34c14e71b893ac63f1",
+  "schema": "kit.sw2026.sweep-section-transport.v1",
+  "sdk_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "sealed_inputs_accessed": 0,
+  "source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "tool_sha256": {
+    "AuditSweepSectionTransport.py": "46208a50d2a3463462efa85f86885028781d9009e51ae60ce5ebf053222d6d0f",
+    "SweepSectionTransport.py": "24c36a61dfeab28f43f00b7aea9afb234f5e726b18de820f074bdfa03d90939e"
+  }
+}

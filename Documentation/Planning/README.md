@@ -215,3 +215,8 @@ the verified feature/task introduction author or exact PR author and evidence.
 existing assignments; omitted `--apply` writes an audit only. Unavailable users,
 missing imports and ambiguous records remain explicit gaps. A bot PR author cannot
 be assigned as a user; retain its contact and record the missing responsible account.
+
+## Text encoding
+
+Maintained planning sources and generated views use UTF-8.
+The [builder comparison](../Changes/Planning/PlanningUtfText.md) uses that encoding explicitly on Windows and other hosts.

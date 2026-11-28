@@ -1,0 +1,144 @@
+{
+  "amd64_dbgeng_sha256": "5a2a515f6263c66b0323d8707abf4b64511a9a34f1f1d3fb1f3c4c17f0bf9cad",
+  "controls_healthy": true,
+  "dbgeng_nupkg_sha256": "875678516f9ceed4a1c8b9b106d165106fcaa38723ad7c584c47b95b231600de",
+  "distinct_processes": 6,
+  "generated_attempted": false,
+  "generated_runtime_branch": null,
+  "guest_cpu": "ARM64",
+  "heldout_inputs_tested": 0,
+  "host_transport_sha256": "63d846c54d8186602a74e0afb180d3235eb866ccabe0e9da2cec8fa56062173f",
+  "inputs_immutable": true,
+  "lanes": {
+    "ControlAfter": {
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "fresh_reopen_errors": 0,
+      "fresh_reopen_warnings": 0,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "record_sha256": {
+        "fresh_reopen": "ef473750f0d3bd7f19a6e3f3a3b5a2450386fd0cc926cfb63c1b3f08bbbe50d5",
+        "open_and_save": "3328c1a811ff1702b35ba79801fe423b3530fcfe72a0527c96750ff26146ff47"
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 19390,
+      "save_target_sha256": "8176b49a20cf30cb7c0b02e589d9ffa98d2ec475a16d93100d2070cba084b6b5"
+    },
+    "ControlBefore": {
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "fresh_reopen_errors": 0,
+      "fresh_reopen_warnings": 0,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "record_sha256": {
+        "fresh_reopen": "060ad65f7eb3a84765d079871913870009c81e3b4b2f491f3b2ceb080a555c68",
+        "open_and_save": "8c163404d89c2f0c10b390264b1d634ac6b375fe06e4ed5d800cf7b713c0718d"
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 18647,
+      "save_target_sha256": "363df38c77a01b461d74fd2c7897356b78d10a80357cddbb4829e9337d9a889e"
+    },
+    "ReducedNative": {
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "fresh_reopen_errors": 0,
+      "fresh_reopen_warnings": 0,
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "record_sha256": {
+        "fresh_reopen": "880cb41a4b94345e18d38a758c55c6afaeb186ad81809f021462caab8e154340",
+        "open_and_save": "802bbdfcd4efaa705cb061b81c0deef505f74b26a3efded8099c77fc1170a99b"
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 17756,
+      "save_target_sha256": "203b573482347295a1b42c9689e9310639b3199a2a355cac99817a05f6d141d3"
+    }
+  },
+  "native_acceptance": false,
+  "observer_tool_sha256": {
+    "DrawingSaveAggregateDbgEng.py": "0226897c18fd794efee28eceb84c8d80696266cebe671dad1baa7997b98a9553",
+    "InspectBlankDrawingSaveAggregate.py": "70018c8a65a80bfef298bfd8b1d0807f5b70746bc801de678e5c34a9ac3a7d21",
+    "InspectBlankDrawingSaveAggregateControl.py": "abdda5218f88d5390a798d38a28c7072f2deed510fbad91802eecd34f9afbea4"
+  },
+  "oracle_and_debugger_host_pe_machine": "0x8664",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "36b99474ee59539c1aeb53fef3420d35bebaf2cefdbba814e1398c3ebd886cd6",
+  "raw_native_result_sha256": "a7ffc0a65fdcc8668010b422f4f32dc7d75945029a8333c21389f56355ce241a",
+  "reduced_native_debugger": {
+    "attach_requested": true,
+    "breakpoint_armed": true,
+    "breakpoint_kind": "processor_execute",
+    "breakpoint_remove_hresult": "0x8000ffff",
+    "breakpoint_removed_explicitly": false,
+    "cleanup_confirmed": true,
+    "detach_method": "DetachProcesses",
+    "execution_stop_qualified": false,
+    "failure_stage": "wait_saveas_breakpoint",
+    "initial_break_already_enabled": false,
+    "initial_break_engine_option": "0x20",
+    "initial_break_option_verified": true,
+    "initial_owned_stop_verified": true,
+    "owned_process_debugger_present_after_cleanup": false,
+    "process_options": 3,
+    "process_options_verified": true,
+    "sample": null,
+    "stop": {
+      "bytes": 4,
+      "instruction_rva": 88422,
+      "module": "doccplu.dll",
+      "module_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+      "stack_offset": 432
+    },
+    "wait_exit_reason": null
+  },
+  "reduced_native_save_timing": {
+    "event_offsets_ns": [
+      [
+        7,
+        46000000
+      ],
+      [
+        9,
+        156000000
+      ],
+      [
+        28,
+        171000000
+      ]
+    ],
+    "observer_return_ns": 437000000
+  },
+  "same_physical_paths": true,
+  "schema": "kit.sw2026.blank-drawing-save-aggregate-control-native-observation.v1",
+  "source_state_packet_sha256": "63d68733f3e7f28732f7b927c7d0044da38829ce5ba5eeb124cf7d4b1c189455",
+  "transport_exit_confirmed": true,
+  "transport_returncode": 3,
+  "writer_output_count": 0
+}

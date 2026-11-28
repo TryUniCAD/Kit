@@ -1,0 +1,905 @@
+{
+  "cold_writer_baseline_and_port": {
+    "byte_identical": true,
+    "receipt_sha256": "e6c1d3231003345c35a2420313db5fce38bdd614abde2ac55fb4878899ed905d",
+    "records": [
+      {
+        "archive_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+        "current_neutral_sha256": "b33de81a75c59fab574daa6936c0723ea996461b506fa33b5e60d923a2abeab0",
+        "name": "SweepArcNear",
+        "neutral_sha_matches_historical": false,
+        "public_routes": 3,
+        "reads": 0,
+        "streams": {
+          "Contents/CMgr": "31cb64d107de2be955cf057b26d51bd4a021298483b37bda57d4180907cf140a",
+          "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+          "Contents/Config-0": "335543e538f27ae74ad4468cbe6177c463de034449f9e6f26df86e1d95226af4",
+          "Contents/Config-0-GhostPartition": "0ab990a2217590c31c5dda0853bb4e6564f161bbcda202255169192aae13bc9c",
+          "Contents/Config-0-ModelHeader": "3cc995bcd3664696f64aba8c62073394ecabf7ee1248791e66107c05365e7e9e",
+          "Contents/Config-0-ResolvedFeatures": "eb39656ca1b0c4ba78ad89241988197db793eabcb40e05665670bbf931975edc",
+          "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+          "Header2": "cd13f7d3033e9f9816d148fedf3804fc9670513e164706a6c3e192dad7df31c8",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+          "swXmlContents/KeyWords": "d670588be390b934f7bd900ce0a3dad71bd5ad7431f148b627922f4e12f6ec90"
+        }
+      },
+      {
+        "archive_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+        "current_neutral_sha256": "358d12377c5420bb4ce5783aee89086eef45ad5961e732f61c2cd5da4e825592",
+        "name": "SweepArcWide",
+        "neutral_sha_matches_historical": false,
+        "public_routes": 3,
+        "reads": 0,
+        "streams": {
+          "Contents/CMgr": "31cb64d107de2be955cf057b26d51bd4a021298483b37bda57d4180907cf140a",
+          "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+          "Contents/Config-0": "7ba08ad437b0b3c4db8f99c353dd68e19b7c2047cfce29bb6e70e9be6d59b39b",
+          "Contents/Config-0-GhostPartition": "20be6593e1b0bd0f18f82c9336dc519ad5ac05ffedea8696b2f8322a12cddd47",
+          "Contents/Config-0-ModelHeader": "40c1ebd346db90d4e3699d9fe2ad7ad80e41f6399ada4b892700af118351985e",
+          "Contents/Config-0-ResolvedFeatures": "cfd83f203cdb53cc75bacbc4176bbdc2749db687bd3b45f37805ef239d4149cc",
+          "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+          "Header2": "026b2ad17fb3c36c0b15539cd2809c40f8c430bd50b4e66785c65bab1ff11206",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+          "swXmlContents/KeyWords": "cf1fff80157d3a76aa3b74fc997182a775089004a64ec5de9ccfc4d184e8a4c3"
+        }
+      }
+    ]
+  },
+  "existing_tracked_fixture_comparisons": [
+    {
+      "current_geometry": {
+        "area_m2": 0.0025336063280646656,
+        "center_m": [
+          0.026416272093383358,
+          0.014880727906616643,
+          0.0
+        ],
+        "mass_kg": 0.006862306823572918,
+        "native_counts": [
+          1,
+          1,
+          3,
+          2,
+          0
+        ],
+        "volume_m3": 6.651455678562486e-06
+      },
+      "density_kg_m3": 1031.7,
+      "fixture_sha256": "46a8faf1e54be5e312c0ab9f0e739c60cd4cd473bca09ae72369a552ef41675c",
+      "independent_drivers_mm": [
+        11.426,
+        41.297
+      ],
+      "matched_direct_registry_explicit_default_and_design_only": true,
+      "native_body_name": "OrdinarySweptBoss",
+      "native_launches": 0,
+      "native_source_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "oriented_rims": [
+        {
+          "cap_fin": 49,
+          "oriented_cap_angle": -1,
+          "oriented_dv": -1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 44,
+          "u": -1.5707963267948966,
+          "verified_quarter_points": 4,
+          "wall_fin": 48
+        },
+        {
+          "cap_fin": 42,
+          "oriented_cap_angle": 1,
+          "oriented_dv": 1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 10,
+          "u": 1.680241640774688e-16,
+          "verified_quarter_points": 4,
+          "wall_fin": 50
+        }
+      ],
+      "permissive_legacy_layout_reads": 0,
+      "review_boundaries": {
+        "geometry_call_counts": {
+          "design": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 0,
+            "ReadSwBrep": 0,
+            "ReadSwFrames": 1
+          },
+          "full": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 1,
+            "ReadSwBrep": 1,
+            "ReadSwFrames": 1
+          }
+        },
+        "malformed_optional_xml": {
+          "docProps/Config-0-Properties.xml": {
+            "legacy_layout_reads": 0,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/core.xml": {
+            "legacy_layout_reads": 0,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/custom.xml": {
+            "legacy_layout_reads": 0,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          }
+        },
+        "saved_grammar_scope": {
+          "new_sweep_side_exclusive": true,
+          "ordinary_layouts": 333,
+          "saved_layouts": 339,
+          "saved_resolved_map": 278
+        }
+      },
+      "role": "original",
+      "runtime_accesses": 0,
+      "sketches": {
+        "center_index": 0,
+        "local_seam_angle_rad": 0.0,
+        "periodic_seam_mm": [
+          5.713,
+          0.0
+        ],
+        "point_marks": [
+          2,
+          1
+        ],
+        "start_end_index": 1
+      },
+      "strict_reader_routes": 3,
+      "typed_result_atom": "101"
+    },
+    {
+      "current_geometry": {
+        "area_m2": 0.003207111911178496,
+        "center_m": [
+          0.026484379479336427,
+          0.014812620520663572,
+          0.0
+        ],
+        "mass_kg": 0.010577952284658644,
+        "native_counts": [
+          1,
+          1,
+          3,
+          2,
+          0
+        ],
+        "volume_m3": 1.0252934268351889e-05
+      },
+      "density_kg_m3": 1031.7,
+      "fixture_sha256": "2e1db56ec1100add9c8f086a8a77d48e52bc573827972b194bde64261f5cfa37",
+      "independent_drivers_mm": [
+        14.186,
+        41.297
+      ],
+      "matched_direct_registry_explicit_default_and_design_only": true,
+      "native_body_name": "OrdinarySweptBoss",
+      "native_launches": 0,
+      "native_source_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "oriented_rims": [
+        {
+          "cap_fin": 49,
+          "oriented_cap_angle": -1,
+          "oriented_dv": -1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 44,
+          "u": -1.5707963267948966,
+          "verified_quarter_points": 4,
+          "wall_fin": 48
+        },
+        {
+          "cap_fin": 42,
+          "oriented_cap_angle": 1,
+          "oriented_dv": 1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 10,
+          "u": 1.680241640774688e-16,
+          "verified_quarter_points": 4,
+          "wall_fin": 50
+        }
+      ],
+      "permissive_legacy_layout_reads": 0,
+      "review_boundaries": {
+        "geometry_call_counts": {
+          "design": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 0,
+            "ReadSwBrep": 0,
+            "ReadSwFrames": 1
+          },
+          "full": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 1,
+            "ReadSwBrep": 1,
+            "ReadSwFrames": 1
+          }
+        },
+        "malformed_optional_xml": {
+          "docProps/Config-0-Properties.xml": {
+            "legacy_layout_reads": 0,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/core.xml": {
+            "legacy_layout_reads": 0,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/custom.xml": {
+            "legacy_layout_reads": 0,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          }
+        },
+        "saved_grammar_scope": {
+          "new_sweep_side_exclusive": true,
+          "ordinary_layouts": 333,
+          "saved_layouts": 339,
+          "saved_resolved_map": 278
+        }
+      },
+      "role": "section",
+      "runtime_accesses": 0,
+      "sketches": {
+        "center_index": 0,
+        "local_seam_angle_rad": 0.2967059728390366,
+        "periodic_seam_mm": [
+          6.78306963404581,
+          2.073792501598376
+        ],
+        "point_marks": [
+          2,
+          1
+        ],
+        "start_end_index": 1
+      },
+      "strict_reader_routes": 3,
+      "typed_result_atom": "101"
+    }
+  ],
+  "hosted_regression_on_source_only": true,
+  "hosted_verified_on_this_revision": false,
+  "integrated_base_revision": "37bedafa1150fdb718012d47cb00d7030adcac6d",
+  "integrated_base_src_tree": "c95cef093e31b8b8cd8cafd65a61e1918d57cca3",
+  "local_proof_source_sha256": {
+    "CheckSavedSweepSdk.py": "43e93478870ddf1f073ac074ba5ccab78f3fef8de240c8416358823271c8eec7",
+    "CheckSweepReadEdges.py": "920f1a90c0faef610dc1342d845663e76b861dfbdce97e7cfc46eec27708f532",
+    "CheckTrackedSweepSdk.py": "32e6ca53c7dda9a20e4af09f12d6d6a1985129b87d1fa888394e25478c5ff644",
+    "CompareAllShapes.py": "ea3d279fcef69bb656ba498864697ef3167eced699e8042cbe7a35e1e811a938",
+    "CompareExistingReads.py": "78d8039c4c0b7e7950c02146de210c585601ea0afcec24c4b5107315645130cc",
+    "compare_cold.py": "9f785bad4248aeed679ed8172b5f6f17283cc78e1f1052f230c7e33e4ff31b0d"
+  },
+  "native_saved_states": 6,
+  "neutral_comparison": {
+    "common_fields_receipt_sha256": "f1cfdae1610998106f10b82ec150054eaa310d3bcb00a04f9058289ce5adbffb",
+    "compared_documents": 12,
+    "explicit_link_to_bound_body": true,
+    "sole_structural_change": "feature_timeline[0].output_body_ids"
+  },
+  "new_heldout_credits": 0,
+  "new_native_calls": 0,
+  "old_saved_observations_equal": true,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "other_read_baseline_and_port": {
+    "byte_identical": true,
+    "receipt_sha256": "d8c36440dc29f9b127fd399b1c7b8b5fac93ae07cdb2d8bcb14259c8b8fb5569",
+    "records": {
+      "import": {
+        "reads": {
+          "False": "6c00a9f5105e77afa94d36a9ffc2b2fb3349e424cea0678ad09a18fd5d540a31",
+          "True": "06c21b7a0889948eb973f1446b74ab7074c87314e162edf15786670fe75252f9"
+        },
+        "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+      },
+      "ladder": {
+        "reads": {
+          "False": "f1b232e18a8c162b0e98a4214bfd8a7fe179911392cea42aedefdbdce8c053de",
+          "True": "a7d28590b2ce430b5b8e6be10d8e72db88573b06b0080fd5d3d09c8bb61cc5fd"
+        },
+        "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+      },
+      "properties": {
+        "reads": {
+          "False": "2458daa4dcd84f12907ef9ac744f0c607c96331ea4da3b6ad5b68804eaa2f29b",
+          "True": "0a30bbeb3b77df2b97da848f49fadd3deb3682df1b1432a79d06c7633e28f01e"
+        },
+        "sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23"
+      },
+      "sweep_raw": {
+        "brep": true,
+        "document": "aea18a1dcae5c3fc006d84c7ea2a088b4aa9ffbadf3d9046c3fd3d9b4d240364",
+        "payloads": 4,
+        "sha256": "46a8faf1e54be5e312c0ab9f0e739c60cd4cd473bca09ae72369a552ef41675c"
+      }
+    }
+  },
+  "prior_saved_native_receipt_sha256": "f99827c82500e6adbec197f83def500d011216b365a6ebbdee2c891f2178ec56",
+  "prior_scoped_reader_revision": "84bed4175c2daf7fa50d10757ea83f667d03521f",
+  "protected_originals_read": 0,
+  "saved_writer_admission_credits": 0,
+  "schema": "kit.sw2026.aggregate-saved-sweep-read.v1",
+  "source_author_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "source_control_receipt_sha256": {
+    "after": "153d209162df7aa964082c3b3aa53a464615b82da933f4b8c6efcece7139dcca",
+    "before": "959b5ccefa657a6f51c08077e4cddd113911d0a7fe867d78b43e8552646983d3"
+  },
+  "source_manifest": {
+    "src/convert/Geometry/SweptTube/QuarterMetric.py": "36d049e6cede2489c76b021a0bcdd26cb0f49752e31220414bc762942b75bb4f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/Sweeps/SweepEntRules.py": "6fe8163ca3f16cbd6fde0538997d2354d7c377ea2821578faee4404479d2922a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/Sweeps/SweepRows.py": "139132a260482145d64b0f6ee80e1b7c29880193dec41473720dec6505c52d56",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/Sweeps/SweepViewRules.py": "9f47ea765bd3bc7bf9aaa0ea0aff5b84d77b6c4fb65db2e6b4d6000bd748261a",
+    "src/convert/adapters/solidworks/Archive/Bodies/ReadBodyMut.py": "f261dd80d48ddb43af37f110fe8a48d63cae7cffafcdcb308780c7ecac008cea",
+    "src/convert/adapters/solidworks/Archive/Construction/Sweeps/SweepLabels.py": "81faa23a1d7284bf60dcda6e114d5fb695a169e4b562d7811b1e96cf6b83ac14",
+    "src/convert/adapters/solidworks/Archive/Partition/Fields/AnalyticShapes.py": "288dafce6a892a203262aae7a9f81b8f4883606f7e029e1ac856556c74e7467c",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadActiveNodes.py": "bbe471e7b92f1543b63d071e7ec43314aaaf205e33aed68cadb468e0e8ede272",
+    "src/convert/adapters/solidworks/Archive/Partition/Sweeps/MakeGhostAttrib.py": "4c90ab23699eaea1ce95191e4b3ff971330510c047eb99e2a6fe126ab14691a2",
+    "src/convert/adapters/solidworks/Archive/Partition/Sweeps/ReadSwFrame.py": "70b119b00c93067f7dc46df2e0d8446b5dfdb84c32220ac1c9a1c85a5102be84",
+    "src/convert/adapters/solidworks/Archive/Partition/Sweeps/ReadSwSect.py": "8b65e32442487535dc78f73a88add28fd8b4eb44b4536a849e788e93cde60518",
+    "src/convert/adapters/solidworks/Archive/Resolved/ReadResolvedMut.py": "e8b0dc09070e16f0f7919c9028be09c366b52ed863e032990c63823d4bf82768",
+    "src/convert/adapters/solidworks/Archive/Resolved/Sweeps/ReadSwSchema.py": "8c47b21e99155589da73e5008d9c799944ebe15a9542029fa6638831ff2dbf63",
+    "src/convert/adapters/solidworks/Archive/Resolved/Sweeps/UseSavedSwMut.py": "709388ef76b9f02649f7c1f8a32babbf17700be5fca15a847336254f7b902e41",
+    "src/convert/adapters/solidworks/Archive/Resolved/Sweeps/UseSweepCtxMut.py": "07147389dd52c682e5a0a3b6a1a8fb41927945177d36932286f020264a484c8a",
+    "src/convert/adapters/solidworks/Archive/Resolved/Sweeps/WriteSwSchema.py": "6f5df55da69322ddbd4e6e13a423d3d3c1a5ca47503976bc1a99fe69e6b27146",
+    "src/convert/adapters/solidworks/Container/Format.py": "f882d3c2c752531aca087385ca86d1209fad6f405b2cfe9875bec60b92425972",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/BuildSweepPart.py": "46fbd21b3a69226a7cddb01d2bf5ccc24f96aa20bba3dbbe151e9b0a5d534f55",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py": "61129419880eed8935b7d20117765bbfec5a803998ca8316c76942d8802ee944",
+    "src/convert/adapters/solidworks/Core/Reading/ConfigLanes.py": "27be29a46c4fad62ab39a72af44f4c7a97ca6c08e942cc2b2399bb907381d1b6",
+    "src/convert/adapters/solidworks/Core/Reading/ReadAdapter.py": "567944f8ad5cb556ca3dd79cb46693d22ae9bd8f63f3800f149236a7224f7fa6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "3399efa58f9bdea01e35567afdec3c3e1d9263791be7d95468b2212db21b9240",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/BindSwGhosts.py": "92c311a5401b0632af41161b1239eebe4dab95e982cdb3c0c21b59c923820593",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/CheckSwPicks.py": "b459ee52956d1316a8d73b5215ffd90f79734a6cc79e778c6d5197ac2e0e7f0c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/CheckSwWire.py": "5866bdf6efde4228527c0ea0f18793b29bf1a1e4c6a70052b75da0898c8f3f0c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/MakeSwBody.py": "859bd5997e0a259e561c2c9d7bb88ab28eeeb7f4de291222441e50bfcff02550",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/MakeSwDoc.py": "bec32c9605f09885669a40012134f2c75083e23f1a0d0aaefde169f94856cb66",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/MakeSwSketch.py": "9459edbf1ddc24be7851637edf1eb45fcec4c15c2801684a1626f205a659a721",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwArc.py": "03cd17984957c4dd694c30ce4bb633d123e83d704cccf9fcee9afef0ca889367",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwDriver.py": "c941d14228b445abcc1c516b6cce75efbb7c5e4be5ef24922efcfa0048a06636",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwGraph.py": "3eee3fc1e01a69d33bbf497e6d13ae083159a2ec4d430e80292da099680fbc6a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwPart.py": "bdebe0c39767227aa3ab83e5e41c0bd464e333b849bdeada4d73c5272a8a2848",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwProfile.py": "8394f0582e6b1f0cfc42ad113af54a4383ca8c1e5617b2af391f841edfcf642b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwRow.py": "358b01e41b915d4f9932da01e85c4feaa68198a037922c2cf1f48ff0328f2350",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwSeam.py": "558fc26c58f8e55dde2f4b0016a43786bf47923c88fb0a68a043eb02adfb5e35",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/BindSwTrims.py": "1b955e772ebacd61ff00af22a6a501c911bdb483d9824fd74e8ad45fec69fe60",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/CheckSwHist.py": "afac3952c95585b527a956b12b8eb99716bea7a43ba1714abfbe267a001b59cd",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/CheckSwRefs.py": "9d6655cb5bf1fab284e4395bbc3e0f2a6f5f8ebcb89f77f3e760f0e2199fc16d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/CheckSwTorus.py": "baee2a8500bd6e1c1603166970a02f760e1a24e23f1deeeec33cf537568ef8f3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSavedSw.py": "f04bfe56cb65cd1bab13828dfeb611a7b120e33c64a6be7c6b1f8285d7b8f7c9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwAtom.py": "1a95e3e6c95801316f5f4c43367e2d447d9eba74df536f18e167fe4e701ae260",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwAttrs.py": "d119729ac5324418043102fa2dbc0e6b50f0b8853539fbcb6d02eee28dcf0971",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwBrep.py": "86e8ae28444220d94826385163af99b41aceffa171a5bf9320d0457757e37726",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwFrames.py": "12d95c3461dff888316df502d289e22581291d5f53ac5eb282e2274613016f6c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwResult.py": "a31f2f62a3d39124e3e4cdbc000c49abff4deb52bcbaa54d0d51c8cf0e4f3adc",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwRims.py": "4b5e0f645a2ef65895106d134b9397ae40ea13a8bfc3571c4ac5094b4a971e3c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwShell.py": "13c2cf0de5e5b650a76499d4ba52fbbee2ca3866e4ed1fb61dfe18d89b82b959",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/ReadSwTrim.py": "626396965b1713758a01ee670aa88610283c7c839d57a5b9dbafdc2dbf0514eb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/Saved/SwMapClass.py": "7780ee849c5fa712ed9ebaacdbdc664469a96547b37639380ff4b64bca9d976a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/SwReadGraph.py": "e901593a253e7ad9e12355dc6bbc664df6df4b0eeb6e2d8e791d271a2cd6f3e2"
+  },
+  "strict_saved_worker_observations": [
+    {
+      "cold_writers_refused": 2,
+      "native_phase_sha256": "dbb121b2c996b4c09bf7590108a4a0ad9f1652f5bbe089048a2cc04273c69f27",
+      "neutral_json_sha256": "d598dd21e13027af4d35e7590bffc2965282955eebe982eb9cd205ea3dc402f2",
+      "owner_contrast_refusals": [
+        "foreign_saved_partition",
+        "foreign_saved_ghost",
+        "foreign_trim_frame",
+        "foreign_density"
+      ],
+      "role": "original",
+      "runtime_accesses": 0,
+      "slot": 1,
+      "source_observation": {
+        "current_geometry": {
+          "area_m2": 0.0013413978398737732,
+          "center_m": [
+            0.018376426172304436,
+            0.010326573827695565,
+            0.0
+          ],
+          "mass_kg": 0.002728468874693222,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 2.6446339776032005e-06
+        },
+        "density_kg_m3": 1031.7,
+        "independent_drivers_mm": [
+          8.642000000000001,
+          28.703
+        ],
+        "joined_manager_stamp": {
+          "feature_f2a0": 1535886114,
+          "feature_f2a4": 31291949,
+          "manager": {
+            "a": 31,
+            "b": 31291949,
+            "c": 1535886114
+          }
+        },
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 2.4174803692670554e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.0,
+          "periodic_seam_mm": [
+            4.321000000000001,
+            0.0
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "typed_result_atom": "101"
+      },
+      "source_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185"
+    },
+    {
+      "cold_writers_refused": 2,
+      "native_phase_sha256": "a73acdcda461c9d0f5e0d94c3a6d71e4852df6762f23d5aed08b9381f9f68b5e",
+      "neutral_json_sha256": "92c42c00c2530fa60e77ab6e79db0d91138e97f2ef318646d07a5153e75c5169",
+      "owner_contrast_refusals": [
+        "foreign_saved_partition",
+        "foreign_saved_ghost"
+      ],
+      "role": "section",
+      "runtime_accesses": 0,
+      "slot": 1,
+      "source_observation": {
+        "current_geometry": {
+          "area_m2": 0.002012002933068942,
+          "center_m": [
+            0.018488732793555826,
+            0.010214267206444173,
+            0.0
+          ],
+          "mass_kg": 0.005688273144072014,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 5.51349534173889e-06
+        },
+        "density_kg_m3": 1031.7,
+        "independent_drivers_mm": [
+          12.478,
+          28.703
+        ],
+        "joined_manager_stamp": {
+          "feature_f2a0": -2060536467,
+          "feature_f2a4": 31291949,
+          "manager": {
+            "a": 31,
+            "b": 31291949,
+            "c": 2234430829
+          }
+        },
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 2.4174803692670554e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.2967059728390366,
+          "periodic_seam_mm": [
+            5.966385372453377,
+            1.824107065765158
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "typed_result_atom": "101"
+      },
+      "source_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b"
+    },
+    {
+      "cold_writers_refused": 2,
+      "native_phase_sha256": "34ab1364b2f2951816d9dfd7f78d06a1684176178f889c4236fa9ebd57afc82d",
+      "neutral_json_sha256": "6a3c540a8c475e362ed0d4de9ccdc0d93029c84132c0dca780857bb377741aa3",
+      "owner_contrast_refusals": [
+        "foreign_saved_partition",
+        "foreign_saved_ghost"
+      ],
+      "role": "path",
+      "runtime_accesses": 0,
+      "slot": 1,
+      "source_observation": {
+        "current_geometry": {
+          "area_m2": 0.00154473664089614,
+          "center_m": [
+            0.02139708138946724,
+            0.012073918610532761,
+            0.0
+          ],
+          "mass_kg": 0.0031817085916056452,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 3.083947457212024e-06
+        },
+        "density_kg_m3": 1031.7,
+        "independent_drivers_mm": [
+          8.642000000000001,
+          33.471000000000004
+        ],
+        "joined_manager_stamp": {
+          "feature_f2a0": -946519840,
+          "feature_f2a4": 31291949,
+          "manager": {
+            "a": 31,
+            "b": 31291949,
+            "c": 3348447456
+          }
+        },
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 2.0731062423910931e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.0,
+          "periodic_seam_mm": [
+            4.321000000000001,
+            0.0
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "typed_result_atom": "101"
+      },
+      "source_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb"
+    },
+    {
+      "cold_writers_refused": 2,
+      "native_phase_sha256": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0",
+      "neutral_json_sha256": "dc9a1efa6acfd89ce00f98f8a62c1f0990c97989e3068b5bab64394ed1981ea9",
+      "owner_contrast_refusals": [
+        "foreign_saved_partition",
+        "foreign_saved_ghost"
+      ],
+      "role": "original",
+      "runtime_accesses": 0,
+      "slot": 2,
+      "source_observation": {
+        "current_geometry": {
+          "area_m2": 0.0025336063280646656,
+          "center_m": [
+            0.026416272093383358,
+            0.014880727906616643,
+            0.0
+          ],
+          "mass_kg": 0.006862306823572918,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 6.651455678562486e-06
+        },
+        "density_kg_m3": 1031.7,
+        "independent_drivers_mm": [
+          11.426,
+          41.297
+        ],
+        "joined_manager_stamp": {
+          "feature_f2a0": 98279837,
+          "feature_f2a4": 31291950,
+          "manager": {
+            "a": 31,
+            "b": 31291950,
+            "c": 98279837
+          }
+        },
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 1.680241640774688e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.0,
+          "periodic_seam_mm": [
+            5.713,
+            0.0
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "typed_result_atom": "101"
+      },
+      "source_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c"
+    },
+    {
+      "cold_writers_refused": 2,
+      "native_phase_sha256": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40",
+      "neutral_json_sha256": "51f01d31fa28de9a65bdc60a02e2b888f6537df4301f224c51d49451823406f4",
+      "owner_contrast_refusals": [
+        "foreign_saved_partition",
+        "foreign_saved_ghost"
+      ],
+      "role": "section",
+      "runtime_accesses": 0,
+      "slot": 2,
+      "source_observation": {
+        "current_geometry": {
+          "area_m2": 0.003207111911178496,
+          "center_m": [
+            0.026484379479336427,
+            0.014812620520663572,
+            0.0
+          ],
+          "mass_kg": 0.010577952284658644,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 1.0252934268351889e-05
+        },
+        "density_kg_m3": 1031.7,
+        "independent_drivers_mm": [
+          14.186,
+          41.297
+        ],
+        "joined_manager_stamp": {
+          "feature_f2a0": 762386681,
+          "feature_f2a4": 31291950,
+          "manager": {
+            "a": 31,
+            "b": 31291950,
+            "c": 762386681
+          }
+        },
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 1.680241640774688e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.2967059728390366,
+          "periodic_seam_mm": [
+            6.78306963404581,
+            2.073792501598376
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "typed_result_atom": "101"
+      },
+      "source_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084"
+    },
+    {
+      "cold_writers_refused": 2,
+      "native_phase_sha256": "28b9e460f1a165d10420a19d047c0c8308291e9ebf92192dc313b98691f1cf82",
+      "neutral_json_sha256": "f13a9c52ac38274cab536b010d7d717cc986cb917780478d381ba259bb6a6178",
+      "owner_contrast_refusals": [
+        "foreign_saved_partition",
+        "foreign_saved_ghost"
+      ],
+      "role": "path",
+      "runtime_accesses": 0,
+      "slot": 2,
+      "source_observation": {
+        "current_geometry": {
+          "area_m2": 0.0028197040714775965,
+          "center_m": [
+            0.02963271715389248,
+            0.01673828284610752,
+            0.0
+          ],
+          "mass_kg": 0.007705451478700626,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 7.468693882621523e-06
+        },
+        "density_kg_m3": 1031.7,
+        "independent_drivers_mm": [
+          11.426,
+          46.371
+        ],
+        "joined_manager_stamp": {
+          "feature_f2a0": 1881328041,
+          "feature_f2a4": 31291950,
+          "manager": {
+            "a": 31,
+            "b": 31291950,
+            "c": 1881328041
+          }
+        },
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 1.4963865139650273e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.0,
+          "periodic_seam_mm": [
+            5.713,
+            0.0
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "typed_result_atom": "101"
+      },
+      "source_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521"
+    }
+  ]
+}

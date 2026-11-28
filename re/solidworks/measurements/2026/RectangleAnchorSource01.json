@@ -1,0 +1,1344 @@
+{
+  "schema": "kit.sw2026.rectangle-anchor-source-measurement.v1",
+  "source_commit": "63187e7839de95dfea7169d4415149e16289b1ec",
+  "source_job_sha256": "e6829c02843b0b9c422df7064f898478e08bcac71bc6b6c90937ec9dbc7e020f",
+  "source_tools_sha256": {
+    "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "native_report_sha256": "5b4b105a4ad433dc750c82d1a37994f70b465ec3e5b792859f09f93baf2ef3cc",
+  "host_supervisor_sha256": "59c12b4ca37bfadec202182d8fb7ea9c8703bafc7753ed578231de91884a8e45",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_file_version": "34.5.2.0604",
+  "phases": [
+    {
+      "phase": "ControlBefore",
+      "process_id": 7780,
+      "creation_filetime": 134394193792115381,
+      "record_sha256": "5ef495a188751db0baac5e5a072884d53870900840e1d9f45ad79b9c8daeeb6c",
+      "host_sample_matches_terminal": true,
+      "numeric_checks": 0
+    },
+    {
+      "phase": "corner/Author",
+      "process_id": 5856,
+      "creation_filetime": 134394194059663516,
+      "record_sha256": "d8038b49beaa0fdbcab77eaf2c5fddfd4528547ba6ccafeef19c2c55b7d2c3d0",
+      "host_sample_matches_terminal": true,
+      "numeric_checks": 74
+    },
+    {
+      "phase": "corner/Reopen",
+      "process_id": 3436,
+      "creation_filetime": 134394194651714914,
+      "record_sha256": "c122fca405cedba582a87207176bfa22e9b879908bd5bf40760fdd4e28240b4d",
+      "host_sample_matches_terminal": true,
+      "numeric_checks": 72
+    },
+    {
+      "phase": "center/Author",
+      "process_id": 9692,
+      "creation_filetime": 134394195181563156,
+      "record_sha256": "4916b68d6e8d28a149bd4e4990ca8a948c3044bef3c596d0fc6b56f330951969",
+      "host_sample_matches_terminal": true,
+      "numeric_checks": 74
+    },
+    {
+      "phase": "center/Reopen",
+      "process_id": 5156,
+      "creation_filetime": 134394195907292446,
+      "record_sha256": "f692769ce72f4e497ffccdfd5e0defce1f83adce4bd928d0c4f86afc5d4d696e",
+      "host_sample_matches_terminal": true,
+      "numeric_checks": 72
+    },
+    {
+      "phase": "ControlAfter",
+      "process_id": 9692,
+      "creation_filetime": 134394196480802899,
+      "record_sha256": "9e8b1a8ad0031061765d58063a917bad2fe70965e4040e679ffa74f38476c64b",
+      "host_sample_matches_terminal": false,
+      "numeric_checks": 0
+    }
+  ],
+  "native_processes": 6,
+  "native_numeric_checks": 292,
+  "exact_stream_checks": 42,
+  "cases": {
+    "corner": [
+      {
+        "role": "Original",
+        "file_sha256": "7dc2a38554ccdbdd0ec56cf9bdf22d67f789a2922760c2d3cdc82a8d442ffefe",
+        "file_bytes": 58262,
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "16075c7d6622f688156df48319d3c64d26e964b7dd94e36a7a0f39af1ff67ddb"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "39bf660b344e3e009aef7958b9a8e2a28564e6116376d1e073f3cc5edb52c136"
+          },
+          "Contents/Config-0": {
+            "bytes": 25696,
+            "sha256": "ad2073e158632348185666303b9a23d54c9b39cfd4da4b76ee707e7162954623"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2351,
+            "sha256": "403beae0bb320fcc2f389a68b9d561fed8e3c2d081a710aed5ffdaaa4af208a7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 15079,
+            "sha256": "300db6fd4d1bc705639ba4398035678970ec1741dc8b8c9b5eeea85128839a27"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "2dd4eab2f896df004a4491a691d6ece8f9508a8e8bab2bd49f630db86e086686"
+          },
+          "Header2": {
+            "bytes": 2351,
+            "sha256": "403beae0bb320fcc2f389a68b9d561fed8e3c2d081a710aed5ffdaaa4af208a7"
+          }
+        },
+        "wire": {
+          "origin_feature_id": 5,
+          "sketch_feature_id": 26,
+          "external_point_owner": "sgExtEnt_c",
+          "external_reference_wrapper": "moSketchExtRef_w",
+          "referenced_feature_id": 5,
+          "referenced_feature_stamp": 1794529625,
+          "referenced_point_slot": 0,
+          "referenced_point_mark": 1,
+          "backup_point": "moPointBackedUpData_c",
+          "external_point_local_slot": 4,
+          "anchored_local_point_slot": 0,
+          "component_class": "moUnitComponent_c",
+          "component_reuses_config_self": false,
+          "coincidence_bindings": [
+            [
+              4,
+              "sgPointHandle",
+              0,
+              "sgPointHandle"
+            ]
+          ],
+          "sketch_external_reference_state": 0,
+          "config_terminal_map": 110,
+          "resolved_terminal_map": 300
+        },
+        "mass_properties": {
+          "volume": 4.295629611000001e-06,
+          "area": 0.0019004142,
+          "com": [
+            0.015865,
+            0.009135,
+            0.003705
+          ],
+          "mass": 4.295629611000001e-06
+        },
+        "relations": [
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                4,
+                5
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                2,
+                2
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                4,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                3,
+                3
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "dimensions_m": {
+          "D1@AnchorSketch": 0.03173,
+          "D2@AnchorSketch": 0.01827,
+          "D1@AnchorBoss": 0.00741
+        },
+        "native_full_constraint": true,
+        "open_errors": 0,
+        "open_warnings": 0
+      },
+      {
+        "role": "WidthEdit",
+        "file_sha256": "48c16a740ae9dcd42639b007d3924c0e0158f499527fbb11168716e7eae5b381",
+        "file_bytes": 60604,
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2409,
+            "sha256": "ecc09ec488a40b37fe1851b8d2a2f5a825b0c42b52a0a072a8b78502b934ec47"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "61353b2d009d668e077cec68bf3c8893b01ce784946311ae0c0f045719d12787"
+          },
+          "Contents/Config-0": {
+            "bytes": 25710,
+            "sha256": "0304fdf29f8ae954f8c7bd269d8b098878c0427d6a3e41d5882c3f1137850ad6"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2633,
+            "sha256": "05e66e38562b4f7a1043f3f17e16750168d92cb25ffa9fa5ea6928be0874b5b2"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 15329,
+            "sha256": "1bfdbb3411161a02ccf5df35591d0e5ce9fdc5b2aa4382fe1d0be922517d593c"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "2dd4eab2f896df004a4491a691d6ece8f9508a8e8bab2bd49f630db86e086686"
+          },
+          "Header2": {
+            "bytes": 2633,
+            "sha256": "05e66e38562b4f7a1043f3f17e16750168d92cb25ffa9fa5ea6928be0874b5b2"
+          }
+        },
+        "wire": {
+          "origin_feature_id": 5,
+          "sketch_feature_id": 26,
+          "external_point_owner": "sgExtEnt_c",
+          "external_reference_wrapper": "moSketchExtRef_w",
+          "referenced_feature_id": 5,
+          "referenced_feature_stamp": 1794529625,
+          "referenced_point_slot": 0,
+          "referenced_point_mark": 1,
+          "backup_point": "moPointBackedUpData_c",
+          "external_point_local_slot": 4,
+          "anchored_local_point_slot": 0,
+          "component_class": "moUnitComponent_c",
+          "component_reuses_config_self": false,
+          "coincidence_bindings": [
+            [
+              4,
+              "sgPointHandle",
+              0,
+              "sgPointHandle"
+            ]
+          ],
+          "sketch_external_reference_state": 0,
+          "config_terminal_map": 110,
+          "resolved_terminal_map": 300
+        },
+        "mass_properties": {
+          "volume": 5.727957417e-06,
+          "area": 0.0024438030000000005,
+          "com": [
+            0.021155000000000004,
+            0.009134999999999999,
+            0.003705
+          ],
+          "mass": 5.727957417e-06
+        },
+        "relations": [
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                4,
+                5
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                2,
+                2
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                4,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                3,
+                3
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "dimensions_m": {
+          "D1@AnchorSketch": 0.04231,
+          "D2@AnchorSketch": 0.01827,
+          "D1@AnchorBoss": 0.00741
+        },
+        "native_full_constraint": true,
+        "open_errors": 0,
+        "open_warnings": 0
+      },
+      {
+        "role": "HeightEdit",
+        "file_sha256": "fa3d44ebd5cca6e8a4783542adb8ddaffe2c8f055d2f6cbcf73ee4e490fa8162",
+        "file_bytes": 63394,
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2413,
+            "sha256": "f0032eb9e16e16c99d60480ac5d36eeb5dce703d2972d8b4c49cb8fb53f7b31f"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "592aa5b9d561b6e0717119a0cb6ad6df080de579c5cbce355de16d4e776711ff"
+          },
+          "Contents/Config-0": {
+            "bytes": 25712,
+            "sha256": "df1945ef4636dc5612fd58e1cf65a54847e21f8d0675a249f8d566c07f58fff2"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2669,
+            "sha256": "acc8d495f08fc378d371e7b7c1a6418c3b42407200b3fb60d7c7a70bfe736cf0"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 15333,
+            "sha256": "236393a123618e735833a961010f7a0130e6f613f1fd929783c2e19ac15d024c"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "2dd4eab2f896df004a4491a691d6ece8f9508a8e8bab2bd49f630db86e086686"
+          },
+          "Header2": {
+            "bytes": 2669,
+            "sha256": "acc8d495f08fc378d371e7b7c1a6418c3b42407200b3fb60d7c7a70bfe736cf0"
+          }
+        },
+        "wire": {
+          "origin_feature_id": 5,
+          "sketch_feature_id": 26,
+          "external_point_owner": "sgExtEnt_c",
+          "external_reference_wrapper": "moSketchExtRef_w",
+          "referenced_feature_id": 5,
+          "referenced_feature_stamp": 1794529625,
+          "referenced_point_slot": 0,
+          "referenced_point_mark": 1,
+          "backup_point": "moPointBackedUpData_c",
+          "external_point_local_slot": 4,
+          "anchored_local_point_slot": 0,
+          "component_class": "moUnitComponent_c",
+          "component_reuses_config_self": false,
+          "coincidence_bindings": [
+            [
+              4,
+              "sgPointHandle",
+              0,
+              "sgPointHandle"
+            ]
+          ],
+          "sketch_external_reference_state": 0,
+          "config_terminal_map": 110,
+          "resolved_terminal_map": 300
+        },
+        "mass_properties": {
+          "volume": 2.804973249e-06,
+          "area": 0.001404119,
+          "com": [
+            0.015865,
+            0.005965,
+            0.003705
+          ],
+          "mass": 2.804973249e-06
+        },
+        "relations": [
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                4,
+                5
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                2,
+                2
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                4,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                3,
+                3
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "dimensions_m": {
+          "D1@AnchorSketch": 0.03173,
+          "D2@AnchorSketch": 0.01193,
+          "D1@AnchorBoss": 0.00741
+        },
+        "native_full_constraint": true,
+        "open_errors": 0,
+        "open_warnings": 0
+      }
+    ],
+    "center": [
+      {
+        "role": "Original",
+        "file_sha256": "d6da6b8cda12acf47352f846ab04f9aff8eea88c7e4167a7ee3e663eb371909a",
+        "file_bytes": 58129,
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "ab0f2411fe14d8345452c46a11dab37a9f65685b7b6090b3a78e529a924f6f08"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "f0ca6d576a136846d94bf1ccfe68ca3f59dfa18a00b396e75516b6eb3bd342fe"
+          },
+          "Contents/Config-0": {
+            "bytes": 25696,
+            "sha256": "0448e5b948230da92281bad0d77774cc046434808cde23648a8ac63dbe280fd2"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2351,
+            "sha256": "d1078743ec20abd1da84dbdac2e18db5902c1445b707c8a752cad2d5a24ef84b"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 15637,
+            "sha256": "ef6e7f118276d7e8e641d30d9a25fa6f07830fbcfe5036f5346119510ddcbd1e"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "66ce803867c431698f1dc6c71e63d977230ebea0583e7f111c1f57b64c0a97a8"
+          },
+          "Header2": {
+            "bytes": 2351,
+            "sha256": "d1078743ec20abd1da84dbdac2e18db5902c1445b707c8a752cad2d5a24ef84b"
+          }
+        },
+        "wire": {
+          "origin_feature_id": 5,
+          "sketch_feature_id": 26,
+          "external_point_owner": "sgExtEnt_c",
+          "external_reference_wrapper": "moSketchExtRef_w",
+          "referenced_feature_id": 5,
+          "referenced_feature_stamp": 1794529625,
+          "referenced_point_slot": 0,
+          "referenced_point_mark": 1,
+          "backup_point": "moPointBackedUpData_c",
+          "external_point_local_slot": 5,
+          "anchored_local_point_slot": 0,
+          "component_class": "moUnitComponent_c",
+          "component_reuses_config_self": false,
+          "coincidence_bindings": [
+            [
+              0,
+              "sgPointHandle",
+              5,
+              "sgLineHandle"
+            ],
+            [
+              0,
+              "sgPointHandle",
+              6,
+              "sgLineHandle"
+            ],
+            [
+              5,
+              "sgPointHandle",
+              0,
+              "sgPointHandle"
+            ]
+          ],
+          "sketch_external_reference_state": 0,
+          "config_terminal_map": 110,
+          "resolved_terminal_map": 305
+        },
+        "mass_properties": {
+          "volume": 7.560534751e-06,
+          "area": 0.0031540006,
+          "com": [
+            0.0,
+            -4.376307442769812e-19,
+            0.003415
+          ],
+          "mass": 7.560534751e-06
+        },
+        "relations": [
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              3
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                5
+              ]
+            ]
+          },
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              3
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                6,
+                6
+              ]
+            ]
+          },
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                5,
+                6
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                2,
+                2
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                4,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                3,
+                3
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                2,
+                3
+              ],
+              [
+                4,
+                5
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                4,
+                5
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "dimensions_m": {
+          "D1@AnchorSketch": 0.04319,
+          "D2@AnchorSketch": 0.02563,
+          "D1@AnchorBoss": 0.00683
+        },
+        "native_full_constraint": true,
+        "open_errors": 0,
+        "open_warnings": 0
+      },
+      {
+        "role": "WidthEdit",
+        "file_sha256": "52e46be77a678ca64b08fa755ed4078efc0e044415d76971ca3dc581baae3ffe",
+        "file_bytes": 56684,
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2409,
+            "sha256": "bcc4051a566094eef6a0caea04a5d7f5e55df33f91b442dc339388143490713a"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "fb5ac8be95cf32114302bf24d5f185eba0cf8987f72f32fbc7ef967e16e76271"
+          },
+          "Contents/Config-0": {
+            "bytes": 25710,
+            "sha256": "e451ede9c881f66f936326f59757e65ed35d5a6669bba108b3d07e016db921e6"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2633,
+            "sha256": "8735ef67366a2937dee3b10628e123f5ccc750f5f51dd9081eb4d5bc7bf709ea"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 15887,
+            "sha256": "df0d67591acddf766033ebd7c2df30d7553b4615ed0d029ab027ead1ccbeadc6"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "66ce803867c431698f1dc6c71e63d977230ebea0583e7f111c1f57b64c0a97a8"
+          },
+          "Header2": {
+            "bytes": 2633,
+            "sha256": "8735ef67366a2937dee3b10628e123f5ccc750f5f51dd9081eb4d5bc7bf709ea"
+          }
+        },
+        "wire": {
+          "origin_feature_id": 5,
+          "sketch_feature_id": 26,
+          "external_point_owner": "sgExtEnt_c",
+          "external_reference_wrapper": "moSketchExtRef_w",
+          "referenced_feature_id": 5,
+          "referenced_feature_stamp": 1794529625,
+          "referenced_point_slot": 0,
+          "referenced_point_mark": 1,
+          "backup_point": "moPointBackedUpData_c",
+          "external_point_local_slot": 5,
+          "anchored_local_point_slot": 0,
+          "component_class": "moUnitComponent_c",
+          "component_reuses_config_self": false,
+          "coincidence_bindings": [
+            [
+              0,
+              "sgPointHandle",
+              5,
+              "sgLineHandle"
+            ],
+            [
+              0,
+              "sgPointHandle",
+              6,
+              "sgLineHandle"
+            ],
+            [
+              5,
+              "sgPointHandle",
+              0,
+              "sgPointHandle"
+            ]
+          ],
+          "sketch_external_reference_state": 0,
+          "config_terminal_map": 110,
+          "resolved_terminal_map": 305
+        },
+        "mass_properties": {
+          "volume": 6.2511390590000005e-06,
+          "area": 0.002668399,
+          "com": [
+            -2.5439780133899055e-18,
+            -5.292991275643465e-19,
+            0.003415
+          ],
+          "mass": 6.2511390590000005e-06
+        },
+        "relations": [
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              3
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                5
+              ]
+            ]
+          },
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              3
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                6,
+                6
+              ]
+            ]
+          },
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                5,
+                6
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                2,
+                2
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                4,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                3,
+                3
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                2,
+                3
+              ],
+              [
+                4,
+                5
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                4,
+                5
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "dimensions_m": {
+          "D1@AnchorSketch": 0.03571,
+          "D2@AnchorSketch": 0.02563,
+          "D1@AnchorBoss": 0.00683
+        },
+        "native_full_constraint": true,
+        "open_errors": 0,
+        "open_warnings": 0
+      },
+      {
+        "role": "HeightEdit",
+        "file_sha256": "6c9624332522a7402c27525a73e4097a6d3b389f5272692faa93e3d3af820ebd",
+        "file_bytes": 55183,
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2413,
+            "sha256": "ee4d01a06ad1b6ca47bd198b292a7b264f38fbcd885f2398bf51dca07bd7dfee"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "73476855c240f52287b340e36e8a3d2e5de0d5c09672d6b7f40a88e58c21b2d6"
+          },
+          "Contents/Config-0": {
+            "bytes": 25712,
+            "sha256": "934074b3dab9e314296d3327ed18a4899eeaefba93bb925bd13ff5248b832fee"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2669,
+            "sha256": "e879cba358ab454b3b227209f2a66bd730be9d87a996282e0c4fcb6be89821fc"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 15891,
+            "sha256": "6a4bbff4d33c29541d681291378f9906608cc4f581efc6b3d6df5603ff773949"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "66ce803867c431698f1dc6c71e63d977230ebea0583e7f111c1f57b64c0a97a8"
+          },
+          "Header2": {
+            "bytes": 2669,
+            "sha256": "e879cba358ab454b3b227209f2a66bd730be9d87a996282e0c4fcb6be89821fc"
+          }
+        },
+        "wire": {
+          "origin_feature_id": 5,
+          "sketch_feature_id": 26,
+          "external_point_owner": "sgExtEnt_c",
+          "external_reference_wrapper": "moSketchExtRef_w",
+          "referenced_feature_id": 5,
+          "referenced_feature_stamp": 1794529625,
+          "referenced_point_slot": 0,
+          "referenced_point_mark": 1,
+          "backup_point": "moPointBackedUpData_c",
+          "external_point_local_slot": 5,
+          "anchored_local_point_slot": 0,
+          "component_class": "moUnitComponent_c",
+          "component_reuses_config_self": false,
+          "coincidence_bindings": [
+            [
+              0,
+              "sgPointHandle",
+              5,
+              "sgLineHandle"
+            ],
+            [
+              0,
+              "sgPointHandle",
+              6,
+              "sgLineHandle"
+            ],
+            [
+              5,
+              "sgPointHandle",
+              0,
+              "sgPointHandle"
+            ]
+          ],
+          "sketch_external_reference_state": 0,
+          "config_terminal_map": 110,
+          "resolved_terminal_map": 305
+        },
+        "mass_properties": {
+          "volume": 1.1000091332999999e-05,
+          "area": 0.004320467,
+          "com": [
+            6.938893903907228e-18,
+            6.015809051123105e-19,
+            0.003415
+          ],
+          "mass": 1.1000091332999999e-05
+        },
+        "relations": [
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              3
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                5
+              ]
+            ]
+          },
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              3
+            ],
+            "entity_ids": [
+              [
+                0,
+                1
+              ],
+              [
+                6,
+                6
+              ]
+            ]
+          },
+          {
+            "kind": 9,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                5,
+                6
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                2,
+                2
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": 5,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                4,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": 4,
+            "suppressed": false,
+            "entity_types": [
+              3
+            ],
+            "entity_ids": [
+              [
+                3,
+                3
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                2,
+                3
+              ],
+              [
+                4,
+                5
+              ]
+            ]
+          },
+          {
+            "kind": 1,
+            "suppressed": false,
+            "entity_types": [
+              2,
+              2
+            ],
+            "entity_ids": [
+              [
+                4,
+                5
+              ],
+              [
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "dimensions_m": {
+          "D1@AnchorSketch": 0.04319,
+          "D2@AnchorSketch": 0.03729,
+          "D1@AnchorBoss": 0.00683
+        },
+        "native_full_constraint": true,
+        "open_errors": 0,
+        "open_warnings": 0
+      }
+    ]
+  },
+  "heldout_inputs_tested": 0,
+  "writer_output_count": 0,
+  "native_acceptance": false
+}

@@ -8,10 +8,12 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 # indexed views own separate transforms and constructor state without consuming model persistent identifiers
 def MakeViewNode(
-    NameValue: str, IndexValue: int, Quaternion: tuple[float, float, float, float]
+    NameValue: str,
+    IndexValue: int,
+    Quaternion: tuple[float, float, float, float] | None,
 ) -> ArchiveNode:
     Transform = IdentityXform()
-    if IndexValue >= 2:
+    if IndexValue >= 2 and Quaternion is not None:
         Transform.update({"has_matrix": 1, "f08": ViewMatrix(Quaternion)})
     return ArchiveNode(
         RuntimeClass("moView_c", 1),

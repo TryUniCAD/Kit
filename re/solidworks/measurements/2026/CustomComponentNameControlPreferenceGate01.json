@@ -1,0 +1,21 @@
+{
+  "actual_preference_after": true,
+  "actual_preference_before": true,
+  "actual_registered_preference_enum": 18,
+  "author_stopped": {
+    "error": "swExtRefUpdateCompNames must already be false; no application preference will be changed",
+    "type": "ValueError"
+  },
+  "custom_source_authored": false,
+  "fresh_processes": 3,
+  "global_preference_changes": 0,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_trial_sha256": "7c2dc5ed8f9490237620ac212e74c003f36d4ca2cedbe754563fe1d0b3d14b2b",
+  "oracle_file_version": "34.5.2.0604",
+  "primary_fresh_reopen_launched": false,
+  "pristine_controls_passed": 2,
+  "raw_result_sha256": "03b6fc14e48364f0ada77bf9c13c3e1b3d8f84a36a5bf7e577117db21508aa1c",
+  "schema": "kit.sw2026.custom-component-name-precondition-summary.v1",
+  "source_commit": "c557a6464aab4e1b5d88791b36473cc67fb61017"
+}

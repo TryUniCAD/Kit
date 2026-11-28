@@ -1,0 +1,19 @@
+{
+  "build": "34.5.2.0604",
+  "disclosed_prefixes_exact": 4,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "new_hinge_process_receipt_sha256": "17536e731cddb33a72cf2297d0e2ba497e78a77a435fa59caa42e5eaa5ed6cbf",
+  "new_sdk_readback_receipt_sha256": "80dbdab94d67fff4c85f2c66f37b78d810869d6cddafe03c9826e8c1157f39f3",
+  "old_hinge_rule_sha256": "e37b9369c5f5e6391444b28a8f6a988fdb338980762cbe31993dff9b6483b6e3",
+  "production_code_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/MakeHingeMut.py": "013e619c772513b1a4ed1271b60b8fe90000047f1736ae2637e1ceb3a1a0485f",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/MakeHingePick.py": "847d1d9539b8a866b16015b0bc5ae61b6db6baa874d254087849ce8f651795ce",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PutHingeViews.py": "5423387cfd89be67831a511a7b28b45eb6cf1812fdd61c2a04efd4d490768c41"
+  },
+  "same_native_tested_pattern_cases": 2,
+  "schema": "kit.sw2026.shared-finite-hinge.v1",
+  "standalone_generated_cases": 2,
+  "standalone_guarded_processes": 4,
+  "unchanged_complete_pattern_states": 6
+}

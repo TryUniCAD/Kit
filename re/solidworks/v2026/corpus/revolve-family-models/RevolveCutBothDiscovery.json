@@ -1,0 +1,77 @@
+{
+  "cases": [
+    {
+      "angle_deg": 55.5,
+      "axial_m": [
+        -0.01637,
+        0.02249
+      ],
+      "axis_axial_m": [
+        -0.06951,
+        0.08875
+      ],
+      "axis_x_m": 0.00721,
+      "edit_angle_deg": 99.625,
+      "name": "ScopePairA",
+      "plane": "front",
+      "radius_m": [
+        0.02319,
+        0.05511
+      ],
+      "reverse": false,
+      "scope": "both",
+      "stock_axial_m": [
+        -0.03381,
+        0.04381
+      ],
+      "stock_radii_m": [
+        [
+          0.00921,
+          0.02931
+        ],
+        [
+          0.03719,
+          0.06921
+        ]
+      ]
+    },
+    {
+      "angle_deg": 106.75,
+      "axial_m": [
+        -0.02415,
+        0.01739
+      ],
+      "axis_axial_m": [
+        -0.08413,
+        0.07675
+      ],
+      "axis_x_m": -0.00468,
+      "edit_angle_deg": 78.5,
+      "name": "ScopePairB",
+      "plane": "right",
+      "radius_m": [
+        0.01931,
+        0.05583
+      ],
+      "reverse": true,
+      "scope": "both",
+      "stock_axial_m": [
+        -0.04,
+        0.0362
+      ],
+      "stock_radii_m": [
+        [
+          0.00872,
+          0.02554
+        ],
+        [
+          0.03459,
+          0.06331
+        ]
+      ]
+    }
+  ],
+  "family": "cut",
+  "schema": "kit.sw2026.revolve-family-models.v1",
+  "split": "discovery"
+}

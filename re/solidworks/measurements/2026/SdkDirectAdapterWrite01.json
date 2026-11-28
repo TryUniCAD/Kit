@@ -1,0 +1,41 @@
+{
+  "application_usable": true,
+  "assembly_neutral_author": "MakeAssemblyBoundaryCase.make_case(2)",
+  "assembly_output_kind": "native_filesystem_bundle",
+  "dropped_capabilities": [],
+  "fresh_guarded_processes": 2,
+  "generated_documents": {
+    "DirectPart.SLDPRT": {
+      "bytes": 8034,
+      "sha256": "5521e4ced1dbc5b02eb57d49772df624b7ab7c57524b196d41a909e17181d40d"
+    },
+    "PublicDatumPrism.SLDPRT": {
+      "bytes": 8590,
+      "sha256": "8bd62f3c0c0f8cab742d2166c669de90a591683cbfe66b87cc97f976eee1533b"
+    },
+    "PublicPlanarPair2.SLDASM": {
+      "bytes": 10050,
+      "sha256": "93a9f3db8848b9a9ac0aaa29822e118683e539436a024caf25036fdc92e8ad0a"
+    }
+  },
+  "identical_outputs_and_attestation": true,
+  "native_processes_started": 0,
+  "part_neutral_dimensions_mm": [
+    30.125,
+    16.25,
+    7.875
+  ],
+  "part_output_kind": "binary_stream_with_explicit_final_destination",
+  "registered_solidworks_writers": [
+    "SldprtWriter"
+  ],
+  "routes": [
+    "SldprtAdapter.write",
+    "write_document"
+  ],
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.direct-adapter-writer-parity.v1",
+  "source_sha256": "5f3b82d1f6f6246ca7f8e938e40c465babd8088e6b6b6f6e2d12804d94c7f28f",
+  "vendor_loadable": true,
+  "writer_event": 1794001000
+}

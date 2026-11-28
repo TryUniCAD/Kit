@@ -1,7 +1,7 @@
 from dataclasses import dataclass as DataClass
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.Native import NativeDimension
+from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
 
 
 # the forward depth must retain its actual parameter dimension and display identities together

@@ -1,0 +1,42 @@
+{
+  "schema": "kit.sw2026.dimensioned-assembly-prediction-freeze.v1",
+  "recorded_utc": "2026-11-17T08:34:24.713952+00:00",
+  "source_revision": "024156484465c8017d9fbd0e3912d621a08b2705",
+  "generator_revision": "23e01579fb0ad607417ddfc84e4fbb7b0c55b1be",
+  "generator_tree": "1d6a9ee722f57e061725b43671498bf6fa3968e2",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "source_lock_sha256": "50de39dc21405cd346566f64244b62d457857758f339a95be4baf3466dfc1f80",
+  "specs_sha256": "b4d22e559b61ec1c1bae56c9c11fb97db05c040f5b01a94f129595e65e1cc922",
+  "protocol_sha256": "9ba25a8c82958857bc2e353f2c46bd2be56b840a2095749cf2d440209c50a73e",
+  "prior_protocol_sha256": "ba043e91780cc01bcc512d7ca640de33a04b7055d5a5f908a5eaf99f384407c3",
+  "discovery_measurement_sha256": "7c58575378626c741f24bda7f2c6515579b053e0afb6cb0647eb55f72b1638be",
+  "reproduced_discovery_sha256": "b37c49389105f55e583916ad4e8fe9e7ae7375d08675a7bb6e925d3516aea03f",
+  "reproduced_parent_child_pairs": 6,
+  "reproduced_neutral_requests": 6,
+  "oracle_tools": {
+    "InspectDimensionedAssembly.py": "0ac964110a92241109c1837eaaa76e24fedcf1a0de15f5ce4f3818767021812b",
+    "AuthorAssemblySources.py": "bcda45dd745e75f5cff9ae4706f5b4767c0d03d3ff2d9699f4832c487c6dea58",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectRectangleDimensions.py": "7bef3ae6346053f6e0ee09f5f418d723fae2345fbeb14c8c371209bf7c906a76",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "prediction_tools": {
+    "PrepareDimensionedAssemblyPredictions.py": "639dbf7f80f594d4e7da459638bfe3037f8ad9116e36755d02a38bebc2dc48a7",
+    "BindDimensionedAssemblySources.py": "7de45c4a08854e11b78f2a74f606fe6922281ff1d33401d2dc0c068b16d04b6b"
+  },
+  "private_plan_sha256": "307016c2d9e406e262fb7af5e686c441d3360961da8e21fbba26ee78ad6bd256",
+  "case_names": [
+    "A15HeldoutSyncedThree",
+    "A16HeldoutSyncedFour"
+  ],
+  "heldout_authored_values_disclosed": false,
+  "heldout_native_archives_disclosed": false,
+  "heldout_native_observations_disclosed": false
+}

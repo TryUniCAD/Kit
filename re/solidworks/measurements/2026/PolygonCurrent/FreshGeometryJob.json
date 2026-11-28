@@ -1,0 +1,17 @@
+{
+  "control": "external-inputs/NativeControl.SLDPRT",
+  "files": ["external-inputs/H7_irregular.SLDPRT"],
+  "generator": {
+    "id": 14177624347,
+    "run": 43756383239,
+    "job": 132941286371,
+    "synthetic": "2179cb75a8501f83d78eacbdeb67f533a94246cc",
+    "parents": [
+      "e04e7b78699d3f567409937007b00b567620078a",
+      "b23e72c609caca0d0ca4acf871e9680a325f0548"
+    ],
+    "github_digest": "sha256:bb4cb2ddd8a0728e915f0748e2057012e737699f5517aad0e3c202591cf50448",
+    "digest_authority": "github metadata; zip not independently rehashed",
+    "head": "b23e72c609caca0d0ca4acf871e9680a325f0548"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema": "kit.sw2026.sdk-paired-end-conditions-native.v1",
+  "sdk_revision": "92716507fef21bab511f6ac349f29a5cf965cba3",
+  "generated_freeze_sha256": "0d9655b482e7aa46f80ddc2a000fd597f6a869a55c481aa227e9b9b9c9b0e987",
+  "native_result_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c",
+  "sdk_readback_sha256": "35fa6556f82f7312cceeb8ba689416ce8d36de7be185de795c54a1e1a67973a5",
+  "packet_sha256": "8f38fd02f84cd554342005cd2dd0457de879cd443e96d2721af05d770cbb0bdd",
+  "native_processes": 14,
+  "distinct_processes": 14,
+  "controls_healthy": true,
+  "inputs_immutable": true,
+  "native_acceptance": true,
+  "generated": {
+    "H03MidPlane": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+    "H04TwoDirections": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080"
+  },
+  "cases": [
+    {
+      "name": "H03MidPlane",
+      "passed": true,
+      "paired_comparisons": [
+        {
+          "actual_topology": true,
+          "configurations": true,
+          "driving_edits": true,
+          "full_tree": true,
+          "independent_geometry": true,
+          "paired_mass_density": true,
+          "passed": true
+        },
+        {
+          "actual_topology": true,
+          "configurations": true,
+          "driving_edits": true,
+          "full_tree": true,
+          "independent_geometry": true,
+          "paired_mass_density": true,
+          "passed": true
+        },
+        {
+          "actual_topology": true,
+          "configurations": true,
+          "driving_edits": true,
+          "full_tree": true,
+          "independent_geometry": true,
+          "paired_mass_density": true,
+          "passed": true
+        }
+      ],
+      "phase_count": 6
+    },
+    {
+      "name": "H04TwoDirections",
+      "passed": true,
+      "paired_comparisons": [
+        {
+          "actual_topology": true,
+          "configurations": true,
+          "driving_edits": true,
+          "full_tree": true,
+          "independent_geometry": true,
+          "paired_mass_density": true,
+          "passed": true
+        },
+        {
+          "actual_topology": true,
+          "configurations": true,
+          "driving_edits": true,
+          "full_tree": true,
+          "independent_geometry": true,
+          "paired_mass_density": true,
+          "passed": true
+        },
+        {
+          "actual_topology": true,
+          "configurations": true,
+          "driving_edits": true,
+          "full_tree": true,
+          "independent_geometry": true,
+          "paired_mass_density": true,
+          "passed": true
+        }
+      ],
+      "phase_count": 6
+    }
+  ],
+  "sdk_readbacks": 10,
+  "typed_streams_exact": 20,
+  "sdk_readback_passed": false,
+  "sdk_readback_boundaries": [
+    {
+      "case": "H03MidPlaneGenerated",
+      "phase": "first-save",
+      "reason": "ValueError: fixed point is not the actual circle centre"
+    },
+    {
+      "case": "H03MidPlaneGenerated",
+      "phase": "edited-fresh-reopen-save",
+      "reason": "ValueError: fixed point is not the actual circle centre"
+    }
+  ],
+  "public_writer_qualified": false,
+  "fcstd_conversions": 0
+}

@@ -1,0 +1,23 @@
+{
+  "files": [
+    {
+      "bytes": 13806,
+      "path": "PrepareEpochNativeDeck.py",
+      "sha256": "213b56c761893d7275ecba567eedf9fd2dc323907b282913d6aaac7b15cf9a06"
+    },
+    {
+      "bytes": 11925,
+      "path": "InspectEpochClocks.py",
+      "sha256": "6e082ea37a2619cf21de8b31be5a8c4523da6139a8f0e281f1cab2882e94c3ec"
+    }
+  ],
+  "hidden_inputs_read": false,
+  "host_tools_executed": false,
+  "native_acceptance": false,
+  "prior_native_packet_sha256": "862adb0519afd892aa690ce7b4e283a33de95cdf3bcdc71be465498244118842",
+  "required_process_result_sha256": "2ba35c5237cd84576e234aaba3bb60d043147b11224b2175ebc8c31d5019a83f",
+  "required_source_manifest_sha256": "7e0b70e7d1cf2933641d99214a9919601f9aabae3f3c8c3246c7668fcd5bfcf2",
+  "schema": "kit.sw2026.epoch-host-tools.v1",
+  "static_ast_passed": true,
+  "vm_access": false
+}

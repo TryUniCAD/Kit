@@ -1,0 +1,63 @@
+{
+  "schema": "kit.sw2026.assembly-child-file-time-measurement.v1",
+  "head": "80603ff19c8106938bd68a5d866110ab467f7fba",
+  "tested_merge": "ae84d12075fd57692a7d8ed923dcbf5df3569987",
+  "tested_tree": "900792a6b04ad2f25f50b1feff92f7532de56464",
+  "run_id": 44020546348,
+  "job_id": 133828721584,
+  "artifact": {
+    "id": 14301441151,
+    "sha256": "d3c5224bac3175dec11a3b8f0cab0c313e9c3847a0b23825710772aa21d2b48f"
+  },
+  "member": {
+    "name": "SourceParser/Assembly/Synchronized.json",
+    "bytes": 4714980,
+    "sha256": "a01a451ffc712efbd2dcbebd042d4e51387d8645e3b1cbab64159a1318f97f03"
+  },
+  "exact_archive_comparisons": 40,
+  "timestamp_comparisons_matched": 8,
+  "cases": [
+    {
+      "name": "A13SyncedSingle",
+      "child_source_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+      "self_modified_at": {
+        "Header2": 1794881660,
+        "Contents/Config-0-ModelHeader": 1794881660
+      },
+      "manager_saved_at": 1794881660,
+      "occurrence_update_time": 1794881658,
+      "comparisons": {
+        "Header2": {
+          "modified_matches_child_self": true,
+          "saved_matches_child_manager": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "modified_matches_child_self": true,
+          "saved_matches_child_manager": true
+        }
+      }
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "child_source_sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+      "self_modified_at": {
+        "Header2": 1794881716,
+        "Contents/Config-0-ModelHeader": 1794881716
+      },
+      "manager_saved_at": 1794881716,
+      "occurrence_update_time": 1794881713,
+      "comparisons": {
+        "Header2": {
+          "modified_matches_child_self": true,
+          "saved_matches_child_manager": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "modified_matches_child_self": true,
+          "saved_matches_child_manager": true
+        }
+      }
+    }
+  ],
+  "heldout_payloads_read": false,
+  "populated_native_writer_acceptance": false
+}

@@ -1,0 +1,239 @@
+{
+  "all_reached_note_dependencies_complete": false,
+  "baseline_boundary_sha256": "4ab1cf25ce2405d171386c1050150ecb5af08861ae811b401318772db2f61e3d",
+  "complete_definition_retention": false,
+  "delivery_pr": 121,
+  "heldout_acceptance": false,
+  "initial_observer_failure": {
+    "correction": "bounded NativeHeader and NativeFileRef fields with identity ordinals; SDK sources unchanged",
+    "evidence": "root-reported failed observer, no product conclusion",
+    "reported_error": "TypeError unrecognized typed observer NativeHeader value",
+    "root_report_persisted": false,
+    "source_manifest_sha256": "cf1ca645ce6b05edd1c92ee737b4b6483b4e241767a972c2203ad13a1495517f"
+  },
+  "input_manifest_sha256": "ff4fb68796a0f2de13376d0244d07dffcf1fe9474cc069f1abb3d8bb206baff9",
+  "local_tests": false,
+  "native_acceptance": false,
+  "native_code_executed_by_worker": false,
+  "next_boundary": "moGeneralCurveRef_w schema1 through moParametricPoint_c.f118",
+  "normal_semantic_admission": false,
+  "ordinary_note_owner_order_source_bound": true,
+  "prior_profile_regression": "pending root verification",
+  "public_writer_admission": false,
+  "root_process_history": [
+    {
+      "all_raw_round_trips": false,
+      "candidate": "02",
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 6950,
+          "definition_sha256": "3e212267b70be0b5d3f92a6365b2c642a4efb43aefac725cde21f74a90ec0cdb",
+          "input_sha256": "662d4af295f3db77e49cb7eae3ad69c2d7140560dfc2be786d3f3843796060df",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 6610,
+          "definition_sha256": "044a5afc1b406fae438956bd1a681b54d0e35442eb970323fda4aefeb9215e9f",
+          "input_sha256": "ad722ffc3fbe6c0ff36c2707bc79c124c9582406d5a19b2fbf1930cb86f55e52",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 6950,
+          "definition_sha256": "938d15a0df41f38e236a1bee989d43efa4a895e530133cde236de9a6dcdeec9d",
+          "input_sha256": "7f4abafbafc3f7afdd8d3970d265ffbc96124589f06cfacc421967abc229c67c",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        }
+      ],
+      "data_collected": true,
+      "private_report_sha256": "9ff825eb778ad48b4b6490723ad4a4a93938a96d5d575edfbad10536e7301a9e",
+      "source_manifest_sha256": "844f8412f1fd99084f4866d53aaaeadbcc9839346c2bb0fb3e0c0034ecab10c1"
+    },
+    {
+      "all_raw_round_trips": false,
+      "candidate": "03",
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 7074,
+          "definition_sha256": "3e212267b70be0b5d3f92a6365b2c642a4efb43aefac725cde21f74a90ec0cdb",
+          "input_sha256": "662d4af295f3db77e49cb7eae3ad69c2d7140560dfc2be786d3f3843796060df",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 6734,
+          "definition_sha256": "044a5afc1b406fae438956bd1a681b54d0e35442eb970323fda4aefeb9215e9f",
+          "input_sha256": "ad722ffc3fbe6c0ff36c2707bc79c124c9582406d5a19b2fbf1930cb86f55e52",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 7074,
+          "definition_sha256": "938d15a0df41f38e236a1bee989d43efa4a895e530133cde236de9a6dcdeec9d",
+          "input_sha256": "7f4abafbafc3f7afdd8d3970d265ffbc96124589f06cfacc421967abc229c67c",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        }
+      ],
+      "data_collected": true,
+      "private_report_sha256": "0cb4e914df084203de0f26d00a82ea4d43eb6575a28c84ac8b45163cfd52d0fa",
+      "source_manifest_sha256": "ff3c3edc9170c3e2cfdee990bf0fd4de5c66a683b7ecd8c506ef58549dfb6ac8"
+    },
+    {
+      "all_raw_round_trips": false,
+      "candidate": "04",
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 7297,
+          "definition_sha256": "3e212267b70be0b5d3f92a6365b2c642a4efb43aefac725cde21f74a90ec0cdb",
+          "input_sha256": "662d4af295f3db77e49cb7eae3ad69c2d7140560dfc2be786d3f3843796060df",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 6957,
+          "definition_sha256": "044a5afc1b406fae438956bd1a681b54d0e35442eb970323fda4aefeb9215e9f",
+          "input_sha256": "ad722ffc3fbe6c0ff36c2707bc79c124c9582406d5a19b2fbf1930cb86f55e52",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 7297,
+          "definition_sha256": "938d15a0df41f38e236a1bee989d43efa4a895e530133cde236de9a6dcdeec9d",
+          "input_sha256": "7f4abafbafc3f7afdd8d3970d265ffbc96124589f06cfacc421967abc229c67c",
+          "input_unchanged": true,
+          "normal_rejection": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "type": "BodyUnsupported"
+          },
+          "raw_byte_round_trip": false,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          },
+          "raw_load_complete": false
+        }
+      ],
+      "data_collected": true,
+      "private_report_sha256": "8debfdc2f281a091dbd072bc8be04541692020e071ad1939b614b7cd4b9cf929",
+      "source_manifest_sha256": "916208520d64ebf9baa3df580330ff84f351aa45ee5b9d3c8dc40428cda6d83a"
+    }
+  ],
+  "schema": "drawing-display-note-reader-boundary-v1",
+  "scope": "three explicitly disclosed attached-note saved derivatives, separate from plain-note source cohort",
+  "sdk_or_codec_executed_by_worker": false,
+  "sdk_overlay_count": 11,
+  "sealed_inputs_read": false,
+  "shared_sources_changed": false,
+  "source_files": 4693,
+  "source_manifest_sha256": "916208520d64ebf9baa3df580330ff84f351aa45ee5b9d3c8dc40428cda6d83a",
+  "static_original_pe_replay": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 29,
+    "data_windows": 19,
+    "imports": 41,
+    "instruction_windows": 80,
+    "modules": 3,
+    "native_execution": false,
+    "record_sha256": "3fe09127bf0b63f5809bf868c860ac9d8d213760ecf7d75c4d85d834a8ffdf89",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 12
+  },
+  "task": "B04-SW2026-DRAWING-NOTE-GRAMMAR"
+}

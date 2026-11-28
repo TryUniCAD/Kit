@@ -16,7 +16,7 @@ KFolderFields = MappingProxyType(
                 "Array",
                 "f3d8",
                 "i32",
-                BodyValue=(NativeField("Fail", "alternate moDetailCabinet_c f3d8"),),
+                BodyValue=(NativeField("Node", "o", "moDisplayImportedAnnotation_c"),),
                 CountValue="n3d8",
             ),
             NativeField("Scalar", "f3f0", "i32"),
@@ -32,6 +32,20 @@ KFolderFields = MappingProxyType(
             NativeField("Embed", "f3e8", "rf.suObArray"),
             NativeField("Scalar", "f408", "i32"),
         ),
+        "moFtrFolder_c": (
+            NativeField("Base", "moFolder_c"),
+            NativeField("Node", "f388", "moFtrFolder_c"),
+            NativeField("Scalar", "f37c", "i32"),
+            NativeField("Scalar", "f394", "i32"),
+            NativeField(
+                "Virtual",
+                "",
+                BodyValue=(NativeField("Scalar", "f378", "i32"),),
+                ModeValue="Flag",
+                MaskValue=2624,
+            ),
+            NativeField("Scalar", "f39c", "i32"),
+        ),
         "moHistoryFolder_c": (
             NativeField("Base", "moFolder_c"),
             NativeField("Embed", "f3c8", "rf.suObArray"),
@@ -42,6 +56,7 @@ KFolderFields = MappingProxyType(
             NativeField("Text", "f378"),
             NativeField("Scalar", "flags380", "u32"),
         ),
+        "moNotesAreaFtrFolder_c": (NativeField("Base", "moFtrFolder_c"),),
         "moSelectionSetFolder_c": (
             NativeField("Base", "moFolder_c"),
             NativeField("Embed", "f3c0", "rf.suObArray"),

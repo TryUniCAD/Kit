@@ -1,0 +1,267 @@
+{
+  "base": "ed3243fa745d6ffd8379126db483179a547eb4cd",
+  "current_protected_manifest_recheck": false,
+  "disclosed": {
+    "SdkNestedDimensionedNative01": {
+      "files": 3,
+      "manifest_sha256": "4c150a0a799307c9fdea89332fc5ae2b2becc521fc1c9e2188ef50a23089040b",
+      "native_processes_started": 0,
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "passed": true,
+      "readback": {
+        "definitions": 3,
+        "editable_leaf_driver_counts": {
+          "SdkNestedPlate": 3
+        },
+        "instances": 2,
+        "ordered_owned_placements": true
+      },
+      "runtime_input_reads": 0,
+      "stage_writes": 3,
+      "streams": 34,
+      "successful_native_flags": false
+    },
+    "SdkNestedNeutralNative03": {
+      "files": 3,
+      "manifest_sha256": "6e55d04b9f85292cb804b2d2f0872233a20cf5142d9f8622055cb85f46d5e41b",
+      "native_processes_started": 0,
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "passed": true,
+      "readback": {
+        "definitions": 3,
+        "editable_leaf_driver_counts": {
+          "SdkNestedPlate": 1
+        },
+        "instances": 2,
+        "ordered_owned_placements": true
+      },
+      "runtime_input_reads": 0,
+      "stage_writes": 3,
+      "streams": 34,
+      "successful_native_flags": false
+    },
+    "SdkRepeatedDimensionedNative01": {
+      "files": 4,
+      "manifest_sha256": "c08e96b6d76167f583f5a6c27b3fb3356e82248181ab9fd762789a7955ed6e3f",
+      "native_processes_started": 0,
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "passed": true,
+      "readback": {
+        "definitions": 4,
+        "editable_leaf_driver_counts": {
+          "SdkGaugePlate": 3,
+          "SdkNestedPlate": 3
+        },
+        "instances": 5,
+        "ordered_owned_placements": true
+      },
+      "runtime_input_reads": 0,
+      "stage_writes": 4,
+      "streams": 44,
+      "successful_native_flags": false
+    },
+    "SdkRepeatedNeutralNative03": {
+      "files": 4,
+      "manifest_sha256": "991dae238bb8ccae9205c6cb993c07bcf4f9ebbfca1c457b92654405bbbe041a",
+      "native_processes_started": 0,
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "passed": true,
+      "readback": {
+        "definitions": 4,
+        "editable_leaf_driver_counts": {
+          "SdkGaugePlate": 1,
+          "SdkNestedPlate": 1
+        },
+        "instances": 5,
+        "ordered_owned_placements": true
+      },
+      "runtime_input_reads": 0,
+      "stage_writes": 4,
+      "streams": 44,
+      "successful_native_flags": false
+    }
+  },
+  "disclosed_guarded_processes": 19,
+  "full_file_comparisons": 28,
+  "native_processes_started": 0,
+  "prior_receipts_sha256": {
+    "NestedAssemblySourceLock01.json": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+    "SdkMeasuredNestedPublication01.json": "66479552b24b577a3c0bff047efd39482255a1ed9f0af213d2b4dc8ab4bc8437",
+    "SdkSealedNeutralNestedNative01.json": "48de61872b805bcb2acf3cec9f8d6a491629e3b1a9560f452985c2583b0658de",
+    "SdkSealedPublicNestedParity03.json": "ef7105a0b13984cbdfe99ff3a419637c831f2cd89996d36924380dd526599bb2"
+  },
+  "refusals": {
+    "fault": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "refused": "PermissionError",
+      "runtime_input_reads": 0,
+      "stage_writes": 3,
+      "successful_native_flags": false
+    },
+    "foreign-scoped-evidence": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "different complete member count",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "no-evidence": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "requires an offline native measurement receipt",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "peer": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "refused": "FileExistsError",
+      "runtime_input_reads": 0,
+      "stage_writes": 3,
+      "successful_native_flags": false
+    },
+    "strict-deferred": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "requires its measured location or explicit deferred delivery",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "unqualified-location": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "requires its measured location or explicit deferred delivery",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "wrong-config": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "requested assembly configuration is unavailable",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "wrong-epoch": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "does not match the exact generated bundle",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "wrong-locator": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "does not match the exact generated bundle",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "wrong-native-report": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "requires authenticated offline evidence",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    },
+    "wrong-pose": {
+      "destination_preserved": true,
+      "native_processes_started": 0,
+      "passed": true,
+      "reason": "does not match the exact generated bundle",
+      "refused": "ValueError",
+      "runtime_input_reads": 0,
+      "stage_writes": 0,
+      "successful_native_flags": false
+    }
+  },
+  "runtime_input_reads": 0,
+  "same_location_file_publication": false,
+  "schema": "kit.sw2026.authenticated-nested-aggregate-publication.v1",
+  "sealed_payload_reads": 0,
+  "source_sha256": {
+    "re/tooling/sw2026/nested_publication/ProveAuthenticatedNested.py": "d7ff5651ed6326b8c91bda1980d76a1f64830d71c8b96d05efaf159f64af6b83",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/AssemblyInput.py": "4149c319d77e94fdc6301b8c73e5670aa8a0db801f150e494c23d8dad0ad6746",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/MakeAsmBase.py": "5fc62f775038b69451a63b34d403076ce6b1ea89013ad972f33224d0e9bc0875",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Nested/PrepNestedPlan.py": "985e23b37af371012e2bb556d844b085861e71886a7c5313e51e37c5418f983b",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Nested/PrepareNestedAssembly.py": "4a2ea21fe21a2e090242291e8295428fb278875bfa89709533f7102174ece587",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/CheckAsmOpts.py": "dad33c86235a3861d0ef64099d40b76b4479997ca35ad1bc4906bf3a92966afc",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/EmitAsmMut.py": "43ddda81c83c234e416732e2bf21660de8cfd218f3ddf7660e2fe51e5842383b",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/CanWriteNested.py": "10df4dddb7e64e6ad3b049a43691a56f7b55a9ba06a39fec07a3344ac6fcabcf",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/EmitDraftMut.py": "d6715dfaba591206497791d361d0d3f7d64df95a382c7f7106be415afd9d4854",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/EmitNestedMut.py": "e148ddaa5f573e8f677b503c06ac1db38bdfa846ed27b09a9828a9e46e986a01",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/MakeNestWriter.py": "970ad3928f7a87ec3e460c755bbdad69969f6c63f255b5027a6b95959d507713",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/Measured/IsNestSite.py": "f7acc6d653e92c132c24516671fc2f08fc2039241fd82ffc5f7fae3796de939d",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/Measured/MatchNestMeas.py": "f0fdc4bc9ddf72855675ea77c07ef4b579310f9119b076ffe40680cfe40f34a6",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/Measured/NestMeasure.py": "114788ace13eebac75c4c8177cef138dc00e76c610bf9b5d13f4a7699f5aa84e",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/Measured/NestProofPins.py": "4e15213f9ef0a1b4f43c6d10dfaac0dc595af8ab7d783f0a2e6169c2209e639b",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/Measured/ReadNestMeas.py": "af7b12d8b7dea82948c2c02698716cc96f4563310bb2b26ba5d086ab43101b4c",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/NestFileNames.py": "0a5aa3a0d1449ed4d4b7d8b2e5ff8a8c98c3ed17ae2dc4d4cafef5a6dfc43ae0",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/PlanNestStage.py": "4ae03051cb00dc98b9bb2c23507306115d6853dd243f0cdda75f1cb964b520cf",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/PublishNestMut.py": "d8b9479b44233942cf807d67ce7bd82fd4364e0213a5a950c21f7f7cd281945c",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/WriteNestedAsm.py": "ad8bf57148d81568ba80d7b7cba55fd0d4a0caa0df2e9de6d2ab317fd57fbee0",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "2ab65b16789391276aa718aa9949ff90ed60bd707f68329c77830ae25d166826"
+  },
+  "streams_read": 312
+}

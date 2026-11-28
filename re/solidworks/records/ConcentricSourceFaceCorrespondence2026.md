@@ -1,0 +1,32 @@
+# Physical face correspondence for the disclosed concentric source
+
+Task `B04-SW2026-MATES-CONCENTRIC/source-face-correspondence`, owner `assembly_frontier`, delivery PR #121. The host comparison bounds the ordinary forward Front Plane cylinder with one body, two circular rims and one solved concentric mate. It joins the original and independently generated boundaries per physical face role and preserves each endpoint's actual signed orientation. It leaves direct whole-assembly admission closed. [Comparison](../../tooling/sw2026/CheckConcentricSourceBrep.py) · [Host replay](../../tooling/sw2026/para/concentric/ProveConcentricSourceBrep.py)
+
+## Actual faces and physical roles
+
+The source public reader proves the active native partition, the actual sole body and output atom, and the final extrusion. The selected lateral face additionally retains the producing extrusion's first creation event and the actual profile arc's permanent marker. The comparison checks all three actual native and public face and analytic surface identities, both owned circular edges, four loops and their reciprocal fins, both complete curves and their two derived seam points. It checks the complete neutral solid against the true sketch support, fixed circular profile and forward blind depth. [Kernel ownership](ConcentricKernelFaceIdentity2026.md) · [Neutral body binding](ImplicitCylinderBodyNames2026.md)
+
+| Child state | Lateral public face, native node | Carrier in the child | Sketch-plane cap, selector | Blind-end cap, selector |
+| --- | --- | --- | --- | --- |
+| D01 original | 42, 27 | End, −Z, reversed surface sense | 54, 0 | 58, 1 |
+| D01 edited | 40, 27 | End, −Z, reversed surface sense | 56, 0 | 54, 1 |
+| Pinned frozen radial child and three fresh children | 8, 5 | Start, +Z, forward surface sense | 9, 1 | 10, 0 |
+| Native-saved radial child | 40, 27 | End, −Z, reversed surface sense | 56, 0 | 54, 1 |
+
+For these graphs the side surface's reference direction reverses with its axis. Both rims keep their generating sketch reference direction. Each cap owns its complete circular edge, and the corresponding lateral loop uses its actual reciprocal fin and opposite direction. The cap planes and edges bind to the physical sketch-plane and blind-end points. In this bounded profile selector 1 belongs to the cap at the carrier anchor and selector 0 to the other cap. The converter compares physical cap roles. It yields a new face ID for each source face and keeps both graphs' own cap references. No archive instance or wire identity is transferred into the constructor.
+
+The earlier six-case machine receipt gives distances along the **actual carrier**, relative to its own origin, through `para/cylinder/CompareSaved.py::cap_identity`. Its D01 rows hold exact matching source digests and report `[0,1]` and `[depth,0]`. Those distances establish carrier-relative cap roles. The earlier static checkpoint described the first distance as the sketch plane. The D01 carrier is rooted at the opposite physical cap. Static evidence still proves how the native cap constructor stores and propagates the supplied selector. [Carrier-distance measurement](../measurements/2026/GeneratedCylinderPartition01.json) · [Cap constructor trace](OrdinaryExtrusionCapIdentity2026.md)
+
+## Signed selection correspondence
+
+Both endpoint rows reparse the exact source archive, use its actual ordered wrappers and resolved component chains, and check the physical child's content digest and native face/body/feature owners. The corresponding portable instances retain the exact occurrence reference numbers, configuration choices and rigid placements. Each portable world axis equals the actual native `fe8`, and inverse placement equals the separately stored child-local `f108`. The remapped generated carrier point may move from the blind end to the sketch plane. The displacement must lie along the same selected line.
+
+The active `f50=2` tuple binds `fb0=0` and `fb8` to the signed projection to the other physical rim. D01's stored span is +31.37 mm on both −Z wrappers. The edited source has +46.91 mm. The native-saved radial pair retains +Z wrappers on the −Z carrier and records −36.79701 mm. Retaining the D01 −Z wrapper against the independently generated +Z carrier predicts −31.37 mm initially and −46.91 mm in the edited variant. This is a numerical comparison within tolerance. [Pinned signed-extent trace](ConcentricFaceTagAndExtent2026.md) · [Signed wrapper reader](ConcentricSavedAxis2026.md)
+
+The research assembly constructor currently derives `f108` and `fe8` directly from the generated carrier, and `axial_bounds` refuses a nonpositive far extent. A separate native discriminator must exercise the proved signed rule in a fresh generated parent, with actual child ownership, healthy bracketing controls and save/reopen. Source presentation, including the parent feature inventory and child source annotation intent, also needs a lossless transfer. [Current constructor](../../tooling/sw2026/para/concentric/ConcentricMate.py) · [Parent root audit](ConcentricParentRootAudit2026.md) · [Whole-source prerequisites](ConcentricSealedAdmission2026.md)
+
+## Host proof
+
+The [receipt](../measurements/2026/ConcentricSourceFaceCorrespondence01.json) pins the prior SDK revision, both tooling hashes, the D01 lock and author receipts, the old radial native result, and the immutable inputs. The comparison uses the D01 original and edited source pairs and the native-saved radial pair. Each supplies the real radius and depth drivers to a fresh neutral child request. Two deterministic builds per request complete without any guarded file, process or network operation. The receipt also compares the D01 original directly to the separately pinned frozen radial child. Across four comparisons, 12 physical face mappings and eight ordered endpoint mappings pass. The original parent and child bytes and complete public models retain their fingerprints.
+
+Fifteen refusal cases cover wrong carrier or cap origins, an altered circular rim, moved seam, partial edge, extra loop, inconsistent cap selectors, wrong face or occurrence, an axial-only change to the original placement, two globally inverted wrapper axes, different extent, wrong parent archive and the still-unsupported whole source. The host proof uses the locked Python environment and the SDK source from `c4a54e48504f7bfaed0c14e3aaac9996e42bda10` with only the two recorded research-tool additions. No sealed inputs or new CAD processes were used.

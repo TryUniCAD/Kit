@@ -10,9 +10,11 @@ import difflib
 import re
 import subprocess
 
-from convert.adapters.solidworks.Core.BindMirrorField import KMirroredFields
+from convert.adapters.solidworks.Core.Dimensions.BindMirrorField import KMirroredFields
 from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
 from InferenceGrid.CandidateReader import decode_candidate
+
+mirror_field_path = "src/convert/adapters/solidworks/Core/Dimensions/BindMirrorField.py"
 
 
 def promote_fields(root, source, scratch, env, document, discovery, reader_root=None):
@@ -26,7 +28,7 @@ def promote_fields(root, source, scratch, env, document, discovery, reader_root=
                  and re.fullmatch(r"[A-Za-z][A-Za-z0-9_]{0,63}", r["key"][0]) and re.fullmatch(r"D[1-9][0-9]{0,5}", r["key"][1])}
     if not additions:
         return None
-    path = "src/convert/adapters/solidworks/Core/BindMirrorField.py"
+    path = mirror_field_path
     reader_root = root if reader_root is None else reader_root
     original = (reader_root / path).read_text()
     start = original.index(" = {", original.index("KMirroredFields:")) + 3

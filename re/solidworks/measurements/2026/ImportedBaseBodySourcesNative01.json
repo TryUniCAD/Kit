@@ -1,0 +1,345 @@
+{
+  "controls_passed": 4,
+  "disclosed_archive": {
+    "bytes": 49188,
+    "class_spelling_offset_in_resolved": 5725,
+    "config_stream_bytes": 25190,
+    "partition_stream_bytes": 604,
+    "public_diagnostics": [
+      "typed resolved semantics unavailable: unsupported SOLIDWORKS body class moBaseBody_c schema 1",
+      "part property manager has an unexpected native owner"
+    ],
+    "public_geometry_counts": [
+      1,
+      6,
+      12,
+      8
+    ],
+    "raw_audit_sha256": "3bf8b39f3a13343c585f7984bc17cc54e8eac9f1f3859aa74cab79857c5e8327",
+    "resolved_class": "moBaseBody_c",
+    "resolved_stream_bytes": 6080,
+    "runtime_schema": 1,
+    "sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+    "typed_linked_first_refusal": "unsupported SOLIDWORKS body class moBaseBody_c schema 1"
+  },
+  "distinct_native_processes": 10,
+  "heldout_payloads_shared": 0,
+  "heldout_sources_locked": 2,
+  "native_serializer": {
+    "base_body_preferred_interval_half_open": [
+      "0x1802fcb70",
+      "0x1802fcdd5"
+    ],
+    "base_body_rea_evidence": "ev_5bfac51b1afa7383f956ee35b1b5ad357f846c0051adfc3f6a81db52fa206dd0",
+    "module": "sldmopartu.dll",
+    "sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+    "shared_import_serializer_preferred_interval_half_open": [
+      "0x1802fd060",
+      "0x1802fdcfc"
+    ]
+  },
+  "native_writer_acceptance": false,
+  "packets": {
+    "disclosed": {
+      "cohort": "disclosed",
+      "controls_healthy": true,
+      "disclosed_observation": {
+        "body_count": 1,
+        "feature": {
+          "name": "Imported1",
+          "native_id": 26,
+          "type": "BaseBody"
+        },
+        "mass_si": {
+          "area": 0.0022220000000000005,
+          "com": [
+            0.007,
+            -0.011,
+            0.0105
+          ],
+          "mass": 6.669000000000002e-06,
+          "volume": 6.669000000000002e-06
+        },
+        "topology": {
+          "analytic_bounds_m": [
+            [
+              -0.0024999999999999996,
+              -0.0245,
+              0.004
+            ],
+            [
+              0.0165,
+              0.0025000000000000005,
+              0.017
+            ]
+          ],
+          "edges": 12,
+          "face_edge_incidence": [
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                5,
+                7
+              ]
+            ],
+            [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ]
+          ],
+          "faces": 6,
+          "vertices": 8
+        }
+      },
+      "disclosed_specification": {
+        "face_center_m": [
+          0.007,
+          -0.011,
+          0.004
+        ],
+        "size_m": [
+          0.019,
+          0.027,
+          0.013
+        ]
+      },
+      "distinct_processes": 4,
+      "heldout_payloads_shared": 0,
+      "heldout_sources_locked": 0,
+      "job_sha256": "787dea15b5f17191373deef43900954c204dfdf0c3a965981e10b39621e30bd4",
+      "native_writer_acceptance": false,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "oracle_version": "34.5.2.0604",
+      "passed": true,
+      "phases": [
+        {
+          "name": "ControlBefore",
+          "passed": true,
+          "process_creation_filetime": 134396013609759945,
+          "record_sha256": "dc4bfa2c6cdcfedf072e651d0fc3bd04b65a9fdfe3fb6fd8ba122ad1a5a85b09"
+        },
+        {
+          "name": "DisclosedAuthor",
+          "passed": true,
+          "process_creation_filetime": 134396013848244864,
+          "record_sha256": "8d4b7ff02594afc20d098298b5e57678569c5c2bae4b444f9991d37e0fc4fee6"
+        },
+        {
+          "name": "DisclosedReopen",
+          "passed": true,
+          "process_creation_filetime": 134396014727478851,
+          "record_sha256": "584ee5231137add9955df752823b57f13971fb004a5c0e23437fe61379711e98"
+        },
+        {
+          "name": "ControlAfter",
+          "passed": true,
+          "process_creation_filetime": 134396015286849638,
+          "record_sha256": "80853868b500ccc6f5e5cf7a82575e420266f60173eb5d4cb96b65c1a0438ea4"
+        }
+      ],
+      "raw_result_sha256": "f5efc588eccc2a701f4b8c0455c5f294acbdf42393d589566dd9530a29eb30d5",
+      "schema": "kit.sw2026.imported-body-source.v1",
+      "source_batch_locked_at_unix_s": 1795127949.176212,
+      "source_revision": "b74c248bc20e11cf72d1905b2ef696c267a90a26",
+      "sources": {
+        "Disclosed": {
+          "author_record_sha256": "8d4b7ff02594afc20d098298b5e57678569c5c2bae4b444f9991d37e0fc4fee6",
+          "reopen_record_sha256": "584ee5231137add9955df752823b57f13971fb004a5c0e23437fe61379711e98",
+          "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325"
+        }
+      },
+      "specifications_locked_at_unix_s": 1795127756.3916214,
+      "specifications_sha256": "f27f9ee5f2d2bea373208aad822bb248a5f14ba10421c2b7c828fe4e61a4ec30",
+      "stage": "source_batch_passed",
+      "tools_sha256": {
+        "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+        "AuthorImportedBody.py": "5d67fe34c125735897914a53541961f85589fe9c5b7a4e5d79bd670a02ff6dd3",
+        "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+        "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+        "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+        "RunImportedBodySources.py": "90898a2d0ed582f5f1ff8780c7a13dc692d3dadeedc90a5e9d86ed95929a5d9d",
+        "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+      },
+      "writer_outputs": 0
+    },
+    "sealed": {
+      "cohort": "sealed",
+      "controls_healthy": true,
+      "distinct_processes": 6,
+      "heldout_payloads_shared": 0,
+      "heldout_sources_locked": 2,
+      "job_sha256": "a79a9dd1bc79b49e3c16ab284393fe08cc7701e059aec12ff43077aaf459d102",
+      "native_writer_acceptance": false,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "oracle_version": "34.5.2.0604",
+      "passed": true,
+      "phases": [
+        {
+          "name": "ControlBefore",
+          "passed": true,
+          "process_creation_filetime": 134396018358756536,
+          "record_sha256": "b7802f11446c7d93dbd900d0556fd785b45c553d6844df62ac4045f37c987c23"
+        },
+        {
+          "name": "Slot01Author",
+          "passed": true,
+          "process_creation_filetime": 134396018667616240,
+          "record_sha256": "5efc0e3da800c070d9f2233d8601fa144255cf1ddf9b2532297a21b276e6da7c"
+        },
+        {
+          "name": "Slot01Reopen",
+          "passed": true,
+          "process_creation_filetime": 134396019598860512,
+          "record_sha256": "2feaa8f497ed4d635505d53ad0afcb83eace10d4cd4559b7eb9f765a7d2cac93"
+        },
+        {
+          "name": "Slot02Author",
+          "passed": true,
+          "process_creation_filetime": 134396020198449268,
+          "record_sha256": "f0a348417d9f698a62e6534b33b49ae2e477305dbc6ef60b631b68c7fe79c892"
+        },
+        {
+          "name": "Slot02Reopen",
+          "passed": true,
+          "process_creation_filetime": 134396021098668345,
+          "record_sha256": "d699fbffe1543254def5d84d578d2536d0bdb5cf13ea982adbd65a98ce545118"
+        },
+        {
+          "name": "ControlAfter",
+          "passed": true,
+          "process_creation_filetime": 134396021661594609,
+          "record_sha256": "116a8675d890afc92e5cd04307857dd9eeb2d709f9732e433906f093582358c0"
+        }
+      ],
+      "raw_result_sha256": "1a5a4993881c967682496c90924c262c7954fddd67dd9d1ee3e105186deed281",
+      "schema": "kit.sw2026.imported-body-source.v1",
+      "source_batch_locked_at_unix_s": 1795128586.8471534,
+      "source_revision": "b74c248bc20e11cf72d1905b2ef696c267a90a26",
+      "sources": {
+        "Slot01": {
+          "author_record_sha256": "5efc0e3da800c070d9f2233d8601fa144255cf1ddf9b2532297a21b276e6da7c",
+          "reopen_record_sha256": "2feaa8f497ed4d635505d53ad0afcb83eace10d4cd4559b7eb9f765a7d2cac93",
+          "source_sha256": "27de26139590fe292ae420212af7515660fdb48d8f4f1830fae739cb3799b93a"
+        },
+        "Slot02": {
+          "author_record_sha256": "f0a348417d9f698a62e6534b33b49ae2e477305dbc6ef60b631b68c7fe79c892",
+          "reopen_record_sha256": "d699fbffe1543254def5d84d578d2536d0bdb5cf13ea982adbd65a98ce545118",
+          "source_sha256": "db9a9dc8cdaec057421ad7934ab8a55680d6e50b1e966e61887c56a43bbe755d"
+        }
+      },
+      "specifications_locked_at_unix_s": 1795128231.3197548,
+      "specifications_sha256": "1f145836a8db6fe13893546c83957b8e82b5b80771546f3ae39724a9a716d2bf",
+      "stage": "source_batch_passed",
+      "tools_sha256": {
+        "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+        "AuthorImportedBody.py": "5d67fe34c125735897914a53541961f85589fe9c5b7a4e5d79bd670a02ff6dd3",
+        "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+        "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+        "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+        "RunImportedBodySources.py": "90898a2d0ed582f5f1ff8780c7a13dc692d3dadeedc90a5e9d86ed95929a5d9d",
+        "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+      },
+      "writer_outputs": 0
+    }
+  },
+  "public_capability_loss_qualified": false,
+  "schema": "kit.sw2026.imported-base-body-source-lock.v1",
+  "writer_outputs": 0
+}

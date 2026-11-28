@@ -1,0 +1,19 @@
+{
+  "controls_healthy": true,
+  "full_source_qualified": false,
+  "lifecycle_plan_sha256": "466aa7a7c7cb5256fb086c1f57917d43444dcbe17743fb5437625e3837f986e3",
+  "native_numeric_checks": 70,
+  "native_physical_scope_passed": false,
+  "native_processes": 5,
+  "native_states": 6,
+  "observer_only": true,
+  "origin_archive_proof_sha256": "1244bee1cabdf468380e761bc99e2c623426ed6c595f73cf402b01330416473e",
+  "original_artifacts_unchanged": true,
+  "passed": false,
+  "previous_result_sha256": "71d0ca74a7521907f958ed89276410d5a12934bf81b72583b197a661ca4888b1",
+  "protected_payloads_exported": 0,
+  "result_sha256": "1c42b3169134bb68fcf97a8b29985aa4c3d0f51dd0a557297e443ab59e397489",
+  "retry_method_sha256": "9eea9ec3e38fcb2c4c819233037f021d750b350638f042c781f842d2ac9ca871",
+  "schema": "kit.sw2026.sealed-material-origin-observer-retry.v1",
+  "signed_extrema_compared": 36
+}

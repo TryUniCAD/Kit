@@ -1,0 +1,5 @@
+# Trace the Standard swept boss archive
+
+The disclosed archive audit checks six SOLIDWORKS 2026 native saves from two independently dimensioned Standard swept bosses. It follows the actual section and path references to the Right-plane circle and Front-plane arc, verifies both editable D1 owners and checks the typed Parasolid sheet attached to the section. Run the linked audit against the exact disclosed source export and pinned SDK tree. [Audit command and field evidence](../../../../../re/solidworks/records/OrdinarySweptBossArchive2026.md)
+
+The audit records both strict reader refusals and complete linked traversal in its isolated research layout. Both native brackets passed during source acquisition. The host decoder reached six full configuration and resolved feature graphs without external runtime reads. This evidence covers the ordinary Standard circle-and-arc profile and its two single-driver edits. Public sweep support, source-independent construction and held-out writer acceptance remain open. [Exact measurement](../../../../../re/solidworks/measurements/2026/OrdinarySweptBossArchive01.json)

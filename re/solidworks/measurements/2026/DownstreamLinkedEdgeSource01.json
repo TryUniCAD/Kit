@@ -1,0 +1,78 @@
+{
+  "acceptance": "unqualified; source identity and conditional rules only",
+  "activity": {
+    "cad_files_opened": 0,
+    "git_mutations": 0,
+    "held_out_inputs_read": 0,
+    "proprietary_code_published": false,
+    "provider_or_hopper_targets_opened": 0,
+    "runtime_or_writer_implementation_changed": false,
+    "shared_checkout_writes": 0,
+    "vendor_code_executed": false,
+    "vm_calls": 0
+  },
+  "counts": {
+    "complete_functions_or_leaves": 33,
+    "concrete_virtual_cells": 2,
+    "direct_calls": 23,
+    "function_fragments": 39,
+    "import_identities": 20,
+    "instruction_windows": 14,
+    "original_modules": 2
+  },
+  "evidence": "original-PE metadata verification of manually reviewed conditional source rules",
+  "generated_pair_accepted": false,
+  "metadata_helper_sha256": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7",
+  "native_measurements": 0,
+  "native_route_executed": false,
+  "prerequisites": [
+    "Documentation/Reference/Operations/CadSuccessCriteria.md",
+    "re/Playbook/README.md",
+    "re/Playbook/LoaderAnalysis.md",
+    ".agents/skills/standard-pr-practice/SKILL.md"
+  ],
+  "private_source_verification_sha256": "f216395763a41515b7bbe13b70d5f6f52bea8b7c419f201f42232071066e8e92",
+  "record_sha256": "7d0726451a91fb661a1e5412ab03a7c0683a480cc1503d196ee5452ccd842030",
+  "repository_input_observation": [
+    {
+      "matches_observed_source": true,
+      "path": "re/tooling/sw2026/materials/MaterialPe.py"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "re/tooling/sw2026/DrawingSdkLinkedProcess.py"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Linked/MakeLinkedFile.py"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "re/solidworks/records/DownstreamStandaloneStore2026.md"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "re/solidworks/records/DownstreamPartOwnerReload2026.md"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "re/solidworks/records/DownstreamLinkedReferenceCodec2026.md"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "re/solidworks/records/DrawingDetailingEdgeMap2026.md"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "re/solidworks/records/DrawingDownstreamIdentity2026.md"
+    },
+    {
+      "matches_observed_source": true,
+      "path": "re/solidworks/records/DownstreamIdArchiveGrammar2026.md"
+    }
+  ],
+  "schema": 1,
+  "source_identity_passed": true,
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "verifier_sha256": "8ac15af6346a09c7f8304c01f97395eaa3695157f3dde4718fe5f3dcf12a85ab"
+}

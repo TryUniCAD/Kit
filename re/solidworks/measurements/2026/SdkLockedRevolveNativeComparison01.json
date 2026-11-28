@@ -1,0 +1,54 @@
+{
+  "evaluator_revision": "cb650cd7b932386f11fb4325b50667926c882e41",
+  "freeze_sha256": "184b9a5ac4b1159c65e180d314f125034f7186f58a5f57caba516e46c55fa0bf",
+  "generated_part_sha256": "a4e531d6f1a328eae589b01a4dcc029917dff40b1ac0a72ba1081ff1c213f74a",
+  "generation_sha256": "75dec63b1c5444e81385c6a8e35b80ff613b1f441fa4147accb1e3b71e21f2bd",
+  "independent_prediction_sha256": "91f4b957b2fd09ea44960a1b192af95b2e624ac0c0749714c5e154962a13cc70",
+  "oracle": {
+    "com": "SldWorks.Application.34",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604"
+  },
+  "original_files_read_during_generation": 0,
+  "preparation_external_attempts": 0,
+  "schema": "kit.sw2026.locked-ordinary-revolve-sdk-comparison.receipt.v1",
+  "source_lock_sha256": "bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f",
+  "source_sha256": "17147bc0f14a8e3567aa18fed8881928585257b51a5e357af014c9eac64e11a5",
+  "source_slot": "RevolveHeldoutFirst",
+  "source_spec_sha256": "35a3af9a5195b1c723d7a2e08f370465c016923cff3e07b625cccaf08314cccc",
+  "summary": {
+    "comparison_refusal": null,
+    "complete_original_source_conversion": false,
+    "controls_healthy": true,
+    "distinct_processes": 6,
+    "heldout_credit": 0,
+    "phase_receipt_sha256": {
+      "CandidateEdit": "8ae9f8f8cc0952fa536b98cc0bb0c8e6b74ea7feb712a3566ca265a43645adbc",
+      "CandidateReopen": "36289369640c59c96ca65ae05ed7885dd673866e4796931c55480ae4e4a1b522",
+      "ControlAfter": "8becff0084a33f45f9b1dc65a4d5b25104cf703a33106ad368dc9e62e57ff4ff",
+      "ControlBefore": "8b97e584e9ef5b4ab77cf6987e34d22e62f89399df9dc46aa46765f598c690eb",
+      "OriginalEdit": "05b7b0d314764c92e05a050868757435cefd18dabb5e408b64a670d0ee2bd21a",
+      "OriginalReopen": "a3a7bc6756ec6bbc8319fe109a9678c32bf158b6aafa65b7bba07e8b2eaa2ce8"
+    },
+    "public_writer_qualified": false,
+    "scoped_neutral_native_comparison_passed": true,
+    "source_candidate_comparisons": [
+      [
+        "Edit",
+        "reopened"
+      ],
+      [
+        "Edit",
+        "edited"
+      ],
+      [
+        "Reopen",
+        "reopened"
+      ]
+    ],
+    "whole_source_admission": "refused pending complete source presentation and provenance ownership"
+  },
+  "summary_stdout_sha256": "59ca78aa1e63097913b1023f4c31591e448c4353f567bde72abfcc759142f7ad",
+  "writer_epoch": 1795173600,
+  "writer_revision": "8302c824a15830b837c72db75f79cabe5693d200"
+}

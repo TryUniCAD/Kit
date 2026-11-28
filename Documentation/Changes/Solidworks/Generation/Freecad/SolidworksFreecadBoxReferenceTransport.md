@@ -1,0 +1,5 @@
+# Decode native persistent reference byte buffers in the F14a oracle
+
+The first live-reference run kept both generated F14a boxes editable through save and fresh reopen. Its Python return-type guard rejected all 216 reference captures before a resolver call. Six disclosed same-build native phase records independently show 56 successful calls returning `memoryview`, which the guard excluded. The exact failed run remains in the evidence chain. [Capture audit](../../../../../re/solidworks/measurements/2026/F14aLiveReferenceCapture01.json)
+
+The runner now accepts bounded contiguous unsigned byte buffers and records only their shape, byte count and digest. The independent native bracket tests capture, resolution and equality on a face, an edge, a vertex and the producing feature in the existing control process. Both controls and the corrected native run passed. All 224 matched calls returned the observed `memoryview` shape. [Reproduction and result](../../../../../re/solidworks/records/FreecadF14aTopologyLineage2026.md#exact-build-live-reference-result)

@@ -1,0 +1,24 @@
+{
+  "base": "98eb70e22088adfa1462032472eef93471c57095",
+  "build": "34.5.2.0604",
+  "current_packet": "69f86ffe019d2629b36b4fd83aff9c6e46ce5e935fefc2e532bbce3dc5ed80e2",
+  "guest_binding_sha256": "5cfc3dfa0ff6ea88a77169ab33e9b6dbd3de04c654d070f21ccba61d82984c90",
+  "guest_result_sha256": "9c1e15165b1fb356b20121bc4cc12f7ec39c8118f2c2f4cbcc399004f5903b36",
+  "heldout_credit": 0,
+  "installed_api": "2819a07ed9096886bb54d8e6244b4da12d4a3560faf855292a300b447fd38784",
+  "metadata_phase_passed": true,
+  "native_processes_started": 0,
+  "new_source_files": 0,
+  "prior_packet": "3ec5b2cd1cbda7aa248a40bcb0e49aba152d21d7a0e36077738b5c7cf975ce39",
+  "registered_constants": {
+    "swEndConditions_e.swEndCondThroughAll": 1,
+    "swObjectEquality.swObjectSame": 1
+  },
+  "schema": "kit.sw2026.hole-wizard-source-enum-bindings.v1",
+  "tools": {
+    "AuthorHoleWizard.py": "a0ff070c5b10591548c20cf3a2c1dd88c13543567b9818458c61c8db9338399a",
+    "HoleWizardPacket.py": "24216ac887cec4bf20cce5da7030b3d6c5b6dd30e5bdf0e2e06f108a3598dd8f",
+    "ReadHoleApi.py": "6110f0f9234937ab95ee4fc7ee9dde5c5719d2e7f06b19de33505bc1ede0ce92"
+  },
+  "unchanged_source_plan": "df9141af8b8d79217bf217904fc55251b7f0ad96f1d8279a5e7e9413f5213d58"
+}

@@ -1,0 +1,80 @@
+{
+  "after": {
+    "passed": true,
+    "sha256": "636d7b491b5cde40a0f22020f19ec31d15d59be099bbb4fefddfbeccceca25ad"
+  },
+  "before": {
+    "passed": true,
+    "sha256": "361403677f8e972a75976118dfff0f1a9baa89acec34c8a2242bae77e65de49f"
+  },
+  "cases": {
+    "KitScopeRightDisclosure": {
+      "candidate_sha256": "b5b89d1fdafb48beac24818e351f69059183ab1923702c1e1d2a5d1d4109fba4",
+      "geometry_checks": 91,
+      "passed": true,
+      "phases": [
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "sha256": "3e7a5626c4be909f8c2df8068e60e44288b9e345f9f2cb142e0afe67d925a2cf"
+        },
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "sha256": "c4086b5c5a71403e7b55e9381c2b6328f8aaad298ffd7732945932a8dc35dc29"
+        }
+      ],
+      "saved_sha256": "bcd3d71ecc082217aa20a0efc91333db9610aceef71177fd090836e4253b23b4",
+      "tree_rows": 29
+    },
+    "KitScopeTopDisclosure": {
+      "candidate_sha256": "2fd8a4d877e0a5f7772ca2656d8e4ad60df7e73e2e0ad05fc6b378bbe5197eb3",
+      "geometry_checks": 91,
+      "passed": true,
+      "phases": [
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "sha256": "1398a0d5b99c2c95643f1e6e02ff961b725b728f50cd3aa45cde456384da5c03"
+        },
+        {
+          "failure": null,
+          "open": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "passed": true,
+          "sha256": "f1c4ba8b68ddefe8d25fe156a8c1c5ba719b4d0fab8cbee20ff0cb1402e85ccc"
+        }
+      ],
+      "saved_sha256": "f573b2926d758eda38ce85f2a8c23ef1864607b2acfb42ec585805a8276f8a11",
+      "tree_rows": 29
+    }
+  },
+  "codec_revision": "59a9960ae0161fc90370e1b748712ce5b5f5dc13",
+  "controls_healthy": true,
+  "distinct_processes": 6,
+  "idle_after": true,
+  "new_heldout_credit": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "fa54b00919aec9116c36b0d16a2a447d59621a2e20118f67bb0a9c1eaea380e0",
+  "passed": true,
+  "public_writer": false,
+  "schema": "kit.sw2026.scoped-revolve-candidate-packet.v1"
+}

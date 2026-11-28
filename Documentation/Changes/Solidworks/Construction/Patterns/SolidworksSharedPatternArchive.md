@@ -1,0 +1,5 @@
+# Generate the complete measured linear-pattern part from portable data
+
+The internal SOLIDWORKS 2026 constructor lowers an ordinary portable part, its owned planes, two rectangular profiles, two blind depths and typed presentation into the complete editable local pattern. It builds the finite hinge, angular parent, live occurrence count and spacing, then computes the resulting scope and all ten streams. The Keywords tree indexes the actual axis, angular D1 and two pattern drivers.
+
+Both measured contained patterns, including separate pitch and count states, reproduce all six complete files and 60 logical streams. Each guarded SDK process consumes the typed part over stdin. A footprint outside its plate refuses before emission. The strict cache-free path and stream readers preserve the same scoped geometry. Public writing and private source-revision verification remain pending. [Complete model, output and reproduction](../../../../../re/solidworks/records/LocalLinearPatternContainer2026.md#shared-complete-archive)

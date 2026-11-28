@@ -1,0 +1,168 @@
+{
+  "all_cad_success_criteria_complete": false,
+  "application_usable": true,
+  "delivery_pr": 121,
+  "heldout_evaluation_completed": false,
+  "heldout_inputs_read": 0,
+  "native": {
+    "active_configurations": [
+      "Default",
+      "modeled default"
+    ],
+    "child_d1_m": 0.018625,
+    "child_save": {
+      "native_bytes": 27468,
+      "native_sha256": "33d2a77fda0a55fa008884297cf9e7dd5b57d96ec0cc6acbff9efdf25701b304",
+      "original_sha256": "bf85ac5555a0b52db82f7d2862aedd940f7fc57ecd99a4f929b350b58e1b9fbe",
+      "path_basename": "SdkDatumPlateBeta.SLDPRT",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "update_stamp": 144
+    },
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "edit_identity_preserved": true,
+    "edited_com_m": [
+      0.030663,
+      0.019084000000000004,
+      0.0772625
+    ],
+    "edited_distance_m": 0.06321,
+    "exact_prediction": true,
+    "fixed_flags": [
+      true,
+      false
+    ],
+    "frozen_inputs_unchanged": true,
+    "independent_kg_mass_gate": false,
+    "independent_mass_property_gates": [
+      "volume",
+      "area",
+      "centre_of_mass"
+    ],
+    "initial_com_m": [
+      0.025905,
+      0.012740000000000003,
+      0.0772625
+    ],
+    "matched_reference_probe_result_sha256": "f61c2576bc956c2f31eff18fdda05a1d558ae930e31d95e4c00ca5c310a32fa4",
+    "numeric_comparisons": 338,
+    "observer_sha256": "465e85ba50eb1c5a641a7e422757231b55d4b46a5b5009a694a3fe02920e1b13",
+    "ordered_mates": [
+      {
+        "alignment": 0,
+        "name": "CoincidentY",
+        "type": 0
+      },
+      {
+        "alignment": 0,
+        "name": "DistanceX",
+        "type": 5
+      },
+      {
+        "alignment": 0,
+        "name": "ParallelZ",
+        "type": 3
+      }
+    ],
+    "original_distance_m": 0.04735,
+    "packet_sha256": "a229362dbbe08bfff64ffa2da97443b1d995e5e3ce0f6dcb4ff649c080b818ca",
+    "parent_save": {
+      "sha256": "c539569c308d0aee6330823e5dff7be68aaba12614e873c4bb3771d8c114863a",
+      "status": [
+        true,
+        0,
+        0
+      ]
+    },
+    "passed": true,
+    "phases": [
+      {
+        "body_count": 2,
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394464331713707,
+        "record_sha256": "474280400c59cd213a334e530d31acc963f3288cfa83af4a7bf978c53c2ecc95",
+        "role": "ControlBefore"
+      },
+      {
+        "body_count": 2,
+        "numeric_checks": 114,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394464957121398,
+        "record_sha256": "3532d7cdbd8404ce7cbb5b74b436e7b95f8ecee3e69500e46b8331da3f7012d3",
+        "role": "Generated"
+      },
+      {
+        "body_count": 2,
+        "numeric_checks": 76,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394466074258546,
+        "record_sha256": "f13f13f3c815ed396de2e8799047258d13f67de45697e832d4c62bf414a59b4e",
+        "role": "FreshReopen"
+      },
+      {
+        "body_count": 2,
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394466748550027,
+        "record_sha256": "b9c7d75684cc28621df6d484292fe3fc9f130e566ba21bb2e0281ff916dd8ce0",
+        "role": "ControlAfter"
+      }
+    ],
+    "raw_result_sha256": "c68e41c49f1aa6977205d39b6c0b175a8211cfc09f95fb959810d402c87e9dcc",
+    "reopen_child_stamp_on_open": 144,
+    "reopen_identity_preserved": true,
+    "source_bracket_identity": true,
+    "tree_rows": {
+      "child": 25,
+      "parent": 27
+    }
+  },
+  "oracle": {
+    "com": "SldWorks.Application.34",
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "owner": "assembly_occurrence",
+  "passed": true,
+  "prior_trials": {
+    "all_original_aggregates_preserved": true,
+    "first_generated_identity_predicate_failure_receipt": "SdkOrderedAssemblyNativeTrial01.json",
+    "matched_read_only_probe_receipt": "SdkOrderedMateReferenceProbe01.json",
+    "native_control_identity_predicate_failure_receipt": "SdkOrderedMateLifecycleControlFailure01.json"
+  },
+  "public_writer_qualified": false,
+  "qualified_production_corpus_outputs": 0,
+  "schema": "kit.sw2026.sdk-ordered-assembly-native.v1",
+  "scope": "one disclosed fully SDK generated rotated ordinary coincident distance parallel group on one shared plain rectangular child",
+  "separate_kg_mass_api_receipt": "SdkOrderedAssemblyMassApi01.json",
+  "source_generation": {
+    "fixture_sha256": "916924328bef48c5923a83ae34d6af685550a596e4757906129b6119cd7190d2",
+    "generated_files_sha256": {
+      "SdkDatumPlateBeta.SLDPRT": "bf85ac5555a0b52db82f7d2862aedd940f7fc57ecd99a4f929b350b58e1b9fbe",
+      "SdkOrderedMixed.SLDASM": "dd2b35ffe310799b822cd0286718d1d619c21cee99f1585428ade66ab9caec0b"
+    },
+    "guarded_builds": 2,
+    "neutral_request_sha256": "21546423cc5844fbf5690a2c4985b70ddd69b5d92cce750e022e1d2a48d5da79",
+    "prediction_sha256": "be595dd9364eb2adc4db59de408ef60ea6b51595d1c50e1f01e5dbc19ec1e26c",
+    "runtime_input_file_reads": 0,
+    "source_manifest_sha256": "2c540bca6cf921ed507c4ef0b7bcc9d1e34a299cd89cbc593d10c8001a2918e4",
+    "source_process_result_sha256": "5493223761bfe60d898a63710a9a08c03760ba432bd0b3d902741e4b74e02857",
+    "typed_stream_round_trips": 22,
+    "writer_source_changed_during_native_trials": false
+  },
+  "task": "B04-SW2026-MATES",
+  "vendor_loadable": true
+}

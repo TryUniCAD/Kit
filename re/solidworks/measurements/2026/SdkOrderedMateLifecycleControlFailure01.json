@@ -1,0 +1,1412 @@
+{
+  "controls_healthy": false,
+  "delivery_pr": 121,
+  "distinct_processes": 2,
+  "frozen_inputs_unchanged": true,
+  "generated_phase_started": false,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_save_attempted": false,
+  "owner": "assembly_occurrence",
+  "packet_sha256": "3c1dc9914a2c8b0023a8afbcb27f4414932b86b2af30a31b440c1e245032e920",
+  "passed": false,
+  "phases": [
+    {
+      "equality_calls": [
+        {
+          "arguments": {
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        }
+      ],
+      "error": "ValueError('the native A22 expected specific-plane identity changed')",
+      "numeric_checks": 37,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": false,
+      "process_creation_filetime": 134394461988193587,
+      "record_sha256": "77c35ec7f9f167b3a78272967665c023662e3930c9213ef02c293366535ebf31",
+      "role": "ControlBefore"
+    },
+    {
+      "equality_calls": [
+        {
+          "arguments": {
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 0,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Front Plane",
+            "endpoint": 1,
+            "mate": "Parallel1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 0,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Top Plane",
+            "endpoint": 1,
+            "mate": "Distance1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-1"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-1",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 0,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-2"
+          },
+          "method": "IsSame repeated mate reference",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-1",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame feature_equality",
+          "result": 0
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame specific_plane_equality",
+          "result": 1
+        },
+        {
+          "arguments": {
+            "actual_occurrence": "CohortChild-2",
+            "candidate_occurrence": "CohortChild-2",
+            "datum": "Right Plane",
+            "endpoint": 1,
+            "mate": "Coincident1"
+          },
+          "method": "IsSame repeated_specific_plane_equality",
+          "result": 1
+        }
+      ],
+      "error": null,
+      "numeric_checks": 74,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394462346375674,
+      "record_sha256": "c0d30d9be09bde90e8025687ae277f1270cf0fb78b4fb6195fd40928db297be3",
+      "role": "ControlAfter"
+    }
+  ],
+  "public_writer_qualified": false,
+  "raw_result_sha256": "5bc9e610a11105e9bfa5f003b475a22b94628811905733a1274d5b699f5a463b",
+  "schema": "kit.sw2026.sdk-ordered-lifecycle-native-control-failure.v2",
+  "task": "B04-SW2026-MATES",
+  "writer_source_changed": false
+}

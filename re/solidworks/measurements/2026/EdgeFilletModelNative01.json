@@ -1,0 +1,257 @@
+{
+  "cases": {
+    "EdgeFilletAxial": {
+      "candidate_sha256": "6d28864133d0d291317d309a9835d9fabf2717a073b4f7b435f644b520e18acd",
+      "passed": false,
+      "phases": {
+        "reopen-edit-save": {
+          "build": "34.5.2.0604",
+          "checks": 45,
+          "checks_passed": 45,
+          "cold": {
+            "bodies": 1,
+            "errors": 0,
+            "mass": {
+              "area": 0.008116319403189708,
+              "com": [
+                0.013142672967539794,
+                -0.007766245718553833,
+                0.0114
+              ],
+              "mass": 4.5188272360254137e-05,
+              "volume": 4.5188272360254137e-05
+            }
+          },
+          "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "failure_stage": null,
+          "failure_type": null,
+          "open_status": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "output_sha256": "2c29407f931e290fa0cd1262f20af19cb345052432a7ee8f544bc91615b6d743",
+          "passed": false,
+          "process": [
+            5396,
+            134398175785218628
+          ],
+          "receipt_sha256": "b22f08deabdc23a9d3c6207bca25fa432c5c530b75452f98a4b000d9ccc6c662",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "body_counts": {
+                "edges": 15,
+                "faces": 7,
+                "vertices": 10
+              },
+              "parents": [
+                "FilletStockBoss"
+              ],
+              "radius_m": 0.00611,
+              "tree": [
+                "Comments",
+                "Favorites",
+                "History",
+                "Selection Sets",
+                "Sensors",
+                "Design Binder",
+                "Annotations",
+                "Notes",
+                "Notes1___EndTag___",
+                "Surface Bodies",
+                "Solid Bodies",
+                "Lights and Cameras",
+                "Ambient",
+                "Directional1",
+                "Directional2",
+                "Directional3",
+                "Markups",
+                "Equations",
+                "Material <not specified>",
+                "Front Plane",
+                "Top Plane",
+                "Right Plane",
+                "Origin",
+                "FilletStockSketch",
+                "FilletStockBoss",
+                "ConstantEdgeFillet"
+              ],
+              "type": "Fillet",
+              "volume_area_centroid": [
+                4.509904895128756e-05,
+                0.008091465420244685,
+                [
+                  0.013089285138282907,
+                  -0.007735458146444813,
+                  0.0114
+                ]
+              ]
+            },
+            "reopened": {
+              "body_counts": {
+                "edges": 15,
+                "faces": 7,
+                "vertices": 10
+              },
+              "parents": [
+                "FilletStockBoss"
+              ],
+              "radius_m": 0.00437,
+              "tree": [
+                "Comments",
+                "Favorites",
+                "History",
+                "Selection Sets",
+                "Sensors",
+                "Design Binder",
+                "Annotations",
+                "Notes",
+                "Notes1___EndTag___",
+                "Surface Bodies",
+                "Solid Bodies",
+                "Lights and Cameras",
+                "Ambient",
+                "Directional1",
+                "Directional2",
+                "Directional3",
+                "Markups",
+                "Equations",
+                "Material <not specified>",
+                "Front Plane",
+                "Top Plane",
+                "Right Plane",
+                "Origin",
+                "FilletStockSketch",
+                "FilletStockBoss",
+                "ConstantEdgeFillet"
+              ],
+              "type": "Fillet",
+              "volume_area_centroid": [
+                4.5188272360254137e-05,
+                0.008116319403189708,
+                [
+                  0.013142672967539794,
+                  -0.007766245718553833,
+                  0.0114
+                ]
+              ]
+            }
+          },
+          "timed_out": false,
+          "unchanged_input": true,
+          "worker_status": 1
+        }
+      }
+    },
+    "EdgeFilletTransverse": {
+      "candidate_sha256": "2cd7a0bcc61d19a02a295c16f47d13e660f886a9630728671eecd3d8a9e4c5f7",
+      "passed": false,
+      "phases": {
+        "reopen-edit-save": {
+          "build": "34.5.2.0604",
+          "checks": 2,
+          "checks_passed": 2,
+          "cold": {
+            "bodies": 1,
+            "errors": 0,
+            "mass": {
+              "area": 0.006931434220348856,
+              "com": [
+                -0.008300000000000002,
+                0.010571095934096605,
+                0.01427403992730202
+              ],
+              "mass": 3.882026471255078e-05,
+              "volume": 3.882026471255078e-05
+            }
+          },
+          "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "failure_stage": "ReleaseSelectionAccess",
+          "failure_type": "PermissionError",
+          "open_status": {
+            "errors": 0,
+            "opened": true,
+            "warnings": 0
+          },
+          "output_sha256": null,
+          "passed": false,
+          "process": [
+            4944,
+            134398176420629259
+          ],
+          "receipt_sha256": "80b020fae1c24e8399481f4ec23d17dbaa2c74e188cdf89273583660a6859ff0",
+          "save_status": null,
+          "states": {},
+          "timed_out": false,
+          "unchanged_input": true,
+          "worker_status": 1
+        }
+      }
+    }
+  },
+  "comparison_valid": true,
+  "controls": {
+    "ControlAfter": {
+      "build": "34.5.2.0604",
+      "checks": 0,
+      "checks_passed": 0,
+      "cold": null,
+      "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "failure_stage": null,
+      "failure_type": null,
+      "open_status": null,
+      "output_sha256": null,
+      "passed": true,
+      "process": [
+        7144,
+        134398176784571071
+      ],
+      "receipt_sha256": "04899c77bb65bc185abc2d3983e1e6fed75a15e6a26b5b3d9ac835b1f3aa4d65",
+      "save_status": null,
+      "states": {},
+      "timed_out": false,
+      "unchanged_input": null,
+      "worker_status": 0
+    },
+    "ControlBefore": {
+      "build": "34.5.2.0604",
+      "checks": 0,
+      "checks_passed": 0,
+      "cold": null,
+      "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "failure_stage": null,
+      "failure_type": null,
+      "open_status": null,
+      "output_sha256": null,
+      "passed": true,
+      "process": [
+        11000,
+        134398175554948824
+      ],
+      "receipt_sha256": "ad483a62d4457709902693079b86a0fcdf076672b331b00346909d51d5196489",
+      "save_status": null,
+      "states": {},
+      "timed_out": false,
+      "unchanged_input": null,
+      "worker_status": 0
+    }
+  },
+  "distinct_native_processes": 4,
+  "heldout_sources_read": 0,
+  "model_job_sha256": "203c0dc47c49b58de5ca38b790a67368868524af21510bb4dad27122399a0892",
+  "oracle": {
+    "build": "34.5.2.0604",
+    "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "passed": false,
+  "probe_commit": "f0e730357e84ff4a541c3fd655beccde356d3592",
+  "schema": "kit.sw2026.edge-fillet-model-native.v1",
+  "unchanged_candidates": true,
+  "writer_commit": "346aa4093b510aba3ee88004c53d3f6aed73d361"
+}

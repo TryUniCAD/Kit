@@ -1,0 +1,38 @@
+{
+  "existing_native_processes": 6,
+  "freeze_sha256": "a19b5d9abec4b59e6727a7ac2d0a905d6f291fb489efaee606af482b8d304b1e",
+  "locked_source_sha256": "67c1aeca25817846925f18e5b6b7b9319bdba216835e685988961e0db8832f68",
+  "native_original_files_read": 0,
+  "native_result_sha256": "aee4c2213efdd216e35a9c22de36811b83eab06703b9233ef0f06d36619c8084",
+  "new_oracle_launches": 0,
+  "passed": true,
+  "protected_cases": {
+    "Slot01": {
+      "cold_native_mass_and_bounds_checks": 22,
+      "cold_owned_D1s": 3,
+      "named_stream_routes": 2,
+      "runtime_writer_input_reads": 0,
+      "sha256": "1b9d6819c205acf0d9f48149fe80ceb8a54b95875a823d3c0c495105970512e3",
+      "streams": 10,
+      "strict_reader_refusals": 2,
+      "unexpected_reader_input_reads": 0,
+      "writer_refusals": 2
+    },
+    "Slot02": {
+      "cold_native_mass_and_bounds_checks": 22,
+      "cold_owned_D1s": 3,
+      "named_stream_routes": 2,
+      "runtime_writer_input_reads": 0,
+      "sha256": "f9806ff099ee85af30acfc98e6fa744bb782218de4206873132d8e9412b37b1b",
+      "streams": 10,
+      "strict_reader_refusals": 2,
+      "unexpected_reader_input_reads": 0,
+      "writer_refusals": 2
+    }
+  },
+  "public_guest_preflight": 4,
+  "reader_result_sha256": "0b041e7b5e75d3a6b06315174d631a6695c6cd5632aa6aca04bfa5c217c5398d",
+  "revision": "f6010d913ef30336ff244f0f76c81e84460bcdb8",
+  "schema": "kit.sw2026.public-selected-revolve-protected.v1",
+  "source_tree": "4d8cbd7cad9877cafcf3c628c51cf61392f96596"
+}

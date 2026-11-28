@@ -1,0 +1,85 @@
+{
+  "cases": {
+    "assigned": {
+      "fixed_owners": {
+        "block_manager_backlink": true,
+        "block_manager_uuid_sha256": "f58dbac47df9237a6204d9e6939e2a0c2943b34d1d6c0ff7f0142adcc5bd79dd",
+        "block_manager_uuid_version": 4,
+        "model_zero_members": [
+          "f784",
+          "f7a4"
+        ]
+      },
+      "material": {
+        "atom_id": 101,
+        "density_kg_m3": 2700.0,
+        "feature_id": 34,
+        "native_material_id": 258
+      },
+      "resolved_seed_map": 110,
+      "runtime_file_or_process_accesses": 0,
+      "source_path": "re/solidworks/v2026/corpus/named-material/AssignedDensityProbe.SLDPRT",
+      "source_sha256": "04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26294,
+          "exact": true,
+          "map_count": 110,
+          "opaque_operations": 0,
+          "packed_binary64_fields_per_direction": 0,
+          "sha256": "5da5363400dd14c132c145167760cb6ee9933feb6f4d0bd73a5b1cceb0a0f26b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15069,
+          "exact": true,
+          "map_count": 300,
+          "opaque_operations": 0,
+          "packed_binary64_fields_per_direction": 3,
+          "sha256": "cef4349eb07028839313447a8a0670165bcad6a1f36c436126f07d194485e1b5"
+        }
+      }
+    },
+    "unassigned": {
+      "fixed_owners": {
+        "block_manager_backlink": true,
+        "block_manager_uuid_sha256": "f58dbac47df9237a6204d9e6939e2a0c2943b34d1d6c0ff7f0142adcc5bd79dd",
+        "block_manager_uuid_version": 4,
+        "model_zero_members": [
+          "f784",
+          "f7a4"
+        ]
+      },
+      "material": null,
+      "resolved_seed_map": 110,
+      "runtime_file_or_process_accesses": 0,
+      "source_path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25390,
+          "exact": true,
+          "map_count": 110,
+          "opaque_operations": 0,
+          "packed_binary64_fields_per_direction": 0,
+          "sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14407,
+          "exact": true,
+          "map_count": 288,
+          "opaque_operations": 0,
+          "packed_binary64_fields_per_direction": 3,
+          "sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525"
+        }
+      }
+    }
+  },
+  "fresh_processes": 4,
+  "heldout_inputs": 0,
+  "native_processes": 0,
+  "product_writer_outputs": 0,
+  "schema": "kit.sw2026.assigned-stream-replay.v1",
+  "sdk_revision": "197a3283267e95167ac716efbe57d3449bab1b15",
+  "sdk_src_tree": "b3affc993163129a2ac935fff28497c85cd86da2",
+  "tool_sha256": "6a30e0216d0e1e0b71494e22bdf20baf2b9500a307296e6a246d59c85b3e35bc"
+}

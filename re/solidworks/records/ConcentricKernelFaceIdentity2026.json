@@ -1,0 +1,172 @@
+{
+  "direct_edges": [
+    {
+      "kind": "call",
+      "site_va": "0x439bac7f",
+      "target_va": "0x439bbfd0"
+    },
+    {
+      "kind": "jump",
+      "site_va": "0x439a8af0",
+      "target_va": "0x43e775c0"
+    },
+    {
+      "kind": "jump",
+      "site_va": "0x439ae0f0",
+      "target_va": "0x43e843b0"
+    }
+  ],
+  "functions": {
+    "assign_id_runtime": {
+      "code_sha256": "e617b35067c469bb9382043ed465c450b0f93d504b642f2c6f3dcb1451dce19e",
+      "end_rva_exclusive": "0x7375ec",
+      "end_va_exclusive": "0x43e775ec",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x7375c0",
+      "start_va": "0x43e775c0",
+      "unwind_rva": "0x846580"
+    },
+    "get_id_runtime": {
+      "code_sha256": "1120a466c49395f1a91743ff86eeefd195357dfbe4a48ce966b84619070a175e",
+      "end_rva_exclusive": "0x7443cf",
+      "end_va_exclusive": "0x43e843cf",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x7443b0",
+      "start_va": "0x43e843b0",
+      "unwind_rva": "0x846a1c"
+    },
+    "make_sketch_edge": {
+      "code_sha256": "f1891bc1f1ddacb9aa6f1f5da38480a4e81242299f968356214efc29fe21746d",
+      "end_rva_exclusive": "0x95e92a",
+      "end_va_exclusive": "0x4ba9e92a",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?makeEdge@sgEntHandle@@UEBAPEAVgcEdge_w@@PEBVmgXform_c@@H@Z"
+      ],
+      "start_rva": "0x95e830",
+      "start_va": "0x4ba9e830",
+      "unwind_rva": "0x2374dfc"
+    },
+    "propagate_edge_ids": {
+      "code_sha256": "be33f2152a5dd81d14dd5743a1ee3556b78de4fa266ec1ae4ed31a15240e46dd",
+      "end_rva_exclusive": "0x27ad9e",
+      "end_va_exclusive": "0x439bad9e",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?propagateEdgeIds@gcEdge_w@@QEAAXPEAVgcFace_w@@HPEAVmgLine_c@@H@Z"
+      ],
+      "start_rva": "0x27ac50",
+      "start_va": "0x439bac50",
+      "unwind_rva": "0x8864c8"
+    },
+    "propagate_edge_pointer_values": {
+      "code_sha256": "74c75db49342c7ebf974eda91d719cf15e0d7674dbe3acd166bd8bceaa0e41fd",
+      "end_va_exclusive": "0x439bc0bd",
+      "start_va": "0x439bbfd0",
+      "unwind_fragments": [
+        {
+          "end_va_exclusive": "0x439bbfd8",
+          "start_va": "0x439bbfd0",
+          "unwind_rva": "0x86c01c"
+        },
+        {
+          "end_va_exclusive": "0x439bc00f",
+          "start_va": "0x439bbfd8",
+          "unwind_rva": "0x891744"
+        },
+        {
+          "end_va_exclusive": "0x439bc08c",
+          "start_va": "0x439bc00f",
+          "unwind_rva": "0x891760"
+        },
+        {
+          "end_va_exclusive": "0x439bc0a5",
+          "start_va": "0x439bc08c",
+          "unwind_rva": "0x891774"
+        },
+        {
+          "end_va_exclusive": "0x439bc0bd",
+          "start_va": "0x439bc0a5",
+          "unwind_rva": "0x891784"
+        }
+      ]
+    },
+    "surface_assignment": {
+      "code_sha256": "b1481219e76a89972c9b5891c5863dbf83efc2fcbe6297fe1ed236a57b41e60f",
+      "end_rva_exclusive": "0x64885a",
+      "end_va_exclusive": "0x4b78885a",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?moMakeFromExtendedEdgeSurfIds@@YAXPEAVgcFace_w@@PEAX@Z"
+      ],
+      "start_rva": "0x648170",
+      "start_va": "0x4b788170",
+      "unwind_rva": "0x22fe72c"
+    }
+  },
+  "geometry_backend": {
+    "0x43f5a638": {
+      "module": "sldgciParau.dll",
+      "symbol": "?assignId@gciEdge_w@GCP@@QEAAXK@Z"
+    },
+    "0x43f5a648": {
+      "module": "sldgciParau.dll",
+      "symbol": "?getId@gciEdge_w@GCP@@QEAAKXZ"
+    }
+  },
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "limits": {
+    "fresh_kernel_face_numbering": "unresolved",
+    "optional_axis_constructor": "unresolved",
+    "sketch_permanent_marker_publication_end_to_end": "unresolved"
+  },
+  "modules": {
+    "geometry": {
+      "bytes": 10893912,
+      "image_base": "0x43740000",
+      "machine": "0x8664",
+      "name": "sldgcu.dll",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    "model": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "native_processes_started": 0,
+  "propagation": {
+    "destination_attribute_va": "0x44165df0",
+    "one_pointer_get_va": "0x439bc043",
+    "one_pointer_store_va": "0x439bc056",
+    "payload_converted_to_permanent_marker_here": false,
+    "source_attribute_va": "0x44165db8",
+    "three_pointer_store_va": "0x439bc070"
+  },
+  "schema": "kit.sw2026.concentric-edge-attribute-bindings.v1",
+  "sketch_publication": {
+    "actual_entity_slot": "0x378",
+    "attribute_iat_va": "0x4cd36f88",
+    "attribute_import": {
+      "module": "sldgcu.dll",
+      "symbol": "?edgeId_ad@gcFaceIdAttrib_w@@2PEAVgcAttribDef_w@@EA"
+    },
+    "entity_pointer_receiver_call_va": "0x4ba9e8d7",
+    "flag_mask": 1,
+    "kernel_edge_slot": "0x88",
+    "make_attribute_call_va": "0x4ba9e8ed",
+    "make_attribute_import": {
+      "module": "sldgcu.dll",
+      "symbol": "?makeAttribute@gcPointerAttrib_w@@SAPEAV1@PEAVgcTopEnt_w@@PEAVgcAttribDef_w@@PEAX@Z"
+    },
+    "payload_domain": "actual sgEnt pointer"
+  },
+  "support_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+  "tool_sha256": "dee36ff6c492e1cd33f3dbeaeb8f01485cc9aad682f773234604db51272f058c",
+  "writer_outputs": 0
+}

@@ -1,0 +1,335 @@
+{
+  "blank_regression": {
+    "artifact_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+    "container_bytes_identical": true,
+    "streams": 7
+  },
+  "container_version": 4,
+  "detailing_omission_receipt_sha256": "e5a99b96ef4798a6afdf0ed97555a8e7c86b6df5093921af9c674bfead5f4070",
+  "disclosed_index_observations": [
+    {
+      "case": "D01FrontView",
+      "configuration_id": 0,
+      "information_stream_sha256": "090e5e039c675d832740320363737fc16c0e8f76c9e7e43b008e64f591c89d9e",
+      "keyword_indexes_agree": true,
+      "keyword_stream_sha256": "59a5f3208f9549f1eb7816c7baf3de3cd951ae54aaa345efad8f694ef9a93b94",
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    {
+      "case": "D02MovedFrontView",
+      "configuration_id": 0,
+      "information_stream_sha256": "7354df031c6863532cc8658398fc94c3e4b4d1031d1aeb23fd5708369ba7eb76",
+      "keyword_indexes_agree": true,
+      "keyword_stream_sha256": "59a5f3208f9549f1eb7816c7baf3de3cd951ae54aaa345efad8f694ef9a93b94",
+      "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47"
+    }
+  ],
+  "file_version": 19000,
+  "generated_pairs": [
+    {
+      "drawing": {
+        "bytes": 7098,
+        "sha256": "7370fa041ca46165303b863a5f4b0ac5554aab895f9a0b7fd64758ae5956db29",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 28842,
+            "sha256": "89906cde92a255b18fece149e7677824b93b1e039c99d681536efc4b400f3af2"
+          },
+          "Header2": {
+            "bytes": 1195,
+            "sha256": "7277436ecbbe6ac4c4d0313a9b9363e2b240edd5161fe9d0799611094ac26f8e"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 167,
+            "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1018,
+            "sha256": "fc555110343da7596d3e3e9c7e2097640eed933f06796a8e23250cb993fa84e6"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 618,
+            "sha256": "22140873ed109ef3a96b3f8d2da43f2ca1406bc1d208867242b5f145d22a1a8d"
+          }
+        }
+      },
+      "input_runtime_file_access_attempts": 0,
+      "inspection": {
+        "child_configuration_id": 0,
+        "definition_map_next_index": 172,
+        "detailing_bucket_count": 0,
+        "header_map_next_index": 22,
+        "model_to_sheet": [
+          1.0,
+          0.0,
+          0.0,
+          0.07043,
+          0.0,
+          1.0,
+          0.0,
+          0.08571999999999999,
+          0.0,
+          0.0,
+          1.0,
+          -0.003,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "next_persistent_id": 16,
+        "outline_m": [
+          0.066112,
+          0.08140199999999999,
+          0.098748,
+          0.10603800000000001
+        ],
+        "position_m": [
+          0.08243,
+          0.09372
+        ],
+        "readback_exact": true,
+        "scale_ratio": [
+          1.0,
+          1.0
+        ],
+        "sheet": "Model Layout 1",
+        "view": "Primary Front 1",
+        "view_persistent_id": 11
+      },
+      "native_acceptance": false,
+      "part": {
+        "bytes": 8152,
+        "sha256": "05241b319197196297e028e1cc32110e4f9cd0839a88d98a184a40fe50273d19",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1159,
+            "sha256": "13d6b35b80cffe080a42635eb45b5d0d384fb2582d3ee2abeb0cbd9ed0ab8fda"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 197,
+            "sha256": "11cdbd9c5e5faae383718ec2063c9c273de987c71bbcf48cdd63ec1527559794"
+          },
+          "Contents/Config-0": {
+            "bytes": 21128,
+            "sha256": "ced28393fe3a059821ee5196baf8f7285eddb137d122494bd92e6dd1114e2f1c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 823,
+            "sha256": "8300259eb314e3e4697c4cc838565045f0b1bfff7f6637e036531c2b2bf0daeb"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 14064,
+            "sha256": "88dc1deb3c21f13b9e16f5df53a374de2b5a6e223d38241869707df238465dff"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 823,
+            "sha256": "29815ac25372744df42c43c585767d81d81eb1fbace3d185bf2295a8a3435155"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1507,
+            "sha256": "52a7118f6248ce25622df1933be5f8e356773739d39420b5ca54530076c36f2d"
+          }
+        }
+      },
+      "request_sha256": "097d35e98f9710b79185ebf30e7805c727814932007e184fc7e655a04d8a602a",
+      "schema": "kit.sw2026.generated-front-drawing-bundle.v1"
+    },
+    {
+      "drawing": {
+        "bytes": 6897,
+        "sha256": "4c95cf1acdfeb74685f35a254de599c44c993c775c5d875b5cf47fd02f597b43",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 28566,
+            "sha256": "18c57d241507e98390b786e3c4abe83380ee09413c50d30844dbfa5097585f45"
+          },
+          "Header2": {
+            "bytes": 919,
+            "sha256": "11daea374fbb58bbeefb4149a56ece84e9f782eba679634621491ee90144dac8"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 167,
+            "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 949,
+            "sha256": "6402705740c876e63120d4f07a98e9fad4afbcfaf63181b483bd127683401b1f"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 618,
+            "sha256": "ffbe2f66e3df781d18c6b01de03137cc156a1f5d2a58cedda530a6bd6d0ed4c2"
+          }
+        }
+      },
+      "input_runtime_file_access_attempts": 0,
+      "inspection": {
+        "child_configuration_id": 0,
+        "definition_map_next_index": 172,
+        "detailing_bucket_count": 0,
+        "header_map_next_index": 22,
+        "model_to_sheet": [
+          1.0,
+          0.0,
+          0.0,
+          0.12873,
+          0.0,
+          1.0,
+          0.0,
+          0.10278000000000001,
+          0.0,
+          0.0,
+          1.0,
+          -0.006,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "next_persistent_id": 16,
+        "outline_m": [
+          0.12441200000000001,
+          0.09846200000000001,
+          0.16404799999999997,
+          0.126098
+        ],
+        "position_m": [
+          0.14423,
+          0.11228
+        ],
+        "readback_exact": true,
+        "scale_ratio": [
+          1.0,
+          1.0
+        ],
+        "sheet": "Model Layout 2",
+        "view": "Primary Front 2",
+        "view_persistent_id": 11
+      },
+      "native_acceptance": false,
+      "part": {
+        "bytes": 8017,
+        "sha256": "ac5c38e740335531f73ceaad171938046b424d75ed41d588de957709841cd184",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1159,
+            "sha256": "13d6b35b80cffe080a42635eb45b5d0d384fb2582d3ee2abeb0cbd9ed0ab8fda"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 197,
+            "sha256": "11cdbd9c5e5faae383718ec2063c9c273de987c71bbcf48cdd63ec1527559794"
+          },
+          "Contents/Config-0": {
+            "bytes": 21128,
+            "sha256": "eae7bbb8e86d319e701b661b15b003801124f45239b86514f81a8cff2027d3ce"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 685,
+            "sha256": "b9d7e1cdc7f9806bee17451457e07961cd56f9d7fdc75c60213fd5a37461aba6"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 14064,
+            "sha256": "4147865db5425b95bd7d9dadd567e7fd20d8a78acf000449caf23e9ff34d69cd"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 685,
+            "sha256": "6d71f8f00fd16c4d5bba4780608fe3e849c78b8faffeb930cdd0e840048aec5a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1508,
+            "sha256": "723321624716bebec0b015a78c33c5fe31293cbfbf2e0e0c8a5e606f4fc49e7b"
+          }
+        }
+      },
+      "request_sha256": "6900223a9e20ab655fb383fd558824e85e744a5e88ba39fc684e4eed928656ec",
+      "schema": "kit.sw2026.generated-front-drawing-bundle.v1"
+    }
+  ],
+  "heldout_payloads_or_observations_read": false,
+  "native_acceptance": false,
+  "oracle_build": "34.5.2.0604",
+  "rejected_requests": [
+    "view-name-delimiter",
+    "configuration-delimiter"
+  ],
+  "schema": "kit.sw2026.generated-front-drawing-candidate.v1",
+  "source_hashes": {
+    "re/tooling/sw2026/DrawingFrontBundleProcess.py": "f84ac1c6a7f74b5f8e1d776f8237004b26192bdde0be31240595215e0d8b4af1",
+    "re/tooling/sw2026/DrawingFrontRecordProcess.py": "4385eac95fe29b76c8f145c0ae2e226c49da1aa71ffdcc617812902bdec066ee",
+    "re/tooling/sw2026/InspectGeneratedFrontDrawing.py": "8d95780327d11e733e0e4bdb9491af96d3a2df29841ce2009be6c92382720c59",
+    "re/tooling/sw2026/PrepareGeneratedFrontDrawing.py": "09bc8192b36d2aa7ac6c371e9775177ca41295586edef4f6e816acd080ccd379",
+    "re/tooling/sw2026/builders/DrawingDocument.py": "743ef15f9f04fba95a4ceda748a24b13177d6c483f6b17902142c8672f308669",
+    "re/tooling/sw2026/builders/DrawingFrontBundle.py": "1d4c23820c01966cfdc2cda14930ab5ce939cd6932fd935aea936f0ff4f42b12",
+    "re/tooling/sw2026/builders/DrawingFrontView.py": "0af4feae1036682928494cf1f444ab0582f0a837a00f71504b2b79c767055e65",
+    "re/tooling/sw2026/builders/DrawingMetadata.py": "0022c073e1f3e67903071d88e273ba8d7cd5762afb14d920485ea43009059f33",
+    "re/tooling/sw2026/builders/DrawingRoot.py": "073875250f7ff0113ec097b31c0f8d5670a4a812c36963f435aa26890859c048"
+  },
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "strict_open_refused": true,
+  "trial": {
+    "declared_drawing_stream_roles": [
+      "Contents/Definition",
+      "Header2",
+      "ModelStamps",
+      "_MO_VERSION_19000/Biography",
+      "_MO_VERSION_19000/History",
+      "docProps/ISolidWorksInformation.xml",
+      "swXmlContents/KeyWords"
+    ],
+    "immutable_generated_input_pair": {
+      "drawing": {
+        "bytes": 7098,
+        "sha256": "7370fa041ca46165303b863a5f4b0ac5554aab895f9a0b7fd64758ae5956db29"
+      },
+      "part": {
+        "bytes": 8152,
+        "sha256": "05241b319197196297e028e1cc32110e4f9cd0839a88d98a184a40fe50273d19"
+      }
+    },
+    "native_result_in_this_receipt": false,
+    "packet_sha256": "cc9d2384f8cf7860d3d2416dd709323b2a7b2c1ec6eb81bb891909b9520966c5",
+    "pristine_control_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+    "reduced_control_sha256": "0a1b8e736a97269630640a63b68de94dc6836f5230c1212e7f2598087a2dd8ee",
+    "tools_manifest_sha256": "bc7328761783cbd2f156a1c9b6ef8d7fa1d66b8157cb224759ee2aa1597e4d00"
+  }
+}

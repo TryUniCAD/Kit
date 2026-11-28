@@ -1,0 +1,412 @@
+{
+  "schema": "kit.sw2026.generated-prism-partition-ownership.v1",
+  "native_build": "34.5.2.0604",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "rea_pe_evidence": "ev_7fc3ecfa02cbbd7d6067ca5c370b778582e5ddc85ae1940285a50b90bfc6ceec",
+  "static_code_ranges": {
+    "0x4c1b7600": {
+      "range": [
+        "0x4c1b7600",
+        "0x4c1b7b75"
+      ],
+      "sha256": "8b1f0fb8530dc217fd14fdc65cd7a1e62db8b4083fddc3e9b7478891fd212d3e"
+    },
+    "0x4c1bcad0": {
+      "range": [
+        "0x4c1bcad0",
+        "0x4c1bcd2c"
+      ],
+      "sha256": "e9d499bd3a7ee80e6e103dedd0d711782455a219aac754495b56c2a61a57b9cd"
+    },
+    "0x4c1bb380": {
+      "range": [
+        "0x4c1bb380",
+        "0x4c1bb3bd"
+      ],
+      "sha256": "8922bebc371c305df79f9ef8071c3ab461dab941d907ecca4cdde5b389fb1a61"
+    },
+    "0x4c1bb41f": {
+      "range": [
+        "0x4c1bb3bd",
+        "0x4c1bb4ab"
+      ],
+      "sha256": "5af98c12330a24cdb9925092703e6d32baabfac019a6fa36f0c6fdd1df9f9c7e"
+    },
+    "0x4c244290": {
+      "range": [
+        "0x4c244290",
+        "0x4c24444a"
+      ],
+      "sha256": "3c90eb70bcf9657e7306ce0957634d2761d9f9135e0df74dee1a3c3ad3eb76b0"
+    }
+  },
+  "private_evidence_sha256": {
+    "HopperPartitionRead01.json": "f2f1dddff41442f7de3293de4ea0d279f5afeca948d382b7e117b1bf234888ac",
+    "HopperPartitionRead02.json": "3f60a91abfbbd3e06df9eb9a808746f4b05f6281791dad1ee2dc7d0bb7b4ffa1",
+    "ArchiveState.json": "f42461c4af919d3e1da8d591ca5d397aa34400d06d94d10bc2ba5f3cb522a8b6",
+    "PartOwnerAttributes.json": "f25b1442d5346cf0a5a28895a1b52d69927ebc8a78fc8af438aba010f3a3f886"
+  },
+  "archive_state": {
+    "cases": {
+      "generated_without": {
+        "sha256": "2f9a7bc4ac421f5d18a60bd7c9fc38c9a73453173a5624ad7dadb1778120a331",
+        "stream_count": 10,
+        "model_header": {
+          "f40": 101,
+          "f44": 101,
+          "f48": 1794700000,
+          "f80": 0
+        },
+        "model_geometry_stamp_f1300": 101,
+        "cfg": {
+          "f860": 101,
+          "f968": 0,
+          "f9a8": 19000,
+          "f0c": 0
+        },
+        "cmgrhdr2": {
+          "f38": 101,
+          "f40": 0,
+          "f44": 256,
+          "f48": 0,
+          "f50": 101,
+          "f4c": 101
+        },
+        "partition": []
+      },
+      "generated_with": {
+        "sha256": "024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e",
+        "stream_count": 11,
+        "model_header": {
+          "f40": 101,
+          "f44": 101,
+          "f48": 1794700000,
+          "f80": 0
+        },
+        "model_geometry_stamp_f1300": 101,
+        "cfg": {
+          "f860": 101,
+          "f968": 0,
+          "f9a8": 19000,
+          "f0c": 0
+        },
+        "cmgrhdr2": {
+          "f38": 101,
+          "f40": 0,
+          "f44": 256,
+          "f48": 0,
+          "f50": 101,
+          "f4c": 101
+        },
+        "partition": [
+          {
+            "kind": "partition",
+            "schema": "SCH_1200000_12006",
+            "bytes": 3434,
+            "description": "TRANSMIT FILE (partition) created by modeller version 1200000",
+            "sha256": "430ffda612d38ac90991b628b58fed9638f90bf89333dfa89ec47864c29dfed8",
+            "known_attributes": [],
+            "unchanged_faces": 0,
+            "offset": 0,
+            "stored_size": 1387
+          }
+        ]
+      },
+      "parent": {
+        "sha256": "75a62061ffee94dce7aa32607ee7aa39d73e1fcb044777d7317964bcc2daec7e",
+        "stream_count": 11,
+        "model_header": {
+          "f40": 101,
+          "f44": 101,
+          "f48": 1794700000,
+          "f80": 0
+        },
+        "model_geometry_stamp_f1300": 101,
+        "cfg": {
+          "f860": 101,
+          "f968": 0,
+          "f9a8": 19000,
+          "f0c": 0
+        },
+        "cmgrhdr2": {},
+        "partition": [],
+        "references": [
+          {
+            "f08": 17,
+            "f3e0": 101,
+            "f3e8": 1794700000,
+            "f3f0": 102,
+            "f3f4": 101,
+            "f3f8": 101
+          }
+        ]
+      },
+      "native_L1": {
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "stream_count": 40,
+        "model_header": {
+          "f40": 120,
+          "f44": 105,
+          "f48": 1794690255,
+          "f80": 1
+        },
+        "model_geometry_stamp_f1300": 103,
+        "cfg": {
+          "f860": 120,
+          "f968": 0,
+          "f9a8": 19000,
+          "f0c": 0
+        },
+        "cmgrhdr2": {
+          "f38": 120,
+          "f40": 0,
+          "f44": -2143288960,
+          "f48": 0,
+          "f50": 103,
+          "f4c": 101
+        },
+        "partition": [
+          {
+            "kind": "partition",
+            "schema": "SCH_3701250_37102_13006",
+            "bytes": 6514,
+            "description": "TRANSMIT FILE (partition) created by modeller version 3701250",
+            "sha256": "eb41fea16306a3bf99ae82839e2d0f5bdcc75773bb4a819267800ccb8fb5a827",
+            "known_attributes": [
+              "LAST_BODY_MODIFYING_FEATURE_ID",
+              "ENT_TIME_STAMP_2001",
+              "ATOM_ID_2001",
+              "SWEntUnchanged",
+              "DOWNSTREAM_FACE_ID",
+              "SDL/TYSA_COLOUR",
+              "BODY_MATCH",
+              "SWIMPLICITBODYNAME_ID_U",
+              "BODY_RECIPE_2001"
+            ],
+            "unchanged_faces": 5,
+            "offset": 0,
+            "stored_size": 3010
+          },
+          {
+            "kind": "deltas",
+            "schema": "SCH_3701250_37102_13006",
+            "bytes": 1112,
+            "description": "TRANSMIT FILE (deltas) created by modeller version 3701250",
+            "sha256": "a4231abb168b1188174ced656f4f1f01a2b8f3bb8d07a81f88f7dc9c9526ac7f",
+            "known_attributes": [],
+            "unchanged_faces": 0,
+            "offset": 3010,
+            "stored_size": 674
+          }
+        ]
+      },
+      "disclosed_native_A13": {
+        "sha256": "f7dcb761afd5f3761cbcabdda07928d22936884c34a5b1c4decdab45657f4fd8",
+        "stream_count": 40,
+        "model_header": {
+          "f40": 134,
+          "f44": 107,
+          "f48": 1794881658,
+          "f80": 1
+        },
+        "model_geometry_stamp_f1300": 104,
+        "cfg": {
+          "f860": 134,
+          "f968": 0,
+          "f9a8": 19000,
+          "f0c": 0
+        },
+        "cmgrhdr2": {
+          "f38": 134,
+          "f40": 0,
+          "f44": -2143288960,
+          "f48": 0,
+          "f50": 104,
+          "f4c": 101
+        },
+        "partition": [
+          {
+            "kind": "partition",
+            "schema": "SCH_3701250_37102_13006",
+            "bytes": 6627,
+            "description": "TRANSMIT FILE (partition) created by modeller version 3701250",
+            "sha256": "506e848e0c4701bb7b1efc811ab73155a7dee5e7e25a1d4bd97ebeacff782a05",
+            "known_attributes": [
+              "LAST_BODY_MODIFYING_FEATURE_ID",
+              "ENT_TIME_STAMP_2001",
+              "ATOM_ID_2001",
+              "SWEntUnchanged",
+              "DOWNSTREAM_FACE_ID",
+              "SDL/TYSA_COLOUR",
+              "BODY_MATCH",
+              "SWIMPLICITBODYNAME_ID_U",
+              "BODY_RECIPE_2001"
+            ],
+            "unchanged_faces": 5,
+            "offset": 0,
+            "stored_size": 3051
+          },
+          {
+            "kind": "deltas",
+            "schema": "SCH_3701250_37102_13006",
+            "bytes": 1120,
+            "description": "TRANSMIT FILE (deltas) created by modeller version 3701250",
+            "sha256": "fa80539c56a2a76840f5475e2f2a2a5defa873b0ca192005b72e12176d12c961",
+            "known_attributes": [],
+            "unchanged_faces": 0,
+            "offset": 3051,
+            "stored_size": 678
+          }
+        ]
+      }
+    },
+    "existing_streams_identical": true
+  },
+  "typed_body_attributes": {
+    "native_L1": {
+      "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "actual_extrusion_id": 34,
+      "typed_attribute_records": [
+        {
+          "type": "ENT_TIME_STAMP_2001",
+          "offset_in_part_payload": 6148,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            168
+          ],
+          "decoded_positive_integers": [
+            null,
+            105
+          ]
+        },
+        {
+          "type": "ATOM_ID_2001",
+          "offset_in_part_payload": 6176,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            167
+          ],
+          "decoded_positive_integers": [
+            null,
+            101
+          ]
+        },
+        {
+          "type": "LAST_BODY_MODIFYING_FEATURE_ID",
+          "offset_in_part_payload": 6204,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            171
+          ],
+          "decoded_positive_integers": [
+            null,
+            34
+          ]
+        },
+        {
+          "type": "BODY_MATCH",
+          "offset_in_part_payload": 6260,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            174
+          ],
+          "decoded_positive_integers": [
+            1656
+          ]
+        },
+        {
+          "type": "BODY_RECIPE_2001",
+          "offset_in_part_payload": 6286,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            1
+          ],
+          "decoded_positive_integers": [
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    "native_A13": {
+      "input_sha256": "f7dcb761afd5f3761cbcabdda07928d22936884c34a5b1c4decdab45657f4fd8",
+      "actual_extrusion_id": 34,
+      "typed_attribute_records": [
+        {
+          "type": "ENT_TIME_STAMP_2001",
+          "offset_in_part_payload": 6217,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            170
+          ],
+          "decoded_positive_integers": [
+            null,
+            107
+          ]
+        },
+        {
+          "type": "ATOM_ID_2001",
+          "offset_in_part_payload": 6245,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            174
+          ],
+          "decoded_positive_integers": [
+            null,
+            101
+          ]
+        },
+        {
+          "type": "LAST_BODY_MODIFYING_FEATURE_ID",
+          "offset_in_part_payload": 6273,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            176
+          ],
+          "decoded_positive_integers": [
+            null,
+            34
+          ]
+        },
+        {
+          "type": "BODY_MATCH",
+          "offset_in_part_payload": 6329,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            175
+          ],
+          "decoded_positive_integers": [
+            599
+          ]
+        },
+        {
+          "type": "BODY_RECIPE_2001",
+          "offset_in_part_payload": 6355,
+          "owner_wire_index": 3,
+          "field_wire_indices": [
+            1,
+            1
+          ],
+          "decoded_positive_integers": [
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    "generated": {
+      "input_sha256": "024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e",
+      "actual_extrusion_id": 21,
+      "typed_attribute_records": []
+    }
+  },
+  "runtime_diagnostic_executed": false,
+  "warning_predicate_resolved": false
+}

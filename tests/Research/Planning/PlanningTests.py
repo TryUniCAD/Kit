@@ -10,7 +10,9 @@ from sys import executable as PythonExec
 def PreparePlan(TmpPath: FilePath) -> list[str]:
     RootPath = FilePath(__file__).resolve().parents[3]
     Manifest = DecodeJson(
-        (RootPath / "Documentation/Planning/Generated/Manifest.json").read_text()
+        (RootPath / "Documentation/Planning/Generated/Manifest.json").read_text(
+            encoding="utf-8"
+        )
     )
     for RelPath in Manifest["SourceHashes"]:
         TargetPath = TmpPath / RelPath
@@ -30,7 +32,9 @@ def CheckPlanning(TmpPath: FilePath) -> None:
     Process = RunProcess(Command, capture_output=True, text=True, check=False)
     assert Process.returncode == 0, Process.stderr
     Coverage = DecodeJson(
-        (TmpPath / "Documentation/Planning/Generated/Coverage.json").read_text()
+        (TmpPath / "Documentation/Planning/Generated/Coverage.json").read_text(
+            encoding="utf-8"
+        )
     )
     with OpenStore(
         (TmpPath / "re/Fusion/PlannerCatalog/Data/Catalog.sqlite").as_uri()
@@ -54,7 +58,7 @@ def CheckPlanning(TmpPath: FilePath) -> None:
     )
     assert Process.returncode == 0, Process.stderr
     ChartPath = TmpPath / "Documentation/Planning/Generated/Gantt.svg"
-    assert ChartPath.write_text("stale chart") > 0
+    assert ChartPath.write_text("stale chart", encoding="utf-8") > 0
     Process = RunProcess(
         [*Command, "--check"], capture_output=True, text=True, check=False
     )
@@ -70,25 +74,29 @@ def CheckStableIds(TmpPath: FilePath) -> None:
     GeneratedPath = TmpPath / "Documentation/Planning/Generated"
     TaskRows = [
         DecodeJson(SourceLine)
-        for SourceLine in (GeneratedPath / "Tasks.jsonl").read_text().splitlines()
+        for SourceLine in (GeneratedPath / "Tasks.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
     ]
     OriginalIds = {
         (TaskRow["Source"], TaskRow["Id"]): TaskRow["ScopeId"] for TaskRow in TaskRows
     }
     RegisterPath = TmpPath / "Documentation/Reference/Research/AutomationSteps.md"
-    SourceLines = RegisterPath.read_text().splitlines()
+    SourceLines = RegisterPath.read_text(encoding="utf-8").splitlines()
     InsertAt = next(
         Index
         for Index, SourceLine in enumerate(SourceLines)
         if SourceLine.startswith("| A11c ")
     )
     SourceLines.insert(InsertAt, SourceLines[InsertAt].replace("A11c", "A99a", 1))
-    assert RegisterPath.write_text("\n".join(SourceLines) + "\n") > 0
+    assert RegisterPath.write_text("\n".join(SourceLines) + "\n", encoding="utf-8") > 0
     Process = RunProcess(Command, capture_output=True, text=True, check=False)
     assert Process.returncode == 0, Process.stderr
     UpdatedRows = [
         DecodeJson(SourceLine)
-        for SourceLine in (GeneratedPath / "Tasks.jsonl").read_text().splitlines()
+        for SourceLine in (GeneratedPath / "Tasks.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
     ]
     UpdatedIds = {
         (TaskRow["Source"], TaskRow["Id"]): TaskRow["ScopeId"]
@@ -104,12 +112,16 @@ def CheckPlanClaims(TmpPath: FilePath) -> None:
     Process = RunProcess(Command, capture_output=True, text=True, check=False)
     assert Process.returncode == 0, Process.stderr
     GeneratedPath = TmpPath / "Documentation/Planning/Generated"
-    Manifest = DecodeJson((GeneratedPath / "Manifest.json").read_text())
+    Manifest = DecodeJson((GeneratedPath / "Manifest.json").read_text(encoding="utf-8"))
     ClaimRows = [
         DecodeJson(SourceLine)
-        for SourceLine in (GeneratedPath / "Claims.jsonl").read_text().splitlines()
+        for SourceLine in (GeneratedPath / "Claims.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
     ]
-    BoardData = DecodeJson((GeneratedPath / "BoardData.json").read_text())
+    BoardData = DecodeJson(
+        (GeneratedPath / "BoardData.json").read_text(encoding="utf-8")
+    )
     BoardIds = {ItemInfo["Id"] for ItemInfo in BoardData["Items"]}
     assert len(ClaimRows) == Manifest["ProseClaims"]
     assert any(
@@ -119,15 +131,18 @@ def CheckPlanClaims(TmpPath: FilePath) -> None:
     RegisterPath = TmpPath / "Documentation/Reference/Research/AutomationSteps.md"
     assert (
         RegisterPath.write_text(
-            RegisterPath.read_text()
+            RegisterPath.read_text(encoding="utf-8")
             + "\n\n## A99a-ProcessCoverage: planning process coverage\n\n"
-            + "Status is planned for this independent process coverage claim\n"
+            + "Status is planned for this independent process coverage claim\n",
+            encoding="utf-8",
         )
         > 0
     )
     Process = RunProcess(Command, capture_output=True, text=True, check=False)
     assert Process.returncode == 0, Process.stderr
-    BoardData = DecodeJson((GeneratedPath / "BoardData.json").read_text())
+    BoardData = DecodeJson(
+        (GeneratedPath / "BoardData.json").read_text(encoding="utf-8")
+    )
     AddedClaims = [
         ItemInfo
         for ItemInfo in BoardData["Items"]
@@ -147,7 +162,10 @@ def CheckPlanCycle(TmpPath: FilePath) -> None:
     Command = PreparePlan(TmpPath)
     LinkPath = TmpPath / "Documentation/Planning/Links.json"
     assert (
-        LinkPath.write_text(LinkPath.read_text().replace('"B01": []', '"B01": ["B01"]'))
+        LinkPath.write_text(
+            LinkPath.read_text(encoding="utf-8").replace('"B01": []', '"B01": ["B01"]'),
+            encoding="utf-8",
+        )
         > 0
     )
     Process = RunProcess(Command, capture_output=True, text=True, check=False)

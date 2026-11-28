@@ -1,0 +1,55 @@
+{
+  "acceptance": false,
+  "application_controls_healthy": true,
+  "archive_payload_control_opened": false,
+  "controls_healthy": false,
+  "distinct_exact_processes": 4,
+  "generated_candidates_opened": 0,
+  "job_sha256": "ab4a2afe7d2fa6e3fc670f1caf0b308f9c586ecc66f7e3adda13e9ef60347dd5",
+  "method": "out-of-process COM IDispatch IModeler.Restore",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "phase_receipt_sha256": "9de12f17620ad5123c91a12ed5cfe0d8e2ef02ad213077e22e96a8fcfa062092",
+  "phases": [
+    {
+      "name": "ApplicationBefore",
+      "passed": true,
+      "record_sha256": "fff059af93361a4a3bdc59446690b588a6435294ba248d4307149f259066aad2",
+      "role": "native_application_control"
+    },
+    {
+      "error_stage": "IModeler.Restore",
+      "hresult": "0x80004002",
+      "name": "Before",
+      "native_stream": {
+        "bytes": 4227,
+        "sha256": "e5e374f67bf072df1862e3e4d7e132f731cd6ea9505381fdbb449005836f3951"
+      },
+      "passed": false,
+      "pre_restore_numeric_checks": 29,
+      "record_sha256": "caad81e92858ba0d80c06dc04881cd8e3a215b249d2ca938b37c531799bc4622",
+      "role": "native_stream_control"
+    },
+    {
+      "error_stage": "IModeler.Restore",
+      "hresult": "0x80004002",
+      "name": "After",
+      "native_stream": {
+        "bytes": 4227,
+        "sha256": "b9e916696cfd025ea95635fa819c43d90d2bb34c20aedc26daf753b8342a1e95"
+      },
+      "passed": false,
+      "pre_restore_numeric_checks": 29,
+      "record_sha256": "9b38848efbeb412c3c744012d3057aae47b680d25ed0cc9be1d021fe549057d2",
+      "role": "native_stream_control"
+    },
+    {
+      "name": "ApplicationAfter",
+      "passed": true,
+      "record_sha256": "e79dc12369e43438796916e855223d991815df93f69a7540f1f3eb0a015418c5",
+      "role": "native_application_control"
+    }
+  ],
+  "schema": "kit.sw2026.local-kernel-dynamic-restore.v1",
+  "tool_revision": "862d575c82d325c27b345456ecc4ec45e807455f"
+}

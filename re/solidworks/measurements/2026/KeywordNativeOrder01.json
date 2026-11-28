@@ -1,0 +1,171 @@
+{
+  "dimension_key_format": "@@@%d",
+  "display_cells": {
+    "angular": {
+      "slot": "0x498",
+      "table": "0x4d247828",
+      "target": "0x4c837780"
+    },
+    "distance": {
+      "slot": "0x498",
+      "table": "0x4d253270",
+      "target": "0x4c837780"
+    },
+    "radial": {
+      "slot": "0x498",
+      "table": "0x4d255be0",
+      "target": "0x4c837780"
+    }
+  },
+  "feature_cells": {
+    "cut": [
+      {
+        "slot": "0x1b00",
+        "table": "0x4cf4e530",
+        "target": "0x4bb2aa60"
+      },
+      {
+        "slot": "0x1398",
+        "table": "0x4cf4e530",
+        "target": "0x4bae0010"
+      }
+    ],
+    "extrude": [
+      {
+        "slot": "0x1b00",
+        "table": "0x4cf3d488",
+        "target": "0x4bb2aa60"
+      },
+      {
+        "slot": "0x1398",
+        "table": "0x4cf3d488",
+        "target": "0x4bae0010"
+      }
+    ],
+    "profile": [
+      {
+        "slot": "0x1b00",
+        "table": "0x4d0e8e80",
+        "target": "0x4bb2aa60"
+      },
+      {
+        "slot": "0x1398",
+        "table": "0x4d0e8e80",
+        "target": "0x4c0d7a70"
+      }
+    ],
+    "revolve": [
+      {
+        "slot": "0x1b00",
+        "table": "0x4d185908",
+        "target": "0x4bb2aa60"
+      },
+      {
+        "slot": "0x1398",
+        "table": "0x4d185908",
+        "target": "0x4c396c00"
+      }
+    ]
+  },
+  "heldout_inputs_read": 0,
+  "keyword_imports": {
+    "0x4cd31978": {
+      "module": "SLDMFCU.dll",
+      "name": "?UpdateFromMapAndGetXmlDoc@moXmlDataExtracter_c@@QEAAPEAUIXMLDOMDocument2@@XZ"
+    },
+    "0x4cd31980": {
+      "module": "SLDMFCU.dll",
+      "name": "??0moXmlDataExtracter_c@@QEAA@XZ"
+    },
+    "0x4cd33c28": {
+      "module": "SLDMFCU.dll",
+      "name": "?UpdateNodeValue@moXmlDataExtracter_c@@QEAAXAEAUXmlDataKey_c@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    "0x4cd33c40": {
+      "module": "SLDMFCU.dll",
+      "name": "?UpdateUserName@moXmlDataExtracter_c@@QEAAXAEAUXmlDataKey_c@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    "0x4cd33d78": {
+      "module": "SLDMFCU.dll",
+      "name": "?AddTail@suObList@@QEAAPEAU__POSITION@@PEAVCObject@@@Z"
+    },
+    "0x4cd3da80": {
+      "module": "swccu.dll",
+      "name": "?AddTail@su_CObList@@QEAAXPEBV1@@Z"
+    }
+  },
+  "module_spans": {
+    "sldmfcu.dll": [
+      {
+        "address": "0x3c979630",
+        "end_exclusive": "0x3c979663",
+        "sha256": "8d27505a1f71f8868919ce367d757af5a870a0f58be7620cc081a416313d7807"
+      },
+      {
+        "address": "0x3c9798a0",
+        "end_exclusive": "0x3c979908",
+        "sha256": "e41d8fd316b0ea790dcec2eab60baac6b50d909cabda0dddb2c32c2a934ec6d5"
+      },
+      {
+        "address": "0x3c979c90",
+        "end_exclusive": "0x3c97a110",
+        "sha256": "3ba6cdecd8e1be39fab18872061ae01a833e18a45b5e4c2d52bb1b62c1e5c893"
+      }
+    ],
+    "sldmodu.dll": [
+      {
+        "address": "0x4bb2aa60",
+        "end_exclusive": "0x4bb2aaf1",
+        "sha256": "bfa03e72d5a713a2deef2b2f35224bff45ab7f4cef9b2f5b11aa85b85e05820d"
+      },
+      {
+        "address": "0x4c837780",
+        "end_exclusive": "0x4c837a93",
+        "sha256": "160d0ea2f5db47864ef56c05944a1ff208990d987519b196c3104248c9dd1c58"
+      },
+      {
+        "address": "0x4c499740",
+        "end_exclusive": "0x4c499764",
+        "sha256": "0c03d2327ba7bd0c4b3e989edc3b0b1f627729d99bf97553902bbaf65a667b03"
+      },
+      {
+        "address": "0x4bae0010",
+        "end_exclusive": "0x4bae0123",
+        "sha256": "80ac8bfc93ae83dd215a9a72eff17d6e8a0b78f0bce8c2e286a638a8700b3909"
+      }
+    ]
+  },
+  "modules": {
+    "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_execution": false,
+  "no_parameter_id_uses_display_pointer_low32": true,
+  "oracle_build": "34.5.2.0604",
+  "parameter_cells": {
+    "angle": {
+      "slot": "0x188",
+      "table": "0x4d124128",
+      "target": "0x4b283ba0"
+    },
+    "length": {
+      "slot": "0x188",
+      "table": "0x4d123bf0",
+      "target": "0x4b283ba0"
+    }
+  },
+  "schema": "kit.sw2026.keyword-order-native.v1",
+  "script_sha256": "1c1a332df89731b86e90f47bafe991b458ce2c718112130d5a9e6e8d43ae196d",
+  "store_map": {
+    "materializer": {
+      "slot": "0x30",
+      "table": "0x3cca30d0",
+      "target": "0x3c979c90"
+    },
+    "setter": {
+      "slot": "0x68",
+      "table": "0x3cca30d0",
+      "target": "0x3c979630"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Run the public-default perpendicular comparison
+
+Use the active private `PublicPerpendicularEvaluationMethod03` packet. The complete source, tool, input and recipe hashes are listed in the [method record](../../../../re/solidworks/records/PerpendicularRegistryBlindMethod2026.md). Keep the earlier snapshots and all raw native receipts immutable. No command in this procedure authorizes a host read of private case payloads.
+
+1. Verify the exact method/source closure and run `disclosed_discovery_before_any_release` from `Recipe.json` in the root-owned guest. This builds public G01 only, starts no CAD process and explicitly grants no hidden release.
+2. Run `ComparePublicPerpRuntime.py` on the host with `--method`, its exact `--method-sha256`, public `--guest-discovery` and an unused `--output`. Review every difference against the bound arithmetic owners; no unclassified field or stream is accepted. Place that `Comparison.json` at the recipe's declared public comparison path without altering its bytes.
+3. Run `pin_reviewed_disclosed_identity`. Root verifies the resulting exact identity digest. Pass that digest to `verify_before_any_hidden_access`. Two new guest processes must reproduce both complete files exactly. Windows then probes the actual primary final-destination build, a second identical build and complete linked readback on public G01 at its own unused fixed-drive location.
+4. Verify the terminal runtime receipt and fingerprint. Root writes only the requested slot's `release_templates` record with exact method/runtime/slot values and freezes its digest. The original combined source container hash is checked again; only that neutral case is translated. Canonical request, independent prediction and default tree lock before native source access.
+5. Run the slot's source-only build, then its six explicit native phases serially. Always run the trailing control independently, even after an earlier failure. Never terminate the license server, reset the VM or classify a prelaunch transport failure as a native crash.
+6. Finalize only after all six source/control/generated phases qualify. Require all six paired comparisons and all three strict SDK pair audits. Keep full private details guest-local; publish only sanitized opaque receipts. Public flag promotion is a separate reviewed change and must preserve the qualified bytes.
+
+The primary API call is ordinary `convert.write_document` with extension-based registry selection. Explicit native mapping is retained for the separate reproduction directory and existing cross-host publication contract. Both emitted artifacts are native. The research unqualified permission does not add carrier data or change the SDK default recipe. Unsupported input must reject before publication.
+
+Root ran both original pre-writer-locked cases in the verified guest, and both passed all paired native comparisons and saved-file readbacks. The cases also qualified the earlier internal constructor. This run adds normal route evidence for the same two designs. [Native results and public registration](../../../../re/solidworks/records/PerpendicularRegistryAccepted2026.md)
+
+[Preparation and scope](PerpendicularRegistryPromotion.md) · [Change entry](../../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryEvaluation.md)

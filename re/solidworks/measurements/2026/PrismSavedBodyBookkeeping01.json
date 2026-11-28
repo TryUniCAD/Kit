@@ -1,0 +1,283 @@
+{
+  "build": "34.5.2.0604",
+  "cases": {
+    "Prism1Base": {
+      "analytic_targets": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "0eb2ba3de868ec8e63a899cac8212842519a6c33716d4d84a0df6911efff1757",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "stored_config_body_count": 0,
+      "stored_model_node_flags": 256
+    },
+    "Prism1Bits": {
+      "analytic_targets": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "1ec49d27076988e83f9c29f9db3e71c291bf1e11aae7fec748ddb28c20b22c07",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "stored_config_body_count": 0,
+      "stored_model_node_flags": 33056
+    },
+    "Prism1Both": {
+      "analytic_targets": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "e2cd31c4999f02601d9ffa7ea37b050612befc399a32279f5882a55348e32909",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "stored_config_body_count": 1,
+      "stored_model_node_flags": 33056
+    },
+    "Prism1Size": {
+      "analytic_targets": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "9accb3e49b60bcbe124f6c2dc5a4c5ba3597a08952cdae436ccb35580ce21cd6",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "stored_config_body_count": 1,
+      "stored_model_node_flags": 256
+    },
+    "Prism2Base": {
+      "analytic_targets": {
+        "area": 0.0020667499999999996,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "c38fe5a2cf2cc2967ce30175072c36841bf61a88e86fe926aa398ad13b07b271",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "stored_config_body_count": 0,
+      "stored_model_node_flags": 256
+    },
+    "Prism2Bits": {
+      "analytic_targets": {
+        "area": 0.0020667499999999996,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "375c9704e25933cb5a5a8ebc6c00e68c9925a6273bcec47991860099d970611c",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "stored_config_body_count": 0,
+      "stored_model_node_flags": 33056
+    },
+    "Prism2Both": {
+      "analytic_targets": {
+        "area": 0.0020667499999999996,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "f02bb1880bd96baff4d92eb11425266122bb25b9ca064e9be7e469416f7c4170",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "stored_config_body_count": 1,
+      "stored_model_node_flags": 33056
+    },
+    "Prism2Size": {
+      "analytic_targets": {
+        "area": 0.0020667499999999996,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "bodies_before_rebuild": 0,
+      "generated_sha256": "15a70c91590221cbe58dda439bcfa22530fcfce491b0763e260a1def697e0d72",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "rebuilt_bodies": 1,
+      "rebuilt_mass": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "stored_config_body_count": 1,
+      "stored_model_node_flags": 256
+    }
+  },
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "guarded_default_replays": {
+    "Prism1MatchingClock.SLDPRT": "3c6e2216c9ecaff27c8a5897b87653cffa5681df71940c9b7104d27a9eaddd03",
+    "Prism2MatchingClock.SLDPRT": "28f04257fec77e4b4f1a74138bc7193db4c5eee46a720f24d8c84f992b511bb0"
+  },
+  "guarded_variant_builds": 8,
+  "healthy_controls": 2,
+  "heldout_inputs_read": 0,
+  "heldout_qualification_added": false,
+  "job_sha256": "862bb01aff1e254bc7b024340111c488a51ea4f217165341be23f203188d796e",
+  "native_processes": 10,
+  "native_receipt_sha256": "127ca6622e9f58e5b8be91a01ba597b25cb1f7d4716b4541fdaff988818b9642",
+  "ordinary_open_fixed": false,
+  "phase_tool_sha256": {
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectPrismCacheEdit.py": "545133c4fac4a1d4886cc4c4b315afa0a1d4f0a12be261ea7c29287d5129c1c1",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "schema": "kit.sw2026.disclosed-prism-saved-body-bookkeeping.v1",
+  "variant_source_commit": "ec0afdaf75661a7b58b40c767ae4ae557bf2eded",
+  "writer_runtime_io_attempts": 0
+}

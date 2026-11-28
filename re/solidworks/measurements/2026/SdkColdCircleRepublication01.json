@@ -1,0 +1,531 @@
+{
+  "base_commit": "8ea2fa45b285499f1f50c61f04b29c7f0649ebf4",
+  "base_sdk_tree": "9b2df4954bc060d5e397dade1a1eb4014ee65b9a",
+  "carrier_free_regenerations": 12,
+  "cases": {
+    "diameter": {
+      "archive_sha256": "62a07340be437efe6464cf7e0599ffa5e1f9d208b6c8976311bfb0fe15d54b64",
+      "authored_request_sha256": "c1f549304f70301ee07403a18b60801f1cda0f6bea285e73c494264ebe8a0a4a",
+      "fresh": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "readback": {
+        "design_only": {
+          "display_centre_mm": [
+            7.125,
+            -5.675000000000001
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            0.007125,
+            -0.005675
+          ]
+        },
+        "full": {
+          "display_centre_mm": [
+            7.125,
+            -5.675000000000001
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            0.007125,
+            -0.005675
+          ]
+        }
+      },
+      "receipt_sha256": "bc49ba2f4fd8215f2772c16dc7bdfc7c973f2dcacc4214b4890ef2bdb8ad6be0"
+    },
+    "mid-top": {
+      "archive_sha256": "55334d70ab7a29ab5926fe640e221f7728decfc2c38f06de24a553eccafc2c3d",
+      "authored_request_sha256": "dfe169fb7a3cc298a886acba7a24686d149253e818e4d306273b2a3c5a072305",
+      "fresh": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "readback": {
+        "design_only": {
+          "display_centre_mm": [
+            -7.216,
+            2.312
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            -0.007216,
+            0.002312
+          ]
+        },
+        "full": {
+          "display_centre_mm": [
+            -7.216,
+            2.312
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            -0.007216,
+            0.002312
+          ]
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10"
+    },
+    "radius": {
+      "archive_sha256": "fac76de7a6724c18f09bd1f8a15f1a870750d716b7968cac28da2eb1565b69eb",
+      "authored_request_sha256": "fe54e29e3849fd1d7a97b759de0fb76508a964d6bab272239293eaba1f7535a8",
+      "fresh": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "readback": {
+        "design_only": {
+          "display_centre_mm": [
+            -4.275,
+            6.825
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            -0.004275,
+            0.006825
+          ]
+        },
+        "full": {
+          "display_centre_mm": [
+            -4.275,
+            6.825
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            -0.004275,
+            0.006825
+          ]
+        }
+      },
+      "receipt_sha256": "bc49ba2f4fd8215f2772c16dc7bdfc7c973f2dcacc4214b4890ef2bdb8ad6be0"
+    },
+    "reverse-right": {
+      "archive_sha256": "353cd8c4a73320d83d5882c1397b2373901279bd6269ee9c90f0b8fe6674b3aa",
+      "authored_request_sha256": "5e059253ce182ba4edb041949bddf3a983866b5a577603c6dfd2ef003d5c7548",
+      "fresh": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "readback": {
+        "design_only": {
+          "display_centre_mm": [
+            3.113,
+            -6.714
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            0.003113,
+            -0.006714
+          ]
+        },
+        "full": {
+          "display_centre_mm": [
+            3.113,
+            -6.714
+          ],
+          "drivers": 2,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            0.003113,
+            -0.006714
+          ]
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10"
+    },
+    "two-front": {
+      "archive_sha256": "e6b347ccc6c64e72454a1bb90eca1667237c93f17cc116fa56fff66c786daec4",
+      "authored_request_sha256": "cf7bf20875994518855452e8cedf73d692c7683178a0077e5322e574da2f909a",
+      "fresh": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "readback": {
+        "design_only": {
+          "display_centre_mm": [
+            4.825,
+            -8.113
+          ],
+          "drivers": 3,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            0.004825,
+            -0.008113
+          ]
+        },
+        "full": {
+          "display_centre_mm": [
+            4.825,
+            -8.113
+          ],
+          "drivers": 3,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            0.004825,
+            -0.008113
+          ]
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10"
+    },
+    "two-rev-top": {
+      "archive_sha256": "323b0c1010e5eb7bb9905e5a68558f1caa9116c032a67555eb1985b1ac990e9f",
+      "authored_request_sha256": "99edc1e824726636f1279d85b9601e28fcf7257c994a588bd49cfab5eae336df",
+      "fresh": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "readback": {
+        "design_only": {
+          "display_centre_mm": [
+            -2.881,
+            9.615
+          ],
+          "drivers": 3,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            -0.002881,
+            0.009615
+          ]
+        },
+        "full": {
+          "display_centre_mm": [
+            -2.881,
+            9.615
+          ],
+          "drivers": 3,
+          "exact_outputs": 4,
+          "independent_generation_without_source_carrier": true,
+          "linked_design_body": "sldprt:body:1",
+          "refusals": {
+            "changed_body_name": "SOLIDWORKS cold readback differs",
+            "changed_source_digest": "SOLIDWORKS cold readback differs",
+            "edited_depth": "SOLIDWORKS cold readback differs",
+            "missing_measurement": "offline native measurement",
+            "missing_source_carrier": "SOLIDWORKS cold readback differs",
+            "stale_centre": "centre disagrees",
+            "unmeasured_path": "offline native measurement",
+            "unprojected_record": "SOLIDWORKS cold readback differs",
+            "wrong_locator": "SOLIDWORKS cold readback differs"
+          },
+          "selected_configuration": "modeled default",
+          "typed_centre_m": [
+            -0.002881,
+            0.009615
+          ]
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10"
+    }
+  },
+  "exact_fresh_publications": 54,
+  "exact_readback_publications": 48,
+  "guarded_fresh_processes": 6,
+  "guarded_readback_processes": 6,
+  "host": {
+    "os": "Darwin",
+    "python": "3.14.7"
+  },
+  "new_heldout_cases": 0,
+  "new_native_processes": 0,
+  "prior_frozen_hash_metadata_only": {
+    "SdkOriginalCircleNative01.json": {
+      "same_prior_public_candidate_hash": {
+        "H01TranslatedDiameter": {
+          "candidate_sha256": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+          "prior_native_result_sha256": "aa4de54d15eba568e66dd6158cdfddcf83872f6ae0d50a2a36a9841a9648c61b"
+        },
+        "H02ReverseTopCircle": {
+          "candidate_sha256": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+          "prior_native_result_sha256": "aa4de54d15eba568e66dd6158cdfddcf83872f6ae0d50a2a36a9841a9648c61b"
+        }
+      },
+      "sha256": "a14c4ff431f4e75b129025072d8be8f752df2694467b8c743b0ce861b0401da5"
+    },
+    "SdkPairedEndConditionsNative01.json": {
+      "same_prior_public_candidate_hash": {
+        "H03MidPlane": {
+          "candidate_sha256": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+          "prior_native_result_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c"
+        },
+        "H04TwoDirections": {
+          "candidate_sha256": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+          "prior_native_result_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c"
+        }
+      },
+      "sha256": "08a866d4922298c892b2126f71adca26ac9ae3f96421f6a0ed9ab77195607ca4"
+    }
+  },
+  "protected_inputs_read": false,
+  "publication_refusals": 108,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.sdk-cold-circle-republication.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/AuthorSdkCircleRequests.py": "46b484aabec4bf79bb083ecc1e959e322d8543b2b092c497339d9c54f7d890a7",
+    "re/tooling/sw2026/ProveCircleEndPort.py": "0d35d08d44b30a5c96485d39f992c6660707b2821f958e6f725d405706453ac1",
+    "re/tooling/sw2026/ProveColdCircleRepublish.py": "4dffabbda51da3ee0f24a35d849033cc3c7c354ba7231829e0be58c24833bacb",
+    "re/tooling/sw2026/offset_plane/ProveOffsetReadback.py": "6aede1d590b3014369c96e94ab08b4dd378d4285bc3b2dc6f7cb341f52f57d06",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/IsCircRead.py": "938cdfaa321e7243dc9777073dd7ba8ee4d8f010db2e2801483806a920024a4d",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/ReadCircBoss.py": "b1e01260441b0bcd1557403d6d74976308260b8a749828527b5436597943e27e",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/ReadCircDrive.py": "64e4a3578057855898ba262eac9839230a47046d4d62dbcc2ead1556d3ad1f49",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/ReadCircInput.py": "7c6499d4ddf14ac09c246727c31e182cc32389e1ac6348cba085358d6c5ad9a6",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/ReadCircSketch.py": "458b31e3a0c6cad7787f411707c94c024c09d718f7960feb262eb1624a15ec4c",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/IsColdRead.py": "794f0a3f0d9aae4eff1ffb69a2df6357a31b255a29152309506d51753edd5e49",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/PrepareColdPart.py": "603cd8e6d225293baec6240fc4357f1d007bf013d2f151e8ea33e7d134386f2e",
+    "src/convert/adapters/solidworks/Core/Reading/ReadAdapter.py": "f5e3acbbdf3a3c7fdf3f4120722c17a943f46e7b2677b589145d33ed7a27f376",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Circles/BindColdCentre.py": "3689d3d0a4ec7c8a711388b746dfc150d0a510b5ad09fe76664f7bc984cdfbd1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Circles/LocalCircle.py": "d295712f0d3047245613f202d0c3dfe9f5f3b0bb301d6f6dffd5a908e5e27d54",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Circles/ReadLocalCirc.py": "197c06d15aafdec2b3213e4caa04d3ae3e86dad5f39179a7012362c5b52a54fe",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "ea7a33eb263ce2184303e64f1f4d926197acfa179bcfa504aa71cf1690b697cd",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/CanWriteCircle.py": "b5415d7875dbd60e4d71bd4ed2b009068938c167e77effa32c2a885ba06b5cb3",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/EmitCircMut.py": "a820b0a963b49cf93c35e3d2342c1291206fe05a199144684b2f1fb4d51c16f7",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "d73bfd04c74256e068c49feeb19c6067d37f097c369728f7be050184b0cd9400"
+  },
+  "unchanged_offset_control": {
+    "cases": 3,
+    "receipt_sha256": "cd7865ff315bafabb6665088d0f1f8556c7ae83ae1cb30d87c460da53752ab5a",
+    "workers": 6
+  }
+}

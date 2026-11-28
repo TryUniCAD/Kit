@@ -1,0 +1,204 @@
+{
+  "benchmark_conversion_credits": 0,
+  "cases": {
+    "1": {
+      "bytes": 8705,
+      "metrics": {
+        "active_origin_coincidence": true,
+        "feature_rows": 19,
+        "independent_signed_center_check": true,
+        "length_readback_ulps": 0.0,
+        "named_drivers": 3,
+        "topology": [
+          1,
+          1,
+          6,
+          12,
+          8
+        ]
+      },
+      "refusals_before_output": 9,
+      "runtime_input_file_reads": 0,
+      "sha256": "24f2cadf004955c0636bb6ef633338cf8bab1da929b4a131ee9a55a31f4e479d",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 22364,
+          "sha256": "6482c2aae1af2f3e85df37000079e7acca4b1f2b8b5e7187f168683ede34f842"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 611,
+          "sha256": "12994344689fcc3f4af6c33b8b337f5ac897c3a21ef3f970ca97a0b7451cd3b3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17987,
+          "sha256": "36c062d65246dc455e55fd22529603ef65f010ee3cbe99cbf566f6b7d6b9dddf"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 611,
+          "sha256": "ce10641d116f0bde2c0417b67cb8f480c3b852b9942f6090f784f977407f2a39"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1508,
+          "sha256": "9291a6453bbd62e08b344b81b14d1045f36315d3a009b71af15b3e7bfc905d45"
+        }
+      }
+    },
+    "2": {
+      "bytes": 8722,
+      "metrics": {
+        "active_origin_coincidence": true,
+        "feature_rows": 19,
+        "independent_signed_center_check": true,
+        "length_readback_ulps": 0.0,
+        "named_drivers": 3,
+        "topology": [
+          1,
+          1,
+          6,
+          12,
+          8
+        ]
+      },
+      "refusals_before_output": 9,
+      "runtime_input_file_reads": 0,
+      "sha256": "2d1db6f2603c7ce22df45903180e622fcb023dd0dce87a5edd031d0c763e2403",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 22364,
+          "sha256": "6482c2aae1af2f3e85df37000079e7acca4b1f2b8b5e7187f168683ede34f842"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 611,
+          "sha256": "12994344689fcc3f4af6c33b8b337f5ac897c3a21ef3f970ca97a0b7451cd3b3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17987,
+          "sha256": "fec8550fac755c475aba4bda0c331ac795c3c3b98a060d0055b21bd63df210c8"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 611,
+          "sha256": "ce10641d116f0bde2c0417b67cb8f480c3b852b9942f6090f784f977407f2a39"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1519,
+          "sha256": "74ca26cb7408dc3978d6260db6ad155ddcdeae911629c52ff7d5b6a3e5f7c065"
+        }
+      }
+    },
+    "3": {
+      "bytes": 8724,
+      "metrics": {
+        "active_origin_coincidence": true,
+        "feature_rows": 19,
+        "independent_signed_center_check": true,
+        "length_readback_ulps": 1.0,
+        "named_drivers": 3,
+        "topology": [
+          1,
+          1,
+          6,
+          12,
+          8
+        ]
+      },
+      "refusals_before_output": 9,
+      "runtime_input_file_reads": 0,
+      "sha256": "7ba2f09aed71843fedf9406692e172adedc4889f448925f6613cb0224b5a00dc",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 22364,
+          "sha256": "6482c2aae1af2f3e85df37000079e7acca4b1f2b8b5e7187f168683ede34f842"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 611,
+          "sha256": "12994344689fcc3f4af6c33b8b337f5ac897c3a21ef3f970ca97a0b7451cd3b3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17987,
+          "sha256": "4c1a04974946ea2ef3cace149c9940a3cf555c5b99cbacbcdb1e1531cf87b565"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 611,
+          "sha256": "ce10641d116f0bde2c0417b67cb8f480c3b852b9942f6090f784f977407f2a39"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1531,
+          "sha256": "fcd938babbb46b2669cbe745a85e70364a0823c7f3b859bb35b03df598aed3d8"
+        }
+      }
+    }
+  },
+  "guarded_workers": 3,
+  "new_native_oracle_launches": 0,
+  "schema": "kit.sw2026.cold-top-box-reconstruction.v1",
+  "source_manifest_sha256": {
+    "re/tooling/sw2026/attached_top_box_source/VerifyColdTopBox.py": "573a61d7648c84426397434068d2e1700c138d91e0da69e75faab830835ecb77",
+    "src/convert/adapters/solidworks/Core/Preparation/Equations/ReadEqSketch.py": "4cad756e0c2432cbae1339a02423a7bfab78c35b19c35a83c036ea300c536854",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/PlanTopCorner.py": "62febcfa874b2d2d40637435b5d225d188e19da1c2716ceb3ea2f1d0114f94b2",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Readback/PrepColdTop.py": "2061c0aafcbf35058016a9eefc46219c44c21ba8301d75cbfdb978d951c2a724",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Readback/ReadTopDims.py": "a4eb34f131c57ef39137fd9a6a93202671bae1f54eb83560c5bc81a1f7acd5c8",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Readback/ReadTopInput.py": "0bd6b69402c4484d69783c42d9fd11ff78d1354121ec571880a69adce8d609e7",
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "04b4790fe3996f07f534d49cbb3da1ffec8302097eebb8344dc44dfcab8352cd",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/CheckColdRead.py": "86c386c65a2ac6fdeacf69e35141a170a8b3f6677f39cbe0b3481034647afba7"
+  }
+}

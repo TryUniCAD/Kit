@@ -1,0 +1,185 @@
+{
+  "analysis_sha256": "4084958c12da0e012968eb8cc0fbf61c0ad3b2de394296b8916f9cbcb0c763a6",
+  "cases": {
+    "boss": {
+      "author": [
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": false,
+          "phase_degrees": -9.858394544310149e-15,
+          "stage": "draw_open"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "sketch_closed"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "boss_created"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "before_save"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "after_save"
+        }
+      ],
+      "fresh_reopen": [
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "reopened_cold"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "reopened_rebuilt"
+        }
+      ],
+      "native_sha256": "f53b3381a382b5d2fc5a2f272898baae03c89e195e8bcb07e4e9341435113cf3",
+      "saved": {
+        "seam_id": [
+          0,
+          1
+        ],
+        "seam_ordinal": 1,
+        "seam_phase_degrees": 17.000000000000032,
+        "seam_xyz_m": [
+          0.03492311490813406,
+          0.0057318278389240085,
+          0
+        ]
+      }
+    },
+    "sketch": {
+      "author": [
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": false,
+          "phase_degrees": -9.858394544310149e-15,
+          "stage": "draw_open"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "sketch_closed"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "before_save"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "after_save"
+        }
+      ],
+      "fresh_reopen": [
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "reopened_cold"
+        },
+        {
+          "live_point_id": [
+            1,
+            1
+          ],
+          "matches_saved": true,
+          "phase_degrees": 17.000000000000032,
+          "stage": "reopened_rebuilt"
+        }
+      ],
+      "native_sha256": "b05198f2e62c7f62d3545902c1c2a5d1ed1d6297ba6fcd80ceb188ce19f57d11",
+      "saved": {
+        "seam_id": [
+          0,
+          1
+        ],
+        "seam_ordinal": 1,
+        "seam_phase_degrees": 17.000000000000032,
+        "seam_xyz_m": [
+          0.03492311490813406,
+          0.0057318278389240085,
+          0
+        ]
+      }
+    }
+  },
+  "controls": {
+    "control-after-ControlCircle": "829e8e5ebc4b769afcfb93892ae4969b0a5deb02aa9b91a8d9554ee58bceacb9",
+    "control-after-ControlRectangle": "2783d1dd3ee2d1ca6f81b0025c18340e41b1729628428ab75675079969c75c29",
+    "control-before-ControlCircle": "f4713ead6e9f7e745852981e492964f13143dc25b0a69845fc01492e5f87342a",
+    "control-before-ControlRectangle": "907df4cf38d20952975a7f50cbc04f52d6988007322f44363c6d6ed265c51457"
+  },
+  "fresh_native_processes": 8,
+  "guarded_external_accesses": 0,
+  "job_sha256": "c7ca939e5ae77a8d39adacbbd69ef1140166b7d8b5ce453b14a44b976d27f892",
+  "linked_archives": 2,
+  "live_snapshots": 13,
+  "native_result_sha256": "24835a708644209a1d8fb73fa17b36f85d471c7308b38d22d6a22f75870cb39d",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.ellipse-seam-measured-disposition.v1",
+  "source_phases": {
+    "author-boss": "ea68a19f9ad39c55a8115c88a4a77ab3058481481b7b59c8b3dd6a13be50f084",
+    "author-sketch": "6e519f5c06d15c56ee3bde95fdb0485bc5dd1170853d25fa9328d9983be0d52f",
+    "reopen-boss": "a39ab1d4a36b659784cfa9ab0260e5579429423a2a26aae517b79755dc680ef7",
+    "reopen-sketch": "8e438ddce95fec592f84252a8571b5611bcaeae9438bfb8395662ec3287dc03c"
+  },
+  "source_revision": "34fcac54e7a450702dff228e90d28e12eef16924",
+  "writer_output_count": 0
+}

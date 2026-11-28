@@ -1,0 +1,1284 @@
+{
+  "schema": "kit.sw2026.generated-dimensioned-assemblies-heldout.v1",
+  "scope": "Two pre-locked native part-and-assembly pairs with three or four placements of one rectangular child and no mates.",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "generator": {
+    "commit": "23e01579fb0ad607417ddfc84e4fbb7b0c55b1be",
+    "tree": "1d6a9ee722f57e061725b43671498bf6fa3968e2",
+    "adapter": "research_assembly_bundle"
+  },
+  "tool_sha256": {
+    "AuthorAssemblySources.py": "bcda45dd745e75f5cff9ae4706f5b4767c0d03d3ff2d9699f4832c487c6dea58",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectRectangleDimensions.py": "7bef3ae6346053f6e0ee09f5f418d723fae2345fbeb14c8c371209bf7c906a76",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "InspectDimensionedAssembly.py": "0ac964110a92241109c1837eaaa76e24fedcf1a0de15f5ce4f3818767021812b"
+  },
+  "job_sha256": "47969abbcf008569b0ff87b6c25baae71f0433acdfb9e6891b1c18bd671c4192",
+  "source_snapshot_sha256": "539016646155b2aa25df67ddd4ad9a03c38428b1b4d13e1343d2e9ce78c28c45",
+  "native_source_lock_sha256": "50de39dc21405cd346566f64244b62d457857758f339a95be4baf3466dfc1f80",
+  "pre_generation_freeze_sha256": "fa14432f10f088f8fa0d97fef8b6cba48ff062baeb2585e25f0ae44b6c13fc98",
+  "pre_reveal_predictions_sha256": "6e5f547e6a17ee80ba5ff03c4cd63a5ee3731f178e7f315ebf4b60ffa93c793a",
+  "private_artifact_predictions_sha256": "97d583462824388d57d73d08b67b07f8f4020f94054775816577ed8a6017862c",
+  "private_inspection_sha256": "570ae889a2804b43046b06de3564640b0825fa8611ba6009e83b896502483d13",
+  "private_transport_sha256": "641b23858ff78506552a1df9a30aaaf28b8008c59eb5be2a10c04b6b3c9b0910",
+  "comparison_gates_passed": 210,
+  "distinct_processes": 26,
+  "input_files_unchanged": true,
+  "controls_healthy": true,
+  "passed": true,
+  "heldout_acceptance": true,
+  "accepted_production_assemblies": 0,
+  "controls": [
+    {
+      "kind": "before",
+      "healthy": true,
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "open_errors": 0,
+      "open_warnings": 0
+    },
+    {
+      "kind": "after",
+      "healthy": true,
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "open_errors": 0,
+      "open_warnings": 0
+    }
+  ],
+  "cases": [
+    {
+      "design": "A15HeldoutSyncedThree",
+      "trials": [
+        {
+          "edit": "D1@Sketch1",
+          "edit_value_m": 0.05,
+          "comparison_gates": {
+            "baseline": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "edited": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "reopened": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "source_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "generated_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            }
+          },
+          "lanes": {
+            "source": {
+              "inputs": {
+                "A15HeldoutSyncedThree.SLDASM": "72b7bbe041dff54a5326297371b13bf6142f91eba2aa9fcf72e980146e9aa745",
+                "CohortChild.SLDPRT": "faccd78fc854a25198924e93c34fff359abe9f3a6864b7710085cc7732b6beb4"
+              },
+              "comparison_child_preloaded": true,
+              "initial_component_count": 3,
+              "edited": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 2.9999999999999997e-05,
+                  "area": 0.010199999999999997,
+                  "com": [
+                    0.014007854805510686,
+                    0.040875806006598465,
+                    -0.0036015988794079875
+                  ],
+                  "mass": 0.029999999999999995
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999997,
+                    -1.48892510259545e-18,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "27767acea9644e01e422314e59288945e60e433fc7e6ea5c3b2ac4fb557e499e",
+                "CohortChild.SLDPRT": "72bccc07543935a61e9e788d06f30f24bd7d12ee9f0c11a1886c2674b3ee132e"
+              },
+              "child_update_stamp": 176,
+              "fresh_reopened": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 2.9999999999999997e-05,
+                  "area": 0.010199999999999997,
+                  "com": [
+                    0.014007854805510686,
+                    0.040875806006598465,
+                    -0.0036015988794079875
+                  ],
+                  "mass": 0.029999999999999995
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999997,
+                    -1.6206457845013874e-18,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              }
+            },
+            "generated": {
+              "inputs": {
+                "A15HeldoutSyncedThree.SLDASM": "daf3bdd806d975be5334ce0fd9086dacf1b5683d1ab3dacc3ebf924efe119eac",
+                "CohortChild.SLDPRT": "a190290e04e8500a14251bb3ef664c46e5ab8182889c97c50c62f7719a2e1a82"
+              },
+              "comparison_child_preloaded": false,
+              "initial_component_count": 3,
+              "edited": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 2.9999999999999997e-05,
+                  "area": 0.010199999999999997,
+                  "com": [
+                    0.01400785480551068,
+                    0.04087580600659847,
+                    -0.00360159887940799
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999997,
+                    -1.6206457845013874e-18,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "336e2ee7d5c4257b6985476df973bd1b1bc7ed86ff54a35b6aac2f2695da39fb",
+                "CohortChild.SLDPRT": "1c8c85f7c917293901a9b3b646a9e9d1fc8f0fbea5b7f6caf9357b31376dd6a6"
+              },
+              "child_update_stamp": 158,
+              "fresh_reopened": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 3e-05,
+                  "area": 0.010199999999999997,
+                  "com": [
+                    0.014007854805510686,
+                    0.040875806006598465,
+                    -0.0036015988794079875
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999997,
+                    -1.6206457845013874e-18,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              }
+            }
+          }
+        },
+        {
+          "edit": "D2@Sketch1",
+          "edit_value_m": 0.025,
+          "comparison_gates": {
+            "baseline": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "edited": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "reopened": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "source_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "generated_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            }
+          },
+          "lanes": {
+            "source": {
+              "inputs": {
+                "A15HeldoutSyncedThree.SLDASM": "72b7bbe041dff54a5326297371b13bf6142f91eba2aa9fcf72e980146e9aa745",
+                "CohortChild.SLDPRT": "faccd78fc854a25198924e93c34fff359abe9f3a6864b7710085cc7732b6beb4"
+              },
+              "comparison_child_preloaded": true,
+              "initial_component_count": 3,
+              "edited": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 2.9999999999999997e-05,
+                  "area": 0.009899999999999999,
+                  "com": [
+                    0.01660036401280109,
+                    0.043145236623515396,
+                    -0.0015331992288416469
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033,
+                  "com": [
+                    8.352168376401029e-19,
+                    0.002499999999999999,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "b45db15b02433e89296e8200a6ac837240145f72e1333d379176a3413ffb6fe9",
+                "CohortChild.SLDPRT": "af365ed4b223642f510e27f74ef8a855cf66b8981c3a4eebefc6de4a2914938e"
+              },
+              "child_update_stamp": 176,
+              "fresh_reopened": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 3.0000000000000004e-05,
+                  "area": 0.009899999999999999,
+                  "com": [
+                    0.01660036401280109,
+                    0.043145236623515396,
+                    -0.0015331992288416469
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033,
+                  "com": [
+                    8.352168376401029e-19,
+                    0.002499999999999999,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            },
+            "generated": {
+              "inputs": {
+                "A15HeldoutSyncedThree.SLDASM": "bfa41ed62d6daab610768d11a686dd9b333db785b1fc354eb78fe7b47ad11878",
+                "CohortChild.SLDPRT": "8832d4007dff060abf874b8c4fe2328b8ef67d178fcf9424ebdcda9de38356d4"
+              },
+              "comparison_child_preloaded": false,
+              "initial_component_count": 3,
+              "edited": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 2.9999999999999997e-05,
+                  "area": 0.009899999999999999,
+                  "com": [
+                    0.01660036401280109,
+                    0.043145236623515396,
+                    -0.0015331992288416469
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033,
+                  "com": [
+                    8.352168376401029e-19,
+                    0.002499999999999999,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "3d1be9487910137167b7209d8026c364fc599bf3936194290899e0f4d67300ba",
+                "CohortChild.SLDPRT": "f29d415773c8d4c9edd8c53c5169c156d8baa463aeed8b4ee477124a814f6496"
+              },
+              "child_update_stamp": 158,
+              "fresh_reopened": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 3.0000000000000004e-05,
+                  "area": 0.009899999999999999,
+                  "com": [
+                    0.01660036401280109,
+                    0.043145236623515396,
+                    -0.0015331992288416469
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033,
+                  "com": [
+                    8.352168376401029e-19,
+                    0.002499999999999999,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            }
+          }
+        },
+        {
+          "edit": "D1@Boss-Extrude1",
+          "edit_value_m": 0.0125,
+          "comparison_gates": {
+            "baseline": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "edited": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "reopened": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "source_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "generated_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            }
+          },
+          "lanes": {
+            "source": {
+              "inputs": {
+                "A15HeldoutSyncedThree.SLDASM": "72b7bbe041dff54a5326297371b13bf6142f91eba2aa9fcf72e980146e9aa745",
+                "CohortChild.SLDPRT": "faccd78fc854a25198924e93c34fff359abe9f3a6864b7710085cc7732b6beb4"
+              },
+              "comparison_child_preloaded": true,
+              "initial_component_count": 3,
+              "edited": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 3.0000000000000004e-05,
+                  "area": 0.0093,
+                  "com": [
+                    0.016227121682668027,
+                    0.04058809084158143,
+                    -0.0015757869485946772
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "b96bc214810eb63d3025b622a024ddd779e8e40ea894339b532a741c8fa7c7f4",
+                "CohortChild.SLDPRT": "2d21e174a6917f5a404e353279337e11a12717256b0afbaf1dd89b3e9ea95d82"
+              },
+              "child_update_stamp": 176,
+              "fresh_reopened": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 3.0000000000000004e-05,
+                  "area": 0.0093,
+                  "com": [
+                    0.016227121682668027,
+                    0.04058809084158143,
+                    -0.0015757869485946772
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            },
+            "generated": {
+              "inputs": {
+                "A15HeldoutSyncedThree.SLDASM": "5c6ee5588e554dd2f3433a25f1a512264ccc04c2597b7b6a837cbbd1b61f64af",
+                "CohortChild.SLDPRT": "6e6bae2342a3699c7d11aaeeba87dcfc24b03d3284159a952dcce6083908ff18"
+              },
+              "comparison_child_preloaded": false,
+              "initial_component_count": 3,
+              "edited": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 3.0000000000000004e-05,
+                  "area": 0.0093,
+                  "com": [
+                    0.016227121682668027,
+                    0.04058809084158143,
+                    -0.0015757869485946772
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "7120e176300dc2b4412a8b51e2adff37e9c196e17187a5b74fc1f8b0ba663f62",
+                "CohortChild.SLDPRT": "759031bd0049bac3f7b55908d9266333d6d456ea6370683e2cc08e9a3abc2a6f"
+              },
+              "child_update_stamp": 158,
+              "fresh_reopened": {
+                "parent_tree_nodes": 25,
+                "child_tree_nodes": 25,
+                "placed_bodies": 3,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 3.0000000000000004e-05,
+                  "area": 0.0093,
+                  "com": [
+                    0.016227121682668027,
+                    0.04058809084158143,
+                    -0.0015757869485946772
+                  ],
+                  "mass": 0.03
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "design": "A16HeldoutSyncedFour",
+      "trials": [
+        {
+          "edit": "D1@Sketch1",
+          "edit_value_m": 0.05,
+          "comparison_gates": {
+            "baseline": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "edited": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "reopened": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "source_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "generated_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            }
+          },
+          "lanes": {
+            "source": {
+              "inputs": {
+                "A16HeldoutSyncedFour.SLDASM": "7b3e6b7ebf82a937e5d972c01c9d388d6f8a74306dffc1cc6d5983729868ba54",
+                "CohortChild.SLDPRT": "292825392e621860682b186dd161ac30306a9fc2e797c4923483c0b4bb57e087"
+              },
+              "comparison_child_preloaded": true,
+              "initial_component_count": 4,
+              "edited": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 3.9999999999999996e-05,
+                  "area": 0.013599999999999998,
+                  "com": [
+                    0.025776372209073667,
+                    -0.006877027480029259,
+                    0.03257778001256304
+                  ],
+                  "mass": 0.039999999999999994
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999997,
+                    -1.6206457845013874e-18,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "6fa3cf32654dea109ff3ccbfa8c4bdcf9a0565f201caa99edcac89e50dba7c69",
+                "CohortChild.SLDPRT": "9ea0cf6c895691f6af4b43fea68655af775805f11b3879589f230c8c78e46415"
+              },
+              "child_update_stamp": 176,
+              "fresh_reopened": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.013599999999999998,
+                  "com": [
+                    0.025776372209073677,
+                    -0.006877027480029257,
+                    0.03257778001256304
+                  ],
+                  "mass": 0.039999999999999994
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999997,
+                    -1.6206457845013874e-18,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              }
+            },
+            "generated": {
+              "inputs": {
+                "A16HeldoutSyncedFour.SLDASM": "3e73b6756c1819c005e016664bd2527511bdce463dda654c4f169f497dec07e1",
+                "CohortChild.SLDPRT": "179987b67071790d137937f89fdd068fa2558962447b717c3211e5d3518a644a"
+              },
+              "comparison_child_preloaded": false,
+              "initial_component_count": 4,
+              "edited": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 3.9999999999999996e-05,
+                  "area": 0.013599999999999998,
+                  "com": [
+                    0.02577637220907367,
+                    -0.0068770274800292585,
+                    0.03257778001256304
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999996,
+                    -1.5547854435484183e-18,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "c0110df355b2b890c41fc513f1fae5b29bf49a597a70c2dad11f6218fa155391",
+                "CohortChild.SLDPRT": "8a8f45339649a1a867de363f659405d6a64d4cfdfe97a4cb996dab1c2ce1385f"
+              },
+              "child_update_stamp": 158,
+              "fresh_reopened": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.05,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.013599999999999998,
+                  "com": [
+                    0.025776372209073663,
+                    -0.006877027480029264,
+                    0.03257778001256304
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033999999999999994,
+                  "com": [
+                    -0.004999999999999997,
+                    -1.6206457845013874e-18,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              }
+            }
+          }
+        },
+        {
+          "edit": "D2@Sketch1",
+          "edit_value_m": 0.025,
+          "comparison_gates": {
+            "baseline": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "edited": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "reopened": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "source_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "generated_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            }
+          },
+          "lanes": {
+            "source": {
+              "inputs": {
+                "A16HeldoutSyncedFour.SLDASM": "7b3e6b7ebf82a937e5d972c01c9d388d6f8a74306dffc1cc6d5983729868ba54",
+                "CohortChild.SLDPRT": "292825392e621860682b186dd161ac30306a9fc2e797c4923483c0b4bb57e087"
+              },
+              "comparison_child_preloaded": true,
+              "initial_component_count": 4,
+              "edited": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.0132,
+                  "com": [
+                    0.02985053840655373,
+                    -0.006154317342385056,
+                    0.031797477813584336
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033,
+                  "com": [
+                    8.352168376401029e-19,
+                    0.002499999999999999,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "2de1e2d04ed7e01cd22a51f78fb78cd6e0256b519a6e7b1fd081f1dc46b878ac",
+                "CohortChild.SLDPRT": "c589e9ba337a17b361cd0d4ee86b62aabd8024ac8b0def3a180dc9a34d47f6df"
+              },
+              "child_update_stamp": 176,
+              "fresh_reopened": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.0132,
+                  "com": [
+                    0.02985053840655373,
+                    -0.006154317342385056,
+                    0.031797477813584336
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033,
+                  "com": [
+                    8.352168376401029e-19,
+                    0.002499999999999999,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            },
+            "generated": {
+              "inputs": {
+                "A16HeldoutSyncedFour.SLDASM": "7298185b7b72b00453397e86e571a7f6a874ca709f7ef5598c923e570c5e1260",
+                "CohortChild.SLDPRT": "46df4e5f36ac213b070d7bcc58dd8781fe49606714b88581a187da72855adf0e"
+              },
+              "comparison_child_preloaded": false,
+              "initial_component_count": 4,
+              "edited": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.0132,
+                  "com": [
+                    0.02985053840655373,
+                    -0.006154317342385056,
+                    0.031797477813584336
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 9.999999999999999e-06,
+                  "area": 0.0033,
+                  "com": [
+                    8.35216837640103e-19,
+                    0.0024999999999999996,
+                    0.005
+                  ],
+                  "mass": 9.999999999999999e-06
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "f26daaf573b42762a3b0642d15ec5cbb859b17bc8003502bad43b34eadab9d09",
+                "CohortChild.SLDPRT": "adeb8cd53459d3342e28c4c8526e3d1113e773bc05483abf16b9710745b9d9d7"
+              },
+              "child_update_stamp": 158,
+              "fresh_reopened": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.01
+                },
+                "parent_mass_properties": {
+                  "volume": 3.9999999999999996e-05,
+                  "area": 0.0132,
+                  "com": [
+                    0.02985053840655373,
+                    -0.006154317342385056,
+                    0.031797477813584336
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0033,
+                  "com": [
+                    8.352168376401029e-19,
+                    0.002499999999999999,
+                    0.005
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            }
+          }
+        },
+        {
+          "edit": "D1@Boss-Extrude1",
+          "edit_value_m": 0.0125,
+          "comparison_gates": {
+            "baseline": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "edited": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "reopened": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "source_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            },
+            "generated_save": {
+              "root_tree": true,
+              "child_tree": true,
+              "occurrences": true,
+              "transform": true,
+              "configuration": true,
+              "mass_properties": true,
+              "dimension_values": true
+            }
+          },
+          "lanes": {
+            "source": {
+              "inputs": {
+                "A16HeldoutSyncedFour.SLDASM": "7b3e6b7ebf82a937e5d972c01c9d388d6f8a74306dffc1cc6d5983729868ba54",
+                "CohortChild.SLDPRT": "292825392e621860682b186dd161ac30306a9fc2e797c4923483c0b4bb57e087"
+              },
+              "comparison_child_preloaded": true,
+              "initial_component_count": 4,
+              "edited": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.0124,
+                  "com": [
+                    0.02949412771596691,
+                    -0.008224999934487064,
+                    0.03264372229973689
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "0274af2d724c29c40186df5d47a8b297ab9ba9f74c415b9a4d8192984cdb699a",
+                "CohortChild.SLDPRT": "3f08eb8bbbda3b4db4c03c96c065768250ea24886bf7914713d2bc5f450e3c3e"
+              },
+              "child_update_stamp": 176,
+              "fresh_reopened": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.0124,
+                  "com": [
+                    0.02949412771596691,
+                    -0.008224999934487064,
+                    0.03264372229973689
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            },
+            "generated": {
+              "inputs": {
+                "A16HeldoutSyncedFour.SLDASM": "22dc27e4d14943415067a0a1595d74c785b6c9ddbd5697af12d9428a2a926e81",
+                "CohortChild.SLDPRT": "652c686cb2267a5b20df6c5507bf82658117da0084a8934b66a9026ff3e31107"
+              },
+              "comparison_child_preloaded": false,
+              "initial_component_count": 4,
+              "edited": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.0124,
+                  "com": [
+                    0.02949412771596691,
+                    -0.008224999934487064,
+                    0.03264372229973689
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              },
+              "saved": {
+                "Edited.SLDASM": "46018ddb40fe68ab65baa1f0da14c72378e3d4401901d1107f311f728baeffcf",
+                "CohortChild.SLDPRT": "cc34a136edefd9129918ac78a68610ec478e35be1dfed615db4f711aef10bd2a"
+              },
+              "child_update_stamp": 158,
+              "fresh_reopened": {
+                "parent_tree_nodes": 26,
+                "child_tree_nodes": 25,
+                "placed_bodies": 4,
+                "child_bodies": 1,
+                "parameters_m": {
+                  "D1@Sketch1": 0.04,
+                  "D2@Sketch1": 0.02,
+                  "D1@Boss-Extrude1": 0.0125
+                },
+                "parent_mass_properties": {
+                  "volume": 4e-05,
+                  "area": 0.0124,
+                  "com": [
+                    0.02949412771596691,
+                    -0.008224999934487064,
+                    0.03264372229973689
+                  ],
+                  "mass": 0.04
+                },
+                "child_mass_properties": {
+                  "volume": 1e-05,
+                  "area": 0.0031,
+                  "com": [
+                    0.0,
+                    0.0,
+                    0.00625
+                  ],
+                  "mass": 1e-05
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

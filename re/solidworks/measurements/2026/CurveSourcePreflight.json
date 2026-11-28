@@ -1,0 +1,5871 @@
+{
+  "schema": "kit-solidworks-curve-source-preflight-publication/1",
+  "status": "passed selected source-authoring preflight; complete family lock pending",
+  "confidence": "confirmed",
+  "scope": {
+    "solidworks_api_authored_sources": true,
+    "kit_written_curve_output": false,
+    "curve_writer_implemented": false,
+    "writer_acceptance_measured": false,
+    "writer_vendor_loadable": null,
+    "writer_application_usable": null,
+    "cad_success_criteria_satisfied": false,
+    "discovery_selected": 2,
+    "discovery_passed": 2,
+    "held_out_native_inputs_generated": 0,
+    "locked": false,
+    "incomplete_selection": true,
+    "pending_cases_in_selected_batch": [],
+    "parent_exit_code": 2,
+    "parent_exit_interpretation": "expected incomplete selection result; not a phase failure",
+    "parent_exit_code_provenance": "oracle owner report; Batch.json records incomplete_selection but not the parent process exit code"
+  },
+  "criteria": {
+    "path": "Documentation/Reference/Operations/CadSuccessCriteria.md",
+    "stopping_conditions_quoted": [
+      "There are two acceptable stopping conditions.",
+      "The first is success under every criterion on this page.",
+      "The second is the end of the available context."
+    ]
+  },
+  "provenance": {
+    "batch": {
+      "locator": "CurvesPreflight06/Batch.json",
+      "bytes": 1757091,
+      "sha256": "5635151757c518bbeffc72fac1bb630a11704d1e5d65764c73291d77013c8253"
+    },
+    "source_tools_manifest": {
+      "locator": "CurvesToolsExplicitLibrary03/SourceManifest.json",
+      "bytes": 620,
+      "sha256": "1b7aca74b8984980546742037bcca6a284606cd708a9fb9e246b4b47eabf5354"
+    },
+    "source_tools": {
+      "revision": "4a3c48de815f9039d642991275d89e82a3cab9cf",
+      "files": {
+        "AuthorCurves.py": {
+          "sha256": "a26200aca3e6d3cbf8a8bb2eb87756324875f949ed4616dc1813cc48c495dc68",
+          "bytes": 49534
+        },
+        "CurveSpecs.json": {
+          "sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+          "bytes": 17275
+        },
+        "Swapp.py": {
+          "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+          "bytes": 15278
+        },
+        "OracleIdentity.py": {
+          "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+          "bytes": 4284
+        }
+      }
+    },
+    "specs_sha256_reported_by_batch": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+    "materialized_batch_specs": {
+      "locator": "CurvesPreflight06/Specs.json",
+      "bytes": 19964,
+      "sha256": "0e369d907d1057949420938fc8eacbabe464ec33d74a81e833a186c923a87f88"
+    },
+    "started_at": "2026-11-15T20:21:50.160330+00:00",
+    "finished_at": "2026-11-15T20:29:49.531388+00:00",
+    "publication_inputs": "JSON reports and tool metadata only; no native CAD source or stream inspected",
+    "private_path_policy": "external locators are relative batch/tool identifiers; user, home, UNC and machine paths are omitted or replaced",
+    "canonical_hash_scheme": "SHA-256 of UTF-8 json.dumps(value, sort_keys=True, separators=(comma,colon), ensure_ascii=True, allow_nan=False), before path redaction for raw api_calls",
+    "reproduction": {
+      "generator_revision": "4a3c48de815f9039d642991275d89e82a3cab9cf",
+      "author_script_sha256": "a26200aca3e6d3cbf8a8bb2eb87756324875f949ed4616dc1813cc48c495dc68",
+      "selected_discovery_cases": [
+        "D04CircleRadius",
+        "D13Arc180Ccw"
+      ],
+      "controls": [
+        "ControlRectangle",
+        "ControlCircle"
+      ],
+      "phase_jobs": "the ten raw_job locators and hashes identify the per-process inputs",
+      "edits_saved": false,
+      "full_family_lock": "not produced by this selected batch"
+    },
+    "projection_recipe": {
+      "phase_order": [
+        "controls_before author/verify in batch order",
+        "discovery author/verify in batch order",
+        "controls_after verify in batch order"
+      ],
+      "snapshot_fields": "copy each authored/reopened/edited object; intern exact feature_tree and relations arrays by canonical hash; retain every other field",
+      "numeric_checks": "copy every phase checks array; compute absolute differences and relative differences only for nonzero expected numbers",
+      "selected_call_methods": [
+        "load 2026 type library",
+        "SetUserPreferenceToggle",
+        "read disabled input dimension preference",
+        "restore input dimension preference",
+        "read restored input dimension preference",
+        "AddToDB",
+        "SetSystemValue3",
+        "ForceRebuild3",
+        "SaveAs3",
+        "OpenDoc6",
+        "FirstFeature",
+        "GetSpecificFeature2",
+        "AddRadialDimension2",
+        "AddDiameterDimension2",
+        "ExitApp",
+        "CloseDoc without saving edits"
+      ],
+      "selected_call_prefixes": [
+        "set ",
+        "QueryInterface "
+      ],
+      "call_projection": "retain method, arguments, keyword_arguments, result and error when present; omit timing; group equal projected calls within each phase and record all original zero-based indices",
+      "raw_phase_status": "worker wrapper fields come from Batch.json; original worker payload and job are separately hash-bound by raw_record and raw_job"
+    },
+    "canonical_hash_parameters": {
+      "encoding": "UTF-8",
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ],
+      "ensure_ascii": true,
+      "allow_nan": false,
+      "trailing_newline": false,
+      "api_trace_paths": "unredacted original values, hashed only"
+    }
+  },
+  "oracle": {
+    "progid": "SldWorks.Application.34",
+    "executable": "SLDWORKS.exe",
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "executable_bytes": 718936,
+    "pe_machine": "0x8664",
+    "distinct_recorded_processes": 10,
+    "interface_binding": {
+      "library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "eager_generation": true,
+      "query_input": "raw dynamic-wrapper _oleobj_ dispatch pointer",
+      "query_result": "PyIDispatch passed to the generated default-interface wrapper",
+      "observed_interfaces": [
+        {
+          "interface": "SketchArc",
+          "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}"
+        },
+        {
+          "interface": "SketchLine",
+          "iid": "{83A33DC1-27C5-11CE-BFD4-00400513BB57}"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "phase_count": 10,
+    "phases_passed": 10,
+    "first_failure": null,
+    "controls_healthy": true,
+    "cleanup_error_count": 0,
+    "dialog_count": 0,
+    "timed_out_workers": 0,
+    "numeric_check_count": 119,
+    "numeric_checks_passed": 119,
+    "numeric_error_summary": {
+      "depth dimension": {
+        "count": 4,
+        "maximum_absolute_error": 0.0,
+        "maximum_relative_error_nonzero_expected": 0.0
+      },
+      "extrusion depth": {
+        "count": 16,
+        "maximum_absolute_error": 0.0,
+        "maximum_relative_error_nonzero_expected": 0.0
+      },
+      "volume": {
+        "count": 16,
+        "maximum_absolute_error": 1.6940658945086007e-21,
+        "maximum_relative_error_nonzero_expected": 4.610292998583374e-16
+      },
+      "surface area": {
+        "count": 16,
+        "maximum_absolute_error": 6.505213034913027e-19,
+        "maximum_relative_error_nonzero_expected": 4.1501920392778887e-16
+      },
+      "center of mass 0": {
+        "count": 16,
+        "maximum_absolute_error": 1.734723475976807e-18,
+        "maximum_relative_error_nonzero_expected": 2.0395333617578932e-16
+      },
+      "center of mass 1": {
+        "count": 16,
+        "maximum_absolute_error": 3.469446951953614e-18,
+        "maximum_relative_error_nonzero_expected": 1.6767093330531674e-16
+      },
+      "center of mass 2": {
+        "count": 16,
+        "maximum_absolute_error": 1.734723475976807e-18,
+        "maximum_relative_error_nonzero_expected": 2.9575031557016575e-16
+      },
+      "D1@CurveBoss": {
+        "count": 6,
+        "maximum_absolute_error": 0.0,
+        "maximum_relative_error_nonzero_expected": 0.0
+      },
+      "edited driving dimension": {
+        "count": 6,
+        "maximum_absolute_error": 0.0,
+        "maximum_relative_error_nonzero_expected": 0.0
+      },
+      "curve-0": {
+        "count": 3,
+        "maximum_absolute_error": 3.469446951953614e-18,
+        "maximum_relative_error_nonzero_expected": 1.55260312895087e-16
+      },
+      "D1@CurveSketch": {
+        "count": 4,
+        "maximum_absolute_error": 3.469446951953614e-18,
+        "maximum_relative_error_nonzero_expected": 1.55260312895087e-16
+      }
+    },
+    "snapshot_count": 16,
+    "snapshots_with_one_body": 16,
+    "snapshot_feature_error_count": 0,
+    "snapshot_feature_warning_count": 0
+  },
+  "cases": [
+    {
+      "name": "ControlRectangle",
+      "role": "control",
+      "neutral_spec": {
+        "name": "ControlRectangle",
+        "split": "control",
+        "plane": "front",
+        "reverse": false,
+        "depth_mm": 7.713,
+        "expected_bodies": 1,
+        "creation": "rectangle-control",
+        "dimension_kind": "radial",
+        "edit": {
+          "target": "depth",
+          "factor": 1.07
+        },
+        "profile": {
+          "kind": "rectangle",
+          "center_mm": [
+            -7.391,
+            11.173
+          ],
+          "width_mm": 29.137,
+          "height_mm": 17.719
+        }
+      },
+      "source_file": {
+        "name": "ControlRectangle.SLDPRT",
+        "sha256_recorded_after_authoring": "9f62e42b07fea041bfa54571aee8d4315fbd1941084b593a20c3398422749900",
+        "sha256_recorded_after_fresh_verify": "9f62e42b07fea041bfa54571aee8d4315fbd1941084b593a20c3398422749900",
+        "unchanged_by_verify": true,
+        "hash_provenance": "recorded metadata only; native CAD file not read for publication",
+        "sha256_recorded_after_trailing_control": "9f62e42b07fea041bfa54571aee8d4315fbd1941084b593a20c3398422749900",
+        "unchanged_after_trailing_control": true
+      },
+      "raw_source_manifest": {
+        "locator": "CurvesPreflight06/Controls/ControlRectangle/Manifest.json",
+        "bytes": 319060,
+        "sha256": "3ef01f7143068451451e71e3cf092699e17b2cebf7a1eab0b7bd78b8e5fa34c7"
+      },
+      "dimensions": [
+        {
+          "role": "depth",
+          "name": "D1@CurveBoss",
+          "value": 0.007713,
+          "kind": "linear",
+          "full_name": "D1@CurveBoss@ControlRectangle.Part"
+        }
+      ],
+      "requested_relations": [],
+      "phase_ids": [
+        "controls_before/ControlRectangle/author",
+        "controls_before/ControlRectangle/verify"
+      ],
+      "passed": true,
+      "controls_after_phase_id": "controls_after/ControlRectangle/verify"
+    },
+    {
+      "name": "ControlCircle",
+      "role": "control",
+      "neutral_spec": {
+        "name": "ControlCircle",
+        "split": "control",
+        "plane": "front",
+        "reverse": false,
+        "depth_mm": 7.713,
+        "expected_bodies": 1,
+        "creation": "point-circle-control",
+        "dimension_kind": "diameter",
+        "edit": {
+          "target": "curve-0",
+          "factor": 1.11
+        },
+        "profile": {
+          "kind": "circle",
+          "center_mm": [
+            3.917,
+            -5.139
+          ],
+          "radius_mm": 11.173
+        }
+      },
+      "source_file": {
+        "name": "ControlCircle.SLDPRT",
+        "sha256_recorded_after_authoring": "d4e3f2adb81d7310b85bb5dbc8fce964e7bf9fbf2f46154e2a9a83d88b8bfb71",
+        "sha256_recorded_after_fresh_verify": "d4e3f2adb81d7310b85bb5dbc8fce964e7bf9fbf2f46154e2a9a83d88b8bfb71",
+        "unchanged_by_verify": true,
+        "hash_provenance": "recorded metadata only; native CAD file not read for publication",
+        "sha256_recorded_after_trailing_control": "d4e3f2adb81d7310b85bb5dbc8fce964e7bf9fbf2f46154e2a9a83d88b8bfb71",
+        "unchanged_after_trailing_control": true
+      },
+      "raw_source_manifest": {
+        "locator": "CurvesPreflight06/Controls/ControlCircle/Manifest.json",
+        "bytes": 277156,
+        "sha256": "3ce62d1100472dda0bbf8717cea4d8c8ebac0c93b965de8b9428eeed4d13b1a6"
+      },
+      "dimensions": [
+        {
+          "role": "curve-0",
+          "name": "D1@CurveSketch",
+          "value": 0.022346,
+          "kind": "diameter",
+          "full_name": "D1@CurveSketch@ControlCircle.Part"
+        },
+        {
+          "role": "depth",
+          "name": "D1@CurveBoss",
+          "value": 0.007713,
+          "kind": "linear",
+          "full_name": "D1@CurveBoss@ControlCircle.Part"
+        }
+      ],
+      "requested_relations": [
+        {
+          "type": 17,
+          "entities": [
+            "entity-0.center"
+          ],
+          "mode": "native-relation"
+        }
+      ],
+      "phase_ids": [
+        "controls_before/ControlCircle/author",
+        "controls_before/ControlCircle/verify"
+      ],
+      "passed": true,
+      "controls_after_phase_id": "controls_after/ControlCircle/verify"
+    },
+    {
+      "name": "D04CircleRadius",
+      "role": "discovery",
+      "neutral_spec": {
+        "name": "D04CircleRadius",
+        "split": "discovery",
+        "plane": "front",
+        "reverse": false,
+        "depth_mm": 11.731,
+        "dimension_kind": "radial",
+        "expected_bodies": 1,
+        "edit": {
+          "target": "curve-0",
+          "factor": 1.17
+        },
+        "profile": {
+          "kind": "circle",
+          "center_mm": [
+            -3.719,
+            5.173
+          ],
+          "radius_mm": 7.391
+        }
+      },
+      "source_file": {
+        "name": "D04CircleRadius.SLDPRT",
+        "sha256_recorded_after_authoring": "59d4dcc62fffa58a41d001e822d9429b73b244b9f23e3affe2c757d227fe3210",
+        "sha256_recorded_after_fresh_verify": "59d4dcc62fffa58a41d001e822d9429b73b244b9f23e3affe2c757d227fe3210",
+        "unchanged_by_verify": true,
+        "hash_provenance": "recorded metadata only; native CAD file not read for publication"
+      },
+      "raw_source_manifest": {
+        "locator": "CurvesPreflight06/Discovery/D04CircleRadius/Manifest.json",
+        "bytes": 277862,
+        "sha256": "6732a5d05606c8aec5143e80aaea41677579ba53179275d54473c32fbb82f2e6"
+      },
+      "dimensions": [
+        {
+          "role": "curve-0",
+          "name": "D1@CurveSketch",
+          "value": 0.007391,
+          "kind": "radial",
+          "full_name": "D1@CurveSketch@D04CircleRadius.Part"
+        },
+        {
+          "role": "depth",
+          "name": "D1@CurveBoss",
+          "value": 0.011731,
+          "kind": "linear",
+          "full_name": "D1@CurveBoss@D04CircleRadius.Part"
+        }
+      ],
+      "requested_relations": [
+        {
+          "type": 17,
+          "entities": [
+            "entity-0.center"
+          ],
+          "mode": "native-relation"
+        }
+      ],
+      "phase_ids": [
+        "discovery/D04CircleRadius/author",
+        "discovery/D04CircleRadius/verify"
+      ],
+      "passed": true
+    },
+    {
+      "name": "D13Arc180Ccw",
+      "role": "discovery",
+      "neutral_spec": {
+        "name": "D13Arc180Ccw",
+        "split": "discovery",
+        "plane": "front",
+        "reverse": false,
+        "depth_mm": 7.139,
+        "dimension_kind": "radial",
+        "expected_bodies": 1,
+        "edit": {
+          "target": "depth",
+          "factor": 1.19
+        },
+        "profile": {
+          "kind": "segment",
+          "center_mm": [
+            -5.137,
+            13.719
+          ],
+          "radius_mm": 19.731,
+          "start_deg": 23.719,
+          "sweep_deg": 180,
+          "direction": 1
+        }
+      },
+      "source_file": {
+        "name": "D13Arc180Ccw.SLDPRT",
+        "sha256_recorded_after_authoring": "566f1e9c30da83d4ee5c799484bef542e3cfcdc108af43c7bc2ffdb135d930b9",
+        "sha256_recorded_after_fresh_verify": "566f1e9c30da83d4ee5c799484bef542e3cfcdc108af43c7bc2ffdb135d930b9",
+        "unchanged_by_verify": true,
+        "hash_provenance": "recorded metadata only; native CAD file not read for publication"
+      },
+      "raw_source_manifest": {
+        "locator": "CurvesPreflight06/Discovery/D13Arc180Ccw/Manifest.json",
+        "bytes": 303903,
+        "sha256": "9d9aeae3035ded7189d193c55be6f8608a9b1565e940a662700f8060be6cb359"
+      },
+      "dimensions": [
+        {
+          "role": "curve-0",
+          "name": "D1@CurveSketch",
+          "value": 0.019731000000000002,
+          "kind": "radial",
+          "full_name": "D1@CurveSketch@D13Arc180Ccw.Part"
+        },
+        {
+          "role": "depth",
+          "name": "D1@CurveBoss",
+          "value": 0.007139,
+          "kind": "linear",
+          "full_name": "D1@CurveBoss@D13Arc180Ccw.Part"
+        }
+      ],
+      "requested_relations": [
+        {
+          "type": 17,
+          "entities": [
+            "entity-0.center"
+          ],
+          "mode": "native-relation"
+        },
+        {
+          "type": 9,
+          "entities": [
+            "entity-0.end",
+            "entity-1.start"
+          ],
+          "mode": "shared-point"
+        },
+        {
+          "type": 9,
+          "entities": [
+            "entity-1.end",
+            "entity-0.start"
+          ],
+          "mode": "shared-point"
+        }
+      ],
+      "phase_ids": [
+        "discovery/D13Arc180Ccw/author",
+        "discovery/D13Arc180Ccw/verify"
+      ],
+      "passed": true
+    }
+  ],
+  "phases": [
+    {
+      "sequence": 1,
+      "id": "controls_before/ControlRectangle/author",
+      "case": "ControlRectangle",
+      "group": "controls_before",
+      "phase": "author",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Controls/ControlRectangle/Author/Record.json",
+        "bytes": 114043,
+        "sha256": "6b44087fe8c9893924e4460be651097c60177d8f56fe6679b1a2dae8c090c9bb"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Controls/ControlRectangle/Author/Job.json",
+        "bytes": 1191,
+        "sha256": "a0bfb1df606c7d47b4a887f371b624fc75ab2c6724d83242caa23869a0921b89"
+      },
+      "started_at": "2026-11-15T20:21:50.841342+00:00",
+      "finished_at": "2026-11-15T20:22:38.440123+00:00",
+      "identity": {
+        "process_id": 7856,
+        "process_creation_filetime": 134392477113432219,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 48.36000000000013,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.982056093639e-06,
+          "expected": 3.982056093639e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0017553576619999999,
+          "expected": 0.0017553576620000003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011172999999999999,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 341,
+        "canonical_raw_calls_sha256": "8a96b28ad9f9734e14370343e05c6ecf9858764fa1a1a6f46673fbcff40e2506",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              13
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              14
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              16
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": false
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              17
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": false
+          },
+          {
+            "call_indices": [
+              18,
+              19,
+              20,
+              21,
+              81,
+              93,
+              105,
+              117
+            ],
+            "method": "QueryInterface SketchLine",
+            "arguments": {
+              "interface": "SketchLine",
+              "iid": "{83A33DC1-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              23,
+              179
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              60,
+              78
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              61
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveSketch"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              67
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveBoss"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              74
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              162
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              334
+            ],
+            "method": "SaveAs3",
+            "arguments": {
+              "path": "<native-source>/ControlRectangle.SLDPRT",
+              "version": 0,
+              "options": 1
+            },
+            "result": [
+              true,
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              337
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "ControlRectangle"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              338
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              339
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              340
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "authored": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              1,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0023134999999999996
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              2,
+              2
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              -0.0219595,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              3,
+              3
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0200325
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              4,
+              4
+            ],
+            "kind": "line",
+            "start": [
+              0.0071775,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.982056093639e-06,
+          "area": 0.0017553576619999999,
+          "com": [
+            -0.007391,
+            0.011172999999999999,
+            0.0038565
+          ]
+        },
+        "expected_com": [
+          -0.007391,
+          0.011173,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.0219595,
+            0.0023134999999999996,
+            0.0,
+            0.0071775,
+            0.0200325,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-01",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 22,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 2,
+      "id": "controls_before/ControlRectangle/verify",
+      "case": "ControlRectangle",
+      "group": "controls_before",
+      "phase": "verify",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Controls/ControlRectangle/Verify/Record.json",
+        "bytes": 181477,
+        "sha256": "e5911d2bb285e67f4e2968be390788cde33f4ccc084d067423c3f2f9693f6c84"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Controls/ControlRectangle/Verify/Job.json",
+        "bytes": 1511,
+        "sha256": "5fbc53c644c7b9cb563df7a0fd47f1edc589e334b49d77579cc7e40626733a69"
+      },
+      "started_at": "2026-11-15T20:22:38.795121+00:00",
+      "finished_at": "2026-11-15T20:23:21.466977+00:00",
+      "identity": {
+        "process_id": 1956,
+        "process_creation_filetime": 134392477592523888,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 43.09400000000005,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.982056093639e-06,
+          "expected": 3.982056093639e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0017553576619999999,
+          "expected": 0.0017553576620000003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011172999999999999,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 4.26080002019373e-06,
+          "expected": 4.26080002019373e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0018059537079199999,
+          "expected": 0.0018059537079200003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011173,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.004126455,
+          "expected": 0.004126455,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 539,
+        "canonical_raw_calls_sha256": "0040c91fb0271683e4bae0d90b21181b04db7e014ab101512db24d230015a7da",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              6
+            ],
+            "method": "OpenDoc6",
+            "arguments": {
+              "path": "<native-source>/ControlRectangle.SLDPRT",
+              "document_type": 1,
+              "options": 1,
+              "configuration": "",
+              "errors": "out i4",
+              "warnings": "out i4"
+            },
+            "result": [
+              {
+                "returned_object": "CDispatch"
+              },
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              7,
+              274
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              11,
+              278
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              14,
+              26,
+              38,
+              50,
+              281,
+              293,
+              305,
+              317
+            ],
+            "method": "QueryInterface SketchLine",
+            "arguments": {
+              "interface": "SketchLine",
+              "iid": "{83A33DC1-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              95,
+              362
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              112,
+              379
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              272
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.00825291,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              535
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "ControlRectangle"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              536
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              537
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              538
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "edit": {
+        "name": "D1@CurveBoss",
+        "before": 0.007713,
+        "after": 0.00825291,
+        "setter_status": 0
+      },
+      "source_sha256_after": "9f62e42b07fea041bfa54571aee8d4315fbd1941084b593a20c3398422749900",
+      "reopened": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              1,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0023134999999999996
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              2,
+              2
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              -0.0219595,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              3,
+              3
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0200325
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              4,
+              4
+            ],
+            "kind": "line",
+            "start": [
+              0.0071775,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.982056093639e-06,
+          "area": 0.0017553576619999999,
+          "com": [
+            -0.007391,
+            0.011172999999999999,
+            0.0038565
+          ]
+        },
+        "expected_com": [
+          -0.007391,
+          0.011173,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.0219595,
+            0.0023134999999999996,
+            0.0,
+            0.0071775,
+            0.0200325,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-01",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "edited": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              1,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0023134999999999996
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              2,
+              2
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              -0.0219595,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              3,
+              3
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0200325
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              4,
+              4
+            ],
+            "kind": "line",
+            "start": [
+              0.0071775,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.00825291,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 4.26080002019373e-06,
+          "area": 0.0018059537079199999,
+          "com": [
+            -0.007391,
+            0.011173,
+            0.004126455
+          ]
+        },
+        "expected_com": [
+          -0.007391,
+          0.011173,
+          0.004126455
+        ],
+        "body_boxes": [
+          [
+            -0.0219595,
+            0.0023134999999999996,
+            0.0,
+            0.0071775,
+            0.0200325,
+            0.00825291
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-01",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 23,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 3,
+      "id": "controls_before/ControlCircle/author",
+      "case": "ControlCircle",
+      "group": "controls_before",
+      "phase": "author",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Controls/ControlCircle/Author/Record.json",
+        "bytes": 103530,
+        "sha256": "62355c0e65ad06f38f7ddc8cfba62e1da0deb6d29c47cc1a5e961153b59c046c"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Controls/ControlCircle/Author/Job.json",
+        "bytes": 1158,
+        "sha256": "32d2f15eca169816c46e82e45617ae3ab66f2602363e0ae4c4cef057fd999f55"
+      },
+      "started_at": "2026-11-15T20:23:22.302214+00:00",
+      "finished_at": "2026-11-15T20:24:02.627583+00:00",
+      "identity": {
+        "process_id": 8652,
+        "process_creation_filetime": 134392478028030672,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 40.96900000000005,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "curve-0",
+          "actual": 0.022345999999999998,
+          "expected": 0.022346,
+          "passed": true
+        },
+        {
+          "name": "depth dimension",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.024912395655374e-06,
+          "expected": 3.0249123956553754e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013258355279494012,
+          "expected": 0.0013258355279494017,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.0051389999999999995,
+          "expected": -0.0051389999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.003856500000000001,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 308,
+        "canonical_raw_calls_sha256": "9fec2453678c60ecd1c405e20ef6309eb82d858f90624043e4851c8728df0d43",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              13
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              14
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              16
+            ],
+            "method": "set ConstructionGeometry",
+            "arguments": {
+              "value": false
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              18
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": false
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              19
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": false
+          },
+          {
+            "call_indices": [
+              20,
+              95
+            ],
+            "method": "QueryInterface SketchArc",
+            "arguments": {
+              "interface": "SketchArc",
+              "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              28
+            ],
+            "method": "AddDiameterDimension2",
+            "arguments": {
+              "values": [
+                0.0229111,
+                0.009385900000000003,
+                0.0
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              31
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.022346,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              36,
+              145
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              73,
+              92
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              74
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveSketch"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              80
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveBoss"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              88
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              128
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              300
+            ],
+            "method": "SaveAs3",
+            "arguments": {
+              "path": "<native-source>/ControlCircle.SLDPRT",
+              "version": 0,
+              "options": 1
+            },
+            "result": [
+              true,
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              304
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "ControlCircle"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              305
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              306
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              307
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "authored": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              0.0039169999999999995,
+              -0.005139
+            ],
+            "radius": 0.011172999999999999
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.024912395655374e-06,
+          "area": 0.0013258355279494012,
+          "com": [
+            0.0039169999999999995,
+            -0.0051389999999999995,
+            0.003856500000000001
+          ]
+        },
+        "expected_com": [
+          0.0039169999999999995,
+          -0.0051389999999999995,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.007255999999999999,
+            -0.016312,
+            0.0,
+            0.01509,
+            0.0060339999999999986,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-02",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 22,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 4,
+      "id": "controls_before/ControlCircle/verify",
+      "case": "ControlCircle",
+      "group": "controls_before",
+      "phase": "verify",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Controls/ControlCircle/Verify/Record.json",
+        "bytes": 153289,
+        "sha256": "71ec084206b710262f673cc7bb9b2ecb215870c5096542c0c78633bec3adf9b3"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Controls/ControlCircle/Verify/Job.json",
+        "bytes": 1786,
+        "sha256": "37a5efef80c1a0ba95e66af9374a7719cbbd88fb09bdf1f6d191e1fc81a733f0"
+      },
+      "started_at": "2026-11-15T20:24:03.363615+00:00",
+      "finished_at": "2026-11-15T20:25:01.825011+00:00",
+      "identity": {
+        "process_id": 1236,
+        "process_creation_filetime": 134392478437126507,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 59.141000000000076,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.024912395655374e-06,
+          "expected": 3.0249123956553754e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013258355279494012,
+          "expected": 0.0013258355279494017,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.0051389999999999995,
+          "expected": -0.0051389999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.003856500000000001,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveSketch",
+          "actual": 0.022345999999999998,
+          "expected": 0.022346,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.024804060000000003,
+          "expected": 0.024804060000000003,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.726994562686987e-06,
+          "expected": 3.7269945626869886e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.001567448680289237,
+          "expected": 0.0015674486802892376,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.005139,
+          "expected": -0.005139,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565000000000006,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 447,
+        "canonical_raw_calls_sha256": "3b49afdfa4cbf965187f82d02af08db65816ac721da27b46aa44e8803c249260",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              6
+            ],
+            "method": "OpenDoc6",
+            "arguments": {
+              "path": "<native-source>/ControlCircle.SLDPRT",
+              "document_type": 1,
+              "options": 1,
+              "configuration": "",
+              "errors": "out i4",
+              "warnings": "out i4"
+            },
+            "result": [
+              {
+                "returned_object": "CDispatch"
+              },
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              7,
+              230
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              11,
+              234
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              14,
+              237
+            ],
+            "method": "QueryInterface SketchArc",
+            "arguments": {
+              "interface": "SketchArc",
+              "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              47,
+              270
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              64,
+              287
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              228
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.024804060000000003,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              443
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "ControlCircle"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              444
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              445
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              446
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "edit": {
+        "name": "D1@CurveSketch",
+        "before": 0.022346,
+        "after": 0.024804060000000003,
+        "setter_status": 0
+      },
+      "source_sha256_after": "d4e3f2adb81d7310b85bb5dbc8fce964e7bf9fbf2f46154e2a9a83d88b8bfb71",
+      "reopened": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              0.0039169999999999995,
+              -0.005139
+            ],
+            "radius": 0.011172999999999999
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.024912395655374e-06,
+          "area": 0.0013258355279494012,
+          "com": [
+            0.0039169999999999995,
+            -0.0051389999999999995,
+            0.003856500000000001
+          ]
+        },
+        "expected_com": [
+          0.0039169999999999995,
+          -0.0051389999999999995,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.007255999999999999,
+            -0.016312,
+            0.0,
+            0.01509,
+            0.0060339999999999986,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-02",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "edited": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              0.0039169999999999995,
+              -0.005139
+            ],
+            "radius": 0.01240203
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.726994562686987e-06,
+          "area": 0.001567448680289237,
+          "com": [
+            0.0039169999999999995,
+            -0.005139,
+            0.0038565000000000006
+          ]
+        },
+        "expected_com": [
+          0.0039169999999999995,
+          -0.005139,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.008485030000000001,
+            -0.01754103,
+            0.0,
+            0.016319029999999998,
+            0.007263029999999999,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-02",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 23,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 5,
+      "id": "discovery/D04CircleRadius/author",
+      "case": "D04CircleRadius",
+      "group": "discovery",
+      "phase": "author",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Discovery/D04CircleRadius/Author/Record.json",
+        "bytes": 103859,
+        "sha256": "19215116ec36209d3c1feacf8ff6cb7630981788d663cfa02ac19fef48235470"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Discovery/D04CircleRadius/Author/Job.json",
+        "bytes": 1124,
+        "sha256": "8d82f6bab8a7318234c6ad271e1e83e5ce565febbb3da47b249d24cb70ce301d"
+      },
+      "started_at": "2026-11-15T20:25:02.653970+00:00",
+      "finished_at": "2026-11-15T20:25:55.649204+00:00",
+      "identity": {
+        "process_id": 10424,
+        "process_creation_filetime": 134392479031152639,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 53.5630000000001,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "curve-0",
+          "actual": 0.007391,
+          "expected": 0.007391,
+          "passed": true
+        },
+        {
+          "name": "depth dimension",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 2.013220351695231e-06,
+          "expected": 2.013220351695231e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0008880069902597766,
+          "expected": 0.0008880069902597765,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.003718999999999999,
+          "expected": -0.0037189999999999996,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.005173,
+          "expected": 0.005173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0058655,
+          "expected": 0.0058655,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 308,
+        "canonical_raw_calls_sha256": "30047551d37db64b3b3361348075a0a53b5e4dfed3733c36d5715e52058b35ce",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              13
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              14
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              16
+            ],
+            "method": "set ConstructionGeometry",
+            "arguments": {
+              "value": false
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              18
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": false
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              19
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": false
+          },
+          {
+            "call_indices": [
+              20,
+              95
+            ],
+            "method": "QueryInterface SketchArc",
+            "arguments": {
+              "interface": "SketchArc",
+              "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              28
+            ],
+            "method": "AddRadialDimension2",
+            "arguments": {
+              "values": [
+                0.0088457,
+                0.0147813,
+                0.0
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              31
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.007391,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              36,
+              145
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              73,
+              92
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              74
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveSketch"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              80
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveBoss"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              88
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              128
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              300
+            ],
+            "method": "SaveAs3",
+            "arguments": {
+              "path": "<native-source>/D04CircleRadius.SLDPRT",
+              "version": 0,
+              "options": 1
+            },
+            "result": [
+              true,
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              304
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "D04CircleRadius"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              305
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              306
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              307
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "authored": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              -0.0037189999999999996,
+              0.005173
+            ],
+            "radius": 0.007391
+          }
+        ],
+        "extrusion": {
+          "depth": 0.011731,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 2.013220351695231e-06,
+          "area": 0.0008880069902597766,
+          "com": [
+            -0.003718999999999999,
+            0.005173,
+            0.0058655
+          ]
+        },
+        "expected_com": [
+          -0.0037189999999999996,
+          0.005173,
+          0.0058655
+        ],
+        "body_boxes": [
+          [
+            -0.01111,
+            -0.0022180000000000004,
+            0.0,
+            0.0036720000000000004,
+            0.012563999999999999,
+            0.011731
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-03",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 22,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 6,
+      "id": "discovery/D04CircleRadius/verify",
+      "case": "D04CircleRadius",
+      "group": "discovery",
+      "phase": "verify",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Discovery/D04CircleRadius/Verify/Record.json",
+        "bytes": 153708,
+        "sha256": "7ad744ee6d3527ffb87d31b88e6a0b5ed801a28b30a2de1c4e30d91ae555692c"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Discovery/D04CircleRadius/Verify/Job.json",
+        "bytes": 1754,
+        "sha256": "0e0f4f407ce2408748031a9c2254e8b780e855be7dd94ed314f1f3a661bc8aa0"
+      },
+      "started_at": "2026-11-15T20:25:56.256205+00:00",
+      "finished_at": "2026-11-15T20:26:55.071279+00:00",
+      "identity": {
+        "process_id": 10100,
+        "process_creation_filetime": 134392479569129321,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 59.391000000000076,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 2.013220351695231e-06,
+          "expected": 2.013220351695231e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0008880069902597766,
+          "expected": 0.0008880069902597765,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.003718999999999999,
+          "expected": -0.0037189999999999996,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.005173,
+          "expected": 0.005173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0058655,
+          "expected": 0.0058655,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveSketch",
+          "actual": 0.007391,
+          "expected": 0.007391,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.008647469999999999,
+          "expected": 0.008647469999999999,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 2.755897339435601e-06,
+          "expected": 2.7558973394356023e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.001107236787921504,
+          "expected": 0.0011072367879215045,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.0037189999999999996,
+          "expected": -0.0037189999999999996,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.005173,
+          "expected": 0.0051730000000000005,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.005865499999999998,
+          "expected": 0.0058655,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 447,
+        "canonical_raw_calls_sha256": "c8156f111930536b69dc61a1c3715fc4c3e4b27a48fb55529c6951f583e69dc4",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              6
+            ],
+            "method": "OpenDoc6",
+            "arguments": {
+              "path": "<native-source>/D04CircleRadius.SLDPRT",
+              "document_type": 1,
+              "options": 1,
+              "configuration": "",
+              "errors": "out i4",
+              "warnings": "out i4"
+            },
+            "result": [
+              {
+                "returned_object": "CDispatch"
+              },
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              7,
+              230
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              11,
+              234
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              14,
+              237
+            ],
+            "method": "QueryInterface SketchArc",
+            "arguments": {
+              "interface": "SketchArc",
+              "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              47,
+              270
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              64,
+              287
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              228
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.008647469999999999,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              443
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "D04CircleRadius"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              444
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              445
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              446
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "edit": {
+        "name": "D1@CurveSketch",
+        "before": 0.007391,
+        "after": 0.008647469999999999,
+        "setter_status": 0
+      },
+      "source_sha256_after": "59d4dcc62fffa58a41d001e822d9429b73b244b9f23e3affe2c757d227fe3210",
+      "reopened": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              -0.0037189999999999996,
+              0.005173
+            ],
+            "radius": 0.007391
+          }
+        ],
+        "extrusion": {
+          "depth": 0.011731,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 2.013220351695231e-06,
+          "area": 0.0008880069902597766,
+          "com": [
+            -0.003718999999999999,
+            0.005173,
+            0.0058655
+          ]
+        },
+        "expected_com": [
+          -0.0037189999999999996,
+          0.005173,
+          0.0058655
+        ],
+        "body_boxes": [
+          [
+            -0.01111,
+            -0.0022180000000000004,
+            0.0,
+            0.0036720000000000004,
+            0.012563999999999999,
+            0.011731
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-03",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "edited": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              -0.0037189999999999996,
+              0.005173
+            ],
+            "radius": 0.008647469999999999
+          }
+        ],
+        "extrusion": {
+          "depth": 0.011731,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 2.755897339435601e-06,
+          "area": 0.001107236787921504,
+          "com": [
+            -0.0037189999999999996,
+            0.005173,
+            0.005865499999999998
+          ]
+        },
+        "expected_com": [
+          -0.0037189999999999996,
+          0.0051730000000000005,
+          0.0058655
+        ],
+        "body_boxes": [
+          [
+            -0.01236647,
+            -0.0034744699999999995,
+            0.0,
+            0.004928469999999999,
+            0.013820469999999998,
+            0.011731
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-03",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 23,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 7,
+      "id": "discovery/D13Arc180Ccw/author",
+      "case": "D13Arc180Ccw",
+      "group": "discovery",
+      "phase": "author",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Discovery/D13Arc180Ccw/Author/Record.json",
+        "bytes": 115534,
+        "sha256": "9b2fb70d20bfd9b74ba960d6bfc9c098abb8ec8973cd89b0bad907ec38df5f9e"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Discovery/D13Arc180Ccw/Author/Job.json",
+        "bytes": 1191,
+        "sha256": "a2e07176e16e1b9590281f3d74aa71e41d58b8cdae1a0c8dd364241d166a19f3"
+      },
+      "started_at": "2026-11-15T20:26:56.801162+00:00",
+      "finished_at": "2026-11-15T20:27:50.803641+00:00",
+      "identity": {
+        "process_id": 5984,
+        "process_creation_filetime": 134392480172544281,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 55.4369999999999,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "curve-0",
+          "actual": 0.019731000000000002,
+          "expected": 0.019731000000000002,
+          "passed": true
+        },
+        {
+          "name": "depth dimension",
+          "actual": 0.007139,
+          "expected": 0.007139,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007139,
+          "expected": 0.007139,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 4.365715715744759e-06,
+          "expected": 4.365715715744758e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0019473035840912286,
+          "expected": 0.0019473035840912286,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.00850549203314641,
+          "expected": -0.008505492033146407,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.02138573029229738,
+          "expected": 0.021385730292297376,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0035694999999999998,
+          "expected": 0.0035695,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 341,
+        "canonical_raw_calls_sha256": "a398be059da725ccde694d1bd33dbe776ff87d4fbda1dfd069ca3b328c19610b",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              13
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              14
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              16,
+              19
+            ],
+            "method": "set ConstructionGeometry",
+            "arguments": {
+              "value": false
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              21
+            ],
+            "method": "set AddToDB",
+            "arguments": {
+              "value": false
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              22
+            ],
+            "method": "AddToDB",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": false
+          },
+          {
+            "call_indices": [
+              23,
+              107
+            ],
+            "method": "QueryInterface SketchArc",
+            "arguments": {
+              "interface": "SketchArc",
+              "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              24,
+              126
+            ],
+            "method": "QueryInterface SketchLine",
+            "arguments": {
+              "interface": "SketchLine",
+              "iid": "{83A33DC1-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              40
+            ],
+            "method": "AddRadialDimension2",
+            "arguments": {
+              "values": [
+                0.028405700000000002,
+                0.0393693,
+                0.0
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              43
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.019731000000000002,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              48,
+              178
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              85,
+              104
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              86
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveSketch"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              92
+            ],
+            "method": "set Name",
+            "arguments": {
+              "value": "CurveBoss"
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              100
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              161
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              333
+            ],
+            "method": "SaveAs3",
+            "arguments": {
+              "path": "<native-source>/D13Arc180Ccw.SLDPRT",
+              "version": 0,
+              "options": 1
+            },
+            "result": [
+              true,
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              337
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "D13Arc180Ccw"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              338
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              339
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              340
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "authored": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "arc",
+            "center": [
+              -0.005136999999999999,
+              0.013718999999999999
+            ],
+            "radius": 0.019731000000000002,
+            "start": [
+              0.012927307672501831,
+              0.021655822368756378
+            ],
+            "end": [
+              -0.02320130767250183,
+              0.005782177631243619
+            ],
+            "direction": 1
+          },
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.02320130767250183,
+              0.005782177631243619
+            ],
+            "end": [
+              0.012927307672501831,
+              0.021655822368756378
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007139,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 4.365715715744759e-06,
+          "area": 0.0019473035840912286,
+          "com": [
+            -0.00850549203314641,
+            0.02138573029229738,
+            0.0035694999999999998
+          ]
+        },
+        "expected_com": [
+          -0.008505492033146407,
+          0.021385730292297376,
+          0.0035695
+        ],
+        "body_boxes": [
+          [
+            -0.024868,
+            0.005782177631243619,
+            0.0,
+            0.012927307672501831,
+            0.03345,
+            0.007139
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-04",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 22,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 8,
+      "id": "discovery/D13Arc180Ccw/verify",
+      "case": "D13Arc180Ccw",
+      "group": "discovery",
+      "phase": "verify",
+      "raw_record": {
+        "locator": "CurvesPreflight06/Discovery/D13Arc180Ccw/Verify/Record.json",
+        "bytes": 166115,
+        "sha256": "054145db4fcfcc566f4eda678b325d5c90f974baac054131efda12201752b60a"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/Discovery/D13Arc180Ccw/Verify/Job.json",
+        "bytes": 2117,
+        "sha256": "3844c7a562e8fbcf63047e549cbcc950bc2d65fa1ffca4877bb66cb858c88e36"
+      },
+      "started_at": "2026-11-15T20:27:51.627733+00:00",
+      "finished_at": "2026-11-15T20:28:33.053260+00:00",
+      "identity": {
+        "process_id": 8468,
+        "process_creation_filetime": 134392480722804130,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 42.0630000000001,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007139,
+          "expected": 0.007139,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 4.365715715744759e-06,
+          "expected": 4.365715715744758e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0019473035840912286,
+          "expected": 0.0019473035840912286,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.00850549203314641,
+          "expected": -0.008505492033146407,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.02138573029229738,
+          "expected": 0.021385730292297376,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0035694999999999998,
+          "expected": 0.0035695,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveSketch",
+          "actual": 0.019731000000000002,
+          "expected": 0.019731000000000002,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007139,
+          "expected": 0.007139,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.00849541,
+          "expected": 0.00849541,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.00849541,
+          "expected": 0.00849541,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 5.195201701736263e-06,
+          "expected": 5.195201701736262e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0020849097029473954,
+          "expected": 0.0020849097029473954,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.008505492033146407,
+          "expected": -0.008505492033146407,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.021385730292297376,
+          "expected": 0.021385730292297376,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.004247705,
+          "expected": 0.004247705,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 489,
+        "canonical_raw_calls_sha256": "5f569fa41cc7535eb96b9a1a8c3122e9c81876da39973c12e34ce68614afa9db",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              6
+            ],
+            "method": "OpenDoc6",
+            "arguments": {
+              "path": "<native-source>/D13Arc180Ccw.SLDPRT",
+              "document_type": 1,
+              "options": 1,
+              "configuration": "",
+              "errors": "out i4",
+              "warnings": "out i4"
+            },
+            "result": [
+              {
+                "returned_object": "CDispatch"
+              },
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              7,
+              251
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              11,
+              255
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              14,
+              258
+            ],
+            "method": "QueryInterface SketchArc",
+            "arguments": {
+              "interface": "SketchArc",
+              "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              33,
+              277
+            ],
+            "method": "QueryInterface SketchLine",
+            "arguments": {
+              "interface": "SketchLine",
+              "iid": "{83A33DC1-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              68,
+              312
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              85,
+              329
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              249
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.00849541,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              485
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "D13Arc180Ccw"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              486
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              487
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              488
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "edit": {
+        "name": "D1@CurveBoss",
+        "before": 0.007139,
+        "after": 0.00849541,
+        "setter_status": 0
+      },
+      "source_sha256_after": "566f1e9c30da83d4ee5c799484bef542e3cfcdc108af43c7bc2ffdb135d930b9",
+      "reopened": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "arc",
+            "center": [
+              -0.005136999999999999,
+              0.013718999999999999
+            ],
+            "radius": 0.019731000000000002,
+            "start": [
+              0.012927307672501831,
+              0.021655822368756378
+            ],
+            "end": [
+              -0.02320130767250183,
+              0.005782177631243619
+            ],
+            "direction": 1
+          },
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.02320130767250183,
+              0.005782177631243619
+            ],
+            "end": [
+              0.012927307672501831,
+              0.021655822368756378
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007139,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 4.365715715744759e-06,
+          "area": 0.0019473035840912286,
+          "com": [
+            -0.00850549203314641,
+            0.02138573029229738,
+            0.0035694999999999998
+          ]
+        },
+        "expected_com": [
+          -0.008505492033146407,
+          0.021385730292297376,
+          0.0035695
+        ],
+        "body_boxes": [
+          [
+            -0.024868,
+            0.005782177631243619,
+            0.0,
+            0.012927307672501831,
+            0.03345,
+            0.007139
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-04",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "edited": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "arc",
+            "center": [
+              -0.005136999999999999,
+              0.013718999999999999
+            ],
+            "radius": 0.019731000000000002,
+            "start": [
+              0.012927307672501831,
+              0.021655822368756378
+            ],
+            "end": [
+              -0.02320130767250183,
+              0.005782177631243619
+            ],
+            "direction": 1
+          },
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.02320130767250183,
+              0.005782177631243619
+            ],
+            "end": [
+              0.012927307672501831,
+              0.021655822368756378
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.00849541,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 5.195201701736263e-06,
+          "area": 0.0020849097029473954,
+          "com": [
+            -0.008505492033146407,
+            0.021385730292297376,
+            0.004247705
+          ]
+        },
+        "expected_com": [
+          -0.008505492033146407,
+          0.021385730292297376,
+          0.004247705
+        ],
+        "body_boxes": [
+          [
+            -0.024868,
+            0.005782177631243619,
+            0.0,
+            0.012927307672501831,
+            0.03345,
+            0.00849541
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-04",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 23,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 9,
+      "id": "controls_after/ControlRectangle/verify",
+      "case": "ControlRectangle",
+      "group": "controls_after",
+      "phase": "verify",
+      "raw_record": {
+        "locator": "CurvesPreflight06/ControlsAfter/ControlRectangle/Record.json",
+        "bytes": 181377,
+        "sha256": "d30242d39ace7dc2d0be9c90c32fa7870179af53dff903aa8b324acbe62824a9"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/ControlsAfter/ControlRectangle/Job.json",
+        "bytes": 1511,
+        "sha256": "9ae7455b06ff3a2345f89dd44a8ae40965432df57bfa5f8f5e4a2583ed443ad7"
+      },
+      "started_at": "2026-11-15T20:28:33.594787+00:00",
+      "finished_at": "2026-11-15T20:29:13.258152+00:00",
+      "identity": {
+        "process_id": 10744,
+        "process_creation_filetime": 134392481139656532,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 40.016000000000076,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.982056093639e-06,
+          "expected": 3.982056093639e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0017553576619999999,
+          "expected": 0.0017553576620000003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011172999999999999,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 4.26080002019373e-06,
+          "expected": 4.26080002019373e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0018059537079199999,
+          "expected": 0.0018059537079200003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011173,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.004126455,
+          "expected": 0.004126455,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 539,
+        "canonical_raw_calls_sha256": "f35d287c512c1255f318d6fc46b228635dae30f4ad1819b9bc72e62b944407fd",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              6
+            ],
+            "method": "OpenDoc6",
+            "arguments": {
+              "path": "<native-source>/ControlRectangle.SLDPRT",
+              "document_type": 1,
+              "options": 1,
+              "configuration": "",
+              "errors": "out i4",
+              "warnings": "out i4"
+            },
+            "result": [
+              {
+                "returned_object": "CDispatch"
+              },
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              7,
+              274
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              11,
+              278
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              14,
+              26,
+              38,
+              50,
+              281,
+              293,
+              305,
+              317
+            ],
+            "method": "QueryInterface SketchLine",
+            "arguments": {
+              "interface": "SketchLine",
+              "iid": "{83A33DC1-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              95,
+              362
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              112,
+              379
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              272
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.00825291,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              535
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "ControlRectangle"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              536
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              537
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              538
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "edit": {
+        "name": "D1@CurveBoss",
+        "before": 0.007713,
+        "after": 0.00825291,
+        "setter_status": 0
+      },
+      "source_sha256_after": "9f62e42b07fea041bfa54571aee8d4315fbd1941084b593a20c3398422749900",
+      "reopened": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              1,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0023134999999999996
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              2,
+              2
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              -0.0219595,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              3,
+              3
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0200325
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              4,
+              4
+            ],
+            "kind": "line",
+            "start": [
+              0.0071775,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.982056093639e-06,
+          "area": 0.0017553576619999999,
+          "com": [
+            -0.007391,
+            0.011172999999999999,
+            0.0038565
+          ]
+        },
+        "expected_com": [
+          -0.007391,
+          0.011173,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.0219595,
+            0.0023134999999999996,
+            0.0,
+            0.0071775,
+            0.0200325,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-01",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "edited": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              1,
+              1
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0023134999999999996
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              2,
+              2
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0023134999999999996
+            ],
+            "end": [
+              -0.0219595,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              3,
+              3
+            ],
+            "kind": "line",
+            "start": [
+              -0.0219595,
+              0.0200325
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          },
+          {
+            "construction": false,
+            "id": [
+              4,
+              4
+            ],
+            "kind": "line",
+            "start": [
+              0.0071775,
+              0.0023134999999999996
+            ],
+            "end": [
+              0.0071775,
+              0.0200325
+            ]
+          }
+        ],
+        "extrusion": {
+          "depth": 0.00825291,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 4.26080002019373e-06,
+          "area": 0.0018059537079199999,
+          "com": [
+            -0.007391,
+            0.011173,
+            0.004126455
+          ]
+        },
+        "expected_com": [
+          -0.007391,
+          0.011173,
+          0.004126455
+        ],
+        "body_boxes": [
+          [
+            -0.0219595,
+            0.0023134999999999996,
+            0.0,
+            0.0071775,
+            0.0200325,
+            0.00825291
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-01",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 23,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    },
+    {
+      "sequence": 10,
+      "id": "controls_after/ControlCircle/verify",
+      "case": "ControlCircle",
+      "group": "controls_after",
+      "phase": "verify",
+      "raw_record": {
+        "locator": "CurvesPreflight06/ControlsAfter/ControlCircle/Record.json",
+        "bytes": 151967,
+        "sha256": "94bf059992795c74ae18bdbbaf1a12ba8d99d502cbf0efd5a9dbe916efd0eaaf"
+      },
+      "raw_job": {
+        "locator": "CurvesPreflight06/ControlsAfter/ControlCircle/Job.json",
+        "bytes": 1786,
+        "sha256": "62ee52ae3a1f98267dd168a482341b76b91f2dc9f5d59b8a0afc56c806141fc2"
+      },
+      "started_at": "2026-11-15T20:29:13.743466+00:00",
+      "finished_at": "2026-11-15T20:29:49.168873+00:00",
+      "identity": {
+        "process_id": 1516,
+        "process_creation_filetime": 134392481540886962,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "com_type_library": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "passed": true,
+      "work_completed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "worker_exit_code": 0,
+      "worker_timed_out": false,
+      "worker_seconds": 35.922000000000025,
+      "input_dimension_preference": {
+        "before": false,
+        "restored": true
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.024912395655374e-06,
+          "expected": 3.0249123956553754e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013258355279494012,
+          "expected": 0.0013258355279494017,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.0051389999999999995,
+          "expected": -0.0051389999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.003856500000000001,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveSketch",
+          "actual": 0.022345999999999998,
+          "expected": 0.022346,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.024804060000000003,
+          "expected": 0.024804060000000003,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.726994562686987e-06,
+          "expected": 3.7269945626869886e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.001567448680289237,
+          "expected": 0.0015674486802892376,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.005139,
+          "expected": -0.005139,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565000000000006,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "api_evidence": {
+        "raw_call_count": 447,
+        "canonical_raw_calls_sha256": "55181a8269ccd5093f2caf9ff2f6619be769c3a86bdf38e1f00f8436b963c48c",
+        "indices": "zero-based indices in the unredacted raw api_calls array",
+        "selected_calls": [
+          {
+            "call_indices": [
+              3
+            ],
+            "method": "SetUserPreferenceToggle",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              4
+            ],
+            "method": "read disabled input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              5
+            ],
+            "method": "load 2026 type library",
+            "arguments": {
+              "library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+              "lcid": 0,
+              "major": 34,
+              "minor": 0,
+              "demand": false
+            },
+            "keyword_arguments": {
+              "bForDemand": false
+            },
+            "result": {
+              "returned_object": "module"
+            }
+          },
+          {
+            "call_indices": [
+              6
+            ],
+            "method": "OpenDoc6",
+            "arguments": {
+              "path": "<native-source>/ControlCircle.SLDPRT",
+              "document_type": 1,
+              "options": 1,
+              "configuration": "",
+              "errors": "out i4",
+              "warnings": "out i4"
+            },
+            "result": [
+              {
+                "returned_object": "CDispatch"
+              },
+              0,
+              0
+            ]
+          },
+          {
+            "call_indices": [
+              7,
+              230
+            ],
+            "method": "ForceRebuild3",
+            "arguments": {
+              "values": [
+                false
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": true
+          },
+          {
+            "call_indices": [
+              11,
+              234
+            ],
+            "method": "GetSpecificFeature2",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              14,
+              237
+            ],
+            "method": "QueryInterface SketchArc",
+            "arguments": {
+              "interface": "SketchArc",
+              "iid": "{83A33DC3-27C5-11CE-BFD4-00400513BB57}",
+              "binding": "explicit registered 2026 type library"
+            },
+            "result": {
+              "returned_object": "PyIDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              47,
+              270
+            ],
+            "method": "set UseSystemUnits",
+            "arguments": {
+              "value": true
+            },
+            "result": null
+          },
+          {
+            "call_indices": [
+              64,
+              287
+            ],
+            "method": "FirstFeature",
+            "arguments": {
+              "values": [],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "property-or-zero-argument-method"
+            },
+            "result": {
+              "returned_object": "CDispatch"
+            }
+          },
+          {
+            "call_indices": [
+              228
+            ],
+            "method": "SetSystemValue3",
+            "arguments": {
+              "values": [
+                0.024804060000000003,
+                1,
+                {
+                  "returned_object": "VARIANT"
+                }
+              ],
+              "dispatch_class": "win32com.client.dynamic.CDispatch",
+              "binding": "untyped-method"
+            },
+            "result": 0
+          },
+          {
+            "call_indices": [
+              443
+            ],
+            "method": "CloseDoc without saving edits",
+            "arguments": [
+              "ControlCircle"
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              444
+            ],
+            "method": "restore input dimension preference",
+            "arguments": [
+              10,
+              false
+            ],
+            "result": null
+          },
+          {
+            "call_indices": [
+              445
+            ],
+            "method": "read restored input dimension preference",
+            "arguments": [
+              10
+            ],
+            "result": false
+          },
+          {
+            "call_indices": [
+              446
+            ],
+            "method": "ExitApp",
+            "arguments": [],
+            "result": null
+          }
+        ]
+      },
+      "edit": {
+        "name": "D1@CurveSketch",
+        "before": 0.022346,
+        "after": 0.024804060000000003,
+        "setter_status": 0
+      },
+      "source_sha256_after": "d4e3f2adb81d7310b85bb5dbc8fce964e7bf9fbf2f46154e2a9a83d88b8bfb71",
+      "reopened": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              0.0039169999999999995,
+              -0.005139
+            ],
+            "radius": 0.011172999999999999
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.024912395655374e-06,
+          "area": 0.0013258355279494012,
+          "com": [
+            0.0039169999999999995,
+            -0.0051389999999999995,
+            0.003856500000000001
+          ]
+        },
+        "expected_com": [
+          0.0039169999999999995,
+          -0.0051389999999999995,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.007255999999999999,
+            -0.016312,
+            0.0,
+            0.01509,
+            0.0060339999999999986,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-02",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "edited": {
+        "geometry": [
+          {
+            "construction": false,
+            "id": [
+              0,
+              1
+            ],
+            "kind": "circle",
+            "center": [
+              0.0039169999999999995,
+              -0.005139
+            ],
+            "radius": 0.01240203
+          }
+        ],
+        "extrusion": {
+          "depth": 0.007713,
+          "end": 0,
+          "both_directions": false,
+          "reverse": false
+        },
+        "bodies": 1,
+        "mass": {
+          "volume": 3.726994562686987e-06,
+          "area": 0.001567448680289237,
+          "com": [
+            0.0039169999999999995,
+            -0.005139,
+            0.0038565000000000006
+          ]
+        },
+        "expected_com": [
+          0.0039169999999999995,
+          -0.005139,
+          0.0038565
+        ],
+        "body_boxes": [
+          [
+            -0.008485030000000001,
+            -0.01754103,
+            0.0,
+            0.016319029999999998,
+            0.007263029999999999,
+            0.007713
+          ]
+        ],
+        "feature_tree_ref": "features-01",
+        "relations_ref": "relations-02",
+        "feature_error_count": 0,
+        "feature_warning_count": 0
+      },
+      "raw_payload_comparison": {
+        "raw_keys_compared": 23,
+        "different_keys": [],
+        "embedded_parent_fields": []
+      }
+    }
+  ],
+  "feature_trees": {
+    "features-01": {
+      "canonical_sha256": "03c56c919c7d8e9e3c1c8039fe0c1a2624d464a50684dee7a4e57b4698ef36ce",
+      "records": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Ambient",
+          "type": "AmbientLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional1",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional2",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional3",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ]
+    }
+  },
+  "relation_sets": {
+    "relations-01": {
+      "canonical_sha256": "6aca1457158b27ad1d8e2c1b34d2758f6839295b04c2e7d7a9ff3e42a068d32b",
+      "records": [
+        {
+          "type": 5,
+          "entities": 1,
+          "entity_ids": [
+            [
+              2,
+              2
+            ]
+          ],
+          "suppressed": false
+        },
+        {
+          "type": 4,
+          "entities": 1,
+          "entity_ids": [
+            [
+              1,
+              1
+            ]
+          ],
+          "suppressed": false
+        },
+        {
+          "type": 5,
+          "entities": 1,
+          "entity_ids": [
+            [
+              4,
+              4
+            ]
+          ],
+          "suppressed": false
+        },
+        {
+          "type": 4,
+          "entities": 1,
+          "entity_ids": [
+            [
+              3,
+              3
+            ]
+          ],
+          "suppressed": false
+        }
+      ]
+    },
+    "relations-02": {
+      "canonical_sha256": "8cf830648015cd44f557f10c84ebf1900d3e53a8bdc16b228d8bec1c2643f368",
+      "records": [
+        {
+          "type": 17,
+          "entities": 1,
+          "entity_ids": [
+            [
+              0,
+              2
+            ]
+          ],
+          "suppressed": false
+        },
+        {
+          "type": 15,
+          "entities": 1,
+          "entity_ids": [
+            [
+              0,
+              1
+            ]
+          ],
+          "suppressed": false
+        }
+      ]
+    },
+    "relations-03": {
+      "canonical_sha256": "3e9f59b21989bb21f338013fff8d74df7b54480a202f552009ed7f2e6d06804f",
+      "records": [
+        {
+          "type": 17,
+          "entities": 1,
+          "entity_ids": [
+            [
+              0,
+              2
+            ]
+          ],
+          "suppressed": false
+        },
+        {
+          "type": 3,
+          "entities": 1,
+          "entity_ids": [
+            [
+              0,
+              1
+            ]
+          ],
+          "suppressed": false
+        }
+      ]
+    },
+    "relations-04": {
+      "canonical_sha256": "3f59fbfa681993777b621b22093c5bb414f2a48f1e2b6b774896711bd981cee5",
+      "records": [
+        {
+          "type": 17,
+          "entities": 1,
+          "entity_ids": [
+            [
+              0,
+              3
+            ]
+          ],
+          "suppressed": false
+        },
+        {
+          "type": 3,
+          "entities": 1,
+          "entity_ids": [
+            [
+              0,
+              1
+            ]
+          ],
+          "suppressed": false
+        }
+      ]
+    }
+  },
+  "prior_harness_attempts": [
+    {
+      "batch": {
+        "locator": "CurvesPreflight03/Batch.json",
+        "bytes": 28436,
+        "sha256": "16972a05a26d3bfd8b84b4001ee2f892f46fe8b7fae8c3e8f431ca9263ab398a"
+      },
+      "generator_revision": "b9a599fdc95f8f8aa6534343568ba6c9ca11bb49",
+      "author_script_sha256": "ff43a80d935a8290e372e259fedac073d8c1f99d58012b8e4f0f1701b19de527",
+      "classification": "harness failure; does not establish unsupported native CAD capability",
+      "cause": "automatic child type-library discovery failed before an explicit interface binding",
+      "controls": [
+        {
+          "case": "ControlRectangle",
+          "stage": "QueryInterface SketchLine",
+          "type": "TypeError",
+          "error": "TypeError('This COM object can not automate the makepy process - please run makepy manually for this object')",
+          "pending_capability_recorded": false,
+          "passed": false,
+          "cleanup_errors": []
+        },
+        {
+          "case": "ControlCircle",
+          "stage": "QueryInterface SketchArc",
+          "type": "TypeError",
+          "error": "TypeError('This COM object can not automate the makepy process - please run makepy manually for this object')",
+          "pending_capability_recorded": false,
+          "passed": false,
+          "cleanup_errors": []
+        }
+      ]
+    },
+    {
+      "batch": {
+        "locator": "CurvesPreflight04/Batch.json",
+        "bytes": 31295,
+        "sha256": "035916d8a2988d4008a0d3f11796ed24d3e1040e1189a241a1b1d220c559bb4e"
+      },
+      "generator_revision": "7cdb698dc71c266d5f82459f6ee2dbe368805acb",
+      "author_script_sha256": "e626e3e450d630d6ffa70a5ed43cdd8fc9dec354ecd3112a6eb2013ae2f9b396",
+      "classification": "harness failure; does not establish unsupported native CAD capability",
+      "cause": "a generated wrapper received a dynamic wrapper instead of a raw dispatch pointer",
+      "controls": [
+        {
+          "case": "ControlRectangle",
+          "stage": "set Name",
+          "type": "AttributeError",
+          "error": "AttributeError('<unknown>.Invoke')",
+          "pending_capability_recorded": true,
+          "passed": false,
+          "cleanup_errors": []
+        },
+        {
+          "case": "ControlCircle",
+          "stage": "GetCenterPoint2",
+          "type": "AttributeError",
+          "error": "AttributeError('<unknown>.InvokeTypes')",
+          "pending_capability_recorded": true,
+          "passed": false,
+          "cleanup_errors": []
+        }
+      ]
+    },
+    {
+      "batch": {
+        "locator": "CurvesPreflight05/Batch.json",
+        "bytes": 38605,
+        "sha256": "e2960255f7f5329f17bd08231e7303f956cfe6802fdf93d95aa9b933ca3604cc"
+      },
+      "generator_revision": "f0d827e95e4ec72a8b023a6d71697771dc0f9ce9",
+      "author_script_sha256": "e8c70ec8f847a5c281be08c9dc29290b48a5363bd52b603f4118203ca0f6aa63",
+      "classification": "harness failure; does not establish unsupported native CAD capability",
+      "cause": "the queried sketch dispatch accepted IFeature but rejected the Name property setter",
+      "controls": [
+        {
+          "case": "ControlRectangle",
+          "stage": "set Name",
+          "type": "com_error",
+          "error": "com_error(-2147352567, 'Exception occurred.', (61837, 'SOLIDWORKS Design', 'Unable to write read-only property.', '<vendor-help>/sldworks.chm', 455053, 0), None)",
+          "pending_capability_recorded": false,
+          "passed": false,
+          "cleanup_errors": []
+        },
+        {
+          "case": "ControlCircle",
+          "stage": "set Name",
+          "type": "com_error",
+          "error": "com_error(-2147352567, 'Exception occurred.', (61837, 'SOLIDWORKS Design', 'Unable to write read-only property.', '<vendor-help>/sldworks.chm', 455053, 0), None)",
+          "pending_capability_recorded": false,
+          "passed": false,
+          "cleanup_errors": []
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "The documents were authored and saved by SOLIDWORKS through its API, not emitted by Kit.",
+    "The selected run generated controls and two discovery cases only; no held-out native source inputs or complete family lock were produced.",
+    "Source authoring, fresh reopening, rebuild and dimension-edit success do not establish curve writer acceptance.",
+    "Source-file hashes are reported from recorded metadata; the publisher did not open or hash a native CAD file.",
+    "Native entity IDs remain scoped by geometry kind; equal ID pairs in separate line and arc arrays were not merged.",
+    "The original phase JSON retains the complete API trace outside the repository; only selected setter, binding, rebuild, open/save and cleanup evidence is included here.",
+    "D13Arc180Ccw was edited through extrusion depth; an arc-radius edit was not measured in this selected run."
+  ],
+  "units": {
+    "neutral_spec_lengths": "mm",
+    "neutral_spec_angles": "degrees",
+    "native_geometry_dimensions_and_edits": "m for this linear/radial subset",
+    "mass.volume": "m^3",
+    "mass.area": "m^2",
+    "mass.com": "m",
+    "body_boxes": "m"
+  }
+}

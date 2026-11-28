@@ -1,0 +1,155 @@
+{
+  "builds": {
+    "recipe-0.21.2-F14a": {
+      "bytes": 10076,
+      "input_strict_sha256": "34ef4bca7065f835079d90929929f9770f9c7e97f47f8ac1df35067aa9826711",
+      "normal_sdk_readback": {
+        "archive_mass_code": 1,
+        "archive_system_code": 4,
+        "body_name": "Body",
+        "density_has_length_owner": false,
+        "dimensions_mm": {
+          "Height": 10.0,
+          "Length": 20.0,
+          "Width": 30.0
+        },
+        "exact_linked_streams": 2,
+        "literal_file_properties": 13
+      },
+      "output_sha256": "6cf763971a9d8afe8b0385da387b92ad570ba48961fef70c8a8ecf0d6ef7b450",
+      "source_cache_independence_passed": true,
+      "source_sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d"
+    },
+    "recipe-1.0.2-F14a": {
+      "bytes": 10337,
+      "input_strict_sha256": "2a3bf28ed6ab0b9037b5e3fe531786a270f56950b449fb8c74308bb2ba74498d",
+      "normal_sdk_readback": {
+        "archive_mass_code": 2,
+        "archive_system_code": 3,
+        "body_name": "Body",
+        "density_has_length_owner": true,
+        "dimensions_mm": {
+          "Height": 10.0,
+          "Length": 20.0,
+          "Width": 30.0
+        },
+        "exact_linked_streams": 2,
+        "literal_file_properties": 19
+      },
+      "output_sha256": "13608463d0c389e53f4a78ccd7d8768e34080f497d81ac34a1fc35bc1b97b95f",
+      "source_cache_independence_passed": true,
+      "source_sha256": "2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df"
+    },
+    "recipe-1.1.4-F14a": {
+      "bytes": 10455,
+      "input_strict_sha256": "b908d7b567d3230099fdb93da624fa77657868be84e53e61906d2c1396502a3c",
+      "normal_sdk_readback": {
+        "archive_mass_code": 2,
+        "archive_system_code": 3,
+        "body_name": "Body",
+        "density_has_length_owner": true,
+        "dimensions_mm": {
+          "Height": 10.0,
+          "Length": 20.0,
+          "Width": 30.0
+        },
+        "exact_linked_streams": 2,
+        "literal_file_properties": 22
+      },
+      "output_sha256": "51f6e11f730f85035c840bc03925a7b7b452db15b5fa00bddfb3683163c36b1d",
+      "source_cache_independence_passed": true,
+      "source_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8"
+    }
+  },
+  "complete_original_corpus_conversions": 0,
+  "files_sha256": {
+    "re/tooling/sw2026/AuditFreecadBoxReleases.py": "0dea936c8bd9ed72bf81d7d7648057ee01b004bc079b00992b459e41fee30e94",
+    "re/tooling/sw2026/FreecadBoxRelease.py": "92660787b08539c318074da3386204209e94187a1e45931069d10d3943246b22",
+    "re/tooling/sw2026/ProjectFreecadBox.py": "c63af62caf80c12a99154636d2b45ea1c76d18ea7780c6a9fa6fccc4915f9b93",
+    "re/tooling/sw2026/SdkFreecadBoxProcess.py": "c281cf622497ac20d341daa6a36f1cb752d989a247ce948110357bba2bd08986",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/MakeOriginBoxPart.py": "e577f676ccddaa42936d4bf061766737e99030cd35c70652ab49a9ecc2ab9b5c"
+  },
+  "guarded_processes": 19,
+  "heldout_inputs_read": 0,
+  "legacy_processes": 9,
+  "newer_release_native_qualification_pending": true,
+  "passed": true,
+  "raw_sha256": {
+    "guarded_replay": "9999d1eb5c187abdfb2ba4b1ec7626dd2b481bb71e4060ed478e418cb89b0694",
+    "legacy_guarded_replay": "08579cba8fe2e2243a3abf1949a77db2a5e670aa048e24f3801e2ba37e28b213",
+    "source_manifest": "e2053d84764ed9b65fc4bfe62f98b08c4d33bb57f096f3a4e9265e802e9288fa",
+    "source_observation": "0168290e4c7fe6bdba837ff27fe0d42b194927e76e00544cac9c2830f9246e53"
+  },
+  "refusals": {
+    "nonorigin-point": {
+      "diagnostic": "ValueError: FreeCAD Placement requires explicit support placement",
+      "rejected": true,
+      "request_sha256": "f9c8329d5ade12841cdc4a470929c4d61a647f96c3012c7bb3eb9e3f9dc9818d"
+    },
+    "populated-string-map": {
+      "diagnostic": "ValueError: FreeCAD document has a populated string map",
+      "rejected": true,
+      "request_sha256": "13decb65bae4c33edc9916bebadbbb9d149f76e0a7e02c2ee07b00da045c5b87"
+    },
+    "recipe-0.21.2-F14b": {
+      "diagnostic": "ValueError: FreeCAD primitive includes another authored model domain",
+      "rejected": true,
+      "request_sha256": "37f8c55178ef10cc0905050b3edb014e0eba7d5ec54074cbb493dac0c43f17c7"
+    },
+    "recipe-0.21.2-F14c": {
+      "diagnostic": "ValueError: FreeCAD primitive uses another attachment engine or owner",
+      "rejected": true,
+      "request_sha256": "bfc2aebf050999e5d8eefa0b2d10196af09ed982de6b94c0e2be1f5b9ff54854"
+    },
+    "recipe-0.21.2-F14d": {
+      "diagnostic": "ValueError: FreeCAD primitive includes another authored model domain",
+      "rejected": true,
+      "request_sha256": "b36fcb1658aa693dd837e6199cab37fa1efa9a7de3aa0d00ef4a5469a4863fac"
+    },
+    "recipe-1.0.2-F14b": {
+      "diagnostic": "ValueError: FreeCAD primitive includes another authored model domain",
+      "rejected": true,
+      "request_sha256": "a65a209eb7c6a2fa647c56fdc1269030ade216057e1ef973a1000bc35bef3d9c"
+    },
+    "recipe-1.0.2-F14c": {
+      "diagnostic": "ValueError: FreeCAD primitive uses another attachment engine or owner",
+      "rejected": true,
+      "request_sha256": "3a241aefd40124fed9d414a5ca7fbebb87c863b9e6a9a8e8fd3502743432c978"
+    },
+    "recipe-1.0.2-F14d": {
+      "diagnostic": "ValueError: FreeCAD primitive includes another authored model domain",
+      "rejected": true,
+      "request_sha256": "490d3b5ec25017f251c098ab40562946a15604cb43caca2b8efb7024c26c6eb6"
+    },
+    "recipe-1.1.4-F14b": {
+      "diagnostic": "ValueError: FreeCAD primitive includes another authored model domain",
+      "rejected": true,
+      "request_sha256": "03eadacff984828505145b944f931cb5f5cb55e608946a5ef8e99ab32bc82339"
+    },
+    "recipe-1.1.4-F14c": {
+      "diagnostic": "ValueError: FreeCAD primitive uses another attachment engine or owner",
+      "rejected": true,
+      "request_sha256": "157d2fbe911c585748a214ca0b0aa344b8ceef69dd1ac6111ebc837a9068f38c"
+    },
+    "recipe-1.1.4-F14d": {
+      "diagnostic": "ValueError: FreeCAD primitive includes another authored model domain",
+      "rejected": true,
+      "request_sha256": "83fdf667b5d0d41397dbde4958ae656b37cda4158d9a3d949f0076a3a68559cf"
+    },
+    "unknown-material": {
+      "diagnostic": "ValueError: FreeCAD box uses an unqualified material assignment",
+      "rejected": true,
+      "request_sha256": "853cbe77d25554afc4bbfb3cec40ee4b9e11f3f01a57d87e95e630d486dd0741"
+    },
+    "unsupported-units": {
+      "diagnostic": "ValueError: FreeCAD box has an unqualified document unit or string hasher mode",
+      "rejected": true,
+      "request_sha256": "f6e0195d8683cbeff185ba446946987c9ec66a828c810f4903e1c270b992dd0a"
+    }
+  },
+  "schema": "kit.sw2026.freecad-origin-box-release-receipt.v1",
+  "source_material_native_assignment_qualified": false,
+  "source_material_uuid_written_as_literal_identity": true,
+  "strict_source_documents": 12,
+  "task": "B04-SW2026-FCSTD-BOX"
+}

@@ -1,0 +1,76 @@
+{
+  "exact_native_tested_output": {
+    "bytes": 9157,
+    "config_map_counter": 163,
+    "published_routes": 7,
+    "refusals": {
+      "changed_receipt": [
+        "authenticated width-depth report",
+        "authenticated width-depth report"
+      ],
+      "different_epoch": [
+        "differs from the measured width-depth output",
+        "differs from the measured width-depth output"
+      ],
+      "different_locator": [
+        "differs from the measured width-depth output",
+        "differs from the measured width-depth output"
+      ],
+      "different_width": [
+        "differs from the measured width-depth output",
+        "differs from the measured width-depth output"
+      ],
+      "height_dependency": [
+        "does not support the destination",
+        "reference the actual width"
+      ],
+      "missing_coincidence": [
+        "does not support the destination",
+        "active origin coincidence"
+      ],
+      "missing_receipt": [
+        "offline native measurement receipt",
+        "offline native measurement receipt"
+      ],
+      "stale_readback": [
+        "cold readback differs from its regenerated part",
+        "cold readback differs from its regenerated part"
+      ],
+      "unavailable_configuration": [
+        "requested write configuration is unavailable",
+        "requested write configuration is unavailable"
+      ],
+      "unmodeled_metadata": [
+        "does not support the destination",
+        "unprojected document metadata"
+      ],
+      "wrong_corner": [
+        "does not support the destination",
+        "actual starting corner"
+      ]
+    },
+    "resolved_map_counter": 256,
+    "runtime_reads": 0,
+    "sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+    "stream_sha256": {
+      "Contents/CMgr": "8e19dc894eca73aa1b68185608d6b785271812345bbaa19022567206bd9692af",
+      "Contents/CMgrHdr2": "4088c3b2b78efaa33d93da967797d2ac19d859070b739734062d47d8ee1ce355",
+      "Contents/Config-0": "a6f986c4e8a09533e36dd4b255e78bf14ece4aaf51ab80efef9b4502dfcb7483",
+      "Contents/Config-0-ModelHeader": "08f89b3839f3ecdfc649e62ced641386c57381b52233b00169023c297cad3562",
+      "Contents/Config-0-ResolvedFeatures": "af872eafdb9d1f91105415fcf1ededed573d0297bce10290f949e352327f6609",
+      "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+      "Header2": "1d6e112f85afd23b36234b3e90b868822ee05f16156b752bc89dfb3fd46292c6",
+      "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+      "_MO_VERSION_19000/History": "7420105d3cc2bba8fb54aac63795fe4d938853c8e2781d21c5301a4ee02d181e",
+      "swXmlContents/KeyWords": "59dce410a9f90637ecba5ffdef5dc1808632013e9a042ec783780161a76fc842"
+    }
+  },
+  "heldout_inputs_read": 0,
+  "isolated_worker_processes": 2,
+  "method_sha256": "fd4addfc9f38d6065f813e1f58310e645b2651c8e1d8702d8d4c33ec5f36863e",
+  "native_processes_started": 0,
+  "native_result_sha256": "b544ff3d3668f7dc9815bd862b6d1f067174503cd310e4a7cff56ce8d8458ba2",
+  "neutral_input_sha256": "90d9d22d737bd8d313a68d10eef1e3cb730bdae81c973a3656b591d627ad786b",
+  "release_receipt_sha256": "f40bc2433d54bcb8c3ae5165b3a3965ebae4876c71cf52293ad4a045af85b420",
+  "schema": "kit.sw2026.public-width-depth-writer.v2"
+}

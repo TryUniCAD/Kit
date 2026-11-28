@@ -1,0 +1,219 @@
+{
+  "cases": {
+    "Baked01": {
+      "alternate_part": {
+        "bytes": 9910,
+        "sha256": "f1e289f32963ddb4ac65cbbf686d0f75a09042b409f9b15cb70610524c700198"
+      },
+      "baseline_kernel": {
+        "bytes": 3759,
+        "sha256": "b0099b39fa260e3242730291eda476e29cfe1a800c776d065bf7e87ec4fd1d86"
+      },
+      "baseline_part": {
+        "bytes": 9907,
+        "sha256": "69e88bf6e2db2d481cd978de808db1332239a201ca634d144f0e1ac039a3505e"
+      },
+      "kernel": {
+        "bytes": 3759,
+        "sha256": "3465ed369c63e20b87d811605e6ca9563ad88499073398f625139fb015b22849"
+      },
+      "part": {
+        "bytes": 9910,
+        "sha256": "5b4100d6c7f9b2e172337ced9c6c1d882dcac505ee8577414e8258c6028c9e83"
+      },
+      "refusals": {
+        "attributed": "local tolerances require an ordinary rectangular solid",
+        "nonuniform": "local box tolerances must agree across all owners",
+        "public_selection": "local prism does not admit local tolerances or degenerate edges",
+        "unowned": "local box tolerance must encode a positive finite length"
+      },
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 1736,
+          "sha256": "0cba12a8207c1ca6dc72dc5006bd8e8e028f553aed9226ede73fdc08ae6a2fcd"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a616440ae348584e9bc762a37776cd3a353c4def4d9015cc78db66083e80bd5e"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3"
+        },
+        "Contents/Config-0": {
+          "bytes": 22690,
+          "sha256": "674d843fac3e19323158217bba51096f695e488055cb3f6f94bde5772ad2dbe8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 773,
+          "sha256": "3e96febb67a40e76e2007fe638b1d62190863c96691fda57b139fe4d8712f5f6"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "f56bdc39655ceebd2a8b77a4747d4cd1e1d55d212eab37d5fbb6fe68404299be"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 773,
+          "sha256": "a54e99fa6f33cd6f3cc4232437f428cda0ff3785bd166da6b74bf13eee033885"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1301,
+          "sha256": "946286c593a043c8563f5bf552dd2789d23019b714f83accc9abd725c120b515"
+        }
+      },
+      "tolerance_m": 9.999999999999999e-11
+    },
+    "Baked02": {
+      "alternate_part": {
+        "bytes": 9895,
+        "sha256": "2f8129626885f4a728e8a0825326d8d2289e2700e9df5236c7edd3e2b92d5c69"
+      },
+      "baseline_kernel": {
+        "bytes": 3759,
+        "sha256": "dd8c56e337e1a1a5da3ddf7d2aa50d672a4ff9d9b84d2451dcb167e2dcef0c41"
+      },
+      "baseline_part": {
+        "bytes": 9891,
+        "sha256": "f261831312f4b400e171cea4aa5775836757b1813d65b94f5a1cf90c47b77ea6"
+      },
+      "kernel": {
+        "bytes": 3759,
+        "sha256": "a39b754ac777b921188a5477a6d6174b8b58eb848860c2e68ca59c90bbfceac8"
+      },
+      "part": {
+        "bytes": 9895,
+        "sha256": "448f35575f79d58e3154eba0f54d2eb151a2c6c2b0b23d1feb1126c6fffa8efc"
+      },
+      "refusals": {
+        "attributed": "local tolerances require an ordinary rectangular solid",
+        "nonuniform": "local box tolerances must agree across all owners",
+        "public_selection": "local prism does not admit local tolerances or degenerate edges",
+        "unowned": "local box tolerance must encode a positive finite length"
+      },
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 1718,
+          "sha256": "ccf01ccc1e7c6b2f668f2c9fcd04a9b582eb04bdb2152bf3571576ac60d7acc5"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a616440ae348584e9bc762a37776cd3a353c4def4d9015cc78db66083e80bd5e"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3"
+        },
+        "Contents/Config-0": {
+          "bytes": 22690,
+          "sha256": "eee28f1166cc6df8dc9ec2713c2fcdcecd0ee90eceacab7275f852e781ab8974"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 773,
+          "sha256": "59040d99f9e9a27ba1b192f8fd5357067b2387200ee1d682109f1a31e78959e7"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "97f2e025b83411ca5c51581cfbcd3b7dbe67f5a3ff936bbbc6143e5e1d8fea5f"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 773,
+          "sha256": "1f5db44f9b9424c1ae3ae698fef30d279f276d9f17d4cb3cffb6a351032241c8"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1301,
+          "sha256": "5ee722c1d60c82ccccc53ef2a2989c28aa3a6526e5ed71921e5127f0d26ba12c"
+        }
+      },
+      "tolerance_m": 9.999999999999999e-11
+    }
+  },
+  "guarded_saved_reader": {
+    "cases": {
+      "Baked01": {
+        "archive": {
+          "bytes": 51451,
+          "sha256": "80287ebe9365f4f318019c8df224e1d47a4f969128dd09fee8b4c455781ff323"
+        },
+        "body": "Disclosed Baked A",
+        "face_tolerance_mm": 9.999999999999998e-08,
+        "final_feature_id": "sldprt:feature:18",
+        "numeric_comparisons": 11,
+        "oriented_faces": 6,
+        "unset_edges": 12,
+        "unset_vertices": 8
+      },
+      "Baked02": {
+        "archive": {
+          "bytes": 46005,
+          "sha256": "31cc5e98bcdabcc5121adc28ae0a2d15cd11864f490ef2793e47141b62f70d1e"
+        },
+        "body": "Disclosed Baked B",
+        "face_tolerance_mm": 9.999999999999998e-08,
+        "final_feature_id": "sldprt:feature:18",
+        "numeric_comparisons": 11,
+        "oriented_faces": 6,
+        "unset_edges": 12,
+        "unset_vertices": 8
+      }
+    },
+    "runtime_external_accesses": 0
+  },
+  "guarded_workers": 2,
+  "heldout_credit": 0,
+  "native_processes": 0,
+  "previous_native_bracket": {
+    "build": "34.5.2.0604",
+    "job_sha256": "8745548b488001f3de2f4ab309e903da806539c8680e9af8eacc1af5166e5c6a",
+    "native_sha256": "520999b48639661f08019b584e1c9f7faba3349df62383a076ea65b22a9cbd40"
+  },
+  "rejected_source_control": {
+    "bytes": 2584,
+    "sha256": "0de6a5bdd0e3c092a8ce12e932a6dd3937a8eaac8b5e7eb1fac37a73151c9c51"
+  },
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.shared-import-box-tolerance.v1",
+  "source_files": {
+    "Baked01": {
+      "bytes": 2084,
+      "sha256": "34f028eec62cac170d87962b8397447f1bbd663aae6bbe06551af3ce58401288"
+    },
+    "Baked02": {
+      "bytes": 2084,
+      "sha256": "58f57798a445c521ba90e712c3493583cfafeb239098a9881c63036c743e4ce5"
+    }
+  },
+  "tool_sha256": "831b11f35e1aca6694d462fb1098414082a2e1be2c106d51383d2631766bea58",
+  "whole_source_conversions": 0
+}

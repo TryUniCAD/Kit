@@ -1,11 +1,10 @@
+from convert.adapters.base.NativeEvidence import KUnresolvedInchDimension
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentWalk import WalkDocuments
 
 
 # display precision alone cannot justify exporting an exact driving length
 def CheckInchWrite(Document: CadDocument) -> None:
-    from convert.adapters.solidworks.Core.Inch.BindInch import KUnresolvedInchDimension
-
     Findings = sorted(
         {
             f"{PartValue.source.path}: {Parameter.id}"

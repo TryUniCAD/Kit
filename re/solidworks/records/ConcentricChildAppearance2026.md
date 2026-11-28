@@ -1,0 +1,58 @@
+# Child display-state appearance ownership in SOLIDWORKS 2026
+
+Task `B04-SW2026-MATES-CONCENTRIC/parent-display-state`, owner `assembly_frontier`, delivery PR #121. The 2026 SP05.2 build `34.5.2.0604` establishes the allocation and lookup rules for a part's default display-state render material. Its first holder allocation event and populated preset values remain open for fresh construction. This result uses six pinned disclosed child snapshots from three authored models and static inspection of authenticated 2026 modules. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) · [Loader analysis](../../Playbook/LoaderAnalysis.md) · [Numeric receipt](../measurements/2026/ConcentricChildAppearance01.json)
+
+## Observed class graph
+
+Each child store replays all 1,789 bytes with terminal map 26, zero opaque operations and zero trailing bytes. The schema-one `visStateKeyData_c` at map slot 2 associates persistent configuration 0 with state key 1 and `<Default>_Display State 1`. Its six `f78` entity rows have no component rows. All rows have state key 1, two attributes and a distinct detached schema-one `moUnitComponent_c` with `owner=None` and `has_ext=0`. [Typed archive layout](../../tooling/sw2026/serial/defs/Visual.py#L58) · [Measured vertices](../measurements/2026/ConcentricChildAppearance01.json)
+
+| Entity row | Reference class and slot | Unit slot | Properties attribute slot | State attribute slot |
+| --- | --- | ---: | ---: | ---: |
+| Part self | `moCompHolder_c` 4 | 6 | 8 | 12 |
+| Sketch 26 | `moCompFeature_c` 14 | 15 | 16 | 12 |
+| Origin 5 | `moCompFeature_c` 17 | 18 | 16 | 12 |
+| Right Plane 4 | `moCompFeature_c` 19 | 20 | 16 | 21 |
+| Top Plane 3 | `moCompFeature_c` 22 | 23 | 16 | 21 |
+| Front Plane 2 | `moCompFeature_c` 24 | 25 | 16 | 21 |
+
+The reference and attribute are separate vertices of the same `f78` row. `moCompHolder_c` inherits `moCompRef_c::Serialize` at `sldmodu` `0x4bba67d0`. The holder's sibling `visStateVisualPropertiesAttribute_c.f10` points to schema-one `moVisualProperties_c` at slot 10. The five feature rows share a distinct null properties attribute at slot 16. The holder, sketch and origin share state words `(1,6,1,0)` at slot 12, and the three planes share `(0,6,1,0)` at slot 21. The feature reference IDs bind the resolved sketch, origin and planes and use their header creation logs. [Runtime class dispatch](../../data/Serialization/SerializeMap2026.json#L5057) · [Creation-log evidence](ConcentricVisualStateStore2026.md#creation-log-ownership-and-cmgr)
+
+The child model's own `moPart_c.f78` and selected configuration's `moPartConfiguration_c.f78` have equal typed appearances in their respective archives. The holder's appearance differs at exactly two fields within `moVisualProperties_c.f20`, the embedded `uoMaterialProperties.restore` record. Both are within its `f90` embedded `uoRVAppearanceProperties.restore` record. Both appearances have populated RealView and PBR fields and `f5c=1`. The retained observations include `defaultplastic`, `basic`, `2025x`, the packed color and the visual material IdName text. Physical assignment has a separate source contract. [Shared material wire order](../../tooling/sw2026/serial/defs/SmallCMgr.py#L129) · [Physical assignment owner](AssignedMaterialOwners2026.md) · [Typed differences](../measurements/2026/ConcentricChildAppearance01.json)
+
+## Render-material allocation and locator
+
+| Field | Rule and confidence | Build-bound evidence |
+| --- | --- | --- |
+| `f90.f00` and `f04` | Confirmed low and high unsigned 32-bit words of the same 64-bit render-material ID. A default assignment takes the actual document allocator's current ID, then increments the allocator modulo `2**64`. Its constructor seed is 1. | `sldmfcu` `getPWMaterialPropertyID` `0x3c74ad90`, setter `0x3c7640d0`, `uoRVAppearanceProperties::save` ID stores at `0x3c89823a–0x3c89824b`. `sldmodu` `getDefaultAppearance` `0x4c1fe0b0` resolves the part virtual `getPWMaterialManager` slot `+0x16b0` to `0x4b288750` and follows `moPWMaterialManager_c+0x18`. The ID assignment at `0x4c1fe212–0x4c1fe21e` matches the allocator at `0x4c1ffb40`, whose constructor writes 1 at `0x4c1f160e`. |
+| `f90.f68` | Confirmed appearance filename. For the observed system locator, expand the leading `<SystemTexture>` token through the installation data directory and keep the relative suffix. The holder stores `<SystemTexture>\graphics\materials\color.p2m`, 44 codepoints. The live model and configuration use a 63-codepoint Windows 8.3 locator under their installation data root for the same stock asset. The general rule for selecting a saved spelling on every appearance publication path remains partial. | `sldmfcu` `getFilename` `0x3c896500` reads `+0x68`, recognizes the token at `0x3cb2bb60` and obtains the data directory with `ui_GetDataDir(1)` at `0x3c89656c`. `setFilename` `0x3c898800` assigns the same member. The normal `uoRVAppearanceProperties::save` path passes `+0x68` to the CString writer at `0x3c898408–0x3c89840c`. |
+
+`setDefaultAppearanceOnPart` calls the default producer at `sldmodu` `0x4c207399`, publishes the model and configuration appearances and requests a `moCompHolder_c` around the actual part self component at `0x4c2074a2–0x4c2074b3`. The display-state interface independently obtains that self component at `sldvisualstateu` `0x327aa6ed` and constructs its holder at `0x327aa700`. The display-state ID assignment helper uses the same `getNewApperanceID` import. The saved store resolves the holder through its own appearance attribute and keeps its own earlier ID and filename spelling. [Prior model visual ownership trace](VisualConstruction2026.md#required-ownership) · [Module and instruction-range hashes](../measurements/2026/ConcentricChildAppearance01.json)
+
+The `Contents/Definition` manager is present with an empty reference list in all six child snapshots. Its `f1110.f08/f0c` words store the actual next ID, which equals the live model/configuration ID plus one in each sample. The synchronized D01 save advances the live ID from 7 to 10 and the allocator from 8 to 11. It preserves the entire child VisualStates stream and holder ID 3. This excludes a rule that derives the holder ID from the current live ID or from the next counter. The original event sequence producing the observed holder ID still needs evidence. [Allocator representation](DrawingEmptyAppearanceAdmission2026.md#native-field-ownership) · [Paired child save](ConcentricDisplaySync2026.md) · [Exact SDK Definition replays](../measurements/2026/ConcentricChildAppearance01.json)
+
+| Disclosed child | Holder ID | Model/configuration ID | Definition next ID |
+| --- | ---: | ---: | ---: |
+| A13 | 3 | 8 | 9 |
+| A14 | 3 | 9 | 10 |
+| D01 original, depth edit and stale snapshots | 3 | 7 | 8 |
+| D01 synchronized | 3 | 10 | 11 |
+
+## Fresh construction boundary
+
+The native initializer at `sldmodu` `0x4c1fbbc0` reads `graphics\options/default_material_filename` and checks its resolution. Its fallback combines `ui_GetGraphicsData()` with `\materials\color.p2m`. `setVizPropsFromFile` at `0x4b4ec6a0` sends the `.p2m` path to `0x4b4e9480`, sets the filename and allocates an ID for the actual model on that route. `getDefaultAppearance` also allocates and can derive mapping scale from actual model bounds. The shared preset and matching render data across these controls identify the exercised resource path. Field rules for the resulting populated RealView and 55-float PBR record remain partial. A copied preset or a fixed ID 3 would lose the per-model allocation and authored resource semantics. [PBR wire order and limits](MaterialDisplayArchive2026.md#pbr-appearance-helper) · [Pinned native functions](../measurements/2026/ConcentricChildAppearance01.json)
+
+The existing empty `AppearanceState` and `MakeAppearMgr` can represent the observed Definition manager counter and empty map. The shared through-all route uses this contract. Ordinary `PartBuildInput` and `MakeModelVisual` currently construct a model color and material without populated RealView and PBR children. The next complete child experiment is an ordinary fresh part capture before and after one independently specified render-material assignment, with the same document destination. Collect `GetMaterialIds`, `FileName` and `GetEntities`, both saved appearance locations, and the actual persisted Definition counter. Repeat with an independently selected preset to distinguish authored material values from default and geometry-derived fields. [Empty-manager writer](../../../src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/MakeAppearMgr.py) · [Part writer inputs](../../../src/convert/adapters/solidworks/Archive/Construction/Part/PartBuildInput.py#L29) · [Default model visual](../../../src/convert/adapters/solidworks/Archive/Construction/Presentation/MakeModelVisual.py) · [Native appearance API](https://help.solidworks.com/2026/English/api/sldworksapi/Get_Appearance_Filename_Example_CSharp.htm)
+
+## Fixed generated-child parent trial
+
+The exact previously measured radial/concentric pair provides a model-only reference. Its frozen generated parent and child both lack `ThirdPtyStore/VisualStates`. The original four native processes passed 140 checks with zero open or save warnings and retained the driving radius and depth edit. The pinned child bytes can stay fixed while generating two fresh parents at the same intended locators, one baseline and one with the modeled parent display-state owners. Keep the ordinary link fields, child update stamp and accepted mate graph equal. Keep the chosen `CMgr.f1f8` policy fixed within the comparison. [Prior native measurement](ConcentricRadialAssembly2026.md#measured-persistence) · [Parent display-state composer](ConcentricVisualStateStore2026.md)
+
+Use fresh processes and bracket healthy controls. Require warning-free cold open with the exact resolved child, both independently named mixed vectors, the correct mate and geometry after restoring the default, and a real depth edit followed by rebuild and fresh reopen of an owned derivative. Keep the fixed child hash through both cold measurements. A pass would show that this generated parent profile's mixed visibility can use the unchanged generated child without a child appearance store. A failure would leave the relevant stream or loader dependency unresolved. This planned trial carries no D01 child appearance, stream precedence, native write or held-out acceptance. [Same-locator synchronization control](ConcentricDisplaySync2026.md) · [Receipt and scope](../measurements/2026/ConcentricChildAppearance01.json)
+
+The receipt binds six snapshot hashes, the earlier native receipts, 15 repository inputs, three 2026 module hashes, exact inspected ranges and the Apple LLVM disassembler. REA PE-resource evidence independently binds the two appearance-related module identities. The recorded archive audit uses `ProveVisualStateStore.replay`, `owner_clocks`, `ReadCmgrMut`, `ReadModelDef`, `ReadEmptyAppr` and `WriteModelDef`. Measured at `3a651f09276a88c33dd2f8463c4516c2a04557bf`. Receipt SHA-256 is `5c70f31c6847f7b805381a39d71cb302ff6b1eca8573fa87d41ef7b9522cf5ce`. [Numeric receipt](../measurements/2026/ConcentricChildAppearance01.json)
+
+The later fixed-child discriminator passed with healthy controls. The
+generated child first opened without its own visual store, and a native
+save after a driving depth edit created one. Original child appearance
+construction remains a separate exit.
+[Generated parent visibility result](../measurements/2026/ConcentricRadialDisplayNative01.json)

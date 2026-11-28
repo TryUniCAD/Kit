@@ -1,0 +1,66 @@
+{
+  "authored_light": {
+    "ColourValue": 12623968,
+    "DiffuseValue": 0.6875,
+    "NameValue": "Directional Intensity Probe",
+    "SpecularValue": 0.5625
+  },
+  "candidate_live_light_observations": 24,
+  "candidate_numeric_checks": 84,
+  "controls_healthy": true,
+  "disclosed_control_sha256": {
+    "child": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+    "parent": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+  },
+  "distinct_native_processes": 4,
+  "faults": {},
+  "full_geometry_and_mate_lifecycle": true,
+  "generated_sha256": {
+    "child": "128848f5d51187ae5357a52e36b647c7f165db772947befb39bfcbb24c4266d8",
+    "parent": "0decfd9376691b4f2a7534f741e5e0e65f92ec74df5d983d539d443a71afa15e"
+  },
+  "generated_typed_light_fields": 60,
+  "heldout_acceptance": false,
+  "live_signed_axis_checks": 20,
+  "native_numeric_checks_including_controls": 140,
+  "native_result_sha256": "6cd727c4870e7dcca8a534e1bfae1588c2a093853e8d2a0571e27038daa5b5d8",
+  "native_saved_sha256": {
+    "child": "e3afb11f8e087ca3d9f87a9b9848ecf2442050c5aea2fc1a3cb31b9e88c30c6f",
+    "parent": "f469f685bd76779d173f0ca5964505ac28d56ca5c06702302231808490122e3f"
+  },
+  "observed_native_phase_sha256": {
+    "ControlAfter": "1e4761520ce17a5f40ae9965e1ae87609386c2acca9c247812e9b974db1f400e",
+    "ControlBefore": "9b3bd258a24ebdf5dffb2b45dd009007f08acbf2141faf61cd71e00be580aebd",
+    "Generated": "8eae03749181d88ef0f063c0a81fe4f0785e2e0524fe49e3df1d9063a5dc523b",
+    "Reopen": "dbec5964d01adc0d2eaec2cfa3ae9711ea9ad39ef8cbeb5db37a63f120c90ed4"
+  },
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "ordered_live_light_observations": 40,
+  "parent_scene_build": {
+    "actual_typed_inputs_equal": true,
+    "changed_logical_streams": [
+      "Contents/CMgr",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Header2",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "same_locator_empty_scene_sha256": "c30973918d19b1d98321d05b97dc646a35cbd8e73c01ff4fa12067c740736831"
+  },
+  "passes_full_lifecycle": true,
+  "preparer_sha256": "dd6dc9d5ea9419d63bfe6f3f0a3656da31cd309eeb7a17b9093154b4ef1db5ad",
+  "runtime_io_attempts": 0,
+  "saved_typed_light_fields": 60,
+  "schema": "kit.sw2026.disclosed-concentric-parent-lights-native.v1",
+  "source_closure": {
+    "paths": 6102,
+    "sha256": "37affc8feb066651d2fb7917b4819e14f45eb4a66be844a6002f2083fa815dff"
+  },
+  "trial_sha256": "24d30a34e981ecf7600bf436f41719b76967f7a735867943e9532e27015140e1",
+  "whole_source_admitted": false,
+  "writer_revision": "99a83aef03fe531e7a3de309c407889315b830a7"
+}

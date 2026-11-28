@@ -1,0 +1,453 @@
+{
+  "schema": 1,
+  "batch": "PolygonsB23 reserved-VM controlled repeats",
+  "scope": "completed fresh heptagon geometry, five-row canonical-view measurements and depth-edit/save/reopen inspection for three polygon parts",
+  "original_sources": {
+    "NativeViewReport.json": {
+      "original_name": "NativeViewReservedReport.json",
+      "sha256": "33e2af2cfed4f5cea5b66e543e72e7888449e16a2a0a6ba1cef8682f3c61ef2e",
+      "bytes": 64028,
+      "published_as": "NativeViewReport.json",
+      "publication_transformation": "JSON reserialization and only the private-path replacements listed in redactions"
+    },
+    "FreshGeometryReport.json": {
+      "original_name": "H7FreshReservedReport.json",
+      "sha256": "998fd0b3b18a240938d198b9c31bd6255efd261ab7e545061dcc6da8e1f5941e",
+      "bytes": 21821,
+      "published_as": "FreshGeometryReport.json",
+      "publication_transformation": "JSON reserialization and only the private-path replacements listed in redactions"
+    },
+    "ViewJob.json": {
+      "original_name": "ViewReservedJob.json",
+      "sha256": "e763e3bbe32075266e1a02fc92832e8dad714c497501330a671bdca4e4f5c761",
+      "bytes": 1453,
+      "published_as": "ViewJob.json",
+      "publication_transformation": "JSON reserialization and only the private-path replacements listed in redactions"
+    },
+    "FreshGeometryJob.json": {
+      "original_name": "H7FreshJob.json",
+      "sha256": "e02dba79054de0fc3a9d8da84df29829137c01227224e1634ab068bf52458ae5",
+      "bytes": 718,
+      "published_as": "FreshGeometryJob.json",
+      "publication_transformation": "JSON reserialization and only the private-path replacements listed in redactions"
+    },
+    "EditJob.json": {
+      "original_name": "EditJob.json",
+      "sha256": "9c3e1c20f910d2dfcb3fb1fc047736094e846444892bd12a4207d1c6c4c9a4ec",
+      "bytes": 5512,
+      "published_as": "EditJob.json",
+      "publication_transformation": "JSON reserialization and only the private-path replacements listed in redactions"
+    },
+    "EditReport.json": {
+      "original_name": "NativeEditReservedReport.json",
+      "sha256": "136484f02e546679352db915731e99e0947f7b1801034ee982e639f756586f82",
+      "bytes": 83833,
+      "published_as": "EditReport.json",
+      "publication_transformation": "JSON reserialization and only the private-path replacements listed in redactions"
+    },
+    "SourceManifest.json": {
+      "sha256": "64bf543bc386fb96f1243963c943ea44edc6a9dded3e4a1416a20d0d8c015385",
+      "bytes": 1827,
+      "role": "pre-run staging snapshot; selected metadata retained, false native_measurements_started is historical"
+    },
+    "PngReservedManifest.json": {
+      "sha256": "ea52eb0bac15445951a6707891c5de33e04671e118789e7c581f27694ed71618",
+      "bytes": 4676,
+      "role": "root conversion hashes and completed qualitative visual inspection"
+    },
+    "CurrentArtifact033.json": {
+      "sha256": "988576f8bac8f68532e9749fd5614e43eb8ccd4c44f8c962f51133a5ab988077",
+      "bytes": 1402,
+      "published_as": "ArtifactIdentity.json",
+      "publication_transformation": "JSON reserialization only"
+    }
+  },
+  "redactions": [
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/0/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/0/bitmap",
+      "replacement": "external-originals/ControlBefore.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/0/initial_bitmap",
+      "replacement": "external-originals/ControlBefore_initial.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/1/path",
+      "replacement": "external-inputs/H3_scalene.SLDPRT"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/1/bitmap",
+      "replacement": "external-originals/H3_scalene.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/1/initial_bitmap",
+      "replacement": "external-originals/H3_scalene_initial.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/2/path",
+      "replacement": "external-inputs/H5_irregular.SLDPRT"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/2/bitmap",
+      "replacement": "external-originals/H5_irregular.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/2/initial_bitmap",
+      "replacement": "external-originals/H5_irregular_initial.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/3/path",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/3/bitmap",
+      "replacement": "external-originals/H7_irregular.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/3/initial_bitmap",
+      "replacement": "external-originals/H7_irregular_initial.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/4/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/4/bitmap",
+      "replacement": "external-originals/ControlAfter.bmp"
+    },
+    {
+      "file": "NativeViewReport.json",
+      "json_pointer": "/results/4/initial_bitmap",
+      "replacement": "external-originals/ControlAfter_initial.bmp"
+    },
+    {
+      "file": "FreshGeometryReport.json",
+      "json_pointer": "/results/0/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "FreshGeometryReport.json",
+      "json_pointer": "/results/1/path",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "file": "FreshGeometryReport.json",
+      "json_pointer": "/results/2/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/0/source",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/0/bitmap",
+      "replacement": "external-originals/ControlBefore.bmp"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/1/source",
+      "replacement": "external-inputs/H3_scalene.SLDPRT"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/1/bitmap",
+      "replacement": "external-originals/H3_scalene.bmp"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/2/source",
+      "replacement": "external-inputs/H5_irregular.SLDPRT"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/2/bitmap",
+      "replacement": "external-originals/H5_irregular.bmp"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/3/source",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/3/bitmap",
+      "replacement": "external-originals/H7_irregular.bmp"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/4/source",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "ViewJob.json",
+      "json_pointer": "/cases/4/bitmap",
+      "replacement": "external-originals/ControlAfter.bmp"
+    },
+    {
+      "file": "FreshGeometryJob.json",
+      "json_pointer": "/control",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "FreshGeometryJob.json",
+      "json_pointer": "/files/0",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "file": "EditJob.json",
+      "json_pointer": "/control",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "EditJob.json",
+      "json_pointer": "/cases/0/source",
+      "replacement": "external-inputs/H3_scalene.SLDPRT"
+    },
+    {
+      "file": "EditJob.json",
+      "json_pointer": "/cases/0/destination",
+      "replacement": "external-edited/H3_scalene_depth.SLDPRT"
+    },
+    {
+      "file": "EditJob.json",
+      "json_pointer": "/cases/1/source",
+      "replacement": "external-inputs/H5_irregular.SLDPRT"
+    },
+    {
+      "file": "EditJob.json",
+      "json_pointer": "/cases/1/destination",
+      "replacement": "external-edited/H5_irregular_depth.SLDPRT"
+    },
+    {
+      "file": "EditJob.json",
+      "json_pointer": "/cases/2/source",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "file": "EditJob.json",
+      "json_pointer": "/cases/2/destination",
+      "replacement": "external-edited/H7_irregular_depth.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/control_before/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/0/baseline/path",
+      "replacement": "external-inputs/H3_scalene.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/0/edit/path",
+      "replacement": "external-inputs/H3_scalene.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/0/edit/destination",
+      "replacement": "external-edited/H3_scalene_depth.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/0/reopened/path",
+      "replacement": "external-edited/H3_scalene_depth.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/1/baseline/path",
+      "replacement": "external-inputs/H5_irregular.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/1/edit/path",
+      "replacement": "external-inputs/H5_irregular.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/1/edit/destination",
+      "replacement": "external-edited/H5_irregular_depth.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/1/reopened/path",
+      "replacement": "external-edited/H5_irregular_depth.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/2/baseline/path",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/2/edit/path",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/2/edit/destination",
+      "replacement": "external-edited/H7_irregular_depth.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/cases/2/reopened/path",
+      "replacement": "external-edited/H7_irregular_depth.SLDPRT"
+    },
+    {
+      "file": "EditReport.json",
+      "json_pointer": "/control_after/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    }
+  ],
+  "generator": {
+    "source_head": "b23e72c609caca0d0ca4acf871e9680a325f0548",
+    "synthetic_commit": "2179cb75a8501f83d78eacbdeb67f533a94246cc",
+    "synthetic_parents": [
+      "e04e7b78699d3f567409937007b00b567620078a",
+      "b23e72c609caca0d0ca4acf871e9680a325f0548"
+    ],
+    "run_id": 43756383239,
+    "job_id": 132941286371,
+    "artifact_id": 14177624347,
+    "artifact_digest": "sha256:bb4cb2ddd8a0728e915f0748e2057012e737699f5517aad0e3c202591cf50448",
+    "artifact_digest_authority": "github metadata; zip not independently rehashed"
+  },
+  "inspector": {
+    "source_revision": "b23e72c609caca0d0ca4acf871e9680a325f0548",
+    "files": {
+      "InspectView.py": {
+        "sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314",
+        "bytes": 5841
+      },
+      "InspectEdit.py": {
+        "sha256": "730f09c4271b5a4d107ba9c2c78233c65504fd113572164addfe6a4529aba2d0",
+        "bytes": 7248
+      },
+      "InspectFresh.py": {
+        "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+        "bytes": 4187
+      },
+      "Swapp.py": {
+        "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+        "bytes": 15278
+      },
+      "OracleIdentity.py": {
+        "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+        "bytes": 4284
+      }
+    }
+  },
+  "original_staging_snapshot": {
+    "status": "pre-run snapshot; false measurement flag is not the completed batch state",
+    "native_measurements_started": false
+  },
+  "case_order": [
+    {
+      "name": "ControlBefore",
+      "kind": "control"
+    },
+    {
+      "name": "H3_scalene",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "H5_irregular",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "H7_irregular",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "control"
+    }
+  ],
+  "generated_input_manifest": [
+    {
+      "name": "H3_scalene.SLDPRT",
+      "sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+      "bytes": 7618
+    },
+    {
+      "name": "H5_irregular.SLDPRT",
+      "sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+      "bytes": 7687
+    },
+    {
+      "name": "H7_irregular.SLDPRT",
+      "sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+      "bytes": 7782
+    }
+  ],
+  "original_control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "byte_equivalent_artifact": {
+    "file": "ArtifactIdentity.json",
+    "root_verified_independently": true,
+    "verification": "root read GitHub artifact metadata and synthetic parents/tree, downloaded the artifact and compared complete extracted candidate file bytes against the measured staged files",
+    "scope": "only the three named polygon part bytes; no other output or source revision is covered"
+  },
+  "png_conversion": {
+    "tool": "macOS sips",
+    "operation": "original BMP to lossless PNG for display",
+    "authority": "oracle owner supplied conversion provenance",
+    "pixel_equality_independently_measured": false,
+    "publication_operation": "copy PNG bytes unchanged; retain original BMP outside repository"
+  },
+  "visual_inspection": {
+    "authority": "oracle owner manual inspection of all ten staged PNGs, reported in task handoff and the conversion manifest",
+    "inspector": "oracle owner/root",
+    "completed_at": 1794777258.87637,
+    "images_inspected": 10,
+    "observations": {
+      "controls": "both initial captures show a nonempty cuboid with visible depth, both selected isometric captures show a nonempty cuboid",
+      "generated_initial": "all three show small nonempty front-facing polygons",
+      "generated_isometric": "all three show extrusion depth and side faces after standard view 7 and zoom",
+      "initial_camera_parity": "not established; candidates initially face front while controls have an oblique view"
+    },
+    "scope": "qualitative visual inspection only; native metric results supply geometry measurements",
+    "decoded_pixel_equality_independently_measured": false,
+    "publisher_independent_visual_inspection": false
+  },
+  "boundaries": {
+    "full_cad_goal_complete": false,
+    "production_adapter_read_only": true,
+    "source_revision_and_three_identical_artifact_files_only": true,
+    "viewport_batch_dimension_edits_or_reopen": false,
+    "separate_depth_edit_save_reopen_batch_completed": true,
+    "depth_edit_factor": 1.25,
+    "sketch_dimension_edits_measured": false,
+    "curve_or_assembly_writer_acceptance": false,
+    "initial_active_camera_parity_claimed": false,
+    "full_feature_name_preservation": false,
+    "material_folder_label_normalized_on_reopen": true,
+    "material_folder_normalization_cause_established": false
+  },
+  "earlier_interruption": {
+    "record": "../PolygonCurrentInterruption.json",
+    "retained": true,
+    "cause_resolved": false,
+    "format_crash_attributed": false,
+    "observation": "fresh heptagon repeat and later five-row view batch pass with healthy surrounding controls; the original disconnect is not reproduced in these runs"
+  }
+}

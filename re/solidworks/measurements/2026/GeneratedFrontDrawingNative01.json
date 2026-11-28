@@ -1,0 +1,1138 @@
+{
+  "artifacts_immutable": true,
+  "control_processes_healthy": true,
+  "distinct_processes": 7,
+  "edge_map_omission_receipt_sha256": "e5a99b96ef4798a6afdf0ed97555a8e7c86b6df5093921af9c674bfead5f4070",
+  "heldout_inputs_tested": 0,
+  "lanes": {
+    "ControlAfter": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "drawing_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "fresh_reopen": {
+        "input_immutable": true,
+        "numeric_checks": 78,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "record_sha256": "a258b69d93df4974199fed8d2b9a2eccf101d7f6f606a94afdd72d7325be5d8b",
+        "states": {
+          "initial": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "rebuilt": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          }
+        },
+        "tree_rows": 16
+      },
+      "input_stream_roles": 29,
+      "open_edit_save": {
+        "derivative": {
+          "bytes": 21864,
+          "definition_map_next_index": 275,
+          "detail_buckets": 1,
+          "detail_edge_entries": 0,
+          "exact_definition_and_header": true,
+          "header_map_next_index": 51,
+          "roles": 29,
+          "sha256": "750fb332b8cd69f1ffb8d3cfa33f37c9571beda48401f1669ca749ba3550d214"
+        },
+        "input_immutable": true,
+        "numeric_checks": 121,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "record_sha256": "cf06ac28877cd4246b5d0a1569f7dd2f52679cc2cac4fe56aa233fe52bba809d",
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "saved_target_bytes": 21864,
+        "states": {
+          "edited": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "initial": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.09341,
+                0.08263,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.089092,
+                0.07831199999999999,
+                0.117728,
+                0.096948
+              ],
+              "position_m": [
+                0.10341,
+                0.08763
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "rebuilt": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.09341,
+                0.08263,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.089092,
+                0.07831199999999999,
+                0.117728,
+                0.096948
+              ],
+              "position_m": [
+                0.10341,
+                0.08763
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          }
+        },
+        "tree_rows": 16
+      },
+      "passed": true
+    },
+    "ControlBefore": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "drawing_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "fresh_reopen": {
+        "input_immutable": true,
+        "numeric_checks": 78,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "record_sha256": "a721fd7612908131bfe60f0545cfb9bc8eeb3affce8c5ae61b04927593dfd88b",
+        "states": {
+          "initial": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "rebuilt": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          }
+        },
+        "tree_rows": 16
+      },
+      "input_stream_roles": 29,
+      "open_edit_save": {
+        "derivative": {
+          "bytes": 22818,
+          "definition_map_next_index": 275,
+          "detail_buckets": 1,
+          "detail_edge_entries": 0,
+          "exact_definition_and_header": true,
+          "header_map_next_index": 51,
+          "roles": 29,
+          "sha256": "7c3fd42584fba480f4448f216e59054f79961da465d87b404226d8f0a8d04117"
+        },
+        "input_immutable": true,
+        "numeric_checks": 121,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "record_sha256": "38a490c1a3d998873e1f7ff68f6c0327f04b35538c4a8e1b1bb6205ebda9958e",
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "saved_target_bytes": 22818,
+        "states": {
+          "edited": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "initial": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.09341,
+                0.08263,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.089092,
+                0.07831199999999999,
+                0.117728,
+                0.096948
+              ],
+              "position_m": [
+                0.10341,
+                0.08763
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "rebuilt": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.09341,
+                0.08263,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.089092,
+                0.07831199999999999,
+                0.117728,
+                0.096948
+              ],
+              "position_m": [
+                0.10341,
+                0.08763
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          }
+        },
+        "tree_rows": 16
+      },
+      "passed": true
+    },
+    "GeneratedPair": {
+      "child_sha256": "05241b319197196297e028e1cc32110e4f9cd0839a88d98a184a40fe50273d19",
+      "drawing_sha256": "7370fa041ca46165303b863a5f4b0ac5554aab895f9a0b7fd64758ae5956db29",
+      "fresh_reopen": null,
+      "input_stream_roles": 7,
+      "open_edit_save": {
+        "failure_stage": "save front drawing position edit",
+        "input_immutable": true,
+        "numeric_checks": 121,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": false,
+        "record_sha256": "5b395f2aceeb89ee02589ecb5547a9dea7a7811e2e0edac013faa1dbb97474fe",
+        "save_status": [
+          false,
+          1,
+          0
+        ],
+        "saved_target_bytes": 0,
+        "states": {
+          "edited": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.001248,
+              "child_center_m": [
+                0.012,
+                0.008,
+                0.003
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 2.3040000000000003e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.073161,
+                0.083981,
+                -0.003,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.068843,
+                0.079663,
+                0.101479,
+                0.10429900000000002
+              ],
+              "position_m": [
+                0.085161,
+                0.091981
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "initial": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.001248,
+              "child_center_m": [
+                0.012,
+                0.008,
+                0.003
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 2.3040000000000003e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.07043,
+                0.08571999999999999,
+                -0.003,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.066112,
+                0.08140199999999999,
+                0.098748,
+                0.10603800000000001
+              ],
+              "position_m": [
+                0.08243,
+                0.09372
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "rebuilt": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.001248,
+              "child_center_m": [
+                0.012,
+                0.008,
+                0.003
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 2.3040000000000003e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.07043,
+                0.08571999999999999,
+                -0.003,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.066112,
+                0.08140199999999999,
+                0.098748,
+                0.10603800000000001
+              ],
+              "position_m": [
+                0.08243,
+                0.09372
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          }
+        },
+        "tree_rows": 16
+      },
+      "passed": false
+    },
+    "ReducedControl": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "drawing_sha256": "0a1b8e736a97269630640a63b68de94dc6836f5230c1212e7f2598087a2dd8ee",
+      "fresh_reopen": {
+        "input_immutable": true,
+        "numeric_checks": 78,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "record_sha256": "6f5264f3fa8022a2e09b01a8ee9265cb60e5ceb921e69fe3bca050529101d58b",
+        "states": {
+          "initial": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "rebuilt": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          }
+        },
+        "tree_rows": 16
+      },
+      "input_stream_roles": 7,
+      "open_edit_save": {
+        "derivative": {
+          "bytes": 22034,
+          "definition_map_next_index": 331,
+          "detail_buckets": 1,
+          "detail_edge_entries": 4,
+          "exact_definition_and_header": true,
+          "header_map_next_index": 51,
+          "roles": 28,
+          "sha256": "2458e37b830bdd31ef99e7ed519be7e3f18ed87c450c524db81fc68ecdcb7441"
+        },
+        "input_immutable": true,
+        "numeric_checks": 121,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "record_sha256": "ba3d94f5fb0c78ab59f766d590b2fd3f348eab68b28ca4a1c653d737d1007ab0",
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "saved_target_bytes": 22034,
+        "states": {
+          "edited": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.096141,
+                0.08089099999999999,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.091823,
+                0.07657299999999999,
+                0.120459,
+                0.095209
+              ],
+              "position_m": [
+                0.106141,
+                0.085891
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "initial": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.09341,
+                0.08263,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.089092,
+                0.07831199999999999,
+                0.117728,
+                0.096948
+              ],
+              "position_m": [
+                0.10341,
+                0.08763
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          },
+          "rebuilt": {
+            "sheet_properties": [
+              0.0,
+              13.0,
+              5.0,
+              1.0,
+              0.0,
+              0.2794,
+              0.21589999999999998,
+              1.0
+            ],
+            "view": {
+              "child_area_m2": 0.00082,
+              "child_center_m": [
+                0.01,
+                0.005,
+                0.0035
+              ],
+              "child_update_stamp": 117,
+              "child_volume_m3": 1.4000000000000001e-06,
+              "model_to_view": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.09341,
+                0.08263,
+                -0.0035,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation": "*Front",
+              "outline_m": [
+                0.089092,
+                0.07831199999999999,
+                0.117728,
+                0.096948
+              ],
+              "position_m": [
+                0.10341,
+                0.08763
+              ],
+              "scale": 1.0
+            },
+            "whats_wrong": 0
+          }
+        },
+        "tree_rows": 16
+      },
+      "passed": true
+    }
+  },
+  "native_acceptance": false,
+  "offline_construction_receipt_sha256": "1fbf40e0251223457da849d893bc93257ae5d7a126b3737d6e161c94ee869c91",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "cc9d2384f8cf7860d3d2416dd709323b2a7b2c1ec6eb81bb891909b9520966c5",
+  "received_native_result_sha256": "1a4a681ab4b28ce3f392d9b08963c4866d70d8256a0b054e7bf8f0d03dee1fe2",
+  "reduced_control_state": {
+    "input_detail_buckets": 0,
+    "input_roles": 7,
+    "saved_detail_buckets": 1,
+    "saved_detail_edge_entries": 4,
+    "saved_roles": 28
+  },
+  "schema": "kit.sw2026.generated-front-drawing-native-trial.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "staged_runner_sha256": "8d95780327d11e733e0e4bdb9491af96d3a2df29841ce2009be6c92382720c59",
+  "tool_manifest_sha256": "bc7328761783cbd2f156a1c9b6ef8d7fa1d66b8157cb224759ee2aa1597e4d00",
+  "writer_output_count": 2
+}

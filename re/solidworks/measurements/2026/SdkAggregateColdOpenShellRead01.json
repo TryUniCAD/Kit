@@ -1,0 +1,418 @@
+{
+  "aggregate_base": "0bcfe89aa42771224ea01eb4663c1ed11fc7fad7",
+  "cache_component_controls": {
+    "history": {
+      "active_sha256": "88de93180e79df6ad22bff44aca85dcb6646594932910460f2784594ae6ffd03",
+      "body_slots": [
+        2,
+        2,
+        0,
+        0
+      ],
+      "delete_only_control_marks": [
+        7,
+        3
+      ],
+      "delete_only_refusal": "current kernel framing differs",
+      "history_sha256": "75132a3e1cfd947c6425b4b5987c3f892c32895ea3c4abb50c09f610bcdf1428",
+      "marks": [
+        13,
+        10,
+        3,
+        1
+      ],
+      "node_counts": [
+        207,
+        169,
+        27,
+        27
+      ],
+      "other_controller_refused": "rollback mark differs from its actual controller",
+      "retained_rows": [
+        6,
+        44,
+        32,
+        35
+      ],
+      "runtime_data_reads": 0,
+      "source_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7"
+    },
+    "rounding": {
+      "complete_topology": [
+        11,
+        24,
+        16
+      ],
+      "extent_differences_mm": [
+        0.0,
+        1.4210854715202004e-14,
+        2.8421709430404007e-13
+      ],
+      "mass_properties": {
+        "area_mm2": 12364.873749999999,
+        "centroid_mm": [
+          7.337500000000027,
+          11.612500000000002,
+          11.470092954692655
+        ],
+        "volume_mm3": 8198.485031250017
+      },
+      "out_of_budget_refusal": "SOLIDWORKS shell corner does not have one matching footprint position",
+      "runtime_data_reads": 0,
+      "tolerance_mm": 1.1368683772161603e-13
+    }
+  },
+  "cold_cases": {
+    "IndependentColdShell": {
+      "archive_class": "independent",
+      "archive_sha256": "d0b47b0484a651614e40cc9fe54a1312611f92bac0ea986f7afcaba0b1dd8f52",
+      "area_mm2": 18971.43,
+      "centroid_mm": [
+        -12.25,
+        9.625000000000004,
+        12.843963607352762
+      ],
+      "counts": [
+        1,
+        1,
+        11,
+        24,
+        16
+      ],
+      "file_bytes": 8949,
+      "inspection_json_roundtrips": 2,
+      "live_drivers": [
+        "sldprt:parameter:19:D1",
+        "sldprt:parameter:26:D1"
+      ],
+      "live_metres": [
+        0.03325,
+        0.0031000000000000003
+      ],
+      "native_writer_refusals": {
+        "direct": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "permissive_fallbacks": 9,
+      "public_interchange_export_refusals": 2,
+      "refusals": {
+        "bottom_as_top": "removed face is outside the actual stock cap",
+        "crossed_stock": "cache free prism requires axis aligned rectangular sides",
+        "different_history_file": "alternate clip, point or history ownership",
+        "foreign_partition": "unqualified physical stream",
+        "live_thickness": "differs from its linked display value",
+        "putative_saved_partition": "stock has unsupported blind end state",
+        "reordered_auxiliary": "ordered stock cap and edge roles",
+        "saved_atom_stamp": "body stamp contradicts its partition state",
+        "swapped_manager": "alternate configuration or linked body state"
+      },
+      "root_count": 20,
+      "runtime_data_reads": 0,
+      "selected_cap": [
+        "sldprt:feature:19",
+        "face:1"
+      ],
+      "streams": 10,
+      "strict_modes": 2,
+      "strict_refusals": 18,
+      "volume_mm3": 28355.824000000004
+    },
+    "OpenShellCalibration": {
+      "archive_class": "frozen",
+      "archive_sha256": "84cc9032447eefd717f9fb4bc3a6c62ecf941af80aa45da861ca7bd1d456f4a1",
+      "area_mm2": 13783.119999999999,
+      "centroid_mm": [
+        -1.0658141036401503e-14,
+        3.552713678800501e-15,
+        10.810327743212497
+      ],
+      "counts": [
+        1,
+        1,
+        11,
+        24,
+        16
+      ],
+      "file_bytes": 8885,
+      "inspection_json_roundtrips": 2,
+      "live_drivers": [
+        "sldprt:parameter:19:D1",
+        "sldprt:parameter:26:D1"
+      ],
+      "live_metres": [
+        0.028,
+        0.0028
+      ],
+      "native_writer_refusals": {
+        "direct": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "permissive_fallbacks": 9,
+      "public_interchange_export_refusals": 2,
+      "refusals": {
+        "bottom_as_top": "removed face is outside the actual stock cap",
+        "crossed_stock": "cache free prism requires axis aligned rectangular sides",
+        "different_history_file": "alternate clip, point or history ownership",
+        "foreign_partition": "unqualified physical stream",
+        "live_thickness": "differs from its linked display value",
+        "putative_saved_partition": "stock has unsupported blind end state",
+        "reordered_auxiliary": "ordered stock cap and edge roles",
+        "saved_atom_stamp": "body stamp contradicts its partition state",
+        "swapped_manager": "alternate configuration or linked body state"
+      },
+      "root_count": 20,
+      "runtime_data_reads": 0,
+      "selected_cap": [
+        "sldprt:feature:19",
+        "face:1"
+      ],
+      "streams": 10,
+      "strict_modes": 2,
+      "strict_refusals": 18,
+      "volume_mm3": 18559.407999999992
+    },
+    "OpenShellDistinct": {
+      "archive_class": "frozen",
+      "archive_sha256": "df63c4c39f73d50b48cf17fb68361581823195a74b3909e4190c79636c4b1fec",
+      "area_mm2": 15775.375,
+      "centroid_mm": [
+        -3.0,
+        7.5,
+        7.852969046436452
+      ],
+      "counts": [
+        1,
+        1,
+        11,
+        24,
+        16
+      ],
+      "file_bytes": 8914,
+      "inspection_json_roundtrips": 2,
+      "live_drivers": [
+        "sldprt:parameter:19:D1",
+        "sldprt:parameter:26:D1"
+      ],
+      "live_metres": [
+        0.023,
+        0.001875
+      ],
+      "native_writer_refusals": {
+        "direct": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "permissive_fallbacks": 0,
+      "public_interchange_export_refusals": 2,
+      "refusals": {},
+      "root_count": 20,
+      "runtime_data_reads": 0,
+      "selected_cap": [
+        "sldprt:feature:19",
+        "face:1"
+      ],
+      "streams": 10,
+      "strict_modes": 2,
+      "strict_refusals": 0,
+      "volume_mm3": 14392.1484375
+    },
+    "OpenShellTranslated": {
+      "archive_class": "frozen",
+      "archive_sha256": "bf778bbd668b5600172f37e3a6c8b842ef4ffdeed72cb61e60b9a691e0b94e84",
+      "area_mm2": 17224.58,
+      "centroid_mm": [
+        8.499999999999996,
+        -12.25,
+        14.901582931676197
+      ],
+      "counts": [
+        1,
+        1,
+        11,
+        24,
+        16
+      ],
+      "file_bytes": 8919,
+      "inspection_json_roundtrips": 2,
+      "live_drivers": [
+        "sldprt:parameter:19:D1",
+        "sldprt:parameter:26:D1"
+      ],
+      "live_metres": [
+        0.036000000000000004,
+        0.00415
+      ],
+      "native_writer_refusals": {
+        "direct": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "permissive_fallbacks": 0,
+      "public_interchange_export_refusals": 2,
+      "refusals": {},
+      "root_count": 20,
+      "runtime_data_reads": 0,
+      "selected_cap": [
+        "sldprt:feature:19",
+        "face:1"
+      ],
+      "streams": 10,
+      "strict_modes": 2,
+      "strict_refusals": 0,
+      "volume_mm3": 34018.75349999999
+    }
+  },
+  "heldout_credit": 0,
+  "native_file_publications": 0,
+  "native_launches": 0,
+  "original_scope_commit": "6956dfe94bfaddede5bc12346e654104c28a7c37",
+  "probe_sha256": "14fa78325bf7bbebf8c9ba101defcab3d5dbeba8c966bb3a9565a16a130e7770",
+  "production_src_tree": "54d29643c7cf8aa571116e48d31d708d06e4c160",
+  "saved_shell_results": {
+    "crossed_history_refused": true,
+    "equal_prior_shell_cases": 2,
+    "unchanged_l1_on_base": {
+      "diagnostics": [
+        "solidworks.part_text_properties_unavailable"
+      ],
+      "packaged_layout_reads": 0,
+      "runtime_data_reads": 0,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "strict_document_sha256": "1bc279dc932ee69ebf7627c30c396cc2898a0c918119c54f7a0b236087c9276e"
+    }
+  },
+  "saved_stock_controls": {
+    "design_only": {
+      "body_count": 1,
+      "d1_mm": [
+        12.0,
+        29.0
+      ],
+      "has_brep": false,
+      "runtime_data_file_reads": 0,
+      "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+    },
+    "guarded_processes": 10,
+    "refusals": 5,
+    "strict_cases": 4
+  },
+  "schema": "kit-sw2026-aggregate-cold-open-shell-read-v1",
+  "scoped_perimeter_repair": "89c882da4769c686023b71d128ae37ab8cf89ee7",
+  "warm_chamfer_controls": {
+    "EqualEdited": {
+      "base_and_port": [
+        {
+          "brep_payloads": [
+            "3851e8e4c492c6d939f4c79a81985505485449af7a1fa5d155965718c75d2a88",
+            "d60b5614dbb1ba1515ec0a15c665394283ed91d64fef8c9cefb6f816e92f2c14"
+          ],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": true,
+          "json_sha256": "9a7961e1096380f3f2f317c5a3764069e87511129d966f68c344a0dc47df5bb6",
+          "mode": "equal_distance"
+        },
+        {
+          "brep_payloads": [],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": false,
+          "json_sha256": "a3a4c1971e243d9042864f7b912e851686f664cb79d82d4ac12e7f615368500c",
+          "mode": "equal_distance"
+        }
+      ],
+      "runtime_data_reads": 0,
+      "source_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18"
+    },
+    "EqualOriginal": {
+      "base_and_port": [
+        {
+          "brep_payloads": [
+            "468fd08ca0582e8ec349a8f5ebc8e2f31c8623b380f02aec2ce076441bd65a60",
+            "d072f191e6fd86a258d0d886794ea6f9e4bf6cf11810420365eb272d03300faf"
+          ],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": true,
+          "json_sha256": "8f9eca8c05f068b7a305392572303645a1da6e2ef83897bdbac58cb449718694",
+          "mode": "equal_distance"
+        },
+        {
+          "brep_payloads": [],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": false,
+          "json_sha256": "361626a3bbc2dbea1b320ca9506c0e4da3e3949d08593312f5eed2821fb3efe4",
+          "mode": "equal_distance"
+        }
+      ],
+      "runtime_data_reads": 0,
+      "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8"
+    },
+    "UnequalEdited": {
+      "base_and_port": [
+        {
+          "brep_payloads": [
+            "6e83c09b529879ed19d34def9eef966079d20f5fa72fdb63106354dd3f1e8acc",
+            "17091c1a7ddd70abd4a6ae772b581b6876039060d84267abe4bf8ddb110a4746"
+          ],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": true,
+          "json_sha256": "0659dedfa19697c983fab91f06ea628708f0c838b0a40fb86d244773fd9cf16c",
+          "mode": "two_distances"
+        },
+        {
+          "brep_payloads": [],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": false,
+          "json_sha256": "99c7224a80a0b62e613ced62b802bef8707cdd6dcac47098cdb01f4460498911",
+          "mode": "two_distances"
+        }
+      ],
+      "runtime_data_reads": 0,
+      "source_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a"
+    },
+    "UnequalOriginal": {
+      "base_and_port": [
+        {
+          "brep_payloads": [
+            "a49f99d2fbd37644a37a3ba5fa51e35aa95a35e2fd0527d910af30312f81f912",
+            "54d0b8bb12d3a3882bbd1aa2cd034f74da3cb54be3091c82251c8b1576f2ed41"
+          ],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": true,
+          "json_sha256": "266f4f9156d5fbc733ba359127ac7c18bc280c8398f48b2629a0978d691d07ca",
+          "mode": "two_distances"
+        },
+        {
+          "brep_payloads": [],
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "include_brep": false,
+          "json_sha256": "3cae26e6b42034a859ad531738d78cdf921f6a42a7144f0fe0be27d87c649da2",
+          "mode": "two_distances"
+        }
+      ],
+      "runtime_data_reads": 0,
+      "source_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6"
+    }
+  },
+  "warm_chamfer_prior_harness_stop": "prior no-diagnostics assertion rejects the unchanged informational part properties diagnostic",
+  "worker_reports_sha256": {
+    "cache_components": "d55fbc965804dfbc20cf46f2929cdd28983a87bcdf26882e8c817737aaf65aac",
+    "frozen": "9bc59812676c750f80a8313355226f6c575bd1e8dc621ef7f5d07507b6d32884",
+    "independent": "3c3624c01011880c2fc1801772ce57a46294970743ad727d210bd846c9215db2",
+    "saved": "31bbfa16fa248f50cdb366d65bfcc9576edc6bd9ffce967427d33b57184ca7d2",
+    "saved_stock": "f5c80a14a215b84a34bfb2b476d2640284719e58248704489248c7420d60eb54",
+    "warm_chamfer": "2742628bade84c6596771d663f9d35176f69f8c3f66d4648ca4bf1d56e57b399"
+  }
+}

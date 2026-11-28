@@ -1,6 +1,7 @@
 from collections.abc import Callable, Mapping
 from functools import partial as PartialValue
 
+from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
@@ -15,10 +16,84 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
+from convert.adapters.solidworks.Archive.Resolved.CheckEllipUse import CheckEllipUse
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.ReadSwSchema import (
+    ReadSwSchema,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSavedSwMut import (
+    UseSavedSwMut,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSweepCtxMut import (
+    UseSweepCtxMut,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.WriteSwSchema import (
+    CheckSweepUse,
+)
+from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseFilletCtxMut import UseFilletCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseShellCtxMut import UseShellCtxMut
+
+
+# special read scopes use mutually exclusive feature owners without changing ordinary dispatch
+def UseReadCtxMut(
+    ContextValue: BodyContext,
+    ReadFillets: bool,
+    ReadChamfers: bool,
+    ReadEllipses: bool,
+    ReadShells: bool,
+) -> None:
+    if ReadShells:
+        if ReadFillets or ReadChamfers or ReadEllipses:
+            raise BodyUnsupported(
+                "SOLIDWORKS shell requires its exclusive archive scope"
+            )
+        UseShellCtxMut(ContextValue)
+    if ReadFillets and ReadChamfers:
+        raise BodyUnsupported("SOLIDWORKS resolved edge finish scopes are exclusive")
+    if ReadFillets:
+        UseFilletCtxMut(ContextValue)
+    if ReadChamfers:
+        UseChmfCtxMut(ContextValue)
+    if ReadEllipses:
+        if ReadFillets or ReadChamfers:
+            raise BodyUnsupported(
+                "SOLIDWORKS ellipse scope excludes edge finish layouts"
+            )
+        UseEllipCtxMut(ContextValue)
+
+
+# the typed sweep schema must use the same result state as its owning archive context
+def MakeBodyReader(
+    ContextValue: BodyContext,
+    ReadFillets: bool,
+    ReadChamfers: bool,
+    ReadEllipses: bool,
+    ReadShells: bool,
+    SavedSweep: bool,
+    ColdSweep: bool,
+) -> Callable[[GraphReader, ArchiveNode], None]:
+    if not (SavedSweep or ColdSweep):
+        UseReadCtxMut(ContextValue, ReadFillets, ReadChamfers, ReadEllipses, ReadShells)
+        return PartialValue(ReadBodyMut, ContextValue)
+    if (
+        ReadFillets
+        or ReadChamfers
+        or ReadEllipses
+        or ReadShells
+        or (SavedSweep and ColdSweep)
+    ):
+        raise BodyUnsupported("SOLIDWORKS sweep requires its own archive scope")
+    if SavedSweep:
+        UseSavedSwMut(ContextValue)
+    else:
+        UseSweepCtxMut(ContextValue)
+    SchemaReader = PartialValue(ReadSwSchema, SavedResult=SavedSweep)
+    return PartialValue(ReadBodyMut, ContextValue, SchemaReader=SchemaReader)
 
 
 # resolved features extend the exact configuration snapshot after verifying the stored inherited base
@@ -30,8 +105,23 @@ def ReadResolvedMut(
     *,
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
+    ReadFillets: bool = False,
+    ReadChamfers: bool = False,
+    ReadEllipses: bool = False,
+    ReadShells: bool = False,
+    SavedSweep: bool = False,
+    ColdSweep: bool = False,
 ) -> ResolvedGraph:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    BodyReader = MakeBodyReader(
+        ContextValue,
+        ReadFillets,
+        ReadChamfers,
+        ReadEllipses,
+        ReadShells,
+        SavedSweep,
+        ColdSweep,
+    )
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:
@@ -43,7 +133,7 @@ def ReadResolvedMut(
     ReaderValue = GraphReader(
         Cursor,
         ArchiveMaps(BaseValue, SeedValue),
-        PartialValue(ReadBodyMut, ContextValue),
+        BodyReader,
         NodeFactory=NodeMaker,
     )
     RootsValue = tuple(ReadNodeMut(ReaderValue) for _ in range(CountValue))
@@ -52,6 +142,17 @@ def ReadResolvedMut(
         raise BodyUnsupported(
             f"resolved graph has {Cursor.GetRemaining()} trailing bytes"
         )
+    if SavedSweep or ColdSweep:
+        ExpectedFields: dict[str, object] | None = (
+            {"n": 0, "fcd8": []} if SavedSweep else None
+        )
+        if FieldsValue != ExpectedFields:
+            raise BodyUnsupported(
+                "SOLIDWORKS sweep has alternate configuration body mappings"
+            )
+        CheckSweepUse(ContextValue)
+    if ReadEllipses:
+        CheckEllipUse(ContextValue)
     ContextValue.UsageValue.IsComplete = True
     return ResolvedGraph(
         RootsValue,

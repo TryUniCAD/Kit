@@ -1,0 +1,120 @@
+{
+  "schema": "kit.sw2026.planar-named-renderer-preflight.v1",
+  "packet_sha256": "a8776d5de20ee7c691cb088a5bb589944ef0c24bf7e57b908b7d088177be989c",
+  "guest_observer_sha256": "4a57dce9bc529158ace5d31a547f0faddbc8f17aa0edc6131bc52b05d1b3143a",
+  "packet": "PlanarRendererNative01",
+  "code_manifest_sha256": "5769e1449028faa8291791ce64626b642ef31a38ecbc1bdb9cfb992cf757dbe6",
+  "controller_files": 7529,
+  "writer_revision": "6c48ec66ba5b8a2ff75a4920bf414d988399a267",
+  "writer_src_tree": "13d50879fea6470271c7a9b79e5a48a1168d8d35",
+  "host_renderer_proof_sha256": "b86210a7e84994637e0a32fdb32e6b33b8f38c3e08a1c10eeed97e285ca0b754",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "control_sha256": "82ab4f689ea484b12986ee8c495f61ece8071b748dca41258da3f266069248db",
+  "planned_phases": [
+    "ControlBefore",
+    "A20Original",
+    "A20Generated",
+    "A20FreshReopen",
+    "A21Original",
+    "A21Generated",
+    "A21FreshReopen",
+    "ControlAfter"
+  ],
+  "planned_child_depth_m": {
+    "A20": 0.016375,
+    "A21": 0.023625
+  },
+  "fresh_guarded_builds": 4,
+  "strict_source_projection_workers": 2,
+  "strict_readback_workers": 2,
+  "verified_linked_core_archive_replays": 52,
+  "writer_runtime_file_reads": 0,
+  "verified_parts": {
+    "A20": {
+      "request_sha256": "d2ad308f05c96838af552674599653cdb86e599aa974ae14214a3124b124f2d1",
+      "prediction_sha256": "ca8a17289754d0a9fd9ec9fb80a5e7d5b3b13208d93514f197a2098efc0b9dfe",
+      "request_freeze_sha256": "804f9ad47487f744523a6f371a6483546d433f2951713970c89394fa2eb27121",
+      "guarded_receipt_sha256": {
+        "GuardedBuildA.json": "e86796fccb62f3aa3f966cb92d4aa6e439e57e4f82c20a55e24c00edc78f794c",
+        "GuardedBuildB.json": "1163f738da9c90861aee46666a717e4da62f25422026e03990c8cc29eb373910"
+      },
+      "strict_host_read_sha256": "f97a32f18ff0952ec26a21abef66e726fb952563f1ad67546236c9538ae66ae9",
+      "generated_archive_sha256": {
+        "child": "6483011ed6015a3b205ea37fb776a243b4e26ade87b5d6912b2dfcac805a071b",
+        "parent": "cc90affbf031ab8c470cb6e36d96ff2d4e66cb4842dc12927822f82cde9691de"
+      },
+      "public_strict_read": {
+        "generated": {
+          "input_sha256": {
+            "child": "6483011ed6015a3b205ea37fb776a243b4e26ade87b5d6912b2dfcac805a071b",
+            "parent": "cc90affbf031ab8c470cb6e36d96ff2d4e66cb4842dc12927822f82cde9691de"
+          },
+          "linked_archive_streams": 13,
+          "exact_labels": true,
+          "strict_source_write_refusal": "assembly root contains unprojected model content",
+          "strict_ordinary_definition": "SOLIDWORKS part Definition has an alternate renderer profile",
+          "density_owner_matches": true,
+          "passed": true
+        },
+        "original": {
+          "input_sha256": {
+            "child": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+            "parent": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd"
+          },
+          "linked_archive_streams": 13,
+          "exact_labels": true,
+          "strict_source_write_refusal": "assembly root contains unprojected model content",
+          "strict_ordinary_definition": "SOLIDWORKS part Definition has an alternate renderer profile",
+          "density_owner_matches": true,
+          "passed": true
+        }
+      },
+      "cad_runtime_imports": []
+    },
+    "A21": {
+      "request_sha256": "7a7bbcbe600af7f407d36de289f04fda6a5d5228a9ccdfc049b40d94de4dcd22",
+      "prediction_sha256": "9414dfd3a2679d82a49b8411e6d14a70aa95994cfc1674e40cfb84f702fb90a6",
+      "request_freeze_sha256": "854d045ce6f08da2da90221a93901dfa621349b4cabf1eb3f4bd8540c74d1d17",
+      "guarded_receipt_sha256": {
+        "GuardedBuildA.json": "39021490502533e48b58729ffa7189eb7840bdf6612c9afcfe5765b31695ce4b",
+        "GuardedBuildB.json": "dbdaf154edbd6ad67e9f1387df7c2b54d213bfee6c7cfb854f88f6cd92ff51f4"
+      },
+      "strict_host_read_sha256": "e189bee01953ef3f776c21c28ee832c2986ee0247351a345604325a860cd08b5",
+      "generated_archive_sha256": {
+        "child": "891288325bf2d7b8c3bd55620efb85bcc65216dc132e36b9ed0be68f532668d5",
+        "parent": "b82840d8baa3e62352694622c6a6faa8023602c4b2f62787e4f86810cd24bf83"
+      },
+      "public_strict_read": {
+        "generated": {
+          "input_sha256": {
+            "child": "891288325bf2d7b8c3bd55620efb85bcc65216dc132e36b9ed0be68f532668d5",
+            "parent": "b82840d8baa3e62352694622c6a6faa8023602c4b2f62787e4f86810cd24bf83"
+          },
+          "linked_archive_streams": 13,
+          "exact_labels": true,
+          "strict_source_write_refusal": "assembly root contains unprojected model content",
+          "strict_ordinary_definition": "SOLIDWORKS part Definition has an alternate renderer profile",
+          "density_owner_matches": true,
+          "passed": true
+        },
+        "original": {
+          "input_sha256": {
+            "child": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+            "parent": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0"
+          },
+          "linked_archive_streams": 13,
+          "exact_labels": true,
+          "strict_source_write_refusal": "assembly root contains unprojected model content",
+          "strict_ordinary_definition": "SOLIDWORKS part Definition has an alternate renderer profile",
+          "density_owner_matches": true,
+          "passed": true
+        }
+      },
+      "cad_runtime_imports": []
+    }
+  },
+  "host_preflight_passed": true,
+  "native_processes": 0,
+  "native_acceptance": false,
+  "new_heldout_credit": 0
+}

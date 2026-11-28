@@ -1,0 +1,32 @@
+{
+  "freeze_sha256": "151a9ea9190a6784f2820cb68d27ed14f5ebdad79514cf2b1cdfee79d06e604d",
+  "native_launches": 0,
+  "passed": true,
+  "prewriter_lock_sha256": "e152ceab9e1738d85058e6bc85cb46422b64cf92104b3ad0ba4726bee172a43e",
+  "slots": [
+    {
+      "edited_sha256": "50d4f00d49b722f4dad19f010ddbd2b727477e0740b52725afdf544ad42ef53f",
+      "original_sha256": "90f7648129ab06848a237f4b87657bfa45c106522dcf053299e994c371f39695",
+      "phases": [
+        "4945d5b75e8f93dc6ef30ddffa71bdecf6896808811b53bc6d0d31bf04a88367",
+        "cab17ca3cd41ed12a384b2bb9b40f8501dd28c5201465452f5c83e371e80659a",
+        "88e4bbf73c8ba09742a50438d6612655d339b6413d375ff13f8bc07a44482583"
+      ],
+      "slot": "Slot01"
+    },
+    {
+      "edited_sha256": "e3a4badedbdeb2ca6a3cc1d42773e0a77faa1de81f13ea5af85e0eefdd8e5c68",
+      "original_sha256": "d85f4729332beaec16080cd9ffa5a5d55bb3d1d8dfe27b4df3884f6336f6ff40",
+      "phases": [
+        "5eb1ffab2d3f57c1d5905aadfdd7469456991b7d28e90db98336ca922a9d2e83",
+        "494af4cd0f6cf39ccc03e2f7dee021ee3b7d81ff87086bcd872f8bb836de9bd8",
+        "f90bef3346a6274ccfc1208de5d3f7e9c1fc6d4ff8c7fb9ce6b0aa9cb0122e27"
+      ],
+      "slot": "Slot02"
+    }
+  ],
+  "source_controls": 4,
+  "source_processes": 10,
+  "source_snapshots": 8,
+  "writer_output_count": 0
+}

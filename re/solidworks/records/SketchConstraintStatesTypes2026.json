@@ -1,0 +1,152 @@
+{
+  "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\swconst.tlb",
+  "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+  "library": "(IID('{4687F359-55D0-4CD3-B6CF-2EB42C11F989}'), 0, 3, 34, 0, 8)",
+  "library_identity": {
+    "name": "SwConst",
+    "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+    "locale_id": 0,
+    "system_kind": 3,
+    "major_version": 34,
+    "minor_version": 0,
+    "flags": 8
+  },
+  "tool": {
+    "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SketchStatusTypes01\\InspectTypeLib.py",
+    "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+    "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+  },
+  "interface": "swConstrainedStatus_e",
+  "method": "*",
+  "types": [
+    {
+      "name": "swConstrainedStatus_e",
+      "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+      "type_kind": 0,
+      "type_index": 208
+    }
+  ],
+  "methods": [],
+  "constants": [
+    {
+      "names": [
+        "swUnknownConstraint"
+      ],
+      "member_id": 1073741824,
+      "value": 1,
+      "variable_kind": 2,
+      "variable_flags": 0,
+      "declared_type": "(22, 0, None)",
+      "declaring_type": {
+        "name": "swConstrainedStatus_e",
+        "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+        "type_kind": 0,
+        "type_index": 208
+      }
+    },
+    {
+      "names": [
+        "swUnderConstrained"
+      ],
+      "member_id": 1073741825,
+      "value": 2,
+      "variable_kind": 2,
+      "variable_flags": 0,
+      "declared_type": "(22, 0, None)",
+      "declaring_type": {
+        "name": "swConstrainedStatus_e",
+        "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+        "type_kind": 0,
+        "type_index": 208
+      }
+    },
+    {
+      "names": [
+        "swFullyConstrained"
+      ],
+      "member_id": 1073741826,
+      "value": 3,
+      "variable_kind": 2,
+      "variable_flags": 0,
+      "declared_type": "(22, 0, None)",
+      "declaring_type": {
+        "name": "swConstrainedStatus_e",
+        "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+        "type_kind": 0,
+        "type_index": 208
+      }
+    },
+    {
+      "names": [
+        "swOverConstrained"
+      ],
+      "member_id": 1073741827,
+      "value": 4,
+      "variable_kind": 2,
+      "variable_flags": 0,
+      "declared_type": "(22, 0, None)",
+      "declaring_type": {
+        "name": "swConstrainedStatus_e",
+        "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+        "type_kind": 0,
+        "type_index": 208
+      }
+    },
+    {
+      "names": [
+        "swNoSolution"
+      ],
+      "member_id": 1073741828,
+      "value": 5,
+      "variable_kind": 2,
+      "variable_flags": 0,
+      "declared_type": "(22, 0, None)",
+      "declaring_type": {
+        "name": "swConstrainedStatus_e",
+        "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+        "type_kind": 0,
+        "type_index": 208
+      }
+    },
+    {
+      "names": [
+        "swInvalidSolution"
+      ],
+      "member_id": 1073741829,
+      "value": 6,
+      "variable_kind": 2,
+      "variable_flags": 0,
+      "declared_type": "(22, 0, None)",
+      "declaring_type": {
+        "name": "swConstrainedStatus_e",
+        "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+        "type_kind": 0,
+        "type_index": 208
+      }
+    },
+    {
+      "names": [
+        "swAutosolveOff"
+      ],
+      "member_id": 1073741830,
+      "value": 7,
+      "variable_kind": 2,
+      "variable_flags": 0,
+      "declared_type": "(22, 0, None)",
+      "declaring_type": {
+        "name": "swConstrainedStatus_e",
+        "guid": "{CCB930F4-D194-4C29-BD6A-E2FCE43DFF8A}",
+        "type_kind": 0,
+        "type_index": 208
+      }
+    }
+  ],
+  "scope": "Static installed type-library metadata; no CAD application launched or attached",
+  "source_receipt": {
+    "file": "ConstraintStates.stdout.json",
+    "bytes": 4004,
+    "sha256": "b6424ae2ff8746091ef160717945787a57ebcf28a31d03b89f9a61fc568c58da",
+    "frozen_tool_manifest_sha256": "af060f9d146e21e8abc5ecb83484098401e09a700e5c2e03b8b17421d9346f3d",
+    "native_application_activated": false
+  }
+}

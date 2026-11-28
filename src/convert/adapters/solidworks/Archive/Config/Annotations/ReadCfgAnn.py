@@ -51,7 +51,11 @@ def ReadCfgAnn(
             "SOLIDWORKS configuration annotation requires its enclosing part"
         )
     ContextValue = BodyContext(
-        VersionValue, KAnnLayouts, {}, {}, FlagsValue={"conditions": Conditions}
+        VersionValue,
+        KAnnLayouts,
+        {},
+        {},
+        FlagsValue={"conditions": Conditions, "bounded_config_annotations": 1},
     )
     Cursor = BinaryReader(BufferValue)
     ReaderValue = GraphReader(

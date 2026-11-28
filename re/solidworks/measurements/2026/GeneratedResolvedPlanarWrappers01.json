@@ -1,0 +1,98 @@
+{
+  "cases": [
+    {
+      "design": "ParallelFrontDatums",
+      "report": {
+        "heldout_inputs_tested": 0,
+        "inherited_map_next_index": 133,
+        "input_runtime_file_access_attempts": 0,
+        "native_acceptance": false,
+        "schema": "kit.sw2026.generated-resolved-planar-wrapper.v1",
+        "wrapper_archive_bytes": 874,
+        "wrapper_archive_sha256": "b6ceabe8a8bcd276bb7ef5c6f9649dbd0b5ff2234cb0896196b243ec4e0f26b4",
+        "wrapper_map_next_index": 147,
+        "wrappers": [
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 14,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 17,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          },
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 14,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 18,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          }
+        ],
+        "writer_output_count": 0
+      },
+      "request_sha256": "284078da9aed148b6012a6e4c568f7be52cd8905dac82d57f705a27b61718e85"
+    },
+    {
+      "design": "RotatedSelectedDatum",
+      "report": {
+        "heldout_inputs_tested": 0,
+        "inherited_map_next_index": 133,
+        "input_runtime_file_access_attempts": 0,
+        "native_acceptance": false,
+        "schema": "kit.sw2026.generated-resolved-planar-wrapper.v1",
+        "wrapper_archive_bytes": 1162,
+        "wrapper_archive_sha256": "1aacb0c7f9b2c8c505d09a0982598ba381f797103b7f12ab4a40be99dbbf1ca4",
+        "wrapper_map_next_index": 147,
+        "wrappers": [
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 15,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 17,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          },
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 16,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 18,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          }
+        ],
+        "writer_output_count": 0
+      },
+      "request_sha256": "1f12f3081378a4f85e5dd54bd1f0f07ca71172ab31e84861f03ff1666c85590b"
+    }
+  ],
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "schema": "kit.sw2026.resolved-planar-wrapper-process.v1",
+  "writer_output_count": 0
+}

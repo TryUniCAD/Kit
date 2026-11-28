@@ -1,0 +1,373 @@
+{
+  "cases": [
+    {
+      "case": "A22",
+      "generated_files": {
+        "assembly": {
+          "bytes": 10558,
+          "sha256": "f2e7f25f31e96d830960300bed9de86061518a792924bdcccff5db627659aa98"
+        },
+        "child": {
+          "bytes": 8777,
+          "sha256": "a3a7f2bf9e47794582456296854d10d8eb2a3f082387f54399ff8a28e9043220"
+        }
+      },
+      "generated_public_comparison": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 6,
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "mates": 3,
+        "occurrences": 2,
+        "passed": true
+      },
+      "names_only_strings": true,
+      "names_sha256": "605e141462b4c47b9e19a433e1830357e084db810cc890ad8f2cf088a9ba61b8",
+      "passed": true,
+      "prediction_sha256": "3c3e725fc77cb19ae546af1fa5292339c0d7f1ba43d859d1375209496b51b4d8",
+      "processes": [
+        {
+          "exit_code": 0,
+          "input_sha256": "0bcb6b094698f11290fd90b13ea1c7d1d4c69043576cd6aa34c52b9f7f2b6956",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "240ddc960f51bce87565df67b16ccb379fdc6f2eb6c49df52cfaad4bc1c6f61b",
+          "worker_pid": 60213
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "0bcb6b094698f11290fd90b13ea1c7d1d4c69043576cd6aa34c52b9f7f2b6956",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "423d87bc5e0653691b4db52746fa9ddf8631ef887293def9755388febdad8544",
+          "worker_pid": 60214
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "38d74a72fe595ba4917f9235e1832d41acde811caa2e1e3edc0810c5d7186609",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7887b900d8825666673a5209546196f8af5ee5fd736c0269847a17ba38016812",
+          "worker_pid": 60215
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "38d74a72fe595ba4917f9235e1832d41acde811caa2e1e3edc0810c5d7186609",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "a6fbe2e5a3c1c6120d58991f5a00f1a6c42ad045942c85d75e36e7441d838693",
+          "worker_pid": 60217
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "68e2cb1ba13a39289581951f7a856500f6b2319aa46df8870e7f2f84704ec874",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "54fd83c587e09578711c7e7ba8efa96d6b7c911cec29c5b2fe54478db7560030",
+          "worker_pid": 60220
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "eeab4f714cb7ee0a6df464021700e56ebbff724e36da6d42b2376c6345f18672",
+          "worker_pid": 60222
+        }
+      ],
+      "request_sha256": "87cebefa7b133361e06ea715c9651694a51d24eb599e22ffa32aa424a1f2f538",
+      "same_as_independent_research": true,
+      "source_child_sha256": "b46e1e0f066db55730ce765cb2547b97ad1416e1ea0ceaa588bb8e819f727321",
+      "source_parent_sha256": "fac5708432e569e787dfc00aa87fe08e5ef2d6830ec88f2d69525f8030d9fd1f",
+      "source_semantic_comparison": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 6,
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "mates": 3,
+        "occurrences": 2,
+        "passed": true
+      },
+      "typed_stream_round_trips": 44,
+      "writer_request_contains_no_recorded_state": true
+    },
+    {
+      "case": "N3",
+      "generated_files": {
+        "assembly": {
+          "bytes": 11527,
+          "sha256": "faa3cb308fec938f272536c9c73032bb8074509aba3d599029861b415bcb4dc2"
+        },
+        "child": {
+          "bytes": 8831,
+          "sha256": "1123f99f7586a6680bcc10ee8c715c56bd827d8a5d24afd6c55d1e210575742d"
+        }
+      },
+      "generated_public_comparison": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 12,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 6,
+        "occurrences": 3,
+        "passed": true
+      },
+      "names_only_strings": true,
+      "names_sha256": "ed6be8d6ac74db664095ca5b85923d30d3a5466ed15d2d2b964ac08f49ca18dd",
+      "passed": true,
+      "prediction_sha256": "075e48d2fa82a58dd6280c52147f1258740c96c57c3e8e7ada27b571ca3ab9d0",
+      "processes": [
+        {
+          "exit_code": 0,
+          "input_sha256": "6777cb46eaa56eb042b57df10f01ab7c92100f85084d53cec15bb1d5f45e2d0d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "c9c3cb3c7cc6f8e04ca52ff257fd55948f76e31dd8793ce647b86a2d364c369d",
+          "worker_pid": 60224
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "6777cb46eaa56eb042b57df10f01ab7c92100f85084d53cec15bb1d5f45e2d0d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "0ca9597d1a67d33c5abdccd4872bc2017e924b1fe8dc52a5e375eaab9eb790c8",
+          "worker_pid": 60226
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "8b91ed5911765c365db044d21a0aafaf69ed6dbfb7cf92f6ead53fa328a5d8e9",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "33197591af26870dbac9d43e0e4eb5ba767f40dac49d49e52606a137a9d5e511",
+          "worker_pid": 60227
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "8b91ed5911765c365db044d21a0aafaf69ed6dbfb7cf92f6ead53fa328a5d8e9",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "ebe07577e3aab24308311aec31e54061933a7b709d2a334f29af4b664510a446",
+          "worker_pid": 60228
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "c97cf6b152a0cccdb9912de467d646fd42fa12df8bea5bbf6e680fd8f5358dcb",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "aa826fd1d2b2ae5f836f63aca690ae47c1c5f1351a37b8bc2aca1b909381156b",
+          "worker_pid": 60233
+        },
+        {
+          "exit_code": 0,
+          "input_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "5fae98d700520b30aec1dccec37250c0c005cb1851aee3e0738a178e5046bdd6",
+          "worker_pid": 60235
+        }
+      ],
+      "request_sha256": "260e0fe2fce71e015a0ca9c39fed83104a2761bd44b95819e26f1eed71c766d2",
+      "same_as_independent_research": true,
+      "source_child_sha256": "1d158e0f67507587a2cb5056f103f34dbc930138b4f43ee5d20359c6329dbfcc",
+      "source_parent_sha256": "1522aa21cb3f39db16a6b082088fef0a0063acf6a53df6cb31c479137761eda3",
+      "source_semantic_comparison": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 12,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 6,
+        "occurrences": 3,
+        "passed": true
+      },
+      "typed_stream_round_trips": 44,
+      "writer_request_contains_no_recorded_state": true
+    }
+  ],
+  "delivery_pr": 121,
+  "dependency_lock_sha256": "a536fb03d8ee468ff495ab116b08d7880a6a3e8ac7ed51a47f348ff722dc7c57",
+  "distinct_successful_workers": 12,
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "host_preflight": {
+    "cases": [
+      {
+        "case": "Verify",
+        "exit_code": 0,
+        "original_or_native_file_open_attempts": 0,
+        "passed": true,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "77fbdf418028c53881a4c71886bef459b5ba06330e6d344065a61b1739bd42a5"
+      },
+      {
+        "case": "Dependency",
+        "exit_code": 0,
+        "original_or_native_file_open_attempts": 0,
+        "passed": true,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3615f66b0ae3958fe49d5f939035c4b27bda60d255cabbd1267284bcc622c344"
+      },
+      {
+        "case": "PrepareGuard",
+        "exit_code": 1,
+        "original_or_native_file_open_attempts": 0,
+        "passed": true,
+        "stderr_sha256": "250962af98ce069aca79719e97a081510b041c723d757dacd0d58f27f547ed47",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "MeasureGuard",
+        "exit_code": 1,
+        "original_or_native_file_open_attempts": 0,
+        "passed": true,
+        "stderr_sha256": "c8eb0335d7be1747e638199f66e514b8f4430d5a337f0bff27c7a611a41b4ac5",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "original_or_native_file_open_attempts": 0,
+    "passed": true,
+    "raw_sha256": "03d8692737cb2a20849fa94ec078c9a67ce82f4e2c71c7eed4e9df018ab40e23",
+    "release_used": false
+  },
+  "inputs_unchanged": true,
+  "limits": [
+    "This is executable method qualification on disclosed A22 and the frozen SDK N3 document, not original held-out acceptance",
+    "The source projection returns strings only; geometry distances poses constraints and bookkeeping are independently authored or computed",
+    "Both original cases remained sealed throughout this disclosed rehearsal and host packet verification",
+    "The two original slots require root-verified source custody and explicit release before any guest source access",
+    "This pre-release receipt contains no guest dependency or original native verdict; those are separate root-owned stages",
+    "The native saved-file audit remains scoped to seven parent and six child stream roles per state"
+  ],
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "case": "changed_recipe_pose",
+      "identity": {
+        "exit_code": 1,
+        "input_sha256": "fb19ab36e8bc1e20841029d47db76c7312b4470bb109922af58803be229c0e8d",
+        "stderr_sha256": "5dbcb70cd5b4ed6a1fd23424656d5577b893c50a2a0119dd2f20d5af8cfb4e4c",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_recipe_endpoint",
+      "identity": {
+        "exit_code": 1,
+        "input_sha256": "e84900e299197f357e26f64c7666c26cb66fc0b543370d9734988cb4e92142eb",
+        "stderr_sha256": "f6912d9226a748adfc8d699d941f5f6fbf620cddc4665d957862a126e918c89f",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "extra_mate_state",
+      "identity": {
+        "exit_code": 1,
+        "input_sha256": "c6d4f2ce40ab18afa02a10525a06df871bee5bb18d38096fa98a91f0f8abefac",
+        "stderr_sha256": "5f8e1f4060c7f53268c0fe1f32ab36f91f574aa88721c96f18a2a8afa8f5ca56",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "virtual_source_component",
+      "identity": {
+        "exit_code": 1,
+        "input_sha256": "2b16708656f8156cc2c26f47c51941723030b383c2a55cd0d7ad17b8fbd808aa",
+        "stderr_sha256": "62764ae4b6b89b41c0f86aa6222126a010afd38229a6961a12337c5d30df19db",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "missing_source_child_driver",
+      "identity": {
+        "exit_code": 1,
+        "input_sha256": "b8ba1cb3bd90d23df67f888e7ec879615124bcf7e314bcaa4e3b27ecdd53b902",
+        "stderr_sha256": "250730268313f1f450b1ccd144debfe0c15e18f25d8c8bcd325be9c5e77cc1e8",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "colliding_actual_names",
+      "identity": {
+        "exit_code": 1,
+        "input_sha256": "fec66e4a0299161e2fee329bc8f7588095cc8653773849ffc6a1cb4e6b74ca7f",
+        "stderr_sha256": "0ad2266acd69c6c7687a3a4b6dc7d643f5ef039cf98f4055f2a4a07ac3cc67ec",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "nonprincipal_source_frame",
+      "identity": {
+        "exit_code": 1,
+        "input_sha256": "c3720eaa44e5fafb7eab7fd5f1a67559dda2510cdadd81db9cacb0d35b2075c4",
+        "stderr_sha256": "a12bdb9014ae88fb201d6da34f7ae48b3cf1d7419ac25dadeacac8c1f38200c3",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed": true,
+      "writer_output_count": 0
+    }
+  ],
+  "owner": "/root/assembly_occurrence",
+  "packet_sha256": "5f272f21111e28015729017c214c192635fea0d355fe54b8f0096957a7d944bc",
+  "passed": true,
+  "public_assembly_writer_enabled": false,
+  "raw_result_sha256": "73f0a0588d92db4385bcc04f214f69ab1f438182a18316c86515f2d5eb4c0d55",
+  "rejecting_worker_invocations": 7,
+  "runtime_input_file_reads_during_projection_and_construction": 0,
+  "schema": "kit.sw2026.original-planar-method-public-rehearsal.v1",
+  "source_files": 5074,
+  "source_frozen_before_semantic_projection": true,
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "source_manifest_sha256": "69ab52d693ffcf2eb8fb7318c4a228e60d3b33fa04bc99334df9e2665213330e",
+  "source_unchanged": true,
+  "task": "B04-SW2026-ASSEMBLIES-C10",
+  "timing_scope": "Disclosed rehearsal and source-unexposed host packet verification before root released Slot01 preparation",
+  "tools_sha256": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "CheckOriginalPlanarMethod.py": "cecaaeeae40be0ee54acc73f1fe93f610136546ca92129f78c0f230c6681fa69",
+    "FreezeOriginalPlanarEvaluation.py": "4b5136de60afb8021df45c48ae583701c0bcd9ff0b8f4856b26cf7f89b896763",
+    "InspectCircleSketch.py": "deffc8fb5522b0d75b082345b14ed2e92528bac184997af011f186a43e02d6e4",
+    "InspectCombinedPlanarMates.py": "496d598d645e9faeee80bd71bd6717f4c260fd1e72370fe7b44bd8d3ce00956b",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectOriginalPlanarSlot.py": "cb16a5e78ef51274f5a301196c803eef42ea6519fea754eb50e1c1dfac5fd47a",
+    "InspectSdkPlanarGroup.py": "aa9886a0a552ba731cb6d119258a1a973f1184f291db9c5503e18fcc63e35e5a",
+    "InspectSdkSingleMate.py": "e00760bd5666e1f90dc4be978b78d25b035b766a1fd97636d37036ddd339a492",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "OriginalPlanarEvaluation.py": "c531d264f093ddc1be37fd41326edc84d82a30db9148926e42c4e1a3285b455c",
+    "OriginalPlanarNames.py": "200c859d94002c4cc223fe718ade07f83dc542279c365f04ab9a0585e041795b",
+    "OriginalPlanarProcess.py": "f7914cf1b6be87a8e8106dd516c14e1f2778720878f50cc4bb32ee42f7352986",
+    "OriginalPlanarRecipe.py": "4cb5ee89aba86f3d09edcd6ef17bfc5247c7e3432293accd130dc06a83ee46c9",
+    "PlanarMateEdit.py": "61f99e2e8ecd075b4c7d3c5732db35bc18563b3999ad1b06fcf01e9ee4198466",
+    "PrepareDimensionedAssemblyPredictions.py": "639dbf7f80f594d4e7da459638bfe3037f8ad9116e36755d02a38bebc2dc48a7",
+    "PrepareSdkAssemblyNative.py": "ca99618a4461b8418edff4e02297d8534a10636bbb86230c7af3df877345bf5b",
+    "ReadSdkOrderedNative.py": "3b808a43e62c691197b386bd8e46f2631553ae746352d6748e9e7ba8906df46d",
+    "ReadSdkPlanarGroupNative.py": "fe9ce08e4b99226618f393c500053a216733e0f58007d12ed45e0c5a2c368101",
+    "RunOriginalPlanarEvaluation.py": "ac9b51ed7bef56e500cf9eb2e13b5eab632b5c7f600fcd0a28bfebc6e0ea824e",
+    "SdkPlanarGroupPrediction.py": "a603f1a089a557d57d523fd97312e8f73f1db43d69e74f5ae062b202cb25d2bf",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "typed_stream_round_trips": 88
+}

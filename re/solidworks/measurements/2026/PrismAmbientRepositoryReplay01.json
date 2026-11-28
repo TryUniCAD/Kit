@@ -1,0 +1,41 @@
+{
+  "independent_guarded_processes": 4,
+  "native_launches": 0,
+  "outputs": {
+    "Prism1AmbientBoth": {
+      "generated_sha256": "b1cb16c72923b2f8b898dcdf7167ba5c9f67348aa9aeb7efcd51ef1986c2d97a",
+      "guarded_result_sha256": "e7664ee79fce2cfabacfc6af0a6c3fb1541e425f11f6a2dc8b3cbce5d5f105b9",
+      "oracle_input_bytes_identical": true,
+      "runtime_data_read_attempts": 0
+    },
+    "Prism1AuthoredAmbient": {
+      "generated_sha256": "ad7d0151ca0fdef6c16647fc0c2385c5c8cc22fb2b5b0cb98d22669fcd6a3269",
+      "guarded_result_sha256": "adddce976bbfa865d337db85a57df201681aa4b9d4d789d79693d7d982fc0378",
+      "oracle_input_bytes_identical": true,
+      "runtime_data_read_attempts": 0
+    },
+    "Prism2AmbientBoth": {
+      "generated_sha256": "da979f3d4859338ee0679f8a9368b169fd76e1b298148a5986ce1f922d1652fb",
+      "guarded_result_sha256": "c64e3613fdc2f4405f630203c08bbec2bcec58c20bed5a662416c2aeb64d48a8",
+      "oracle_input_bytes_identical": true,
+      "runtime_data_read_attempts": 0
+    },
+    "Prism2AuthoredAmbient": {
+      "generated_sha256": "f96f3695b090ad28d243642c72c7ace30feec86417ab9a593fc48b18e3a240cf",
+      "guarded_result_sha256": "f115a2008501e36f7ee2049fb9bdc730ed1fa221ca09f54e05e550163bb453ea",
+      "oracle_input_bytes_identical": true,
+      "runtime_data_read_attempts": 0
+    }
+  },
+  "passed": true,
+  "schema": "kit.sw2026.prism-ambient-repository-replay.v1",
+  "tool_files_sha256": {
+    "re/tooling/sw2026/downstream/lighting/AmbientFields.py": "3eae241a82b06be7305aaa0cadea81cdd6700e9a2adce030a786105c9fdbc674",
+    "re/tooling/sw2026/downstream/lighting/AmbientInput.py": "4035dca4c2041a08c887a194ca1cac979f88d3371486c327ed13d8a3f163d5a3",
+    "re/tooling/sw2026/downstream/lighting/AttachAmbientMut.py": "05eb70fccd9d2e340d114b4645643f75d3af0d5a27f8a289d1107070bac7e361",
+    "re/tooling/sw2026/downstream/lighting/CheckAmbientInput.py": "9be78c8fe823e8f68d9fc8f9cad63af6908a29fb96321067813a51a0d6d95760",
+    "re/tooling/sw2026/downstream/lighting/MakeAmbient.py": "24169393bbab05943b7693d4b0517f3836450146250931011da8ac7fd3ea5292",
+    "re/tooling/sw2026/downstream/lighting/PreparePrismAmbient.py": "b16f62686a5b038005af14e4f797c5aa5b8f7912a2087a0577392ef02d94cf82",
+    "re/tooling/sw2026/downstream/lighting/PrismAmbientGraph.py": "799f22d530b8cff3946aa149ad5050c6d357a95049d0debc995f4b11b60133b6"
+  }
+}

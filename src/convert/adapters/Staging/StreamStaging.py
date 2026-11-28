@@ -35,7 +35,9 @@ def WriteStreamMut(
     if ResultData.OutputPath is not None:
         raise RegistryError("stream writer returned a filesystem path")
     PayloadData = StagedStream.getvalue()
-    if isinstance(AdapterData, WholeStreamWriter) and AdapterData.IsWholeStream:
+    if isinstance(AdapterData, WholeStreamWriter) and AdapterData.IsWholeStream(
+        DocumentData
+    ):
         if not isinstance(PayloadData, bytes):
             raise RegistryError("standalone stream writer returned nonbinary output")
         WriteWholeMut(TargetData, PayloadData)

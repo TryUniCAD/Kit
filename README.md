@@ -23,8 +23,9 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 
 | Format               | Suffixes                  | Registration      |
 | -------------------- | ------------------------- | ----------------- |
-| SOLIDWORKS part      | `.SLDPRT`                 | Reader and writer |
-| SOLIDWORKS assembly  | `.SLDASM`                 | Reader            |
+| SOLIDWORKS part      | `.SLDPRT`                 | Reader and bounded writer |
+| SOLIDWORKS assembly  | `.SLDASM`                 | Reader and bounded writer |
+| SOLIDWORKS drawing   | `.SLDDRW`                 | Partial reader and bounded writer |
 | FreeCAD              | `.FCStd`                  | Reader and writer |
 | CATIA V5             | `.CATPart`, `.CATProduct` | Reader and writer |
 | Kit interchange JSON | `.json`                   | Reader and writer |
@@ -33,8 +34,12 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 Registration does not establish complete feature coverage or lossless translation.
 Native replay and carrier preservation have different meanings from editable cross-format output.
 Check the format reference and result for each input.
-The SOLIDWORKS part writer generates one editable Front-plane line-loop blind boss
-from a qualified neutral document. [Writer scope](Documentation/Reference/Adapters/Solidworks.md#writing)
+The SOLIDWORKS part writer uses exact native measurements for the published profiles. These include Front-plane line-loop and full-ellipse bosses, measured fixed-centre circle bosses and principal offset-plane bosses, Standard sweeps, distance and signed angle-distance chamfers, selected-stock through cuts, contained oblique linear patterns, a width-driven blind boss, physically assigned origin-anchored rectangle bosses, and measured principal, end-mode and thin revolutions. Both measured rectangular and concave imports round-trip from strict full reads and report unavailable editable history. [SOLIDWORKS writer scope](Documentation/Reference/Adapters/Solidworks.md#writing) · [Exact part receipt](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+The two measured cold material profiles also support strict readback and exact republication. [Cold material scope](Documentation/Reference/Adapters/Solidworks.md#writing)
+
+The SOLIDWORKS assembly writer supports measured flat bundles with coincident and driving-distance mates or one perpendicular mate, and measured rigid nested hierarchies with owned rectangular blind-boss parts. [Assembly writer scope](Documentation/Reference/Adapters/SolidworksAssemblyWriting.md)
+
+The drawing writer generates one editable unlinked ANSI A landscape sheet. The strict reader retains its generated layout, and the partial reader can inspect a single unattached plain note and its position. [Drawing scope](Documentation/Reference/Adapters/Solidworks.md#writing-standalone-blank-drawings) · [Drawing inspection](Documentation/Reference/Adapters/Solidworks.md#drawing-layout-inspection)
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Command line

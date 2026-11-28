@@ -1,0 +1,29 @@
+{
+  "interfaces": {
+    "IAnnotation": {
+      "arguments": "()",
+      "interface_guid": "{83A33DA9-27C5-11CE-BFD4-00400513BB57}",
+      "invocation_kind": 1,
+      "member_id": 21,
+      "return_type": "(8, 0, None)",
+      "vtable_offset": 216
+    },
+    "INote": {
+      "arguments": "()",
+      "interface_guid": "{83A33D55-27C5-11CE-BFD4-00400513BB57}",
+      "invocation_kind": 1,
+      "member_id": 44,
+      "return_type": "(8, 0, None)",
+      "vtable_offset": 400
+    }
+  },
+  "native_processes_started": 0,
+  "raw_guest_result_sha256": "9d5fc41e83efa6ad574c708d0ca26b2701460896beb53dbc9660f9bb4a1c8226",
+  "registered_metadata_only": true,
+  "schema": "kit.sw2026.registered-annotation-name-access.v1",
+  "tool_sha256": "f5ceef468d1831b06b67b81eba5aae36246849e4c30d0742cfde37486d3ba3b9",
+  "type_library_version": [
+    34,
+    0
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema": "kit.sw2026.oblique-authoring-host-receipt.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "authority": "host process preparation and source-only static checks",
+  "host_contract_sha256": "864f6854931d0ee312fefcfd9c887f8d802654e2079723ea0f128c637de1ad79",
+  "host_contract": {
+    "schema": "kit.sw2026.oblique-source-host-contract.v1",
+    "packet_sha256": "423856991be575744880808a71e8e9ea6f107a9aba90f53656cdcb6b425dcc88",
+    "recipe_sha256": "f1ca9c7ace7208b0db0f969cae239d1e24c104fd379a4dca940339b428817ca4",
+    "prediction_sha256": "623ef03083a810e67eaa6ae1c7eff99f75efe59455a74549d6577a54fdd64c8b",
+    "cases": [
+      {
+        "name": "Verify1",
+        "returncode": 0,
+        "stdout_sha256": "bc1a49bd2f175b1aeb55a6e3061e060357110ba1a956032be136dc07899178aa",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "Verify2",
+        "returncode": 0,
+        "stdout_sha256": "bc1a49bd2f175b1aeb55a6e3061e060357110ba1a956032be136dc07899178aa",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "WrongPacketHash",
+        "returncode": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "8b9a3a6567a4ef73a7bf47121fbf70d72981b04a8d93b5be168d0a3a6f3b3927"
+      },
+      {
+        "name": "HiddenSlotRefused",
+        "returncode": 2,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "7e3dfacd827c6230f4e8cd414f47f0c7767457ee27698a504e7bb45c95dae09b"
+      },
+      {
+        "name": "HostNativePhaseRefused",
+        "returncode": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "9c9f339b017b92e91ced9b60252ca05975f0aa4cfa8e637a9e7ca5dbef244f76"
+      },
+      {
+        "name": "ChangedToolRun",
+        "returncode": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "13b8c6f6fa10f829ddc246c934cd8429cbb6080805485327c8065d2ea7c8bbfc"
+      },
+      {
+        "name": "ChangedDisclosedRun",
+        "returncode": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "194a436185c082e26d656e538bbfb3aa3ab0c607732f0f52e31db3c958e60979"
+      }
+    ],
+    "coverage": {
+      "fresh_host_verification_processes": 2,
+      "refusal_processes": 5,
+      "frozen_owned_tools": 4,
+      "frozen_total_tools": 13,
+      "disclosed_geometry_cases": 2,
+      "precomputed_edit_states_per_case": 5,
+      "native_launches": 0,
+      "heldout_inputs_read": 0,
+      "native_outputs": 0,
+      "writer_outputs": 0,
+      "packet_files_unchanged": 18,
+      "recipe_commands": 15
+    },
+    "native_result": "not-run",
+    "remaining_native_edges": [
+      "registered exact axis/direction/end getter binding",
+      "actual hinge and positive rotation sign",
+      "selected-plane end4 and absence/presence of inactive distance display",
+      "actual four-driver edits and five-process source locks"
+    ],
+    "frozen_files": {
+      "Recipe.json": "f1ca9c7ace7208b0db0f969cae239d1e24c104fd379a4dca940339b428817ca4",
+      "Disclosed.json": "b3919683cc330f68dd5bb2f93622b6890c4e227a0172e0adbe2272aea1cf7a8b",
+      "Control.SLDPRT": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "Protocol.json": "423856991be575744880808a71e8e9ea6f107a9aba90f53656cdcb6b425dcc88",
+      "Predictions.json": "623ef03083a810e67eaa6ae1c7eff99f75efe59455a74549d6577a54fdd64c8b",
+      "Tools/AuthorObliqueCylinder.py": "bdba176c2a0ebaa405add53e5bef5ef264b45ec9ef536be7e676f30a5938aa28",
+      "Tools/Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+      "Tools/OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Tools/AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "Tools/ObliqueCylinderApi.py": "6f627afbc5f446f000a36d0c5a222c8cdff9676f72c14a02b396acec9fc21ed8",
+      "Tools/ObliqueCylinderSources.py": "ae9760823015d643563e466d9a5e92934ddb5cfa0c20ea4cf001542874788ad6",
+      "Tools/InspectCircleSketch.py": "deffc8fb5522b0d75b082345b14ed2e92528bac184997af011f186a43e02d6e4",
+      "Tools/InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+      "Tools/ReferencePlaneSourcePlan.py": "9d878376609503827881a729f8e96c157c4066699eb9e772db7a33f0a08fd880",
+      "Tools/AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+      "Tools/ReferencePlaneDimensions.py": "ada024b7a43428ca599ad14356adaeb4080b273559ea6214393691135f370504",
+      "Tools/ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+      "Tools/ObliqueCylinderPlan.py": "6385a0a956604fc70eb2e101e2acd38d9c91cafd1b605565ee2575e25a3461f0"
+    }
+  },
+  "native_source_phase_result": "not-run",
+  "native_acceptance": false,
+  "kit_writer_output_count": 0,
+  "shared_checkout_mutations": 0,
+  "vm_calls": 0,
+  "hopper_sessions_opened": 0,
+  "heldout_inputs_read": 0
+}

@@ -1,0 +1,99 @@
+{
+  "cases": [
+    {
+      "body_count": 1,
+      "case": "SdkNestedNeutralNative03",
+      "controls_healthy": true,
+      "definition_count": 3,
+      "direct_occurrences": 1,
+      "driving_depth_after_m": 0.011375,
+      "driving_depth_before_m": 0.00745,
+      "driving_depth_reopened_m": 0.011375,
+      "expanded_occurrences": 2,
+      "fixture_sha256": "d4bc3491fe62d251de31701f8fe1b645f996791b75e5211a7786efb9139307bf",
+      "frozen_inputs_unchanged": true,
+      "opened_rebuilt_edited_saved_reopened": true,
+      "packet_sha256": "8190fa54206d6a399ae0f5f7eaab79bd1839f13705622b1811801274261dc4ba",
+      "phase_receipts": [
+        {
+          "mode": "before",
+          "process_creation_filetime": 134397236298094395,
+          "record_sha256": "42229b51bddd9c0e975d64091ae9fb3265b75d495d0539f4e3e3cb302fa58574"
+        },
+        {
+          "mode": "generated",
+          "process_creation_filetime": 134397236744813918,
+          "record_sha256": "bdb495edda661293ad7d1853075b87fa77ccadd4bd087ed8f1403b186f8048fb"
+        },
+        {
+          "mode": "reopen",
+          "process_creation_filetime": 134397237420707573,
+          "record_sha256": "13afe5d07e18c30c98ade122c677e543d9c581f83523bb087486e94c59419a01"
+        },
+        {
+          "mode": "after",
+          "process_creation_filetime": 134397237883514100,
+          "record_sha256": "9cf1cce0623484e15ddd4a454601d3fe3ea072e047b59483e2262cd8028e1bb8"
+        }
+      ],
+      "prediction_sha256": "1dba886c5d56ad93009d64a3e8fcc4c83b919aada214a9dc1ec31565c4e969c6",
+      "result_sha256": "bcc4e421981553c488cf4638e50342ae74c65544f60cee265493fd464eb016e8",
+      "source_manifest_sha256": "df7842eaa43f97ac3b7a66eb648f112af6c85dc5c0472bf6f5ac5371b533621d",
+      "synchronized_derivative_files_match": true,
+      "typed_stream_round_trips_per_guarded_build": 34,
+      "writer_revision": "535f095f3e8409b53ab01debfbb224076caea8c5",
+      "writer_source_tree": "547a3079324db1e5d780ecdfcde668fcfcc62543"
+    },
+    {
+      "body_count": 5,
+      "case": "SdkRepeatedNeutralNative03",
+      "controls_healthy": true,
+      "definition_count": 4,
+      "direct_occurrences": 3,
+      "driving_depth_after_m": 0.011375,
+      "driving_depth_before_m": 0.00745,
+      "driving_depth_reopened_m": 0.011375,
+      "expanded_occurrences": 7,
+      "fixture_sha256": "f97f9289a07a9482d017b6537dbbde27def4df2157115e09b0a712426f9258b4",
+      "frozen_inputs_unchanged": true,
+      "opened_rebuilt_edited_saved_reopened": true,
+      "packet_sha256": "51bbc71bdf0f675aa63073fbb833b29d4be6f874934a82d5f64f662b2eca1e73",
+      "phase_receipts": [
+        {
+          "mode": "before",
+          "process_creation_filetime": 134397238365999556,
+          "record_sha256": "d42e1fe921d9f1e5f93291e7553510cd56311b529c95b29886d13798585341f0"
+        },
+        {
+          "mode": "generated",
+          "process_creation_filetime": 134397239042498240,
+          "record_sha256": "010eec5c071e49894c368233c63b24e7c4fa3721e4ce5bba3481097ffc851d88"
+        },
+        {
+          "mode": "reopen",
+          "process_creation_filetime": 134397240178180090,
+          "record_sha256": "dbb21b8cbb6d169b77653481bcfdc2fdc8b938487b7dd5c8d753c2eb9327c0ba"
+        },
+        {
+          "mode": "after",
+          "process_creation_filetime": 134397240875818119,
+          "record_sha256": "5a429588bc14a7946206a9bf0cda7115a0edbe7ec7acec31e97a0e6783ee60ad"
+        }
+      ],
+      "prediction_sha256": "151af36aea5d5077ab3c63670085d2c8eda1def23bfe60b70f559138d60880ad",
+      "result_sha256": "9dfda9928f350c7b4a4e4a8b4455dff1712ab30c34fbb403b75671b080b4d0a1",
+      "source_manifest_sha256": "df7842eaa43f97ac3b7a66eb648f112af6c85dc5c0472bf6f5ac5371b533621d",
+      "synchronized_derivative_files_match": true,
+      "typed_stream_round_trips_per_guarded_build": 44,
+      "writer_revision": "535f095f3e8409b53ab01debfbb224076caea8c5",
+      "writer_source_tree": "547a3079324db1e5d780ecdfcde668fcfcc62543"
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_processes": 8,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "public_adapter_writer_qualified": false,
+  "schema": "kit.sw2026.neutral-nested-disclosed-native-result.v1"
+}

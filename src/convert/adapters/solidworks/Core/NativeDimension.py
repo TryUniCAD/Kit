@@ -1,5 +1,5 @@
 from collections.abc import Mapping
-from dataclasses import dataclass as Dataclass
+from dataclasses import dataclass as Dataclass, field as Field
 
 from convert.adapters.solidworks.Core.NativeOperand import NativeOperand
 
@@ -17,4 +17,4 @@ class NativeDimension:
     operands: tuple[NativeOperand, ...] = ()
     inch_display_value: float | None = None
     native_stream: str | None = None
-    TypedOwner: Mapping[str, object] | None = None
+    TypedOwner: Mapping[str, object] = Field(default_factory=dict[str, object])

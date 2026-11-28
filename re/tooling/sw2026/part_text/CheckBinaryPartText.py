@@ -6,7 +6,8 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from PartTextProbe import check_model, model_state, read_part, refuse_output, refuse_write
+from PartTextProbe import CIRCULAR_PROFILE_OWNER, check_model, model_state, read_part, refuse_output, refuse_write
+from PropPolicyControl import CAUSE, unknown_policy
 from convert import convert
 from convert.adapters.solidworks.Container.Archive import EncodeClass
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
@@ -18,7 +19,6 @@ INVALID_OWNER_CAUSE = (
     "SOLIDWORKS body moCusPropMgr_c field f20/o at 56: "
     "part property manager has unsupported owner placement"
 )
-ADVANCED_CAUSE = "part properties require an empty compatible native manager"
 
 
 def is_property_xml(name):
@@ -39,11 +39,12 @@ def inspect(path, case):
         cause = INVALID_OWNER_CAUSE
     else:
         streams = {name: data for name, data in streams.items() if not is_property_xml(name)}
-        if case == "advanced":
-            cause = ADVANCED_CAUSE
+        if case == "unknown-policy":
+            streams[MANAGER] = unknown_policy(original_manager)
+            cause = CAUSE
     changed = BuildSldprt(streams, Template=raw)
     copied = SldprtArchive.from_bytes(changed).streams
-    if copied[MANAGER] != streams[MANAGER] or (
+    if copied != streams or (
         case != "malformed" and any(is_property_xml(name) for name in copied)
     ):
         raise ValueError("binary manager variant disagrees with its scoped input")
@@ -57,7 +58,7 @@ def inspect(path, case):
     if cause is None:
         state["portability_refusal"] = refuse_output(
             operation, "native-only feature definitions cannot be exported",
-            "sldprt:feature:-1", "Sheet-Metal Master",
+            "sldprt:feature:26 (solidworks.sldprt:ProfileFeature)" if case == "advanced" else CIRCULAR_PROFILE_OWNER,
         )
     elif case == "malformed":
         state["portability_refusal"] = refuse_output(
@@ -70,14 +71,13 @@ def inspect(path, case):
         raise ValueError("binary source changed")
     state["source_sha256"] = sha256(raw).hexdigest()
     state["manager_sha256"] = sha256(original_manager).hexdigest()
+    state["result_manager_sha256"] = sha256(copied[MANAGER]).hexdigest()
     state["property_xml"] = sorted(name for name in copied if is_property_xml(name))
     state["geometry_equal"] = True
     return state
 
 
 if __name__ == "__main__":
-    cases = ("malformed", "advanced", "empty")
-    paths = tuple(map(Path, sys.argv[1:]))
-    print(json.dumps({
-        name: inspect(path, name) for name, path in zip(cases, paths, strict=True)
-    }, sort_keys=True))
+    legacy, ladder, circular = map(Path, sys.argv[1:])
+    cases = {"malformed": legacy, "advanced": ladder, "unknown-policy": ladder, "empty": circular}
+    print(json.dumps({name: inspect(path, name) for name, path in cases.items()}, sort_keys=True))

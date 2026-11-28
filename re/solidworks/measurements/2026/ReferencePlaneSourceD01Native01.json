@@ -1,0 +1,408 @@
+{
+  "schema": "kit.sw2026.disclosed-offset-plane-native.v1",
+  "source_packet_sha256": "c05c429097c4ad94177afd3cddd9535ca373a31e6dcfa845375d9c09c96d2e89",
+  "tools_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "RunSealedNestedSourcePhase.py": "b783cf04f7aa2118b1bc170590cb673eeec0c80d90b4d3914ebf631d4a323ae1",
+    "ReferencePlaneSourcePlan.py": "9d878376609503827881a729f8e96c157c4066699eb9e772db7a33f0a08fd880",
+    "ReferencePlaneDimensions.py": "ada024b7a43428ca599ad14356adaeb4080b273559ea6214393691135f370504",
+    "AuthorReferencePlaneSources.py": "a2df6c81c6f8366cd5da14fefa685c279ef26f2c4271c6536e0afff71593c6aa",
+    "ReferencePlaneSourcePhase.py": "67792e517b979a9d48c37a1870c3f8bb889868c386b5f65c5e831461d7c08aff"
+  },
+  "phases": [
+    {
+      "case_id": "D00",
+      "phase": "before",
+      "progress_sha256": "641b40ecf05f616685acf61eda5df1517414730ddd965e648db6505805ac1f88",
+      "raw_sha256": "b5d929928cae631a7521d7ff354e2eddd504d0844e9e28ccc90f8738bcc16e27",
+      "started_at": 1794942257.0744834,
+      "finished_at": 1794942280.8741393,
+      "identity": {
+        "process_id": 8920,
+        "process_creation_filetime": 134394158615649005,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D01",
+      "phase": "author",
+      "progress_sha256": "fb70392d5b4ba45ef7563d48d7e7da8a928a3c2667fd916d3db6e074399521fc",
+      "raw_sha256": "6e1b8c3a2274de6559c50fcc8d56eb25516e7bfdfd0ca2dc6150d7f9a9ecd66c",
+      "started_at": 1794942282.8540788,
+      "finished_at": 1794942333.6392934,
+      "identity": {
+        "process_id": 5304,
+        "process_creation_filetime": 134394158873724795,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D01",
+      "phase": "reopen",
+      "progress_sha256": "1b43a2144fabc5b34db86ef533d02ea27c89601eb470c2ed45ab0e17cd0bb757",
+      "raw_sha256": "80e246362696c69cf25ed9495eb9bc1c93f4ede682c4584c7b6ad2c361c1fd61",
+      "started_at": 1794942335.9015138,
+      "finished_at": 1794942373.531713,
+      "identity": {
+        "process_id": 4084,
+        "process_creation_filetime": 134394159404510316,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D00",
+      "phase": "after",
+      "progress_sha256": "5693d623c04893c6dfaa169cb79af00c4fea62c12782ff4b03cc1661559c621e",
+      "raw_sha256": "ad9ddb25b323c41bc66caa4eccffd1e20f1a07acc4869106fcd4df238c6ebbd8",
+      "started_at": 1794942375.7520297,
+      "finished_at": 1794942399.2852342,
+      "identity": {
+        "process_id": 8756,
+        "process_creation_filetime": 134394159802228653,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "bracket_order_verified": true,
+  "scope": "native-authored disclosed Front offset source only",
+  "siblings": {
+    "source": {
+      "native_file_sha256": "9555e4b1d9e7f9f6107a97708a29b6f8fe8ea46922d14d5b006dd2d3b6cd6663",
+      "native_bytes": 80005,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_open_errors": 0,
+      "fresh_open_warnings": 0,
+      "body_count": 1,
+      "tree_rows": 26,
+      "driving_dimensions_m": {
+        "radius": 0.00831,
+        "plane_distance": 0.01379,
+        "boss_depth": 0.00647
+      },
+      "mass_properties": {
+        "volume": 1.4036415028027867e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965236e-20,
+          1.0895718255931566e-50,
+          0.017025
+        ],
+        "mass": 1.4036415028027867e-06
+      },
+      "fresh_mass_properties": {
+        "volume": 1.4036415028027867e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965236e-20,
+          1.0895718255931566e-50,
+          0.017025
+        ],
+        "mass": 1.4036415028027867e-06
+      },
+      "support_origin_m": [
+        0.0,
+        0.0,
+        0.01379
+      ],
+      "support_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "radius_binding": {
+        "name": "D1@PlaneSketch",
+        "full_name": "D1@PlaneSketch@Part1.Part",
+        "value_m": 0.00831,
+        "driving": true,
+        "editable": true,
+        "unit_basis": "IDimension.SystemValue SI metres",
+        "owner_identity": {
+          "native_object_equality": 1,
+          "canonical_iunknown_equal": true,
+          "same_native_object": true
+        },
+        "creation_identity": {
+          "native_object_equality": 1,
+          "canonical_iunknown_equal": true,
+          "same_native_object": true
+        },
+        "display_traversal": [
+          {
+            "full_name": "D1@OffsetPlane@Part1.Part",
+            "value_m": 0.01379,
+            "display_type": 2,
+            "matches_requested_parameter": false
+          },
+          {
+            "full_name": "D1@PlaneSketch@Part1.Part",
+            "value_m": 0.00831,
+            "display_type": 5,
+            "matches_requested_parameter": true,
+            "identity": {
+              "native_object_equality": 1,
+              "canonical_iunknown_equal": true,
+              "same_native_object": true
+            }
+          }
+        ],
+        "matching_display_count": 1
+      },
+      "plane_binding": {
+        "name": "D1@OffsetPlane",
+        "full_name": "D1@OffsetPlane@Part1.Part",
+        "value_m": 0.01379,
+        "driving": true,
+        "editable": true,
+        "unit_basis": "IDimension.SystemValue SI metres",
+        "owner_identity": {
+          "native_object_equality": 1,
+          "canonical_iunknown_equal": true,
+          "same_native_object": true
+        },
+        "creation_identity": null,
+        "display_traversal": [
+          {
+            "full_name": "D1@OffsetPlane@Part1.Part",
+            "value_m": 0.01379,
+            "display_type": 2,
+            "matches_requested_parameter": true,
+            "identity": {
+              "native_object_equality": 1,
+              "canonical_iunknown_equal": true,
+              "same_native_object": true
+            }
+          }
+        ],
+        "matching_display_count": 1
+      },
+      "independent_circle": {
+        "radius_m": 0.00831,
+        "center_local_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ordinary_circle": true,
+        "entity_binding": {
+          "kind": "arc",
+          "segment_type": 1,
+          "id": [
+            0,
+            1
+          ]
+        }
+      },
+      "geometry_matches_six_significant_figures": true
+    },
+    "edited": {
+      "native_file_sha256": "81d2a5905230b55f5aa1902073a7397ba51fd75c35a31a113bbd56e0fe34efa9",
+      "native_bytes": 81058,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_open_errors": 0,
+      "fresh_open_warnings": 0,
+      "body_count": 1,
+      "tree_rows": 26,
+      "driving_dimensions_m": {
+        "radius": 0.00831,
+        "plane_distance": 0.02453,
+        "boss_depth": 0.00647
+      },
+      "mass_properties": {
+        "volume": 1.403641502802787e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965235e-20,
+          1.0895718255931566e-50,
+          0.027764999999999998
+        ],
+        "mass": 1.403641502802787e-06
+      },
+      "fresh_mass_properties": {
+        "volume": 1.4036415028027867e-06,
+        "area": 0.0007717121291613496,
+        "com": [
+          8.205263352965236e-20,
+          1.0895718255931566e-50,
+          0.027764999999999998
+        ],
+        "mass": 1.4036415028027867e-06
+      },
+      "support_origin_m": [
+        0.0,
+        0.0,
+        0.02453
+      ],
+      "support_normal": [
+        0.0,
+        0.0,
+        0.9999999999999999
+      ],
+      "radius_binding": {
+        "name": "D1@PlaneSketch",
+        "full_name": "D1@PlaneSketch@FrontOffsetCircle.Part",
+        "value_m": 0.00831,
+        "driving": true,
+        "editable": true,
+        "unit_basis": "IDimension.SystemValue SI metres",
+        "owner_identity": {
+          "native_object_equality": 1,
+          "canonical_iunknown_equal": true,
+          "same_native_object": true
+        },
+        "creation_identity": {
+          "native_object_equality": 1,
+          "canonical_iunknown_equal": true,
+          "same_native_object": true
+        },
+        "display_traversal": [
+          {
+            "full_name": "D1@OffsetPlane@FrontOffsetCircle.Part",
+            "value_m": 0.02453,
+            "display_type": 2,
+            "matches_requested_parameter": false
+          },
+          {
+            "full_name": "D1@PlaneSketch@FrontOffsetCircle.Part",
+            "value_m": 0.00831,
+            "display_type": 5,
+            "matches_requested_parameter": true,
+            "identity": {
+              "native_object_equality": 1,
+              "canonical_iunknown_equal": true,
+              "same_native_object": true
+            }
+          }
+        ],
+        "matching_display_count": 1
+      },
+      "plane_binding": {
+        "name": "D1@OffsetPlane",
+        "full_name": "D1@OffsetPlane@FrontOffsetCircle.Part",
+        "value_m": 0.02453,
+        "driving": true,
+        "editable": true,
+        "unit_basis": "IDimension.SystemValue SI metres",
+        "owner_identity": {
+          "native_object_equality": 1,
+          "canonical_iunknown_equal": true,
+          "same_native_object": true
+        },
+        "creation_identity": null,
+        "display_traversal": [
+          {
+            "full_name": "D1@OffsetPlane@FrontOffsetCircle.Part",
+            "value_m": 0.02453,
+            "display_type": 2,
+            "matches_requested_parameter": true,
+            "identity": {
+              "native_object_equality": 1,
+              "canonical_iunknown_equal": true,
+              "same_native_object": true
+            }
+          }
+        ],
+        "matching_display_count": 1
+      },
+      "independent_circle": {
+        "radius_m": 0.00831,
+        "center_local_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ordinary_circle": true,
+        "entity_binding": {
+          "kind": "arc",
+          "segment_type": 1,
+          "id": [
+            0,
+            1
+          ]
+        }
+      },
+      "geometry_matches_six_significant_figures": true
+    }
+  },
+  "exports": {
+    "parasolid": {
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "bytes": 4095,
+      "sha256": "a5daabf31d466d42e1a21be01859ad865425abd560348edf62d6dbed38b13aeb"
+    },
+    "step": {
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "bytes": 11904,
+      "sha256": "b81fbec2e053a0dd273db8773b1f895ffb1cce834f2029e61ed483b71e56bca2"
+    }
+  },
+  "original_and_edited_sources_immutable": true,
+  "dimension_traversal_finding": "fresh named PlaneSketch IFeature traversal starts with the support-plane dimension, then reaches its radius; ownership requires actual parameter identity",
+  "private_typed_state_sha256": "a401cc3268ce669938b273fa399fb8e8c8cdae50bd783b8541488b4202fcbc44",
+  "persisted_plane_owners": {
+    "source": "moFaceRefPlnData_c",
+    "edited": "moFaceRefPlnData_c"
+  },
+  "persisted_distance_graph": {
+    "source": {
+      "display_class": "moDisplayDistanceDim_c",
+      "handle_class": "moFeatureDimHandle_c",
+      "dimension_class": "ParallelPlaneDistanceDim_c",
+      "parameter_class": "moLengthParameter_c",
+      "parameter_value": 0.01379,
+      "display_value": 0.01379
+    },
+    "edited": {
+      "display_class": "moDisplayDistanceDim_c",
+      "handle_class": "moFeatureDimHandle_c",
+      "dimension_class": "ParallelPlaneDistanceDim_c",
+      "parameter_class": "moLengthParameter_c",
+      "parameter_value": 0.02453,
+      "display_value": 0.02453
+    }
+  },
+  "first_frozen_typed_audit": {
+    "sha256": "14623835f6e73dd85aa705f9b86c3d1eb70d926c05f5a80488e8c05065e62b86",
+    "exit": 3,
+    "reason": "declared constrained-owner projection rejects the measured compatibility moFaceRefPlnData_c owner",
+    "native_inputs_unchanged": true
+  },
+  "heldout_inputs_read": 0,
+  "writer_output_count": 0,
+  "generated_native_acceptance": false,
+  "full_source_cohort_locked": false
+}

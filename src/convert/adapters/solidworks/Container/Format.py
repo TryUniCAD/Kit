@@ -38,17 +38,21 @@ KPartSuffix = KSuffixByFormatId[KPartFormatId]
 KAsmSuffix = KSuffixByFormatId[KAsmFormatId]
 
 # this binding exists because shared behavior needs one stable value
-KFormatIds = tuple(KFormatIdBySuffix.values())
+KFormatIds = (*KFormatIdBySuffix.values(), KDrawingFormatId)
 
 # this binding exists because shared behavior needs one stable value
 KInfoValue = AdapterInfo(
     format_id=KPartFormatId,
     name="SOLIDWORKS",
     version="1.0",
-    extensions=tuple(KFormatIdBySuffix),
-    aliases=(KAsmFormatId,),
+    extensions=(*KFormatIdBySuffix, KDrawingSuffix),
+    aliases=(KAsmFormatId, KDrawingFormatId),
     capabilities=frozenset(Capability),
-    media_types=("application/x-solidworks-part", "application/x-solidworks-assembly"),
+    media_types=(
+        "application/x-solidworks-part",
+        "application/x-solidworks-assembly",
+        "application/x-solidworks-drawing",
+    ),
     part_extensions=(KPartSuffix,),
     assembly_extensions=(KAsmSuffix,),
 )
@@ -79,6 +83,9 @@ KConfigStream = "Contents/Config-0"
 
 # this binding exists because shared behavior needs one stable value
 KPartitionStream = "Contents/Config-0-Partition"
+
+# the two selected sweep profiles share the dedicated native ghost stream
+KGhostPartition = "Contents/Config-0-GhostPartition"
 
 # this binding exists because shared behavior needs one stable value
 KSolidworksStream = "Contents/SolidWorks"

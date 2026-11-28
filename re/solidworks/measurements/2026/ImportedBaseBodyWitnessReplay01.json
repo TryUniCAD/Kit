@@ -1,0 +1,61 @@
+{
+  "class": "moBaseBody_c",
+  "config_map": 107,
+  "feature_id": 26,
+  "feature_name": "Imported1",
+  "heldout_payloads_read": 0,
+  "matched_streams": {
+    "Contents/CMgr": {
+      "bytes": 2159,
+      "sha256": "e5c4856063b212515420d6c5042c68e662e5fa516b61117a7cb1c68136ee86b3"
+    },
+    "Contents/Config-0": {
+      "bytes": 25190,
+      "sha256": "4e0da104cd358f2c2797182b62dbdd0d5577fcf61e2d983fa785ccf5c00fddfd"
+    },
+    "Contents/Config-0-ModelHeader": {
+      "bytes": 2219,
+      "sha256": "190793f61f2f160b979b323b50025001920940353bab458410530dcaa15276e4"
+    },
+    "Contents/Config-0-ResolvedFeatures": {
+      "bytes": 6080,
+      "sha256": "5c038eab2f3862e3b536c5b6e6526db9357e5fa9daa13928901dde93017fab12"
+    },
+    "Header2": {
+      "bytes": 2219,
+      "sha256": "190793f61f2f160b979b323b50025001920940353bab458410530dcaa15276e4"
+    }
+  },
+  "model_version": 19000,
+  "native_writer_outputs": 0,
+  "observed_suffix_text": [
+    "",
+    "Imported1"
+  ],
+  "observed_suffix_words": [
+    1,
+    0
+  ],
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "processes": 2,
+  "relative_field_order_observed": [
+    "moBodyFeature_c",
+    "CString",
+    "i32",
+    "CString",
+    "i32"
+  ],
+  "replay_tool_sha256": "e633ca1a2c603384c7be0c8652044983e2a6d751197c04886b996ff5abcf08c6",
+  "resolved_base": 107,
+  "resolved_map": 180,
+  "runtime_schema": 1,
+  "schema": "kit.sw2026.imported-base-body-witness-replay.v1",
+  "schema1_part_mode": {
+    "cmgr_f658": 1,
+    "model_compressed_stream": 1,
+    "model_is_part": 1
+  },
+  "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+  "suffix_producer_fields_classified": false
+}

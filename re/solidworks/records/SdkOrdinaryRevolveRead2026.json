@@ -1,0 +1,335 @@
+{
+  "delivery_pr": 121,
+  "disclosed_inputs": [
+    {
+      "bytes": 62796,
+      "kind": "revolve",
+      "name": "RevolveFull",
+      "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0"
+    },
+    {
+      "bytes": 53529,
+      "kind": "revolve",
+      "name": "RevolvePartialForward",
+      "sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 54933,
+      "kind": "revolve",
+      "name": "RevolvePartialReverse",
+      "sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "source_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b"
+    },
+    {
+      "bytes": 51470,
+      "kind": "unsupported_revolve",
+      "name": "Variant-invalid_reverse",
+      "sha256": "cb7dbeba7c72585fd0ecec7212223cf976000871a84023f33aeedc3a314e7571",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51471,
+      "kind": "unsupported_revolve",
+      "name": "Variant-legacy_type",
+      "sha256": "fd1147dadae0793c277bc377a2d543e4753dcf0ab1acf5255e8b3ea0bbc45d9f",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51470,
+      "kind": "unsupported_revolve",
+      "name": "Variant-second_angle",
+      "sha256": "6e0d980525d7a7ddb4f50a8dc8be7fece360bb3b0d55d71a70d8e654697f4d0a",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 50977,
+      "kind": "unsupported_revolve",
+      "name": "Variant-missing_forward",
+      "sha256": "822e3f9c716c28ea8897a2113cd7beb2aee153bbb1e8a2ef6a542803c1d07655",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51475,
+      "kind": "unsupported_revolve",
+      "name": "Variant-negative_angle",
+      "sha256": "5ee35923f33e4d43689236de3db3643f3e60a696ae9322ec5cfbd53ef8ec6ab7",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51473,
+      "kind": "unsupported_revolve",
+      "name": "Variant-nonfinite_angle",
+      "sha256": "1ca97c30ff529004cd7f4d74fdbeb2208fd5c497708580cb8a47eace9bcaa684",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51471,
+      "kind": "unsupported_revolve",
+      "name": "Variant-over_full_turn",
+      "sha256": "6a350ace69f18b327f4d7c30fc09fdd34e075dd1e5e3a851edac90111c33ae64",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51475,
+      "kind": "unsupported_revolve",
+      "name": "Variant-parameter_expression",
+      "sha256": "50a7ca92aa0e2dde42e868a9dfbb56d649ef3fe9b7f16483d94dec47668c50e6",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51470,
+      "kind": "unsupported_revolve",
+      "name": "Variant-axis_profile_mismatch",
+      "sha256": "50806e4fb595a7859fb953e918e14a7fc8011490758257a0dcac1c54e08360da",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51464,
+      "kind": "unsupported_revolve",
+      "name": "Variant-axis_mark_mismatch",
+      "sha256": "919c22cec53dffc2bb182dfa00ab8b2482e1ef915c4df71062fd4e9fa594e715",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51476,
+      "kind": "unsupported_revolve",
+      "name": "Variant-axis_index_outside",
+      "sha256": "8498113f2a1d4fd0de92ac2572bbc3de33f96fd7b6ccd742e652567e7d1b24aa",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51469,
+      "kind": "unsupported_revolve",
+      "name": "Variant-boundary_selected",
+      "sha256": "b0b01d3cdc3ff5ec55c0df55c0c34ef361664703e3f7da94befc03a597b3c8df",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51459,
+      "kind": "unsupported_revolve",
+      "name": "Variant-degenerate_axis",
+      "sha256": "2a18869dea4ac725d08cf28e8f10bb14ff671e9ab5c82d39ae6761240a98902f",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51475,
+      "kind": "unsupported_revolve",
+      "name": "Variant-axis_relation",
+      "sha256": "644fab22a7c89f1afe0730ff62bc26c44b0349275df8cec8cf117632cc7e6986",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51468,
+      "kind": "unsupported_revolve",
+      "name": "Variant-wrong_relation_geometry",
+      "sha256": "e821e720e1f9da895cefae43071f3161bb0247b04b67c44fc96a1a081890840b",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51461,
+      "kind": "unsupported_revolve",
+      "name": "Variant-region_selects_axis",
+      "sha256": "4b41be71b17e8fb173536f59d1a96e6642793702c3cc97a0c02d8aec6afbc6c0",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51467,
+      "kind": "revolve",
+      "name": "Variant-presentation_cache",
+      "sha256": "496b43e6c525bb19c0ff3464bc2c739d044ac74f45fa7226f75e895819b74fd7",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 51442,
+      "kind": "revolve",
+      "name": "Variant-keyword_angle",
+      "sha256": "dd86d1270f725bece5982a21a14daed61b3fafb41ae4cee0c5ae0dfc7e8840e0",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "bytes": 9971,
+      "kind": "non_revolve_control",
+      "name": "F14aGenerated",
+      "sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc",
+      "source_sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc"
+    },
+    {
+      "bytes": 51063,
+      "kind": "non_revolve_control",
+      "name": "F14aNativeSaved",
+      "sha256": "b0aca662be89a5e41449ea46f79ca099aba766cdea0e1c81b56f0e8e0485d122",
+      "source_sha256": "b0aca662be89a5e41449ea46f79ca099aba766cdea0e1c81b56f0e8e0485d122"
+    },
+    {
+      "bytes": 8094,
+      "kind": "non_revolve_control",
+      "name": "DisclosedSkew",
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "source_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2"
+    },
+    {
+      "bytes": 8180,
+      "kind": "non_revolve_control",
+      "name": "DisclosedStep",
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "source_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+    },
+    {
+      "bytes": 61987,
+      "kind": "non_revolve_control",
+      "name": "BlindCutShallow",
+      "sha256": "b0b6aa24c320b2c13ca986daf91a6fca916a54a02a9a21746ce2ced8523e54d2",
+      "source_sha256": "b0b6aa24c320b2c13ca986daf91a6fca916a54a02a9a21746ce2ced8523e54d2"
+    },
+    {
+      "bytes": 68269,
+      "kind": "non_revolve_control",
+      "name": "ThroughAllD01",
+      "sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d"
+    },
+    {
+      "bytes": 51479,
+      "kind": "unsupported_revolve",
+      "name": "Variant-sub_neutral_angle",
+      "sha256": "522e7ca58c2a79fec312ce18fd920dd2d385ed3e13ef42d5fa2486f073fb02f1",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "owner": "configuration_header",
+  "process_replay_sha256": "990b5c9f73c5988896e7f987e5a2bc1e376099bb7218986bf045e78297d24456",
+  "public_entry": "convert.open_document(source_format=solidworks.sldprt,strict=True)",
+  "remaining": [
+    "root_exact_overlay_replay_and_integration",
+    "remote_ci_and_review",
+    "original_pre_writer_heldout_qualification",
+    "other_planes_axis_owners_profiles_modes_expressions_and_tolerances",
+    "complete_native_tree_and_native_solver_status"
+  ],
+  "schema": "kit.sw2026.sdk-public-revolve-reader-record.v1",
+  "scope": "ordinary_modern_single_blind_rectangular_boss_front_upward_selected_construction_axis_config_zero",
+  "shared_source_edits": 0,
+  "source_delta": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": {
+      "before_sha256": "641700d64d344eda112b329efd8c7a9549c38b6eece15146a8a630a3061cdc77",
+      "sha256": "b57ce59755e98bfdccd306c70e7cb35a69c3a1a7f3b6c718fa264cab80a28cfc"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/AxisReference.py": {
+      "before_sha256": null,
+      "sha256": "894928047c0bd7b20db752380662d5d7a8f1ebbcd029d8788b941b91d3a3aa3d"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/MapRevPoint.py": {
+      "before_sha256": null,
+      "sha256": "1dbb49e0b10162e2afb0560c8e4697078f209ce85d8260b1bec6103a5e5a79e4"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/CheckRevShape.py": {
+      "before_sha256": null,
+      "sha256": "356df6a9f0c0d717917ada1c5e02ccec08f5c2e6ff060ae7fa08336b9551f1a9"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/ReadAxisLine.py": {
+      "before_sha256": null,
+      "sha256": "93a0f0d8236b18ee6176feee7d5ce4332f5ac6ad38be148597004d7a46dacc74"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/ReadAxisPoint.py": {
+      "before_sha256": null,
+      "sha256": "cf19b62b65516870d730a816dd8d276952237a6c638750e84f9ec6792498806f"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/ReadRevDims.py": {
+      "before_sha256": null,
+      "sha256": "5e8fd3264f5745a362d43dfd25c60098ed3141c2112f6ddb1ab34ca5ba7d3394"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/ReadRevPoints.py": {
+      "before_sha256": null,
+      "sha256": "51f60cb78dd1b31c29894f86520a3b02fabf0e8b8347e6e1a3bc622239cfcea5"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/ReadRevProfile.py": {
+      "before_sha256": null,
+      "sha256": "7f3ed24a5ccfdb9b58dd263b768f682323f3dff1e71ccee9a4c0da3f61385cd0"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/ReadRevRows.py": {
+      "before_sha256": null,
+      "sha256": "178673748f8986df98c1d9466e4cc00a720a533b06491a1df2c4792867f73ae5"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Profile/RevolveProfile.py": {
+      "before_sha256": null,
+      "sha256": "21dfb28e4d906c088eec6fa1b953fa78518ff8fa29aea4511b6f3d815cfbfa48"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/ApplyRevDoc.py": {
+      "before_sha256": null,
+      "sha256": "7161a972120bb8741eb73e51b8cff7c8724c8ea5e830c9f03a5fdf652d2139dd"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/BindRevParams.py": {
+      "before_sha256": null,
+      "sha256": "c3c9b23a1b107f4ba2ff32eaf9601661fdb870a7832fe5186d4be2e9cb915dfd"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/BindRevStep.py": {
+      "before_sha256": null,
+      "sha256": "0e6796f08e1192e8d2a1a8a6fcac4fc82ff73effe78fc0f787fa1280eddae6e5"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/MakeRevPoints.py": {
+      "before_sha256": null,
+      "sha256": "9848278bf82cac23c2166e263c030ea57ad2adc49544dd5052436d25546fb561"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/MakeRevSelect.py": {
+      "before_sha256": null,
+      "sha256": "265e567a225f33d6465115734b9db5a0f9db3e940e7bec255b20894883242045"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/MakeRevSketch.py": {
+      "before_sha256": null,
+      "sha256": "be1519e612e51a421111884983581edf92603e234a1d0d0b297d71a46edfbab4"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/ReportRevolve.py": {
+      "before_sha256": null,
+      "sha256": "60ffdd8e770fcb330a81c55346b049a9546f0dca127f6378474c0b3145a6c9d3"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevAngle.py": {
+      "before_sha256": null,
+      "sha256": "9e4e76ab643d0672db6edeab32e176c1357a4c9ddd38b54ba97dd1d2136b4b76"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevAxisRef.py": {
+      "before_sha256": null,
+      "sha256": "4331dbb3d4fb96a7c7bd7b301139067643e540bbe2d5e534d623cbcec96e2a79"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevFrame.py": {
+      "before_sha256": null,
+      "sha256": "94b903173cb18a336583fd3a65a47727ff5e3fc2be9bb6e0caca634d3d3bf919"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevOwners.py": {
+      "before_sha256": null,
+      "sha256": "f61685d4e08572e098421c8ea43bc98a3508154b0f8dcc7be7cf460ee9f7e636"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevolve.py": {
+      "before_sha256": null,
+      "sha256": "028910bb0e4b16b9ab957616093fdb4acf7a32ec4a9df94f0cf4afc7a08e1bdc"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/RevolveAngle.py": {
+      "before_sha256": null,
+      "sha256": "35e8ebd4029db720a87108ef0f6a621580a8ec5c1a698816d88875babccc5802"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/RevolveAxis.py": {
+      "before_sha256": null,
+      "sha256": "e0c51dba17424f79ac029fa41b5ddd43506753589542b521109b77d2885c02be"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/RevolveClasses.py": {
+      "before_sha256": null,
+      "sha256": "a278275dd7d039d8d019d6e73944cb866c84626ac505e83eb180e3d56c6c2447"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/RevolveOwner.py": {
+      "before_sha256": null,
+      "sha256": "22f0d201ff22314264d248849998aecdd3cb04c92e20bcdbdaf3379d5a9badaa"
+    },
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/WithRevolveDoc.py": {
+      "before_sha256": null,
+      "sha256": "2bb423a6e3c4099348d92d4d3bcc40890048d9d3d44f38d42dbf77c06026dea6"
+    }
+  },
+  "source_manifest_sha256": "77a6b4f490860cd4f9b973e614140112adc744273cc50e95f1b626625727ae01",
+  "source_ownership_record": "re/solidworks/records/OrdinaryRevolveSemanticOwnership2026.md",
+  "status": "private_production_style_overlay_verified_root_integration_pending",
+  "task_id": "B04-SW2026-REVOLVE-PUBLIC-READ",
+  "writer_registration_changed": false
+}

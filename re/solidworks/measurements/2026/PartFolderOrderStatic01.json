@@ -1,0 +1,91 @@
+{
+  "binary_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "facts": [
+    {
+      "address": "0x4c179a61",
+      "rule": "load linked-list head from owner +8"
+    },
+    {
+      "address": "0x4c179b0d",
+      "rule": "load current link object from +0x10 before archive write"
+    },
+    {
+      "address": "0x4c179b14",
+      "rule": "call imported typed object archive write"
+    },
+    {
+      "address": "0x4c179b48",
+      "rule": "follow current link next pointer at +0"
+    },
+    {
+      "address": "0x4c179b4e",
+      "rule": "repeat storage walk until the next pointer is null"
+    }
+  ],
+  "functions": [
+    {
+      "code_sha256": "06e3e33131586b163914b6875b1e34d58c06416cc99ca3923dd8bc89cf58e50a",
+      "entry": "0x4c1799b0",
+      "owner": "moNodeList_c storage",
+      "range": [
+        "0x4c1799b0",
+        "0x4c179c96"
+      ]
+    },
+    {
+      "code_sha256": "328432fedf12e478d598736cc60c6811c21dcea2c717af3f0efe6d2dca27e89f",
+      "entry": "0x4bda66c0",
+      "owner": "moConcept_c::addNewFeature",
+      "range": [
+        "0x4bda66c0",
+        "0x4bda6d91"
+      ]
+    },
+    {
+      "code_sha256": "e50fb0b721232118b0de89811d3c5f32e0afc404fb59c6828c76a780f2f0edfd",
+      "entry": "0x4c1c5040",
+      "owner": "moPart_c::addFeature",
+      "range": [
+        "0x4c1c5040",
+        "0x4c1c51a6"
+      ]
+    },
+    {
+      "code_sha256": "76d6b4b8b7da2bc080a26476b70ca022a7d4d1ff302921f4d042cac9337c879c",
+      "entry": "0x4bdacc50",
+      "owner": "linked insertion callback",
+      "range": [
+        "0x4bdacc50",
+        "0x4bdaccdd"
+      ]
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "image_base": "0x4b140000",
+  "proprietary_listings_published": false,
+  "schema": "kit.sw2026.authored-folder-order-static-proof.v1",
+  "scope": "current ordinary admitted objects pass the existing inclusion predicate; no alphabetic sort occurs in the selected storage walk",
+  "storage_imports": [
+    {
+      "iat": "0x4cd33c50",
+      "module": "SLDMFCU.dll",
+      "name": "?Serialize@suObList@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "iat": "0x4cd3d990",
+      "module": "swccu.dll",
+      "name": "?Serialize@su_CObject@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "iat": "0x4cd3da38",
+      "module": "swccu.dll",
+      "name": "??6@YAAEAVsu_CArchive@@AEAV0@PEBVCObject@@@Z"
+    },
+    {
+      "iat": "0x4cd3e1a0",
+      "module": "swccu.dll",
+      "name": "?WriteCount@su_CArchive@@QEAAXK@Z"
+    }
+  ],
+  "vendor_runtime_executed": false
+}

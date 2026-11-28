@@ -1,0 +1,109 @@
+{
+  "authored_name_preserved_in_ordinary_true_setting": false,
+  "controls_healthy": {
+    "False": true,
+    "True": true
+  },
+  "distinct_processes": 6,
+  "document_setter_calls": 0,
+  "false_generated_observation_passed": true,
+  "file_saves": 0,
+  "generated_pair_sha256": {
+    "child": "6569127deb36821679c7b425b65e0bfffbd2c3f9d3fa68777baa3a6f507d1129",
+    "parent": "f857cf633fb9aedcd6baa369725d71d7d8738ad687ccadf912bedf3542a5afb9"
+  },
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "numeric_checks": 224,
+  "oracle_build": "34.5.2.0604",
+  "passed": true,
+  "phases": {
+    "FalseControlAfter": {
+      "actual_preference": false,
+      "numeric_checks": 28,
+      "phase_sha256": "4fbf383fd27b6542314fa4df81b2c6802d71c17d3afcf28e1577951728d0e618",
+      "preference_setter_calls": 2,
+      "restored_original_preference": true
+    },
+    "FalseControlBefore": {
+      "actual_preference": false,
+      "numeric_checks": 28,
+      "phase_sha256": "3c2ae2c84a0427cf627662136d6126811be460f41c1589fa82d62b443fbd71b1",
+      "preference_setter_calls": 2,
+      "restored_original_preference": true
+    },
+    "FalseGenerated": {
+      "actual_preference": false,
+      "authored_names_retained": true,
+      "bodies": 2,
+      "immutable_input_hashes": true,
+      "initial_and_rebuilt_scope_matches": true,
+      "native_mate": "ConcentricAuthored",
+      "numeric_checks": 56,
+      "occurrence_ids": [
+        17,
+        18
+      ],
+      "occurrence_names": [
+        "Cylinder-1",
+        "Cylinder-2"
+      ],
+      "open": [
+        0,
+        0
+      ],
+      "phase_sha256": "ef903f66f5c750bc0fd063ecca8d40768c750d253f1580830df062d9b35da40a",
+      "preference_setter_calls": 2,
+      "restored_original_preference": true,
+      "tree_rows": [
+        25,
+        22
+      ]
+    },
+    "TrueControlAfter": {
+      "actual_preference": true,
+      "numeric_checks": 28,
+      "phase_sha256": "198caa4856d67813382a4255ef7ef9ddf4a1670f6278f53b42222a13c77f5085",
+      "preference_setter_calls": 0
+    },
+    "TrueControlBefore": {
+      "actual_preference": true,
+      "numeric_checks": 28,
+      "phase_sha256": "6970f9d73c7c9270096a251d95ca4014152c0e6eeff9e6bca88e1fbffe0ba6e7",
+      "preference_setter_calls": 0
+    },
+    "TrueGenerated": {
+      "actual_preference": true,
+      "authored_names_retained": false,
+      "bodies": 2,
+      "immutable_input_hashes": true,
+      "initial_and_rebuilt_scope_matches": true,
+      "native_mate": "ConcentricAuthored",
+      "numeric_checks": 56,
+      "occurrence_ids": [
+        17,
+        18
+      ],
+      "occurrence_names": [
+        "NeutralCylinderAlphaDerived-1",
+        "NeutralCylinderAlphaDerived-2"
+      ],
+      "open": [
+        0,
+        0
+      ],
+      "phase_sha256": "f1989c400e01dfd93ce1620a5294677de7864e9a0dea98a1ffb77f712746b3ea",
+      "preference_setter_calls": 0,
+      "tree_rows": [
+        25,
+        22
+      ]
+    }
+  },
+  "raw_guest_result_sha256": "52d8edee67fe23f6875478614be34a212dc1b512a447f5aae97a95eb05779cb9",
+  "recipe_sha256": "97cdcec0ad35f06134cefeb29b5a4aeac2d21769c474cf3252cb595448ecb41b",
+  "schema": "kit.sw2026.generated-concentric-name-policy-result.v1",
+  "total_preference_setter_calls": 6,
+  "trial_sha256": "99d3eb6fb24c54acb2a979a24b3021a1aa7eafc9ac385a9ac57bcf2ff7524783",
+  "writer_outputs": 0
+}

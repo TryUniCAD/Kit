@@ -1,0 +1,7 @@
+# Fixed pre-event7 drawing edge-cache observation
+
+Task `B04-SW2026-DRAWING-EDGE-COM`, owner `configuration_header`, delivery PR #121. This adds an optional private-oracle two-stop adapter after the independent drawing-edge annotation API baseline. It observes the exact native lookup call/return before event7, with the requested ID, native thread/frame, exact process/module/RIP and raw returned-reference non-nullness. Geometry and annotation lifecycle comparisons remain separate.
+
+The adapter reuses the existing owned AMD64 DbgEng software-breakpoint and restoration helpers. Only the exact `.34` COM-owned oracle and two fixed source RVAs are accepted. The source freezer refuses to create a native trace packet before the exact six-process annotation baseline report passes. It reuses already cached DLLs without installation or download and keeps all binaries outside the checkout.
+
+Native execution is pending. The source-only proof verifies seven Python modules without executing product/vendor code, the five cached engine DLL hashes and original package identity. A nonnull lookup is not yet the selected note-edge identity join, and the result keeps that join and generated downstream-writer qualification false. The [protocol and root commands](../../../../../../re/solidworks/records/DrawingEdgeCacheTwoStop2026.md) retain the exact supported scope, source dependencies, refusal gates and remaining join.

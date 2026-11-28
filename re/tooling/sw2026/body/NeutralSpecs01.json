@@ -1,0 +1,30 @@
+[
+  {
+    "body_label": "Primary Solid",
+    "centre_xy_mm": [
+      9.17,
+      -4.39
+    ],
+    "created_at": 1795002300,
+    "depth_mm": 8.29,
+    "edited_depth_mm": 11.03,
+    "height_mm": 22.13,
+    "model_name": "ColdNameAlpha01",
+    "self_path": "C:\\KitSdkCandidates\\ColdNameAlpha01.SLDPRT",
+    "width_mm": 36.47
+  },
+  {
+    "body_label": "Alternate Body",
+    "centre_xy_mm": [
+      -12.43,
+      8.57
+    ],
+    "created_at": 1795002337,
+    "depth_mm": 6.71,
+    "edited_depth_mm": 9.37,
+    "height_mm": 17.59,
+    "model_name": "ColdNameBeta01",
+    "self_path": "C:\\KitSdkCandidates\\ColdNameBeta01.SLDPRT",
+    "width_mm": 41.23
+  }
+]

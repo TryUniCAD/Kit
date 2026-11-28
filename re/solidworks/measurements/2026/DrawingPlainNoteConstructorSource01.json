@@ -1,0 +1,30 @@
+{
+  "complete_function_count": 70,
+  "data_window_count": 6,
+  "heldout_acceptance": false,
+  "instruction_window_count": 30,
+  "module_count": 3,
+  "native_or_product_acceptance": false,
+  "replay": "InspectPartEnvironmentSource against the licensed exact originals",
+  "retained_draft": {
+    "correction": "one selected instruction range ended inside the final call; corrected endpoint4c7f1158 includes that complete call; all70 complete-function identities unchanged",
+    "record_sha256": "05482d395e41acee2ce1a8072ae66940eff2c0d3d0dfcd04ffb7128585aec146"
+  },
+  "schema": "drawing-plain-note-constructor-source-receipt-v1",
+  "scope": "fresh local note hierarchy and model-style bindings; exact API kind and later graph placement remain separate",
+  "sdk_changes": 0,
+  "sdk_source_reference_count": 17,
+  "shared_changes": 0,
+  "source_only": true,
+  "source_record_sha256": "626424128239d6234d59aa80ff738fa5a2d7730f5cdd8f5de6c59d1a703fbbae",
+  "static_metadata_replay": {
+    "instruction_boundaries_checked": 30,
+    "product_tests": false,
+    "report_sha256": "189a2a3128b574a20881fa99e8450d5f0e145f562b5277168f7149699c0cbae5",
+    "source_reference_hashes_checked": 17,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9"
+  },
+  "typed_import_count": 27,
+  "vtable_cell_count": 25
+}

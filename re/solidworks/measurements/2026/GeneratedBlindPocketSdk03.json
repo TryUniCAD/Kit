@@ -1,0 +1,31 @@
+{
+  "schema": "kit.sw2026.generated-blind-pocket-sdk.v1",
+  "input_sha256": "340e52b7ca4acca96b977bb5f514eb361323a560a69e44c067801c91b4253b12",
+  "paired_native_sha256": "d5f16529e4b3e032802f88d2fb13352dfac0d985d98574c2b8b0156b035d25df",
+  "reader_sha256": "ec8ab518f84fd6766f809cf1560e58b69068b21a601507b0e24d3232c8d53193",
+  "include_brep": false,
+  "include_tessellation": false,
+  "input_immutable": true,
+  "sdk_validation_issues": [],
+  "sketch_plane_ids": [
+    "sldprt:plane:14",
+    "sldprt:plane:14"
+  ],
+  "rectangle_edges": 4,
+  "rectangle_closed_loop": true,
+  "circle_radius_mm": 6.409999999999999,
+  "circle_constraint_kinds": [
+    "radius"
+  ],
+  "cut_depth_mm": 4.83,
+  "cut_input_feature_ids": [
+    "sldprt:feature:19",
+    "sldprt:feature:25"
+  ],
+  "fixed_center_relation_recovered": false,
+  "heldout_acceptance": false,
+  "local_integration": {
+    "passed": 10,
+    "corpus_without_available_fixture": 1
+  }
+}

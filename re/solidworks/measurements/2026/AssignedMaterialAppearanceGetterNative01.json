@@ -1,0 +1,211 @@
+{
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "exact_build": "34.5.2.0604",
+  "final_custody_verified": true,
+  "heldout_credit": 0,
+  "installed_api_sha256": "e52f3d42eab0b2b7e87b350ee5f08f4566ac10a7d575257f5be1ac39a7aca12d",
+  "job_sha256": "92858a17f9254c6282e8ec790b5a61ab622565fdf834376e9a80a62a4de47bae",
+  "passed": true,
+  "phases": {
+    "ControlAfter": {
+      "active_scope_bound": false,
+      "after_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "before_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "exact_open": true,
+      "failure_stage": null,
+      "immutable": true,
+      "legacy_comparison": null,
+      "part_and_solid_bound": false,
+      "passed": true,
+      "physical_matches": false,
+      "readonly": true,
+      "record_sha256": "ec7a08725f0da73a3cfc05bdcccbdef7a46b98f372aaa50b85a0cf940d8420a8",
+      "renderer": null,
+      "save_calls": 0,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+    },
+    "ControlBefore": {
+      "active_scope_bound": false,
+      "after_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "before_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "exact_open": true,
+      "failure_stage": null,
+      "immutable": true,
+      "legacy_comparison": null,
+      "part_and_solid_bound": false,
+      "passed": true,
+      "physical_matches": false,
+      "readonly": true,
+      "record_sha256": "e878ed8cdc52f0af329fb9c2ce960734f61359ba1ca629654d58b80857aafefa",
+      "renderer": null,
+      "save_calls": 0,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+    },
+    "D01Author": {
+      "active_scope_bound": true,
+      "after_sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f",
+      "before_sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f",
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "exact_open": true,
+      "failure_stage": null,
+      "immutable": true,
+      "legacy_comparison": {
+        "body": {
+          "holder": {
+            "shape": "null"
+          },
+          "part": {
+            "shape": "null"
+          }
+        },
+        "document": {
+          "holder": {
+            "rgb": {
+              "classic": true,
+              "model": false,
+              "pbr": false
+            },
+            "shape": "nine_values",
+            "transparency": true
+          },
+          "part": {
+            "rgb": {
+              "classic": true,
+              "model": false,
+              "pbr": false
+            },
+            "shape": "nine_values",
+            "transparency": true
+          }
+        }
+      },
+      "part_and_solid_bound": true,
+      "passed": true,
+      "physical_matches": true,
+      "readonly": true,
+      "record_sha256": "8edee5014c09d3bd303514179d612c7ef919118b142d46fcc9bd95230063de2b",
+      "renderer": [
+        {
+          "comparison": {
+            "holder": {
+              "classic_roughness": true,
+              "exact_filename": true,
+              "id": true,
+              "pbr_roughness": false,
+              "rgb": {
+                "classic": true,
+                "model": false,
+                "pbr": false
+              }
+            },
+            "part": {
+              "classic_roughness": true,
+              "exact_filename": true,
+              "id": true,
+              "pbr_roughness": false,
+              "rgb": {
+                "classic": true,
+                "model": false,
+                "pbr": false
+              }
+            }
+          },
+          "has_filename": true,
+          "owners": [
+            "part_self"
+          ]
+        }
+      ],
+      "save_calls": 0,
+      "source_sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f"
+    },
+    "D02Swap": {
+      "active_scope_bound": true,
+      "after_sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23",
+      "before_sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23",
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "exact_open": true,
+      "failure_stage": null,
+      "immutable": true,
+      "legacy_comparison": {
+        "body": {
+          "holder": {
+            "shape": "null"
+          },
+          "part": {
+            "shape": "null"
+          }
+        },
+        "document": {
+          "holder": {
+            "rgb": {
+              "classic": true,
+              "model": true,
+              "pbr": true
+            },
+            "shape": "nine_values",
+            "transparency": true
+          },
+          "part": {
+            "rgb": {
+              "classic": true,
+              "model": true,
+              "pbr": true
+            },
+            "shape": "nine_values",
+            "transparency": true
+          }
+        }
+      },
+      "part_and_solid_bound": true,
+      "passed": true,
+      "physical_matches": true,
+      "readonly": true,
+      "record_sha256": "6b7c44860e67cfd65a8060b39d7f5f529aa37a5fef5de23313d68db4ad769d6b",
+      "renderer": [
+        {
+          "comparison": {
+            "holder": {
+              "classic_roughness": true,
+              "exact_filename": true,
+              "id": true,
+              "pbr_roughness": false,
+              "rgb": {
+                "classic": true,
+                "model": true,
+                "pbr": true
+              }
+            },
+            "part": {
+              "classic_roughness": true,
+              "exact_filename": true,
+              "id": false,
+              "pbr_roughness": false,
+              "rgb": {
+                "classic": true,
+                "model": true,
+                "pbr": true
+              }
+            }
+          },
+          "has_filename": true,
+          "owners": [
+            "part_self"
+          ]
+        }
+      ],
+      "save_calls": 0,
+      "source_sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23"
+    }
+  },
+  "save_calls": 0,
+  "schema": "kit.sw2026.assigned-appearance-getters.v1",
+  "source_lifecycle_or_writer_credit": 0
+}

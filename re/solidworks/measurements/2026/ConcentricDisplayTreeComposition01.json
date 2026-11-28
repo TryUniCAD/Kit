@@ -1,0 +1,209 @@
+{
+  "authored_evidence": {
+    "native_default_and_mixed_rows": 3,
+    "native_owner_ids_distinct": true,
+    "pins": {
+      "ConcentricDisplayAuthoring04.json": "1b008f32adcaaadd61a1d072ae3a012f8136418a5a6a9fe51b8fc65c2228587a",
+      "ConcentricDisplaySyncNative01.json": "e14c77749cd68ed554bbbdbf014d1360df9fa58a1524976329d93976b48e5d71"
+    },
+    "stream_precedence_measured": false,
+    "synchronized_open_status": [
+      0,
+      0
+    ]
+  },
+  "cad_files_written": 0,
+  "checkout_revision": "f00f1775790d51b1bfbf15222975834002d884d9",
+  "compositions": [
+    {
+      "bytes": [
+        2054,
+        2231
+      ],
+      "changed_logical_streams": [
+        "swXmlContents/COMPINSTANCETREE"
+      ],
+      "configuration_id": 0,
+      "configuration_name": "Shop layout",
+      "display_rows": [
+        [
+          9,
+          "Inspection overview",
+          "Yes,Yes,"
+        ]
+      ],
+      "existing_typed_reader_admitted": true,
+      "list_xml_id": 8,
+      "occurrence_feature_ids": [
+        17,
+        18
+      ],
+      "occurrence_xml_ids": [
+        4,
+        7
+      ],
+      "sha256": [
+        "1ffb40f3e823877b220e031ea47c13ff24d0117a68ef09560acfbc6b388d9d83",
+        "2fbd2eac23d21e860c27d190c3d4c97f4619d6f41f1c8ea74e46593652b8f551"
+      ],
+      "xml_object_counts": [
+        7,
+        9
+      ]
+    },
+    {
+      "bytes": [
+        2054,
+        2403
+      ],
+      "changed_logical_streams": [
+        "swXmlContents/COMPINSTANCETREE"
+      ],
+      "configuration_id": 0,
+      "configuration_name": "Shop layout",
+      "display_rows": [
+        [
+          9,
+          "Inspection overview",
+          "Yes,Yes,"
+        ],
+        [
+          10,
+          "Hinge & enclosure",
+          "Yes,No,"
+        ],
+        [
+          11,
+          "Drive end \u03a9",
+          "No,Yes,"
+        ]
+      ],
+      "existing_typed_reader_admitted": false,
+      "list_xml_id": 8,
+      "occurrence_feature_ids": [
+        17,
+        18
+      ],
+      "occurrence_xml_ids": [
+        4,
+        7
+      ],
+      "sha256": [
+        "1ffb40f3e823877b220e031ea47c13ff24d0117a68ef09560acfbc6b388d9d83",
+        "a61f23e321f2e2380b1bbf530bc3adbb0bf192ba54878f54040dfb1730bf745f"
+      ],
+      "xml_object_counts": [
+        7,
+        11
+      ]
+    },
+    {
+      "bytes": [
+        2074,
+        2251
+      ],
+      "changed_logical_streams": [
+        "swXmlContents/COMPINSTANCETREE"
+      ],
+      "configuration_id": 0,
+      "configuration_name": "Fixture review",
+      "display_rows": [
+        [
+          9,
+          "Inspection overview",
+          "Yes,Yes,"
+        ]
+      ],
+      "existing_typed_reader_admitted": true,
+      "list_xml_id": 8,
+      "occurrence_feature_ids": [
+        18,
+        19
+      ],
+      "occurrence_xml_ids": [
+        4,
+        7
+      ],
+      "sha256": [
+        "61c897c3c455158969167cbdc158eb357fd51303ab17e75b1e3c7fcbd3c04f23",
+        "5d17d8f1d4762b94c848871380d96bc2e5172dddee2459a47099b1dabc8650a7"
+      ],
+      "xml_object_counts": [
+        7,
+        9
+      ]
+    },
+    {
+      "bytes": [
+        2074,
+        2423
+      ],
+      "changed_logical_streams": [
+        "swXmlContents/COMPINSTANCETREE"
+      ],
+      "configuration_id": 0,
+      "configuration_name": "Fixture review",
+      "display_rows": [
+        [
+          9,
+          "Inspection overview",
+          "Yes,Yes,"
+        ],
+        [
+          10,
+          "Hinge & enclosure",
+          "Yes,No,"
+        ],
+        [
+          11,
+          "Drive end \u03a9",
+          "No,Yes,"
+        ]
+      ],
+      "existing_typed_reader_admitted": false,
+      "list_xml_id": 8,
+      "occurrence_feature_ids": [
+        18,
+        19
+      ],
+      "occurrence_xml_ids": [
+        4,
+        7
+      ],
+      "sha256": [
+        "61c897c3c455158969167cbdc158eb357fd51303ab17e75b1e3c7fcbd3c04f23",
+        "e992b6f74b9b3145f184cacd43062d13f8ff72de47c7e57207c43f2498e14257"
+      ],
+      "xml_object_counts": [
+        7,
+        11
+      ]
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "independent_neutral_parents": 2,
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "passed": true,
+  "public_writer_qualified": false,
+  "refusals": {
+    "conflicting_default": "the first state must match the generated all-visible default",
+    "duplicate_occurrence": "each state must bind all and only the actual occurrences exactly once",
+    "duplicate_state_name": "display state names must be distinct",
+    "foreign_configuration": "display intent selects a foreign persistent configuration ID",
+    "missing_occurrence": "each state must bind all and only the actual occurrences exactly once",
+    "reversed_native_references": "display intent references must belong to the actual generated assembly",
+    "xml_ids_as_members": "each state must bind all and only the actual occurrences exactly once"
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.concentric-display-tree-composition.v1",
+  "sources_sha256": {
+    "re/tooling/sw2026/para/concentric/MakeDisplayTree.py": "6ad64f0ed92e127a96b05ddc7c3e75db7463a7bf0db2944c41565e0476af5ab6",
+    "re/tooling/sw2026/para/concentric/ProveDisplayTreeComposition.py": "2326e97ea9533b72beacf8d3d317728d042769b5fc57c79299a72058df322116",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/EmitAsmStreams.py": "3d6029afd6f03f47f7886ce6ce8f2b171217cd0fccc77e0b8cef7a63d565a6f4",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/MakeAssembly.py": "adf2eb98063df9038afb4e0e40c018c1bf300dc42f1b050f3768bb26a1f825dd",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/MakeAsmTree.py": "81044d0b697868dcaa5c6e99f128216a782144bc8a53f0df75c11535e2d615fe",
+    "src/convert/adapters/solidworks/Assembly/Display/CheckDisplay.py": "e2f4eef5f4dbc20d13d7738e5f492feec9439f8a3b940d447dd87d8e6788be48",
+    "src/convert/adapters/solidworks/Assembly/Display/ReadDisplayXml.py": "66769e890b211dfeaf347670e9e947abccf0b36dd63ec93a45b8c4f8ea41ea4a"
+  }
+}

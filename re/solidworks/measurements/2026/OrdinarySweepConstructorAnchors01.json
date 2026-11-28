@@ -1,0 +1,267 @@
+{
+  "edges": [
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4cb46258",
+      "target": "0x4cb67230"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4cb46263",
+      "target": "0x4cb67220"
+    },
+    {
+      "kind": "jump",
+      "module": "sldmodu.dll",
+      "source": "0x4cb67229",
+      "target": "0x4cb668f0"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4cb4631a",
+      "target": "0x4b78cf00"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4cb463d8",
+      "target": "0x4c0d3270"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4cb4656f",
+      "target": "0x4cb52420"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4b815a0e",
+      "target": "0x4bb34370"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4cb69ee5",
+      "target": "0x4cb69c20"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4c307785",
+      "target": "0x4c308370"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4c3223dd",
+      "target": "0x4bf0aef0"
+    },
+    {
+      "kind": "call",
+      "module": "sldmodu.dll",
+      "source": "0x4bf08ba2",
+      "target": "0x4b2ad1e0"
+    },
+    {
+      "kind": "jump",
+      "module": "sldgcu.dll",
+      "source": "0x438a4340",
+      "target": "0x43e904b0"
+    },
+    {
+      "kind": "call",
+      "module": "sldgciParau.dll",
+      "source": "0x32f837dc",
+      "target": "0x32fa1260"
+    },
+    {
+      "kind": "call",
+      "module": "sldgciParau.dll",
+      "source": "0x32f837b6",
+      "target": "0x32fa1430"
+    }
+  ],
+  "imports": {
+    "0x43f5a068": {
+      "module": "sldgciParau.dll",
+      "name": "?setGhostId@gciBody_w@GCP@@QEAAXHH@Z",
+      "source_module": "sldgcu.dll"
+    },
+    "0x4cd375b0": {
+      "module": "sldgcu.dll",
+      "name": "?gc_isGhostingEnabled@@YAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    "0x4cd37f68": {
+      "module": "sldgcu.dll",
+      "name": "?getBodies@gcPartition_w@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    }
+  },
+  "modules": {
+    "sldgciParau.dll": [
+      855048192,
+      "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    ],
+    "sldgcu.dll": [
+      1131675648,
+      "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    ],
+    "sldmodu.dll": [
+      1259601920,
+      "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    ]
+  },
+  "native_execution": false,
+  "schema": "kit.sw2026.sweep-constructor-anchors.v1",
+  "supports_public_writer": false,
+  "virtual_cells": {
+    "0x4ce970b8": "0x4b27e150",
+    "0x4ce97210": "0x4b7f9fc0",
+    "0x4d2e3568": "0x4cb6d1a0"
+  },
+  "windows": {
+    "Component feature identity constructor": {
+      "end_exclusive": "0x4bb343af",
+      "module": "sldmodu.dll",
+      "sha256": "3a74b61026073712a34a414ca08b5e7fa5693139ad3d6a290a33f5fa249bc311",
+      "start": "0x4bb34370"
+    },
+    "Component profile constructor": {
+      "end_exclusive": "0x4b815ac0",
+      "module": "sldmodu.dll",
+      "sha256": "d4510fadcb4a6a5dfd291432e241dd2259e006cf8d0d9527c6e6b8e764d5322e",
+      "start": "0x4b815960"
+    },
+    "Contact defaults": {
+      "end_exclusive": "0x4cb69d65",
+      "module": "sldmodu.dll",
+      "sha256": "ed44283879f8c35a7f50fab2d640b4e1d127bcb54595174a9018de3163acd593",
+      "start": "0x4cb69c20"
+    },
+    "Embedded initializer": {
+      "end_exclusive": "0x4cb529f2",
+      "module": "sldmodu.dll",
+      "sha256": "f9794f8887f87c5cab4de224a8658bd1cf647ee01b3c7a4487dd22b6a5853218",
+      "start": "0x4cb52420"
+    },
+    "General curve wrapper constructor": {
+      "end_exclusive": "0x4c3078ff",
+      "module": "sldmodu.dll",
+      "sha256": "6b1acdc6120a93d27510c294ed6a489ae73adfa1d3820482ca7422f89d90c502",
+      "start": "0x4c307770"
+    },
+    "Ghost ID getter": {
+      "end_exclusive": "0x4b282e24",
+      "module": "sldmodu.dll",
+      "sha256": "07ad3a50b1c271e07fb57fb47d2f0e77f3342d41bfa410990cb1320a45035fb2",
+      "start": "0x4b282e20"
+    },
+    "Ghost ID increment": {
+      "end_exclusive": "0x4bf0af1d",
+      "module": "sldmodu.dll",
+      "sha256": "0f31dc53a19f3619a89b539656eb4f0869b9e1312f844392e3d80d90798ae088",
+      "start": "0x4bf0aef0"
+    },
+    "Ghost allocation and component assignment": {
+      "end_exclusive": "0x4bf08ba7",
+      "module": "sldmodu.dll",
+      "sha256": "b7089f0f7c3e3a7095348707ce585ad653adc6a78059847203087329870913d2",
+      "start": "0x4bf08a80"
+    },
+    "Ghost manager constructor": {
+      "end_exclusive": "0x4bf03ba5",
+      "module": "sldmodu.dll",
+      "sha256": "349953de70cbd0654cabe7dfcdb522f6212773ea0f1cbcb08e6db18471f329a2",
+      "start": "0x4bf03a90"
+    },
+    "Ghost manager store and flags": {
+      "end_exclusive": "0x4bf05381",
+      "module": "sldmodu.dll",
+      "sha256": "caa2ff28373c72cffc16901889aa0d20be2156ade03348f7efa726329ba902a6",
+      "start": "0x4bf050e0"
+    },
+    "Ghost record constructor": {
+      "end_exclusive": "0x4bf03ea5",
+      "module": "sldmodu.dll",
+      "sha256": "fdaa88aac606290ffe9419b9f6e716b60946de66a9374360ce9df213df3f1d99",
+      "start": "0x4bf03c90"
+    },
+    "Ghost row kind dispatch": {
+      "end_exclusive": "0x4b7fa377",
+      "module": "sldmodu.dll",
+      "sha256": "bc3e5138707dc025ec122ae1924e8405757b5a354ab2c604c55e53b91214150e",
+      "start": "0x4b7fa350"
+    },
+    "Parasolid ghost attribute setter": {
+      "end_exclusive": "0x32f83a62",
+      "module": "sldgciParau.dll",
+      "sha256": "16e74958ec434a8664d0a4e49bccf9f7c49351f24dff050e38be2765d0c4f41d",
+      "start": "0x32f83760"
+    },
+    "Path contact choice": {
+      "end_exclusive": "0x4cb66b46",
+      "module": "sldmodu.dll",
+      "sha256": "83ef4215425dbb76e0cb1907e681b98bf5aa7afe201062febd5020fa599150cf",
+      "start": "0x4cb668f0"
+    },
+    "Root ghost manager getter": {
+      "end_exclusive": "0x4b286de8",
+      "module": "sldmodu.dll",
+      "sha256": "7f3a9a7416a6d3be8e448d9476719eb6a52e700a961148b1fc0c593f7a314865",
+      "start": "0x4b286de0"
+    },
+    "Section array copy": {
+      "end_exclusive": "0x4cb53e82",
+      "module": "sldmodu.dll",
+      "sha256": "982008844ec631a4e38a30eb71acf60c4f06a982322707a9dd74470b1d3b1628",
+      "start": "0x4cb53e70"
+    },
+    "Section setter and parent dispatch": {
+      "end_exclusive": "0x4cb6733b",
+      "module": "sldmodu.dll",
+      "sha256": "43a0211202cd3a8c41af1a08d57a3f9604f074e3ffd18d67eacf144e1644bfff",
+      "start": "0x4cb67230"
+    },
+    "Set ghost ID backend branch": {
+      "end_exclusive": "0x43e904ec",
+      "module": "sldgcu.dll",
+      "sha256": "2a4345878d426a32287b1ceb5db1cef3c90e00785528f28297c52286eadb97de",
+      "start": "0x43e904b0"
+    },
+    "Set ghost ID export": {
+      "end_exclusive": "0x438a4345",
+      "module": "sldgcu.dll",
+      "sha256": "b29bba0ec50282afd76029268d8b14f752315041d67ee2b6b31454e1cdfb4634",
+      "start": "0x438a4340"
+    },
+    "Shared ghost ID setter": {
+      "end_exclusive": "0x4b2ad1e4",
+      "module": "sldmodu.dll",
+      "sha256": "d3487a2010908a5c9425b41cd1561e0ab67114b078cf02d794fa438402749070",
+      "start": "0x4b2ad1e0"
+    },
+    "Shared reference wrapper constructor": {
+      "end_exclusive": "0x4c3084b9",
+      "module": "sldmodu.dll",
+      "sha256": "c8c07f4b9b5aab9b8dbb83455f70750781c8210c74ba1be3406b1f8da6579649",
+      "start": "0x4c308370"
+    },
+    "Sweep initializer": {
+      "end_exclusive": "0x4cb467f1",
+      "module": "sldmodu.dll",
+      "sha256": "ff83d1289c675f875fc37d0807b473196d2de10424579d4bd0ee48de5f77fb23",
+      "start": "0x4cb460f0"
+    },
+    "Wire contact constructor": {
+      "end_exclusive": "0x4cb69f22",
+      "module": "sldmodu.dll",
+      "sha256": "2001c29e09358c9f597de35c3389337d87698eec7a78daa3b121e963641ef0a1",
+      "start": "0x4cb69ed0"
+    }
+  }
+}

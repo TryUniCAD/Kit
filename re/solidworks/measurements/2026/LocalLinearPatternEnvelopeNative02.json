@@ -1,0 +1,129 @@
+{
+  "audit_sha256": "d76580d9e1ca95cc51c8b9e1124f8f40c36fc2a6038fbee42a77cdaab8df87f9",
+  "discriminator": {
+    "comparison_tolerance_m": 5e-09,
+    "disposition": "outside_fixed_hypotheses",
+    "edited_difference_ulp_from_final_formula": [
+      -7003973510110659.0,
+      -7003973510110659.0,
+      0.0
+    ],
+    "edited_distance_from_final_m": 0.06873053743153547,
+    "edited_distance_from_pre_m": 0.06750871202458748,
+    "initial_distance_m": 0.06750871202458748,
+    "observed_final_extents_m": [
+      0.0,
+      0.0,
+      0.0,
+      0.12345584412271571,
+      0.09,
+      0.01225
+    ],
+    "observed_prior_extents_m": [
+      0.0,
+      0.0,
+      0.0,
+      0.12,
+      0.09,
+      0.01225
+    ]
+  },
+  "generated_parts": 0,
+  "heldouts": 0,
+  "measurements": {
+    "DirectionEnvelope.SLDPRT": {
+      "config_map_base": 112,
+      "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "datum_epoch": 1795243787,
+      "datum_id": 45,
+      "datum_normal_magnitude": 1.0,
+      "fc8_ieee754_le_hex": "33bde5ed8d83733f33bde5ed8d83733f4a0c022b8716793f",
+      "fc8_point_m": [
+        0.004764131938244365,
+        0.004764131938244365,
+        0.006125
+      ],
+      "fc8_span": [
+        30355,
+        30379
+      ],
+      "fe0_signed_model": [
+        0.7071067811865476,
+        -0.7071067811865476,
+        0.0
+      ],
+      "file_sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f",
+      "line_bounds": [
+        30176,
+        30404
+      ],
+      "pattern_id": 52,
+      "pattern_object": 410,
+      "raw_display_arrays_per_direction": [
+        9,
+        9
+      ],
+      "resolved_bytes": 33618,
+      "resolved_next_slot": 472,
+      "resolved_sha256": "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305",
+      "seed_id": 40,
+      "selected_component_object": 459,
+      "selected_line_object": 457,
+      "surrounding_provisional_schemas": [
+        "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "moPlaneInterAxisData_c",
+        "moRefPlaneAngleGeom_c"
+      ]
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "config_map_base": 112,
+      "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "datum_epoch": 1795243787,
+      "datum_id": 45,
+      "datum_normal_magnitude": 1.0,
+      "fc8_ieee754_le_hex": "33bde5ed8d83733f33bde5ed8d83733f4a0c022b8716793f",
+      "fc8_point_m": [
+        0.004764131938244365,
+        0.004764131938244365,
+        0.006125
+      ],
+      "fc8_span": [
+        30597,
+        30621
+      ],
+      "fe0_signed_model": [
+        0.7071067811865476,
+        -0.7071067811865476,
+        0.0
+      ],
+      "file_sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168",
+      "line_bounds": [
+        30418,
+        30646
+      ],
+      "pattern_id": 52,
+      "pattern_object": 410,
+      "raw_display_arrays_per_direction": [
+        9,
+        9
+      ],
+      "resolved_bytes": 33860,
+      "resolved_next_slot": 472,
+      "resolved_sha256": "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9",
+      "seed_id": 40,
+      "selected_component_object": 459,
+      "selected_line_object": 457,
+      "surrounding_provisional_schemas": [
+        "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "moPlaneInterAxisData_c",
+        "moRefPlaneAngleGeom_c"
+      ]
+    }
+  },
+  "native_processes_started_on_host": 0,
+  "native_result_sha256": "c46b85d6ee72bafcbb438c4f70813966fdcf37331585bdb6970b531fbb21b5be",
+  "packet_sha256": "60620b7cf6072b729e55f615d4d6e2b14f7e7dfb7a43407303e24e788dc1f328",
+  "rule_overlay_sha256": "11f05f2c5f12c9f71fc34d38783fbc390181005b04e89e3eb8017800a69bbd9e",
+  "schema": "kit.sw2026.linear-pattern-envelope-point.v1",
+  "source_revision": "72b942ede352261cdc955af43872904e9aea3df8"
+}

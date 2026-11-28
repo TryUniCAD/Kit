@@ -1,0 +1,70 @@
+{
+  "operations": {
+    "ViewRun01": {
+      "schema": "kit-sw2026-host-oracle-supervision/1",
+      "status": "transport_exited",
+      "started_at": "2026-11-16T00:25:15.856953+00:00",
+      "started_monotonic_ns": 1338859655206000,
+      "finished_at": "2026-11-16T00:27:39.693975+00:00",
+      "finished_monotonic_ns": 1339003491280333,
+      "elapsed_ns": 143836074333,
+      "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+      "current_user": true,
+      "limits_seconds": {
+        "no_progress": 360.0,
+        "overall": 1800.0,
+        "terminate_wait": 10.0,
+        "kill_wait": 10.0,
+        "poll": 1.0
+      },
+      "transport_returncode": 0,
+      "supervisor_exit_code": 0,
+      "transport_exit_confirmed": true,
+      "transport_live": false,
+      "transport_stop_failed": false,
+      "guest_state_unknown": true,
+      "acceptance": false,
+      "acceptance_scope": "research host transport observations only; inspect native batch and controls separately",
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "automatic_retry": false,
+      "external_inventory_required_before_another_batch": false,
+      "elapsed_seconds_recomputed": 143.836074333,
+      "host_deadline_triggered": false
+    },
+    "EditRun01": {
+      "schema": "kit-sw2026-host-oracle-supervision/1",
+      "status": "transport_exited",
+      "started_at": "2026-11-16T00:29:53.483309+00:00",
+      "started_monotonic_ns": 1339137283787041,
+      "finished_at": "2026-11-16T00:34:24.102656+00:00",
+      "finished_monotonic_ns": 1339407901630000,
+      "elapsed_ns": 270617842959,
+      "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+      "current_user": true,
+      "limits_seconds": {
+        "no_progress": 360.0,
+        "overall": 2400.0,
+        "terminate_wait": 10.0,
+        "kill_wait": 10.0,
+        "poll": 1.0
+      },
+      "transport_returncode": 0,
+      "supervisor_exit_code": 0,
+      "transport_exit_confirmed": true,
+      "transport_live": false,
+      "transport_stop_failed": false,
+      "guest_state_unknown": true,
+      "acceptance": false,
+      "acceptance_scope": "research host transport observations only; inspect native batch and controls separately",
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "automatic_retry": false,
+      "external_inventory_required_before_another_batch": false,
+      "elapsed_seconds_recomputed": 270.617842959,
+      "host_deadline_triggered": false
+    }
+  },
+  "scope": "Completed host transport observations, not global guest health or native acceptance; generic guest_state_unknown flags remain as recorded",
+  "clock_scope": "Each host lifetime uses its monotonic nanosecond delta; guest epoch timestamps retain their own clock domain"
+}

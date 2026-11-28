@@ -1,0 +1,187 @@
+{
+  "case": "disclosed TranslatedZ",
+  "changed_streams": [
+    "Contents/Config-0"
+  ],
+  "different_wire_bytes": 56,
+  "epoch": 1790000000,
+  "logical_destination": "C:\\KitCylinderPart01\\Candidates\\TranslatedZ.SLDPRT",
+  "only_wire_delta": [
+    {
+      "field": "f368.f08.m0",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Left",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 20988
+    },
+    {
+      "field": "f368.f08.m8",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Left",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 21052
+    },
+    {
+      "field": "f368.f08.m0",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Right",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 21200
+    },
+    {
+      "field": "f368.f08.m8",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Right",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 21264
+    },
+    {
+      "field": "f368.f08.m4",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Top",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 21440
+    },
+    {
+      "field": "f368.f08.m8",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Top",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 21472
+    },
+    {
+      "field": "f368.f08.m4",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Bottom",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 21654
+    },
+    {
+      "field": "f368.f08.m8",
+      "mac_hex": "-0x1.0000000000000p-48",
+      "view": "*Bottom",
+      "windows_hex": "-0x1.ffffffffffffep-49",
+      "wire_offset": 21686
+    }
+  ],
+  "public_native_geometry_credit": 0,
+  "runtime_builds": [
+    {
+      "container": [
+        8995,
+        "ffb0d3f587387500ebd774c18272cfb5abff377b278ba42c54b63df9b4e4bda1"
+      ],
+      "runtime": "3.14.7",
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": [
+          820,
+          "62590bc987b5c78a2f536cf0f9a8db136a6e5e24960777119479bf6a256e9af7"
+        ],
+        "Contents/CMgr": [
+          1129,
+          "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        ],
+        "Contents/CMgrHdr2": [
+          137,
+          "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        ],
+        "Contents/Config-0": [
+          22698,
+          "8dcc30e8b83c1345218985cc75ae1e3ff48f004df244cd9abde9ad36d8baa959"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          781,
+          "a6d7f7c617ecab507f0a9fb57767352b08b10685dc3bc3c68a3ec53d10394172"
+        ],
+        "Contents/Config-0-Partition": [
+          606,
+          "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          5479,
+          "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          781,
+          "f1013d79ce27ebfaebd5a3cca16fd15c5a156fb1204d8bff8653f30171791cfa"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        ],
+        "swXmlContents/KeyWords": [
+          1305,
+          "a7c5bc891a3cef8af6e869ae9600bb595761bf34fc1d592aa28bf5ef937abfde"
+        ]
+      },
+      "zlib": "1.2.12"
+    },
+    {
+      "container": [
+        8990,
+        "710ca5ef27ac9d81c7576335f9ec6813d2e687a47772b08c9a6fefaf9a4e913c"
+      ],
+      "runtime": "3.12.7",
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": [
+          820,
+          "62590bc987b5c78a2f536cf0f9a8db136a6e5e24960777119479bf6a256e9af7"
+        ],
+        "Contents/CMgr": [
+          1129,
+          "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        ],
+        "Contents/CMgrHdr2": [
+          137,
+          "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        ],
+        "Contents/Config-0": [
+          22698,
+          "085da79d1833df268a215d4130c626f9847727f0feefd6d76a3709272c412670"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          781,
+          "a6d7f7c617ecab507f0a9fb57767352b08b10685dc3bc3c68a3ec53d10394172"
+        ],
+        "Contents/Config-0-Partition": [
+          606,
+          "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          5479,
+          "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          781,
+          "f1013d79ce27ebfaebd5a3cca16fd15c5a156fb1204d8bff8653f30171791cfa"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        ],
+        "swXmlContents/KeyWords": [
+          1305,
+          "a7c5bc891a3cef8af6e869ae9600bb595761bf34fc1d592aa28bf5ef937abfde"
+        ]
+      },
+      "zlib": "1.3.1"
+    }
+  ],
+  "schema": "kit.sw2026.public-periodic-runtime-arithmetic.v1"
+}

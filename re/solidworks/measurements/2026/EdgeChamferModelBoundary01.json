@@ -1,0 +1,350 @@
+{
+  "constructor_sha256": "cda773354916068c57b6df53a2479c89b4d17578dab02e9c5162484af9d129d6",
+  "disclosed_states": [
+    {
+      "geometry": {
+        "area": 0.008377567428350096,
+        "bevel_face_id": "disclosed/0-prism-face-3",
+        "bevel_vertices_m": [
+          [
+            0.029750000000000002,
+            -0.02725,
+            0.0
+          ],
+          [
+            0.029750000000000002,
+            -0.02725,
+            0.02375
+          ],
+          [
+            0.033875,
+            -0.024986947505164996,
+            0.0
+          ],
+          [
+            0.033875,
+            -0.024986947505164996,
+            0.02375
+          ]
+        ],
+        "bounds_m": [
+          [
+            -0.020375,
+            -0.02725,
+            0.0
+          ],
+          [
+            0.033875,
+            0.010249999999999999,
+            0.02375
+          ]
+        ],
+        "com": [
+          0.006690784912947705,
+          -0.008458616934676949,
+          0.011875
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "shell_ids": [
+          "disclosed/0-prism-shell"
+        ],
+        "volume": 4.8205552037948316e-05
+      },
+      "model_sha256": "8273dbcf00ba22741f4a1c148448f35bb9e3d5bc59d8ad5845cbbf91549d0854",
+      "oracle_orientation_reproduced": true,
+      "slot": 0,
+      "state": "initial"
+    },
+    {
+      "geometry": {
+        "area": 0.008355008431283424,
+        "bevel_face_id": "disclosed/0-prism-face-3",
+        "bevel_vertices_m": [
+          [
+            0.028250000000000004,
+            -0.02725,
+            0.0
+          ],
+          [
+            0.028250000000000004,
+            -0.02725,
+            0.02375
+          ],
+          [
+            0.033875,
+            -0.024164019325224995,
+            0.0
+          ],
+          [
+            0.033875,
+            -0.024164019325224995,
+            0.02375
+          ]
+        ],
+        "bounds_m": [
+          [
+            -0.020375,
+            -0.02725,
+            0.0
+          ],
+          [
+            0.033875,
+            0.010249999999999999,
+            0.02375
+          ]
+        ],
+        "com": [
+          0.006641813539125907,
+          -0.008424070929417313,
+          0.011875
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "shell_ids": [
+          "disclosed/0-prism-shell"
+        ],
+        "volume": 4.811027238461464e-05
+      },
+      "model_sha256": "24e711dde05fd5acf2261ba4fb5931d09485cb23462048487cdd074aa7b73482",
+      "oracle_orientation_reproduced": true,
+      "slot": 0,
+      "state": "edited"
+    },
+    {
+      "geometry": {
+        "area": 0.006924986158140646,
+        "bevel_face_id": "disclosed/1-prism-face-4",
+        "bevel_vertices_m": [
+          [
+            -0.0334375,
+            0.0241875,
+            0.024875
+          ],
+          [
+            0.008937500000000001,
+            0.0241875,
+            0.024875
+          ],
+          [
+            -0.0334375,
+            0.021780135895847607,
+            0.02825
+          ],
+          [
+            0.008937500000000001,
+            0.021780135895847607,
+            0.02825
+          ]
+        ],
+        "bounds_m": [
+          [
+            -0.0334375,
+            -0.0084375,
+            0.0
+          ],
+          [
+            0.008937500000000001,
+            0.0241875,
+            0.02825
+          ]
+        ],
+        "com": [
+          -0.01225,
+          0.007806332988457017,
+          0.014067445612964236
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "shell_ids": [
+          "disclosed/1-prism-shell"
+        ],
+        "volume": 3.888303825277104e-05
+      },
+      "model_sha256": "81fe463088f9e3ddcd44098b946e89c03be79da1d67e67465c9e3e3414e86264",
+      "oracle_orientation_reproduced": true,
+      "slot": 1,
+      "state": "initial"
+    },
+    {
+      "geometry": {
+        "area": 0.0068753444199125815,
+        "bevel_face_id": "disclosed/1-prism-face-4",
+        "bevel_vertices_m": [
+          [
+            -0.0334375,
+            0.0241875,
+            0.024875
+          ],
+          [
+            0.008937500000000001,
+            0.0241875,
+            0.024875
+          ],
+          [
+            -0.0334375,
+            0.01803568733468442,
+            0.02825
+          ],
+          [
+            0.008937500000000001,
+            0.01803568733468442,
+            0.02825
+          ]
+        ],
+        "bounds_m": [
+          [
+            -0.0334375,
+            -0.0084375,
+            0.0
+          ],
+          [
+            0.008937500000000001,
+            0.0241875,
+            0.02825
+          ]
+        ],
+        "com": [
+          -0.01225,
+          0.007712529448625695,
+          0.01397690487991854
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "shell_ids": [
+          "disclosed/1-prism-shell"
+        ],
+        "volume": 3.861528092714349e-05
+      },
+      "model_sha256": "07d8abe989f8ac5e71a7cdca135ac27c59e383620746f7e7faea9207882d606a",
+      "oracle_orientation_reproduced": true,
+      "slot": 1,
+      "state": "edited"
+    }
+  ],
+  "guarded_processes": 22,
+  "heldout_writer_credit": 0,
+  "independently_authored_cases": [
+    {
+      "axis": 0,
+      "corner": [
+        0,
+        0
+      ],
+      "model_sha256": "24797b1929f789b5d018874a02caa232454a49a84b642528002b2adbc82ab15e"
+    },
+    {
+      "axis": 0,
+      "corner": [
+        0,
+        1
+      ],
+      "model_sha256": "7e50d299925af42cd66c5ec0e7c0307ba4cf3a87cc662a8daae053a579065659"
+    },
+    {
+      "axis": 0,
+      "corner": [
+        1,
+        0
+      ],
+      "model_sha256": "01e203a65cff1027bf913f162d5fd3edc68c02ab2a274fb170a11c9d6ceadd1f"
+    },
+    {
+      "axis": 0,
+      "corner": [
+        1,
+        1
+      ],
+      "model_sha256": "de3a0e5473ab9b9fdb12cd5225762e751f9f87eedb6bf0fb7f8f875f0ce7abeb"
+    },
+    {
+      "axis": 1,
+      "corner": [
+        0,
+        0
+      ],
+      "model_sha256": "dccd5212d25bf85e196b1f55a04a80bfd303236ab02a1433abbfda4bf7197570"
+    },
+    {
+      "axis": 1,
+      "corner": [
+        0,
+        1
+      ],
+      "model_sha256": "2961e06bea0b51640388674e07c48ec8f4b55f54703031a4369447173e74d954"
+    },
+    {
+      "axis": 1,
+      "corner": [
+        1,
+        0
+      ],
+      "model_sha256": "ebea1005b50cf0139531d83d7d7876b8a5992cafca81a664ffdc3dd5b786c5ef"
+    },
+    {
+      "axis": 1,
+      "corner": [
+        1,
+        1
+      ],
+      "model_sha256": "d8e00197ad6da080dd52a8d5a6c74a8bff4c256fd85decd0e5dab17dd646e458"
+    },
+    {
+      "axis": 2,
+      "corner": [
+        0,
+        0
+      ],
+      "model_sha256": "a8e549367fd8f9884096366994757c69a29ba1e4038f4721a9bce17ad606e9bb"
+    },
+    {
+      "axis": 2,
+      "corner": [
+        0,
+        1
+      ],
+      "model_sha256": "bec56921528873f7e6bd2406b1ada0b61595fb2c08ee3036adbb9949abf66e35"
+    },
+    {
+      "axis": 2,
+      "corner": [
+        1,
+        0
+      ],
+      "model_sha256": "bd27962f5f610292848d81d7e5bd998bba9e2539374460b6f2c03c0d50166c45"
+    },
+    {
+      "axis": 2,
+      "corner": [
+        1,
+        1
+      ],
+      "model_sha256": "ca7544815d4fd46c56019c5703566e7c1e18eef9fa790f038b8d59bd2215c186"
+    }
+  ],
+  "native_file_outputs": 0,
+  "prewriter_custody_receipt_sha256": "71523d573c97d6bb892556803b3c3914732664371b7e3292c54626b1fe2f7f43",
+  "public_native_lock_sha256": "a696a97d73129ef7ffd7e829dfff7d1729000309e1273c0bef70b5f2ceedddb8",
+  "refusals": {
+    "flat_stock": "requires positive extent",
+    "obtuse_angle": "requires a positive acute angle",
+    "through_stock": "bevel must end inside both stock faces",
+    "unknown_corner": "must name two actual stock extremes",
+    "wrong_distance_axis": "one transverse stock side",
+    "zero_leg": "bevel must end inside both stock faces"
+  },
+  "runtime_access_attempts": 0,
+  "schema": "kit.sw2026.edge-chamfer-model-boundary.v1"
+}

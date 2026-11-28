@@ -1,0 +1,363 @@
+{
+  "assemblies": {
+    "re/solidworks/v2026/corpus/assemblies/A0_one.SLDASM": {
+      "bytes": 1427,
+      "features": 23,
+      "keyword_sha256": "2e2add02aeb349e4943cab6cf416dbf76c89555b2a809c7784030c3143301a1a",
+      "references": 1,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    },
+    "re/solidworks/v2026/corpus/assemblies/A1_two.SLDASM": {
+      "bytes": 1482,
+      "features": 23,
+      "keyword_sha256": "1a315dc6738133c653375d6f8f3f753b9d2d35faf3a1f624fc3e0a027bd3069e",
+      "references": 2,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    },
+    "re/solidworks/v2026/corpus/assembly-discovery/A07EmptyAssembly.SLDASM": {
+      "bytes": 1374,
+      "features": 23,
+      "keyword_sha256": "860fcbed0ee7c1439c782b2a1ad53c2e87929870dee4531a04e2013a21167b59",
+      "references": 0,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    },
+    "re/solidworks/v2026/corpus/assembly-discovery/A08SingleAssembly.SLDASM": {
+      "bytes": 1427,
+      "features": 23,
+      "keyword_sha256": "8a69c4a226ed352c9b3355227e361b84da27db11fa3de54d4b00289a928e4b2f",
+      "references": 1,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    },
+    "re/solidworks/v2026/corpus/assembly-discovery/A09RepeatedAssembly.SLDASM": {
+      "bytes": 1480,
+      "features": 23,
+      "keyword_sha256": "c63b70353edba04a50a4afab8e9a445e157e61e51cdf746c262615eaf649d742",
+      "references": 2,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A12SyncedEmpty.SLDASM": {
+      "bytes": 1374,
+      "features": 23,
+      "keyword_sha256": "5d916e926debd60bed32113214e18ea915c6aa0dd14d62ad01898200ec348433",
+      "references": 0,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A13SyncedSingle.SLDASM": {
+      "bytes": 1435,
+      "features": 23,
+      "keyword_sha256": "297d5058a21b4c0fe3fbdbbfef311e32fd18c79f24433b81712ea7b2d141fa11",
+      "references": 1,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeat.SLDASM": {
+      "bytes": 1496,
+      "features": 23,
+      "keyword_sha256": "58ebb4eb288eac7480fdc5c5b79017b44a7e8c7061b5a4fb1bafff5d4eff3854",
+      "references": 2,
+      "refusals": [
+        "absent_environment_alias",
+        "duplicate_annotation_owner",
+        "exploded_manager_published_twice",
+        "disagreeing_active_config"
+      ]
+    }
+  },
+  "authored_display_controls": [
+    {
+      "bytes": 477,
+      "modeled_displays": [
+        "41.125",
+        "R12.625",
+        "<MOD-DIAM>25.25",
+        "90\u00b0"
+      ],
+      "precision": 3,
+      "runtime_file_reads": 0,
+      "sha256": "678176c31f3812e105f75ca543f372f8cbd61ad2265a4cbb90c47252e40efa67"
+    },
+    {
+      "bytes": 475,
+      "modeled_displays": [
+        "41.13",
+        "R12.63",
+        "<MOD-DIAM>25.25",
+        "90\u00b0"
+      ],
+      "precision": 2,
+      "runtime_file_reads": 0,
+      "sha256": "7c436bb3ae2e9a919f0322e124d888e7d9ec4fd15389335f51e9081025fd80bb"
+    }
+  ],
+  "disclosed_input_identity_sha256": "7b8371e2fa136f1ebc1b76875cb63ad4fb678e017110a71f2d8ce8680ed1058f",
+  "generated_regression": {
+    "fresh_processes": 40,
+    "nested": {
+      "SdkNestedAssemblyNative01": {
+        "SdkFrame.SLDASM": "6901eab04d9642045b3f56a44ed7602fba1f533a7b8fee46dcde063801aa26bc",
+        "SdkModule.SLDASM": "7326aa2f78ff2c2c609e00ea20ec79ebf8e43e5638c596bf42d2d8b2dc9017c6",
+        "SdkNestedPlate.SLDPRT": "de72b0db675a3ecb96e27f36c2766f80aaaeb6cf8b81792097809e4118936a5f"
+      },
+      "SdkRepeatedNestedAssemblyNative01": {
+        "SdkFrame.SLDASM": "abf744242a62fe36885afb25340abdfb0cfc5d6393bcf1c9e2715af68cc0b5a0",
+        "SdkGaugePlate.SLDPRT": "20a4ddaa6eae45a9c84964b51a73c84a74a317632c48e19db65fe03ad1ee2950",
+        "SdkModule.SLDASM": "392681d05e2fb6233a3df59cf8a6066eb2cbce89db7f9e3ed653917bd3456f31",
+        "SdkNestedPlate.SLDPRT": "4ef7654cc2aa07d03a7047853f8a961f7889e45bae568db7b599d663ce17f470"
+      }
+    },
+    "ordinary": {
+      "coincident/x/0": {
+        "assembly": "6d0c5e52433843437b65152be1b40d81c6a9bf4d1da4932ccdfbfa3ace787eea",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "coincident/x/1": {
+        "assembly": "00b02dc2bbd28f1804551c79ebaf9e17c6fd8f25fe7fea2a574422ff8ef67082",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "coincident/y/0": {
+        "assembly": "dbd7b441df5a29666836e697c3d0407ddf75f36893344f6bdeddaf9e61959b56",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "coincident/y/1": {
+        "assembly": "40a1aad16ea507d010cb4f2e23f65e02cda9e0de92be4ce636f9363f4b3154b4",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "coincident/z/0": {
+        "assembly": "05d2bf24b30beec18463651d462536a1e0cdfbf0db8136eede515bf6a196abd8",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "coincident/z/1": {
+        "assembly": "c8bec6229542374eb7cc475de9dec377016797323adfe9ba7d64dfd79ddc1d83",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "distance/x/0": {
+        "assembly": "521d576eaf1f7c46a48ecd5cd701a410b67c957c20ab1ee9eb95ad5fec38ce29",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "distance/x/1": {
+        "assembly": "fbc68bb51d1fe1fc573ea1666d1d38047c3b0da9cf461f06a08ea676a2b36f2a",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "distance/y/0": {
+        "assembly": "5c69819e1dc193d6b86b1f1124a3a5fb4c5949e1cf35426de07dbc02d3dc07c1",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "distance/y/1": {
+        "assembly": "d21abc17efd8b0f50e2dfd282d32f91bcdb373426b13c8ca97069d69b372b70e",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "distance/z/0": {
+        "assembly": "0e4777c09ca49c8ea63e34c81c04c8a17f9b24a5001d48e028d1cdcbab9ca519",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "distance/z/1": {
+        "assembly": "dc4f946d31637463dce85921374048320d1b3a397a8cc8e51f4bafbeb2681d69",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "parallel/x/0": {
+        "assembly": "467c4b4a133a83175db0385178d2628e28ef7413cc56a084e9df67f53cbff630",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "parallel/x/1": {
+        "assembly": "b7a095f854b2c9337091a6b2698f5f6cb9e857a3ad8993a4d4da31ebaa5fdedc",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "parallel/y/0": {
+        "assembly": "327c9d2285d2ce2ef6704dfca5db8349eec9f01078f9303b2d7cfe3f4e2f5721",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "parallel/y/1": {
+        "assembly": "779e9dd4ed82bbcab6cd389a798cc862a80beb97993b5218eb4d9361fe80515c",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "parallel/z/0": {
+        "assembly": "4c159ee17b94fa4f0315ef5a7ea50ced3f1eff337abb112c78eeba95e99ef1f1",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "parallel/z/1": {
+        "assembly": "b91d428a19d1e0064fdfe6ec859a349de039be00f05ffa04b5e0a7369de009e2",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      }
+    },
+    "runtime_writer_input_reads": 0
+  },
+  "heldout_inputs_read": 0,
+  "native_order_receipt_sha256": "76d0e4cbd12e70c6f9baaa1b96fd4d9fb34b1ebd919a84c5b4804389b2cccdd4",
+  "native_processes_started": 0,
+  "part_dimension_counts": {
+    "degree": 4,
+    "diameter": 31,
+    "exact_membership_parts": 203,
+    "exact_order_parts": 196,
+    "length": 235,
+    "parts": 203,
+    "radius": 39,
+    "unregistered_parameters": 309
+  },
+  "saved_dimension_order_variants": {
+    "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeatChild.SLDPRT": {
+      "26": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D21EightCircles.SLDPRT": {
+      "26": {
+        "modeled": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6",
+          "D7",
+          "D8"
+        ],
+        "saved": [
+          "D7",
+          "D8",
+          "D5",
+          "D2",
+          "D4",
+          "D1",
+          "D6",
+          "D3"
+        ]
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D12TwoDirections.SLDPRT": {
+      "32": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L2_boss.SLDPRT": {
+      "26": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      },
+      "35": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L3_boss.SLDPRT": {
+      "26": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      },
+      "35": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      },
+      "45": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L4_boss.SLDPRT": {
+      "35": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      }
+    },
+    "re/solidworks/v2026/corpus/named-material/AssignedDensityProbe.SLDPRT": {
+      "26": {
+        "modeled": [
+          "D1",
+          "D2"
+        ],
+        "saved": [
+          "D2",
+          "D1"
+        ]
+      }
+    }
+  },
+  "schema": "kit.sw2026.keyword-owner-projection.v1",
+  "script_sha256": "ff355373d97e56d38b38ac7087a67b684334ec3f9a2a3baa17f445d65c852784",
+  "source_revision": "9dca0bd65a4762962b0d71b896cdd354eb405a98",
+  "sources_sha256": "7570631ad3975f5b646d909ac942c50d580e067c991442a362c34d714f8f8897"
+}

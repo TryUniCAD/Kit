@@ -14,7 +14,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-from InferenceGrid.PromoteMirroredFields import promote_fields
+from InferenceGrid.PromoteMirroredFields import mirror_field_path, promote_fields
 from InferenceGrid.PromoteSketchCounts import promote_counts
 from InferenceGrid.SolidWorksDimensionEvidence import dimension_evidence
 from InferenceInputs import read_file
@@ -41,7 +41,7 @@ stages = {
     "mirrored-field-reader": (
         "field-rule-candidate",
         "document.json",
-        "src/convert/adapters/solidworks/Core/BindMirrorField.py",
+        mirror_field_path,
     ),
     "pattern-count-reader": (
         "pattern-candidate",

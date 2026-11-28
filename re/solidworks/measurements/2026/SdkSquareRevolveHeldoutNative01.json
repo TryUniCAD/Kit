@@ -1,0 +1,106 @@
+{
+  "application_idle": true,
+  "build": "34.5.2.0604",
+  "cases": {
+    "H-Square-01": {
+      "candidate_phases": [
+        "da8ef912adfcea74377bcb9e0b9fef799ede8ce02fe57c5d2a8ce28f927458db",
+        "b23edb3ea72dfc29d2e60f3a6b56ebc92fce67eba607a7790cee57c5aa3094ac"
+      ],
+      "candidate_sha256": "847fdfb4739d1e8f157b32f4ba63dfb671dbbeba9de56b6d7ad19202bb6031b8",
+      "comparisons": {
+        "edited": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "edited_fresh_reopen": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "reopened": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        }
+      },
+      "exact_streams": 10,
+      "failure": null,
+      "native_phase_failures": [
+        null,
+        null
+      ],
+      "passed": true,
+      "source_phases": [
+        "99e55f89f0aeb107f170a0cb7274ad459a82687f92a9e6903efec6fa1df2852b",
+        "2b4f2b070fea6fa17aa3944e177b1c4f1bec23671300221c0d6a928b9183e0f7"
+      ],
+      "source_sha256": "7ccbbc6dc1b7639c7d15fabd3a430f02d3aff44fc61b08a87ce465d5d2b56d38"
+    },
+    "H-Square-02": {
+      "candidate_phases": [
+        "82af63ec4b898b96cbcdde97c78d4b2212d6e2bbac5e7d936b4266fd8b0f97e5",
+        "4a0ce21bd83b28c8a9f28c8e72f23519a4e23b3de4e5f664534fef70e355b2c6"
+      ],
+      "candidate_sha256": "9d7980fedadecd14036235b78d0251782826b49835786cffbbfbbf6b606a87d8",
+      "comparisons": {
+        "after-d1": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "edited": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "edited_fresh_reopen": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        },
+        "reopened": {
+          "mass_checks": 6,
+          "relation_count": 5,
+          "tree_rows": 25
+        }
+      },
+      "exact_streams": 10,
+      "failure": null,
+      "native_phase_failures": [
+        null,
+        null
+      ],
+      "passed": true,
+      "source_phases": [
+        "78549acf6da4f2e40639ba58bc0e23aa5774d48dde066af0b710a8b350123b9d",
+        "08ec4cd361b61370576ac0efe06b5b43b56495b148a23bcb7151979102a42cae"
+      ],
+      "source_sha256": "7d27586d982eec1d3ae5c726c85619b0afb354ad0cd28a2319c76acd5953c89e"
+    }
+  },
+  "controls": {
+    "after": {
+      "passed": true,
+      "sha256": "ca01fb2eef726873361e4df48c6d1e5d5d15194533caaf6db91890aaf512f41c"
+    },
+    "before": {
+      "passed": true,
+      "sha256": "8d80b849db99d3e66bb96e0b4ef44de89b7c09156e115583179dbd5633a2b584"
+    }
+  },
+  "distinct_processes": 10,
+  "freeze_sha256": "b686987950c60a60304c5f122a8a2fe0c1025d2e0c9e6139ebce29854e758ba6",
+  "generation_sha256": "db79980e0fb470856651af82cfbe9f87f7b9fe938cf1c0c41d25661bf0eaeeb3",
+  "heldout_writer_cases_qualified": 2,
+  "method_revision": "b2fe5e4bbd94e4786db3608862fbd895005eee71",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "schema": "kit.sw2026.square-revolve-comparison.v1",
+  "source_lock_sha256": "f083f56d7dad630ae2fbebda1c983ce06c8e5c935ace81317dc0f050b561cd53",
+  "split": "heldout",
+  "writer_external_access_attempts": 0,
+  "writer_revision": "bc49a5acff6c3a5488b47623f6e2353f7cfad2be",
+  "writer_source_tree": "d69a52436090865d5d442acb090912fd3b4a7d88"
+}

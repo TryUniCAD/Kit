@@ -1,0 +1,78 @@
+{
+  "case_count": 4,
+  "generated": [
+    {
+      "bytes": 14347,
+      "extrusion_output": null,
+      "label": "Prism1Unlinked",
+      "partition_sha256": "ba1637b078981f7c1605f876ce79c4042832b5ecd367a75034a83bd4e5525f17",
+      "runtime_data_attempts": 0,
+      "sha256": "19f07b9bcd37683c2465eb631e1e9e03fcdc823066e9f8a088fc4104c06cae8a"
+    },
+    {
+      "bytes": 14337,
+      "extrusion_output": null,
+      "label": "Prism1SameLocator",
+      "partition_sha256": "ba1637b078981f7c1605f876ce79c4042832b5ecd367a75034a83bd4e5525f17",
+      "runtime_data_attempts": 0,
+      "sha256": "1768b5e3c882cd217c813fe1b5e7f659ae571286d7a389533dab863e8c99a04f"
+    },
+    {
+      "bytes": 14346,
+      "extrusion_output": {
+        "active_body_index": 2,
+        "atom_id": 101,
+        "producer_id": 21
+      },
+      "label": "Prism1Linked",
+      "partition_sha256": "ba1637b078981f7c1605f876ce79c4042832b5ecd367a75034a83bd4e5525f17",
+      "runtime_data_attempts": 0,
+      "sha256": "72a3ffc44f16652332b7df771bb3528ebb6c77aa8de572d2ae8f3e4b08a52a70"
+    },
+    {
+      "bytes": 14354,
+      "extrusion_output": null,
+      "label": "Prism2Unlinked",
+      "partition_sha256": "f2838d955337a5c46769050e85af7de509318d53da3cf4f5ba1009d4292fa3ab",
+      "runtime_data_attempts": 0,
+      "sha256": "01b8e384b725b47cae1197f9c3f14711ed92ed171dd4f18ef7c5a672f12ab4d3"
+    },
+    {
+      "bytes": 14342,
+      "extrusion_output": null,
+      "label": "Prism2SameLocator",
+      "partition_sha256": "f2838d955337a5c46769050e85af7de509318d53da3cf4f5ba1009d4292fa3ab",
+      "runtime_data_attempts": 0,
+      "sha256": "7b597b804f21bfbd98d6ecac1701c4920a80640edf43e1bf24bbd3c48fc58e69"
+    },
+    {
+      "bytes": 14349,
+      "extrusion_output": {
+        "active_body_index": 2,
+        "atom_id": 101,
+        "producer_id": 21
+      },
+      "label": "Prism2Linked",
+      "partition_sha256": "f2838d955337a5c46769050e85af7de509318d53da3cf4f5ba1009d4292fa3ab",
+      "runtime_data_attempts": 0,
+      "sha256": "08e4d5280882662ec0ee6791de1939800ce1e237d93a79199025f8f5293cfb7c"
+    }
+  ],
+  "job_sha256": "45542854d6936ee3aa09337aa8389944817cdb1ce40020be1761f752a9a7ac04",
+  "native_launched": false,
+  "oracle_tools_sha256": {
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectPrismCacheEdit.py": "545133c4fac4a1d4886cc4c4b315afa0a1d4f0a12be261ea7c29287d5129c1c1",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "same_locator_changes": [
+    "Contents/Config-0-ResolvedFeatures"
+  ],
+  "schema": "kit.sw2026.prism-output-packet-preparation.v1",
+  "source_files_sha256": {
+    "re/tooling/sw2026/downstream/lighting/PreparePrismAmbient.py": "194fd367c771e30cd351838475de3b5c53f208e29c572976270b6486f909852c",
+    "re/tooling/sw2026/downstream/lighting/PrismExtrusionOutput.py": "1441299ea8b5feebe20c0bf5b2f21cdc3b8ac9e369c3a30888861392aa228bb1"
+  },
+  "writer_runtime_reads": 0
+}

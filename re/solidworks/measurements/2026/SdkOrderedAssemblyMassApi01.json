@@ -1,0 +1,118 @@
+{
+  "delivery_pr": 121,
+  "distinct_native_processes": 4,
+  "document_density_preference_queried": false,
+  "full_kg_mass_parity_qualified": false,
+  "generated_and_native_control_share_normalized_api_density_behavior": true,
+  "generated_only_defect_established": false,
+  "healthy_brackets": true,
+  "heldout_inputs_read": 0,
+  "independent_kg_mass_acceptance_gate": false,
+  "owner": "assembly_occurrence",
+  "passed": true,
+  "raw_native_result_sha256": "c68e41c49f1aa6977205d39b6c0b175a8211cfc09f95fb959810d402c87e9dcc",
+  "schema": "kit.sw2026.sdk-ordered-assembly-mass-api-observation.v1",
+  "snapshots": [
+    {
+      "child_mass_kg": 8.000000000000001e-06,
+      "child_volume_m3": 8.000000000000001e-06,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0000000000001,
+      "parent_mass_kg": 0.016000000000000004,
+      "parent_to_two_children_mass_ratio": 1000.0000000000001,
+      "parent_volume_m3": 1.6000000000000003e-05,
+      "role": "ControlBefore",
+      "state": "initial"
+    },
+    {
+      "child_mass_kg": 8.000000000000001e-06,
+      "child_volume_m3": 8.000000000000001e-06,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0000000000001,
+      "parent_mass_kg": 0.016000000000000004,
+      "parent_to_two_children_mass_ratio": 1000.0000000000001,
+      "parent_volume_m3": 1.6000000000000003e-05,
+      "role": "ControlBefore",
+      "state": "rebuilt"
+    },
+    {
+      "child_mass_kg": 1.4754492187500002e-05,
+      "child_volume_m3": 1.4754492187500002e-05,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0,
+      "parent_mass_kg": 0.029508984375000002,
+      "parent_to_two_children_mass_ratio": 1000.0,
+      "parent_volume_m3": 2.9508984375000003e-05,
+      "role": "Generated",
+      "state": "initial"
+    },
+    {
+      "child_mass_kg": 1.4754492187500002e-05,
+      "child_volume_m3": 1.4754492187500002e-05,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0,
+      "parent_mass_kg": 0.029508984375000002,
+      "parent_to_two_children_mass_ratio": 1000.0,
+      "parent_volume_m3": 2.9508984375000003e-05,
+      "role": "Generated",
+      "state": "rebuilt"
+    },
+    {
+      "child_mass_kg": 1.4754492187500002e-05,
+      "child_volume_m3": 1.4754492187500002e-05,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0,
+      "parent_mass_kg": 0.029508984375000002,
+      "parent_to_two_children_mass_ratio": 1000.0,
+      "parent_volume_m3": 2.9508984375000003e-05,
+      "role": "Generated",
+      "state": "edited"
+    },
+    {
+      "child_mass_kg": 1.4754492187500002e-05,
+      "child_volume_m3": 1.4754492187500002e-05,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0,
+      "parent_mass_kg": 0.029508984375000002,
+      "parent_to_two_children_mass_ratio": 1000.0,
+      "parent_volume_m3": 2.9508984375000003e-05,
+      "role": "FreshReopen",
+      "state": "initial"
+    },
+    {
+      "child_mass_kg": 1.4754492187500002e-05,
+      "child_volume_m3": 1.4754492187500002e-05,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0,
+      "parent_mass_kg": 0.029508984375000002,
+      "parent_to_two_children_mass_ratio": 1000.0,
+      "parent_volume_m3": 2.9508984375000003e-05,
+      "role": "FreshReopen",
+      "state": "rebuilt"
+    },
+    {
+      "child_mass_kg": 8.000000000000001e-06,
+      "child_volume_m3": 8.000000000000001e-06,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0000000000001,
+      "parent_mass_kg": 0.016000000000000004,
+      "parent_to_two_children_mass_ratio": 1000.0000000000001,
+      "parent_volume_m3": 1.6000000000000003e-05,
+      "role": "ControlAfter",
+      "state": "initial"
+    },
+    {
+      "child_mass_kg": 8.000000000000001e-06,
+      "child_volume_m3": 8.000000000000001e-06,
+      "inferred_child_api_density_kg_m3": 1.0,
+      "inferred_parent_api_density_kg_m3": 1000.0000000000001,
+      "parent_mass_kg": 0.016000000000000004,
+      "parent_to_two_children_mass_ratio": 1000.0000000000001,
+      "parent_volume_m3": 1.6000000000000003e-05,
+      "role": "ControlAfter",
+      "state": "rebuilt"
+    }
+  ],
+  "task": "B04-SW2026-MATES",
+  "writer_output_count": 0
+}

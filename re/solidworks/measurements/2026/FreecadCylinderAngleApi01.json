@@ -1,0 +1,235 @@
+{
+  "schema": "kit.sw2026.cylinder-angle-api-receipt.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "application_build": "34.5.2.0604",
+  "scope": "source-only public API to marked angular-plane construction; no native model acceptance",
+  "tool": {
+    "path": "re/tooling/sw2026/freecad_cylinder/PinCylinderAngleApi.py",
+    "sha256": "45a2f95b64b61488021459cbb4416fa43846154581ea5da7d5e7b441cd556c98"
+  },
+  "knowledge_sha256": "87f7f4078c877b4767f980ff5767ed6eb8be4369f1506faefbbd3f064ea72497",
+  "protocol_sha256": "08762a44f4f57a28fcb0f9ecc8cc97a467443f28df0add431f4dcab95f585e30",
+  "private_boundary_receipt_sha256": "b9dd02b773334dfa2ac25e14bee065901540235d176823648f2e97995942984d",
+  "process_proof": {
+    "schema": "kit.sw2026.cylinder-angle-api-boundary.v2",
+    "cases": [
+      {
+        "name": "FinalReplay01",
+        "returncode": 0,
+        "output_exists": true,
+        "sha256": "b25580a722314f6669864058ed3c84a7a30e0d0f8c6a937e9be33f238d8d87cd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "batch": "Initial01"
+      },
+      {
+        "name": "FinalReplay02",
+        "returncode": 0,
+        "output_exists": true,
+        "sha256": "b25580a722314f6669864058ed3c84a7a30e0d0f8c6a937e9be33f238d8d87cd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "batch": "Initial01"
+      },
+      {
+        "name": "WrongVersion",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "c5041b4fcb42582c8ddc0908ab01ba11b72be0df19952af7f37dd571b4d3bff5",
+        "batch": "Initial01"
+      },
+      {
+        "name": "WrongModule",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "dfd77f45f0a53bbeb5e2715beb302a05ba713fdb9796aca110229a0ef6a448d5",
+        "batch": "Initial01"
+      },
+      {
+        "name": "WrongCli",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "55c92637c2be83a100115e5124241a72f341c30c5d267864da0f13c4e2629dac",
+        "batch": "Initial01"
+      },
+      {
+        "name": "DuplicateMark",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "dfbdc3f162d6ae11cd1bf7e47b17fbbe344592fc02aa57f0d5ef2da803d134c9",
+        "batch": "Initial01"
+      },
+      {
+        "name": "MissingMark",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "23e276d15e0569e89132f28230efb1994e1f4681b3b36055468b80d2b597e647",
+        "batch": "Initial01"
+      },
+      {
+        "name": "SwappedOwners",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "23e276d15e0569e89132f28230efb1994e1f4681b3b36055468b80d2b597e647",
+        "batch": "Initial01"
+      },
+      {
+        "name": "NegativeAngle",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "861f9656ebcc0a15d85cbbd3d0d4ad6e7b1612c974c958548a8b99aa19bcd9ec",
+        "batch": "Initial01"
+      },
+      {
+        "name": "NonFiniteAngle",
+        "returncode": 1,
+        "output_exists": false,
+        "sha256": null,
+        "stderr_sha256": "861f9656ebcc0a15d85cbbd3d0d4ad6e7b1612c974c958548a8b99aa19bcd9ec",
+        "batch": "Initial01"
+      },
+      {
+        "name": "WrongVersion",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "c5041b4fcb42582c8ddc0908ab01ba11b72be0df19952af7f37dd571b4d3bff5",
+        "batch": "Supplemental01"
+      },
+      {
+        "name": "WrongOriginalHash",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "dfd77f45f0a53bbeb5e2715beb302a05ba713fdb9796aca110229a0ef6a448d5",
+        "batch": "Supplemental01"
+      },
+      {
+        "name": "WrongMvid",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "55c92637c2be83a100115e5124241a72f341c30c5d267864da0f13c4e2629dac",
+        "batch": "Supplemental01"
+      },
+      {
+        "name": "WrongSlot",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "7379417ced6778d279e30a6009ecf9a21caf2706c7df07df0a6f9ab339179788",
+        "batch": "Supplemental01"
+      },
+      {
+        "name": "DuplicateMark",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "dfbdc3f162d6ae11cd1bf7e47b17fbbe344592fc02aa57f0d5ef2da803d134c9",
+        "batch": "Supplemental01"
+      },
+      {
+        "name": "MissingReference",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "23e276d15e0569e89132f28230efb1994e1f4681b3b36055468b80d2b597e647",
+        "batch": "Supplemental01"
+      },
+      {
+        "name": "NegativeRawAngle",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "861f9656ebcc0a15d85cbbd3d0d4ad6e7b1612c974c958548a8b99aa19bcd9ec",
+        "batch": "Supplemental01"
+      },
+      {
+        "name": "WrongSelectedKind",
+        "returncode": 1,
+        "output_exists": false,
+        "stderr_sha256": "23e276d15e0569e89132f28230efb1994e1f4681b3b36055468b80d2b597e647",
+        "batch": "Supplemental01"
+      }
+    ],
+    "prior_frozen_packet_files": [
+      {
+        "packet": "FreecadCylinderDirectionWire01",
+        "file": "StageableManifest01.json",
+        "sha256": "185e9cd4f06f9d425257d43e161384cdd957135743ef39495932a98005571529"
+      },
+      {
+        "packet": "FreecadCylinderDirectionWire01",
+        "file": "Handoff01.json",
+        "sha256": "8c53bb121cec35a66cc7a12b8a48fa6c64db0da14db6d67f3783993f8089eaae"
+      },
+      {
+        "packet": "FreecadCylinderSelectedEnd01",
+        "file": "StageableManifest01.json",
+        "sha256": "191c0b6a6bdfa3522b995b62b7c88d6d1048fe2b580821b2f252994b70f82be3"
+      },
+      {
+        "packet": "FreecadCylinderSelectedEnd01",
+        "file": "Handoff01.json",
+        "sha256": "4ac3212eae217591621cde58e8db24a3a7264ae4ece3f70964e9bf5fa5953f8b"
+      },
+      {
+        "packet": "FreecadCylinderAngledPlanes01",
+        "file": "StageableManifest01.json",
+        "sha256": "cc23d16fa5005d3a20989de5a76d9e4b29e66393c2ca54feae83678320371751"
+      },
+      {
+        "packet": "FreecadCylinderAngledPlanes01",
+        "file": "Handoff01.json",
+        "sha256": "3c8d7170e98bd0427981b207bfe526d9710c957e67f7d35128a3841614e67ed1"
+      },
+      {
+        "packet": "DownstreamEdgeMapOrder01",
+        "file": "StageableManifest01.json",
+        "sha256": "26aac8ede564529dda56ff80799434e3df6ae610b78dc98559adb77ed2c2a389"
+      },
+      {
+        "packet": "DownstreamEdgeMapOrder01",
+        "file": "Handoff01.json",
+        "sha256": "78c23fd69798f088df385a3e7197f5e30c72edef3ed7a8798a720af7bdedf828"
+      }
+    ],
+    "static": {
+      "ast_pass": true,
+      "comments": 0,
+      "docstrings": 0
+    },
+    "coverage": {
+      "native_functions": 20,
+      "native_bytes": 11483,
+      "managed_methods": 16,
+      "managed_code_bytes": 2671,
+      "verified_qwords": 4,
+      "native_bridge_spans": 1,
+      "authored_numeric_cases": 2
+    },
+    "limits": {
+      "full_cylinder_source_lowering": false,
+      "heldout_files_read": 0,
+      "mode_geometry_native_correlation": "pending first independent angular-plane corpus",
+      "native_acceptance": false,
+      "target_executed": false,
+      "two_angle_numeric_replay": "authored calculations only, not oracle observations",
+      "vendor_model_files_read": 0,
+      "vendor_outputs_written": 0,
+      "vendor_sources_read": 0,
+      "writer_implemented": false
+    }
+  },
+  "replay_processes": 2,
+  "refusal_processes": 16,
+  "refusal_scope": "Eight initial and eight supplemental process runs; some input refusals repeat; these are not sixteen distinct semantic classes",
+  "native_angular_plane_sources": 0,
+  "native_acceptance": false,
+  "writer_output_count": 0,
+  "runtime_disassembler_sessions_opened": 0,
+  "rea_evidence": {
+    "artifact": "ev_23d9f791797c196d8a1188b8bac4df398a63d9de5d814f2573ff5aa8cfdd1df3",
+    "artifact_summary": "ev_4f23d4fa80590b5f63740729da00b8f8526a73c93a84b1cfb5798a0f6cfd4160",
+    "selected_members": "ev_e6f9eaf53b43d1f935bb5faf9679c24272ce2bf6151789235fa0c211aea97544",
+    "members_summary": "ev_9bd73ee213f97be0b7032e41b9423bc7b71531976b6569531bc7c94974c9f272"
+  }
+}

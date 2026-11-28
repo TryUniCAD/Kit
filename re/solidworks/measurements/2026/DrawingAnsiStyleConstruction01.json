@@ -1,0 +1,177 @@
+{
+  "all_workers_passed": true,
+  "application_usable": false,
+  "comparisons": [
+    {
+      "case": "D01-typed_child",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 96,
+      "source_case": "D01",
+      "source_group": "typed_child"
+    },
+    {
+      "case": "D01-typed_drawing",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 95,
+      "source_case": "D01",
+      "source_group": "typed_drawing"
+    },
+    {
+      "case": "D02-typed_child",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 96,
+      "source_case": "D02",
+      "source_group": "typed_child"
+    },
+    {
+      "case": "D02-typed_drawing",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 95,
+      "source_case": "D02",
+      "source_group": "typed_drawing"
+    },
+    {
+      "case": "D03-typed_child",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 96,
+      "source_case": "D03",
+      "source_group": "typed_child"
+    },
+    {
+      "case": "D03-typed_drawing",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 95,
+      "source_case": "D03",
+      "source_group": "typed_drawing"
+    },
+    {
+      "case": "D04-typed_child",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 96,
+      "source_case": "D04",
+      "source_group": "typed_child"
+    },
+    {
+      "case": "D04-typed_drawing",
+      "complete": true,
+      "full_source_admission": false,
+      "iso_to_ansi_field_changes": 173,
+      "remaining_source_differences": 95,
+      "source_case": "D04",
+      "source_group": "typed_drawing"
+    },
+    {
+      "case": "AuthoredAlpha",
+      "complete": true,
+      "iso_to_ansi_field_changes": 173
+    },
+    {
+      "case": "AuthoredBetaOmega",
+      "complete": true,
+      "iso_to_ansi_field_changes": 173
+    }
+  ],
+  "complete_private_source_observation_sha256": "53304cb7bb3e48fbc1f60f3116311565a1033564659bff134b2d30ebcb968f3e",
+  "complete_typed_byte_reemission": true,
+  "existing_writer_or_public_admission_changed": false,
+  "field_tree_comparison": "Semantic text and runtime class identities; complete original references and wire encodings remain in the separately pinned intake",
+  "full_original_admission": false,
+  "heldout_acceptance": false,
+  "integrated_worktree": {
+    "identical_typed_comparisons": 10,
+    "identical_worker_results": 26,
+    "python_asts_unchanged": true,
+    "rationale_only_adjustments": [
+      {
+        "current": "00094f432fea30b73815c4dba4d1bfdaa0f7579267e33bf7fd2ecdebdb10dc04",
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/Ansi/MakeAnsiDetails.py",
+        "previous": "43cf6f009c6f3869c626b9363bc9fd69fde7aacb55c47832bc56f583522ba36b"
+      },
+      {
+        "current": "d2805cfed45fefe8896f2335685e7c4aee9872120ae515d4bc6b614515c79d8d",
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/Ansi/SetDimensionMut.py",
+        "previous": "61092f0b6ff09c9a944450f9551efe59e49c75cfe924514c5a0f859a5058d38f"
+      },
+      {
+        "current": "a2a1cc366d9196c1cffeffe79d9475bf742a7f0974b9d6bf5d98dd84b1e989c0",
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/Ansi/SetDimensionsMut.py",
+        "previous": "7d82673279fea8b4fb08b194566738a6973f026c05282efd9d75f5a8251da485"
+      },
+      {
+        "current": "2ab93b08082da13466c4bc0feedbc1fb3db67af3a035dc49da29022876d46b53",
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/Ansi/SetHeightMut.py",
+        "previous": "fc9de1d735178d9a4b352e6e3578a65660c8e0fde408f170eca9afaa552c3ed1"
+      },
+      {
+        "current": "8cb97a578e2e85f7572eaebdf39195684002687adc7dd3f4dfc6087557c739da",
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/Ansi/SetTablesMut.py",
+        "previous": "82b12ede8fe026706eb663c4b88eb374d3e4d27ca41bb43b9808ba2d909234cd"
+      }
+    ],
+    "raw_process_result_sha256": "46ce19c2ba75b61cdecd25ad09e7f4967eeaecfea31999824c153663ba2fc21f",
+    "source_manifest_sha256": "4babe1244fa5001a2e4cf4c3669765e5643d23366098b4c0a8affc6d538e9a73"
+  },
+  "malformed_rejections": [
+    {
+      "case": "wrong_standard",
+      "diagnostic": "ANSI construction requires actual standard zero",
+      "exception": "ValueError"
+    },
+    {
+      "case": "boolean_standard",
+      "diagnostic": "ANSI construction requires actual standard zero",
+      "exception": "ValueError"
+    },
+    {
+      "case": "wrong_version",
+      "diagnostic": "ANSI construction requires the ordinary version-19000 body profile",
+      "exception": "ValueError"
+    },
+    {
+      "case": "missing_font",
+      "diagnostic": "ANSI style input is incomplete or contains unsupported fields",
+      "exception": "ValueError"
+    },
+    {
+      "case": "empty_font",
+      "diagnostic": "an explicit authored font is required; the localized font resource is not a default input",
+      "exception": "ValueError"
+    },
+    {
+      "case": "short_widths",
+      "diagnostic": "the eight authored print line widths are required",
+      "exception": "ValueError"
+    }
+  ],
+  "map_counter_checked": true,
+  "native_acceptance": false,
+  "negative_fresh_workers": 6,
+  "ordinary_archive_version": 19000,
+  "original_linked_alias_and_byte_parity_claimed": false,
+  "positive_fresh_workers": 20,
+  "private_root_result_sha256": "e86a3e842a3608539babf6c6c12c74ea6c5104ef97e28374355d7a1872afc0fd",
+  "proprietary_bytes_or_listings_in_delivery": false,
+  "requests_sha256": "8d28fb5f48dd4f64a508d15697caf8f07e874bb3286f23405630fee337f80d86",
+  "schema": "drawing-ansi-style-construction-receipt-v1",
+  "source_files": 4550,
+  "source_manifest_sha256": "2223d8e3e204d394cb735a711b2e0f61afc9de036619d348374126498367737c",
+  "status": "guarded-complete-body-codec-pass-native-and-heldout-pending",
+  "vendor_loadable": false,
+  "verification_owner": "root independent frozen snapshot",
+  "zero_research_builder_imports": true,
+  "zero_runtime_input_reads": true
+}

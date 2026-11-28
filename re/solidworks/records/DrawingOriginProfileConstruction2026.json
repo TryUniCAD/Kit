@@ -1,0 +1,913 @@
+{
+  "delivery_pr": 121,
+  "execution": {
+    "heldout_payloads_opened": 0,
+    "native": false,
+    "root_processes": 14,
+    "worker": "AST format and metadata hashes only"
+  },
+  "field_rules": [
+    {
+      "classification": "derived",
+      "field": "child origin persistent id",
+      "formula": "actual PartSystem.OriginValue.ProfileValue.f08 allocated by shared PersistentIds, never literal17",
+      "native": "MakeOriginMut plus native moNode ID getter0x4b283ba0",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived",
+      "field": "component ff0.f00",
+      "formula": "actual generated origin persistent id",
+      "native": "moCompProfile ctor0x4b815960 -> moFRData ctor0x4bb34370",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived",
+      "field": "component ff0.f08",
+      "formula": "first actual creation-log event for that origin; native unset2592000 only when no event exists",
+      "native": "moLoggedNode getCreationTime0x4c03e070; existing DatumTime",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived owned graph",
+      "field": "component f58",
+      "formula": "exclusive fresh copy of the actual selected component path; sole extfeature.f50 aliases actual view.f5d8",
+      "native": "moCompRef ctor0x4b7e8250 calls actual component+158; concrete copy0x4b82a9d0",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "native constructor constants",
+      "field": "component f68,f18,f1c,f20,f30,f70,f84,fa0,f34,f48,has_fb0,has_fb8,has_fc0,has_fc8,has_fd0",
+      "formula": "zero; no optional old ref, alias text, per-ref info or transform supplied",
+      "native": "0x4b7e827b..0x4b7e8304",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "native constructor constants",
+      "field": "component f90,f94,f98,f9c",
+      "formula": "signed -1 words from two native -1 qword assignments",
+      "native": "0x4b7e8321..0x4b7e832c",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "input provenance",
+      "field": "component f4c",
+      "formula": "explicit target archive version19000",
+      "native": "0x4b7e8364..0x4b7e8370",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived alias",
+      "field": "component chain owner",
+      "formula": "actual drawing model",
+      "native": "component path construction, existing owner grammar",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived",
+      "field": "chain f30",
+      "formula": "(101 + actual internal reference f3f0) & 0xffffffff for one ordinary reference",
+      "native": "shared path bookkeeping0x4c291ca0 / reference getter0x4b541640; existing construction ledger",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived graph",
+      "field": "reference chain f08",
+      "formula": "fresh one-entry moExtFeatureList whose sole object is actual internal-reference f4f8",
+      "native": "existing MakeRefChain and ordinary reference-chain grammar",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "native ordinary context",
+      "field": "reference chain f24,f40",
+      "formula": "mode0; no independent chain configuration selector; actual internal reference f3c0 owns child selection",
+      "native": "existing MakeRefChain/native path constructor rules",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "volatile lifetime",
+      "field": "reference chain f20",
+      "formula": "fresh standalone constructor state0, never copy observed runtime acquisition count49",
+      "native": "existing native standalone path constructors; ordinary source field grammar",
+      "status": "constructor confirmed; new origin-display composition neutrality unmeasured"
+    },
+    {
+      "classification": "derived collection",
+      "field": "folder f8f8",
+      "formula": "append exactly the new actual display once; n equals current list length",
+      "native": "actual display type9 -> folder add4ba2d730; existing profile collection accessor4b288ab0",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived aliases",
+      "field": "display f30,f40,f48",
+      "formula": "actual view detail folder, actual view, actual newly generated moCompProfile respectively",
+      "native": "common ctor0x4be75b60; setOwner0x4be7ab80; setView0x4be7a5d0",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "native constructor constants",
+      "field": "display f50,f54,f11c",
+      "formula": "zero under selected fresh ordinary no-extra-presentation path; f50 is ushort flags, not a persistent id",
+      "native": "0x4be75bd5 and0x4be75c97; selected profile skips DisplayItem branch and notification+108 is empty",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "native constructor vocabulary",
+      "field": "display f08",
+      "formula": "parameterized moEntVisProp(layer65535,byLayer0,colour0xffffffff,lineStyle0,lineWidth(category0,width-1)); flags3",
+      "native": "0x4be75b93..0x4be75bbf; moEntVisProp0x4c151050; sldmfcu category ctor0x3c84a8f0",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived empty collections",
+      "field": "display f68,fb0",
+      "formula": "two distinct empty native object lists, each exact n0/items empty",
+      "native": "0x4be75c28..0x4be75c65",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived allocation",
+      "field": "display f58",
+      "formula": "get owning model display counter n, increment n once, store n; native fresh model seed10; ids>=10 return unchanged",
+      "native": "model seeds0x4c00e15f and0x4c00f549; getDispObjID0x4be78480; setId0x4b2a7900",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived absence/framing",
+      "field": "display ff8,linked",
+      "formula": "no linked array implies null ff8 and synthetic linked selector0; no n138/f138 branch",
+      "native": "common ctor0x4be75c68; native normal store0x4ba4d82e..0x4ba4d8eb",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "input provenance",
+      "field": "display f118",
+      "formula": "explicit target version19000 from existing target, not ambient runtime/file lookup",
+      "native": "native current-version calls0x4be75c84..0x4be75c90",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "derived child selection",
+      "field": "display n1e0,f1e0",
+      "formula": "empty when actual fresh origin has empty concept child list; no bitmap children -> no bitmap IDs inserted",
+      "native": "profile ctor0x4be74f10; bitmap enumeration0x4c0d9590; origin+f78 actual4bdab540; false+570 takes direct empty-child branch",
+      "status": "confirmed constructor rule"
+    },
+    {
+      "classification": "native constructor/input",
+      "field": "display f200",
+      "formula": "fresh constructor word1; optional explicit CanHideSuppressed boolean updates only bit0 and retains/rejects any unsupported other bits",
+      "native": "owning ctor OR1 at0x4be7522e; independently pinned setter0x4be75520",
+      "status": "confirmed constructor rule"
+    }
+  ],
+  "functions": {
+    "add_profile_implementation": {
+      "entry": "0x4ba3b520",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 242,
+          "end": "0x4ba3b612",
+          "sha256": "3952c31f4e954a6b0e7e620e9e1c4d851716f8f43301ae4ffb104d65d424864f",
+          "start": "0x4ba3b520"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4ba3b520",
+          "end": "0x4ba3b612",
+          "unwind": "0x4d4a8250"
+        }
+      ]
+    },
+    "common_display_constructor": {
+      "entry": "0x4be75b60",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 471,
+          "end": "0x4be75d37",
+          "sha256": "c378265652d595fec1d1ce70ab6c7ff9a6d8cb270ab9aac4af11f9d863549129",
+          "start": "0x4be75b60"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be75b60",
+          "end": "0x4be75d37",
+          "unwind": "0x4d53d5f0"
+        }
+      ]
+    },
+    "component_profile_constructor": {
+      "entry": "0x4b815960",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 352,
+          "end": "0x4b815ac0",
+          "sha256": "d4510fadcb4a6a5dfd291432e241dd2259e006cf8d0d9527c6e6b8e764d5322e",
+          "start": "0x4b815960"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4b815960",
+          "end": "0x4b815ac0",
+          "unwind": "0x4d45710c"
+        }
+      ]
+    },
+    "component_ref_from_component": {
+      "entry": "0x4b7e8250",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 310,
+          "end": "0x4b7e8386",
+          "sha256": "d22db22d6408ae1b4cb6638678e1fe5ccbbbd260a2ba28555042068e2d3b7f6c",
+          "start": "0x4b7e8250"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4b7e8250",
+          "end": "0x4b7e8386",
+          "unwind": "0x4d451604"
+        }
+      ]
+    },
+    "component_value_copy": {
+      "entry": "0x4b82a9d0",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 78,
+          "end": "0x4b82aa1e",
+          "sha256": "b0308bfe2129e1143e831d014ed3d823c4dfef73752c86df39ede0e370944470",
+          "start": "0x4b82a9d0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4b82a9d0",
+          "end": "0x4b82aa1e",
+          "unwind": "0x4d45aa00"
+        }
+      ]
+    },
+    "constant_false_guard": {
+      "entry": "0x4b27cbe0",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 3,
+          "end": "0x4b27cbe3",
+          "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+          "start": "0x4b27cbe0"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "default_model_constructor": {
+      "entry": "0x4c00d8f0",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 5298,
+          "end": "0x4c00eda2",
+          "sha256": "490d8c8c665ca821c9420ec513a116b580a58cfe810f47184ffee53fe1aa5371",
+          "start": "0x4c00d8f0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c00d8f0",
+          "end": "0x4c00eda2",
+          "unwind": "0x4d57a728"
+        }
+      ]
+    },
+    "display_id_getter_allocator": {
+      "entry": "0x4be78480",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 37,
+          "end": "0x4be784a5",
+          "sha256": "1dcc7d9adfae61d58a2017c664608a11d3ac8fc8ae88ebf73ad1296455d74a97",
+          "start": "0x4be78480"
+        },
+        {
+          "bytes": 101,
+          "end": "0x4be7850a",
+          "sha256": "832b279f69293b4dc5710c1f14e23b9833fb28340171a861ff7cc303d687a661",
+          "start": "0x4be784a5"
+        },
+        {
+          "bytes": 16,
+          "end": "0x4be7851a",
+          "sha256": "b92edeb197885de784c277088807da01afc9bf716a1e47dda54ed612ce26b3b0",
+          "start": "0x4be7850a"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be78480",
+          "end": "0x4be784a5",
+          "unwind": "0x4d38a428"
+        },
+        {
+          "begin": "0x4be784a5",
+          "end": "0x4be7850a",
+          "unwind": "0x4d53cddc"
+        },
+        {
+          "begin": "0x4be7850a",
+          "end": "0x4be7851a",
+          "unwind": "0x4d53cdf0"
+        }
+      ]
+    },
+    "display_id_setter": {
+      "entry": "0x4b2a7900",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 4,
+          "end": "0x4b2a7904",
+          "sha256": "3843e79bdabac3ca937f8dc4d70913c9942373349fdfba1fae63c1bc9a183640",
+          "start": "0x4b2a7900"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "empty_display_notification": {
+      "entry": "0x4b27e120",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 3,
+          "end": "0x4b27e123",
+          "sha256": "b6cbececf1b07e74f37d57710c68c31f0b92cb08d51093252b321b07542e177b",
+          "start": "0x4b27e120"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "entity_visibility_parameter_constructor": {
+      "entry": "0x4c151050",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 191,
+          "end": "0x4c15110f",
+          "sha256": "5c62cf5cf522c9bc1db98bd246d079cf285d7cc3a4a637f14ca24913558a117f",
+          "start": "0x4c151050"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c151050",
+          "end": "0x4c15110f",
+          "unwind": "0x4d5a73e8"
+        }
+      ]
+    },
+    "folder_concept_owner": {
+      "entry": "0x4bb45da0",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 8,
+          "end": "0x4bb45da8",
+          "sha256": "cd753b8aeb8b2bcf0ce1e4d32e51025cd6ae1f7e0893d61735a797ee2d472b5b",
+          "start": "0x4bb45da0"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "folder_display_add": {
+      "entry": "0x4ba2d730",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 2136,
+          "end": "0x4ba2df88",
+          "sha256": "721a40b66b08ae3e2dad6c0f5fe7abc5da20e2f1ed787718955cd17c135baab2",
+          "start": "0x4ba2d730"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4ba2d730",
+          "end": "0x4ba2df88",
+          "unwind": "0x4d4a6f08"
+        }
+      ]
+    },
+    "line_width_category_constructor": {
+      "entry": "0x3c84a8f0",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "module": "sldmfcu.dll",
+      "ranges": [
+        {
+          "bytes": 20,
+          "end": "0x3c84a904",
+          "sha256": "f951312561b74f61b6f696015b52afea00078d53968bd1fc9430e75b9901412f",
+          "start": "0x3c84a8f0"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "ordinary_child_class_filter": {
+      "entry": "0x4bdab540",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 681,
+          "end": "0x4bdab7e9",
+          "sha256": "4ef32f5bb8d59c10d8a0d88e90db1c0c34839edafac49d63f6d6ef398c206ecb",
+          "start": "0x4bdab540"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bdab540",
+          "end": "0x4bdab7e9",
+          "unwind": "0x4d520140"
+        }
+      ]
+    },
+    "owner_model_constructor": {
+      "entry": "0x4c00edb0",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 4896,
+          "end": "0x4c0100d0",
+          "sha256": "1ba0a395d5baca2539c862dbfe46f9fd8876757e03585a613c79a03c4e553831",
+          "start": "0x4c00edb0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c00edb0",
+          "end": "0x4c0100d0",
+          "unwind": "0x4d57ab88"
+        }
+      ]
+    },
+    "owning_profile_display_constructor": {
+      "entry": "0x4be74f10",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 842,
+          "end": "0x4be7525a",
+          "sha256": "1df75828ac22b66e490774017156446258931ecb4e0fcc85a949621bcbfd2754",
+          "start": "0x4be74f10"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be74f10",
+          "end": "0x4be7525a",
+          "unwind": "0x4d53c9c0"
+        }
+      ]
+    },
+    "profile_child_bitmap_filter": {
+      "entry": "0x4c0d9590",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 210,
+          "end": "0x4c0d9662",
+          "sha256": "13472b5061df3fcb16851f0c3c8b9c4c2c598155fc5368ce4232e1a368d1e5e9",
+          "start": "0x4c0d9590"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c0d9590",
+          "end": "0x4c0d9662",
+          "unwind": "0x4d595ca0"
+        }
+      ]
+    },
+    "profile_followup_if_requested": {
+      "entry": "0x4c9c0900",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 63,
+          "end": "0x4c9c093f",
+          "sha256": "85a0d86c4f6e79328ae181db83d8c08ee5fce597e244532226e0ce6f9229fa2b",
+          "start": "0x4c9c0900"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c9c0900",
+          "end": "0x4c9c093f",
+          "unwind": "0x4d3877f0"
+        }
+      ]
+    },
+    "profile_type_selector": {
+      "entry": "0x4be75510",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 10,
+          "end": "0x4be7551a",
+          "sha256": "59f03fcb7a3999c9a68f0602375c76765166886394391d165fc4f53fa0628d72",
+          "start": "0x4be75510"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "public_add_profile_thunk": {
+      "entry": "0x4ba2e270",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 5,
+          "end": "0x4ba2e275",
+          "sha256": "71185b948cad5c6c4edf35e03d04bf8ecba52fdcb07a96578524b401e67c2b3e",
+          "start": "0x4ba2e270"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "reference_geometry_dirty_bit": {
+      "entry": "0x4c9b1540",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 31,
+          "end": "0x4c9b155f",
+          "sha256": "47fb4f1d67a14495af292cbf5575c2a8c46cd16fd51b6cfc2d42e76b99844591",
+          "start": "0x4c9b1540"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "set_display_owner": {
+      "entry": "0x4be7ab80",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 116,
+          "end": "0x4be7abf4",
+          "sha256": "00f07f179895661fe447a551c2b21bd0d84ecfe2015c8ff2546716a70a32a7dd",
+          "start": "0x4be7ab80"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be7ab80",
+          "end": "0x4be7abf4",
+          "unwind": "0x4d3877f0"
+        }
+      ]
+    },
+    "set_display_view": {
+      "entry": "0x4be7a5d0",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 29,
+          "end": "0x4be7a5ed",
+          "sha256": "59788eb2c5524d8a776c26de77aff4712dd95b2757e5dde9e35e40ae2cb9c261",
+          "start": "0x4be7a5d0"
+        },
+        {
+          "bytes": 235,
+          "end": "0x4be7a6d8",
+          "sha256": "314d95ebcbca3a8dd6b89db0342354881424babc2c59d5df90c97ddd2798d66d",
+          "start": "0x4be7a5ed"
+        },
+        {
+          "bytes": 15,
+          "end": "0x4be7a6e7",
+          "sha256": "357972002bd890605e4913742afc114315009a9f54ce738ff28ef0dc939e5dad",
+          "start": "0x4be7a6d8"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be7a5d0",
+          "end": "0x4be7a5ed",
+          "unwind": "0x4d3886c8"
+        },
+        {
+          "begin": "0x4be7a5ed",
+          "end": "0x4be7a6d8",
+          "unwind": "0x4d53cf1c"
+        },
+        {
+          "begin": "0x4be7a6d8",
+          "end": "0x4be7a6e7",
+          "unwind": "0x4d53cf30"
+        }
+      ]
+    },
+    "unclosed_profile_followup_target": {
+      "entry": "0x4c9c2a90",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 2962,
+          "end": "0x4c9c3622",
+          "sha256": "2112c78d7124a48da64dc38d307445f4c8676e6931ed543fb9d233d315854768",
+          "start": "0x4c9c2a90"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c9c2a90",
+          "end": "0x4c9c3622",
+          "unwind": "0x4d6d1144"
+        }
+      ]
+    }
+  },
+  "heldout_acceptance": false,
+  "hidden_source_lock_sha256": "bff16200c2870b4ed45f1bbc01e5f9d05b602677e56aa84114f262db87e860ef",
+  "independent_process_result_sha256": "ce8c3c44e75e5b2921f592ca4cb2aaa6c0e1f2034debe41cb4fe3fe51dd138f1",
+  "instruction_windows": [
+    {
+      "bytes": 11,
+      "end": "0x4c00e16a",
+      "interception_safety_claimed": false,
+      "role": "default_model_display_id_seed",
+      "sha256": "91bfdb073b49d0d6930dd8d960f26ed3c9489e2f04ce181e49b018f1cd04e377",
+      "start": "0x4c00e15f"
+    },
+    {
+      "bytes": 11,
+      "end": "0x4c00f554",
+      "interception_safety_claimed": false,
+      "role": "owner_model_display_id_seed",
+      "sha256": "91bfdb073b49d0d6930dd8d960f26ed3c9489e2f04ce181e49b018f1cd04e377",
+      "start": "0x4c00f549"
+    },
+    {
+      "bytes": 20,
+      "end": "0x4ba3b56f",
+      "interception_safety_claimed": false,
+      "role": "actual_profile_component_constructor_call",
+      "sha256": "5cbd5f87c4bc03c2d07b1eaed3a45cc1922cd566e9d80947095ea74adf8ecc67",
+      "start": "0x4ba3b55b"
+    },
+    {
+      "bytes": 11,
+      "end": "0x4ba3b597",
+      "interception_safety_claimed": false,
+      "role": "actual_owning_display_constructor_call",
+      "sha256": "ec0f7770315e84f13c1770a892b95a1537b31ef5fd4a6549bd87fabe88881bbd",
+      "start": "0x4ba3b58c"
+    },
+    {
+      "bytes": 29,
+      "end": "0x4ba2d77b",
+      "interception_safety_claimed": false,
+      "role": "display_publication_and_type_select",
+      "sha256": "7a5a766fc88033aa697d5f0b6d0f6d7778a15c7d8f99f31ce6a09cf869ef813a",
+      "start": "0x4ba2d75e"
+    },
+    {
+      "bytes": 46,
+      "end": "0x4be78503",
+      "interception_safety_claimed": false,
+      "role": "positive_display_id_allocation",
+      "sha256": "25bb98b6661a6b41846935ce393ba712dff5e48de0f2cc673a54fac8ddd28433",
+      "start": "0x4be784d5"
+    },
+    {
+      "bytes": 24,
+      "end": "0x4bdab6f6",
+      "interception_safety_claimed": false,
+      "role": "display_origin_bitmap_empty_guard",
+      "sha256": "d615bcf93590e678134dc433d5d31509a495897e2fcc3bb7c002244b8e1ba139",
+      "start": "0x4bdab6de"
+    },
+    {
+      "bytes": 62,
+      "end": "0x4ba4d7bb",
+      "interception_safety_claimed": false,
+      "role": "normal_positive_id_store_condition",
+      "sha256": "e5578520dfe113df07c9d2e0d0f58b2a8a66d8bb532e5272805ee1bb0eead789",
+      "start": "0x4ba4d77d"
+    }
+  ],
+  "modules": [
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "exception_directory": {
+        "bytes": 988296,
+        "records": 82358,
+        "rva": "0x2a6a000"
+      },
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "base": "0x3c720000",
+      "bytes": 8274520,
+      "exception_directory": {
+        "bytes": 222504,
+        "records": 18542,
+        "rva": "0x7e6000"
+      },
+      "name": "sldmfcu.dll",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    }
+  ],
+  "native_acceptance": false,
+  "native_constructor_evidence_sha256": "20dacc50ad2e7e021d633dda901622d1a3b2c720909e147d51da56d50000aa69",
+  "ordinary_population": {
+    "callsite_argument": "each of4ba2b63c,4ba31d35,4ba36e48 receives r9d0; alternate addUnique calls receive0 and forward it unchanged if insertion is needed",
+    "collector_identity": "actual RTTI collectVisibleSketchesToFolder_c constructor4ba2b070; occurrence visitor vtable4cef8b98+30 ->4ba368b0",
+    "ghost_projection_excluded_at_these_calls": true,
+    "not_proved": "the uninstrumented public CreateDrawViewFromModelView3 author route has not been bound to one of these callers; direct-call byte search is a bounded module search, not an exhaustive indirect/cross-module call graph",
+    "origin_special_guard": "actual origin+670=true; if actual view.isOriginUpdated (f61c bit0) is set, this population branch bypasses the ordinary canShowModelProfileFeature check for the origin",
+    "view_boundary": "actual moAbsoluteView+1fa0 ->4c991930; gets actual view+1020 detail folder and forwards to4ba31570"
+  },
+  "ordinary_population_evidence_sha256": "b5e5c2f9376552dca3488bcd1d8b8b4e2922d84d79cb53cb70395b2be81ac3f6",
+  "original_failed_complete_source_verdict_changed": false,
+  "owner": "PR121 drawing construction lane",
+  "public_drawing_writer_enabled": false,
+  "refinement": {
+    "fresh_scope": "MakeOriginFile constructs the fresh linked graph itself, requires no prior display and native fresh seed, publishes one display",
+    "model_fd44": "read actual fresh model fd44, assign old value to display f58, increment same actual model fd44 once; no independent counter",
+    "unsupported_child_family": "CreateCenterRectangle complete child construction is separate from this corner-only process cohort",
+    "wire": "reemit the actual UI/model graph through WriteNamedDef; no captured fields or saved input"
+  },
+  "remaining": [
+    "fresh generated origin visibility and save/reopen lifecycle",
+    "new composition standalone path acquisition lifetime neutrality",
+    "centered child SDK constructor in separate tranche",
+    "future sealed-input evaluation before feature qualification",
+    "unprojected drawing profile semantics in public reader"
+  ],
+  "schema": "kit.sw2026.origin-profile-construction-knowledge.v1",
+  "source_manifest_sha256": "fcf0a8a86a585eb04cc479fada53a27266ab1204d08012d24270fc46f37178fc",
+  "status": "complete private constructor and real process proof; native generated-origin and held-out acceptance pending",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "vtables": [
+    {
+      "address": "0x4d039e40",
+      "class": "moDisplayProfileFeature_c",
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d039ed8",
+            "sha256": "121270dfaa40a5fa7eb3ce3810771f3816016b1633f7c273fa4964e324c675d9",
+            "start": "0x4d039ed0"
+          },
+          "offset": "0x90",
+          "target": "0x4be7ab80"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d039ee8",
+            "sha256": "a237e9e85e0eefd6f5c8b9cc94ef26e9a9a1e20afc32a73a7eec467eee57fc3d",
+            "start": "0x4d039ee0"
+          },
+          "offset": "0xa0",
+          "target": "0x4be75510"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d039f08",
+            "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+            "start": "0x4d039f00"
+          },
+          "offset": "0xc0",
+          "target": "0x4b27cbe0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d039f50",
+            "sha256": "b7544b6276efeb1ee65ea35f4e7fb3923165ead475dfd3897232d128ce8b6e25",
+            "start": "0x4d039f48"
+          },
+          "offset": "0x108",
+          "target": "0x4b27e120"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d039f58",
+            "sha256": "ce72c5c6dcba94275d47016c7b80886ec4c314bb017226b07484eb313816f630",
+            "start": "0x4d039f50"
+          },
+          "offset": "0x110",
+          "target": "0x4be7a5d0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d03a068",
+            "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+            "start": "0x4d03a060"
+          },
+          "offset": "0x220",
+          "target": "0x4b27cbe0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d03a098",
+            "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+            "start": "0x4d03a090"
+          },
+          "offset": "0x250",
+          "target": "0x4b27cbe0"
+        }
+      ]
+    },
+    {
+      "address": "0x4cef4a00",
+      "class": "moDetailFolder_c",
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4cef5c88",
+            "sha256": "280d4e7d3ce93ac64d08ea2bc3ea769beba4b9267e5de4a40fe29aae11afcf0e",
+            "start": "0x4cef5c80"
+          },
+          "offset": "0x1280",
+          "target": "0x4bb45da0"
+        }
+      ]
+    },
+    {
+      "address": "0x4d0ef510",
+      "class": "moOriginProfileFeature_c",
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0ef6a0",
+            "sha256": "07507ac110dc8671c782a98915557194ceedc0363c545c3ca4b2373d5bc5a18a",
+            "start": "0x4d0ef698"
+          },
+          "offset": "0x188",
+          "target": "0x4b283ba0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0efa88",
+            "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+            "start": "0x4d0efa80"
+          },
+          "offset": "0x570",
+          "target": "0x4b27cbe0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0f0490",
+            "sha256": "e5d6c8d9cfd5c4d95462fbbcc0d953602d5ea84ec6aaafc409b1e4c31b921181",
+            "start": "0x4d0f0488"
+          },
+          "offset": "0xf78",
+          "target": "0x4bdab540"
+        }
+      ]
+    },
+    {
+      "address": "0x4ce9c808",
+      "class": "moChainComponent_c",
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4ce9c968",
+            "sha256": "ffddab0acc0f111051d1c479d219953a8e6f52a5e75207ceef535d25d4a29618",
+            "start": "0x4ce9c960"
+          },
+          "offset": "0x158",
+          "target": "0x4b82a9d0"
+        }
+      ]
+    }
+  ]
+}

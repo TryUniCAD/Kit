@@ -1,0 +1,113 @@
+{
+  "blocked_runtime_calls": 0,
+  "cases": [
+    {
+      "ghost_stream_sha256": "0ab990a2217590c31c5dda0853bb4e6564f161bbcda202255169192aae13bc9c",
+      "input": "SweepArcNear",
+      "manager_wire": {
+        "bytes": 72,
+        "sha256": "f947bea3354a057a46401367d9bb51f7f848759b3b431f2e0e7156295cfad0fd",
+        "unchanged_map_counter": 13
+      },
+      "partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "f8b04643b5b7d42e0c69b3574e1fc433ceb22c95ca8cd107c5efade990abacd4",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 6,
+          "edge": 14,
+          "radius_m": 0.028703
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 22,
+          "edge": 27,
+          "face": 31,
+          "radius_m": 0.004321
+        },
+        "typed_nodes": 36,
+        "world_last_id": 2,
+        "wrapped_bytes": 1066
+      },
+      "path_ghost_id": 10002,
+      "section_ghost_id": 10001,
+      "sweep_id": 173
+    },
+    {
+      "ghost_stream_sha256": "20be6593e1b0bd0f18f82c9336dc519ad5ac05ffedea8696b2f8322a12cddd47",
+      "input": "SweepArcWide",
+      "manager_wire": {
+        "bytes": 72,
+        "sha256": "534e73a6c7a92ae9c29a355050b52899cc06da8db67092208396c160266afba1",
+        "unchanged_map_counter": 13
+      },
+      "partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "cbd84d87b1527fe59c8236b9a9903a92a36d80baa497ff79d522455ee05d26d5",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 6,
+          "edge": 14,
+          "radius_m": 0.041297
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 22,
+          "edge": 27,
+          "face": 31,
+          "radius_m": 0.005713
+        },
+        "typed_nodes": 36,
+        "world_last_id": 2,
+        "wrapped_bytes": 1065
+      },
+      "path_ghost_id": 10002,
+      "section_ghost_id": 10001,
+      "sweep_id": 174
+    }
+  ],
+  "disclosed_intent_sha256": "e62d1d09ac26cc0ae9538a846b0800023441403b5d04ac432a8f6b1da8e71023",
+  "full_native_part_outputs": 0,
+  "heldout_cases": 0,
+  "input_refusals": {
+    "alternate owner": "ghost inputs must use the actual sweep and part owner",
+    "previous manager": "ghost construction requires a distinct allocated sweep and empty initial manager",
+    "split radii": "ghost inputs require measured positive nonintersecting radii",
+    "unallocated identity": "ghost construction requires a distinct allocated sweep and empty initial manager",
+    "zero and Boolean": "ghost inputs require measured positive nonintersecting radii"
+  },
+  "native_execution": false,
+  "schema": "kit.sw2026.fresh-sweep-ghost-pair.v1",
+  "sdk_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "tool_sha256": {
+    "AuditSweepGhostPair.py": "5331f75485268bcce463da0afcb9de465760fc47f0e840ee78ad970d35241ff3",
+    "MakeSweepGhostPair.py": "e2ad8cc53f34b176885323f800642761cc25fc0c5cf336ae418b3da0d75bb43d",
+    "SweepGhostAttributes.py": "168c4c29a1183a90967fa6d54a3751b2defb8fdd8b1fe4507dafcaa85480844d",
+    "SweepGhostGraph.py": "c1c52f6590833124f13f6dda4457827495c52d7c361f83ee95cf39702d24e5a4",
+    "SweepModel.py": "2087b569565e86f81dafa5f8d2b46b3e888261512a5edf61064663667a87eda6",
+    "SweepPathWire.py": "85740b833fa1453dfc6c7760f1974221e6bc471193d33f8e7e3ab7ab8ace49e2",
+    "SweepSectionTransport.py": "24c36a61dfeab28f43f00b7aea9afb234f5e726b18de820f074bdfa03d90939e"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "contract_replay_sha256": "8e850de60685e963bd3df9b92f277e5369b03462b76adbff0823ed0efeadc67d",
+  "delivery_pr": 121,
+  "empty_cohort_refused": true,
+  "expected_profiles": {
+    "Brep": {
+      "child_configuration": "Default",
+      "child_tree_rows": 25,
+      "endpoint_indexes": [
+        1,
+        0
+      ],
+      "fixed_index": 1,
+      "parent_configuration": "AssemblyActive",
+      "parent_tree_rows": 25
+    },
+    "Feature": {
+      "child_configuration": "Default",
+      "child_tree_rows": 25,
+      "endpoint_indexes": [
+        0,
+        1
+      ],
+      "fixed_index": 0,
+      "parent_configuration": "AssemblyActive",
+      "parent_tree_rows": 25
+    }
+  },
+  "explicit_recipe_phase_order": [
+    "ControlBefore",
+    "Generated",
+    "Reopen",
+    "ControlAfter"
+  ],
+  "heldout_inputs_read": 0,
+  "host_native_refusal_sha256": "684d1e0fa249a87fa39b1f0c68636fc33dbe165e401de2d78d3550ec8eef55bf",
+  "host_verify_sha256": "f9918478889c341945dc805d405c8b6475623cdb33ab447b25cbe29fb8267777",
+  "malformed_observation_refusals": 20,
+  "missing_and_partial_phase_results_refused": true,
+  "native_phase_chronology_required": true,
+  "native_processes_started": 0,
+  "new_native_acceptance": false,
+  "new_tools_sha256": {
+    "CheckGeneratedConcentricContract.py": "d75d3e1bf30c1f1d6b8049a3eb1d3d1e86ea80564d63ef78f9e70fefe9948b97",
+    "ConcentricNativeContract.py": "09509713b970c382f778aa6359555de1c208290e391ea085f70cfad325428540",
+    "InspectGeneratedConcentric.py": "6df9c0703256aaf93e79b10dce543b792596f2fd0d9584e2373e7d5566eb702d",
+    "PrepareGeneratedConcentric.py": "bc682eb07cfff145e9c68afbcb3de3bc7061211947cb789b530fd3c429542dea"
+  },
+  "original_protocol_sha256": "cbebcd5dd31bf839e76bf7f9a59bc42f82d20d40a276375d2b53d5d5fcadc812",
+  "owner": "assembly_occurrence",
+  "packet_sha256": "4a1f25468271d879834b7b778f07f2c268677be06338090fbdc714d999e77a81",
+  "public_registration_changes": 0,
+  "recipe_sha256": "494e5ebbb0a3ad031ee07b5aba69c9fbecfd0b4649c6026a9fd3329acbf6d12a",
+  "repository_preparer_replay": {
+    "checked_source_records": 2,
+    "host_contract_sha256": "285fbdd922cab40f12dcc6baaeb416c9a686fc61c11f0b52a54fa02a3cc237e5",
+    "host_verification": true,
+    "malformed_refusals": 20,
+    "native_runs": 0,
+    "packet_sha256": "5b90a632eab95d19fdf4f676798ec2bc44a6f0d464595a8198be25984d77ad34",
+    "recipe_sha256": "6967e8317b5eb39d20d2139a1206b142a11fc56bcfb547a2890ffc889dcae621"
+  },
+  "schema": "kit.sw2026.generated-concentric-observer-contract.v1",
+  "scope": "host preparation and contract replay only; the frozen native lifecycle awaits root execution",
+  "sdk_changes": 0,
+  "source_control_order": {
+    "D01": {
+      "api_selected": [
+        0,
+        1
+      ],
+      "observed_native": [
+        0,
+        1
+      ]
+    },
+    "D03": {
+      "api_selected": [
+        1,
+        0
+      ],
+      "observed_native": [
+        0,
+        1
+      ]
+    },
+    "scope": "observed disclosed controls; no universal normalization rule inferred"
+  },
+  "source_record_replays": 2,
+  "task": "B04-SW2026-MATES-CONCENTRIC/native-observer",
+  "unmeasured_paths": [
+    "Cold generated native load with actual warning state",
+    "Read-only native child/parent SaveAs relocation",
+    "Both actual generated anchor/order cases",
+    "Live generated child depth edit and synchronized persistence",
+    "Fresh native reopen and exact saved identities",
+    "Generated axial slide, unlocked spin and locked-spin rejection",
+    "Viewport rendering beyond visible-body flags",
+    "Held-out writer or public registry qualification"
+  ],
+  "verified_guest_runtime": {
+    "pointer_bits": 64,
+    "receipt_sha256": "2f400697e28561cf93e5352e6f40b81258bf8998a72f6ce1589763bee31b9684",
+    "version": "3.12.7"
+  }
+}

@@ -1,0 +1,740 @@
+{
+  "baseline": {
+    "blind_strict_read_and_json_exact": true,
+    "exact_blind_cases": 2,
+    "exact_measured_controls": 4,
+    "logical_stream_hashes": 72,
+    "previous_receipt": {
+      "bytes": 12403,
+      "sha256": "18f813c67561bbe21c195c6456297ac743afe6ccdbe9156e09ea3b1f97aae019"
+    },
+    "runtime_input_reads": 0
+  },
+  "compressor": "1.2.12",
+  "generate": {
+    "cases": {
+      "CenteredPassage": {
+        "deterministic_local_cells": 165,
+        "locator": "C:\\KitPlanarOpenings\\Candidates\\CenteredPassage.SLDPRT",
+        "neutral_bounds_mm": [
+          [
+            [
+              -20.0,
+              -11.0,
+              -3.5
+            ],
+            [
+              20.0,
+              11.0,
+              14.5
+            ]
+          ],
+          [
+            [
+              -8.0,
+              -4.5,
+              -3.5
+            ],
+            [
+              8.0,
+              4.5,
+              14.5
+            ]
+          ]
+        ],
+        "part": {
+          "bytes": 10927,
+          "sha256": "8a7d893f796a4a0a809ce21b1728ec9c5cd7ba7df2ef0bc32e625bba7c8e976d"
+        },
+        "physical_caps": [
+          {
+            "effective_normal": -1.0,
+            "face": 6,
+            "height_mm": -3.5,
+            "loops": [
+              7,
+              12
+            ],
+            "signed_xy_area_mm2": [
+              144.0,
+              -879.9999999999999
+            ]
+          },
+          {
+            "effective_normal": 1.0,
+            "face": 17,
+            "height_mm": 14.5,
+            "loops": [
+              18,
+              23
+            ],
+            "signed_xy_area_mm2": [
+              -144.0,
+              879.9999999999999
+            ]
+          }
+        ],
+        "public_write_refusals": 9,
+        "raw_kernel": {
+          "bytes": 6659,
+          "sha256": "ea7c015956be38ce7d17980d98b3f4eedc4d2a8bd1910d6501a99933e3aaf1f1"
+        },
+        "refusals": {
+          "competing_payload": {
+            "design": "SLDPRT local geometry rejected: local pocket requires the sole selected payload group",
+            "full": "SLDPRT local geometry rejected: local body requires the sole selected payload group"
+          },
+          "false_carrier_station": {
+            "design": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane",
+            "full": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane"
+          },
+          "foreign_group": {
+            "design": "SLDPRT local geometry rejected: local body storage key differs from its resolved import",
+            "full": "SLDPRT local geometry rejected: local body storage key differs from its resolved import"
+          },
+          "foreign_rim_face": {
+            "design": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal",
+            "full": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal"
+          },
+          "missing_fin_rotation": {
+            "design": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation",
+            "full": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation"
+          }
+        },
+        "sdk": {
+          "design": {
+            "feature": "sldprt:feature:18",
+            "json_sha256": "5e14d80a6ec7f92e55534d8b3b70ee5434dc3e13ece38a6aa7a50214fb9a2040",
+            "topology": [
+              1,
+              1,
+              10,
+              24,
+              16
+            ]
+          },
+          "full": {
+            "cap_roles": [
+              [
+                false,
+                true
+              ],
+              [
+                false,
+                true
+              ]
+            ],
+            "feature": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 4604.0,
+              "bounds_mm": [
+                [
+                  -20.0,
+                  -11.0,
+                  -3.5
+                ],
+                [
+                  20.0,
+                  11.0,
+                  14.5
+                ]
+              ],
+              "center_mm": [
+                0.0,
+                0.0,
+                5.5
+              ],
+              "volume_mm3": 13248.0
+            },
+            "json_sha256": "b07d3942300e9f8d028fe41caa0f0a2d13460cd2587b4af54d63503562f82e03",
+            "topology": [
+              1,
+              1,
+              10,
+              24,
+              16
+            ]
+          }
+        },
+        "source_metrics": {
+          "area_mm2": 4604.0,
+          "bounds_mm": [
+            [
+              -20.0,
+              -11.0,
+              -3.5
+            ],
+            [
+              20.0,
+              11.0,
+              14.5
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            5.5
+          ],
+          "volume_mm3": 13248.0
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 2837,
+            "sha256": "9a78516c0ade5b2bddf9a14d5ecb5190a8a4fd11dcffb19127118de332a74fea"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22387,
+            "sha256": "01b01e17aafeb03d609c6f68cfe4e7bfeac57a75c70b7a0436e6abb372602ae1"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 803,
+            "sha256": "920bf5a8e9f3a0cd7dff82963595cc4b9c5c84e0d350d80f8c26e21b71790b36"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5475,
+            "sha256": "c01d5273f3bf4d82138cab64bab7086e88613f7f4cb2369166bdb2df43039325"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 803,
+            "sha256": "ac8db9ca5cfe2b8caa3777063fe4fd24d60a719c9e5d10b38b9095eced74c9f3"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1308,
+            "sha256": "f3b3621346967915239ad0fe65ed437474dbfe111fee064af016c76d5bc0e541"
+          }
+        },
+        "typed_archive_owners": {
+          "activation_mark": 2,
+          "atom_body_tag": 0,
+          "atom_display_mode": 6,
+          "atom_id": 101,
+          "atom_map_index": 51,
+          "body_stamp": 102,
+          "configured_body_count": 1,
+          "feature_id": 18,
+          "local_group": "Imported passage",
+          "model_update": 103,
+          "selected_mark": 3,
+          "typed_stream_replay": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Header2"
+          ]
+        },
+        "written_at": 1790000000
+      },
+      "OffsetPassage": {
+        "deterministic_local_cells": 165,
+        "locator": "C:\\KitPlanarOpenings\\Candidates\\OffsetPassage.SLDPRT",
+        "neutral_bounds_mm": [
+          [
+            [
+              5.0,
+              -22.0,
+              -17.0
+            ],
+            [
+              37.0,
+              6.0,
+              5.0
+            ]
+          ],
+          [
+            [
+              12.0,
+              -20.0,
+              -17.0
+            ],
+            [
+              25.0,
+              -6.0,
+              5.0
+            ]
+          ]
+        ],
+        "part": {
+          "bytes": 10918,
+          "sha256": "7215dd13dff44ef09d1bca6c04acde7b139b621c835be3df87c7273f259773ac"
+        },
+        "physical_caps": [
+          {
+            "effective_normal": -1.0,
+            "face": 6,
+            "height_mm": -17.0,
+            "loops": [
+              7,
+              12
+            ],
+            "signed_xy_area_mm2": [
+              -896.0,
+              182.0
+            ]
+          },
+          {
+            "effective_normal": 1.0,
+            "face": 17,
+            "height_mm": 5.0,
+            "loops": [
+              18,
+              23
+            ],
+            "signed_xy_area_mm2": [
+              896.0,
+              -182.0
+            ]
+          }
+        ],
+        "public_write_refusals": 9,
+        "raw_kernel": {
+          "bytes": 6659,
+          "sha256": "32315ac12d9a4441643841d9a38d068dbeadb1d2a1b5e7454778942936bbe941"
+        },
+        "refusals": {
+          "competing_payload": {
+            "design": "SLDPRT local geometry rejected: local pocket requires the sole selected payload group",
+            "full": "SLDPRT local geometry rejected: local body requires the sole selected payload group"
+          },
+          "false_carrier_station": {
+            "design": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane",
+            "full": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane"
+          },
+          "foreign_group": {
+            "design": "SLDPRT local geometry rejected: local body storage key differs from its resolved import",
+            "full": "SLDPRT local geometry rejected: local body storage key differs from its resolved import"
+          },
+          "foreign_rim_face": {
+            "design": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal",
+            "full": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal"
+          },
+          "missing_fin_rotation": {
+            "design": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation",
+            "full": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation"
+          }
+        },
+        "sdk": {
+          "design": {
+            "feature": "sldprt:feature:18",
+            "json_sha256": "2d9386c11a959039ad061464a00f2d85d4fe3d127821d1aaf825f3c290f7b9a8",
+            "topology": [
+              1,
+              1,
+              10,
+              24,
+              16
+            ]
+          },
+          "full": {
+            "cap_roles": [
+              [
+                true,
+                false
+              ],
+              [
+                true,
+                false
+              ]
+            ],
+            "feature": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 5256.0,
+              "bounds_mm": [
+                [
+                  5.0,
+                  -22.0,
+                  -17.0
+                ],
+                [
+                  37.0,
+                  6.0,
+                  5.0
+                ]
+              ],
+              "center_mm": [
+                21.637254901960784,
+                -6.725490196078431,
+                -5.999999999999998
+              ],
+              "volume_mm3": 15708.0
+            },
+            "json_sha256": "7c02c93181a4496f9d5976080bef40774a2051d3f1fd1e16bb07db48825e921a",
+            "topology": [
+              1,
+              1,
+              10,
+              24,
+              16
+            ]
+          }
+        },
+        "source_metrics": {
+          "area_mm2": 5256.0,
+          "bounds_mm": [
+            [
+              5.0,
+              -22.0,
+              -17.0
+            ],
+            [
+              37.0,
+              6.0,
+              5.0
+            ]
+          ],
+          "center_mm": [
+            21.637254901960784,
+            -6.725490196078431,
+            -5.999999999999998
+          ],
+          "volume_mm3": 15708.0
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 2832,
+            "sha256": "89163f83aa4bb9384be8b0f5d8a4879ea3a9d6701f76fe559a1cfa74430b9dff"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22383,
+            "sha256": "0774870247879d7184b4856f18c96aeb6dea56213d0136ea54bf49d8fccf1516"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 791,
+            "sha256": "7f465530211d72567f7386a6efd824f2f5c0f2f4dce96b11722b2edc759d6ca1"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5475,
+            "sha256": "c01d5273f3bf4d82138cab64bab7086e88613f7f4cb2369166bdb2df43039325"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 791,
+            "sha256": "2938d7516500e3bc70136273a692d460cb22d860c9def28cd16f53fcbd28caec"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1306,
+            "sha256": "fd24b99def1bd30f08faf09521fad875896eff6baefad92f0244c4f8cf1c9170"
+          }
+        },
+        "typed_archive_owners": {
+          "activation_mark": 2,
+          "atom_body_tag": 0,
+          "atom_display_mode": 6,
+          "atom_id": 101,
+          "atom_map_index": 51,
+          "body_stamp": 102,
+          "configured_body_count": 1,
+          "feature_id": 18,
+          "local_group": "Imported passage",
+          "model_update": 103,
+          "selected_mark": 3,
+          "typed_stream_replay": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Header2"
+          ]
+        },
+        "written_at": 1790000000
+      }
+    },
+    "neutral_refusals": {
+      "false_exterior_role": "local prism requires complete ordered planar trims",
+      "opening_touches_stock": "local pocket requires one finite rectangular recess inside the outer rim",
+      "two_disjoint_through_openings": "local prism requires one ordered outer loop per shell face",
+      "wrong_carrier_station": "local pocket trim differs from its exact plane station"
+    },
+    "runtime_input_reads": 0
+  },
+  "input_programs": {
+    "ObservePlanarOpening.py": {
+      "bytes": 6640,
+      "sha256": "c18982515b20d89ffcd2b61f8073dac4c5bb22674d9bcc0a729a819893fd0f51"
+    },
+    "VerifyPlanarOpenings.py": {
+      "bytes": 13033,
+      "sha256": "62e19ed2b3797c482cf72fb878d80d65ea2f67522756c17f0db26d0667638517"
+    }
+  },
+  "native_processes_started": 0,
+  "new_heldout_cases": 0,
+  "new_public_writer_admission": false,
+  "observe": {
+    "rectangular_passage": {
+      "active": {
+        "bytes": 10469,
+        "sha256": "4ce15ab3610d660381d23a7bcb1fe907da90322b2511438977f7974ee85c5449"
+      },
+      "body_id": 2,
+      "body_kind": 1,
+      "build": "34.4.1.1011",
+      "deltas": {
+        "bytes": 3908,
+        "sha256": "231944397bf038e1394ebb259987457d7a92732d0d23e28e7fd05c1e22fddb2b"
+      },
+      "measurement_receipt": {
+        "bytes": 699459,
+        "sha256": "05755f809550c9c2c09bbc9fde248291fa4179063d9ca0aa4df6aa5ca5ca0ab4"
+      },
+      "plane_caps": [
+        {
+          "areas_mm2": [
+            80.00000000000001,
+            -800.0
+          ],
+          "face": 123,
+          "native_face_sense": "+",
+          "native_surface_normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "ordered_loops": [
+            122,
+            125
+          ],
+          "plane_height_mm": -0.0,
+          "signed_effective_normal_z": -1.0,
+          "xy_corners_mm": [
+            [
+              [
+                15.0,
+                6.0
+              ],
+              [
+                15.0,
+                14.0
+              ],
+              [
+                25.0,
+                6.0
+              ],
+              [
+                25.0,
+                14.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                20.0
+              ],
+              [
+                40.0,
+                0.0
+              ],
+              [
+                40.0,
+                20.0
+              ]
+            ]
+          ]
+        },
+        {
+          "areas_mm2": [
+            -80.00000000000001,
+            800.0
+          ],
+          "face": 187,
+          "native_face_sense": "-",
+          "native_surface_normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "ordered_loops": [
+            203,
+            183
+          ],
+          "plane_height_mm": 10.0,
+          "signed_effective_normal_z": 1.0,
+          "xy_corners_mm": [
+            [
+              [
+                15.0,
+                6.0
+              ],
+              [
+                15.0,
+                14.0
+              ],
+              [
+                25.0,
+                6.0
+              ],
+              [
+                25.0,
+                14.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                20.0
+              ],
+              [
+                40.0,
+                0.0
+              ],
+              [
+                40.0,
+                20.0
+              ]
+            ]
+          ]
+        }
+      ],
+      "receipt": {
+        "bytes": 2716,
+        "sha256": "7fd2fffa3c690998753a80cab81da2f1c2446c9fcec39574e3983a7f4345cae5"
+      },
+      "schema": "SCH_3701250_37102_13006",
+      "source": {
+        "bytes": 54099,
+        "sha256": "e1f431f1f21ae294fbd3711503ce386bec4fb4916c3cc83b57c876f1ae283149"
+      },
+      "topology": [
+        10,
+        12,
+        24,
+        48,
+        16
+      ]
+    },
+    "sp052_annulus_cap_links": {
+      "active": {
+        "bytes": 4478,
+        "sha256": "1b04be9c2b3c1b8bb4ed50a8b7752e6e889c0145218d2ab977102d14d7449783"
+      },
+      "body_id": 2,
+      "body_kind": 1,
+      "build": "34.5.2.0604",
+      "deltas": {
+        "bytes": 864,
+        "sha256": "35868a2d97dfc45a1a1d59e88373e9967a683b88dc374478fda4c6c8a0763bd2"
+      },
+      "manifest": {
+        "bytes": 1634548,
+        "sha256": "83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e"
+      },
+      "plane_caps": [
+        {
+          "areas_mm2": [
+            1767.4316300536223,
+            389.6604358947999
+          ],
+          "face": 64,
+          "native_face_sense": "-",
+          "native_surface_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ordered_loops": [
+            70,
+            76
+          ],
+          "plane_height_mm": 0.0,
+          "signed_effective_normal_z": -1.0,
+          "xy_corners_mm": [
+            [],
+            []
+          ]
+        },
+        {
+          "areas_mm2": [
+            1767.4316300536223,
+            389.6604358947999
+          ],
+          "face": 39,
+          "native_face_sense": "+",
+          "native_surface_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "ordered_loops": [
+            50,
+            58
+          ],
+          "plane_height_mm": 11.731,
+          "signed_effective_normal_z": 1.0,
+          "xy_corners_mm": [
+            [],
+            []
+          ]
+        }
+      ],
+      "schema": "SCH_3701250_37102_13006",
+      "source": {
+        "bytes": 71454,
+        "sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439"
+      },
+      "topology": [
+        4,
+        8,
+        4,
+        8,
+        4
+      ]
+    }
+  },
+  "runtime": "3.14.7",
+  "schema": "kit.sw2026.planar-import-openings.v1"
+}

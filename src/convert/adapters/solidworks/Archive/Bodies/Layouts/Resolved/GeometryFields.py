@@ -30,9 +30,7 @@ KGeometryFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate mgXform_c.operator>> Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "persp", "mgPerspInfoBase_c.restore"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -56,9 +54,7 @@ KGeometryFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate mgXform_c.operator>> Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "persp", "mgPerspInfo_c.restore"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -82,9 +78,7 @@ KGeometryFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate mgXform_c.operator>> Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "persp", "mgMatrix5_c.restore"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",

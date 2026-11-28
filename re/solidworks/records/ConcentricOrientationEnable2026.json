@@ -1,0 +1,701 @@
+{
+  "acceptance": {
+    "fresh_native_writer": false,
+    "full_cold_open_lifecycle": false,
+    "heldout_writer": false
+  },
+  "call_instructions": [
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4a0c9b26",
+      "module": "slduiu.dll",
+      "sha256": "adc29db75f514fdf144188512b309d4ee8232b33b0f1a4687245b8e71c6f6d6b",
+      "start": "0x4a0c9b21",
+      "target": "0x4a0c05b0"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4a10a1cb",
+      "module": "slduiu.dll",
+      "sha256": "66c44f8251bb581055b579e55c2377800a7a25849d304966aded29a199ae4a8a",
+      "start": "0x4a10a1c6",
+      "target": "0x4a127f80"
+    },
+    {
+      "bound": "complete RIP-relative import-call instruction",
+      "bytes": 6,
+      "end_exclusive": "0x4a0c9fd5",
+      "iat": "0x4a4599f8",
+      "module": "slduiu.dll",
+      "sha256": "47addddd42e02877f23d21af98355193690b024836e3ec505d3b4d2ff957e029",
+      "start": "0x4a0c9fcf"
+    },
+    {
+      "bound": "complete RIP-relative import-call instruction",
+      "bytes": 6,
+      "end_exclusive": "0x4a0c9fe3",
+      "iat": "0x4a46c0a0",
+      "module": "slduiu.dll",
+      "sha256": "b70bbd1214c83dd6c421c08f5db82faeec1b4a3ca65104dea4848b092566531c",
+      "start": "0x4a0c9fdd"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4a0c9fef",
+      "module": "slduiu.dll",
+      "sha256": "ea2f632bed040e95a4f0990aa1dbe3ed1d0504827531e3d535be3ed4e3c857d2",
+      "start": "0x4a0c9fea",
+      "target": "0x4a11c2c0"
+    },
+    {
+      "bound": "complete RIP-relative import-call instruction",
+      "bytes": 6,
+      "end_exclusive": "0x4a0c9fff",
+      "iat": "0x4a459318",
+      "module": "slduiu.dll",
+      "sha256": "04d9456d9d2f3ebb9349ea8e47f12be7c1e6c0efe7f3ef9f24ea1ca1388d4d1a",
+      "start": "0x4a0c9ff9"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4a0ca012",
+      "module": "slduiu.dll",
+      "sha256": "8f37f4068096f18744b4a10801e9af78b1bdffd168a3fe64b78bc25521118999",
+      "start": "0x4a0ca00d",
+      "target": "0x4a1174f0"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4a11754a",
+      "module": "slduiu.dll",
+      "sha256": "f683715928f0bf73684d77d0753221b305d824964f545764c01cbd039a01e80a",
+      "start": "0x4a117545",
+      "target": "0x4a112e30"
+    },
+    {
+      "bound": "complete RIP-relative import-call instruction",
+      "bytes": 6,
+      "end_exclusive": "0x4a11756e",
+      "iat": "0x4a457cf8",
+      "module": "slduiu.dll",
+      "sha256": "26ac9dab5a59ca86b91cc2c793c97099c777a54a0d68f6cd58198a078e75f8dc",
+      "start": "0x4a117568"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c331c3f",
+      "module": "sldmodu.dll",
+      "sha256": "20eb116eb9566f51db72a10e189317619257d2900c74aeb2200e634db1179bc8",
+      "start": "0x4c331c3a",
+      "target": "0x4c306c60"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c26fa70",
+      "module": "sldmodu.dll",
+      "sha256": "5af555b8071e9f1c742216fc3ce9e1fa221f4f791bfb83518b1a69b195a88d34",
+      "start": "0x4c26fa6b",
+      "target": "0x4c306c60"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c26fa8a",
+      "module": "sldmodu.dll",
+      "sha256": "5fc37fd047895125b6e226c5eeda3cfa2998e892cf0161987143bb0d1377d9ef",
+      "start": "0x4c26fa85",
+      "target": "0x4c263e20"
+    }
+  ],
+  "confidence": {
+    "full_orientation_preservation_after_owner_and_solve": "partial; prior getCylinder consumer can retain or replace local-axis state",
+    "generic_cache_cylinder_exclusion": "confirmed static exact-build",
+    "load_store_optional_state_distinction": "confirmed static exact-build",
+    "mandatory_cold_open_pre_solve_getter_schedule": "not found; separate next task",
+    "ordinary_enable_call_and_concrete_receiver": "confirmed static exact-build"
+  },
+  "delivery_pr": 121,
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1005,
+      "end_exclusive": "0x4a10a4bd",
+      "export": "?createMateEntity@uoSelectedObj_c@@UEAAPEAVmoRefWrapper_c@@HW4swMateType_e@@@Z",
+      "module": "slduiu.dll",
+      "name": "uoSelectedObj_c::createMateEntity",
+      "sha256": "233180f6a231af0624eaf74faadb5c947f6186a7a5dcbe063e866a8788b91653",
+      "start": "0x4a10a0d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1005,
+          "end_exclusive": "0x4a10a4bd",
+          "sha256": "233180f6a231af0624eaf74faadb5c947f6186a7a5dcbe063e866a8788b91653",
+          "start": "0x4a10a0d0",
+          "unwind_rva": "0x1cfdc70"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 335,
+      "end_exclusive": "0x4a0c9b6f",
+      "export": "?make@uoSelFace_c@@SAPEAV1@PEAVuiModelView_c@@PEAVuiModelDoc_c@@AEBVmoComponent_c@@PEAVgcFace_w@@@Z",
+      "module": "slduiu.dll",
+      "name": "uoSelFace_c::make with actual component",
+      "sha256": "c423e59c8fa65fe31358eb4a3bffafeb697df940a929bde66aae01f0dd8c8aaa",
+      "start": "0x4a0c9a20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 335,
+          "end_exclusive": "0x4a0c9b6f",
+          "sha256": "c423e59c8fa65fe31358eb4a3bffafeb697df940a929bde66aae01f0dd8c8aaa",
+          "start": "0x4a0c9a20",
+          "unwind_rva": "0x1cf4358"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 171,
+      "end_exclusive": "0x4a0c065b",
+      "export": null,
+      "module": "slduiu.dll",
+      "name": "uoSelFace_c constructor",
+      "sha256": "4c374d3c4846d83764f0918adea2440b1a6015d62a8dae51211d6e2fe3ce1ccf",
+      "start": "0x4a0c05b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 171,
+          "end_exclusive": "0x4a0c065b",
+          "sha256": "4c374d3c4846d83764f0918adea2440b1a6015d62a8dae51211d6e2fe3ce1ccf",
+          "start": "0x4a0c05b0",
+          "unwind_rva": "0x1cf41a0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 144,
+      "end_exclusive": "0x4a0ca020",
+      "export": null,
+      "module": "slduiu.dll",
+      "name": "uoSelFace_c concrete virtual +0xd58 cylinder factory",
+      "sha256": "886cb5260ce8ea88eb00ce786c64054817bd900b361341ab642f563fd1c6ac7e",
+      "start": "0x4a0c9f90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 144,
+          "end_exclusive": "0x4a0ca020",
+          "sha256": "886cb5260ce8ea88eb00ce786c64054817bd900b361341ab642f563fd1c6ac7e",
+          "start": "0x4a0c9f90",
+          "unwind_rva": "0x1ab7a50"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 815,
+      "end_exclusive": "0x4a11781f",
+      "export": "?iMakeRefWrapper@uoSelectedObj_c@@QEAAPEAVmoRefWrapper_c@@PEAUCRuntimeClass@@PEAPEAVmoCompRef_c@@PEAI@Z",
+      "module": "slduiu.dll",
+      "name": "uoSelectedObj_c::iMakeRefWrapper",
+      "sha256": "995f5aadecefe6184277192fbbf944ead03bbf7c4215f6f85ae56d8c7c2aadf5",
+      "start": "0x4a1174f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 815,
+          "end_exclusive": "0x4a11781f",
+          "sha256": "995f5aadecefe6184277192fbbf944ead03bbf7c4215f6f85ae56d8c7c2aadf5",
+          "start": "0x4a1174f0",
+          "unwind_rva": "0x1cfe54c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1076,
+      "end_exclusive": "0x4c30f834",
+      "export": "?createRefWrapper@moRefWrapper_c@@SAPEAV1@PEAUCRuntimeClass@@PEAVmoCompRef_c@@PEAVmoComponent_c@@PEAI@Z",
+      "module": "sldmodu.dll",
+      "name": "moRefWrapper_c::createRefWrapper",
+      "sha256": "e7d80c6c6249c129bdc1c974c2047f542dcad28d45cec840d43906ad62dc265e",
+      "start": "0x4c30f400",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1076,
+          "end_exclusive": "0x4c30f834",
+          "sha256": "e7d80c6c6249c129bdc1c974c2047f542dcad28d45cec840d43906ad62dc265e",
+          "start": "0x4c30f400",
+          "unwind_rva": "0x24a50d0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 306,
+      "end_exclusive": "0x4c3074f2",
+      "export": null,
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w owner-taking constructor",
+      "sha256": "37418df91dcf7204d85eaca7c6e53fa1d4fa5fd4f69b61b619a021c02637514c",
+      "start": "0x4c3073c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 306,
+          "end_exclusive": "0x4c3074f2",
+          "sha256": "37418df91dcf7204d85eaca7c6e53fa1d4fa5fd4f69b61b619a021c02637514c",
+          "start": "0x4c3073c0",
+          "unwind_rva": "0x24a8714"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 195,
+      "end_exclusive": "0x4c331cb3",
+      "export": null,
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w virtual +0x328 Boolean optional-state operation",
+      "sha256": "aa050e3ac6b80c234ed6bb1b11e12eb52c8ad1cb07cbb2515ed9192586b3b197",
+      "start": "0x4c331bf0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 195,
+          "end_exclusive": "0x4c331cb3",
+          "sha256": "aa050e3ac6b80c234ed6bb1b11e12eb52c8ad1cb07cbb2515ed9192586b3b197",
+          "start": "0x4c331bf0",
+          "unwind_rva": "0x24a8a24"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 397,
+      "end_exclusive": "0x4c306ded",
+      "export": null,
+      "module": "sldmodu.dll",
+      "name": "private optional orientation-state constructor",
+      "sha256": "f47a24a84b3f0531a7a452e07a907b1027ae5da3a0a56920c4357d29ba51eac2",
+      "start": "0x4c306c60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 397,
+          "end_exclusive": "0x4c306ded",
+          "sha256": "f47a24a84b3f0531a7a452e07a907b1027ae5da3a0a56920c4357d29ba51eac2",
+          "start": "0x4c306c60",
+          "unwind_rva": "0x24a60a4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 567,
+      "end_exclusive": "0x4c26fb27",
+      "export": null,
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w::Serialize",
+      "sha256": "5e17aecfbac53fb7b0b1c55192c3fac47196f956312386c1a3a73889db3bf96b",
+      "start": "0x4c26f8f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 567,
+          "end_exclusive": "0x4c26fb27",
+          "sha256": "5e17aecfbac53fb7b0b1c55192c3fac47196f956312386c1a3a73889db3bf96b",
+          "start": "0x4c26f8f0",
+          "unwind_rva": "0x248afbc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 118,
+      "end_exclusive": "0x4c263e96",
+      "export": null,
+      "module": "sldmodu.dll",
+      "name": "loaded optional-state ownership transfer",
+      "sha256": "a3cb7905e453f176eef2d0fa90794430477308eb3beef418a8a53684b60b9aff",
+      "start": "0x4c263e20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 118,
+          "end_exclusive": "0x4c263e96",
+          "sha256": "a3cb7905e453f176eef2d0fa90794430477308eb3beef418a8a53684b60b9aff",
+          "start": "0x4c263e20",
+          "unwind_rva": "0x248ba60"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 221,
+      "end_exclusive": "0x4b6a7ced",
+      "export": "?initRefWrapperCache@moAssembly_c@@QEAAXXZ",
+      "module": "sldmodu.dll",
+      "name": "moAssembly_c::initRefWrapperCache",
+      "sha256": "295e24e60ce18df826c82ba9ec6d4a47f73a451eb98e4fcd9d9b9bbaac60e8b9",
+      "start": "0x4b6a7c10",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 221,
+          "end_exclusive": "0x4b6a7ced",
+          "sha256": "295e24e60ce18df826c82ba9ec6d4a47f73a451eb98e4fcd9d9b9bbaac60e8b9",
+          "start": "0x4b6a7c10",
+          "unwind_rva": "0x22da69c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x4b27cbe3",
+      "export": null,
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w virtual +0x140 false-return leaf",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x4b27cbe0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x48ee4c03",
+      "export": null,
+      "module": "slduiu.dll",
+      "name": "uoSelFace_c virtual +0xb18 false-return leaf",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x48ee4c00",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4a46c0a0",
+      "module": "sldgcu.dll",
+      "name": "?isCylindrical@gcFace_w@@QEBAHXZ"
+    },
+    {
+      "iat": "0x4a457cf8",
+      "module": "SLDMODU.dll",
+      "name": "?createRefWrapper@moRefWrapper_c@@SAPEAV1@PEAUCRuntimeClass@@PEAVmoCompRef_c@@PEAVmoComponent_c@@PEAI@Z"
+    },
+    {
+      "iat": "0x4a459318",
+      "module": "SLDMODU.dll",
+      "name": "?GetThisClass@moCylinderRef_w@@SAPEAUCRuntimeClass@@XZ"
+    },
+    {
+      "iat": "0x4a4599f8",
+      "module": "SLDMODU.dll",
+      "name": "?getFace@moCompFace_c@@QEBAPEAVgcFace_w@@HHPEAVsuPtrArray@@0@Z"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 39,
+      "end_exclusive": "0x4a10a10d",
+      "module": "slduiu.dll",
+      "name": "ordinary versus special mate-type branch",
+      "sha256": "bd86a7d3c2d13aa4a2418708ed66f626a930946a83c18480f248d927fc4104ed",
+      "start": "0x4a10a0e6"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 10,
+      "end_exclusive": "0x4a0c05d2",
+      "module": "slduiu.dll",
+      "name": "actual selected-face primary vtable publication",
+      "sha256": "ca0ab1b490ea430edcca93c310a4bc641c873b1259431d744d29261583231057",
+      "start": "0x4a0c05c8"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 33,
+      "end_exclusive": "0x4a10a1e2",
+      "module": "slduiu.dll",
+      "name": "cylindrical classifier and selected +0xd58 dispatch",
+      "sha256": "494ad211730b8b44e9934183c32b938a9656dcef9ba8ce5d0acd9a6be6cf3257",
+      "start": "0x4a10a1c1"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 25,
+      "end_exclusive": "0x4a10a4a1",
+      "module": "slduiu.dll",
+      "name": "common nonnull wrapper +0x328 true operation",
+      "sha256": "cff18058813b105997916689df274b78ce2b77078fb55f5bad649d6bb0c6d4ca",
+      "start": "0x4a10a488"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 98,
+      "end_exclusive": "0x4a0ca012",
+      "module": "slduiu.dll",
+      "name": "resolved cylindrical face and runtime-class factory arguments",
+      "sha256": "a99eb4332ab8bc5d3293aedf3d84bd294797c8d0fb28b393c88c9032c05ddd46",
+      "start": "0x4a0c9fb0"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 50,
+      "end_exclusive": "0x4a11756e",
+      "module": "slduiu.dll",
+      "name": "actual target chain and model factory invocation",
+      "sha256": "c88eef2badfdd79422f2465d8d610e8913b9fef4a00e2202fc88ac6f5a2043a7",
+      "start": "0x4a11753c"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 57,
+      "end_exclusive": "0x4c30f6a3",
+      "module": "sldmodu.dll",
+      "name": "fresh wrapper context assignment and update",
+      "sha256": "b4c13d2fe778abe6196f69139626cde6c08b1f0f8b130d73d7f25e8e85b7d379",
+      "start": "0x4c30f66a"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 88,
+      "end_exclusive": "0x4c331c55",
+      "module": "sldmodu.dll",
+      "name": "enable absent-state allocation and current geometry arguments",
+      "sha256": "60fb58096ec0d73ff0e088be09a161ac647db14fb3784a73edd8c6079c8004a2",
+      "start": "0x4c331bfd"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 44,
+      "end_exclusive": "0x4c26f97f",
+      "module": "sldmodu.dll",
+      "name": "store presence and local vector",
+      "sha256": "aef941a26e49597e0a2798e60fe83e1a973f34e203d0a5badca47f7fed98699f",
+      "start": "0x4c26f953"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 37,
+      "end_exclusive": "0x4c26fa43",
+      "module": "sldmodu.dll",
+      "name": "read version threshold and presence",
+      "sha256": "4c421947fe63de1dc144a971c4b212007d66239781d776ee5acdcfef75d603d6",
+      "start": "0x4c26fa1e"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 71,
+      "end_exclusive": "0x4c26fa8a",
+      "module": "sldmodu.dll",
+      "name": "read constructor and ownership transfer",
+      "sha256": "67063adeaf89ee5edbd638284fd4f2c21891c05fc27f505a9504613db4f120a2",
+      "start": "0x4c26fa43"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 44,
+      "end_exclusive": "0x4c26fb07",
+      "module": "sldmodu.dll",
+      "name": "read local vector and legacy signed presence extension",
+      "sha256": "771d0e53d022ce634389c882718094001fa19be634c2580f7c4a23bca203ca7b",
+      "start": "0x4c26fadb"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 19,
+      "end_exclusive": "0x4c263e3d",
+      "module": "sldmodu.dll",
+      "name": "loaded state transfer clears source and replaces owner",
+      "sha256": "86ed3d5f6ac74103aaced53b49741580567693e886f9bec9a946a53ec19e8ea7",
+      "start": "0x4c263e2a"
+    },
+    {
+      "bound": "reviewed complete instruction-boundary window within listed native owner",
+      "bytes": 40,
+      "end_exclusive": "0x4b6a7cc6",
+      "module": "sldmodu.dll",
+      "name": "generic cache concrete predicate before update",
+      "sha256": "36f2d86a1ab46ef05c72c4cfd85f7e3aeb7ca6517f411e574928319bcc51a682",
+      "start": "0x4b6a7c9e"
+    }
+  ],
+  "method": {
+    "collector_sha256": "b9c44292f04fc031a3d5db77e57e6cc849570f3e8111f945abf41ea95012479e",
+    "decoder": "Apple LLVM21 llvm-objdump; no altered headers",
+    "heldout_access": false,
+    "original_pe_bytes_only": true,
+    "owned_hopper_session_opened": false,
+    "rea_session_note": "no target opened; last read closed with foreign or retained cleanup pending; no cleanup attempted",
+    "repository_mutations": false,
+    "schema_or_codec_or_product_tests": false,
+    "static_helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad",
+    "vendor_listing_or_instruction_bytes_in_report": false,
+    "vm_or_cad_or_com": false
+  },
+  "modules": [
+    {
+      "build": "34.5.2.0604",
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "build": "34.5.2.0604",
+      "bytes": 36036696,
+      "exception_directory_bytes": 880608,
+      "exception_directory_rva": "0x20bf000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  ],
+  "owner": "/root/flag_ownership",
+  "primary_vtables": [
+    {
+      "locator": {
+        "bound": "complete MSVC x64 primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4a944fc8",
+        "sha256": "17b219a7ce43d5eb1d07db6fdc9ac83e8dd42133035effb3b88c88ffdfbe3651",
+        "start": "0x4a944fb0"
+      },
+      "module": "slduiu.dll",
+      "name": "uoSelFace_c",
+      "slots": [
+        {
+          "bound": "one original primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4a81ed78",
+          "offset": "0xb18",
+          "sha256": "a530704d8561df8eb7b0e1f54f418e9de9620f99ee44840a7aa8b3afa974def6",
+          "start": "0x4a81ed70",
+          "target": "0x48ee4c00"
+        },
+        {
+          "bound": "one original primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4a81efb8",
+          "offset": "0xd58",
+          "sha256": "dc8d8d8930f026e1851243a9cd8c84fc3ca208057d1c025ebd3da76cc136ebd8",
+          "start": "0x4a81efb0",
+          "target": "0x4a0c9f90"
+        }
+      ],
+      "type_descriptor": "0x4af05da8",
+      "type_name": ".?AVuoSelFace_c@@",
+      "vtable": "0x4a81e258"
+    },
+    {
+      "locator": {
+        "bound": "complete MSVC x64 primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d2ec6d0",
+        "sha256": "910a8485585fa6a4e67986feca3df1e8cfbafe8cc5e744458c49ae9af66d94ad",
+        "start": "0x4d2ec6b8"
+      },
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w",
+      "slots": [
+        {
+          "bound": "one original primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd938f0",
+          "offset": "0x28",
+          "sha256": "21c918b86d7314e2a2724bdc32bbe5ae45e8b857388323b43e01198e190f3ead",
+          "start": "0x4cd938e8",
+          "target": "0x4c26f8f0"
+        },
+        {
+          "bound": "one original primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd93970",
+          "offset": "0xa8",
+          "sha256": "9324c5b6abb680467d797a0277502689f03fa7120ae8b5184756c46225b96974",
+          "start": "0x4cd93968",
+          "target": "0x4c32d4f0"
+        },
+        {
+          "bound": "one original primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd93a08",
+          "offset": "0x140",
+          "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+          "start": "0x4cd93a00",
+          "target": "0x4b27cbe0"
+        },
+        {
+          "bound": "one original primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd93bf0",
+          "offset": "0x328",
+          "sha256": "053ee46a2c182604b35d838f116fd3198ddd643f999a3cec11b8736599e769a1",
+          "start": "0x4cd93be8",
+          "target": "0x4c331bf0"
+        },
+        {
+          "bound": "one original primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd93c80",
+          "offset": "0x3b8",
+          "sha256": "7f00cb569daf3eb6be8e3e0db82ee7f4abf53f4a934250659d9bc1a1c90c6ce7",
+          "start": "0x4cd93c78",
+          "target": "0x4c325b80"
+        }
+      ],
+      "type_descriptor": "0x4db11af0",
+      "type_name": ".?AVmoCylinderRef_w@@",
+      "vtable": "0x4cd938c0"
+    }
+  ],
+  "prior_immutable_evidence": {
+    "no_prior_artifact_modified": true,
+    "support_delivery_sha256": "bdd1e8c984a55c6e5b13cf551e6b3821d7fc3f692ff47a92b836ef0d696a167a",
+    "support_numeric_record_sha256": "861f26261f5bd324bd5ed103f1cffacee91292ece44fac7d64b38b8f99cb0a1d",
+    "tag_extent_delivery_sha256": "b00c32e24bacf577283e286e7d0d396ff5c66516d43d5ce9bc95de210e9cb0d5"
+  },
+  "remaining": [
+    "actual current-version caller scheduling cylinder geometry resolution before solve on cold open",
+    "runtime owner/listener effects after selected wrapper creation",
+    "fresh writer and held-out qualification"
+  ],
+  "rules": {
+    "active_enable": "nonnull actual wrapper at common createMateEntity return tail receives virtual+328 with Boolean true before being returned",
+    "enable_absent": "allocate0x68 private state from current wrapper world unit axis+e8 and point+d0; preserve current state if already present",
+    "enable_concrete_receiver": "when the requested moCylinderRef_w runtime class succeeds, actual cylinder primary vtable+328 is the optional-state operation at4c331bf0",
+    "enable_false": "clear+108 and destroy its prior private state",
+    "fresh_factory_update": "successful generic createRefWrapper calls actual returned wrapper+3b8 at4c30f69d before returning to the UI enable tail; this does not prove cold-open scheduling",
+    "generic_cache_exclusion": "initRefWrapperCache requires wrapper virtual+140 true before update+3b8; concrete cylinder+140 returns0, so this helper cannot establish cylinder refresh",
+    "local_axis": "private state+18 is inverse-placement local axis when actual same-model virtual+a8 is false and actual wrapper+10 transform exists, as proved in the prior construction record",
+    "ordinary_load": "version>=4171 reads u16 presence; zero does not invoke enable or allocate; nonzero constructs state from loaded point/axis then transfers it to wrapper+108 and overwrites state+18 from wire",
+    "ordinary_type_branch": "the native special branch for mate-type numeric16/18 is excluded; earlier coordinate/plane/line/point classification branches must also be bypassed",
+    "read_legacy_extension": "after loading local axis, a signed16 presence comparison against2 conditionally loads state+48 point; this is not the current store output",
+    "selected_face_identity": "uoSelFace_c actual primary RTTI and constructor vtable assignment bind selected virtual+d58 to the face cylinder factory",
+    "selected_factory_guards": "selected virtual+b18 false, selected+3e8 null, actual moCompFace::getFace(1,0,null,null) nonnull and gcFace::isCylindrical true, actual makeCompRef nonnull",
+    "wire_store": "u16 presence0 for null; otherwise u16 presence1 followed by state+18 mgVector, separate from world-axis fe8"
+  },
+  "schema": "solidworks-concentric-orientation-enable-v1",
+  "scope": "ordinary nonnull selected cylindrical face creation; version19000 load/store distinction; no pre-solve scheduling claim",
+  "task": "B04-SW2026-MATES-CONCENTRIC"
+}

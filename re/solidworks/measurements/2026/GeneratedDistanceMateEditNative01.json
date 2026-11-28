@@ -1,0 +1,213 @@
+{
+  "schema": "kit.sw2026.generated-distance-native-edit.v1",
+  "passed": true,
+  "scope": "disclosed ordinary driving distance on two aligned principal datum planes",
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "writer_revision": "c4fda5661f92ed77d8b743be0d1940035bdd50fa",
+  "oracle_script_revision": "5fb3445359690ac08620c4d9ae9cf60a63a753ab",
+  "packet_sha256": "04fae5d505bf2a8f2a077c2b449364d502876ef0de6a160536e8bad57c4fa4da",
+  "runner_sha256": "75723b34210b458484262a98ca5d29010ae4218252dfaf400b33b5f5e14915b8",
+  "raw_native_result_sha256": "cfd710cdbe290f3865fb87446b88725f68b153922d433f1e003f56e8d100bafc",
+  "host_transport_result_sha256": "b7df8d21e58df29b7c3f69ae04dc3e5a9e159065a3a6518fa13998c9f4db8ca2",
+  "saved_typed_result_sha256": "67b6e8031075cf8f39e37bb72f00feca8e35ec191a6ac45ffef5927fb0ae1390",
+  "controls_healthy": true,
+  "distinct_processes": 4,
+  "transport_exit_code": 0,
+  "frozen_inputs_unchanged": true,
+  "phases": [
+    {
+      "phase": "ControlBefore",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394004559504151
+    },
+    {
+      "phase": "GeneratedEdit",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394004985474530
+    },
+    {
+      "phase": "GeneratedReopen",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394005597656919
+    },
+    {
+      "phase": "ControlAfter",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394006008948532
+    }
+  ],
+  "initial": {
+    "body_count": 2,
+    "volume_m3": 1.4648437500000001e-05,
+    "area_m2": 0.00484375,
+    "centre_of_mass_m": [
+      0.0513125,
+      0.002213599968138623,
+      0.015644345792287365
+    ],
+    "parent_feature_rows": 25,
+    "child_feature_rows": 26,
+    "clean_feature_diagnostics": true,
+    "mate_name": "Distance1",
+    "dimension_m": 0.071375,
+    "geometry_and_identity_checks": {
+      "pose": true,
+      "occurrences_and_anchor": true,
+      "plane_offsets": true,
+      "configurations": true,
+      "clean_feature_tree": true,
+      "child_feature_identity": true,
+      "child_dimensions": true,
+      "rebuild_status": true,
+      "analytical_geometry": true
+    },
+    "child_parameters_m": {
+      "D1@Sketch1": null,
+      "D2@Sketch1": null,
+      "D1@Boss-Extrude1": 0.0125
+    }
+  },
+  "edited": {
+    "body_count": 2,
+    "volume_m3": 1.4648437500000001e-05,
+    "area_m2": 0.00484375,
+    "centre_of_mass_m": [
+      0.05968749999999999,
+      0.002213599968138623,
+      0.015644345792287365
+    ],
+    "parent_feature_rows": 25,
+    "child_feature_rows": 26,
+    "clean_feature_diagnostics": true,
+    "mate_name": "Distance1",
+    "dimension_m": 0.088125,
+    "geometry_and_identity_checks": {
+      "pose": true,
+      "occurrences_and_anchor": true,
+      "plane_offsets": true,
+      "configurations": true,
+      "clean_feature_tree": true,
+      "child_feature_identity": true,
+      "child_dimensions": true,
+      "rebuild_status": true,
+      "analytical_geometry": true
+    },
+    "child_parameters_m": {
+      "D1@Sketch1": null,
+      "D2@Sketch1": null,
+      "D1@Boss-Extrude1": 0.0125
+    }
+  },
+  "reopened_and_rebuilt": {
+    "body_count": 2,
+    "volume_m3": 1.4648437500000001e-05,
+    "area_m2": 0.00484375,
+    "centre_of_mass_m": [
+      0.05968749999999999,
+      0.002213599968138623,
+      0.015644345792287365
+    ],
+    "parent_feature_rows": 25,
+    "child_feature_rows": 26,
+    "clean_feature_diagnostics": true,
+    "mate_name": "Distance1",
+    "dimension_m": 0.088125,
+    "geometry_and_identity_checks": {
+      "pose": true,
+      "occurrences_and_anchor": true,
+      "plane_offsets": true,
+      "configurations": true,
+      "clean_feature_tree": true,
+      "child_feature_identity": true,
+      "child_dimensions": true,
+      "rebuild_status": true,
+      "analytical_geometry": true
+    },
+    "child_parameters_m": {
+      "D1@Sketch1": null,
+      "D2@Sketch1": null,
+      "D1@Boss-Extrude1": 0.0125
+    }
+  },
+  "d1_edit": {
+    "full_name": "D1@Distance1@DistanceMateDiscovery.Assembly",
+    "before_m": 0.071375,
+    "target_m": 0.088125,
+    "setter_status": 0,
+    "force_rebuild_passed": true
+  },
+  "save": {
+    "child": {
+      "before_sha256": "6481be457497d0878cfc61ffcec1833681127d71cf1b067fecbf09139e066fa8",
+      "before_stamp": 147,
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "after_sha256": "dcd3ea66aab8eaff8b5d836fdd6306c40a3615288d43bf4b3c55208b4321c9ee",
+      "after_stamp": 147,
+      "bytes": 27041
+    },
+    "parent": {
+      "before_sha256": "50db9bb49936b8471adbefc63e8bd0627f3e2a0be5dae5519ae9155a30dc0edc",
+      "before_stamp": 105,
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "after_sha256": "04c074552af8822b4ffde860c68f067cf6f7c812917b3de75d0db47d91ef968d",
+      "after_stamp": 105,
+      "bytes": 50517
+    },
+    "child_unchanged_by_parent_save": true,
+    "passed": true
+  },
+  "same_saved_files": {
+    "DistanceMateDiscovery.SLDASM": {
+      "sha256": "04c074552af8822b4ffde860c68f067cf6f7c812917b3de75d0db47d91ef968d",
+      "bytes": 50517
+    },
+    "DistanceDatumPlate.SLDPRT": {
+      "sha256": "dcd3ea66aab8eaff8b5d836fdd6306c40a3615288d43bf4b3c55208b4321c9ee",
+      "bytes": 27041
+    }
+  },
+  "typed_mate": {
+    "name": "Distance1",
+    "driving_dimension_m": 0.088125,
+    "ordered_endpoints": [
+      {
+        "occurrence": "DistanceDatumPlate-1",
+        "occurrence_id": 17,
+        "datum_id": 16,
+        "plane": "Right Plane"
+      },
+      {
+        "occurrence": "DistanceDatumPlate-2",
+        "occurrence_id": 18,
+        "datum_id": 16,
+        "plane": "Right Plane"
+      }
+    ],
+    "moving_translation_m": [
+      0.088125,
+      -0.00671,
+      0.01391
+    ],
+    "linked_stream_bytes_and_mate_bytes_round_trip": true
+  }
+}

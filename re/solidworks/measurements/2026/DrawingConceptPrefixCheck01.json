@@ -1,0 +1,98 @@
+{
+  "cases": [
+    {
+      "concept_prefix_bytes": 5919,
+      "concept_prefix_sha256": "286318a9f948985240e9dda5ce9b937330131acaa4dacc65aa20d70ba8a09a6f",
+      "definition_bytes": 28950,
+      "map_next_index": 119,
+      "method_count": 96,
+      "name": "D00EmptySheet",
+      "native_views": [],
+      "provisional_methods": [],
+      "source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b"
+    },
+    {
+      "concept_prefix_bytes": 11235,
+      "concept_prefix_sha256": "c8a6e26bd1a4174c62294f5844acaece9bb1d41d37adf37a47345caac610f9e9",
+      "definition_bytes": 37250,
+      "map_next_index": 178,
+      "method_count": 115,
+      "name": "D01FrontView",
+      "native_views": [
+        {
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.09341,
+            0.08263,
+            -0.0035,
+            1.0
+          ],
+          "orientation": "*Front",
+          "scale_ratio": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "provisional_methods": [
+        "moChainComponent_c",
+        "moExtFeatureList_c",
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410",
+        "moReferenceChain_c"
+      ],
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    {
+      "concept_prefix_bytes": 11245,
+      "concept_prefix_sha256": "8d4e4a2ad2ee0ed0d9d2e6260303cbb1b3a5b6b811843cb2fca025cbb4dab4f9",
+      "definition_bytes": 37260,
+      "map_next_index": 178,
+      "method_count": 115,
+      "name": "D02MovedFrontView",
+      "native_views": [
+        {
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.11937000000000002,
+            0.11487,
+            -0.0035,
+            1.0
+          ],
+          "orientation": "*Front",
+          "scale_ratio": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "provisional_methods": [
+        "moChainComponent_c",
+        "moExtFeatureList_c",
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410",
+        "moReferenceChain_c"
+      ],
+      "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47"
+    }
+  ],
+  "reader_qualified": false,
+  "schema": "kit.sw2026.drawing-concept-prefix.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7"
+}

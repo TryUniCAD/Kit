@@ -1,0 +1,19 @@
+# Decode persisted material names in native-saved generated parts
+
+The recursive native observer keeps an authored material-folder label after save, while fresh reopening exposes the native default title. Its live trees cannot show what bytes the save persisted. This research workflow prepares the eight saved derivatives for complete archive/graph decoding and reports the inherited node-name field from its typed material-folder owner. It does not assert a rename cause before that decoding succeeds.
+
+`re/tooling/sw2026/PrepareTreeNames.py` accepts the external tree-observer output, its hash-bound published receipt, original job and an unused external destination. It verifies all four cases/two phases, healthy controls, pinned native identities and saved hashes, then reuses the existing bounded container/privacy helpers. It preserves every stream and encoded stream length, records framed metadata replacements, emits all original previews and labels the resulting fixtures as reader evidence. It executes no archive schema and does not reparse the rebuilt containers.
+
+```sh
+python re/tooling/sw2026/PrepareTreeNames.py SOURCE RECEIPT JOB NEW_DEST --expected-receipt-sha256 SHA256 --redact-name ACCOUNT
+```
+
+Review each extracted preview and the preparation ledger before admitting fixtures under `re/solidworks/v2026/corpus/tree-saves`. Remote CI alone runs `re/tooling/sw2026/serial/TreeNames.py` in a fresh process. The process requires exact manifest/stream/source fingerprints, 72 complete primary/linked archive comparisons, proven schemas, zero unresolved linked references and exactly one typed material-folder/name owner per file. It reports the persisted `moNode_c.f18 -> moNodeName_c.f08` text separately from the material string and packed flags, without assuming a preferred title.
+
+The [preparation receipt](../../../../../re/solidworks/measurements/2026/TreeNamesPreparation01.json) now admits eight derivative fixtures containing all 320 original streams, with 152 framed metadata replacements and unchanged encoded stream lengths. All eight extracted previews were viewed individually: each shows a nonempty shaded cylinder, with no private application chrome, and paired saved views appear unchanged. These previews establish no initial-camera parity. The manifest SHA-256 is `11358f571936fec421593dbbd6e2f93ac4f9813797fe7d9e63703793dda762f9`.
+
+The [remote decoding receipt](../../../../../re/solidworks/measurements/2026/TreeNamesReaderF947.json) now records all eight files, 72 complete archive comparisons, eight typed material-name owners and zero unresolved linked references passing on source `f9475b8e0`. Its native-format job passed 197 cases and policy checks passed 171, with 158 unrelated corpus skips. Both tested merge parents, the tree and the downloaded artifact digest were independently verified.
+
+Every first saved file contains the authored title in `moNodeName_c.f08`, matching its live post-save tree. Every file saved after fresh reopening contains the native default title. The original first-save hash equals the next fresh-open input hash in all four cases, so no close-time file rewrite explains the difference. Both material strings remain empty and all eight wire flag values are `0x80000000`. The evidence supports normalization during the native reopen path or its initial queries; it does not identify the exact native caller.
+
+These native-saved derivatives are not new generative outputs, original held-out native payloads remain sealed, and no writer or production acceptance is inherited. No local test, collection, archive parser or writer verification process ran; the only executed preparation used the documented bounded container/privacy helpers. See the [save-boundary entry](SolidworksRecursiveTreeSaveObservation.md) and [material-name gotcha](../../../../Gotchas/Conversion/Solidworks/Model/MaterialFolderNameChangesOnSave.md).

@@ -1,0 +1,262 @@
+{
+  "all_raw_worker_inputs_outputs_rehashed": true,
+  "atomic_refusals": 8,
+  "cases": [
+    {
+      "child_bytes": 8966,
+      "child_sha256": "50f176b89ff3aa9b830facfbe170b4ff6d340c93f52b9d3795feb228ff102dd4",
+      "config_counter": 87,
+      "document_precision": 3,
+      "drawing_bytes": 7357,
+      "drawing_sha256": "2e5524ff8c400ee2a6b2bf005ead922ab1a837bfc2a45984f5651b80ed6d9b73",
+      "initialization": "fresh",
+      "mode": "iso",
+      "name": "AnsiNormalizedCornerPrecisionThreeIsoFresh",
+      "resolved_counter": 236,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "child_bytes": 9032,
+      "child_sha256": "fff454f2176008332b82078cf63f94b7f43ffce6bb8e24bef1f13d1d9213b2ab",
+      "config_counter": 95,
+      "document_precision": 3,
+      "drawing_bytes": 7367,
+      "drawing_sha256": "9f8ed3b43aaeeb57e4b6b8fea870c54a92ed3be34155f0a6a375295b78b50318",
+      "initialization": "document-units",
+      "mode": "iso",
+      "name": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "resolved_counter": 244,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "child_bytes": 8933,
+      "child_sha256": "5987a7d1427aef181fc581313e5b9cb9a363784e22a7a377ccf9caf2de3a4bf8",
+      "config_counter": 87,
+      "document_precision": 3,
+      "drawing_bytes": 7337,
+      "drawing_sha256": "cc32596cd3f776cadcaa7dfc10551eb73599e3ffed5acfc8dce6703dac6c6a4e",
+      "initialization": "fresh",
+      "mode": "ansi",
+      "name": "AnsiNormalizedCornerPrecisionThreeAnsiFresh",
+      "resolved_counter": 236,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "child_bytes": 9046,
+      "child_sha256": "ca392c9cda2e341bc897beb6f02e29f79568ae7dd7c06c186ce7e45fa937251c",
+      "config_counter": 95,
+      "document_precision": 3,
+      "drawing_bytes": 7387,
+      "drawing_sha256": "e4bf3ac77c4918f259887c9898da346ef2f4cc10cef7bc0f186140ce3954bb18",
+      "initialization": "document-units",
+      "mode": "ansi",
+      "name": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "resolved_counter": 244,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "child_bytes": 9120,
+      "child_sha256": "fc929582bcdb4e76ee7c679eb26b02473cfb75569feedcefe6694fd8be67d691",
+      "config_counter": 87,
+      "document_precision": 5,
+      "drawing_bytes": 7412,
+      "drawing_sha256": "791f35fc7806fabfd7d09d4fe7d8c93d1d2e6470e2f37df7ad723ebc3b14fd7a",
+      "initialization": "fresh",
+      "mode": "iso",
+      "name": "AnsiNormalizedCenteredPrecisionFiveIsoFresh",
+      "resolved_counter": 240,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "child_bytes": 9146,
+      "child_sha256": "f1ad8f2e7bedcadc5c6b955894837bd53eecbeaf76436b9f178e7df6aafc93b0",
+      "config_counter": 95,
+      "document_precision": 5,
+      "drawing_bytes": 7420,
+      "drawing_sha256": "f4c1af87dbf8afebf03f165d9e7b93926f9d01e379a1247415ef8d17281050ff",
+      "initialization": "document-units",
+      "mode": "iso",
+      "name": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "resolved_counter": 248,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "child_bytes": 9088,
+      "child_sha256": "49a635cd79bd015138ee6eb38d737a694c035e35f6bead3af058a28786f5f597",
+      "config_counter": 87,
+      "document_precision": 5,
+      "drawing_bytes": 7371,
+      "drawing_sha256": "bb3d23f1604d48f1e37255613a9168df7483cff8f3b73559df925c15d7df1da1",
+      "initialization": "fresh",
+      "mode": "ansi",
+      "name": "AnsiNormalizedCenteredPrecisionFiveAnsiFresh",
+      "resolved_counter": 240,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "child_bytes": 9177,
+      "child_sha256": "8d9787faa206db87cb92220a280750985c476d87ec36ecaff95ac6a7193bfa67",
+      "config_counter": 95,
+      "document_precision": 5,
+      "drawing_bytes": 7449,
+      "drawing_sha256": "da8cef4b9e55a6dbc66534bcd53de5538a98200832ac652c6297db627d9d6fb6",
+      "initialization": "document-units",
+      "mode": "ansi",
+      "name": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "resolved_counter": 248,
+      "runtime_input_reads": 0,
+      "sdk_research_imports": []
+    }
+  ],
+  "comparisons": [
+    {
+      "child_changed_detail_paths": 81,
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "drawing_changed_detail_paths": 81,
+      "drawing_changed_streams": [
+        "Contents/Definition"
+      ],
+      "name": "AnsiNormalizedCornerPrecisionThreeIso",
+      "shared_map_growth": {
+        "complete_resolved_fields_and_aliases_unchanged": true,
+        "config": 8,
+        "new_config_counter": 95,
+        "new_owned_dual_paths": [
+          "config/fields/fae0/f13b0/f2f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f3f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f500/ff0/fb8",
+          "config/fields/fae0/f13b0/f608/ff0/fb8",
+          "config/fields/fae0/f13b0/f830/ff0/fb8",
+          "config/fields/fae0/f13b0/f960/ff0/fb8",
+          "config/fields/fae0/f13b0/fa68/ff0/fb8",
+          "config/fields/fae0/f13b0/fe0/ff0/fb8"
+        ],
+        "new_resolved_counter": 244,
+        "old_config_counter": 87,
+        "old_resolved_counter": 236,
+        "resolved": 8
+      }
+    },
+    {
+      "child_changed_detail_paths": 81,
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "drawing_changed_detail_paths": 81,
+      "drawing_changed_streams": [
+        "Contents/Definition"
+      ],
+      "name": "AnsiNormalizedCornerPrecisionThreeAnsi",
+      "shared_map_growth": {
+        "complete_resolved_fields_and_aliases_unchanged": true,
+        "config": 8,
+        "new_config_counter": 95,
+        "new_owned_dual_paths": [
+          "config/fields/fae0/f13b0/f2f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f3f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f500/ff0/fb8",
+          "config/fields/fae0/f13b0/f608/ff0/fb8",
+          "config/fields/fae0/f13b0/f830/ff0/fb8",
+          "config/fields/fae0/f13b0/f960/ff0/fb8",
+          "config/fields/fae0/f13b0/fa68/ff0/fb8",
+          "config/fields/fae0/f13b0/fe0/ff0/fb8"
+        ],
+        "new_resolved_counter": 244,
+        "old_config_counter": 87,
+        "old_resolved_counter": 236,
+        "resolved": 8
+      }
+    },
+    {
+      "child_changed_detail_paths": 81,
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "drawing_changed_detail_paths": 81,
+      "drawing_changed_streams": [
+        "Contents/Definition"
+      ],
+      "name": "AnsiNormalizedCenteredPrecisionFiveIso",
+      "shared_map_growth": {
+        "complete_resolved_fields_and_aliases_unchanged": true,
+        "config": 8,
+        "new_config_counter": 95,
+        "new_owned_dual_paths": [
+          "config/fields/fae0/f13b0/f2f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f3f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f500/ff0/fb8",
+          "config/fields/fae0/f13b0/f608/ff0/fb8",
+          "config/fields/fae0/f13b0/f830/ff0/fb8",
+          "config/fields/fae0/f13b0/f960/ff0/fb8",
+          "config/fields/fae0/f13b0/fa68/ff0/fb8",
+          "config/fields/fae0/f13b0/fe0/ff0/fb8"
+        ],
+        "new_resolved_counter": 248,
+        "old_config_counter": 87,
+        "old_resolved_counter": 240,
+        "resolved": 8
+      }
+    },
+    {
+      "child_changed_detail_paths": 81,
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "drawing_changed_detail_paths": 81,
+      "drawing_changed_streams": [
+        "Contents/Definition"
+      ],
+      "name": "AnsiNormalizedCenteredPrecisionFiveAnsi",
+      "shared_map_growth": {
+        "complete_resolved_fields_and_aliases_unchanged": true,
+        "config": 8,
+        "new_config_counter": 95,
+        "new_owned_dual_paths": [
+          "config/fields/fae0/f13b0/f2f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f3f8/ff0/fb8",
+          "config/fields/fae0/f13b0/f500/ff0/fb8",
+          "config/fields/fae0/f13b0/f608/ff0/fb8",
+          "config/fields/fae0/f13b0/f830/ff0/fb8",
+          "config/fields/fae0/f13b0/f960/ff0/fb8",
+          "config/fields/fae0/f13b0/fa68/ff0/fb8",
+          "config/fields/fae0/f13b0/fe0/ff0/fb8"
+        ],
+        "new_resolved_counter": 248,
+        "old_config_counter": 87,
+        "old_resolved_counter": 240,
+        "resolved": 8
+      }
+    }
+  ],
+  "earlier_failure_sha256": "483f0d2433d4854e77f12c59c96bbe22d277758195b49ef7ba8bc9754cea7e6b",
+  "execution_owner": "root independent host process replay",
+  "full_presentation_retention_required": true,
+  "heldout_acceptance": false,
+  "independent_preparations": 8,
+  "native_acceptance": false,
+  "passed": true,
+  "positive_build_workers": 16,
+  "root_report_bytes": 112451,
+  "root_report_sha256": "9820b4ec37403bcc1e67333e160a026fb2465c8c3e403a89d0b05111f6b61410",
+  "schema": "drawing-detail-normalization-process-evidence-v1",
+  "sdk_sources_changed": false,
+  "source_commit": "f393c3bdc84a630f82f0b4c52ba67b05967ccaea",
+  "source_file_count": 5807,
+  "source_manifest_sha256": "8a72047d19750a4b9230de23a440b1c7280736c6b1b691b2945083dac58b5b19",
+  "source_original_admission": false,
+  "worker_local_product_execution": false,
+  "workers": 32
+}

@@ -1,0 +1,16 @@
+{
+  "base_wrapper_sha256": "a9dc78b5824cd31b488a0ed9098406f5e2d2ac802b26da60698357b729c80cbd",
+  "effective_source_overrides": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/ReadRevWrapper.py": "52f454e22787cc84a60813b8642da8d61492d37a9e9b13676e4fd04f6e1b5159"
+  },
+  "files": {
+    "DisclosedReaderEvidence.json": "d87afd18c8e6663c91c9d2d315391a167d8c7c62485ff7145efa69804303cca3",
+    "Observe.py": "9ef8396b142b1a86cb9b425833da1e0f97ad17cb4744d1bbba1e8f18c68af2a2",
+    "RecheckHeldoutStockCuts.py": "80b9e6078e8f0d841155a03e1b5d2d6b4bd40be27cbf37260914f6b86c176d78",
+    "ScopedRevolveRead.py": "52f454e22787cc84a60813b8642da8d61492d37a9e9b13676e4fd04f6e1b5159"
+  },
+  "schema": "kit.sw2026.heldout-selected-revolve-reader-freeze.v1",
+  "sealed_sources_opened": 0,
+  "source_branch_revision": "54c3a2bfeff0ee3da21aa7f15cafb4f7dc118310",
+  "writer_freeze_sha256": "0cc19e4adcfca7bd55c0ebf0ebf97bf457e234ebe11dd045de07f08a5be43f17"
+}

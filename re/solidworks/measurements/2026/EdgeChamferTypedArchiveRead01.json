@@ -1,0 +1,1549 @@
+{
+  "archive_controls": [
+    {
+      "control": "ControlRectangle",
+      "guarded_external_reads": 0,
+      "same_default_and_opt_in": true,
+      "source_sha256": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f"
+    },
+    {
+      "control": "ControlCircle",
+      "guarded_external_reads": 0,
+      "same_default_and_opt_in": true,
+      "source_sha256": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7"
+    }
+  ],
+  "baseline_revision": "e9d034f5bede62142e91383e5a181098904a88db",
+  "disclosed_lock_sha256": "a696a97d73129ef7ffd7e829dfff7d1729000309e1273c0bef70b5f2ceedddb8",
+  "disclosed_parts": [
+    {
+      "case": "ChamferDistanceAxialA",
+      "config_sha256": "91e3a30a1a20d19ff46d9526f50146ad6314f52944bfef48b066d6f2c6c0993d",
+      "detached_f70": 0,
+      "detached_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          16391,
+          16535
+        ],
+        "schema": 1,
+        "slot": 316,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "drivers": [
+        {
+          "dimension_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14507,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12766,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13737,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13324,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13737,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13433,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13482,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13439,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 0.004125
+        },
+        {
+          "dimension_id": 34,
+          "name": "D2",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 16298,
+              "field_span": false,
+              "object_index": 306,
+              "offset": 14507,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 15493,
+              "field_span": false,
+              "object_index": 307,
+              "offset": 15090,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 15493,
+              "field_span": false,
+              "object_index": 309,
+              "offset": 15199,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 15284,
+              "field_span": false,
+              "object_index": 311,
+              "offset": 15219,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 0.5017821599483697
+        }
+      ],
+      "edited": false,
+      "exact_linked_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "interval": [
+          12000,
+          16651
+        ],
+        "schema": 1,
+        "slot": 274,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_external_reads": 0,
+      "keeper_result_providers": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273515,
+          "f38": null,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 279,
+          "owner": {
+            "class": "moSurfaceIdRep_c",
+            "interval": [
+              12346,
+              12382
+            ],
+            "schema": 1,
+            "slot": 278,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273515,
+          "f38": 1,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 282,
+          "owner": {
+            "class": "moFilletSurfIdRep_c",
+            "interval": [
+              12382,
+              12425
+            ],
+            "schema": 1,
+            "slot": 281,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "maps": [
+        110,
+        325
+      ],
+      "native_phase_sha256": "d63ed6315fb7c7bda7b3e1f306ddd3cca5f09e1cd134d645f7ef67e623a0c3b1",
+      "ordered_support": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 2,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 286,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12482,
+              12502
+            ],
+            "schema": 1,
+            "slot": 285,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 1,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 288,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12502,
+              12522
+            ],
+            "schema": 1,
+            "slot": 287,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 1,
+          "f3c": 0,
+          "feature_id": 32,
+          "feature_reference_slot": 290,
+          "owner": {
+            "class": "moEndFaceSurfIdRep_c",
+            "interval": [
+              12522,
+              12546
+            ],
+            "schema": 1,
+            "slot": 289,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 0,
+          "f3c": 0,
+          "feature_id": 32,
+          "feature_reference_slot": 292,
+          "owner": {
+            "class": "moEndFaceSurfIdRep_c",
+            "interval": [
+              12546,
+              12570
+            ],
+            "schema": 1,
+            "slot": 291,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "physical": {
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7702,
+          "record_sha256": "33d7af8ade3374c27c6c9fd485d510f69aa2ad9850771dcd62f54df00499999e",
+          "typed_nodes": 211
+        },
+        "actual_live_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1831,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 35,
+          "body_slot": 2,
+          "label": "DistanceAngleEdgeChamfer",
+          "label_attribute": 200,
+          "label_value_slot": 210
+        },
+        "actual_stock_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1831,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "ChamferStockBoss",
+          "label_attribute": 200,
+          "label_value_slot": 215
+        },
+        "bevel_legs_on_incident_faces_m": [
+          [
+            0.002263052494835001,
+            0.002263052494835001
+          ],
+          [
+            0.004125000000000028,
+            0.004125000000000028
+          ]
+        ],
+        "body_slot": 2,
+        "history_sha256": "58a8ca199570674b9b41b91a79a4cc56a2a152aabe3e31025893b109a29e5520",
+        "kernel_stages": [
+          {
+            "mark": 13,
+            "nodes": 211
+          },
+          {
+            "mark": 11,
+            "nodes": 173
+          },
+          {
+            "mark": 3,
+            "nodes": 31
+          },
+          {
+            "mark": 1,
+            "nodes": 31
+          }
+        ],
+        "partition_sha256": "27373705cfd7c3ddd6728cabcd280a6218c70270c7341fcfcc417c642ad9e337",
+        "result_face_attribute": [
+          72,
+          35,
+          1795273515,
+          0,
+          1
+        ],
+        "result_face_slot": 48,
+        "selected_edge_endpoints_m": [
+          [
+            0.033875,
+            -0.02725,
+            0.0
+          ],
+          [
+            0.033875,
+            -0.02725,
+            0.02375
+          ]
+        ],
+        "selected_undo": {
+          "capacity": 79,
+          "previous": 76,
+          "removed": 64,
+          "restored": 26
+        },
+        "stock_support": {
+          "edge_slot": 222,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 134,
+              "incident_to_edge": true,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 149
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 93,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 146
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 101,
+              "incident_to_edge": false,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 155
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 140,
+              "incident_to_edge": false,
+              "ordinal": 0,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 142
+            }
+          ]
+        }
+      },
+      "refusals": {
+        "alternate_context": true,
+        "crossed_keeper": "ordinary chamfer has conflicting selected edge ownership",
+        "default_read": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "default_store": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "exclusive_edge_finish_context": true,
+        "foreign_atom": "ordinary chamfer has conflicting selected edge ownership",
+        "foreign_support_creation_event": "fillet surface has a different producer event",
+        "stale_angle_cache": "ordinary chamfer display differs from its live driver",
+        "unknown_mode": "unsupported ordinary SOLIDWORKS chamfer mode or selector"
+      },
+      "resolved_bytes": 16655,
+      "resolved_sha256": "a538060ba62d87b387b3e31d71219aa20c71149df5f759797c68afa1752f55a4",
+      "schema_count": 140,
+      "selected_f70": 1929,
+      "selected_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          12427,
+          12586
+        ],
+        "schema": 1,
+        "slot": 284,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "836084659fbd2875467c3e74c342f3ef5c6863cc1cc385431f046c5cc829d2b2"
+    },
+    {
+      "case": "ChamferDistanceAxialA",
+      "config_sha256": "eb33f8d8108e68b1348fcf380abfd6a34461f011f532f5ccb42964870ffa802c",
+      "detached_f70": 0,
+      "detached_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          16561,
+          16705
+        ],
+        "schema": 1,
+        "slot": 316,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "drivers": [
+        {
+          "dimension_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14677,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12936,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13907,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13494,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13907,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13603,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13652,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13609,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 0.005625
+        },
+        {
+          "dimension_id": 34,
+          "name": "D2",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 16468,
+              "field_span": false,
+              "object_index": 306,
+              "offset": 14677,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 15663,
+              "field_span": false,
+              "object_index": 307,
+              "offset": 15260,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 15663,
+              "field_span": false,
+              "object_index": 309,
+              "offset": 15369,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 15454,
+              "field_span": false,
+              "object_index": 311,
+              "offset": 15389,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 0.5017821599483697
+        }
+      ],
+      "edited": true,
+      "exact_linked_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "interval": [
+          12170,
+          16821
+        ],
+        "schema": 1,
+        "slot": 274,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_external_reads": 0,
+      "keeper_result_providers": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273515,
+          "f38": null,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 279,
+          "owner": {
+            "class": "moSurfaceIdRep_c",
+            "interval": [
+              12516,
+              12552
+            ],
+            "schema": 1,
+            "slot": 278,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273515,
+          "f38": 1,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 282,
+          "owner": {
+            "class": "moFilletSurfIdRep_c",
+            "interval": [
+              12552,
+              12595
+            ],
+            "schema": 1,
+            "slot": 281,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "maps": [
+        110,
+        325
+      ],
+      "native_phase_sha256": "f3f005124846132fbb4768abd6695a9d67d6329cbbfa4f7410c7b7a2826afe83",
+      "ordered_support": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 2,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 286,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12652,
+              12672
+            ],
+            "schema": 1,
+            "slot": 285,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 1,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 288,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12672,
+              12692
+            ],
+            "schema": 1,
+            "slot": 287,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 1,
+          "f3c": 0,
+          "feature_id": 32,
+          "feature_reference_slot": 290,
+          "owner": {
+            "class": "moEndFaceSurfIdRep_c",
+            "interval": [
+              12692,
+              12716
+            ],
+            "schema": 1,
+            "slot": 289,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273508,
+          "f38": 0,
+          "f3c": 0,
+          "feature_id": 32,
+          "feature_reference_slot": 292,
+          "owner": {
+            "class": "moEndFaceSurfIdRep_c",
+            "interval": [
+              12716,
+              12740
+            ],
+            "schema": 1,
+            "slot": 291,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "physical": {
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7599,
+          "record_sha256": "0e60943ed58e4025460ee3698751e787fde0899fa4e21cfc1e48cd7b497eed3f",
+          "typed_nodes": 208
+        },
+        "actual_live_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1407,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 35,
+          "body_slot": 2,
+          "label": "DistanceAngleEdgeChamfer",
+          "label_attribute": 198,
+          "label_value_slot": 204
+        },
+        "actual_stock_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1407,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "ChamferStockBoss",
+          "label_attribute": 198,
+          "label_value_slot": 214
+        },
+        "bevel_legs_on_incident_faces_m": [
+          [
+            0.003085980674774988,
+            0.003085980674774988
+          ],
+          [
+            0.005625000000000029,
+            0.005625000000000029
+          ]
+        ],
+        "body_slot": 2,
+        "history_sha256": "1a82a31897e5134e18e7436d615309a24b1c3d4c39d82a6e70d109b346a8dd5d",
+        "kernel_stages": [
+          {
+            "mark": 21,
+            "nodes": 208
+          },
+          {
+            "mark": 19,
+            "nodes": 171
+          },
+          {
+            "mark": 3,
+            "nodes": 29
+          },
+          {
+            "mark": 1,
+            "nodes": 29
+          }
+        ],
+        "partition_sha256": "084060bb7c96f2462f6f1597e3ace09aa2e1e6a4c20190a752272639c9903d48",
+        "result_face_attribute": [
+          72,
+          35,
+          1795273515,
+          0,
+          1
+        ],
+        "result_face_slot": 46,
+        "selected_edge_endpoints_m": [
+          [
+            0.033875,
+            -0.02725,
+            0.0
+          ],
+          [
+            0.033875,
+            -0.02725,
+            0.02375
+          ]
+        ],
+        "selected_undo": {
+          "capacity": 79,
+          "previous": 76,
+          "removed": 63,
+          "restored": 26
+        },
+        "stock_support": {
+          "edge_slot": 221,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 134,
+              "incident_to_edge": true,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 146
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 90,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 150
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 97,
+              "incident_to_edge": false,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 151
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 132,
+              "incident_to_edge": false,
+              "ordinal": 0,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 143
+            }
+          ]
+        }
+      },
+      "refusals": {
+        "default_read": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "default_store": "unsupported SOLIDWORKS body class Chamfer_c schema 1"
+      },
+      "resolved_bytes": 16825,
+      "resolved_sha256": "caeec2c343eb574968d4be11572e2aa692e3242826659a37980405f0cdb741e8",
+      "schema_count": 140,
+      "selected_f70": 1505,
+      "selected_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          12597,
+          12756
+        ],
+        "schema": 1,
+        "slot": 284,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "1da486887e30e7e33fab8e482c8bd170302a75126bd106980a2baeb492a94d2b"
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "config_sha256": "48756c6afc5291fcf751c386c71ffc03364ba422eb1b0db9de7dda0b67e29b79",
+      "detached_f70": 0,
+      "detached_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          16387,
+          16527
+        ],
+        "schema": 1,
+        "slot": 316,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "drivers": [
+        {
+          "dimension_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14503,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12762,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13733,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13320,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13733,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13429,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13478,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13435,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 0.003375
+        },
+        {
+          "dimension_id": 34,
+          "name": "D2",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 16294,
+              "field_span": false,
+              "object_index": 306,
+              "offset": 14503,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 15489,
+              "field_span": false,
+              "object_index": 307,
+              "offset": 15086,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 15489,
+              "field_span": false,
+              "object_index": 309,
+              "offset": 15195,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 15280,
+              "field_span": false,
+              "object_index": 311,
+              "offset": 15215,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 0.619591884457987
+        }
+      ],
+      "edited": false,
+      "exact_linked_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "interval": [
+          12000,
+          16643
+        ],
+        "schema": 1,
+        "slot": 274,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_external_reads": 0,
+      "keeper_result_providers": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273663,
+          "f38": null,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 279,
+          "owner": {
+            "class": "moSurfaceIdRep_c",
+            "interval": [
+              12346,
+              12382
+            ],
+            "schema": 1,
+            "slot": 278,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273663,
+          "f38": 1,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 282,
+          "owner": {
+            "class": "moFilletSurfIdRep_c",
+            "interval": [
+              12382,
+              12425
+            ],
+            "schema": 1,
+            "slot": 281,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "maps": [
+        110,
+        325
+      ],
+      "native_phase_sha256": "845c3fc713ea264e5a1fad2c3b1140034895dcd9bf5b9a0e1faac0bb3e0064b6",
+      "ordered_support": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 1,
+          "f3c": 0,
+          "feature_id": 32,
+          "feature_reference_slot": 286,
+          "owner": {
+            "class": "moEndFaceSurfIdRep_c",
+            "interval": [
+              12482,
+              12506
+            ],
+            "schema": 1,
+            "slot": 285,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 3,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 288,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12506,
+              12526
+            ],
+            "schema": 1,
+            "slot": 287,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 2,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 290,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12526,
+              12546
+            ],
+            "schema": 1,
+            "slot": 289,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 4,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 292,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12546,
+              12566
+            ],
+            "schema": 1,
+            "slot": 291,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "physical": {
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7702,
+          "record_sha256": "63e7f1d33c8c079f298270bd859369dde17cd6fa7bba358735d3b317feaa8854",
+          "typed_nodes": 211
+        },
+        "actual_live_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1831,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 35,
+          "body_slot": 2,
+          "label": "DistanceAngleEdgeChamfer",
+          "label_attribute": 200,
+          "label_value_slot": 210
+        },
+        "actual_stock_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1831,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "ChamferStockBoss",
+          "label_attribute": 200,
+          "label_value_slot": 215
+        },
+        "bevel_legs_on_incident_faces_m": [
+          [
+            0.0024073641041523833,
+            0.0024073641041523833
+          ],
+          [
+            0.003375000000000003,
+            0.003375000000000003
+          ]
+        ],
+        "body_slot": 2,
+        "history_sha256": "8ab57d87225f28af4d1e592e3ec1e861c1300d63c574b188a090fcd6e5c4e45e",
+        "kernel_stages": [
+          {
+            "mark": 13,
+            "nodes": 211
+          },
+          {
+            "mark": 11,
+            "nodes": 173
+          },
+          {
+            "mark": 3,
+            "nodes": 31
+          },
+          {
+            "mark": 1,
+            "nodes": 31
+          }
+        ],
+        "partition_sha256": "801be48d58fcd4fdc0f5b087d5763f2889fa9595837844e1546bc14a57b808f2",
+        "result_face_attribute": [
+          72,
+          35,
+          1795273663,
+          0,
+          1
+        ],
+        "result_face_slot": 48,
+        "selected_edge_endpoints_m": [
+          [
+            -0.0334375,
+            0.0241875,
+            0.02825
+          ],
+          [
+            0.008937500000000001,
+            0.0241875,
+            0.02825
+          ]
+        ],
+        "selected_undo": {
+          "capacity": 81,
+          "previous": 78,
+          "removed": 67,
+          "restored": 29
+        },
+        "stock_support": {
+          "edge_slot": 227,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 91,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 150
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 136,
+              "incident_to_edge": true,
+              "ordinal": 3,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 146
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 134,
+              "incident_to_edge": false,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 153
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 44,
+              "incident_to_edge": false,
+              "ordinal": 4,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 47
+            }
+          ]
+        }
+      },
+      "refusals": {
+        "alternate_context": true,
+        "crossed_keeper": "ordinary chamfer has conflicting selected edge ownership",
+        "default_read": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "default_store": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "exclusive_edge_finish_context": true,
+        "foreign_atom": "ordinary chamfer has conflicting selected edge ownership",
+        "foreign_support_creation_event": "fillet surface has a different producer event",
+        "stale_angle_cache": "ordinary chamfer display differs from its live driver",
+        "unknown_mode": "unsupported ordinary SOLIDWORKS chamfer mode or selector"
+      },
+      "resolved_bytes": 16647,
+      "resolved_sha256": "2626e5f5edc53c6a45dba23cca529fd3f6655c11970086e3baa71d672599c8fb",
+      "schema_count": 140,
+      "selected_f70": 1839,
+      "selected_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          12427,
+          12582
+        ],
+        "schema": 1,
+        "slot": 284,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "feeca66dd548eb6361c7626385302d6bf4a64ca22c027504d0f8bf8b9a58ee15"
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "config_sha256": "0bb90eeedced15f5122d2218edfd67ad8cdcd2f5f963fe80bf523d6e29e736c4",
+      "detached_f70": 0,
+      "detached_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          16537,
+          16677
+        ],
+        "schema": 1,
+        "slot": 316,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "drivers": [
+        {
+          "dimension_id": 33,
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14653,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12912,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13883,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13470,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13883,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13579,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13628,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13585,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 0.003375
+        },
+        {
+          "dimension_id": 34,
+          "name": "D2",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 16444,
+              "field_span": false,
+              "object_index": 306,
+              "offset": 14653,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 15639,
+              "field_span": false,
+              "object_index": 307,
+              "offset": 15236,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 15639,
+              "field_span": false,
+              "object_index": 309,
+              "offset": 15345,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 15430,
+              "field_span": false,
+              "object_index": 311,
+              "offset": 15365,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "value_si": 1.069014166846527
+        }
+      ],
+      "edited": true,
+      "exact_linked_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "interval": [
+          12150,
+          16793
+        ],
+        "schema": 1,
+        "slot": 274,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_external_reads": 0,
+      "keeper_result_providers": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273663,
+          "f38": null,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 279,
+          "owner": {
+            "class": "moSurfaceIdRep_c",
+            "interval": [
+              12496,
+              12532
+            ],
+            "schema": 1,
+            "slot": 278,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273663,
+          "f38": 1,
+          "f3c": null,
+          "feature_id": 35,
+          "feature_reference_slot": 282,
+          "owner": {
+            "class": "moFilletSurfIdRep_c",
+            "interval": [
+              12532,
+              12575
+            ],
+            "schema": 1,
+            "slot": 281,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "maps": [
+        110,
+        325
+      ],
+      "native_phase_sha256": "f5337919dac28af5b1e21599d5b0ad3f558a35c0a1af9a47b8c67aafeb28f1b0",
+      "ordered_support": [
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 1,
+          "f3c": 0,
+          "feature_id": 32,
+          "feature_reference_slot": 286,
+          "owner": {
+            "class": "moEndFaceSurfIdRep_c",
+            "interval": [
+              12632,
+              12656
+            ],
+            "schema": 1,
+            "slot": 285,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 3,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 288,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12656,
+              12676
+            ],
+            "schema": 1,
+            "slot": 287,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 2,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 290,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12676,
+              12696
+            ],
+            "schema": 1,
+            "slot": 289,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "configuration": "Default",
+          "creation_word": 1795273656,
+          "f38": 4,
+          "f3c": null,
+          "feature_id": 32,
+          "feature_reference_slot": 292,
+          "owner": {
+            "class": "moFromSktEntSurfIdRep_c",
+            "interval": [
+              12696,
+              12716
+            ],
+            "schema": 1,
+            "slot": 291,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "physical": {
+        "active_replay": {
+          "byte_identical": true,
+          "record_bytes": 7599,
+          "record_sha256": "bd15f495670a3fc3b3fcedbc04b05497c494d45e4558b162f03ad6d42ae50a60",
+          "typed_nodes": 208
+        },
+        "actual_live_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1410,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 35,
+          "body_slot": 2,
+          "label": "DistanceAngleEdgeChamfer",
+          "label_attribute": 198,
+          "label_value_slot": 204
+        },
+        "actual_stock_tracking": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1410,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "ChamferStockBoss",
+          "label_attribute": 198,
+          "label_value_slot": 214
+        },
+        "bevel_legs_on_incident_faces_m": [
+          [
+            0.006151812665315559,
+            0.006151812665315559
+          ],
+          [
+            0.00337500000000001,
+            0.00337500000000001
+          ]
+        ],
+        "body_slot": 2,
+        "history_sha256": "f820880368fd4f5728df2de03aeeff3b72ade136bbb57dfb871015976677d27e",
+        "kernel_stages": [
+          {
+            "mark": 21,
+            "nodes": 208
+          },
+          {
+            "mark": 19,
+            "nodes": 171
+          },
+          {
+            "mark": 3,
+            "nodes": 29
+          },
+          {
+            "mark": 1,
+            "nodes": 29
+          }
+        ],
+        "partition_sha256": "b0874eda6b211d308eaa03fe9e80afa92d4aa29523a4752bc566550066de7501",
+        "result_face_attribute": [
+          72,
+          35,
+          1795273663,
+          0,
+          1
+        ],
+        "result_face_slot": 46,
+        "selected_edge_endpoints_m": [
+          [
+            -0.0334375,
+            0.0241875,
+            0.02825
+          ],
+          [
+            0.008937500000000001,
+            0.0241875,
+            0.02825
+          ]
+        ],
+        "selected_undo": {
+          "capacity": 81,
+          "previous": 78,
+          "removed": 66,
+          "restored": 29
+        },
+        "stock_support": {
+          "edge_slot": 226,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 93,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 144
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 133,
+              "incident_to_edge": true,
+              "ordinal": 3,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 148
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 134,
+              "incident_to_edge": false,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 151
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 43,
+              "incident_to_edge": false,
+              "ordinal": 4,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 50
+            }
+          ]
+        }
+      },
+      "refusals": {
+        "default_read": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "default_store": "unsupported SOLIDWORKS body class Chamfer_c schema 1"
+      },
+      "resolved_bytes": 16797,
+      "resolved_sha256": "de2076219e8212f12d72adcc09b93e35e4b15af4793a1a8b013eb1b4f755c566",
+      "schema_count": 140,
+      "selected_f70": 1418,
+      "selected_ref": {
+        "class": "moEdgeRef_c",
+        "interval": [
+          12577,
+          12732
+        ],
+        "schema": 1,
+        "slot": 284,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "e82b727876b1db00a986372a7fdc7efb897185ebf46add9acab3b2677f2fd197"
+    }
+  ],
+  "guarded_processes": 6,
+  "implementation_sha256": {
+    "re/tooling/sw2026/edge_chamfer_source/AuditTypedChamfer.py": "ac4fd699b64e43698240309f0517b8075460c7f6405a259225e043b66827a09b",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/Chamfers/ChamferFields.py": "790d51f66e2c969346a6662d1d1f98c80464b06948b4b5eb272cfa937e90d290",
+    "src/convert/adapters/solidworks/Archive/Resolved/ReadResolvedMut.py": "4e25e1cbc4bce2c12ad1bbd1edc5dcca7c9373e69d36964f5316ea6736d5c447",
+    "src/convert/adapters/solidworks/Archive/Resolved/UseChmfCtxMut.py": "c8c5c483d574df697986557291399c0ae2b0d291c1c8762f1a1723967752deeb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfMode.py": "e8137256ce915579cc4a41c0228d1e15e2b4a6e032985da6334d2a563b56bfe2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfDriver.py": "e6f9066a7b620f3bd9b3810886e47c9f761c2857e49d54b20de394bfead9baf1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfOwners.py": "a422f72838d96671ccb81a8f6c35d3802f612f4b809c7ac649cc5a5b36a39d47",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDim.py": "7a5a22dec30c68d541335035dfb97f3aad4004219224e85a95d8ac63a3adf82e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfOwn.py": "94232cf73df52e782d47a7673dab6a3c09096b8ceb9bc817ce1c0a422a0b383a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfPick.py": "eafd9ec15cb9e790fb742c6154ab72150d62bc76f747170248ff9706c7d90fb9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "abad0909aa0f18ae2ba47924ba2d6fca707fbae8c092a3450f00a4ebe8ec62f2"
+  },
+  "native_launches": 0,
+  "passed": true,
+  "private_sources_read": 0,
+  "schema": "kit.sw2026.edge-chamfer-typed-bounded-read.v1",
+  "writer_output_count": 0
+}

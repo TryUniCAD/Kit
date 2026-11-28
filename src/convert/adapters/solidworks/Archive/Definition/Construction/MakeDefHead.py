@@ -15,14 +15,18 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # authored presentation and shared ui constructor state supply the head of a fresh model definition
-def MakeDefHead(Settings: ModelDefInput) -> dict[str, object]:
-    LowValue, HighValue = DefDisplayWords(Settings.DisplayBits)
-    ShadedLevel, AngularLevel, WireLevel, OptimalValue = Settings.Tessellation
+def MakeDefHead(
+    Settings: ModelDefInput, *, DisplayGrid: bool = True
+) -> dict[str, object]:
+    LowWord, HighWord = DefDisplayWords(Settings.DisplayBits)
+    ShadedTessellation, AngularTessellation, WireTessellation, OptimalTessellation = (
+        Settings.Tessellation
+    )
     return {
-        "fa58": ShadedLevel,
-        "fa5c": AngularLevel,
-        "fa60": WireLevel,
-        "fa64": int(OptimalValue),
+        "fa58": ShadedTessellation,
+        "fa5c": AngularTessellation,
+        "fa60": WireTessellation,
+        "fa64": int(OptimalTessellation),
         "fa74": 1,
         "fac0": None,
         "fac8": 0,
@@ -30,9 +34,9 @@ def MakeDefHead(Settings: ModelDefInput) -> dict[str, object]:
         "faf0": IdentityXform(),
         "facc": 3,
         "fad0": 0,
-        "fad4": 3,
-        "fad8_0": LowValue,
-        "fad8_1": HighValue,
+        "fad4": 2 | int(DisplayGrid),
+        "fad8_0": LowWord,
+        "fad8_1": HighWord,
         "fba8": ArchiveNode(RuntimeClass(Settings.DraftingStandard, 1), {}),
         "f878": {"styles": []},
         "f870": ArchiveNode(RuntimeClass("uiLineFontMgr_c", 1), {"f10": []}),

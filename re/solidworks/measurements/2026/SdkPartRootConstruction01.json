@@ -1,0 +1,286 @@
+{
+  "scope": "fresh ordinary19000 part root and independent standalone Config/header process boundary only",
+  "task": "B04-SW2026-CONSTRUCTION",
+  "owner": "/root/flag_ownership",
+  "delivery_pr": 121,
+  "source": {
+    "base_commit": "4ba000f1ca170f167094d161394f6e130a36ff1d",
+    "overlay_manifest_sha256": "9e8defda1827e6fcc2ed7a2f0ead7309408f3689697d3a333e4fb0a2ccc37b52",
+    "owned_executable_files": 25,
+    "shared_node_dependency_files": 4,
+    "files": [
+      {
+        "path": "re/tooling/sw2026/SdkPartRootPrepare.py",
+        "bytes": 5338,
+        "sha256": "cdeaa8a97f40d75d8def65feeff3d7a50a4be01f5680155d2200342b54a45e2c",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkPartRootProcess.py",
+        "bytes": 7052,
+        "sha256": "d8f1da8afa122e5b38293af871b6eac137a069ede27df89cffae05a04301a1b1",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/EmptyBodyProps.py",
+        "bytes": 354,
+        "sha256": "36b56e71050a9cabd10ef60d25be01979ea207bd2f35b19b7e0297519eac91dc",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/EmptyRootRows.py",
+        "bytes": 232,
+        "sha256": "22ccd10cdb553be20b0ee020ded803722d7aeed4c659a586092434fb23bb914c",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/InitModelMut.py",
+        "bytes": 2207,
+        "sha256": "94f54870507e81505b977605fbc6b746843825ff56e36fb24567b969ebca9749",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/MakeModelArrays.py",
+        "bytes": 849,
+        "sha256": "c68bb2c49b32b9e714c077d1ba5b4178c9c9440c9734b4558e9ceb58d6296d5f",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/MakeModelSeeds.py",
+        "bytes": 1208,
+        "sha256": "461041dbba195028928742e1f1ed78fb6df3136cf47ccea0c7cf32c4ac5eb438",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/MakePartRootMut.py",
+        "bytes": 1785,
+        "sha256": "d681fc0fbf5e6f933f4f0bd92fca116f9eeeaf59c74d2f756b988ee461e2cfc7",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/MakePartSeeds.py",
+        "bytes": 1747,
+        "sha256": "4067cdb46a45449ac42087e476761dd2c341ad48e6aa00a56bd026b49467c42a",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/MakeRelGraph.py",
+        "bytes": 987,
+        "sha256": "b70cb70659e73fe6f61bf2cc0353ef18f40cf0a66e833d05cb371a58c08c53e7",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/MakeSelfComp.py",
+        "bytes": 583,
+        "sha256": "26c1f6f671b15a766628f3e6dab2abe40126b4655aafa4a4db1fef418fa2328c",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/ModelArrays.py",
+        "bytes": 598,
+        "sha256": "b0490696d9042e6bf7e843e766850044d3907e234d25777b207ce2b83e6df8ca",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/ModelNulls.py",
+        "bytes": 265,
+        "sha256": "810621913037a2f9cc84d42ed42c0fcb7c8575136fc6ac0d49d3f2a0c5d27447",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/ModelZeroes.py",
+        "bytes": 494,
+        "sha256": "0907699ac068d91f7482156ff4931573ed96716263b2e56124e83f55c5b734e1",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/PartRootInput.py",
+        "bytes": 1007,
+        "sha256": "3e4dbe66bcf677cb862f476103098edd519ea424f90e789dcb8738140621ed69",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/PartRootRefs.py",
+        "bytes": 531,
+        "sha256": "13b73c4fd71b93fe8b412b42db4c6463e025b1902d0b12024838c84225ebd4da",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/PartZeroes.py",
+        "bytes": 340,
+        "sha256": "af5812748f6118eb4ae21b4f41d82a0a8b23dd295e7edc51d75b7969ec931834",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/RequireModel.py",
+        "bytes": 704,
+        "sha256": "65194ef1f9f88fdb728f3e4d2ae56b3b0a1d4e15fca419f2894cda5116db432a",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/RequireRootNode.py",
+        "bytes": 598,
+        "sha256": "26ec96b38540cab268a0cc806006aaba4db402954ac4e8bfdc3613b28d552803",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Model/RequireRootRefs.py",
+        "bytes": 2033,
+        "sha256": "c17e47627fa545422378e5082405f15eb0ccb173028480f4dc123f4f6b64acfb",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/CheckIdSeed.py",
+        "bytes": 551,
+        "sha256": "8a3b61be1e1c436ee1c67dc76f02507397b00a360dd432db72e4c4f7dc794157",
+        "ownership": "assembly_occurrence shared dependency"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitConceptMut.py",
+        "bytes": 742,
+        "sha256": "8d0eaaeca75c72c9dfa2d0e11ed78e32191a72073ef10153f5e87d075d1653c5",
+        "ownership": "assembly_occurrence shared dependency"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitNodeMut.py",
+        "bytes": 1791,
+        "sha256": "f402f44ac35cffe31befdd9c8e6d3d5d8e1502eff28d5a537ff77b0527847e35",
+        "ownership": "assembly_occurrence shared dependency"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/PersistentIds.py",
+        "bytes": 2244,
+        "sha256": "01a5203cbdb4d74e2ed5bcbe3c9ab1d5f7fe05af01c5b92e17efbdd6a4ecb375",
+        "ownership": "assembly_occurrence shared dependency"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/AssertRootFlow.py",
+        "bytes": 2022,
+        "sha256": "3c9f358078dbcfc5666a3a9f3b3a4ba2b95bb85450e953c162efaf7f87616a8f",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/PartRootFlowTests.py",
+        "bytes": 993,
+        "sha256": "34c48daa29fa03933538048fc60cffa8f1a4e911962958e7e59b7bebfcb6390f",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/RootCaseInput.py",
+        "bytes": 1093,
+        "sha256": "47bbd80ce45312eb2803d77e57ccbf0040b72766c7c363e27cd8794138abd55f",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/RootStyleInput.py",
+        "bytes": 670,
+        "sha256": "64260c664467d7d49b281dcd2f495714f6f814183549bb4e4dae5e73904a06e9",
+        "ownership": "flag_ownership"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/RunRootPhase.py",
+        "bytes": 1261,
+        "sha256": "44b63e906c8c909d53ec4926084b9c0f49f1baf505598ff5fbba0b5ca2629457",
+        "ownership": "flag_ownership"
+      }
+    ],
+    "complete_snapshot_source_count": 4166,
+    "complete_snapshot_sha256": "b242761082710154fab05a3aef32ac77fd5f6c808764092708a1f44a5ff938cc"
+  },
+  "private_evidence": {
+    "directory_label": "SdkPartRootVerify01",
+    "frozen_source_file": "FrozenSource.json",
+    "frozen_source_sha256": "b242761082710154fab05a3aef32ac77fd5f6c808764092708a1f44a5ff938cc",
+    "process_result_file": "ProcessResult.txt",
+    "process_result_sha256": "82c10de82fe501173849db12e99ba70e37794e513d139efe66630d1dac5ef844",
+    "process_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "host_paths_omitted": true,
+    "saved_cad_or_generated_payloads_in_receipt": false,
+    "detailed_child_json_reports_retained": false
+  },
+  "execution": {
+    "permanent_process_regression": "tests/Convert/Solidworks/Research/Construction/PartRootFlowTests.py::TestPartRoot",
+    "result": "passed",
+    "guarded_build_phases": 2,
+    "separate_guarded_prepare_phases": 2,
+    "runtime_input_file_reads_asserted_zero": true,
+    "separate_prepare_stream_identity_comparisons": 4,
+    "malformed_rejections_asserted": 20,
+    "input_dependent_config_lengths_asserted": true,
+    "worker_product_or_test_execution": false
+  },
+  "assertions_verified_by_frozen_test": [
+    {
+      "case": "sdk root alpha",
+      "allocator_seed": 0,
+      "reserved_ids": [0, 3],
+      "root_id": 1,
+      "header_next_id": 2,
+      "fresh_auxiliary_lists": 3,
+      "indexed_views": 10,
+      "malformed_rejections": 10,
+      "self_component_actual_model_cycle": true,
+      "relation_owner_is_runtime_metadata": true,
+      "document_and_analysis_unit_owners_distinct": true,
+      "two_streams_prepare_byte_identical": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "sdk 部品 root beta",
+      "allocator_seed": 17,
+      "reserved_ids": [17, 18, 20],
+      "root_id": 19,
+      "header_next_id": 20,
+      "fresh_auxiliary_lists": 3,
+      "indexed_views": 10,
+      "malformed_rejections": 10,
+      "self_component_actual_model_cycle": true,
+      "relation_owner_is_runtime_metadata": true,
+      "document_and_analysis_unit_owners_distinct": true,
+      "two_streams_prepare_byte_identical": true,
+      "runtime_input_file_reads": 0
+    }
+  ],
+  "evidence_limits": {
+    "exact_stream_sizes_or_hashes_retained": false,
+    "config_map_counters_retained": false,
+    "detailed_usage_class_counts_retained": false,
+    "native_controls_used": false,
+    "vendor_or_vm_used_by_worker": false,
+    "native_acceptance": false,
+    "vendor_loadable": false,
+    "application_usable": false,
+    "full_part_factory": false,
+    "public_writer_qualified": false,
+    "heldout_generalization_qualified": false
+  },
+  "worker_static_checks": {
+    "normal_python_files": 23,
+    "black": "passed",
+    "ruff": "passed",
+    "mypy": "passed",
+    "pyright": "passed",
+    "steering": "passed",
+    "research_script_ast_count": 2,
+    "donor_scan": "no recorded payloads in 3641 source files at scan"
+  },
+  "construction_policy": {
+    "active_fresh_lists": ["f9d8", "fa48", "fa50"],
+    "loading_constructor_nulls_not_substituted": true,
+    "caller_owned_dependencies": [
+      "detail fields",
+      "user units",
+      "analysis units",
+      "model visual properties",
+      "ten indexed views"
+    ],
+    "unattached_next_owners": [
+      "configuration manager",
+      "system features",
+      "origin",
+      "profiles",
+      "operations"
+    ],
+    "sdk_runtime_re_imports": false
+  }
+}

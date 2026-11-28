@@ -1,0 +1,143 @@
+{
+  "cases": [
+    {
+      "case": "H01TranslatedDiameter",
+      "frozen_request_sha256": "2cc48a79c623959cfd0d42e5fe382f92c72947e6eecaf1b7763572286f453736",
+      "frozen_source_cad_files_opened": 0,
+      "native_processes_launched": 0,
+      "native_tested_sha256": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+      "report_sha256": "a14c4ff431f4e75b129025072d8be8f752df2694467b8c743b0ce861b0401da5",
+      "routes": {
+        "adapter": {
+          "authored": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+          "readback": {
+            "design_only": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+            "full": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef"
+          }
+        },
+        "registry": {
+          "authored": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+          "readback": {
+            "design_only": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+            "full": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef"
+          }
+        },
+        "writer": {
+          "authored": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+          "readback": {
+            "design_only": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+            "full": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef"
+          }
+        }
+      },
+      "runtime_reads": 0
+    },
+    {
+      "case": "H02ReverseTopCircle",
+      "frozen_request_sha256": "d432eeb04259d1fbb5d315eb7503798fe8fdff60be5adb0273e685426219629b",
+      "frozen_source_cad_files_opened": 0,
+      "native_processes_launched": 0,
+      "native_tested_sha256": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+      "report_sha256": "a14c4ff431f4e75b129025072d8be8f752df2694467b8c743b0ce861b0401da5",
+      "routes": {
+        "adapter": {
+          "authored": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+          "readback": {
+            "design_only": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+            "full": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c"
+          }
+        },
+        "registry": {
+          "authored": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+          "readback": {
+            "design_only": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+            "full": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c"
+          }
+        },
+        "writer": {
+          "authored": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+          "readback": {
+            "design_only": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+            "full": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c"
+          }
+        }
+      },
+      "runtime_reads": 0
+    },
+    {
+      "case": "H03MidPlane",
+      "frozen_request_sha256": "117c9de6f8db2f7dff7addf36d385c8ae17b0f6e9a4a9a56170f92105f42d168",
+      "frozen_source_cad_files_opened": 0,
+      "native_processes_launched": 0,
+      "native_tested_sha256": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+      "report_sha256": "08a866d4922298c892b2126f71adca26ac9ae3f96421f6a0ed9ab77195607ca4",
+      "routes": {
+        "adapter": {
+          "authored": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+          "readback": {
+            "design_only": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+            "full": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe"
+          }
+        },
+        "registry": {
+          "authored": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+          "readback": {
+            "design_only": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+            "full": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe"
+          }
+        },
+        "writer": {
+          "authored": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+          "readback": {
+            "design_only": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+            "full": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe"
+          }
+        }
+      },
+      "runtime_reads": 0
+    },
+    {
+      "case": "H04TwoDirections",
+      "frozen_request_sha256": "11e7e1bb7c7ed199e169695fbd1ec44771e4a9ff03c5da6a707306848c3a4949",
+      "frozen_source_cad_files_opened": 0,
+      "native_processes_launched": 0,
+      "native_tested_sha256": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+      "report_sha256": "08a866d4922298c892b2126f71adca26ac9ae3f96421f6a0ed9ab77195607ca4",
+      "routes": {
+        "adapter": {
+          "authored": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+          "readback": {
+            "design_only": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+            "full": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080"
+          }
+        },
+        "registry": {
+          "authored": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+          "readback": {
+            "design_only": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+            "full": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080"
+          }
+        },
+        "writer": {
+          "authored": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+          "readback": {
+            "design_only": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+            "full": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080"
+          }
+        }
+      },
+      "runtime_reads": 0
+    }
+  ],
+  "fresh_processes": 4,
+  "frozen_source_cad_files_opened": 0,
+  "native_processes_launched": 0,
+  "new_fcstd_credits": 0,
+  "production_source_tree": "09f7bca40a5332a477e0b1b5911131d6bb122ce1",
+  "proof_tool_sha256": "45016084f6b74d9a553624fd1a64bd67fce9c1e03adfd58ca7e8d7491f443653",
+  "publications": 36,
+  "python": "3.14.7",
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.original-circle-sdk-roundtrip.v1",
+  "sdk_revision": "25353ddcf582a6304967313805fa39f86f74a30f"
+}

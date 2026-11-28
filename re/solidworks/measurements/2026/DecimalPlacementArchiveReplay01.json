@@ -1,0 +1,3367 @@
+{
+  "archive_model_version": 19000,
+  "cases": {
+    "Cases/solidworks-000/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "37bb721f11cea15f60a879271e0fc0b878b45ddd82324a6ad22e9415e4071407",
+      "keyword_sha256": "a65b8eb300ef3e5157c7ca11bf30959fb2fc348d56201b1237ac083dca442586",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "521b7106c2ca203f344133d1d026098200f968ae94a091e44fbe5bc55b31fcd6",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "4a049ce634f2ae4d782828bb46d15ffd3f985c9b3d3a904cb3adec56111745af"
+        }
+      },
+      "source_sha256": "f3ff7a7c29bdac39a32a93f73dc0e14c79a6e0dbadc55b3ea9c31bd672708eba"
+    },
+    "Cases/solidworks-000/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "6f782b84802576eadb926932a3dcb310e6b7b62088279bd817490a6d79594ba2",
+      "keyword_sha256": "19046b7cc6f7cfd675f634621af1400169c4af492ce3ab6f1e7c2f02c8da4f18",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "88acf443d31652d8b4ba61980dc920e98f00f17e3c11911219b1478010d2b626",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "0610f297500f30a7f5ebdb1255e51fd5172df9f2d46dd7e5877bb1e7b7a6d134"
+        }
+      },
+      "source_sha256": "1b6a7615ad878569235d8a7cd5d863a8b41ad332a5abbc3b1fd46bc0778bf5c6"
+    },
+    "Cases/solidworks-000/variation.SLDPRT": {
+      "binary_stream_report_sha256": "7a78a18358a6d0f6b4b596d0359a9bbe888e6340864e5d117eaa3bbe7d8d8390",
+      "keyword_sha256": "e3900c19f6d669967ded5a2a412e7056beca6aa2a9f1814e144be97f61a979b2",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "8eb1a2ab70e78349b6834c0ccbc28f05d3ce51f8062db1694de43fe9dd9eafbb",
+          "body_atom_id": 101,
+          "bytes": 3782,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "d22042b9a9cbf1128517065d24ca237681cc9ae30abb4e5077d74c2474661c58"
+        }
+      },
+      "source_sha256": "c79787925cc271c1ad79f6b44288527a14f62864fa4d77eaad824f1f367870ac"
+    },
+    "Cases/solidworks-001/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "f747130de1651683b16411b812eaa05f228b40ccec9562977dd768fc01a5e0b5",
+      "keyword_sha256": "05bbc116d1eb43004d92bd3fdc4d6c4ee0a5078bf0daf1fe730116fb6abc6a34",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "0044fcf36c5b41c066bc0393764c5edd047916ee14bad270b253c9859037fcd5",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "d1082ab86d9d5960ec9347eab64c11c0f1726b60fa54ff936efad50689e8f49a"
+        }
+      },
+      "source_sha256": "9940319fa73e67adcabc2ba8cdc0bd7a9fd578a2d0570565fc9d17bfdd0f8270"
+    },
+    "Cases/solidworks-001/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "b4e7dd483d0fe6e8ed512bfd7ee7d359c4da9c55e0eaaab98476d1f96755ad11",
+      "keyword_sha256": "8bf6a9c74aa734af06e4f2eb490d7c7ec4fd1d87c75baf3e35982434df6b7ee0",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "9f63f8f47936c6bade6ad4fed25bcb0eeba433fcd35614d30a0b1ae12dca74e7",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "3dabefda4cb153da58a16d4798e69876c5ea67b02adfddbe93729927d53e9cd7"
+        }
+      },
+      "source_sha256": "75cff5e0c0fac48218ea352c8bb0bd7fbb64339626d3a346d826fc92da450263"
+    },
+    "Cases/solidworks-001/variation.SLDPRT": {
+      "binary_stream_report_sha256": "323000f7f795f688b5ca02b54af912b90642d2991d0c77ddbf9a924e14722931",
+      "keyword_sha256": "71901e2ab0375977f0dcb7f01747d4da7a1c04c8713e550ac45afbef8ae44de0",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "cdae10f4607c7babd00a8c3d82d3363b7cb8fde67dabe9f5c9f3f16ebea52d9a",
+          "body_atom_id": 101,
+          "bytes": 3780,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "94ea75019479d45b20e7213b62842449062644b02f797f2d85ce7757c03838fd"
+        }
+      },
+      "source_sha256": "ce82543eabde7d4c619678bc10bb17762b525283b0da2887d25e2e8cb7f2de64"
+    },
+    "Cases/solidworks-002/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "cd669257716b2be4d9fb424cba6e746d1b806b0d759da60bc9162cabc49ccbf0",
+      "keyword_sha256": "c22d47554cd10d3ab4221351ca0065a49fb9668fd124f935a538d9e75db99f6c",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "7f83a5b72861f811abfa7a1fb30b85365d8dc171c3e60f043219e936bd775e14",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "0365cba8d831d407ac0dc57b44da376137d5036066f21f555f7369851c8dbb0a"
+        }
+      },
+      "source_sha256": "02efe9e19c41f6738810e8649322d25da30505dfcb6781b72868350e3fe21326"
+    },
+    "Cases/solidworks-002/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "208c1f43b7f49cce214b0baa7d4989b7bf1f6719596bb873364ddca4fbb93cf6",
+      "keyword_sha256": "fd83ffa3a2417d068c1f7121e28879ffd666d377be6142d9b02eb7f3611c46eb",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "51b3c3edff6957c6fac042e037403d12ef1eb6ee7ad42b370881d803b42de9a8",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "a09b49459c74f9aa7c35aa1f394b41f37b322fc87507f7fdeccc4fd588fb0ab3"
+        }
+      },
+      "source_sha256": "fa4d2e474055778a75e305add7aff4d669decf5aa9af7c30c1f11ed660e2587d"
+    },
+    "Cases/solidworks-002/variation.SLDPRT": {
+      "binary_stream_report_sha256": "d09954603360e1788bee36986043ccb6240dbb4af46b37b27fc502c237e59bbb",
+      "keyword_sha256": "6d497b5d4e10256501bef0c1683d0fc9131f4f6e8e10d13ad4eac086ef6148a7",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "96776378b8795aaa7f9c7d797b2596396c205d4b1893fb5873e1fe566fa63397",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "7ace429a50ff85dcad27bea62ec50028cd6453a3c292a9ac203d9a033a8dcf7b"
+        }
+      },
+      "source_sha256": "479d24f46a532f2735f331f52a62699151c2a4e80820919b0dda0b94a88fb6ab"
+    },
+    "Cases/solidworks-003/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "79467c12e09987c6cecbd47094399587c96783231f669dd9daf7b6760e22b58a",
+      "keyword_sha256": "747c32d3c5e6c1435396292030f5f5c17642ae21eb90e80b5b3af369c2e5723a",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "2bb9b3c9998aa6b588e2f1353354189d546e68f1a90ea0940c1f0fae08440dbe",
+          "body_atom_id": 101,
+          "bytes": 3776,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "485262cca76bdd1dcdd5e19aa463136396b6c0f2caa68180503ab1f29e22c8b6"
+        }
+      },
+      "source_sha256": "d4dd8f4c33db61a88028403156633f7aa26bfe1c06d657ea8ce6fee839d74b7d"
+    },
+    "Cases/solidworks-003/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "d3f3f1703f6398c5c433ba33622582043deafebcf264d23e8b0f1fb2aff68c93",
+      "keyword_sha256": "57496404ff54ddcec29aad5bb94bdfbce590f9e08c44da1498463f935137e3f1",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "a223bce02b200fb14e6691079f6355e8235383e9fd557ad7223a9019bba299b2",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "9a17fb9282ba92a463701e09a7923914fbf6901d84e89f2a50a2eb6e6059e16b"
+        }
+      },
+      "source_sha256": "46998c93cad0120fc64ff79facdd67b2b07024cb6461a929eac4a782fbd434d2"
+    },
+    "Cases/solidworks-003/variation.SLDPRT": {
+      "binary_stream_report_sha256": "57fc985bcd1af58f5992023b59ff060f8e07f09de48524fe201f39312125183a",
+      "keyword_sha256": "3734f91e4acbabf32d04e8c5ab92ebbdd1768d9663cf3d543b5f01560ead0b51",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "746ed844267c1b9a4f857022d9f3733a369ec051f6d910dddd62a318b823275f",
+          "body_atom_id": 101,
+          "bytes": 3781,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "60305bb934e82079c782829a56a77b832f45855647e95954400d9bda2251d601"
+        }
+      },
+      "source_sha256": "507f4bf64466e12fe69d9342aaa9c40e0dc9f6b1cd5ef6d4a136e8c73537e1de"
+    },
+    "Cases/solidworks-004/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "38c9b2d7514e5e2904ce73ccd26f18ce15aeda044b8c94b7d258304ed03ecb90",
+      "keyword_sha256": "32c8426ca71bb1db0172f433c80bb19c10459ebcfed41719b00cefd81eb1bc29",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "ce639adcc7d450fdb01658bd012c7388e23feab20c3cd551eba8a6c06c89c561",
+          "body_atom_id": 101,
+          "bytes": 3773,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "69f9a8ae0e3cea030e7e2283924e604b03be02821f449a2df142b1304a8a46b0"
+        }
+      },
+      "source_sha256": "de6cc762c51d8d132f2bf95ed50a5c36903fb4efcdb79cb6d37c8b96b0035d6c"
+    },
+    "Cases/solidworks-004/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "4e4727069d9ffe777cf0584ec384fa47cc8a2f07586955d31f3b5cf34c4a2943",
+      "keyword_sha256": "8ff8c8e824f425be13863b96167c31f682f50ef2ca120cc30ed378362743bb09",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "4e3c02b94f201c4ffb4771d1a9014fe185eeb9c179b9f92379cf20b5c8c8b9ab",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "8d11fa27fcc655c96bfd99ffce28bb5e3fdb8d9198a408d95b60833491231818"
+        }
+      },
+      "source_sha256": "f8f831664542dc78cd12e7ad8127dee233f1ca6b95c0cd09de249008a4fa600f"
+    },
+    "Cases/solidworks-004/variation.SLDPRT": {
+      "binary_stream_report_sha256": "b6998d2de882ef965e878d0ad8fe57a1d4e15a830eef2802a00b8aa442fff50a",
+      "keyword_sha256": "f7045e8091a8d16a25559ba987887310ebf7e8ca020abe84b1bf75ab6700443f",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "70953d47de1b5b090df666325e15cfeafde15bd93cf0295705e91b111d67e648",
+          "body_atom_id": 101,
+          "bytes": 3781,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "a358f0def575c47d144a1b1adaa9a9bb76dd986bff9113972acb3d7c84e82304"
+        }
+      },
+      "source_sha256": "d8cfdc6e960aca794792fe310938c9fa6bef6155b3cbcab6c9fc8fdea65551ba"
+    },
+    "Cases/solidworks-005/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "5e3e6ed736b1d1909c278a2fcab84629c70b4c5d6f10f070015e59d4d823689d",
+      "keyword_sha256": "e28d1bd3d57f221350ae65aec383d7f3876cc254cae6cdef4c4adbdb0ca41dd4",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "1e57ad3bf85082c6bec290ce97a937f3fa10c7d37e21680bdc0d89c19f311ad2",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "fd18128e70e6af285112ce2264a70058da72f088987cb387edadcbb563abcb84"
+        }
+      },
+      "source_sha256": "dbb4c93e66b59cedbaf07cb3ba5fa7bdecec566022737341f5b15345bf30d8a1"
+    },
+    "Cases/solidworks-005/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "6b4d7d48429d77ac69f60e43aebbb4f5d8a737b994c24a8a8bc10ecbc039f18c",
+      "keyword_sha256": "53aa53c965709e56750bd27afb60b5d655191f2f65c0a38d26181c985cda436f",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "1326febe528d346877789a8d30d78513044d3b12b832459305ee41ec1583cf05",
+          "body_atom_id": 101,
+          "bytes": 3776,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "046b485aca527f4c7d8c321989a95e88164573723b3c185a1e77c8efaee9b763"
+        }
+      },
+      "source_sha256": "04467d922f716f8fb0cec397f09f6308d8af1d4334748643352cec8d073e2e68"
+    },
+    "Cases/solidworks-005/variation.SLDPRT": {
+      "binary_stream_report_sha256": "69d31b2f8ebe993d10e1f2e317832f55065f6dc9e49f31c13c08c16497b34f96",
+      "keyword_sha256": "772a87b878e2357babaab32c06fdb0e40ebe9263e3f68a34c8851f389e491de6",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "f47445dcbaeebbc27c883be761bb505934e6b7672f511642f31a352e6d50b4d0",
+          "body_atom_id": 101,
+          "bytes": 3781,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "e949dd4cd72795df485f0417d78776ca20cb653c0765e0387cba4b5fc286b8f9"
+        }
+      },
+      "source_sha256": "8a381fc1c634db9dd11d08cd7ce8309745ef44190fcb734e9906d3866a50ec46"
+    },
+    "Cases/solidworks-006/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "d785505f09ebdbc07ae58e86c8f0bdc8d1624f472429ca30378d1c2e3a4d9086",
+      "keyword_sha256": "8cb7f19e1b99f0c85a7a66b640d8b6d4f854b6fa3bdabc2fa5b435e64cb1be29",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "99d94aa27805b496717419862119769a5a9df74688106fac477a31bddea5ceb5",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "2d05d1cd9a666ef1f1cad94346091fafe226a47f2b4f9930f54948dc4f90aafe"
+        }
+      },
+      "source_sha256": "a2b212613db3b78b8ed8e25ffc008fcd9db16defe489d9532ae8be0fd9c1a0af"
+    },
+    "Cases/solidworks-006/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "b11028cfaf464818cce71bb1829607650d082b2ab3937ed94beb7bbb7cf9b573",
+      "keyword_sha256": "d7c56cd89648414cbce93a27728f93c201a3c62007d66d9f9b9e38792250565e",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "d0c84437332f7e54841ddfae7396cfc274950165c514b0fcbaec89900079ac2a",
+          "body_atom_id": 101,
+          "bytes": 3775,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "52a1b8e3c9d4e9493e9857286998ed7abac60f5b20051378859373b40c2c693b"
+        }
+      },
+      "source_sha256": "f5a6c69e3678fd811fb090f63edf46b6ce4eda97239e76ca313ae18864fcece3"
+    },
+    "Cases/solidworks-006/variation.SLDPRT": {
+      "binary_stream_report_sha256": "f76aff2f5d0e95090f61a9943d13015b1f1ef572c7c19c517e21208d0e46f4d8",
+      "keyword_sha256": "adb7fe3b96e2dbde83a8efc0c648f5723602aa34127f933a495bb5d56b245423",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "546c112259462aa5fcb7b7eff8ae9360cd172685b5807a1d5c9bc157a663c124",
+          "body_atom_id": 101,
+          "bytes": 3781,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "18277d7592e3b9f695a9275367ce38dc6dbbd77369e36750ae6fd5438ed519e6"
+        }
+      },
+      "source_sha256": "71ceb35660016078e6b04eadb1db6e6d6ce70ae25751d1d2dfc99dd5957aa721"
+    },
+    "Cases/solidworks-007/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "a7bb36ccbb0a69ee8510194f39609e35e49df981964d07d7748b7c45f2a18f0b",
+      "keyword_sha256": "693a2b317d6a0f279d584a9c4fdebe5b21f66930471cc209e10b56f8c499ddab",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "84f34931567726e51e420aa4a149acbc39009829cc792d105472df179fac6b3e",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "d00d76db658f2e39c7c49269f8c308000341b27123c83a8d01ef7a0a67ebf796"
+        }
+      },
+      "source_sha256": "48e652bcc1c000fb44fb228143c5986f66ab6addffa012574ae9fd4ab1ee42b7"
+    },
+    "Cases/solidworks-007/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "d72786559261b96e8f9eef87ff6aa732999c47000df01615fd0aa393d9b10008",
+      "keyword_sha256": "9042a0deae9d76a673c6c2d6c2818f2ef5b5e9c22cdf2708da7c4b487d3caf88",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "316b11497f1ba55f5a480e29c12550c5d9377ab3b281246cedfd165a99af17b5",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "f47f1e705469c7229845336b638e7646d63d317097aa56a81ed05b1f2facb2bd"
+        }
+      },
+      "source_sha256": "109fa952a4a11fff41502b23af9a1a6a60fbfcf31d041523862a809e3f539489"
+    },
+    "Cases/solidworks-007/variation.SLDPRT": {
+      "binary_stream_report_sha256": "bfc83283bf17a4b853b419f72b18dc9b36cc1bf43fd6664878c4452077055cf6",
+      "keyword_sha256": "07135e23ee9450dfd9a4f0fd070b8459ec20888c735352970b32864329042208",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "9cb5dd15e275a2cdb0faf722072246a942eca6465fb7a7be6e7cec378aa3bc72",
+          "body_atom_id": 101,
+          "bytes": 3783,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "1da2817197e1c9dfc2e0bf2cb9db9c94725ac5d455d975bb81e48fb3a7a48e77"
+        }
+      },
+      "source_sha256": "a5755ef803daeb1a5f305cca31f1282bfba14ac174efe8a86651fb7f2231d6be"
+    },
+    "Cases/solidworks-008/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "c142368f7885109524ad37a11a8a32e91463e64d4bbd2d22294beef2e1904136",
+      "keyword_sha256": "cd469af2517ca0aea192fd585093023dab76d30ab8349307aa074a569a0dff36",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "733a175a43aa66a6f7ca0bf261deafc1d88a3841006011abd12791c91c476bc1",
+          "body_atom_id": 101,
+          "bytes": 3776,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "1b9b294b0539293e03cca875306a28152405bdb07ad4975f02600ecfa4df0082"
+        }
+      },
+      "source_sha256": "ddc545ed6460beeb599008f2f6e5227e10410f3beef3b67214aafde9849494c0"
+    },
+    "Cases/solidworks-008/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "e99cfe72f583c82e39a87dd653b653dcdcef696216c713c644233c2cc225e095",
+      "keyword_sha256": "a9628a807eebc533373179e43f9ec3ab651dbcde009e6be816285089e9526e1d",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "583dab85d48b97bd0140ed181f32f7604632d4e4e806ad751f283eb586bb13d0",
+          "body_atom_id": 101,
+          "bytes": 3775,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "719f7ccb1feeeb0ef9cf113bb715d809c8fffb76eecd00738dd0a91a056555b9"
+        }
+      },
+      "source_sha256": "b26247698eeeeebb92fb39056ad77807c67bb52c6e60b6611b13276cae75ff52"
+    },
+    "Cases/solidworks-008/variation.SLDPRT": {
+      "binary_stream_report_sha256": "d96f76580ec11288d4ae1d3ee38ecf9bdcb722aa66a4cc0a8f201bb5f5ac2b73",
+      "keyword_sha256": "649297b1bf933f76179b029b9ba241dcd1ef04a0ead13c7c6a5246f716734d7d",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "82a46511c457d73b4b29d304c85511265a24e6f4f5fff84c1a5f8743cd0b7a76",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "faa4b3f9d9e7fa3e657035e4fbacfe540b7d3764e72c0d93d57a1d0c04532ce5"
+        }
+      },
+      "source_sha256": "7fc0d0f1b5a9df954358f5c6f1caf64022734688ac3b6d44e1b58bbae916facb"
+    },
+    "Cases/solidworks-009/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "956fa62ddd29089b622d157c2d1e9928897d0858a88634f0dc8fba54f9b3bd1d",
+      "keyword_sha256": "40059b2199766fe0f04b227bd4d0567b963af86834855fbd589e4ec96fc607e0",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "67c66d548155fb172e174b789324a8f4cd3edd73d010e3d9f4022bfca4abe67d",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "c323439a9746ef34dc96af9b2158527bb799891c527b042f0ae0e2eefab015af"
+        }
+      },
+      "source_sha256": "6d149da3019d653cd5ca8c23e9027c7e5d2ee661b416f093ef005cbedd080b17"
+    },
+    "Cases/solidworks-009/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "ac91103d8e6daf7eb9a6efba64a8005ccd33f1fca1b1cca0d7d8f5a6ef89e031",
+      "keyword_sha256": "cb271182039c3294061ce8b062a54c05e32cb657551b7cd9e5cdfe37c83ba43a",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "3b9675af7597dc58bea5d5d65b3f5543b5a368cd2d39670b1eb3779ee53028ee",
+          "body_atom_id": 101,
+          "bytes": 3776,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "7236df95c481313b32b1b7d145ca1e86cc9cad0483f5ef21e03f7badc1b61ea9"
+        }
+      },
+      "source_sha256": "aebdfc74fc63f2a2245c1688e93e40008afb0298a110106671dce7dd523bb6f6"
+    },
+    "Cases/solidworks-009/variation.SLDPRT": {
+      "binary_stream_report_sha256": "ab0c2a9149a289fe4bc446acadd63da0038f999b940ce7c1b31a14e38860a12a",
+      "keyword_sha256": "1f26cd7ddc79c2daaf06723c9254943ca9bacba3814a46704b1e1de5698e13ca",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "631ffc2f84fd6191c97849a6a6eb03d7bdedd3ea94244c9a276224782c982f23",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "f32dfe94bd0e4444e2ba9a4a0f7d5ea7186f79aaabf36e20ec74c51c158852ab"
+        }
+      },
+      "source_sha256": "bb6ca988fa88fe0082760b13b349277efc7dd98a98cc5c56dd4edcbef5eded43"
+    },
+    "Cases/solidworks-010/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "066c8a89e7fa781ba03b1962cffce86e0da637d5fae1f4cd6074059cf219c657",
+      "keyword_sha256": "528ded574cf65127360cc398fb8286c6daddb9cf34342dcfb46a0716ec59935d",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "d4188577ae3f27027aa000d7ae65cbaa4843436fd8f5f180010349999fffd297",
+          "body_atom_id": 101,
+          "bytes": 3774,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "9ce0af6c146fc1c26de24dea9190399f1bb9fc3dcbd40f4f4e5bdf810f1d23b7"
+        }
+      },
+      "source_sha256": "8d583813ca9ce1cfec65e0baf83db289fdf664e2f3cd08ae779e3dafda5f4e27"
+    },
+    "Cases/solidworks-010/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "2c62c79fff2d6f101eedb8cb0faf4d7db24cac6da47f9226b2a7b07f67eb260f",
+      "keyword_sha256": "26e08b96088f3ec390e652656f44ac1d54060790a26095e859fa8e2d6f905fad",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "15cf53fc7e81a62f36c1c28d58144f279511ebf9dc0fbac80f737393f50d9923",
+          "body_atom_id": 101,
+          "bytes": 3774,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "195ee05c65eb4c401f1d88ca91d71805dcf6da45938c2f75ef9d1eccf0ccf639"
+        }
+      },
+      "source_sha256": "e92b0a2e1c7d92653a7b012525286a0f16ca1971dd393bd0343f0092e077fa57"
+    },
+    "Cases/solidworks-010/variation.SLDPRT": {
+      "binary_stream_report_sha256": "baeb41cfbecb8e4678cb8938578c5446d4cad715f7937bcd16c8e09279bd64da",
+      "keyword_sha256": "e82a9cff82971c3bcb9738a008272cda681f3a4b3af117f567bc47c7dda77b70",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "2d4eb59cd6f65dac4d2860e6b7406e487c83665aea43e4252c5731fd648f252d",
+          "body_atom_id": 101,
+          "bytes": 3780,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "14a80ef0f5426ae72e06db1097695ea63211a8e4279ddb28df0f3e629a058aee"
+        }
+      },
+      "source_sha256": "0f820a45116f4715e4d862cec2f6d3f0062c2069f2382948f3c77a2608b96ca6"
+    },
+    "Cases/solidworks-011/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "0ad9ee17b0c6a251db5bb709e37998835aeb9f6f01c1851b16b02e9b482042a0",
+      "keyword_sha256": "aa0eb10abf8d32b607a7feaead71e09598c9fd34c52b56f826949a3c4a20faa5",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "a8228022c98aa127c638e132099de5287b1e068aa6c83e46f53e378639ac0933",
+          "body_atom_id": 101,
+          "bytes": 3774,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "060ca59e16f4a33ae949de4175878512d31acdeb587521a1ef64e2ced3936876"
+        }
+      },
+      "source_sha256": "151932601b0f9301d3516efedc7852b9cf858ae1eb44f71732fbd76727f0fcd3"
+    },
+    "Cases/solidworks-011/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "f3f132a08ac2c977899de17bccc1ce7bee971c606c35587cb285f04e2ae867f6",
+      "keyword_sha256": "ba6eeb68c7424318b6fccecfa118171071fb93f7128dfec47a1cf13244256763",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "625183347449b39337d2c5d51c98e3f5cb527a06c7111b381566da3404f78152",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "db3383a6a619f9fe5244d8800df056c8febd80544796871a6a565d73e3edab05"
+        }
+      },
+      "source_sha256": "ca7bb5e6f7cc862048808b3ba28ba849116b2fad1ccf2c1b10991c6288e4d373"
+    },
+    "Cases/solidworks-011/variation.SLDPRT": {
+      "binary_stream_report_sha256": "4cd1ef5d1c3a2073cda3e0cbba198acc7a6b9fd670032e0ec24919a38062fd5b",
+      "keyword_sha256": "dea66ec414973f5e0fb08f594a0ec0199913bec576066912704bee518557038e",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "abe2b34a2b956b9ae5be3bea0216e40d81e0e843d6d29c97e143725dbe68e98d",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "697b9c0f6292f723c08fe71c8278081df5ed63e972277ac197de64a864da3f47"
+        }
+      },
+      "source_sha256": "1e445b0323bdd11ff1e1d3577dc9af0b66bc0cf4f802de849c18250ea3a6080c"
+    },
+    "Cases/solidworks-012/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "3b206202fd74818d1deac05e5c0254be187478c2d9ed21c2d735b1091800d340",
+      "keyword_sha256": "bfedf8a6ca3c55594654601dfc764a6cfacfbf3f0ce60801c52307fa5c35ce09",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "514041fdf2be6919ce86485ffb2b27d5bdf78b39432d594d5854b0778978fc67",
+          "body_atom_id": 101,
+          "bytes": 3771,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "2fa1057a524a82acd0e2b2f60e257161d6aa0eca1142788acfb27887b23f1e4f"
+        }
+      },
+      "source_sha256": "146ed278a3ac9f105ac16f53428cedefe256d9cbe96238bf2611363870da0160"
+    },
+    "Cases/solidworks-012/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "4afde07d01d3f004e562ddfacbda09c73cb8fdae7409927b09211fcaffefef44",
+      "keyword_sha256": "6704cc4db5bdc4c3addf25681a5da14d41ed2fc33bbe02991dcca7431b208654",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "a1204acdb22345b3c0e1573dad2cbee00024210bbb18c229a9430ab12d3af78a",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "abdad76144927eb9b575908724c2d9be09dfb25fecdf804aaea5dc74e6f4a120"
+        }
+      },
+      "source_sha256": "a4201124719ae9290d9136cd4846c613420d94f21bfb6e5ff5f9073dc21126ab"
+    },
+    "Cases/solidworks-012/variation.SLDPRT": {
+      "binary_stream_report_sha256": "bd3e234271e5a693c718d796b7d2cdd9f6f67d221743b5ca90ba59f5e356db3d",
+      "keyword_sha256": "79a143a7890270c7c08a2cda99ce0d4093df932c636a3d18c0f8cd6cbb4d1cd4",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "1d77054b41e810c45ddb851279ca94435b7829fedb7c7c422d4a6e386578f0cc",
+          "body_atom_id": 101,
+          "bytes": 3780,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "bc043528dc5b4142e296ab1d74f478af1425db4eacb11c6e04c4908aa9a8096d"
+        }
+      },
+      "source_sha256": "248be34f611fc923604f58488b9c2dcddd2dcf995ed146abd95d59ba5b025356"
+    },
+    "Cases/solidworks-013/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "20f43318ada581bfbe7bf5da558b84e50ddbb20475d9a4b92b9f067d513f3199",
+      "keyword_sha256": "ec35b6bdb7934672ddc76888d6462c4cd880121c7ad2b441b5cca7b4c67363fa",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "7bca28d1eec37e3583244b3107f42cecc45c6b1cddf6eb88e0515479a62dfc28",
+          "body_atom_id": 101,
+          "bytes": 3771,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "86d9a5c6655e0afcd6b3b44a3a56e8798599a6ba81094fef347442027a7e5142"
+        }
+      },
+      "source_sha256": "33e08b62d62cf3e28938233969ea32ff62233710bfedffd1240832ddf35afdfd"
+    },
+    "Cases/solidworks-013/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "78bc2328704ebda46d550b1b838a5f87f865f58c67154ff8776869bb68014d73",
+      "keyword_sha256": "de9c39464039b71a5ba04a8defb4fb64f17043e17f3d4ca19d1bda19e06929c9",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "c22b958f08ae74de9a48bcab2f34cd2bf3413d5638775409d91dfb53037a8c00",
+          "body_atom_id": 101,
+          "bytes": 3774,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "c97b304868157be5b402a36b24ad406a850ac3ceae6dacbd8d7c5a36da686717"
+        }
+      },
+      "source_sha256": "6eec73f21c2e4944af38d029084d59f43b42bfb1d59f98767632af9b2d5fe8bb"
+    },
+    "Cases/solidworks-013/variation.SLDPRT": {
+      "binary_stream_report_sha256": "20c01c4410e896aee6541a40e7ff9a13287f77132eaed72988f63fed036fcb2f",
+      "keyword_sha256": "773b5e7c2b7811785c7698d48854368221f13bde111741567e8288b5d9238cb3",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "2572cbf2dacad03d63ebd53506e492bcb3e21bec0e7eca5052985555aa43dad3",
+          "body_atom_id": 101,
+          "bytes": 3781,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "19732ad64598f7e63a00fa1a257fea2d7badffe5c28f9a1ea0a217d88ae464cb"
+        }
+      },
+      "source_sha256": "e94c8111068e6b609bd7921d6548deec79147c8c18187bae9ba7fe923ebf5b40"
+    },
+    "Cases/solidworks-014/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "7115a59ac657d5559c6e8a95c83d8ee93cd4365c54ff01b715eddd58f0c894cf",
+      "keyword_sha256": "c25d5fc5af19f82da09941ae0eb62604065d896061efd0767006621733696433",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "9f822be7622905279f94dd0a3606e56ef1435818d702037cfa2085ee4476be94",
+          "body_atom_id": 101,
+          "bytes": 3770,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "15eeed9ff43d96e84e12889a2b7c619810a28cbc22bc3dcf4115629d4b9fff0a"
+        }
+      },
+      "source_sha256": "3a2e147c9c2d54533b32becd6117f71e976eecbdad144c14d9e9f531f5ddcbcb"
+    },
+    "Cases/solidworks-014/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "488bee5627a5d6c5e77f81af0f17c7dddbca40ecc4c6f2db73ab74baf01169ed",
+      "keyword_sha256": "534abcfb2d407c14998150afbcbec1edd3b1e78c35fec346e580ce1dda87e3f9",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "baa179e413c837dca4dc7d495882f89f548adaeb85e0f4db148b06297bc98747",
+          "body_atom_id": 101,
+          "bytes": 3776,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "158903635011ed7c6689cc216927d94e739e712f0682b9fd7e0af5edc37b2fd8"
+        }
+      },
+      "source_sha256": "a432f26fbbece14e5db87f1c147845a19baf32586e49c961e259ab09eaff0eaf"
+    },
+    "Cases/solidworks-014/variation.SLDPRT": {
+      "binary_stream_report_sha256": "221a8490b9dc8a8ce43da792f46782dfb312166ed42592c5b65b35a9f65d4b64",
+      "keyword_sha256": "e69a5392efcecbeee01d12dacaca1304646a97457304b39d4f11b01d18e4767a",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "7a07253d3ae5dbd5269fcc4eb30971c65ee4f64d93a4df49123d21933042b828",
+          "body_atom_id": 101,
+          "bytes": 3779,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "dea21d908d9e63d3685deb50fc74942844aa5fe382765b8b710765845c14c0aa"
+        }
+      },
+      "source_sha256": "5944f98a135317bf00db706331b3a0b02d11e6d9616833381b49c8debda2ba37"
+    },
+    "Cases/solidworks-015/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "e87843305807b608ccd2cdf8a6a88508646c7b7fd422b6b47820ccf1d9bb015a",
+      "keyword_sha256": "6de57ffeb4ba8aa98537585bd188a99e8c059445f9127b41f0ebb4dcbaad968b",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "5357b50d2b1774e158ba52cece8757de21b35275b9bb8b7d45b1a3dcbdde445f",
+          "body_atom_id": 101,
+          "bytes": 3771,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "53dc2c31c11e71ab356b0516b5ac74c9757ce573ca25aab2618408a91f61ffe9"
+        }
+      },
+      "source_sha256": "d02c383500d06d29b41b364efb1c7bfc3c4486299f67d685ec313eed2e5bfe2b"
+    },
+    "Cases/solidworks-015/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "2aef7cce41643e49f7f3b5e26b41a61d4c0df669d2795774304a915508c5b821",
+      "keyword_sha256": "0b414f3beb26c596ca8664aa7c75142e8d55723af222b7f5c8cab9f9b5a36b25",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "ab47b410be6223e1a95521af004940886b36c8f31b64ff2790b6d15b857ab662",
+          "body_atom_id": 101,
+          "bytes": 3775,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "9821c0e54d366feeefd72b83225544bacaea18f3d4d599f1cefba7c6e3f21472"
+        }
+      },
+      "source_sha256": "b4ba78ef690cc4f007f9f7134389ba8e876c31477ee67d4b48b42dcbbc69d747"
+    },
+    "Cases/solidworks-015/variation.SLDPRT": {
+      "binary_stream_report_sha256": "ab0025ce18c20c57a7d785e886c1d878f6e79f291dbdd0de9613b38c68f72463",
+      "keyword_sha256": "bf561b323ddd4c0c553f1abed3634e0ba66b468a36ae8537c282b8c7d1095475",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "bf050d037244fa336e2996db1baa76ab9ac42d1c601757bb07f5e02f26b42673",
+          "body_atom_id": 101,
+          "bytes": 3775,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "738c6785c2133c6bd379297f0c4772781e92e1d690f890e2cb2166a6dda0002e"
+        }
+      },
+      "source_sha256": "93a65beedd138b1d9e0f6a6708fda3eb6ca5f0b5585db5ba94157e408b43247b"
+    },
+    "Cases/solidworks-016/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "ade7d6bc7e98fd0c3c96020ef21d4489900701c9a8a9d63f8257e9116889ab23",
+      "keyword_sha256": "9fefbe982cfe9027040cb545a6e16245c47d1f1bb0d003a39e369cff8ff4cb2c",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "6ff22d9d005b7b8d4dbb97312fc2feac5a40fbd71439ae3ad1db14e3e51cbfd9",
+          "body_atom_id": 101,
+          "bytes": 3767,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "ba7b034e318726c09dc4fbed3947ce8571454a816829bc2f572968434475310e"
+        }
+      },
+      "source_sha256": "a2137a12e1cd3f9ed8824b8125f67b465c2247be2dfeae7e03b0de5f7528f32e"
+    },
+    "Cases/solidworks-016/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "1536b875c95fbe47dedbe7e9b1c0db6d63f516374109eba6fc0245cb9323e5e7",
+      "keyword_sha256": "52bc20180c325e607ceb1a1cef4ecc5b36c6297c8068a88ae78cfe84e0098e7a",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "17901f40936c08ea87d82343e2738eed926d13fe18e8f8601f06688c4c8cb9b1",
+          "body_atom_id": 101,
+          "bytes": 3767,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "45232fd8f6cdf4a9112ceb75ca18fe0e98a3e0f4df4216711f7fb357a68c1e7b"
+        }
+      },
+      "source_sha256": "b5987323eabf74a43755a317dfd5113189b339a3594b28b81c1db811bb776de2"
+    },
+    "Cases/solidworks-016/variation.SLDPRT": {
+      "binary_stream_report_sha256": "1ed9a869192990e2737e60726ee0d4db3d0bf09c46aaffe39cc9d0035dd1a795",
+      "keyword_sha256": "839ac9d000b3ee71243ad68ee1bc29820c106a484e99e89dd7838617bb6a38db",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "ced3af925c1f79d08d20e32be0e4c4593ed28a115a2f41aaa6c3bad121859254",
+          "body_atom_id": 101,
+          "bytes": 3770,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "e6c49523946b9c680a205ca57b5d26f82ace60e803f6ca1755657edc014659c4"
+        }
+      },
+      "source_sha256": "7f93e4322884133ea8a19e827b7aa98cd2c9303c23bac93319c7b10a093c17ff"
+    },
+    "Cases/solidworks-017/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "0c6556b4ef704ff105d1c251b8976b86232724208b2f25985a78d376faaade82",
+      "keyword_sha256": "3c384618e50474b776dfdf634400fd8977e0c0a214b5b971d87df48c2ca877b4",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "de8e7a76b6a61eaac4f537b043086f8ea3a667a00d4dc592b84b6c5f359c1425",
+          "body_atom_id": 101,
+          "bytes": 3771,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "aa13ec7e4924671cfcb8c78cc7cf52079e9babbe2273137fd59523fc85826197"
+        }
+      },
+      "source_sha256": "0c4f597e75b12355415a7589d767cf2e2ea2cabe46f16d2561113cba0a7221d3"
+    },
+    "Cases/solidworks-017/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "6de967aec65bb7d5c94289a3dc7e7dd5bebfe0a4f092268db4d6871ef3ca86e9",
+      "keyword_sha256": "ecb8e39fd83aa002a68f265c4a745407d4250426447a2197e4ecbf342c053518",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "f4dd5bb336b2981d40fcf431e07c798f550d0d083fd98fdc8a351947576d729b",
+          "body_atom_id": 101,
+          "bytes": 3765,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "2f269790f4bd0d8a24247feb664c24dd8beb83e16bdfb6cde580ef18b0f3c861"
+        }
+      },
+      "source_sha256": "f8b4612776b8b058ab52a8580c3943b9bb8d39ec7c9bafd5ab8b8bec7acf5316"
+    },
+    "Cases/solidworks-017/variation.SLDPRT": {
+      "binary_stream_report_sha256": "cf5ba3041c0db24c4f8aa5eee32bf7d5f59243c7ce6cb044c0533c493d328713",
+      "keyword_sha256": "e7e541cc0c4e3c8e21cd8dfcb71af119bf7624cf62be265ac4c27b257ff19692",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "1643472025e93802fc1aeac5334e0894acc2b21b73b80b5f5fc191d7cd4a5be7",
+          "body_atom_id": 101,
+          "bytes": 3770,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "29dad73376df5a7f6542499a75ce48f6e2708c61f9bfeb2e8cd506cd1e36298e"
+        }
+      },
+      "source_sha256": "929fb9559b13a76d79a91c43cbd0bf500425771053374be634d0cf42dae1a63f"
+    },
+    "Cases/solidworks-018/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "8f7e0bc8c9b5af814b37c634b1d343e52f12bf924ad3523ec90ae1ec550c9ed6",
+      "keyword_sha256": "971f239170e8a7040b9bcdc74a18c3302858ac96bb30993cb794e6295194f72b",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "da8be5ae8edabc4a20deae02d30c5ccbec16b72d9e7725de34a3942d9d9f710b",
+          "body_atom_id": 101,
+          "bytes": 3768,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "8453f13bda7453a57c26aec90a341e64c0ee7bd52ef43bd3c4b2c41a310ceb0c"
+        }
+      },
+      "source_sha256": "e00f58806d633d276d84b7db04f36ca843d6ccb75336a38d7b11698dccc882b2"
+    },
+    "Cases/solidworks-018/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "8b2d88bf89da1934f78ac8d6df3ecd15bec4fae3b020850c1a4ea3f8ec292caa",
+      "keyword_sha256": "d6e1cd3a09b78facbefb669bc1d412258ee822a45c4e6c391ea2d62fb8093f0b",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "4458fb3b24dd4445be95b758c222173983e25bebd437e75be586e89f25dc1835",
+          "body_atom_id": 101,
+          "bytes": 3767,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "ff834c0f765d7d303a797f45f93bc47d4df3a4190dfb45dcebd43b12e6126079"
+        }
+      },
+      "source_sha256": "256c19c7ab7e95f2e0b40c423262faf4494cf3a6263d5351cffa34261ff0a7de"
+    },
+    "Cases/solidworks-018/variation.SLDPRT": {
+      "binary_stream_report_sha256": "13bd164be6704743807646fc7c67b3b6b75d9feed5cd4e9f596cc5e20d172c06",
+      "keyword_sha256": "4c8d49099933d0f14490592149b2ed35fb053f4685d910953bbd5b95f9cde914",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "88e8a8f6eff2b15ba0fa1e2336aed97152f19345826c4452611541cac9cbec78",
+          "body_atom_id": 101,
+          "bytes": 3769,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "a5d0668aa7e9c3757d7049178be3f6d57090d89e1a336d00450aefb7d7f7ab2a"
+        }
+      },
+      "source_sha256": "b19de65f297d1bb6089ae1d2b0b764150bb4828a29ff2ef81815a6f7644552e3"
+    },
+    "Cases/solidworks-019/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "7db844c0f0ac6856c134a9572a77d1c5746e152065fea53f3b85749585b2db4b",
+      "keyword_sha256": "ca6bcf65f7280fad051e939b688f1a960057a7903dc9bbf6d4f5464b60d4bb5b",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "bb9e847756c6e33ffb235faad1eae312db4742e15a3567185327791c410bdc32",
+          "body_atom_id": 101,
+          "bytes": 3768,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "5b9482e64fb487fa89e99b6c442ce5d765f9a57ea38c39465d202150836cea79"
+        }
+      },
+      "source_sha256": "3242cba812cf0fba31f63c8c7660cf65d50b4111b9f5e39dce7f7ead477710b0"
+    },
+    "Cases/solidworks-019/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "3c30f9975bf8a814e68ed312b8d6ae58dee1e249544f2ac5a155640d28a9359f",
+      "keyword_sha256": "abe9f09b722ef6cdc77667f0a8ec28d62569b52110e65ac6a4c92002c584da40",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "294f9adabf9c82e02fa09d2e9c2722b6acda0ff28c99a88ba7aff91c0bc5894f",
+          "body_atom_id": 101,
+          "bytes": 3767,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "8d8e26bbfffcb14e0dbc062cb18519ebc8655fa578d57b634dfbb8910ef8210f"
+        }
+      },
+      "source_sha256": "08e465258bb52064ef70176aa75c0390f76b2ff9afc0d0fa9d9714762040e942"
+    },
+    "Cases/solidworks-019/variation.SLDPRT": {
+      "binary_stream_report_sha256": "023e9a745d368cf34d55e27bb39d851ec9311b0ffe7ce22418c305f1166ee495",
+      "keyword_sha256": "d12f8ce8705ab10450b7bf85757474ea4b37908b0a8e6477ab3f978cf08f93de",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "bde06d5ef2018cce757d886ea6f01f6973ce9fae1daac1c58b0c9ce9806e5102",
+          "body_atom_id": 101,
+          "bytes": 3768,
+          "feature_id": 32,
+          "rollback_sha256": "1f5a67e09e30689b914672aed828154494793b9c554ca0d4e059462c7a69973a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "ac5e6a4bb2a85dfc29da883351b3409628380e1a86231f22bcdf2409d6698c31"
+        }
+      },
+      "source_sha256": "63571e244260f17f27abd58d7eebd17769ea7da1f7121413b4c215db1ce790eb"
+    },
+    "Cases/solidworks-021/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "5b6e75f73de24ed7b33656d814555f08e79d62d541a05bfbad241106504526e3",
+      "keyword_sha256": "f1330f74d03c9fd6a844edbdbbaae77ede42147c20088951eebea8fcad837654",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "32832a075b07a66a9d27c5f51e596923701538ecd2105c6808f136fbb2d41006",
+          "body_atom_id": 101,
+          "bytes": 3768,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "9ea9076873e1b0df7bdcd863e1ce7fd32d13d09e4d98f5784ab9c61fc77f0e90"
+        }
+      },
+      "source_sha256": "001fcd42ec7e0d181cd3c43c0d52158ed83972678004c4de9cf13f8d85539826"
+    },
+    "Cases/solidworks-021/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "a708a6fff689c46ff3ad5cce472029c0d5a608fe712e7e4601964b7e2506cc71",
+      "keyword_sha256": "cf785dcc7e5a29c1bc170f2d1e7990d5c8838ed009ccb4eabea82485ee138453",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "191b2ef6d87bf5800ff61780f997549e06a45cd69424898164c741ec63f71df6",
+          "body_atom_id": 101,
+          "bytes": 3772,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "3712bc17f15c500f30b9525d9b91b753799d6ec26734cfc09c542baaa07b430a"
+        }
+      },
+      "source_sha256": "19a827476432b5c5df6d66a298bd8b1f02ad85de0a4156d4bde08388e4473896"
+    },
+    "Cases/solidworks-021/variation.SLDPRT": {
+      "binary_stream_report_sha256": "0a0cc6bebd1f7598a50f86a5476f88d362fdea99020d0f6767c586e2b7eaa653",
+      "keyword_sha256": "83f8d8e7fef76c5b5bd6ae65e44c7cb2bed13704ea3683745290270f78cd1fb3",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "92a9dd7a5c94646acb36b88ab2c3709d48aa354d6b865f65043f9c3f42734670",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "585763dea0c4d7e0301141e0ed96c663596882ec591e730375af619a25451a97"
+        }
+      },
+      "source_sha256": "7fed64d0784b56e8d84e6f1b0b05b037d81c703be5aa4617a4a34d8108bdcbc5"
+    },
+    "Cases/solidworks-022/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "83e5796ccf5a0ea45b69f95dab91b3297024eb2c0048b8a0a7782c2919baf638",
+      "keyword_sha256": "02717e7fca82f8316e29f454cfb3ee383a87d14768f09d77fe87c54d1cff9df3",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "40bed4d22500a533b73319ce399b68a5b7c5e01cf71205d70bb01639ee6f9653",
+          "body_atom_id": 101,
+          "bytes": 3768,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "436d1385d9f0baaed257bb21c93bcc9e5727d8e9bcfcfd41d5e74ad80286c05d"
+        }
+      },
+      "source_sha256": "edc775baa858ea9b43655f49fb89bf635f9fd42d51b54526de98c36fdcdec686"
+    },
+    "Cases/solidworks-022/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "b17edee5c3619b84da1a627271338a61363002b38f7aaa1e7e87346ff5130644",
+      "keyword_sha256": "558687373c70837f9bd9cc9638e7e7181844981a0149724ff3bff584a1deb6b9",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "a1e3318c33aa3a7fca08c5fc4399ba8b8a22ad6cc55db68c9a00165367609856",
+          "body_atom_id": 101,
+          "bytes": 3772,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "670cb1a29430393f10a1f8cc613779f74c8e5ee9201646c0559023749068d4c6"
+        }
+      },
+      "source_sha256": "94f753924c816b3221afbc73ac04bf9538b3bb93be07fe4b50a5b63dee51b1a4"
+    },
+    "Cases/solidworks-022/variation.SLDPRT": {
+      "binary_stream_report_sha256": "8d0fe9e4c2289926b0fdf101d5cd77e9c38c2dcf5673908c92e5b5d19fb03788",
+      "keyword_sha256": "452dc207119ec5d89519f082df75989a512075181cd824c925d6107099ed52ca",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "2dbd92532fb73cbe7d4775146a86d57ce4be836f21ea435f0d3ed4f8e239660e",
+          "body_atom_id": 101,
+          "bytes": 3778,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "a549b4d063f311904c6e1674b0eac8525207d1c23e67208117a4b4a7588713ef"
+        }
+      },
+      "source_sha256": "0cefb49ca16a2337e2d7da4dbb9239fb83b520597a9aff3dd6f57e87f46ab6db"
+    },
+    "Cases/solidworks-023/control-after.SLDPRT": {
+      "binary_stream_report_sha256": "9a3d90188f6c4d27d33b2bc8005aa7613d2442b33be50205fddebb1486727986",
+      "keyword_sha256": "754fea3e33104202e0c650ed5f8e1e6acf381d72d8b691265d414adc0a80cf54",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "53db93d8501b93469bcbc944b5bc875da58d689ab7240ab5fb28712f3e40d029",
+          "body_atom_id": 101,
+          "bytes": 3766,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "264e830500c3355311d807c6564915098c766b0d749d790d217ecf93391d10c0"
+        }
+      },
+      "source_sha256": "88565c77b8266fa0ef2bde95ba95b283acdd0149a9bbaf9c3abc587f3f5c5ca5"
+    },
+    "Cases/solidworks-023/control-before.SLDPRT": {
+      "binary_stream_report_sha256": "5a0ecf8c7ae5d25ba884a50a099687a3a31e21719bacf5816947011ccc7eb167",
+      "keyword_sha256": "c5a1ef5824b3d5f1e53691fc313c5f63c49c6b2dff032c297d9c13faa539d6cc",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "b325ba5d15604693a686882c14dafada353f9b9e73a0b38794aa1480342f85e0",
+          "body_atom_id": 101,
+          "bytes": 3773,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "723cc2fa8b4ce8e9c08c4833181469c21bd0c1e62d3955e248b7e291bcfb7e4d"
+        }
+      },
+      "source_sha256": "322377dc0254160ad18ec38842d41b55c6f49efe5c7715510d2de86f593829fa"
+    },
+    "Cases/solidworks-023/variation.SLDPRT": {
+      "binary_stream_report_sha256": "512cbb51d0021f11de4b2ae112ba88bdcdebc42fa4148f53b3f2bd8a2fc5578a",
+      "keyword_sha256": "ab343806bdd9960d1f112d98d4b9216e444a2de077a7a3addc09f75bf6170c75",
+      "linked_partitions": {
+        "Contents/Config-0-GhostPartition": {
+          "binding": {
+            "body_attribute_id": 10001,
+            "manager_row_type": 20,
+            "point_model_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "usage_marker": -1
+          },
+          "bytes": 673,
+          "node_kinds": {
+            "12": 1,
+            "13": 1,
+            "18": 1,
+            "19": 1,
+            "29": 1,
+            "70": 1,
+            "74": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "101": 1
+          },
+          "sha256": "2259ef2ce14fbc1d16b939eb872d8762a517f8a3b86856315871f6d5b6eb37af"
+        },
+        "Contents/Config-0-Partition": {
+          "active_nodes": 180,
+          "active_sha256": "340a3f26bad645d312d8b1b36faf4e95d4ab9e98672bbbf372c5dbae7eaa6273",
+          "body_atom_id": 101,
+          "bytes": 3777,
+          "feature_id": 32,
+          "rollback_sha256": "3e4327a06fa4b146b0ec95934c8e3948b05e25e9270de8e71f230c0d2044d26a",
+          "selected_and_activation_marks": [
+            5,
+            3
+          ],
+          "sha256": "e8984095d5868b27834b685b2323d328e4f14bb94719c52dba509b6ef4ad8849"
+        }
+      },
+      "source_sha256": "668caeeb1184f10d72ab2bfa03c0c7c5bf3790460acdc8c0f3e2f69f848167b7"
+    }
+  },
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/builders/EmptyPartition.py": "758b2e696a916e52aa0387df4a0f3bfb80e1d891",
+    "re/tooling/sw2026/materials/ReplayAssignedStreams.py": "553b8c5c72324361e9633670247d847f9f6ddce6",
+    "re/tooling/sw2026/para": "2dc0f71f31d4f8443ddf3a6fe17cac72ca7c1170",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "47efe6286562f506e0949025efce89e0199855ea"
+  },
+  "codec_revision": "660100bffe19eb22795c34006516feb369286674",
+  "exact_binary_replays": 1173,
+  "exact_keyword_replays": 69,
+  "exact_vendor_build_attested": false,
+  "fcstd_credit": 0,
+  "frames": {
+    "front_forward": 12,
+    "front_reverse": 12,
+    "right_forward": 12,
+    "right_reverse": 9,
+    "top_forward": 12,
+    "top_reverse": 12
+  },
+  "heldout_credit": 0,
+  "native_launches": 0,
+  "native_writer_outputs": 0,
+  "partition_measure_sha256": "36a69e410bf0ffbc55178dcdefab57ceca76549ccbf4375a5138a2fc26aba397",
+  "qualified_source_files": 69,
+  "schema": "kit.sw2026.decimal-placement-archive-replay.v1",
+  "script_sha256": "4ebab8b576c20908d0bdb4103139e8623391e63a21a84ff3c3e76c38afd6d74b",
+  "selected_streams": {
+    "Contents/CMgr": 69,
+    "Contents/CMgrHdr2": 69,
+    "Contents/Config-0": 69,
+    "Contents/Config-0-GhostPartition": 69,
+    "Contents/Config-0-ModelHeader": 69,
+    "Contents/Config-0-Partition": 69,
+    "Contents/Config-0-ResolvedFeatures": 69,
+    "Contents/CusProps": 69,
+    "Contents/Definition": 69,
+    "Contents/eModelLic": 69,
+    "Header2": 69,
+    "ModelStamps": 69,
+    "SwDocContentMgr/SwDocContentMgrInfo": 69,
+    "ThirdPtyStore/VisualStates": 69,
+    "_DL_VERSION_19000/DLUpdateStamp": 69,
+    "_MO_VERSION_19000/Biography": 69,
+    "_MO_VERSION_19000/History": 69,
+    "swXmlContents/KeyWords": 69
+  },
+  "source_manifest_sha256": "0d71fa6c532819d54993cd4462a55195e13371b402ab423c1f7da012bee355ff",
+  "source_revision": "881d05f3e3fc432f939081acd321ae3eed50eb01"
+}

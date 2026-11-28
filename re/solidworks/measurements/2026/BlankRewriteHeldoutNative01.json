@@ -1,0 +1,31 @@
+{
+  "binding_sha256": "51677787e0a076d9aa8dd3894c5b6c912db7ee11e25c5cba43e45b34ed3b4379",
+  "canonical_sdk_rewrite_heldout_only": true,
+  "controls_passed": [
+    true,
+    true
+  ],
+  "first_observer_retry_transport_disposition": "PrlJob_GetResult before guest generation freeze or any native phase",
+  "guest_raw_export_sha256": "50005895ce50f7e6cbb845ae41f36e2a2a767fd4daa2d581e86a42448024766d",
+  "imported_allowlisted_export_sha256": "e86c9262d0895c968ff958b3958452373f599664547084437675fba56f7767f6",
+  "inputs_immutable": true,
+  "method_sha256": "cfd67212f1a15807ae7f3f1f16e1003661b36cd5171fc5bb0fe65c550e51c161",
+  "native_flags_changed": false,
+  "native_processes": 12,
+  "new_canonical_rewrite_cases_qualified": 2,
+  "new_sdk_builds": 0,
+  "ordered_tree_rows": 120,
+  "original_native_source_credit": false,
+  "packets_verified_on_host": 4729,
+  "paired_builds_identical": true,
+  "passed": true,
+  "phase_observer_imports_on_guest": true,
+  "predecessor_private_result_sha256": "243553f26e6fabb618d66b43486d52484b173f482bfc976616c07ea1573260c6",
+  "private_payloads_or_paths_exported": false,
+  "raw_result_sha256": "2c7f712b1c367b1700f28968134bc26590966bf68cd97aeec55a6bd93c45641b",
+  "schema": "kit.sw2026.blank-preserved-rewrite-heldout-export.v2",
+  "sdk_builds_reused": true,
+  "sdk_runtime_input_reads": 0,
+  "sheet_states": 30,
+  "writer_manifest_sha256": "80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80"
+}

@@ -1,0 +1,2123 @@
+{
+  "schema": "kit.sw2026.through-all-construction-evidence.v1",
+  "native_build": "34.5.2.0604",
+  "document_version": 19000,
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "owner": "assembly_occurrence",
+  "delivery_pr": 121,
+  "tool_sha256": "d06b7b3ab703b9bcb7e7cbec42c6da659e4abb051b4881a0c907584636fd0f38",
+  "module_identities": {
+    "sldmodu.dll": {
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "declared_exports": 45857,
+      "parsed_exports": 45857
+    },
+    "sldcoreu.dll": {
+      "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3",
+      "bytes": 5416536,
+      "image_base": "0x180000000",
+      "declared_exports": 1,
+      "parsed_exports": 1
+    },
+    "sldappu.dll": {
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "bytes": 16519768,
+      "image_base": "0x453f0000",
+      "declared_exports": 15103,
+      "parsed_exports": 15103
+    },
+    "slduiu.dll": {
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "bytes": 36036696,
+      "image_base": "0x48ea0000",
+      "declared_exports": 21497,
+      "parsed_exports": 21497
+    }
+  },
+  "native_functions": {
+    "sldmodu.dll": {
+      "getSingleEnd": {
+        "entry_address": "0x4b283ba0",
+        "primary_range": {
+          "start_inclusive": "0x4b283ba0",
+          "end_exclusive": "0x4b283ba4"
+        },
+        "bytes": 4,
+        "sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "setSingleEnd": {
+        "entry_address": "0x4b2913b0",
+        "primary_range": {
+          "start_inclusive": "0x4b2913b0",
+          "end_exclusive": "0x4b2913b4"
+        },
+        "bytes": 4,
+        "sha256": "7aaa8d9f5fd794be56f764d70b58d2fc7484b4b030dcabff56897cadd4b76a21",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "getType": {
+        "entry_address": "0x4b30d800",
+        "primary_range": {
+          "start_inclusive": "0x4b30d800",
+          "end_exclusive": "0x4b30d808"
+        },
+        "bytes": 8,
+        "sha256": "5a6c30eec05ba24c7edad2d82fbda93828a0450556b250949e96cebe96840819",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "setType": {
+        "entry_address": "0x4b3100b0",
+        "primary_range": {
+          "start_inclusive": "0x4b3100b0",
+          "end_exclusive": "0x4b3100b8"
+        },
+        "bytes": 8,
+        "sha256": "f34494651ee66a910f21a2cac9cc5f43b7bf754eab01c9e0657afd7e59c885c9",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "getFlip": {
+        "entry_address": "0x4b2a75e0",
+        "primary_range": {
+          "start_inclusive": "0x4b2a75e0",
+          "end_exclusive": "0x4b2a75e7"
+        },
+        "bytes": 7,
+        "sha256": "5476eda4edbb9461e6f52b7c7e8237d3c04cb2321a42d9b5a1f362c237c2ce8a",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "setFlip": {
+        "entry_address": "0x4b2a7860",
+        "primary_range": {
+          "start_inclusive": "0x4b2a7860",
+          "end_exclusive": "0x4b2a7867"
+        },
+        "bytes": 7,
+        "sha256": "7ec76401afe7d7b9638c79c382e4c83b2c67b0ff56dbf44d4afde1f2b31ef639",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "getDirection": {
+        "entry_address": "0x4b2c47a0",
+        "primary_range": {
+          "start_inclusive": "0x4b2c47a0",
+          "end_exclusive": "0x4b2c47a7"
+        },
+        "bytes": 7,
+        "sha256": "923d1a98e397f42b18b1fe647cb0d836cdfa25ef31f2788ff06a51f12dcb3c64",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "setDirection": {
+        "entry_address": "0x4b2c69a0",
+        "primary_range": {
+          "start_inclusive": "0x4b2c69a0",
+          "end_exclusive": "0x4b2c69a7"
+        },
+        "bytes": 7,
+        "sha256": "37e4f68d6440a7207fcd1d9cb2feeb257f4987c2deb3d2a2c07b8ef5d43fc405",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      },
+      "getDistance": {
+        "entry_address": "0x4badf660",
+        "primary_range": {
+          "start_inclusive": "0x4badf660",
+          "end_exclusive": "0x4badf691"
+        },
+        "bytes": 49,
+        "sha256": "8b8ad6c5f3f8269d5e84f2eb78ffc66205980a1bba55fff3b92e2b606ac3bf27",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "deleteNotUsedDims": {
+        "entry_address": "0x4bada5b0",
+        "primary_range": {
+          "start_inclusive": "0x4bada5b0",
+          "end_exclusive": "0x4bada6da"
+        },
+        "bytes": 298,
+        "sha256": "e7cca85a1268e358689476cd08d8e424fdcc6ca4e58056b01c90425c1eaf789a",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "recreateNecessaryDisplayDims": {
+        "entry_address": "0x4baf4100",
+        "primary_range": {
+          "start_inclusive": "0x4baf4100",
+          "end_exclusive": "0x4baf43c2"
+        },
+        "bytes": 706,
+        "sha256": "caae7595497a7864e9b2a8a114867ae8873590f9d78c25d678dc9acf8e7ee09c",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "genGcEndSpec": {
+        "entry_address": "0x4bade750",
+        "primary_range": {
+          "start_inclusive": "0x4bade750",
+          "end_exclusive": "0x4badf01a"
+        },
+        "bytes": 2250,
+        "sha256": "7ce104388df456cb7d5bc7bc5a4490cc952a22334c91ae4b79a21d2ca89fb2f7",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "serializeEndSpec": {
+        "entry_address": "0x4bb10250",
+        "primary_range": {
+          "start_inclusive": "0x4bb10250",
+          "end_exclusive": "0x4bb11067"
+        },
+        "bytes": 3607,
+        "sha256": "2882e070d6591524c117ebd39879e49b07167a8cc4b250e9e0e33086b0f3d9aa",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "serializeExtrusion": {
+        "entry_address": "0x4bb11640",
+        "primary_range": {
+          "start_inclusive": "0x4bb11640",
+          "end_exclusive": "0x4bb11888"
+        },
+        "bytes": 584,
+        "sha256": "c5a878eddfee6d1a099f896cb01229c738f9dca684a60d8428ab115ef171d2ef",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      }
+    },
+    "sldappu.dll": {
+      "FeatureExtrusion3": {
+        "entry_address": "0x4564bf70",
+        "primary_range": {
+          "start_inclusive": "0x4564bf70",
+          "end_exclusive": "0x4564c1d9"
+        },
+        "bytes": 617,
+        "sha256": "7b4ee9544f34f25034e189dbca89f733ea354dbd4912c0f0fdaaf2cb48a8d787",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "FeatureCut4": {
+        "entry_address": "0x4564a930",
+        "primary_range": {
+          "start_inclusive": "0x4564a930",
+          "end_exclusive": "0x4564abd9"
+        },
+        "bytes": 681,
+        "sha256": "5eeb93466b307409940084d9df09e9b1f9328373303db7010f4d61991169aee9",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "loadFromMacro": {
+        "entry_address": "0x459ee330",
+        "primary_range": {
+          "start_inclusive": "0x459ee330",
+          "end_exclusive": "0x459ee360"
+        },
+        "bytes": 48,
+        "sha256": "15fbaca52c2d003342c6b08544564d1aa031c7dbec019f3dc85d151856cb2bc1",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      }
+    },
+    "slduiu.dll": {
+      "iApiFeatureExtrusion4": {
+        "entry_address": "0x492546e0",
+        "primary_range": {
+          "start_inclusive": "0x492546e0",
+          "end_exclusive": "0x49254c2d"
+        },
+        "bytes": 1357,
+        "sha256": "9940db5b115830cc04371946ca825a7a33089cd3a9f788e6d5c94f6f22dd6e12",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "iApiFeatureCut7": {
+        "entry_address": "0x49252ec0",
+        "primary_range": {
+          "start_inclusive": "0x49252ec0",
+          "end_exclusive": "0x4925341c"
+        },
+        "bytes": 1372,
+        "sha256": "795471fcc6290a829c95a7a19f16f8ac587ed02ed0088ee19d8b0cb86eea4ccb",
+        "extent_authority": "PE-x64-unwind-primary-range",
+        "limitations": "primary unwind range; separate chained funclets are not claimed"
+      },
+      "endSpecDialogDataMap": {
+        "entry_address": "0x493e42a0",
+        "primary_range": {
+          "start_inclusive": "0x493e42a0",
+          "end_exclusive": "0x493e42a8"
+        },
+        "bytes": 8,
+        "sha256": "4b1b20247653a27f031bd383ddbb8b6f52a64bf9cb251fe1795c80e5e8e14e35",
+        "extent_authority": "straight-line-leaf-through-return",
+        "limitations": "only the verified straight-line leaf"
+      }
+    }
+  },
+  "managed_construction": {
+    "schema": "kit.sw2026.managed-construction-index.v1",
+    "tool_sha256": "47c6c797931804b3d0012217ee718a4fc94f3c1b6667cc6f8e06fd638960c30c",
+    "module": {
+      "name": "sldcoreu.dll",
+      "bytes": 5416536,
+      "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3",
+      "image_base": "0x180000000",
+      "machine": "0x8664",
+      "mvid": "3f9c2ded-9024-4b12-ac82-deb36cae1451",
+      "cli_flags": "0x18",
+      "metadata_version": "v4.0.30319",
+      "type_count": 1202,
+      "method_count": 21740
+    },
+    "parser_versions": {
+      "dnfile": "0.18.0",
+      "dncil": "1.0.2",
+      "pefile": "2024.8.26"
+    },
+    "query": {
+      "method_tokens": [
+        "0x06005036",
+        "0x06005037",
+        "0x06005038",
+        "0x06005039",
+        "0x0600503a",
+        "0x0600505a",
+        "0x06005069",
+        "0x0600506a",
+        "0x06005071",
+        "0x06005072",
+        "0x0600508b",
+        "0x0600508c"
+      ],
+      "family_index": false
+    },
+    "methods": [
+      {
+        "token": "0x06005036",
+        "table": "MethodDef",
+        "name": "Validate",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x141824",
+        "implementation_flags": "0x0",
+        "method_flags": "0xc6",
+        "signature_sha256": "28f0442981296fcf4bc62af113ac1030819de99358b3dc6c5ffd0702b25f2a04",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 24,
+        "complete_body_bytes": 36,
+        "code_sha256": "cf5b3816e43169f2317ab9c421978e6c46b9b57673518ae403a67dfc1dc9b2c1",
+        "complete_body_sha256": "c037140acd0cd76de4c89cba3b9bfead8a6adfa942ee26bf42dd6d892793073d",
+        "instruction_count": 13,
+        "exception_region_count": 0,
+        "call_edges": []
+      },
+      {
+        "token": "0x06005037",
+        "table": "MethodDef",
+        "name": "Apply",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x1429f4",
+        "implementation_flags": "0x0",
+        "method_flags": "0xc6",
+        "signature_sha256": "ca28cbe2e434b0062064da6ef1623967859d2018341b8c14e2224098523b98ce",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 188,
+        "complete_body_bytes": 200,
+        "code_sha256": "c93d95989b1ffadd59a9c06935a7790171820b3b60b97ae05ce16bf9e1fe8e97",
+        "complete_body_sha256": "e96043c5581806a06528f471a17879b7757d346ece2bd463e492b5f76a36ca6b",
+        "instruction_count": 80,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              2
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x06005036",
+              "table": "MethodDef",
+              "name": "Validate",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141824"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              19
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600499e",
+              "table": "MethodDef",
+              "name": "get_CoreModel",
+              "owner": "SolidCore.ModelRequest_c",
+              "rva": "0x118774"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              24
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600496b",
+              "table": "MethodDef",
+              "name": "get_ModelContext",
+              "owner": "SolidCore.CoreModel_c",
+              "rva": "0x11861c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              39
+            ],
+            "dispatch": "calli",
+            "target": {
+              "token": "0x11000031",
+              "table": "StandAloneSig"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              47
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600502d",
+              "table": "MethodDef",
+              "name": "get_ModelFeatureList",
+              "owner": "SolidCore.ModelFeatureRequest_c<moExtrusion_c>",
+              "rva": "0x14197c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              67,
+              181
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001e",
+              "table": "MemberRef",
+              "name": "KeepAlive",
+              "owner": "System.GC"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              75
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044db",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.getFromEndSpec",
+              "owner": "<Module>",
+              "rva": "0x166dad"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              83
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503c",
+              "table": "MethodDef",
+              "name": "get_FromSpecification",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x1418f8"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              89
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x06005047",
+              "table": "MethodDef",
+              "name": "ApplyToModel",
+              "owner": "FromSpecification_c",
+              "rva": "0x141a48"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              97
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503a",
+              "table": "MethodDef",
+              "name": "CurrentEndSpec",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141848"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              107,
+              149
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503e",
+              "table": "MethodDef",
+              "name": "get_EndSpecification1",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141930"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              112,
+              120
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001c",
+              "table": "MemberRef",
+              "name": "GetType",
+              "owner": "System.Object"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              127
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00002f",
+              "table": "MemberRef",
+              "name": "op_Inequality",
+              "owner": "System.Type"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              136
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x06005069",
+              "table": "MethodDef",
+              "name": "LoadFromModel",
+              "owner": "EndSpecification_c",
+              "rva": "0x142364"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              143
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x060048aa",
+              "table": "MethodDef",
+              "name": "ReleaseData",
+              "owner": "SolidCore.DataPacket_c",
+              "rva": "0x117cd0"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              155,
+              175
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x0600506a",
+              "table": "MethodDef",
+              "name": "ApplyToModel",
+              "owner": "EndSpecification_c",
+              "rva": "0x1423c4"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              161,
+              169
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06005040",
+              "table": "MethodDef",
+              "name": "get_EndSpecification2",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141968"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x06005038",
+        "table": "MethodDef",
+        "name": "Initialize",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x1427fc",
+        "implementation_flags": "0x0",
+        "method_flags": "0xc6",
+        "signature_sha256": "ca28cbe2e434b0062064da6ef1623967859d2018341b8c14e2224098523b98ce",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 492,
+        "complete_body_bytes": 504,
+        "code_sha256": "9eed7013d927a99c80d179eb26c6f7ff16f27554b2e9458ccfdbbd54fa43cdc2",
+        "complete_body_sha256": "1bab26ce78aa8c3ed160636652d64405ed43d2adf9dc669d27a3a4b7e8546bae",
+        "instruction_count": 161,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              7
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600502d",
+              "table": "MethodDef",
+              "name": "get_ModelFeatureList",
+              "owner": "SolidCore.ModelFeatureRequest_c<moExtrusion_c>",
+              "rva": "0x14197c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              17,
+              38,
+              58,
+              485
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001e",
+              "table": "MemberRef",
+              "name": "KeepAlive",
+              "owner": "System.GC"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              46
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044db",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.getFromEndSpec",
+              "owner": "<Module>",
+              "rva": "0x166dad"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              67
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d1",
+              "table": "MethodDef",
+              "name": "moFromEndSpec_c.getType",
+              "owner": "<Module>",
+              "rva": "0x166e19"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              75,
+              83
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d7",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.getType",
+              "owner": "<Module>",
+              "rva": "0x166dbf"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              91,
+              164
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503c",
+              "table": "MethodDef",
+              "name": "get_FromSpecification",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x1418f8"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              114
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005055",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "OffsetFromSketchFromSpec_c",
+              "rva": "0x141490"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              119,
+              132,
+              145,
+              158
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503b",
+              "table": "MethodDef",
+              "name": "set_FromSpecification",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x1418e4"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              127
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005050",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "ProjectToPointFromSpec_c",
+              "rva": "0x14144c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              140
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600504b",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "ProjectToSurfaceFromSpec_c",
+              "rva": "0x141408"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              153
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005048",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "SketchPlaneFromSpec_c",
+              "rva": "0x1413f4"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              170
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x06005046",
+              "table": "MethodDef",
+              "name": "LoadFromModel",
+              "owner": "FromSpecification_c",
+              "rva": "0x141e70"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              176,
+              321
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503e",
+              "table": "MethodDef",
+              "name": "get_EndSpecification1",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141930"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              227,
+              392
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600506e",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "BlindEndSpec_c",
+              "rva": "0x141684"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              232,
+              241,
+              250,
+              263,
+              276,
+              289,
+              302,
+              315
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503d",
+              "table": "MethodDef",
+              "name": "set_EndSpecification1",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x14190c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              258,
+              423
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005073",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "ToPointEndSpec_c",
+              "rva": "0x1416d0"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              271,
+              436
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005079",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "ToSurfaceEndSpec_c",
+              "rva": "0x141714"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              284,
+              449
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600507f",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "OffsetFromSurfaceEndSpec_c",
+              "rva": "0x141758"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              297
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600508a",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "MidPlaneEndSpec_c",
+              "rva": "0x1417e8"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              310,
+              462
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005084",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "UpToBodyEndSpec_c",
+              "rva": "0x1417a4"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              327,
+              479
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x06005069",
+              "table": "MethodDef",
+              "name": "LoadFromModel",
+              "owner": "EndSpecification_c",
+              "rva": "0x142364"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              333,
+              473
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06005040",
+              "table": "MethodDef",
+              "name": "get_EndSpecification2",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141968"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              397,
+              406,
+              415,
+              428,
+              441,
+              454,
+              467
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600503f",
+              "table": "MethodDef",
+              "name": "set_EndSpecification2",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141944"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x06005039",
+        "table": "MethodDef",
+        "name": "CreateFeature",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x141d9c",
+        "implementation_flags": "0x0",
+        "method_flags": "0xc6",
+        "signature_sha256": "ca28cbe2e434b0062064da6ef1623967859d2018341b8c14e2224098523b98ce",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 122,
+        "complete_body_bytes": 164,
+        "code_sha256": "3e3d54d49e181dfd88d6e978993462197c3ea64b415bb1ac5f2c1f0554857dd5",
+        "complete_body_sha256": "8af8217bb43fd6102456e694c270f9c3fd4fc6254812fae2e1025a0a45f278d5",
+        "instruction_count": 49,
+        "exception_region_count": 1,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              2
+            ],
+            "dispatch": "callvirt",
+            "target": {
+              "token": "0x06005036",
+              "table": "MethodDef",
+              "name": "Validate",
+              "owner": "ExtrusionPacket_c",
+              "rva": "0x141824"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              19
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600499e",
+              "table": "MethodDef",
+              "name": "get_CoreModel",
+              "owner": "SolidCore.ModelRequest_c",
+              "rva": "0x118774"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              24
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600496b",
+              "table": "MethodDef",
+              "name": "get_ModelContext",
+              "owner": "SolidCore.CoreModel_c",
+              "rva": "0x11861c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              39
+            ],
+            "dispatch": "calli",
+            "target": {
+              "token": "0x11000031",
+              "table": "StandAloneSig"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              51
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06004270",
+              "table": "MethodDef",
+              "name": "su_CObject.new",
+              "owner": "<Module>",
+              "rva": "0x163602"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              80
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044de",
+              "table": "MethodDef",
+              "name": "moExtrusion_c.{ctor}",
+              "owner": "<Module>",
+              "rva": "0x166dfb"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              93
+            ],
+            "dispatch": "ldftn",
+            "target": {
+              "token": "0x0600429a",
+              "table": "MethodDef",
+              "name": "su_CObject.delete",
+              "owner": "<Module>",
+              "rva": "0x163608"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              100
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600420e",
+              "table": "MethodDef",
+              "name": "___CxxCallUnwindDelDtor",
+              "owner": "<Module>",
+              "rva": "0x164968"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              109
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600502c",
+              "table": "MethodDef",
+              "name": "set_ModelFeatureList",
+              "owner": "SolidCore.ModelFeatureRequest_c<moExtrusion_c>",
+              "rva": "0x1419a8"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              115
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001e",
+              "table": "MemberRef",
+              "name": "KeepAlive",
+              "owner": "System.GC"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x0600503a",
+        "table": "MethodDef",
+        "name": "CurrentEndSpec",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x141848",
+        "implementation_flags": "0x0",
+        "method_flags": "0x81",
+        "signature_sha256": "a0b1e9a0934c13ea9d2248ee1d34bdb801acdec2d322c5e7ffbe4c78e1b19996",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 144,
+        "complete_body_bytes": 156,
+        "code_sha256": "7a7f1a88631b01dc344c78015bc8cc07126f9de38dd64cd49b719f6389dbbeb9",
+        "complete_body_sha256": "b3c8df85d5f117ed7eaab7f16c39a070d709feb586203326b6c9759e6603d13f",
+        "instruction_count": 43,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              10
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d7",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.getType",
+              "owner": "<Module>",
+              "rva": "0x166dbf"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              55,
+              67,
+              75,
+              83,
+              95,
+              107,
+              119,
+              131
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001e",
+              "table": "MemberRef",
+              "name": "KeepAlive",
+              "owner": "System.GC"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              60
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600506e",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "BlindEndSpec_c",
+              "rva": "0x141684"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              88
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005073",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "ToPointEndSpec_c",
+              "rva": "0x1416d0"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              100
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005079",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "ToSurfaceEndSpec_c",
+              "rva": "0x141714"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              112
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600507f",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "OffsetFromSurfaceEndSpec_c",
+              "rva": "0x141758"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              124
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600508a",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "MidPlaneEndSpec_c",
+              "rva": "0x1417e8"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              136
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x06005084",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "UpToBodyEndSpec_c",
+              "rva": "0x1417a4"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x0600505a",
+        "table": "MethodDef",
+        "name": ".ctor",
+        "owner": "EndSpecification_c",
+        "rva": "0x141538",
+        "implementation_flags": "0x0",
+        "method_flags": "0x1886",
+        "signature_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 99,
+        "complete_body_bytes": 111,
+        "code_sha256": "5b2c1c630c1b562e7c474ec97f3ad4876b0b0e5cb7b89c5af29463e555222c6e",
+        "complete_body_sha256": "9a56a230311dd03da4486c350eb4d4f8babe1470eb1ea7ae339035e7074441b8",
+        "instruction_count": 27,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              15
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x060046fb",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "SolidCore.CorePoint_s",
+              "rva": "0x122a28"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              53
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x060048eb",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "SolidCore.CoreVector_s",
+              "rva": "0x15e214"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              93
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060048c6",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "SolidCore.SubDataPacket_c",
+              "rva": "0x118b28"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x06005069",
+        "table": "MethodDef",
+        "name": "LoadFromModel",
+        "owner": "EndSpecification_c",
+        "rva": "0x142364",
+        "implementation_flags": "0x0",
+        "method_flags": "0x3c3",
+        "signature_sha256": "29a8f290311765ed613bb86beade0652e4d3d2a62183c6bb078288a1faa8aa87",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 82,
+        "complete_body_bytes": 94,
+        "code_sha256": "11ddf675ac8702957f68c98e981c5cc1af465809ada99161fc6c47604bf39ef7",
+        "complete_body_sha256": "9c19e79613dc5efb56d2dc0a60dc9e1baa97832c39fed6b2f4ff728bc15b61ca",
+        "instruction_count": 38,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              9
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d9",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.getDirSpec",
+              "owner": "<Module>",
+              "rva": "0x166e1f"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              20
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044e0",
+              "table": "MethodDef",
+              "name": "moRefSpec_c.getWrapper",
+              "owner": "<Module>",
+              "rva": "0x166e25"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              42
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06004295",
+              "table": "MethodDef",
+              "name": "__RTDynamicCast",
+              "owner": "<Module>",
+              "rva": "0x16798f"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              53
+            ],
+            "dispatch": "newobj",
+            "target": {
+              "token": "0x0600478a",
+              "table": "MethodDef",
+              "name": ".ctor",
+              "owner": "SolidCore.LineWrapper_w",
+              "rva": "0x11c828"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              58
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06005063",
+              "table": "MethodDef",
+              "name": "set_DirectionGeometry",
+              "owner": "EndSpecification_c",
+              "rva": "0x14208c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              65
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506c",
+              "table": "MethodDef",
+              "name": "getProfileList",
+              "owner": "EndSpecification_c",
+              "rva": "0x1422dc"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              76
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506d",
+              "table": "MethodDef",
+              "name": "initOrientation",
+              "owner": "EndSpecification_c",
+              "rva": "0x1420a8"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x0600506a",
+        "table": "MethodDef",
+        "name": "ApplyToModel",
+        "owner": "EndSpecification_c",
+        "rva": "0x1423c4",
+        "implementation_flags": "0x0",
+        "method_flags": "0x3c3",
+        "signature_sha256": "29a8f290311765ed613bb86beade0652e4d3d2a62183c6bb078288a1faa8aa87",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 216,
+        "complete_body_bytes": 256,
+        "code_sha256": "d16810b2d89c969a24b98478139b58d50a31f056545e3a5ee70a686cb436eb15",
+        "complete_body_sha256": "20c353639be361c1f055fefb30ea8d143e5096e1e75d1b83c28e05137e405d18",
+        "instruction_count": 102,
+        "exception_region_count": 1,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              11
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d9",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.getDirSpec",
+              "owner": "<Module>",
+              "rva": "0x166e1f"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              32
+            ],
+            "dispatch": "calli",
+            "target": {
+              "token": "0x1100002c",
+              "table": "StandAloneSig"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              43
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506c",
+              "table": "MethodDef",
+              "name": "getProfileList",
+              "owner": "EndSpecification_c",
+              "rva": "0x1422dc"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              57
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506d",
+              "table": "MethodDef",
+              "name": "initOrientation",
+              "owner": "EndSpecification_c",
+              "rva": "0x1420a8"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              63
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506b",
+              "table": "MethodDef",
+              "name": "setDirectionFromGeometry",
+              "owner": "EndSpecification_c",
+              "rva": "0x141c14"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              82
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600477f",
+              "table": "MethodDef",
+              "name": "get_Ref",
+              "owner": "SolidCore.GeomWrapper_w<moLineRef_w>",
+              "rva": "0x11a5bc"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              92
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06004270",
+              "table": "MethodDef",
+              "name": "su_CObject.new",
+              "owner": "<Module>",
+              "rva": "0x163602"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              102,
+              172
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06005062",
+              "table": "MethodDef",
+              "name": "get_Flip",
+              "owner": "EndSpecification_c",
+              "rva": "0x14160c"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              128
+            ],
+            "dispatch": "calli",
+            "target": {
+              "token": "0x1100002e",
+              "table": "StandAloneSig"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              141
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044df",
+              "table": "MethodDef",
+              "name": "moDirectionSpec_c.{ctor}",
+              "owner": "<Module>",
+              "rva": "0x166e2b"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              154
+            ],
+            "dispatch": "ldftn",
+            "target": {
+              "token": "0x0600429a",
+              "table": "MethodDef",
+              "name": "su_CObject.delete",
+              "owner": "<Module>",
+              "rva": "0x163608"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              161
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600420e",
+              "table": "MethodDef",
+              "name": "___CxxCallUnwindDelDtor",
+              "owner": "<Module>",
+              "rva": "0x164968"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              180
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600505e",
+              "table": "MethodDef",
+              "name": "get_Dir",
+              "owner": "EndSpecification_c",
+              "rva": "0x1415bc"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              192
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d6",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.setOffsetReverse",
+              "owner": "<Module>",
+              "rva": "0x166e31"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              199
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044da",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.setDirSpec",
+              "owner": "<Module>",
+              "rva": "0x166e37"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              210
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060048b1",
+              "table": "MethodDef",
+              "name": "NotifyPropertyChanged",
+              "owner": "SolidCore.DataPacket_c",
+              "rva": "0x126064"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x06005071",
+        "table": "MethodDef",
+        "name": "LoadFromModel",
+        "owner": "BlindEndSpec_c",
+        "rva": "0x1424c4",
+        "implementation_flags": "0x0",
+        "method_flags": "0x2c3",
+        "signature_sha256": "29a8f290311765ed613bb86beade0652e4d3d2a62183c6bb078288a1faa8aa87",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 56,
+        "complete_body_bytes": 68,
+        "code_sha256": "4a3f61b1a22b895a098f585e0b1b614932ccfb9e17a6b7ef21ef78304a8bc754",
+        "complete_body_sha256": "3ccc44be6676ab9d0641a4712c36954773ce7b161a5305f1215a7d0d713904ff",
+        "instruction_count": 25,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              5
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06005069",
+              "table": "MethodDef",
+              "name": "LoadFromModel",
+              "owner": "EndSpecification_c",
+              "rva": "0x142364"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              24,
+              50
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001e",
+              "table": "MemberRef",
+              "name": "KeepAlive",
+              "owner": "System.GC"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              34
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600505e",
+              "table": "MethodDef",
+              "name": "get_Dir",
+              "owner": "EndSpecification_c",
+              "rva": "0x1415bc"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              39
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044e6",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.getDistance",
+              "owner": "<Module>",
+              "rva": "0x166e3d"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              44
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506f",
+              "table": "MethodDef",
+              "name": "set_Distance",
+              "owner": "BlindEndSpec_c",
+              "rva": "0x1416a8"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x06005072",
+        "table": "MethodDef",
+        "name": "ApplyToModel",
+        "owner": "BlindEndSpec_c",
+        "rva": "0x142508",
+        "implementation_flags": "0x0",
+        "method_flags": "0x2c3",
+        "signature_sha256": "29a8f290311765ed613bb86beade0652e4d3d2a62183c6bb078288a1faa8aa87",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 58,
+        "complete_body_bytes": 70,
+        "code_sha256": "1d062a354837a9441304fb75946b2e50ff1e0c443d9653c424dac09ff1e5ed67",
+        "complete_body_sha256": "da1a4885528ffe4284bde5fe00e465201c047ca7016a699b57180326d0a06d9e",
+        "instruction_count": 26,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              2
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506a",
+              "table": "MethodDef",
+              "name": "ApplyToModel",
+              "owner": "EndSpecification_c",
+              "rva": "0x1423c4"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              18,
+              41
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600505e",
+              "table": "MethodDef",
+              "name": "get_Dir",
+              "owner": "EndSpecification_c",
+              "rva": "0x1415bc"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              33
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044e7",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.setDistance",
+              "owner": "<Module>",
+              "rva": "0x166e43"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              46
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d8",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.setType",
+              "owner": "<Module>",
+              "rva": "0x166e49"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              52
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001e",
+              "table": "MemberRef",
+              "name": "KeepAlive",
+              "owner": "System.GC"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x0600508b",
+        "table": "MethodDef",
+        "name": "LoadFromModel",
+        "owner": "MidPlaneEndSpec_c",
+        "rva": "0x1427b8",
+        "implementation_flags": "0x0",
+        "method_flags": "0x2c3",
+        "signature_sha256": "29a8f290311765ed613bb86beade0652e4d3d2a62183c6bb078288a1faa8aa87",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 8,
+        "complete_body_bytes": 20,
+        "code_sha256": "d65ed1454cf586b3a1118ebb870f50613dea27606d36b369018e9402903d3ccd",
+        "complete_body_sha256": "57d6f97b250b5af3b462de594c41c20ddc70259ad70186b48f680db90c00186b",
+        "instruction_count": 4,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              2
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x06005071",
+              "table": "MethodDef",
+              "name": "LoadFromModel",
+              "owner": "BlindEndSpec_c",
+              "rva": "0x1424c4"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      },
+      {
+        "token": "0x0600508c",
+        "table": "MethodDef",
+        "name": "ApplyToModel",
+        "owner": "MidPlaneEndSpec_c",
+        "rva": "0x1427cc",
+        "implementation_flags": "0x0",
+        "method_flags": "0x2c3",
+        "signature_sha256": "29a8f290311765ed613bb86beade0652e4d3d2a62183c6bb078288a1faa8aa87",
+        "managed": true,
+        "cil": true,
+        "native": false,
+        "abstract": false,
+        "body_kind": "cil",
+        "header_bytes": 12,
+        "code_bytes": 35,
+        "complete_body_bytes": 47,
+        "code_sha256": "c051bb088a05b4a016ea69e601fbd663eb1bb790e5278fd2887537695941a85f",
+        "complete_body_sha256": "92489941c5b8e36c612128e3e9ba7bdd40083b4880bcf3dd181b273a92f6b972",
+        "instruction_count": 15,
+        "exception_region_count": 0,
+        "call_edges": [
+          {
+            "cil_code_offsets": [
+              2
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600506a",
+              "table": "MethodDef",
+              "name": "ApplyToModel",
+              "owner": "EndSpecification_c",
+              "rva": "0x1423c4"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              18
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0600505e",
+              "table": "MethodDef",
+              "name": "get_Dir",
+              "owner": "EndSpecification_c",
+              "rva": "0x1415bc"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              23
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x060044d8",
+              "table": "MethodDef",
+              "name": "moEndSpec_c.setType",
+              "owner": "<Module>",
+              "rva": "0x166e49"
+            },
+            "resolution": "metadata-declaration"
+          },
+          {
+            "cil_code_offsets": [
+              29
+            ],
+            "dispatch": "call",
+            "target": {
+              "token": "0x0a00001e",
+              "table": "MemberRef",
+              "name": "KeepAlive",
+              "owner": "System.GC"
+            },
+            "resolution": "metadata-declaration"
+          }
+        ]
+      }
+    ],
+    "limits": {
+      "target_executed": false,
+      "runtime_dispatch_verified": false,
+      "vendor_code_or_bodies_emitted": false,
+      "native_body_decoded_as_cil": false,
+      "unselected_method_bodies_decoded": 0,
+      "writer_output_count": 0
+    },
+    "native_module": {
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "declared_exports": 45857,
+      "parsed_exports": 45857
+    }
+  },
+  "rules": {
+    "native_type_owner": {
+      "first": "f0c",
+      "second": "f10",
+      "width": "i32",
+      "index_order": [
+        0,
+        1
+      ],
+      "setter_remaps": false
+    },
+    "direction_owners": {
+      "single_end": "f08",
+      "flip": "f88",
+      "direction": "f8c",
+      "distance_displays": [
+        "f18",
+        "f20"
+      ]
+    },
+    "cleanup": {
+      "entry": "0x4bada5b0",
+      "first_distance_predicate": "1 <= unsigned(first_type) <= 4 and environment(0x33) == 0",
+      "second_distance_predicate": "(single_end != 0 or 1 <= unsigned(second_type) <= 4) and environment(0x33) == 0",
+      "action": "remove dimension configuration data, destroy actual display object, null the owning pointer",
+      "environment_owner": "SldSession_c::Environment",
+      "environment_virtual_offset": "0x78",
+      "environment_selector": "0x33",
+      "environment_selector_semantics": "not yet bound",
+      "draft_displays": [
+        "fc8",
+        "fd0"
+      ],
+      "draft_enabled": [
+        "fb8",
+        "fbc"
+      ]
+    },
+    "recreate_distance_displays": {
+      "entry": "0x4baf4100",
+      "ends_visited": [
+        0,
+        1
+      ],
+      "prune_predicate": "((single_end != 0 and end == 1) or 1 <= unsigned(type[end]) <= 4) and environment(0x33) == 0",
+      "prune_action": "destroy actual distance display and null its pointer; do not allocate a replacement",
+      "opposite_branch": "retain or allocate a moDisplayDistanceDim_c using ParallelPlaneDistanceDim_c; role is end+1",
+      "draft_roles": [
+        3,
+        4
+      ],
+      "transient_from_offset_role": 19,
+      "status": "partial until the new native sources exercise the branch"
+    },
+    "managed_current_end_spec": {
+      "token": "0x0600503a",
+      "native_end_spec_offset": "0x818",
+      "class_by_native_type": {
+        "0": "BlindEndSpec_c",
+        "1": null,
+        "2": null,
+        "3": "ToPointEndSpec_c",
+        "4": "ToSurfaceEndSpec_c",
+        "5": "OffsetFromSurfaceEndSpec_c",
+        "6": "MidPlaneEndSpec_c",
+        "7": "UpToBodyEndSpec_c"
+      },
+      "default": null,
+      "public_enum_9_mapping_inferred": false
+    },
+    "blind_distance_publication": {
+      "token": "0x06005072",
+      "base_apply_first": true,
+      "native_calls_in_order": [
+        "setDistance",
+        "setType"
+      ],
+      "native_type_argument": 0,
+      "through_all_constructor": false
+    },
+    "through_all_both_source_encoding": {
+      "api_single_direction": false,
+      "forward_type": 1,
+      "reverse_type": 1,
+      "public_enum_9_exercised": false,
+      "native_source_verification": "pending"
+    },
+    "boss_finite_extent": {
+      "status": "not found",
+      "writer_admission": false,
+      "stock_span_formula": "unverified hypothesis only"
+    }
+  },
+  "parser_versions": {
+    "pefile": "2024.8.26",
+    "dnfile": "0.18.0",
+    "dncil": "1.0.2",
+    "capstone": "5.0.3"
+  },
+  "native_processes_started": 0,
+  "new_heldout_inputs_read": 0,
+  "writer_output_count": 0,
+  "vendor_listings_included": false,
+  "native_acceptance": false
+}

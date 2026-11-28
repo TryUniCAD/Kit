@@ -1,0 +1,273 @@
+{
+  "heldout_inputs_read": 0,
+  "native_runs": 0,
+  "passed": true,
+  "passes": 4,
+  "runs": {
+    "cache_registration": {
+      "1": {
+        "result": {
+          "allocation_filetime": 134626708430833710,
+          "cache_filetime": 134644916313864305,
+          "cache_sha256": "167b39bec9a1c987bdb1cd1d86f1f4e5105eea279d88ef800815ab6d559cfb25",
+          "container_sha256": "8cb619a887e0064a8984e443a662e2207102f08e4412bf0c3a20c23fc73a5a98",
+          "edge_lookup_bucket_count": 64,
+          "edge_lookup_rows": [
+            [
+              7,
+              0,
+              101,
+              17,
+              31349462,
+              2276669553
+            ],
+            [
+              8,
+              1,
+              101,
+              18,
+              31349462,
+              2276669553
+            ],
+            [
+              9,
+              2,
+              101,
+              19,
+              31349462,
+              2276669553
+            ],
+            [
+              10,
+              3,
+              101,
+              20,
+              31349462,
+              2276669553
+            ],
+            [
+              11,
+              4,
+              101,
+              21,
+              31349462,
+              2276669553
+            ],
+            [
+              12,
+              5,
+              101,
+              22,
+              31349462,
+              2276669553
+            ],
+            [
+              13,
+              6,
+              101,
+              23,
+              31349462,
+              2276669553
+            ],
+            [
+              14,
+              7,
+              101,
+              24,
+              31349462,
+              2276669553
+            ],
+            [
+              15,
+              8,
+              101,
+              25,
+              31349462,
+              2276669553
+            ],
+            [
+              16,
+              9,
+              101,
+              26,
+              31349462,
+              2276669553
+            ],
+            [
+              17,
+              10,
+              101,
+              27,
+              31349462,
+              2276669553
+            ],
+            [
+              18,
+              11,
+              101,
+              28,
+              31349462,
+              2276669553
+            ]
+          ],
+          "final_buckets": [
+            2,
+            61,
+            44,
+            31,
+            14,
+            57,
+            40,
+            27,
+            10,
+            5,
+            52,
+            39
+          ],
+          "map_counter": 104,
+          "native_runs": 0,
+          "passed": true,
+          "preserved_part_streams": 11,
+          "runtime_io_attempts": 0,
+          "scope": "ordinary prism retained face and edge rows with registered identities, before the late pass",
+          "variant": 1
+        },
+        "runs": 2,
+        "stdout_sha256": "c58e2ca213c4292234fd6e1863dcc45f16f0c74f41b33ba42a4576dcfefbf490"
+      },
+      "2": {
+        "result": {
+          "allocation_filetime": 134626710861667420,
+          "cache_filetime": 134644916623864305,
+          "cache_sha256": "434c12446707a87a442d367cd192428fe226d6a411be7ecc930ff3e35c5d6548",
+          "container_sha256": "cab20535c8bc7170216b75db70f9fe9255d8a64ba8f9f897817dcbdd3106309e",
+          "edge_lookup_bucket_count": 64,
+          "edge_lookup_rows": [
+            [
+              7,
+              0,
+              101,
+              17,
+              31349462,
+              2586669553
+            ],
+            [
+              8,
+              1,
+              101,
+              18,
+              31349462,
+              2586669553
+            ],
+            [
+              9,
+              2,
+              101,
+              19,
+              31349462,
+              2586669553
+            ],
+            [
+              10,
+              3,
+              101,
+              20,
+              31349462,
+              2586669553
+            ],
+            [
+              11,
+              4,
+              101,
+              21,
+              31349462,
+              2586669553
+            ],
+            [
+              12,
+              5,
+              101,
+              22,
+              31349462,
+              2586669553
+            ],
+            [
+              13,
+              6,
+              101,
+              23,
+              31349462,
+              2586669553
+            ],
+            [
+              14,
+              7,
+              101,
+              24,
+              31349462,
+              2586669553
+            ],
+            [
+              15,
+              8,
+              101,
+              25,
+              31349462,
+              2586669553
+            ],
+            [
+              16,
+              9,
+              101,
+              26,
+              31349462,
+              2586669553
+            ],
+            [
+              17,
+              10,
+              101,
+              27,
+              31349462,
+              2586669553
+            ],
+            [
+              18,
+              11,
+              101,
+              28,
+              31349462,
+              2586669553
+            ]
+          ],
+          "final_buckets": [
+            2,
+            61,
+            44,
+            31,
+            14,
+            57,
+            40,
+            27,
+            10,
+            5,
+            52,
+            39
+          ],
+          "map_counter": 104,
+          "native_runs": 0,
+          "passed": true,
+          "preserved_part_streams": 11,
+          "runtime_io_attempts": 0,
+          "scope": "ordinary prism retained face and edge rows with registered identities, before the late pass",
+          "variant": 2
+        },
+        "runs": 2,
+        "stdout_sha256": "4c2068217d95aa1a49bc9646e67e5750a36dfd7a66f3540b09ed0a2b686651fa"
+      }
+    }
+  },
+  "runtime_io_attempts": 0,
+  "schema": "kit.sw2026.downstream-prism-cache-registration-replay.v1",
+  "source_derived_runtime_bytes": true
+}

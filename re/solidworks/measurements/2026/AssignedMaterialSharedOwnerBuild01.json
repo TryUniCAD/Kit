@@ -1,0 +1,71 @@
+{
+  "cases": {
+    "AlAll": {
+      "full_receipt_sha256": "57fb7a9070c77b13051f975e58953f6af03da040163c8a2e2bcf5aef6cd27796",
+      "generated_sha256": "75a2047838b92cdcbffab48e1a11351c75a757688381d1a79622c8059ae46231",
+      "same_as_frozen_disclosed_file": true
+    },
+    "AlConfiguration": {
+      "full_receipt_sha256": "a9f564377b8e8fba9aa5fb13d8e9f9c9d948a6a61466fea213fdf28e9b9eb13b",
+      "generated_sha256": "6c247a72e1501cc478f8a6caa8545060c032a454d82086d2d59f852b9cc41cfa",
+      "same_as_frozen_disclosed_file": true
+    },
+    "AlIdentity": {
+      "full_receipt_sha256": "5d034946768f944893e712205181ce7d30c4ab9e3b2d34965bddc262637c4019",
+      "generated_sha256": "ecace6b5296a39c2ee2238ef04a00e79af43e0027a4395b6c2052bfb22bd403b",
+      "same_as_frozen_disclosed_file": true
+    },
+    "AlPart": {
+      "full_receipt_sha256": "0269dc9f6dbd8c246b90922861b236358ca8d3ee17420f53affa6bee8914f1b0",
+      "generated_sha256": "820991a61d0c46d4f9ed656ebc8ca286384f0b4e4fbff4bcfc84168c5c58497a",
+      "same_as_frozen_disclosed_file": true
+    },
+    "AlUnassigned": {
+      "full_receipt_sha256": "fae88588551a0e2f20dc128c85d70d2232b152b8c7bf91fcc7838393d133cfbb",
+      "generated_sha256": "8ab7e56b5139ec07e18f403ccc517874d64c824626e20f8b212dcf1efe11876a",
+      "same_as_frozen_disclosed_file": true
+    },
+    "SteelAll": {
+      "full_receipt_sha256": "ef554a10daec6e901c28b38b847f00bda9f1cc4e0380685fd80cfefc8bf58c7f",
+      "generated_sha256": "dcbc22d25d2fd8133a1e294d627b599797f17ef3ab4f7bd6f8dd841332004b66",
+      "same_as_frozen_disclosed_file": true
+    },
+    "SteelConfiguration": {
+      "full_receipt_sha256": "de23b0ee6dd3c7031930c918143f77af38da73b70c2148dbd4faf11d42440d7f",
+      "generated_sha256": "9a1956513aa6ed3cf4e30e2afec8bd968da350ddf01c49aa03bd6926b6d1e7d7",
+      "same_as_frozen_disclosed_file": true
+    },
+    "SteelIdentity": {
+      "full_receipt_sha256": "0a1c3ae9f7685ea1affe1af9804bc4a99fab70784954ccd73c4a59b447e74c59",
+      "generated_sha256": "8e3af76f3a7252ce4d6e468b72c4dda336f2aa935bb701c1c49b5d9ee98f9a05",
+      "same_as_frozen_disclosed_file": true
+    },
+    "SteelPart": {
+      "full_receipt_sha256": "d66ceced04290b41ad4ec7f34d80180b0a04b19e9e30f8a4c21a623128bc950a",
+      "generated_sha256": "ebc779de3a7f069fa0dac36651a347c7111759255b0f7c5150436ba6c5ee56ed",
+      "same_as_frozen_disclosed_file": true
+    },
+    "SteelUnassigned": {
+      "full_receipt_sha256": "f149904dbd24082808386bf8245cfde401485ec596a16cd002e52f166b5714a4",
+      "generated_sha256": "9cd6d301efc080abb1605de4b5ae3464be2bf99cec154690afe74b0f3508ebd6",
+      "same_as_frozen_disclosed_file": true
+    }
+  },
+  "files": {
+    "re/tooling/sw2026/materials/BuildAssignedMaterialProbe.py": "f869465b1ce26b106e37059a2970571d7182c06ed9e0ece760c841bbacc11b2d",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Materials/BindPartMaterialMut.py": "7ce2ba0359f0ef14631ae86ba37769100255f1cdaffa6cd6f2b654a59bcac4f2",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Materials/MakePhysicalDensity.py": "57444bfd1eedc09606c0c698a5fabf411579a0c47451c2afd5637627b7e2b4e4",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Materials/PartMaterialInput.py": "b98c1642565347628cdde0c84bc544924647de690a69f1e0eea73fbda44f96dc"
+  },
+  "fresh_processes": 10,
+  "heldout_credit": 0,
+  "native_processes_this_replay": 0,
+  "refusals_before_emission": {
+    "catalog:C:/database": "requires a catalog key and material name",
+    "catalog:bad|catalog": "requires a catalog key and material name",
+    "catalog_id:19": "requires the two-token catalog identity",
+    "material_ref:missing": "material reference does not resolve"
+  },
+  "runtime_file_access_attempts": 0,
+  "schema": "kit.sw2026.assigned-material-shared-owner-build.v1"
+}

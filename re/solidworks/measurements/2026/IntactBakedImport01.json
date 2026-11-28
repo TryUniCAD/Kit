@@ -1,0 +1,262 @@
+{
+  "altered_brep_refused": "supplied neutral view differs from its complete immutable FCStd archive",
+  "cases": {
+    "Baked01.FCStd": {
+      "boundary": {
+        "area_mm2": 1445.28125,
+        "attribute_entity_counts": {
+          "bodies": 1,
+          "curves": 12,
+          "faces": 6,
+          "surfaces": 6
+        },
+        "body_id": "freecad:occ:3e14aa80053cb2f51725:body:1",
+        "bounds_mm": [
+          [
+            -10.5,
+            18.125
+          ],
+          [
+            12.25,
+            28.0
+          ],
+          [
+            4.75,
+            10.875
+          ]
+        ],
+        "center_mm": [
+          3.8125,
+          20.125,
+          7.8125
+        ],
+        "linked_line_carriers": 12,
+        "oriented_trim_uses": 24,
+        "outward_planar_faces": 6,
+        "reversed_face_uses": 1,
+        "shell_use_reversed": true,
+        "tolerances_mm": {
+          "edges": [
+            1e-07
+          ],
+          "faces": [
+            1e-07
+          ],
+          "vertices": [
+            1e-07
+          ]
+        },
+        "volume_mm3": 2761.41796875
+      },
+      "guarded_read_events": 0,
+      "modeled_native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations"
+      ],
+      "path_and_stream_equivalent": true,
+      "projected_request_sha256": "c050c6b6e5718977afb752cb0d81f050ec4085d1ff47763a41e9a96cd309fb77",
+      "projected_untransferred_capabilities": [
+        "native_payloads",
+        "parameters",
+        "provenance",
+        "roundtrip_metadata"
+      ],
+      "source": {
+        "active_configuration": "Default",
+        "archive_sha256": "34f028eec62cac170d87962b8397447f1bbd663aae6bbe06551af3ce58401288",
+        "authored_parameters": [
+          "Label",
+          "Label2",
+          "Visibility"
+        ],
+        "configuration_id": "freecad:configuration:default",
+        "design_body_id": "freecad:body:default",
+        "document_uid": "7490b28c-63bc-4aee-8a15-b20536063fab",
+        "document_xml_sha256": "01e9852f636515dffb51e5606c9e5168d9ac9321de4cb1e23ec1369c543e38b4",
+        "element_map_rows": 0,
+        "feature_id": "freecad:feature:Specimen",
+        "label": "Disclosed Baked A",
+        "object_id": "4041",
+        "object_name": "Specimen",
+        "shape_member": "Specimen.Shape.brp",
+        "shape_sha256": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+        "source_history_present": false,
+        "title": "Baked01",
+        "tolerance_m": 9.999999999999999e-11
+      },
+      "source_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "native_payloads",
+        "parameters",
+        "provenance",
+        "roundtrip_metadata"
+      ],
+      "target": {
+        "locator": "C:\\KitBakedToleranceNative01\\Candidates\\Baked01.SLDPRT",
+        "sha256": "5b4100d6c7f9b2e172337ced9c6c1d882dcac505ee8577414e8258c6028c9e83",
+        "size": 9910,
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": "0cba12a8207c1ca6dc72dc5006bd8e8e028f553aed9226ede73fdc08ae6a2fcd",
+          "Contents/CMgr": "a616440ae348584e9bc762a37776cd3a353c4def4d9015cc78db66083e80bd5e",
+          "Contents/CMgrHdr2": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3",
+          "Contents/Config-0": "674d843fac3e19323158217bba51096f695e488055cb3f6f94bde5772ad2dbe8",
+          "Contents/Config-0-ModelHeader": "3e96febb67a40e76e2007fe638b1d62190863c96691fda57b139fe4d8712f5f6",
+          "Contents/Config-0-Partition": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75",
+          "Contents/Config-0-ResolvedFeatures": "f56bdc39655ceebd2a8b77a4747d4cd1e1d55d212eab37d5fbb6fe68404299be",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "a54e99fa6f33cd6f3cc4232437f428cda0ff3785bd166da6b74bf13eee033885",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164",
+          "swXmlContents/KeyWords": "946286c593a043c8563f5bf552dd2789d23019b714f83accc9abd725c120b515"
+        }
+      },
+      "target_payload_count": 0
+    },
+    "Baked02.FCStd": {
+      "boundary": {
+        "area_mm2": 1979.65625,
+        "attribute_entity_counts": {
+          "bodies": 1,
+          "curves": 12,
+          "faces": 6,
+          "surfaces": 6
+        },
+        "body_id": "freecad:occ:3e14aa80053cb2f51725:body:1",
+        "bounds_mm": [
+          [
+            14.375,
+            33.875
+          ],
+          [
+            -25.625,
+            -0.75
+          ],
+          [
+            -3.5,
+            7.875
+          ]
+        ],
+        "center_mm": [
+          24.125,
+          -13.1875,
+          2.1875
+        ],
+        "linked_line_carriers": 12,
+        "oriented_trim_uses": 24,
+        "outward_planar_faces": 6,
+        "reversed_face_uses": 1,
+        "shell_use_reversed": true,
+        "tolerances_mm": {
+          "edges": [
+            1e-07
+          ],
+          "faces": [
+            1e-07
+          ],
+          "vertices": [
+            1e-07
+          ]
+        },
+        "volume_mm3": 5517.5859375
+      },
+      "guarded_read_events": 0,
+      "modeled_native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations"
+      ],
+      "path_and_stream_equivalent": true,
+      "projected_request_sha256": "35c35e88090f8b3060e92dff752563f0a5c3897731fc9b888d629560ba09c35f",
+      "projected_untransferred_capabilities": [
+        "native_payloads",
+        "parameters",
+        "provenance",
+        "roundtrip_metadata"
+      ],
+      "source": {
+        "active_configuration": "Default",
+        "archive_sha256": "58f57798a445c521ba90e712c3493583cfafeb239098a9881c63036c743e4ce5",
+        "authored_parameters": [
+          "Label",
+          "Label2",
+          "Visibility"
+        ],
+        "configuration_id": "freecad:configuration:default",
+        "design_body_id": "freecad:body:default",
+        "document_uid": "cb9d052c-bb17-4ea6-bf02-d145958f4d21",
+        "document_xml_sha256": "85d82d44e0eb4ba5c9401db3e9695ab094e9970e63d870b001c9997447acc18d",
+        "element_map_rows": 0,
+        "feature_id": "freecad:feature:Specimen",
+        "label": "Disclosed Baked B",
+        "object_id": "871",
+        "object_name": "Specimen",
+        "shape_member": "Specimen.Shape.brp",
+        "shape_sha256": "ac7510fbaf6ab6d75792a163ed280a1775cf17679e849c929144ebb8e20e8398",
+        "source_history_present": false,
+        "title": "Baked02",
+        "tolerance_m": 9.999999999999999e-11
+      },
+      "source_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "native_payloads",
+        "parameters",
+        "provenance",
+        "roundtrip_metadata"
+      ],
+      "target": {
+        "locator": "C:\\KitBakedToleranceNative01\\Candidates\\Baked02.SLDPRT",
+        "sha256": "448f35575f79d58e3154eba0f54d2eb151a2c6c2b0b23d1feb1126c6fffa8efc",
+        "size": 9895,
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": "ccf01ccc1e7c6b2f668f2c9fcd04a9b582eb04bdb2152bf3571576ac60d7acc5",
+          "Contents/CMgr": "a616440ae348584e9bc762a37776cd3a353c4def4d9015cc78db66083e80bd5e",
+          "Contents/CMgrHdr2": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3",
+          "Contents/Config-0": "eee28f1166cc6df8dc9ec2713c2fcdcecd0ee90eceacab7275f852e781ab8974",
+          "Contents/Config-0-ModelHeader": "59040d99f9e9a27ba1b192f8fd5357067b2387200ee1d682109f1a31e78959e7",
+          "Contents/Config-0-Partition": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75",
+          "Contents/Config-0-ResolvedFeatures": "97f2e025b83411ca5c51581cfbcd3b7dbe67f5a3ff936bbbc6143e5e1d8fea5f",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "1f5db44f9b9424c1ae3ae698fef30d279f276d9f17d4cb3cffb6a351032241c8",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164",
+          "swXmlContents/KeyWords": "5ee722c1d60c82ccccc53ef2a2989c28aa3a6526e5ed71921e5127f0d26ba12c"
+        }
+      },
+      "target_payload_count": 0
+    },
+    "ParametricControl.FCStd": {
+      "capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "native_payloads",
+        "parameters",
+        "parametric_history",
+        "provenance",
+        "roundtrip_metadata"
+      ],
+      "drivers": [
+        "Height",
+        "Length",
+        "Width"
+      ],
+      "refused": "source is not a literal nonparametric Part::Feature"
+    }
+  },
+  "creation_epoch": 1795300000,
+  "exact_generated_candidates": 2,
+  "fcstd_conversion_credit": 0,
+  "heldout_credit": 0,
+  "native_launches": 0,
+  "new_native_acceptance": 0,
+  "relabeled_source_refused": true,
+  "schema": "kit.sw2026.baked-import-projection.v1",
+  "sdk_revision": "660100bffe19eb22795c34006516feb369286674",
+  "source_authority_sha256": "76471602145cacdac72876f471b00d74cf41397df85ed946e5a719d62afaeb1e",
+  "target_files_written": 0
+}

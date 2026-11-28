@@ -1,0 +1,99 @@
+{
+  "schema": "kit.sw2026.revolve-end-source-lock.v1",
+  "split": "discovery",
+  "source_revision": "9e38d60efffb9c34945d0a3db186fc934e5e34f5",
+  "job_sha256": "d14e564157312cb766d2304c39f622a41df8b20501c585904ff6b0aade89bb23",
+  "spec_sha256": "d56a6be9883208c3f7581b57bbc1330318577eac174ef5aff8da60ca436da64f",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "registered_swconst": {
+    "swEndConditions_e": {
+      "swEndCondBlind": 0,
+      "swEndCondThroughAll": 1,
+      "swEndCondThroughNext": 2,
+      "swEndCondUpToVertex": 3,
+      "swEndCondUpToSurface": 4,
+      "swEndCondOffsetFromSurface": 5,
+      "swEndCondMidPlane": 6,
+      "swEndCondUpToBody": 7,
+      "swEndCondThroughAllBoth": 9,
+      "swEndCondUpToSelection": 10,
+      "swEndCondUpToNext": 11
+    },
+    "swRevolveType_e": {
+      "swRevolveTypeOneDirection": 0,
+      "swRevolveTypeMidPlane": 1,
+      "swRevolveTypeTwoDirection": 2,
+      "swRevolveTypeOneDirection360Degrees": 3,
+      "swRevolveTypeMidPlane360Degrees": 4,
+      "swRevolveTypeTwoDirection360Degrees": 5
+    }
+  },
+  "tool_sha256": {
+    "AuthorRevolveEnds.py": "a9900663bb06288db8b2dfd60f1324e428b33bdb4319f3a0580dce51639281ac",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "started_at": 1795223015.0658588,
+  "sources": [
+    {
+      "name": "EndMidplane",
+      "mode": "midplane",
+      "native_sha256": "c1908384a73d6d5a5027bfa865849da9b0f007a3f5fdd84096120ef02675f678",
+      "native_bytes": 66452,
+      "phase_record_sha256": [
+        "12e60006bbfc33b9a94bb472e6350a246d3ecfa7ffd9908d0d534bce62c038df",
+        "3fbdc94df11d8ba77a73a5d0ab7d89f45700ab8985f8077c367110a3e9fe0f4c",
+        "4196ef66dd8a6aeb32180dcedca3397249e0a059b27f71638c901668159c5656"
+      ],
+      "reused_authored_phase": true,
+      "passed": true
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "4c2f6f2269df8014c956d1243db04b7fda9179784aadad71cddcc13a10f8e589",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "e5af714fb05ef3323d45ae954521ade4ce74f2a38eec9ab0642e2bbad93625db",
+    "passed": true
+  },
+  "finished_at": 1795223120.90555,
+  "distinct_processes": 5,
+  "direction_consistent": true,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "passed": true,
+  "original_lock_sha256": "401a7b2e5cddacd96deafecc640e9da8967fe979822524fe1abacf149ac42c54",
+  "fresh_processes": 4,
+  "measurements": [
+    {
+      "phase": "edited-reopen",
+      "passed": true,
+      "open_status": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "numeric_checks": 12,
+      "record_sha256": "4196ef66dd8a6aeb32180dcedca3397249e0a059b27f71638c901668159c5656"
+    },
+    {
+      "phase": "reopen",
+      "passed": true,
+      "open_status": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "numeric_checks": 26,
+      "record_sha256": "3fbdc94df11d8ba77a73a5d0ab7d89f45700ab8985f8077c367110a3e9fe0f4c"
+    }
+  ]
+}

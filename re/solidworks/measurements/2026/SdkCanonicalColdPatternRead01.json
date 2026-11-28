@@ -1,0 +1,48 @@
+{
+  "canonical_authority_sha256": "ef52c12bc4a22a0de666b043ad586871a0bdfa03e877ac62e591b40dfbaa2df7",
+  "cases": {
+    "ColdRaisedPatternA": {
+      "bytes": 10460,
+      "count": 3,
+      "faces": 21,
+      "pitch_mm": 18.0,
+      "refusals": [
+        "unknown-name",
+        "wrong-back-origin",
+        "wrong-frontier",
+        "wrong-order",
+        "wrong-top-frame",
+        "wrong-top-id"
+      ],
+      "reversed": false,
+      "sha256": "0010ceadf1bca13c4de487ed30cfc7822bc19d193ad6f26733a2de48873dbc9f",
+      "streams": 10,
+      "strict_path_reads": 1,
+      "strict_stream_reads": 1
+    },
+    "ColdRaisedPatternB": {
+      "bytes": 10448,
+      "count": 4,
+      "faces": 26,
+      "pitch_mm": 19.0,
+      "refusals": [
+        "unknown-name",
+        "wrong-back-origin",
+        "wrong-frontier",
+        "wrong-order",
+        "wrong-top-frame",
+        "wrong-top-id"
+      ],
+      "reversed": true,
+      "sha256": "4f9969f02674f396045489e54977e79582c8d38f9420b1fd34b0b73c5be545b2",
+      "streams": 10,
+      "strict_path_reads": 1,
+      "strict_stream_reads": 1
+    }
+  },
+  "native_processes_started": 0,
+  "proof_sha256": "c5989c20fa2c91353404cc3a0d03ea01306533603f8578d98e08f6eabf560b38",
+  "reader_gate_sha256": "a8832489c0ab1ee1a50d356f05db3b1c84c26bf9eebe3e717f262ead6d592232",
+  "schema": "kit.sw2026.canonical-cold-pattern-reader.v1",
+  "source_fixture_sha256": "5784abcd6ccc6e93feb88463333b5668bf4fd12f18fa2bde5efbfcc1ccabcdef"
+}

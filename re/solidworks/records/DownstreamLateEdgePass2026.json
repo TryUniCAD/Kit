@@ -1,0 +1,1206 @@
+{
+  "acceptance": {
+    "application_usable": false,
+    "codec_or_writer_admission": false,
+    "heldout_acceptance": false,
+    "vendor_loadable": false
+  },
+  "cache_and_wire": {
+    "clear_entry": "0x4b74c510",
+    "clear_mask": "fe8 &= ~0x700; runtime fields 80/88/90/98/a0/c0 reset",
+    "component_reference_pointer": "Actual CompBEnt+e8 pointer at0x4bba47bf/47c6 is distinct from the BEnt scalar fe8",
+    "mode1_publication": "Selected direct body and nonnull coedge with Boolean1 publishes 0x100 then0x200; exact incoming other bits remain separately sourced",
+    "neither_writes": [
+      "BEnt.f70",
+      "BEnt.f18",
+      "BEnt.f60/f64"
+    ],
+    "reset_entry": "0x4b759590",
+    "store_caveat": "Direct field encoding is not proof that no earlier owner changes fields",
+    "store_entry": "0x4bba3780",
+    "wire_flags": "i32 BEnt.fe8 verbatim at0x4bba3843/0x4bba384c",
+    "wire_handle": "u32 low32(BEnt.f70) at0x4bba3852/0x4bba3858"
+  },
+  "call_order": [
+    {
+      "role": "faces",
+      "site": "0x4b526500",
+      "target": "0x4b52b130"
+    },
+    {
+      "role": "edges",
+      "site": "0x4b526568",
+      "target": "0x4b52ab60"
+    },
+    {
+      "role": "conditionally all body vertices",
+      "site": "0x4b526626",
+      "target": "0x4b52b640"
+    },
+    {
+      "role": "late pending edge repair",
+      "site": "0x4b52662e",
+      "target": "0x4b5360d0"
+    },
+    {
+      "role": "temporary curve cleanup",
+      "site": "0x4b526823",
+      "target": "0x4b525b90"
+    },
+    {
+      "role": "temporary helper teardown",
+      "site": "0x4b52682d",
+      "target": "0x4b566270"
+    }
+  ],
+  "cleanup": {
+    "0x4b51f880": "Only clears construction global0x4db5dd20",
+    "0x4b525b90": "Only iterate temporary curve list+b48/b50, destroy nonnull curves and clear list; not a caller of late repair",
+    "collector_transfer": "0x4b519e80 moves collector+1b0 to downstream.f40 and nulls collector owner; corresponding collector vector-release loop is skipped on that successful transfer",
+    "not_claimed": "No complete reference preservation proof through those nested cleanup calls, later update or selected full save",
+    "remaining_nested_boundary": [
+      "0x4b5662c0 ->0x4c0361c0 conditional model partition detach",
+      "0x4b5662db virtual+8 holder destruction",
+      "0x4b5662fa ->0x4b566900 nested cache cleanup and contained representation releases",
+      "0x4b516ffb ->0x4b5115d0 collector base teardown"
+    ]
+  },
+  "confidence": "partial",
+  "data_windows": [
+    {
+      "bound": "original data interval",
+      "bytes": 8,
+      "end_exclusive": "0x4cde9a88",
+      "module": "sldmodu.dll",
+      "name": "vertex_density_multiplier",
+      "sha256": "272f78036db6721f7cf7444315e5f6360426d14c3d446d6ae8a89ef70d134002",
+      "start": "0x4cde9a80"
+    },
+    {
+      "bound": "original data interval",
+      "bytes": 32,
+      "end_exclusive": "0x4dadd3e0",
+      "module": "sldmodu.dll",
+      "name": "edge_runtime_descriptor",
+      "sha256": "bf03361c0fba01b7e8c1a733b47b803dba86950948dcaab8abcf68193809e066",
+      "start": "0x4dadd3c0"
+    },
+    {
+      "bound": "original data interval",
+      "bytes": 32,
+      "end_exclusive": "0x4dadd830",
+      "module": "sldmodu.dll",
+      "name": "vertex_runtime_descriptor",
+      "sha256": "ccebf0334e3f7cb8030e31a6d18756d5232f21348e67f52301274f3ff6dfd1f9",
+      "start": "0x4dadd810"
+    },
+    {
+      "bound": "entire original file-backed .text scan boundary",
+      "bytes": 29292032,
+      "end_exclusive": "0x4cd30600",
+      "module": "sldmodu.dll",
+      "name": "rel32_call_inventory_scope",
+      "sha256": "77d9681ad000bf4d3cb11b695222b321e10ace5c8637c24c4d9b39c4d03d19d2",
+      "start": "0x4b141000"
+    }
+  ],
+  "delivery_pr": 121,
+  "dependencies": [
+    {
+      "bytes": 66320,
+      "path": "re/solidworks/records/DownstreamFreshReferenceAssignments2026.json",
+      "sha256": "40c9215a5c71105ee20235d1f2da106c913e6fe1f0f69f1ad42c4d88150437a7"
+    },
+    {
+      "bytes": 39019,
+      "path": "re/solidworks/records/DownstreamEdgeValidation2026.json",
+      "sha256": "b1e75873c586d3710fcbd05dfeba631107a06a3715b81e2397c2a6a768f54247"
+    },
+    {
+      "bytes": 43957,
+      "path": "re/solidworks/records/DownstreamEntityReferenceWire2026.json",
+      "sha256": "2c926fee75b0c597ba9140c1145be80d6cd1516cca2d3c65b317fb7b176f3165"
+    },
+    {
+      "bytes": 44784,
+      "path": "re/solidworks/records/DownstreamComponentWire2026.json",
+      "sha256": "ef49fca627c7f85bf65b41b261e4b96813c5291dbe49d3e63522d410587c02ca"
+    },
+    {
+      "bytes": 48955,
+      "path": "re/solidworks/records/DownstreamIdentityMembership2026.json",
+      "sha256": "c07919944c261f635f4f0e9e0cebd4daccc210f0d249cfbced3df3db8acb0421"
+    }
+  ],
+  "direct_call_inventory": {
+    "calls": [
+      {
+        "site": "0x4b75ae3d",
+        "target": "0x4b527670",
+        "unwind_parent": "0x4b75a880"
+      },
+      {
+        "site": "0x4b526902",
+        "target": "0x4b5250e0",
+        "unwind_parent": "0x4b5263c0"
+      },
+      {
+        "site": "0x4b52b86c",
+        "target": "0x4b5250e0",
+        "unwind_parent": "0x4b52b640"
+      }
+    ],
+    "indirect_or_inlined_coverage": false,
+    "method": "Scan original file-backed .text E8 rel32 candidates; verify every returned site against complete owning LLVM decode"
+  },
+  "execution": {
+    "cad_inputs_read": 0,
+    "git_mutations": 0,
+    "heldout_inputs_read": 0,
+    "native_runs": 0,
+    "rea_or_hopper_targets_opened": 0,
+    "schema_or_codec_runs": 0,
+    "sdk_product_runs": 0,
+    "shared_source_edits": 0,
+    "source_only": true,
+    "tests": 0,
+    "vendor_bytes_or_listings_published": false,
+    "vm_calls": 0
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1289,
+      "end_exclusive": "0x4b51d979",
+      "module": "sldmodu.dll",
+      "name": "ConstructDownstream01",
+      "sha256": "fd224a6416e02509930606bfb89c7838c18f8ee7c039632158b216240ba30f2f",
+      "start": "0x4b51d470",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1289,
+          "end_exclusive": "0x4b51d979",
+          "sha256": "fd224a6416e02509930606bfb89c7838c18f8ee7c039632158b216240ba30f2f",
+          "start": "0x4b51d470",
+          "unwind_rva": "0x22abdc8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 549,
+      "end_exclusive": "0x4b5788a5",
+      "module": "sldmodu.dll",
+      "name": "ModelCreateDownstream01",
+      "sha256": "79313b4a2c0693d269b567e4c5f49df89645b38bde0d802ba35303922c86156b",
+      "start": "0x4b578680",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 549,
+          "end_exclusive": "0x4b5788a5",
+          "sha256": "79313b4a2c0693d269b567e4c5f49df89645b38bde0d802ba35303922c86156b",
+          "start": "0x4b578680",
+          "unwind_rva": "0x22badfc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1455,
+      "end_exclusive": "0x4b52696f",
+      "module": "sldmodu.dll",
+      "name": "MainLateOrder01",
+      "sha256": "68c7e1a4d4dbc2bd6cead7780d9284b0f5267e4243129eba3a46f03a177ec2ad",
+      "start": "0x4b5263c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1455,
+          "end_exclusive": "0x4b52696f",
+          "sha256": "68c7e1a4d4dbc2bd6cead7780d9284b0f5267e4243129eba3a46f03a177ec2ad",
+          "start": "0x4b5263c0",
+          "unwind_rva": "0x22ac000"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1477,
+      "end_exclusive": "0x4b52b125",
+      "module": "sldmodu.dll",
+      "name": "EdgeCollector01",
+      "sha256": "0f106cf41e688652d6d00731d5535dd8987e52f66097b973c02d5aaf82f543d1",
+      "start": "0x4b52ab60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1477,
+          "end_exclusive": "0x4b52b125",
+          "sha256": "0f106cf41e688652d6d00731d5535dd8987e52f66097b973c02d5aaf82f543d1",
+          "start": "0x4b52ab60",
+          "unwind_rva": "0x22acce4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 355,
+      "end_exclusive": "0x4b7d8ad3",
+      "module": "sldmodu.dll",
+      "name": "CompEdgeConstruct01",
+      "sha256": "f11e5fb284e3647cf0681010e42651717482d6f3dbfef4a4cc7e83d13c6161fb",
+      "start": "0x4b7d8970",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 355,
+          "end_exclusive": "0x4b7d8ad3",
+          "sha256": "f11e5fb284e3647cf0681010e42651717482d6f3dbfef4a4cc7e83d13c6161fb",
+          "start": "0x4b7d8970",
+          "unwind_rva": "0x230e7d8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1779,
+      "end_exclusive": "0x4b75af73",
+      "module": "sldmodu.dll",
+      "name": "EdgeConstruct01",
+      "sha256": "703588205d43d1bd90959a2f61f62424720f2815165a63b523a46513956055f3",
+      "start": "0x4b75a880",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1779,
+          "end_exclusive": "0x4b75af73",
+          "sha256": "703588205d43d1bd90959a2f61f62424720f2815165a63b523a46513956055f3",
+          "start": "0x4b75a880",
+          "unwind_rva": "0x22fb090"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 278,
+      "end_exclusive": "0x4b527786",
+      "module": "sldmodu.dll",
+      "name": "EdgePendingInsert01",
+      "sha256": "59da8c7c39ac946d285a6f92798eef4868ef1da67140abc2bcec1e47a2578c5c",
+      "start": "0x4b527670",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 278,
+          "end_exclusive": "0x4b527786",
+          "sha256": "59da8c7c39ac946d285a6f92798eef4868ef1da67140abc2bcec1e47a2578c5c",
+          "start": "0x4b527670",
+          "unwind_rva": "0x22ac6a0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 157,
+      "end_exclusive": "0x4b527a3d",
+      "module": "sldmodu.dll",
+      "name": "PendingErase01",
+      "sha256": "eddec124c18cef46a6c1e6b64947dd6f8b71fb677273bfd8f51d57db850a7876",
+      "start": "0x4b5279a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 157,
+          "end_exclusive": "0x4b527a3d",
+          "sha256": "eddec124c18cef46a6c1e6b64947dd6f8b71fb677273bfd8f51d57db850a7876",
+          "start": "0x4b5279a0",
+          "unwind_rva": "0x2245bbc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 831,
+      "end_exclusive": "0x4b52b97f",
+      "module": "sldmodu.dll",
+      "name": "VertexCollector01",
+      "sha256": "3a1e77db0acdac9a14f163d004822f1370a350fec845661a723d2b7d89a9ff42",
+      "start": "0x4b52b640",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 831,
+          "end_exclusive": "0x4b52b97f",
+          "sha256": "3a1e77db0acdac9a14f163d004822f1370a350fec845661a723d2b7d89a9ff42",
+          "start": "0x4b52b640",
+          "unwind_rva": "0x22acd60"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 537,
+      "end_exclusive": "0x4b52ec29",
+      "module": "sldmodu.dll",
+      "name": "VertexCollectBody01",
+      "sha256": "2d16809635fdf0cf4916493c5bfb9d632f2f1bdaa010c6e4156aaa5bbe938f7e",
+      "start": "0x4b52ea10",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 537,
+          "end_exclusive": "0x4b52ec29",
+          "sha256": "2d16809635fdf0cf4916493c5bfb9d632f2f1bdaa010c6e4156aaa5bbe938f7e",
+          "start": "0x4b52ea10",
+          "unwind_rva": "0x22aca7c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2496,
+      "end_exclusive": "0x4b527670",
+      "module": "sldmodu.dll",
+      "name": "VertexSelect01",
+      "sha256": "75a21dbb159e72eaa3deec2fa5b2cd89b154573c5ac7cc938bde61ff6508ee87",
+      "start": "0x4b526cb0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2496,
+          "end_exclusive": "0x4b527670",
+          "sha256": "75a21dbb159e72eaa3deec2fa5b2cd89b154573c5ac7cc938bde61ff6508ee87",
+          "start": "0x4b526cb0",
+          "unwind_rva": "0x22ac2ac"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 227,
+      "end_exclusive": "0x4b5251c3",
+      "module": "sldmodu.dll",
+      "name": "VertexAppend01",
+      "sha256": "a61e91e4524f39210de518471db1e78f33d3a1ad6bde1a7a1877ea84735fc865",
+      "start": "0x4b5250e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 227,
+          "end_exclusive": "0x4b5251c3",
+          "sha256": "a61e91e4524f39210de518471db1e78f33d3a1ad6bde1a7a1877ea84735fc865",
+          "start": "0x4b5250e0",
+          "unwind_rva": "0x22abfa4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1214,
+      "end_exclusive": "0x4b53658e",
+      "module": "sldmodu.dll",
+      "name": "LateRepair01",
+      "sha256": "46ce229823919fb271a94e8ebd3b825dd151294c84b93540b5c07cc177e5a1e5",
+      "start": "0x4b5360d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 59,
+          "end_exclusive": "0x4b53610b",
+          "sha256": "d1d8f4e2c6e5f3ce6fb86dc08de16790439249a3b0d55222ef1c0185a8def6b9",
+          "start": "0x4b5360d0",
+          "unwind_rva": "0x22ac6d8"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 66,
+          "end_exclusive": "0x4b53614d",
+          "sha256": "6ded764f88eac41c3fb05b7850374fcd0553b292eb0ff4fcf1a52a5112a4b686",
+          "start": "0x4b53610b",
+          "unwind_rva": "0x22ac6e4"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1059,
+          "end_exclusive": "0x4b536570",
+          "sha256": "9ea434161889f15e530129e7e96abea98b883d0b1d13e58696107416238f24a8",
+          "start": "0x4b53614d",
+          "unwind_rva": "0x22ac6fc"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 21,
+          "end_exclusive": "0x4b536585",
+          "sha256": "5b42e31db39469cb6046764be325b2e72f3b6e6d6f4f076ee3f68acec4729cc3",
+          "start": "0x4b536570",
+          "unwind_rva": "0x22ac720"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 9,
+          "end_exclusive": "0x4b53658e",
+          "sha256": "309ccf53fbb648e6aa34795432fcde3f55aac19e5f98db7b454759f6de287842",
+          "start": "0x4b536585",
+          "unwind_rva": "0x22ac730"
+        }
+      ]
+    },
+    {
+      "bound": "complete reviewed leaf through ret; no declared unwind record",
+      "bytes": 15,
+      "end_exclusive": "0x4b53b6ff",
+      "module": "sldmodu.dll",
+      "name": "VertexTailIds01",
+      "sha256": "af9744275495539c27b1e690cb7beda39c65bf4adb96a27bd021f8aa189f43cf",
+      "start": "0x4b53b6f0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 246,
+      "end_exclusive": "0x4b75bbe6",
+      "module": "sldmodu.dll",
+      "name": "EdgeVertexHints01",
+      "sha256": "9a98ad91d0bcfbffcdc102ee66087e5a335ac52de91e78a925b1bad0c706d570",
+      "start": "0x4b75baf0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 246,
+          "end_exclusive": "0x4b75bbe6",
+          "sha256": "9a98ad91d0bcfbffcdc102ee66087e5a335ac52de91e78a925b1bad0c706d570",
+          "start": "0x4b75baf0",
+          "unwind_rva": "0x2257360"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 822,
+      "end_exclusive": "0x4b7598c6",
+      "module": "sldmodu.dll",
+      "name": "ResetBEntRuntime01",
+      "sha256": "1e62af5df2157037581ae017fe615d3fd3001eda34a59bcaecccdeacd0d2d5b8",
+      "start": "0x4b759590",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 361,
+          "end_exclusive": "0x4b7596f9",
+          "sha256": "db62fbed7431c979ce6740ae3c41a7c2e77c3dee61f3ae2ec4c319bd1545fe07",
+          "start": "0x4b759590",
+          "unwind_rva": "0x22f9170"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 221,
+          "end_exclusive": "0x4b7597d6",
+          "sha256": "05292913a72289d2ee787f3f38765d371634cc2ffe32e40c58ae123548aa51e1",
+          "start": "0x4b7596f9",
+          "unwind_rva": "0x22f9184"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 240,
+          "end_exclusive": "0x4b7598c6",
+          "sha256": "937bd34a4904f2dd107bfdf783aae50f4bb0425c30b2779d67416a4594a9ff57",
+          "start": "0x4b7597d6",
+          "unwind_rva": "0x22f9198"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 91,
+      "end_exclusive": "0x4b74c56b",
+      "module": "sldmodu.dll",
+      "name": "ClearEntCache01",
+      "sha256": "ccfc35eebc12b2552fa38f755c2dd124634b502232962810e98699e683304445",
+      "start": "0x4b74c510",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 91,
+          "end_exclusive": "0x4b74c56b",
+          "sha256": "ccfc35eebc12b2552fa38f755c2dd124634b502232962810e98699e683304445",
+          "start": "0x4b74c510",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 228,
+      "end_exclusive": "0x4b7483f4",
+      "module": "sldmodu.dll",
+      "name": "BEntDefault01",
+      "sha256": "bb5173015c86225fe1dcee5fc99b68fde6dd49263e58be93dd4fc183a1d1ef1d",
+      "start": "0x4b748310",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 228,
+          "end_exclusive": "0x4b7483f4",
+          "sha256": "bb5173015c86225fe1dcee5fc99b68fde6dd49263e58be93dd4fc183a1d1ef1d",
+          "start": "0x4b748310",
+          "unwind_rva": "0x22f9338"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 38,
+      "end_exclusive": "0x4b7486b6",
+      "module": "sldmodu.dll",
+      "name": "EdgeDefault01",
+      "sha256": "f3cc83f298b5d187373eb8bde7afe44b5ee4180ae8b9c5bd881cf29d1ca01a41",
+      "start": "0x4b748690",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 38,
+          "end_exclusive": "0x4b7486b6",
+          "sha256": "f3cc83f298b5d187373eb8bde7afe44b5ee4180ae8b9c5bd881cf29d1ca01a41",
+          "start": "0x4b748690",
+          "unwind_rva": "0x22f9cb4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 206,
+      "end_exclusive": "0x4b53adce",
+      "module": "sldmodu.dll",
+      "name": "EmbeddedOwnerCtor01",
+      "sha256": "a8027892b861e782f3056aca0bf0fa09ed8d9078f4b9dee69b74528d35132d80",
+      "start": "0x4b53ad00",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 206,
+          "end_exclusive": "0x4b53adce",
+          "sha256": "a8027892b861e782f3056aca0bf0fa09ed8d9078f4b9dee69b74528d35132d80",
+          "start": "0x4b53ad00",
+          "unwind_rva": "0x22aeae8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2671,
+      "end_exclusive": "0x4bba41ef",
+      "module": "sldmodu.dll",
+      "name": "BEntSerialize01",
+      "sha256": "e5491d90050bf64fd704e55ddf869319cc680b69a3a3559bb7e3d8827ff90c07",
+      "start": "0x4bba3780",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2671,
+          "end_exclusive": "0x4bba41ef",
+          "sha256": "e5491d90050bf64fd704e55ddf869319cc680b69a3a3559bb7e3d8827ff90c07",
+          "start": "0x4bba3780",
+          "unwind_rva": "0x2395564"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1772,
+      "end_exclusive": "0x4bba4dac",
+      "module": "sldmodu.dll",
+      "name": "CompBEntSerialize01",
+      "sha256": "005e44ead6413814374af894889002f25124a2c4cfc829ae49fde65c990ae89d",
+      "start": "0x4bba46c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1772,
+          "end_exclusive": "0x4bba4dac",
+          "sha256": "005e44ead6413814374af894889002f25124a2c4cfc829ae49fde65c990ae89d",
+          "start": "0x4bba46c0",
+          "unwind_rva": "0x239582c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 685,
+      "end_exclusive": "0x4bba5dcd",
+      "module": "sldmodu.dll",
+      "name": "CompEdgeSerialize01",
+      "sha256": "f6584f84e3702a63838834ebd295c340828314e11e57d9b2a7c6d3ca10a88911",
+      "start": "0x4bba5b20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 685,
+          "end_exclusive": "0x4bba5dcd",
+          "sha256": "f6584f84e3702a63838834ebd295c340828314e11e57d9b2a7c6d3ca10a88911",
+          "start": "0x4bba5b20",
+          "unwind_rva": "0x229da40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 81,
+      "end_exclusive": "0x4b525be1",
+      "module": "sldmodu.dll",
+      "name": "LateDispatch01",
+      "sha256": "de4b7cbeb3b595ea4578a28b8bd7ed4f246602be6e39cae21a987ebe636c5f84",
+      "start": "0x4b525b90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 81,
+          "end_exclusive": "0x4b525be1",
+          "sha256": "de4b7cbeb3b595ea4578a28b8bd7ed4f246602be6e39cae21a987ebe636c5f84",
+          "start": "0x4b525b90",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 95,
+      "end_exclusive": "0x4b5258af",
+      "module": "sldmodu.dll",
+      "name": "PostCreate01",
+      "sha256": "9086ab32736822fb44517dbc91b229ed2971b73d5f63ba3543dac602801b75de",
+      "start": "0x4b525850",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 95,
+          "end_exclusive": "0x4b5258af",
+          "sha256": "9086ab32736822fb44517dbc91b229ed2971b73d5f63ba3543dac602801b75de",
+          "start": "0x4b525850",
+          "unwind_rva": "0x22ac518"
+        }
+      ]
+    },
+    {
+      "bound": "complete reviewed leaf through ret; no declared unwind record",
+      "bytes": 12,
+      "end_exclusive": "0x4b51f88c",
+      "module": "sldmodu.dll",
+      "name": "CreateScopeLeaveLeaf01",
+      "sha256": "6cc856c84a26b2bb771c201de841b854b41ce39180255e79de7603bf54c8e6c9",
+      "start": "0x4b51f880",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 275,
+      "end_exclusive": "0x4b566383",
+      "module": "sldmodu.dll",
+      "name": "TempEdgeScopeLeave01",
+      "sha256": "1b5fd2a34a74c74da2e1847ae79dd4990ea30bbc736d5d643e315abd9e7a2fde",
+      "start": "0x4b566270",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 275,
+          "end_exclusive": "0x4b566383",
+          "sha256": "1b5fd2a34a74c74da2e1847ae79dd4990ea30bbc736d5d643e315abd9e7a2fde",
+          "start": "0x4b566270",
+          "unwind_rva": "0x22b5bc4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 344,
+      "end_exclusive": "0x4b517008",
+      "module": "sldmodu.dll",
+      "name": "SurfaceScopeLeave01",
+      "sha256": "9e02e645fa21b5088fa663926bb094e78a67ccc85d23c131898a55a6ae16fc1a",
+      "start": "0x4b516eb0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 344,
+          "end_exclusive": "0x4b517008",
+          "sha256": "9e02e645fa21b5088fa663926bb094e78a67ccc85d23c131898a55a6ae16fc1a",
+          "start": "0x4b516eb0",
+          "unwind_rva": "0x22aaff4"
+        }
+      ]
+    },
+    {
+      "bound": "complete reviewed leaf through ret; no declared unwind record",
+      "bytes": 6,
+      "end_exclusive": "0x4b27e156",
+      "module": "sldmodu.dll",
+      "name": "part_and_edge_true_type_leaf",
+      "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "start": "0x4b27e150",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "complete reviewed leaf through ret; no declared unwind record",
+      "bytes": 3,
+      "end_exclusive": "0x4b27cbe3",
+      "module": "sldmodu.dll",
+      "name": "face_and_vertex_false_type_leaf",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x4b27cbe0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "complete reviewed leaf through ret; no declared unwind record",
+      "bytes": 22,
+      "end_exclusive": "0x4b519e96",
+      "module": "sldmodu.dll",
+      "name": "collector_vector_transfer",
+      "sha256": "2d650bc51af3d23966a5efe9bbc7067a94c0c1ab78bb4bcdc83c3482f297c187",
+      "start": "0x4b519e80",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd37908",
+      "module": "sldgcu.dll",
+      "name": "?destroy@gcCurve_w@@QEAAXXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd37920",
+      "module": "sldgcu.dll",
+      "name": "?getBody@gcVertex_w@@QEBAPEAVgcBody_w@@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd37930",
+      "module": "sldgcu.dll",
+      "name": "?getBody@gcCoEdge_w@@QEBAPEAVgcBody_w@@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd381d0",
+      "module": "sldgcu.dll",
+      "name": "?endVertex@gcEdge_w@@QEBAPEAVgcVertex_w@@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd381d8",
+      "module": "sldgcu.dll",
+      "name": "?startVertex@gcEdge_w@@QEBAPEAVgcVertex_w@@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd38368",
+      "module": "sldgcu.dll",
+      "name": "?edge@gcCoEdge_w@@QEBAPEAVgcEdge_w@@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd38788",
+      "module": "sldgcu.dll",
+      "name": "?getAtomId@gcBody_w@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd38798",
+      "module": "sldgcu.dll",
+      "name": "?getVertices@gcBody_w@@QEBAHQEAHQEAPEAPEAVgcVertex_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d880",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3da60",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@K@Z",
+      "source_module": "sldmodu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 18,
+      "end_exclusive": "0x4b51d4ec",
+      "module": "sldmodu.dll",
+      "name": "fresh_empty_vertex_vector",
+      "sha256": "97ef7dbbe02200ff1a4dc4a4d841a481e62fb1122b10114022f2b96b054dd36d",
+      "start": "0x4b51d4da"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 49,
+      "end_exclusive": "0x4b51d88a",
+      "module": "sldmodu.dll",
+      "name": "fresh_empty_pending_tree",
+      "sha256": "9966c8f28f420a322f2a7117e6ef219ada939fa4207e05ff823f26c8d76b8215",
+      "start": "0x4b51d859"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 25,
+      "end_exclusive": "0x4b52ad4d",
+      "module": "sldmodu.dll",
+      "name": "mode1_collector_constructor_argument",
+      "sha256": "fc0ddee9da22086f14d155e0ba7c7afc9df0551617405c1adb29d7a0eb8e3093",
+      "start": "0x4b52ad34"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 48,
+      "end_exclusive": "0x4b52ad9a",
+      "module": "sldmodu.dll",
+      "name": "initial_retry_pending_erase",
+      "sha256": "a6d8070dd4798a5dc5f9ef05c891e78331d11f1a2e1d2e6e0137d3aa7da89534",
+      "start": "0x4b52ad6a"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 44,
+      "end_exclusive": "0x4b52b04b",
+      "module": "sldmodu.dll",
+      "name": "post_retry_pending_erase",
+      "sha256": "7fa8f931d09a048a0239b17b4860b273ee2415a35b13874c85658785fffe0fa5",
+      "start": "0x4b52b01f"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 140,
+      "end_exclusive": "0x4b75ac99",
+      "module": "sldmodu.dll",
+      "name": "mode1_exit",
+      "sha256": "fb2bc4e180c7fc03c05c83dc7018009711c643a86fb2047a8655bbabd451c236",
+      "start": "0x4b75ac0d"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 31,
+      "end_exclusive": "0x4b75ae47",
+      "module": "sldmodu.dll",
+      "name": "sole_pending_direct_call",
+      "sha256": "ee513571d36888c73a3dcc2e19156f029643ff5d611f2ef430a701c2ba717fe5",
+      "start": "0x4b75ae28"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 125,
+      "end_exclusive": "0x4b526633",
+      "module": "sldmodu.dll",
+      "name": "vertex_all_or_pending_selection",
+      "sha256": "6ce4de40c1ed8ddea110fd443fe3c3c1d2920297db402663a8c03bb955a83740",
+      "start": "0x4b5265b6"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 38,
+      "end_exclusive": "0x4b526870",
+      "module": "sldmodu.dll",
+      "name": "empty_pending_skip",
+      "sha256": "e85ae4db75b1ddb28f3da4c2239f2d059ba8b46726ad13793ada9692f41721e6",
+      "start": "0x4b52684a"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 14,
+      "end_exclusive": "0x4b526907",
+      "module": "sldmodu.dll",
+      "name": "pending_vertex_append_call",
+      "sha256": "7e10832536db49c65fbf85fc668e180834562e7b31f097c758b51cd2eab87279",
+      "start": "0x4b5268f9"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 22,
+      "end_exclusive": "0x4b52b871",
+      "module": "sldmodu.dll",
+      "name": "all_body_vertex_append_call",
+      "sha256": "90c59d9240fcee70eeda3144192418b3bfe7e6154674b62d25f4e3c16555227a",
+      "start": "0x4b52b85b"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 59,
+      "end_exclusive": "0x4b53610b",
+      "module": "sldmodu.dll",
+      "name": "late_pending_and_part_gate",
+      "sha256": "d1d8f4e2c6e5f3ce6fb86dc08de16790439249a3b0d55222ef1c0185a8def6b9",
+      "start": "0x4b5360d0"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 36,
+      "end_exclusive": "0x4b5361b8",
+      "module": "sldmodu.dll",
+      "name": "late_edge_type_and_null_hint_gate",
+      "sha256": "4acbb31dcacbbcb1db7b11181f3dd9594af854d71e51d6efa3155c7cd5817a9d",
+      "start": "0x4b536194"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 152,
+      "end_exclusive": "0x4b536373",
+      "module": "sldmodu.dll",
+      "name": "late_clear_reset_and_vertex_hint",
+      "sha256": "b035b6ca500b1eba7392c385cd06b130a1bbce7e6f250c063fcd81aec517e7eb",
+      "start": "0x4b5362db"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 54,
+      "end_exclusive": "0x4b5363a9",
+      "module": "sldmodu.dll",
+      "name": "selected_and_opposite_endpoint",
+      "sha256": "3402c73dc3d5b7c016496cc9eaabe4a62ececc3c442b29f9f06624f8332dad59",
+      "start": "0x4b536373"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 16,
+      "end_exclusive": "0x4b5364d9",
+      "module": "sldmodu.dll",
+      "name": "late_endpoint_id_publication",
+      "sha256": "d73ff217cf952036955c692a6de7e43f80b4bf1abfcaa0d8f1a435417335c655",
+      "start": "0x4b5364c9"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 88,
+      "end_exclusive": "0x4b7596e8",
+      "module": "sldmodu.dll",
+      "name": "common_runtime_cache_reset",
+      "sha256": "ac20dddf91f1ce4fa52f5be9240613d3e19c3678a32bac5e75a1272a02128859",
+      "start": "0x4b759690"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 33,
+      "end_exclusive": "0x4b7597d2",
+      "module": "sldmodu.dll",
+      "name": "selected_runtime_cache_bit",
+      "sha256": "30c9ff340255fc5209f6aedcaa88b247d17dca8a4ccbbcfa909f5fa1b142bf5e",
+      "start": "0x4b7597b1"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 26,
+      "end_exclusive": "0x4b759827",
+      "module": "sldmodu.dll",
+      "name": "coedge_runtime_cache_bit",
+      "sha256": "64f34000dec6d8274249827a3e18060163207c06ec73c2e2e05c0ae511aa4bfa",
+      "start": "0x4b75980d"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 108,
+      "end_exclusive": "0x4bba388b",
+      "module": "sldmodu.dll",
+      "name": "wire_flags_and_low32_handle",
+      "sha256": "081133c43f2fab2e5d986e4ab25838ebb75b01d325c6c2b8ea153d2d201055f4",
+      "start": "0x4bba381f"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 29,
+      "end_exclusive": "0x4bba47dc",
+      "module": "sldmodu.dll",
+      "name": "component_stored_actual_reference",
+      "sha256": "da5a21165381dc0ddcc6c71e2c365c41dc1692e7fe6f20a41e55af728170ecb0",
+      "start": "0x4bba47bf"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 18,
+      "end_exclusive": "0x4b526832",
+      "module": "sldmodu.dll",
+      "name": "orchestrator_tail_cleanup_calls",
+      "sha256": "f16144de4a60bd9217cedf7e1d35fbd25367985b6c1d0484dfba4a6e70858546",
+      "start": "0x4b526820"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 103,
+      "end_exclusive": "0x4b57888b",
+      "module": "sldmodu.dll",
+      "name": "owner_publication_and_scope_exit",
+      "sha256": "b7ddb9459217bae7a819661e652f8389565c3c27b5f931d6282b6d8d7f081ffd",
+      "start": "0x4b578824"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 22,
+      "end_exclusive": "0x4b519e96",
+      "module": "sldmodu.dll",
+      "name": "transfer_nulls_collector_owner",
+      "sha256": "2d650bc51af3d23966a5efe9bbc7067a94c0c1ab78bb4bcdc83c3482f297c187",
+      "start": "0x4b519e80"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 28,
+      "end_exclusive": "0x4b516ef5",
+      "module": "sldmodu.dll",
+      "name": "collector_null_vector_cleanup_guard",
+      "sha256": "207b9fac82fffce4c776d1c574fb36e26a4ddfa7829950eb6f14db8da898c505",
+      "start": "0x4b516ed9"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 77,
+      "end_exclusive": "0x4b5662de",
+      "module": "sldmodu.dll",
+      "name": "temporary_model_partition_and_holder_cleanup",
+      "sha256": "323ba73e5d2b1418ab65e298bb9fba1c38382f9a4ea7784faf26e34b9f8aefe6",
+      "start": "0x4b566291"
+    },
+    {
+      "bound": "reviewed original instruction-aligned interval",
+      "bytes": 117,
+      "end_exclusive": "0x4b566363",
+      "module": "sldmodu.dll",
+      "name": "temporary_representation_cleanup",
+      "sha256": "c5436a9b553db648462f789403ad1fe78679b8bc2558d7beb85aa71b18b96a70",
+      "start": "0x4b5662ee"
+    }
+  ],
+  "late_repair": {
+    "endpoint_order": "First ID is selected pending vertex row, second is opposite actual edge endpoint row or zero if absent; not unconditional geometric start/end order",
+    "endpoint_setter": "0x4b53b6f0",
+    "entry": "0x4b5360d0",
+    "required": [
+      "pending_count>0",
+      "model nonnull and concrete part predicate true",
+      "actual reference virtual+f8 true",
+      "BEnt.f40 null",
+      "actual pending vertex has valid f78 row index"
+    ],
+    "selected_zero_pending_result": "Return before every per-reference cache, hint and embedded endpoint mutation",
+    "sequence": [
+      "Copy selected VertexRef and reset its runtime binding",
+      "Clear edge runtime cache and reset body/coedge binding",
+      "Try installing the copied actual VertexRef hint; helper may reject mismatched resolution",
+      "If actual embedded BEnt.f18 exists, write selected vertex-row ID then opposite endpoint vertex-row ID"
+    ],
+    "type_result": "EdgeRef true; FaceRef and VertexRef false at virtual+f8"
+  },
+  "modules": [
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "file_version": "34.5.2.604",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "ordinary_guards": [
+    "Fresh ordinary classical rectangular-prism body and actual local part owner",
+    "All four edge surface operands retain their actual aliased owners",
+    "Actual CompEdge construction mode is 1",
+    "Initial common-edge validation keeps that mode-1 object",
+    "Neither original nor applicable anti-key collides; post-insert validation keeps original",
+    "Pending tree is the actual fresh data+b38 tree",
+    "Native option global 0x4db5681c bit0 is clear",
+    "No reuse of incremental update, replacement, special body or wider context branches"
+  ],
+  "owner": "flag_ownership",
+  "pending_map": {
+    "collector_erase_calls": [
+      "0x4b52ad87",
+      "0x4b52b038"
+    ],
+    "constructor_zero_count_window": "0x4b51d859..0x4b51d88a",
+    "count": "data+b40",
+    "header": "data+b38",
+    "inserter": "0x4b527670",
+    "inventory_limit": "Only reviewed explicit selected functions and aligned direct calls; no global theorem excluding arbitrary indirect or inlined writers",
+    "key": "actual BEnt reference pointer",
+    "selected_mode1_exit": "0x4b75ac0d ->0x4b75ac71 ->0x4b75ac94 ->0x4b75af58",
+    "selected_result": "No pending insertion from mode1; excluded retry branches erase only",
+    "value_fields": [
+      "actual selected endpoint vertex pointer",
+      "actual coedge pointer"
+    ]
+  },
+  "remaining": [
+    "Transitive effects of tempEdgeHelper and collector base teardown on retained refs",
+    "Full selected native update/save lifecycle and actual stream readiness",
+    "Nonzero pending, forced all-vertex, collisions, anti-key equality, multibody/assembly and special geometry semantics",
+    "Oracle/heldout reproduction of the selected generated ordinary cache"
+  ],
+  "required_work_for_selected_f60": [
+    "Build and preserve actual mode1 operand graph, current body atom, row allocation and initial/postinsert conditions from owning packets",
+    "Prove native option bit0 clear and fresh pending tree at this stage",
+    "No synthetic vertex rows, vertex hint or endpoint-ID writes are required by this late stage",
+    "Carry actual incoming fe8/f70 to the ordinary serializer unless another independently bound mutation runs",
+    "Keep helper teardown, wider cache readiness and actual native save qualification separate"
+  ],
+  "schema": "kit.sw2026.downstream-late-edge-pass.v1",
+  "scope": "Exact-build static rules through selected fresh mode-1 collision-free edge and zero-pending late stage; final teardown/store lifecycle is not admitted",
+  "selected_state_at_late_return": {
+    "BEnt.f18.f40_0": "unchanged constructor zero",
+    "BEnt.f18.f40_1": "unchanged constructor zero",
+    "BEnt.f40": "unchanged; null for selected fresh mode1 graph",
+    "BEnt.f70": "unchanged incoming value; constructor zero remains zero within this reviewed stage",
+    "BEnt.fe8": "unchanged incoming mode1 value; do not apply an invented 0x700 clear",
+    "data.b40": 0,
+    "data.f78": "empty fresh vertex-row vector",
+    "state_boundary": "Immediately after 0x4b5360d0 returns to 0x4b526633; no whole-save lifetime claim"
+  },
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "task": "B04-SW2026-DOWNSTREAM-LATE-EDGE-PASS",
+  "vertex_selection": {
+    "all_body_rule": "bit0 set, or nonzero pending_count exceeds 0.25 times signed(data+bdc)",
+    "density_multiplier": 0.25,
+    "global_option_word": "0x4db5681c",
+    "not_implied_by": "Rectangle geometry alone, option bit0 alone, or a saved empty vector",
+    "otherwise": "Only pending endpoints are wrapped and appended when pending_count is nonzero",
+    "selected_result": "No all-body or pending-only vertex append; fresh f78 remains empty through return from late repair"
+  },
+  "vtable_cells": [
+    {
+      "cell": "0x4ce863d8",
+      "module": "sldmodu.dll",
+      "name": "edge_is_edge",
+      "target": "0x4b27e150"
+    },
+    {
+      "cell": "0x4cf95fc8",
+      "module": "sldmodu.dll",
+      "name": "face_is_not_edge",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4ce86678",
+      "module": "sldmodu.dll",
+      "name": "vertex_is_not_edge",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d125478",
+      "module": "sldmodu.dll",
+      "name": "part_type_predicate",
+      "target": "0x4b27e150"
+    },
+    {
+      "cell": "0x4ce86308",
+      "module": "sldmodu.dll",
+      "name": "edge_exact_BEnt_serialize",
+      "target": "0x4bba3780"
+    },
+    {
+      "cell": "0x4ce8f398",
+      "module": "sldmodu.dll",
+      "name": "component_edge_serialize",
+      "target": "0x4bba5b20"
+    }
+  ]
+}

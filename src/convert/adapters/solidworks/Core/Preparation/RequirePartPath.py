@@ -3,7 +3,9 @@ from convert.adapters.base.ContractTypes import IsDeviceName
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
-from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Container.Format import (
+    KPartSuffix,
+)
 
 
 # self identity must preserve a real explicit windows part path without guessing host drive mappings or consulting filesystem state

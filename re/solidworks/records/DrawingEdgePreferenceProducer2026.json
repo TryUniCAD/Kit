@@ -1,0 +1,322 @@
+{
+  "activity": {
+    "cad_files_opened": 0,
+    "git_mutations": 0,
+    "held_out_inputs_read": 0,
+    "proprietary_code_published": false,
+    "shared_checkout_writes": 0,
+    "vendor_code_executed": false,
+    "vm_calls": 0
+  },
+  "api_metadata_sha256": "92235db40b63b95246f2479a9166ecaa12c242d3f96d149e13827d1e92b756f5",
+  "delivery_pr": 121,
+  "direct_calls": [],
+  "field_rules": [
+    {
+      "get_site": "0x49296455",
+      "member": "f220",
+      "owner": "actual model.getDetailDefs",
+      "rule": "native per-document dispatch loads/stores SaveModelData on the actual detail definitions, and invokes app_callDll with old/new f220 plus unchanged f224; no universal default is inferred",
+      "selector": 779,
+      "set_site": "0x492a9181",
+      "width": "i32"
+    },
+    {
+      "member": "f224",
+      "owner": "actual model.getDetailDefs",
+      "rule": "IncludeStandardViewsInViewPalette is a separate member; the harness does not change it",
+      "selector": 780,
+      "width": "i32"
+    }
+  ],
+  "functions": [
+    {
+      "entry": "0x456a9790",
+      "fragments": [
+        {
+          "bytes": 272,
+          "end_exclusive": "0x456a98a0",
+          "file_offset": 2854288,
+          "name": "unwind_fragment",
+          "sha256": "462a4a06e8d2bbb9620628f9f9056612a727ca14bf3fd75d38731aa4b6dc4999",
+          "start": "0x456a9790"
+        }
+      ],
+      "module": "sldappu.dll",
+      "name": "get_document_toggle_wrapper",
+      "source_listing_private_sha256": "65fd4b1967ee856433da6566716b2641364b1d8338a6962bd90bf5e4260bf00f"
+    },
+    {
+      "entry": "0x456b4330",
+      "fragments": [
+        {
+          "bytes": 291,
+          "end_exclusive": "0x456b4453",
+          "file_offset": 2898224,
+          "name": "unwind_fragment",
+          "sha256": "63fc9724afdccb3e9c0e2b5fd381604650b1c756cb41e7720d9810c262b1d2ab",
+          "start": "0x456b4330"
+        }
+      ],
+      "module": "sldappu.dll",
+      "name": "set_document_toggle_wrapper",
+      "source_listing_private_sha256": "c24a3edf1513bc321267d2fee50ca8559974e4dd20bb8a7a2bd5b67fc420d02f"
+    },
+    {
+      "entry": "0x492937d0",
+      "fragments": [
+        {
+          "bytes": 13914,
+          "end_exclusive": "0x49296e2a",
+          "file_offset": 4139984,
+          "name": "unwind_fragment",
+          "sha256": "670ef7a6a61fa124a62eeebbb1ae2da010dc890e62986273cc8ba926c4f39643",
+          "start": "0x492937d0"
+        }
+      ],
+      "module": "slduiu.dll",
+      "name": "get_document_toggle_dispatch",
+      "source_listing_private_sha256": "e1534dd9fde907a170b6a2d58826adb9dd59259b0fc4b7322efb87d49d5975e6"
+    },
+    {
+      "entry": "0x492a3ad0",
+      "fragments": [
+        {
+          "bytes": 25434,
+          "end_exclusive": "0x492a9e2a",
+          "file_offset": 4206288,
+          "name": "unwind_fragment",
+          "sha256": "ea395d902f2bfd9d8e0c97690c0e3e7216c4e74e03152d88b41d9ddae64f03d0",
+          "start": "0x492a3ad0"
+        }
+      ],
+      "module": "slduiu.dll",
+      "name": "set_document_toggle_dispatch",
+      "source_listing_private_sha256": "4952d79cbeec5252eaed71b49501b38e8f65fff1eba9472b92d6dd58edc1d636"
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4a459ab8",
+      "module": "slduiu.dll",
+      "target_module": "SLDMODU.dll",
+      "target_name": "?getDetailDefs@moModel_c@@QEAAPEAVmoDetailDefs_c@@XZ"
+    },
+    {
+      "iat": "0x4a464130",
+      "module": "slduiu.dll",
+      "target_module": "sldappu.dll",
+      "target_name": "?app_callDll@@YAPEAXPEB_WPEBDPEAXH@Z"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bytes": 12,
+      "end_exclusive": "0x49293829",
+      "file_offset": 4140061,
+      "module": "slduiu.dll",
+      "name": "get_detail_defs_owner",
+      "sha256": "5c24bae77591b29da59753310b5d81ac22c5041c5bc6d8a19cd985033a273e2b",
+      "start": "0x4929381d"
+    },
+    {
+      "bytes": 45,
+      "end_exclusive": "0x49294c06",
+      "file_offset": 4145113,
+      "module": "slduiu.dll",
+      "name": "get_selector_routing",
+      "sha256": "905729009152669eddbd7f9330a8387b7e179cbe6b7df6a1bda71f089b44dff1",
+      "start": "0x49294bd9"
+    },
+    {
+      "bytes": 28,
+      "end_exclusive": "0x49296464",
+      "file_offset": 4151368,
+      "module": "slduiu.dll",
+      "name": "get_save_model_data_branch",
+      "sha256": "560d59832514aa52fae5f0c4910224de537a72b4e1a6d8a7eb1ceac6cd3863d5",
+      "start": "0x49296448"
+    },
+    {
+      "bytes": 28,
+      "end_exclusive": "0x49296480",
+      "file_offset": 4151396,
+      "module": "slduiu.dll",
+      "name": "get_standard_view_palette_branch",
+      "sha256": "b50a5b43b079301a194b3b1415ac29ef1e5525014757e90311003d11e99dd13e",
+      "start": "0x49296464"
+    },
+    {
+      "bytes": 12,
+      "end_exclusive": "0x492a3b4d",
+      "file_offset": 4206401,
+      "module": "slduiu.dll",
+      "name": "set_detail_defs_owner",
+      "sha256": "17a01b5cd177b67a041ac0a582c87241b76e51f1e457822db9ab2a729ac7d717",
+      "start": "0x492a3b41"
+    },
+    {
+      "bytes": 47,
+      "end_exclusive": "0x492a6002",
+      "file_offset": 4215763,
+      "module": "slduiu.dll",
+      "name": "set_selector_routing",
+      "sha256": "efa0305e7d9074c604a4ba45524e968bf5370b29192bff64d6a7875da2345e5f",
+      "start": "0x492a5fd3"
+    },
+    {
+      "bytes": 170,
+      "end_exclusive": "0x492a91f7",
+      "file_offset": 4228429,
+      "module": "slduiu.dll",
+      "name": "set_save_model_data_branch",
+      "sha256": "4d1805715c349d431a4cfdc0a60efe2e20b87996a102bdac2f682379ac76c7d6",
+      "start": "0x492a914d"
+    },
+    {
+      "bytes": 49,
+      "end_exclusive": "0x492a9228",
+      "file_offset": 4228599,
+      "module": "slduiu.dll",
+      "name": "set_standard_view_palette_branch",
+      "sha256": "24b870eeec50cfa84fe2ca0f9ae0a918bf9d42bb9a37746487f0a6d308fb665c",
+      "start": "0x492a91f7"
+    }
+  ],
+  "limits": [
+    "The public wrapper forwarding sites are retained separately from the model-side dispatch; its complete intermediate concrete extension virtual owner is not established by these ranges alone",
+    "COM association and persistent reference behavior must pass the pristine native lifecycle before the generated lane runs",
+    "Annotation persistence does not prove f380 use or any downstream-cache construction rule",
+    "The baseline reuses an older disclosed no-explicit-downstream SDK pair and does not create a new native-qualified cache pair"
+  ],
+  "modules": [
+    {
+      "base": "0x453f0000",
+      "bytes": 16519768,
+      "name": "sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  ],
+  "owner": "/root/configuration_header",
+  "repository_inputs": [
+    {
+      "bytes": 3372,
+      "path": "re/tooling/sw2026/materials/MaterialPe.py",
+      "sha256": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7"
+    }
+  ],
+  "scope": "exact registered 34.0 public drawing edge/note APIs and per-document SaveModelData producer; no native execution",
+  "selector_cells": [
+    {
+      "jump_cell": "0x49296c14",
+      "jump_cell_pin": {
+        "bytes": 4,
+        "end_exclusive": "0x49296c18",
+        "file_offset": 4153364,
+        "name": "jump_u32_rva",
+        "sha256": "cdabf4840764c4a3627ce95ea16bf7bb7eba79aec396e1bda34366dff56497a8",
+        "start": "0x49296c14"
+      },
+      "member": "f220",
+      "operation": "get",
+      "preference": 779,
+      "selector_address": "0x49296df1",
+      "selector_pin": {
+        "bytes": 1,
+        "end_exclusive": "0x49296df2",
+        "file_offset": 4153841,
+        "name": "selector_byte",
+        "sha256": "0a43b22d89fa2499be5c7704c9bf273260b0ca9588e4cd1897cd80f9c96cd97a",
+        "start": "0x49296df1"
+      },
+      "selector_u8": 162,
+      "target": "0x49296448"
+    },
+    {
+      "jump_cell": "0x49296c18",
+      "jump_cell_pin": {
+        "bytes": 4,
+        "end_exclusive": "0x49296c1c",
+        "file_offset": 4153368,
+        "name": "jump_u32_rva",
+        "sha256": "65837e3f1f211e0166b8a3229ca44ff61626ca43a66057e04882331b66b6139d",
+        "start": "0x49296c18"
+      },
+      "member": "f224",
+      "operation": "get",
+      "preference": 780,
+      "selector_address": "0x49296df2",
+      "selector_pin": {
+        "bytes": 1,
+        "end_exclusive": "0x49296df3",
+        "file_offset": 4153842,
+        "name": "selector_byte",
+        "sha256": "6d90fbacc073ee0b4c43f3a3291cecda33764f6d66d14224ad60f471f2c8334b",
+        "start": "0x49296df2"
+      },
+      "selector_u8": 163,
+      "target": "0x49296464"
+    },
+    {
+      "jump_cell": "0x492a9c14",
+      "jump_cell_pin": {
+        "bytes": 4,
+        "end_exclusive": "0x492a9c18",
+        "file_offset": 4231188,
+        "name": "jump_u32_rva",
+        "sha256": "443bc2a27f5a43f70741723f71c946fa5abc7501b1470075c8fcf1f5681a4636",
+        "start": "0x492a9c14"
+      },
+      "member": "f220",
+      "operation": "set",
+      "preference": 779,
+      "selector_address": "0x492a9df1",
+      "selector_pin": {
+        "bytes": 1,
+        "end_exclusive": "0x492a9df2",
+        "file_offset": 4231665,
+        "name": "selector_byte",
+        "sha256": "fe1dcd3abfcd6b1655a026e60a05d03a7f71e4b6070f36e6c7e9c4b6f3d3bf1b",
+        "start": "0x492a9df1"
+      },
+      "selector_u8": 166,
+      "target": "0x492a914d"
+    },
+    {
+      "jump_cell": "0x492a9c18",
+      "jump_cell_pin": {
+        "bytes": 4,
+        "end_exclusive": "0x492a9c1c",
+        "file_offset": 4231192,
+        "name": "jump_u32_rva",
+        "sha256": "0c6616e20d93159cd887d4bc6bb9b092eec10bbfce43beb181d4b5404b445144",
+        "start": "0x492a9c18"
+      },
+      "member": "f224",
+      "operation": "set",
+      "preference": 780,
+      "selector_address": "0x492a9df2",
+      "selector_pin": {
+        "bytes": 1,
+        "end_exclusive": "0x492a9df3",
+        "file_offset": 4231666,
+        "name": "selector_byte",
+        "sha256": "2dbf9365a0b09d85bbd6176d8b2332aa5ae97bef652712473bc69165e74b22ed",
+        "start": "0x492a9df2"
+      },
+      "selector_u8": 167,
+      "target": "0x492a91f7"
+    }
+  ],
+  "task_id": "B04-SW2026-DRAWING-EDGE-COM",
+  "virtual_cells": [],
+  "wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959"
+}

@@ -1,0 +1,19 @@
+# Planar mate alignment and distance options in SOLIDWORKS 2026
+
+The pinned assembly command used by the mate API translates explicit alignment before applying the model setter. The ordinary single-distance factory also supplies independent per-endpoint arc-type arguments. This supplements the [wrapper and factory record](PlanarMateWrapperWriteState2026.md) with the bound UI-to-model path for ordinary coincident, distance and parallel mates. The [native evidence](PlanarMateInputTranslation2026.json) records function extents, hashes, import cells and concrete tables from `sldasmu.dll` and `sldmodu.dll` for build `34.5.2.0604`.
+
+## Explicit alignment
+
+`sldasmu.dll` entry `uiNewAddMateDlg_c::iApiMakeNewMate` calls the command factory at `0x3f989270`. In that factory, `0x3f989a61` reads the signed alignment selection from `uoNewMateDlgData_c+0x6c`. The branches through `0x3f989a87` map API value `0` to internal alignment `1`, API value `1` to alignment `2`, and `-1` or any other value on this native switch to internal zero. A writer with a typed input should admit only its supported choices. At `0x3f7f5594` the shared command constructor assigns the translated value to `command+0xe8`.
+
+The coincident, parallel and distance tables all use `0x3f8267f0` for command slot `+0xb8`. The runner obtains the concrete model mate from command slot `+0x988` at `0x3f826a50`. After a nonnull result, it reads `command+0xe8` at `0x3f826aab` and calls mate slot `+0x21f0` at `0x3f826abc` only for `1` or `2`. The three model tables bind that slot to `sldmodu.dll 0x4b2cfe10`, which writes `moMate.f3b4`. Explicit aligned neutral input therefore supplies `f3b4=1`. Explicit anti-aligned supplies `2`. Unspecified alignment retains the constructor zero at this step and can be populated by the solver later. `f3b8` remains independent solver state.
+
+## Single planar distance
+
+For distance kind `5`, the command factory starts both `amArcDistType_e` arguments at `3` at `0x3f989cb1` and `0x3f989cb6`. With no arc override (`uoNewMateDlgData_c+0x234=0`) it skips the per-endpoint conversion branches. The dialog constructor `0x3f975520` starts that flag at zero. The public API helper can set it after a positive distance-validator result at `0x3f9890be`. The bound validator separately requires an applicable distance selection type at `0x3f9497d0`. A neutral distance between two principal planes with absent arc options uses the no-override path. Nonzero override contexts and limit mates need their own rules.
+
+At `0x3f989da6` and `0x3f989dad` the factory assigns the prepared values to command `+0x188/+0x18c`. For zero upper and lower range deltas, `uiAssemblyMateDistanceCmd_c` slot `+0x988` dispatches to `0x3f815b00`. Its call at `0x3f815b67` passes the authored length, both real endpoint pointers, and those two arc arguments to the ordinary `moMateDistanceDim_c` factory at `sldmodu.dll 0x4bc421b0`. The model setter at `0x4bc7c700` writes the two values to `f4dc` and `f4e0`. The derived write state for a single planar distance with no arc override is therefore `(3,3)`.
+
+## Disclosed comparisons
+
+The hash-locked source author supplies alignment `0`, flip `False`, and the same authored distance in all three distance arguments. The three disclosed graphs have `f3b4=1`. Readback of the admitted A18 source by the existing typed archive reader gives `f4dc=3`, `f4e0=3` and an editable length of `0.06323 m`. A18 also has `f4c0=1`, `f4d8=1` and `f4f4=0`. Those three readings are outside this translation proof. These comparisons reuse disclosed files. No native application execution, generated-mate acceptance or held-out reads occurred. [Pinned authoring inputs](../../tooling/sw2026/AssemblyMateSourceSpecs01.json) · [Source lock](../v2026/heldout/AssemblyPlanarMateSourceLock01.json) · [Disclosed archive receipt](../measurements/2026/AssemblyPlanarMateArchive01.json)

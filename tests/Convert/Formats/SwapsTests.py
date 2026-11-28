@@ -151,16 +151,14 @@ KPartSuffixes = (".SLDPRT", ".FCStd", ".CATPart")
 KAssemblySuffixes = (".SLDASM", ".FCStd", ".CATProduct")
 
 # assembly writing remains unavailable through the native solidworks registry
-KReadOnlySuffixes = frozenset({".SLDASM"})
+KReadMatrixOnly = frozenset({".SLDASM"})
 
 # the legacy swap fixtures use the established targets while authored parts exercise the scoped native writer
 KPartTargets = (".FCStd", ".CATPart")
 
 # the assembly targets cases must remain explicit so format translation exercises the intended compatibility boundary
 KAssemblyTargets = tuple(
-    SuffixName
-    for SuffixName in KAssemblySuffixes
-    if SuffixName not in KReadOnlySuffixes
+    SuffixName for SuffixName in KAssemblySuffixes if SuffixName not in KReadMatrixOnly
 )
 
 # this binding exists because shared behavior needs one stable value
@@ -544,11 +542,11 @@ def TestSFMRADK() -> None:
         }
         for AdapterSet in (Registry.readers(), Registry.writers())
     )
-    ReadOnly = {SuffixName.casefold() for SuffixName in KReadOnlySuffixes}
+    ReadOnly = {SuffixName.casefold() for SuffixName in KReadMatrixOnly}
+    BoundedWriters = {".sldasm", ".slddrw"}
     Formats = {SuffixName.casefold() for SuffixName in KFormatBySuffix}
     assert Formats <= ReaderSuffixes
-    assert Formats - ReadOnly == ReaderSuffixes & WriterSuffixes
-    assert not ReadOnly & WriterSuffixes
+    assert (Formats - ReadOnly) | BoundedWriters == ReaderSuffixes & WriterSuffixes
     assert set(KPartSuffixes) | set(KAssemblySuffixes) == set(KFormatBySuffix)
     assert set(KPartSuffixes) & set(KAssemblySuffixes) == {".FCStd"}
     Counts = Counter(Suffix(PathValueA) for PathValueA in KCorpusFiles)

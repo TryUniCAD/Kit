@@ -1,0 +1,12 @@
+{
+  "blocked_external_accesses": 0,
+  "freeze_sha256": "d95ad3efc026334254f76e05c0d66671ed137d9959f980299c1d19904d264057",
+  "native_launches": 0,
+  "passed": true,
+  "schema": "kit.sw2026.sealed-chamfer-custody.v1",
+  "source_lock_sha256": "71e701e7595d1bf7fbafef3cd1c9118eff2ab8386dee2b743c4bafe616a5b189",
+  "verified_prior_controls": 2,
+  "verified_prior_lifetimes": 8,
+  "verified_source_phases": 6,
+  "verified_source_slots": 2
+}

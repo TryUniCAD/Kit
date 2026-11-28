@@ -38,10 +38,14 @@ complete candidate and records its file and stream digests under
 SOLIDWORKS measurement. The command returns a candidate digest and manifest
 digest for custody. Publication still uses the normal SDK or CLI.
 
-The caller establishes the authenticity of the unsigned oracle report.
-The writer verifies its required structure, oracle build and digest binding
-without reading a report or running CAD. A successful match reports both
-native acceptance flags. The output must retain the measured encoded locator.
+Kit authenticates both published native reports by their canonical JSON
+digests. The receipt must bind the complete regenerated archive, exact
+oracle build and measured lifecycle. A successful match reports both native
+acceptance flags. The writer uses the caller's parsed receipt in memory.
+Use the original report for the Python compression runtime that produced
+the archive.
+[Classic zlib evidence](../../../../re/solidworks/measurements/2026/SdkDefaultPartNative01.json)
+[Zlib-ng evidence](../../../../re/solidworks/measurements/2026/SdkDefaultPartZlibNgNative01.json)
 
 The [disclosed follow-up](../../../../re/solidworks/records/MeasuredPartPublication2026.md)
 reused both actual passing offline measurements. It reproduced the complete

@@ -1,0 +1,110 @@
+{
+  "actual_publication_failed": true,
+  "controls": {
+    "ControlAfter": {
+      "numeric_checks": 7,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395898034544620,
+        "process_id": 1660,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "result_sha256": "6d6410036379d36168f9c8b9eaee54d0746bf13c0aee9f9f86bb1e14093f9ea4"
+    },
+    "ControlBefore": {
+      "numeric_checks": 7,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395897471943035,
+        "process_id": 7580,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "result_sha256": "8f4824cb498c6447ce7c4753c033dbb9c5fdde89850979b5acb1ac15274299c6"
+    }
+  },
+  "dimension_path_control": {
+    "author_record_sha256": "3eb54da47f2e764988e35cb2eec499c8f00e4cb631a86a2b31b3c6010791c907",
+    "distinct_native_processes": 5,
+    "first_add2_arguments": [
+      0,
+      "\"D1@AnchorBoss\" = \"D1@AnchorSketch\" / 2",
+      false
+    ],
+    "first_add2_return": 0,
+    "numeric_checks": 52,
+    "same_registered_call_shape": true,
+    "source_lock_sha256": "aa3408803e08ea1a7e32f4117103f92eb5bd8132ff01648fbfc260839cff7a91",
+    "source_locked": true,
+    "writer_output_count": 0
+  },
+  "matrix_packet": {
+    "host_checks_passed": 6,
+    "host_checks_sha256": "12f86335da75e93a9354c148a5cd4964e1155d73c544d7b42b70e96690decbf7",
+    "manifest_sha256": "5e8fd733b15a00022eff4da7dfaf4b0aa209d12e4d49658a12da39248b142818",
+    "members": 8,
+    "native_document_saves": 0,
+    "native_processes_executed": 0,
+    "planned_native_processes": 3,
+    "protocol_sha256": "98bcec6744f0a6d00e465c7ef6bd9d85d53def2ad69df32dbbaf93cafa5ce41a",
+    "recipe_sha256": "4ba9553ce7c988cb5ed3d14ecf976db88744b8b8cb3e257e528954a06c677ed3",
+    "sealed_inputs_read": 0
+  },
+  "native_call": {
+    "add2_return": -1,
+    "evaluate_all_return_ungraded": -1,
+    "evaluated_publication": {
+      "count": 0,
+      "rows": [],
+      "stage": "after_evaluate_all"
+    },
+    "immediate_publication": {
+      "count": 0,
+      "rows": [],
+      "stage": "immediate_after_add"
+    },
+    "requested_index": 0,
+    "requested_text": "\"source_width\" = 31.7 mm",
+    "solve": false,
+    "status_immediately_after_add2": -1,
+    "status_immediately_after_evaluation": -1
+  },
+  "native_source_saved": false,
+  "original_source_protocol_sha256": "83790d7f1bf268d310f14dfdecbfc269ba804fdcaf02b3df5fadf5f6e93567a2",
+  "same_input_author_result_sha256": "ac2043420ba18d5d9258fdd42bf4020b7657505d279924207b3283b35d634f31",
+  "same_input_record_sha256": "cb327e1cb140faa993f404b5463db43389f2ce75b30020b0052c118842a321bf",
+  "schema": "kit.sw2026.equation-global-publication-failure.v1",
+  "sealed_inputs_read": 0,
+  "writer_output_count": 0
+}

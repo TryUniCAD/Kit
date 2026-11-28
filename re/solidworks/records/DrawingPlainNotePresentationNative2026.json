@@ -1,0 +1,398 @@
+{
+  "data_windows": [
+    {
+      "bound": "inline RVA table after executable return; not instructions",
+      "bytes": 152,
+      "end_exclusive": "0x4c8547d8",
+      "module": "sldmodu.dll",
+      "name": "38 entry format selector table",
+      "sha256": "f2c6c670ab80ea888e2b9d005c73a073a13aa6ab600c1bf234cd3d823721b9ec",
+      "start": "0x4c854740"
+    },
+    {
+      "bound": "one unsigned32 RVA table entry",
+      "bytes": 4,
+      "end_exclusive": "0x4c854794",
+      "module": "sldmodu.dll",
+      "name": "kind21 switch cell index20",
+      "sha256": "2dd3d5671d39564f9d2dec3046e57301bc79bd6f5ff9768a1d19be29e959cadd",
+      "start": "0x4c854790"
+    }
+  ],
+  "execution": {
+    "cad_execution": false,
+    "hidden_inputs": false,
+    "native_execution": false,
+    "shared_changes": false,
+    "tests": false,
+    "vm_execution": false
+  },
+  "export_bindings": {
+    "sldmfcu.dll": [
+      {
+        "address": "0x3c857a40",
+        "name": "?Serialize@moDetailDefs_c@@UEAAXAEAVsu_CArchive@@@Z"
+      },
+      {
+        "address": "0x3c757f10",
+        "name": "?getStandard@moDetailDefs_c@@QEBAHXZ"
+      },
+      {
+        "address": "0x3c7dc360",
+        "name": "?setStandard@moDetailDefs_c@@QEAAXH@Z"
+      }
+    ],
+    "sldmodu.dll": [
+      {
+        "address": "0x4c01ffa0",
+        "name": "?getDetailDefs@moModel_c@@QEAAPEAVmoDetailDefs_c@@XZ"
+      },
+      {
+        "address": "0x4c7f9e10",
+        "name": "?getDimText@moDisplayNote_c@@UEAAPEAVmoDimText_c@@XZ"
+      },
+      {
+        "address": "0x4c854250",
+        "name": "?getTextFormat@moDimText_c@@QEAAAEBVutCharFormat_c@@PEAVCObject@@@Z"
+      },
+      {
+        "address": "0x4c7cfd30",
+        "name": "?getTextFormat@moDisplayNote_c@@QEAAAEBVutCharFormat_c@@PEAVCObject@@@Z"
+      },
+      {
+        "address": "0x4c809240",
+        "name": "?isUsingDefaultDocTextFormat@moDisplayNote_c@@QEAAHXZ"
+      }
+    ]
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 34,
+      "end_exclusive": "0x4c7cfd52",
+      "module": "sldmodu.dll",
+      "name": "NoteEffectiveFormat01",
+      "sha256": "c534610e9e9afe2d74724693edb76c42c5189fbab859d8346238933d3fb6b4a1",
+      "start": "0x4c7cfd30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 34,
+          "end_exclusive": "0x4c7cfd52",
+          "sha256": "c534610e9e9afe2d74724693edb76c42c5189fbab859d8346238933d3fb6b4a1",
+          "start": "0x4c7cfd30",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 64,
+      "end_exclusive": "0x4c809280",
+      "module": "sldmodu.dll",
+      "name": "NoteUsesDocFormat01",
+      "sha256": "9293188990a1afdb8ec7d46ec5fd965d153e1a6727da92b5abe78a886a29ffdd",
+      "start": "0x4c809240",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 64,
+          "end_exclusive": "0x4c809280",
+          "sha256": "9293188990a1afdb8ec7d46ec5fd965d153e1a6727da92b5abe78a886a29ffdd",
+          "start": "0x4c809240",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1416,
+      "end_exclusive": "0x4c8547d8",
+      "module": "sldmodu.dll",
+      "name": "DimTextEffectiveFormat01",
+      "sha256": "e4d100cdf851060e63aff984b47f6e1db2099f4960a525ea90fa49e32217389d",
+      "start": "0x4c854250",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1416,
+          "end_exclusive": "0x4c8547d8",
+          "sha256": "e4d100cdf851060e63aff984b47f6e1db2099f4960a525ea90fa49e32217389d",
+          "start": "0x4c854250",
+          "unwind_rva": "0x2562c0c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 16616,
+      "end_exclusive": "0x3c85bb28",
+      "module": "sldmfcu.dll",
+      "name": "DetailDefsSerializer01",
+      "sha256": "232dd7e45de22ef186be2e532f71eae26dc3cb5a14244962c7589463df145807",
+      "start": "0x3c857a40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 16616,
+          "end_exclusive": "0x3c85bb28",
+          "sha256": "232dd7e45de22ef186be2e532f71eae26dc3cb5a14244962c7589463df145807",
+          "start": "0x3c857a40",
+          "unwind_rva": "0x5e3dbc"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x4b6d8436",
+      "module": "sldmodu.dll",
+      "name": "NoteDocFormatSelector01",
+      "sha256": "e4f9f7041b372cb8bd7dda73eb33390a3fb3a11ea2164b2b6a465b11b2ea2188",
+      "start": "0x4b6d8430",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 20,
+      "end_exclusive": "0x4c01ffb4",
+      "module": "sldmodu.dll",
+      "name": "EffectiveModelDetails01",
+      "sha256": "5825d2b136b560d6a61f0472c097ea400e132a28f7b13655b97bd6254f775e10",
+      "start": "0x4c01ffa0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 4,
+      "end_exclusive": "0x3c757f14",
+      "module": "sldmfcu.dll",
+      "name": "DetailStandardGetter01",
+      "sha256": "74032ad0e931f3c4730df99da43479f9f5315cc898c7c8614278631cb2c16a62",
+      "start": "0x3c757f10",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x3c7dc368",
+      "module": "sldmfcu.dll",
+      "name": "DetailStandardSetter01",
+      "sha256": "049ee8be95338ea480768a341c8cb03f3e692aa88c4078d3864eb9cb81078667",
+      "start": "0x3c7dc360",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 75,
+      "end_exclusive": "0x4c7f9e5b",
+      "module": "sldmodu.dll",
+      "name": "NoteActualText01",
+      "sha256": "95a06c813c12fc320dedf11a6ac408145697a34826b18cd2b4582b20e3d2bd2c",
+      "start": "0x4c7f9e10",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 75,
+          "end_exclusive": "0x4c7f9e5b",
+          "sha256": "95a06c813c12fc320dedf11a6ac408145697a34826b18cd2b4582b20e3d2bd2c",
+          "start": "0x4c7f9e10",
+          "unwind_rva": "0x2556ee8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 55,
+      "end_exclusive": "0x3c777167",
+      "module": "sldmfcu.dll",
+      "name": "DetailArchiveVersion01",
+      "sha256": "ad0107c7ead279cd5b1bf68d9c01b5b641a70d4ba45c956675b6f04fc6b99236",
+      "start": "0x3c777130",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 55,
+          "end_exclusive": "0x3c777167",
+          "sha256": "ad0107c7ead279cd5b1bf68d9c01b5b641a70d4ba45c956675b6f04fc6b99236",
+          "start": "0x3c777130",
+          "unwind_rva": "0x5c2fd4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 49,
+      "end_exclusive": "0x3c861531",
+      "module": "sldmfcu.dll",
+      "name": "DetailNegativeStandard01",
+      "sha256": "c33fdb59f15c584ebcc1ca2bdd61996d0d2aa9af8d01812896ca5dd0ce0385fa",
+      "start": "0x3c861500",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 49,
+          "end_exclusive": "0x3c861531",
+          "sha256": "c33fdb59f15c584ebcc1ca2bdd61996d0d2aa9af8d01812896ca5dd0ce0385fa",
+          "start": "0x3c861500",
+          "unwind_rva": "0x5c5d64"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 224,
+      "end_exclusive": "0x3c861620",
+      "module": "sldmfcu.dll",
+      "name": "DetailLoadedStandard01",
+      "sha256": "c69adf0ab22478c6ab903d746a6eabc1da7394b7d3d4099567bb26270bc0d96f",
+      "start": "0x3c861540",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 224,
+          "end_exclusive": "0x3c861620",
+          "sha256": "c69adf0ab22478c6ab903d746a6eabc1da7394b7d3d4099567bb26270bc0d96f",
+          "start": "0x3c861540",
+          "unwind_rva": "0x5e401c"
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x3cb1d238",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z",
+      "source_module": "sldmfcu.dll"
+    },
+    {
+      "iat": "0x3cb1d248",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z",
+      "source_module": "sldmfcu.dll"
+    },
+    {
+      "iat": "0x3cb1d3d0",
+      "module": "swccu.dll",
+      "name": "?IsStoring@su_CArchive@@QEBAHXZ",
+      "source_module": "sldmfcu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "instruction-boundary selected field window within complete function",
+      "bytes": 34,
+      "end_exclusive": "0x4c7cfd52",
+      "module": "sldmodu.dll",
+      "name": "display text format delegates through actual slot 458",
+      "sha256": "c534610e9e9afe2d74724693edb76c42c5189fbab859d8346238933d3fb6b4a1",
+      "start": "0x4c7cfd30"
+    },
+    {
+      "bound": "instruction-boundary selected field window within complete function",
+      "bytes": 45,
+      "end_exclusive": "0x4c8542b2",
+      "module": "sldmodu.dll",
+      "name": "valid model context selects actual text format kind",
+      "sha256": "3671e407851c9336ae2b052df19a7a5aed6223aefe734162fe80aa98656dbbb6",
+      "start": "0x4c854285"
+    },
+    {
+      "bound": "instruction-boundary selected field window within complete function",
+      "bytes": 26,
+      "end_exclusive": "0x4c8545ba",
+      "module": "sldmodu.dll",
+      "name": "kind21 returns actual annotation note format pointer",
+      "sha256": "215a42af3ffcf84c3b8a1f46ac4ff898267fa7dceea5e2330aa82228b1f22774",
+      "start": "0x4c8545a0"
+    },
+    {
+      "bound": "instruction-boundary selected field window within complete function",
+      "bytes": 35,
+      "end_exclusive": "0x3c857aac",
+      "module": "sldmfcu.dll",
+      "name": "ordinary signed32 standard store",
+      "sha256": "18827e0faf176e09added19a181dac61ccbea4c3a5039d3d364ac548fbbe07dc",
+      "start": "0x3c857a89"
+    },
+    {
+      "bound": "instruction-boundary selected field window within complete function",
+      "bytes": 68,
+      "end_exclusive": "0x3c857fa4",
+      "module": "sldmfcu.dll",
+      "name": "current standard load and default application",
+      "sha256": "a4044e82ee16bef8bb5828cb08c8ba5bc9b8949d9281d4340466bade4d1b344a",
+      "start": "0x3c857f60"
+    },
+    {
+      "bound": "instruction-boundary selected field window within complete function",
+      "bytes": 84,
+      "end_exclusive": "0x3c8615bd",
+      "module": "sldmfcu.dll",
+      "name": "restore standard defaults before archived format fields",
+      "sha256": "1fb74375bbcbf9436c425c9f6932ed06328f6fd5284535d6d9abbb47c4906fdf",
+      "start": "0x3c861569"
+    }
+  ],
+  "limits": [
+    "only selected field windows of the large serializer were newly interpreted",
+    "actual runtime effective-detail override is not observed by this static/host census",
+    "source-specific fonts units line spacing caches and graph owners are not constructor inputs",
+    "no writer or semantic admission change"
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 8274520,
+      "exception_directory_bytes": 222504,
+      "exception_directory_rva": "0x7e6000",
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    }
+  ],
+  "owner": "flag_ownership",
+  "proprietary_listings_in_report": false,
+  "rules": {
+    "actual_text_kind": 21,
+    "current_load_rule": "read signed32; negative values select standard0; apply current standard defaults while preserving five dimension sizes, then later archived fields load",
+    "detail_standard_wire_type": "signed32",
+    "effective_detail_rule": "runtime model+ae8 if nonnull else model+ae0; override state is not inferred from archive fields",
+    "note_format_relative_to_effective_detail": "0x2380",
+    "positive_standard_source_values_are_not_generator_defaults": true,
+    "setter_rule": "store nonnegative input at detail+10; negative input leaves existing state",
+    "switch_cell": "0x4c854790",
+    "switch_index": 20,
+    "switch_target": "0x4c8545a0",
+    "typed_note_format_path": "model.fae0.f1f18.f418.f50 when effective runtime ae8 is null"
+  },
+  "schema": "drawing-plain-note-presentation-native-v1",
+  "status": "bounded static ownership and disclosed observation only",
+  "task": "DRAWING-NOTES-C10",
+  "vtable_cells": [
+    {
+      "cell": "0x4d22f4b8",
+      "module": "sldmodu.dll",
+      "slot": "0x458",
+      "table": "0x4d22f060",
+      "target": "0x4c7f9e10"
+    },
+    {
+      "cell": "0x4d22f9e8",
+      "module": "sldmodu.dll",
+      "slot": "0x988",
+      "table": "0x4d22f060",
+      "target": "0x4b6d8430"
+    }
+  ]
+}

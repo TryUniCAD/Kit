@@ -1,0 +1,34 @@
+{
+  "schema": "kit.sw2026.offset-plane-source-audit-preparation.v1",
+  "source_packet_sha256": "c05c429097c4ad94177afd3cddd9535ca373a31e6dcfa845375d9c09c96d2e89",
+  "code_manifest_sha256": "6032cfbe11b27830914cea2b1a0e2a3e95103e660ab63a4655f1d6b0763ae7df",
+  "frozen_python_files": 3462,
+  "recipe_sha256": "838af77b1a37ce9a24d5e8efc26b3fd4be39bc20f60d0db8f0710c697fa3bc7d",
+  "audit_tool_sha256": "42de4bc5308194d2376ceb5b638dfc5ba83d5f35ffe1914797ed08940f5b19bf",
+  "read_rule_tool_sha256": "d12e8166ca06f89a90756f0e29c983fd5b16f749d24e47491201f173888dcadd",
+  "new_provisional_schemas": [
+    "moRefPlaneDistanceGeom_c",
+    "moConstraintRefplaneData_c"
+  ],
+  "runtime_class_evidence_sha256": "e6dce150908ef4af149679d95ff2f6bf3c91b023e25a70a8f19ec737d0d57c13",
+  "superseded_unexecuted_snapshot": {
+    "code_manifest_sha256": "ed6f338b534fd52fc5684ff95d72987672d0f30b977092711e11993f56b8c5c4",
+    "recipe_sha256": "c9d168ab878e086c8259cee528e3bb2e74f5ac40fd8059473dc25735c2a118b8",
+    "reason": "native runtime publication proves base wire name rather than concrete RTTI name; no native source file was decoded"
+  },
+  "offline_process_checks": {
+    "sealed_case_refused_exit": 2,
+    "relative_packet_refused_exit": 1,
+    "incomplete_native_brackets_refused_exit": 1,
+    "no_audit_output_on_admission_failure": true,
+    "python_parse_passed": true,
+    "snapshot_source_hashes_verified": true
+  },
+  "native_sources_decoded": 0,
+  "native_schema_roundtrips_executed": 0,
+  "native_processes_started": 0,
+  "heldout_inputs_read": 0,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "remaining": "execute frozen typed source audit only after complete healthy disclosed source author/reopen/brackets"
+}

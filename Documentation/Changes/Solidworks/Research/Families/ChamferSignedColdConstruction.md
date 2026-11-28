@@ -1,0 +1,3 @@
+# SOLIDWORKS signed chamfer construction
+
+The research chamfer composer selects the actual coedge by the requested distance-side carrier and retains the linked support role order in both directions. Four disclosed source replays independently confirm the reciprocal and positive face orders. Guarded cold generation preserves the two existing positive-side archives and adds a frozen same-side lifecycle comparison for two offset stocks. The public registry remains unchanged and native results for the new cold candidates are pending. [Scope and evidence](../../../../../re/solidworks/records/ChamferSignedSideSource2026.md)

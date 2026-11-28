@@ -1,0 +1,3893 @@
+{
+  "schema": "kit.sw2026.thin-revolve-disclosed-archive.v1",
+  "source_lock_sha256": "f851a26cc549433b5a342b2b7801171f56e356b50866b7f84929353966d6fe25",
+  "source_revision": "fd18c4b0bc1e8a4a375b8ce96445d87252ed0bc1",
+  "source_sdk_tree": "2f3e868d96bc4de45202690fbbf9b1a36d687bf0",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "source_lifecycle": [
+    {
+      "case": "ThinOne",
+      "native_sha256": "d496a17dc86cdc93796b0aab8c22f74ace923eba09cfca71a8cc7a02761be491",
+      "native_bytes": 50037,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "fcef3d31dee4b3af7dcf25fba6baccd0c97883eaa9ee1af879b86dad699847ea",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "3fe0579e8258c14b92b6714355f0e69e8807dd25120a1ae7927f0299231ecfb2",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "3ef09f8f2044ad589eea16abbc951b77137616b3dd78032d696439337cddc436",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ThinOpposite",
+      "native_sha256": "9e8b6ee638898f28be5bee7da0d07214436a5d23dc7f910a3bddd0d6529fa04c",
+      "native_bytes": 49793,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "65f87a1acaed3270bea20db4b049358d6ff61ff74d551c1bd19e4da3d2cc740d",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "86fc74a171f974cbb699820979e304d487cb0a0626bfbe61cb5913a93c855a20",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "0274f973e588f648692e95869a622646cee64b06e06a2187861ca277f59d7561",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ThinMidplane",
+      "native_sha256": "9020b54302c1732b05fa9871844e94e4b446713ec1f12dd29d14deb0c5f4d514",
+      "native_bytes": 50024,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "fd74d282c85a9a40f8256442692ded43667e5dc3719277e43a4a74c19a0c2862",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "503aa05ea63b48d6af0f1a1a4f1e28b100f6204212e9853ce4b91582d2ccdb1e",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "a01b84d416aacae7caef88dc63433bbf0cce6fc00b7b0eb2b9376f195dcb7644",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ThinUnequal",
+      "native_sha256": "0d1d8490ba8219b16989c4f0f5ed94b2b8af7fe284ba64c4699431bea9f3b33b",
+      "native_bytes": 51538,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "e0220526043aa1338137813c42665c50525a03de5e1b80e5cb90d4606c484c45",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "cb0ff3cfbba5cf9f32277d71ea2d657dc9d9dcb027b510925bb26b34b9dd6339",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 95,
+          "checks_passed": 95
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "d295f4d89e797d183bec2aa21f608423c985ae556663c9d4c9a16ab124fa69de",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "control_phases": {
+    "control-before": {
+      "sha256": "0ed1031aab3ec5f89bb838f84d9e026361fa046b38a68292419f9d9a4e0c5fa2",
+      "passed": true
+    },
+    "control-after": {
+      "sha256": "c204855cf0522e1589a360e5a22d6862a83d85a18841bb225d6ab9a2d3caf4c4",
+      "passed": true
+    }
+  },
+  "oracle_processes_in_prior_source_lock": 14,
+  "fresh_host_processes": 8,
+  "exact_linked_streams": 16,
+  "tool_sha256": {
+    "re/tooling/sw2026/revolve/ThinArchive/AuditThinArchive.py": "e9b7cc59db09eb057024d94722ce232faa1396dd0de19cf8ac65d096cd8dd6d4",
+    "re/tooling/sw2026/revolve/ThinArchive/ThinWireOwners.py": "f05a1736b286b94c986cb0d812d014c9327f9bf9318ea63d9d349337495734b6",
+    "re/tooling/sw2026/revolve/EndModes/AuditRevEndOwners.py": "e0489821997bb0a41868a3435686577a169afc65b09468693c91fb6f64e284e3"
+  },
+  "implementation_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/DimensionFields.py": "0b38c26ed78706aa67bbc790866d2eabd3959b74e794d0bb72ac5aa18cf1614a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ReferenceFields.py": "54b4327755ab3d5b020f4a603a3b454c8b12f1c3f804be403bab46cc16c7b72e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py": "1054750ecb85ebbf3cbcb97fbc7d8ccf940c1c558b14aeed03f6446e76e439fe",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedVirtuals.py": "70b2aca7e1c6bde76c873398260e337eb06d9d0c412897ca99811acf9202e8d8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/RevolveFields.py": "c66ec1671f7d362522004f330cf619213acb07c50a8ee2f7bc47065b269d8bf2",
+    "src/convert/adapters/solidworks/Archive/Resolved/MakeResolvedCtx.py": "f6ac8da1019839408461770ce9def2886c06d3127378d28c6bf540ecf203ca14"
+  },
+  "rows": [
+    {
+      "case": "ThinOne",
+      "edited": false,
+      "native_sha256": "d496a17dc86cdc93796b0aab8c22f74ace923eba09cfca71a8cc7a02761be491",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          10942,
+          14401
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 0,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 14401,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9026,
+            "end": 10941,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.265363707695889,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9098,
+                  "end": 10935,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9681,
+                  "end": 10108,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9814,
+                  "end": 10108,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9834,
+                  "end": 9899,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00173,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.03861,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                10960,
+                12780
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11544,
+                12010
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11653,
+                12010
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11689,
+                11755
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.0,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              0,
+              0
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12780,
+                14363
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13334,
+                13593
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13443,
+                13593
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13449,
+                13492
+              ]
+            ]
+          },
+          "active": [
+            "f08"
+          ]
+        },
+        "radius": null,
+        "atom": [
+          "moAtom_c",
+          58,
+          3070,
+          3170
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                7967,
+                8014
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8014,
+                8066
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8113,
+                8137
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8223,
+                8243
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8243,
+                8267
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8287,
+                8311
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "451bf154df7466ce27f3fa0fbb3b661258f8c174d8ce49bcee06d22190c9543d",
+          "bytes": 25202,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "16a1ec89846b432cece512c311ac3e022ddf4e5a2c050955b1c70eaee760d3ec",
+          "bytes": 14405,
+          "map_counter": 279
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": {
+        "unsupported_document_version": "unsupported SOLIDWORKS ordinary body archive version 18999",
+        "ThreeDRadiusDim_c": "unsupported SOLIDWORKS body class ThreeDRadiusDim_c schema 2",
+        "moRevolutionThin_c": "unsupported SOLIDWORKS body class moRevolutionThin_c schema 2",
+        "moThinClosingSurfIdRep_c": "unsupported SOLIDWORKS body class moThinClosingSurfIdRep_c schema 2",
+        "moThinOffsetSurfIdRep_c": "unsupported SOLIDWORKS body class moThinOffsetSurfIdRep_c schema 2",
+        "moThinSpec_c": "unsupported SOLIDWORKS body class moThinSpec_c schema 2",
+        "moRevCutThin_c": "unsupported SOLIDWORKS body class moRevCutThin_c schema 1",
+        "moRevolvedRadiusDim_c": "unsupported SOLIDWORKS body class moRevolvedRadiusDim_c schema 1"
+      },
+      "runtime_external_access_attempts": 0
+    },
+    {
+      "case": "ThinOne",
+      "edited": true,
+      "native_sha256": "f3519a5a7d54e2294d7579a0696a197770cb3bf4d5e809eea3857022c1efea0b",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          11076,
+          16237
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 0,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 16237,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9160,
+            "end": 11075,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.8893189152838616,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9232,
+                  "end": 11069,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9815,
+                  "end": 10242,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9948,
+                  "end": 10242,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9968,
+                  "end": 10033,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00239,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.03927,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                11094,
+                12914
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11678,
+                12144
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11787,
+                12144
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11823,
+                11889
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.0,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              0,
+              0
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12914,
+                14497
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13468,
+                13727
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13577,
+                13727
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13583,
+                13626
+              ]
+            ]
+          },
+          "active": [
+            "f08"
+          ]
+        },
+        "radius": {
+          "name": "D7",
+          "metres": 0.0,
+          "dimension_id": 34,
+          "anchor": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "frame_present": [
+            0,
+            0
+          ],
+          "chain": [
+            [
+              "moDisplayRadialDim_c",
+              280,
+              14525,
+              16229
+            ],
+            [
+              "moFeatureDimHandle_c",
+              281,
+              15103,
+              15383
+            ],
+            [
+              "ThreeDRadiusDim_c",
+              283,
+              15212,
+              15383
+            ],
+            [
+              "moLengthParameter_c",
+              284,
+              15239,
+              15282
+            ]
+          ]
+        },
+        "atom": [
+          "moAtom_c",
+          58,
+          3074,
+          3174
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                8101,
+                8148
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8148,
+                8200
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8247,
+                8271
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8357,
+                8377
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8377,
+                8401
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8421,
+                8445
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "42ac596dda83e6b2ddc8c0e4af2c8dee6500b16fded8493fb35e1b8fb4aaaeb1",
+          "bytes": 25206,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "1298e81d6d963e450d7ae0d8f445c40610c683d86e265a2dfc4fc9c45b0de14f",
+          "bytes": 16241,
+          "map_counter": 287
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": null,
+      "runtime_external_access_attempts": 0
+    },
+    {
+      "case": "ThinOpposite",
+      "edited": false,
+      "native_sha256": "9e8b6ee638898f28be5bee7da0d07214436a5d23dc7f910a3bddd0d6529fa04c",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          10942,
+          14401
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 1,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 14401,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9026,
+            "end": 10941,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.265363707695889,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9098,
+                  "end": 10935,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9681,
+                  "end": 10108,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9814,
+                  "end": 10108,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9834,
+                  "end": 9899,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00173,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.035149999999999994,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                10960,
+                12780
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11544,
+                12010
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11653,
+                12010
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11689,
+                11755
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.0,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              0,
+              0
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12780,
+                14363
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13334,
+                13593
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13443,
+                13593
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13449,
+                13492
+              ]
+            ]
+          },
+          "active": [
+            "f08"
+          ]
+        },
+        "radius": null,
+        "atom": [
+          "moAtom_c",
+          58,
+          3070,
+          3170
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                7967,
+                8014
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8014,
+                8066
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8113,
+                8137
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8223,
+                8243
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8243,
+                8267
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8287,
+                8311
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "e7fb1939ab29545b91e96a44c26ca2fcc468d8876a8e3f94355e4ebe8e97fcae",
+          "bytes": 25202,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "ab8a871b07112fc2769bd5ec9fae352f717bd04e4bec0a480a77824ca18d75ca",
+          "bytes": 14405,
+          "map_counter": 279
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": null,
+      "runtime_external_access_attempts": 0
+    },
+    {
+      "case": "ThinOpposite",
+      "edited": true,
+      "native_sha256": "8a7d0b24433bd0a3e5fadf8f71a1e7423b91e114eb72614cd32949296f7a0895",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          11106,
+          16267
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 1,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 16267,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9190,
+            "end": 11105,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.8893189152838616,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9262,
+                  "end": 11099,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9845,
+                  "end": 10272,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9978,
+                  "end": 10272,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9998,
+                  "end": 10063,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00239,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.03448999999999999,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                11124,
+                12944
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11708,
+                12174
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11817,
+                12174
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11853,
+                11919
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.0,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              0,
+              0
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12944,
+                14527
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13498,
+                13757
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13607,
+                13757
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13613,
+                13656
+              ]
+            ]
+          },
+          "active": [
+            "f08"
+          ]
+        },
+        "radius": {
+          "name": "D7",
+          "metres": 0.0,
+          "dimension_id": 34,
+          "anchor": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "frame_present": [
+            0,
+            0
+          ],
+          "chain": [
+            [
+              "moDisplayRadialDim_c",
+              280,
+              14555,
+              16259
+            ],
+            [
+              "moFeatureDimHandle_c",
+              281,
+              15133,
+              15413
+            ],
+            [
+              "ThreeDRadiusDim_c",
+              283,
+              15242,
+              15413
+            ],
+            [
+              "moLengthParameter_c",
+              284,
+              15269,
+              15312
+            ]
+          ]
+        },
+        "atom": [
+          "moAtom_c",
+          58,
+          3084,
+          3184
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                8131,
+                8178
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8178,
+                8230
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8277,
+                8301
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8387,
+                8407
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8407,
+                8431
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8451,
+                8475
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "f41c7a10353c589540ce59c62a3ce7006f7d2a7033c4a26fd9f6b5be4566e7fe",
+          "bytes": 25216,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "731442f0f4b3b7d24bb5fc0a20b7970b56890a0f3178d7d7cbf0f4ea7e370c44",
+          "bytes": 16271,
+          "map_counter": 287
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": null,
+      "runtime_external_access_attempts": 0
+    },
+    {
+      "case": "ThinMidplane",
+      "edited": false,
+      "native_sha256": "9020b54302c1732b05fa9871844e94e4b446713ec1f12dd29d14deb0c5f4d514",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          10942,
+          14401
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 2,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 14401,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9026,
+            "end": 10941,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.265363707695889,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9098,
+                  "end": 10935,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9681,
+                  "end": 10108,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9814,
+                  "end": 10108,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9834,
+                  "end": 9899,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00173,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.036015,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.037744999999999994,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                10960,
+                12780
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11544,
+                12010
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11653,
+                12010
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11689,
+                11755
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.0,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              0,
+              0
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12780,
+                14363
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13334,
+                13593
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13443,
+                13593
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13449,
+                13492
+              ]
+            ]
+          },
+          "active": [
+            "f08"
+          ]
+        },
+        "radius": null,
+        "atom": [
+          "moAtom_c",
+          58,
+          3070,
+          3170
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                7967,
+                8014
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8014,
+                8066
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8113,
+                8137
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8223,
+                8243
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8243,
+                8267
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8287,
+                8311
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "7c7e9d4e57be68910cb4804c4bd45ba3dae1a85ec92c312fbbe41e0516c71aed",
+          "bytes": 25202,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "278549696d6b27190cb06c23b672e153d9fec8054d87ec73992f709f09bb4c79",
+          "bytes": 14405,
+          "map_counter": 279
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": null,
+      "runtime_external_access_attempts": 0
+    },
+    {
+      "case": "ThinMidplane",
+      "edited": true,
+      "native_sha256": "4bb79ca69e5f5b85ec02f6eae9690810aa849d02b5d69dc1843a8c377787088b",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          11106,
+          16267
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 2,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 16267,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9190,
+            "end": 11105,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.8893189152838616,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9262,
+                  "end": 11099,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9845,
+                  "end": 10272,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9978,
+                  "end": 10272,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9998,
+                  "end": 10063,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00239,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.035684999999999995,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.038075,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                11124,
+                12944
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11708,
+                12174
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11817,
+                12174
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11853,
+                11919
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.0,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              0,
+              0
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12944,
+                14527
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13498,
+                13757
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13607,
+                13757
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13613,
+                13656
+              ]
+            ]
+          },
+          "active": [
+            "f08"
+          ]
+        },
+        "radius": {
+          "name": "D7",
+          "metres": 0.0,
+          "dimension_id": 34,
+          "anchor": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "frame_present": [
+            0,
+            0
+          ],
+          "chain": [
+            [
+              "moDisplayRadialDim_c",
+              280,
+              14555,
+              16259
+            ],
+            [
+              "moFeatureDimHandle_c",
+              281,
+              15133,
+              15413
+            ],
+            [
+              "ThreeDRadiusDim_c",
+              283,
+              15242,
+              15413
+            ],
+            [
+              "moLengthParameter_c",
+              284,
+              15269,
+              15312
+            ]
+          ]
+        },
+        "atom": [
+          "moAtom_c",
+          58,
+          3084,
+          3184
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                8131,
+                8178
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8178,
+                8230
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8277,
+                8301
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8387,
+                8407
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8407,
+                8431
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8451,
+                8475
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "0ed64587c01fd2d256d020eba9216f5879cc0a1bf0e53015d3e396a93f9df39a",
+          "bytes": 25216,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "5afed57654594d71162d86303d033f5e9473ee16d28a5c29b337a07343e8a573",
+          "bytes": 16271,
+          "map_counter": 287
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": null,
+      "runtime_external_access_attempts": 0
+    },
+    {
+      "case": "ThinUnequal",
+      "edited": false,
+      "native_sha256": "0d1d8490ba8219b16989c4f0f5ed94b2b8af7fe284ba64c4699431bea9f3b33b",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          10942,
+          14559
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 3,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 14559,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9026,
+            "end": 10941,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.265363707695889,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9098,
+                  "end": 10935,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9681,
+                  "end": 10108,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9814,
+                  "end": 10108,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9834,
+                  "end": 9899,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00173,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.03861,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                10960,
+                12780
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11544,
+                12010
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11653,
+                12010
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11689,
+                11755
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.00343,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.033449999999999994,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12780,
+                14521
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13338,
+                13751
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13447,
+                13751
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13453,
+                13496
+              ]
+            ]
+          },
+          "active": [
+            "f08",
+            "f10"
+          ]
+        },
+        "radius": null,
+        "atom": [
+          "moAtom_c",
+          58,
+          3070,
+          3170
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                7967,
+                8014
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8014,
+                8066
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8113,
+                8137
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8223,
+                8243
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8243,
+                8267
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8287,
+                8311
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "347a906d938ee430dedd697987697eb664e9830909518b7371ba41ab6bd34b2e",
+          "bytes": 25202,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "5e9a62a9bc9072d55a07a0c09fa98c85927e1b3a9a9d5b0eccfab67a55c06a19",
+          "bytes": 14563,
+          "map_counter": 279
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": null,
+      "runtime_external_access_attempts": 0
+    },
+    {
+      "case": "ThinUnequal",
+      "edited": true,
+      "native_sha256": "c9a6b88887dfa396eb29e07ea38124b4bbf94809efeea4271fb5832814b350fa",
+      "typed": {
+        "thin_spec": [
+          "moThinSpec_c",
+          263,
+          11100,
+          16419
+        ],
+        "thin_spec_words": {
+          "f2c": 0,
+          "f30": 1e-07,
+          "f38": -2.0,
+          "f28": 3,
+          "f40": 1,
+          "f50": 0,
+          "f54": 0
+        },
+        "revolve": {
+          "feature": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 198,
+            "offset": 7440,
+            "end": 16419,
+            "class": "moRevolutionThin_c",
+            "field_span": false
+          },
+          "feature_name": "ThinBossRevolve",
+          "feature_words": {
+            "f820": 0,
+            "f824": 0,
+            "f828": 5,
+            "f870": 1,
+            "f8e8": 0
+          },
+          "feature_legacy_display_slots": {
+            "f808": false,
+            "f810": false
+          },
+          "end": {
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "object_index": 250,
+            "offset": 9184,
+            "end": 11099,
+            "class": "moRevEndSpec_c",
+            "field_span": false
+          },
+          "end_words": {
+            "f08": 1,
+            "f138": 0,
+            "f13c": 0,
+            "f0c": 0,
+            "f10": 0,
+            "f38": 0.01,
+            "f40": 0.01,
+            "f140": 0,
+            "f144": 0
+          },
+          "nonangle_slots_present": {
+            "f118": false,
+            "f120": false,
+            "f128": false,
+            "f130": false,
+            "f28": false,
+            "f30": false
+          },
+          "angles": {
+            "f18": {
+              "name": "D1",
+              "radians": 1.8893189152838616,
+              "dimension_id": 27,
+              "dimension_mode_words": {
+                "f30": 0,
+                "f54": 0
+              },
+              "owners": [
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 252,
+                  "offset": 9256,
+                  "end": 11093,
+                  "class": "moDisplayAngularDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 254,
+                  "offset": 9839,
+                  "end": 10266,
+                  "class": "moFeatureDimHandle_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 256,
+                  "offset": 9972,
+                  "end": 10266,
+                  "class": "AngleDim_c",
+                  "field_span": false
+                },
+                {
+                  "stream": "Contents/Config-0-ResolvedFeatures",
+                  "object_index": 258,
+                  "offset": 9992,
+                  "end": 10057,
+                  "class": "moAngleParameter_c",
+                  "field_span": false
+                }
+              ]
+            },
+            "f20": null
+          }
+        },
+        "profile": {
+          "profile": [
+            "moProfileFeature_c",
+            182,
+            5838,
+            7440
+          ],
+          "profile_id": 26,
+          "sketch": [
+            "sgSketch",
+            184,
+            6051,
+            7147
+          ],
+          "frame": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "points_mm": {
+            "body": [
+              [
+                36.879999999999995,
+                -14.11
+              ],
+              [
+                36.879999999999995,
+                19.970000000000002
+              ]
+            ],
+            "axis": [
+              [
+                4.71,
+                -68.93
+              ],
+              [
+                4.71,
+                73.19000000000001
+              ]
+            ]
+          },
+          "body_line": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "axis_line": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        "walls": {
+          "f08": {
+            "name": "D3",
+            "metres": 0.00239,
+            "dimension_id": 29,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.03927,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                265,
+                11118,
+                12938
+              ],
+              [
+                "moFeatureDimHandle_c",
+                266,
+                11702,
+                12168
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                268,
+                11811,
+                12168
+              ],
+              [
+                "moLengthParameter_c",
+                270,
+                11847,
+                11913
+              ]
+            ]
+          },
+          "f10": {
+            "name": "D4",
+            "metres": 0.00407,
+            "dimension_id": 30,
+            "anchor": [
+              [
+                0.036879999999999996,
+                0.0029300000000000003,
+                0.0
+              ],
+              [
+                0.03281,
+                0.0029300000000000003,
+                0.0
+              ]
+            ],
+            "frame_present": [
+              1,
+              1
+            ],
+            "chain": [
+              [
+                "moDisplayDistanceDim_c",
+                273,
+                12938,
+                14679
+              ],
+              [
+                "moFeatureDimHandle_c",
+                274,
+                13496,
+                13909
+              ],
+              [
+                "ParallelPlaneDistanceDim_c",
+                275,
+                13605,
+                13909
+              ],
+              [
+                "moLengthParameter_c",
+                276,
+                13611,
+                13654
+              ]
+            ]
+          },
+          "active": [
+            "f08",
+            "f10"
+          ]
+        },
+        "radius": {
+          "name": "D7",
+          "metres": 0.0,
+          "dimension_id": 34,
+          "anchor": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "frame_present": [
+            0,
+            0
+          ],
+          "chain": [
+            [
+              "moDisplayRadialDim_c",
+              280,
+              14707,
+              16411
+            ],
+            [
+              "moFeatureDimHandle_c",
+              281,
+              15285,
+              15565
+            ],
+            [
+              "ThreeDRadiusDim_c",
+              283,
+              15394,
+              15565
+            ],
+            [
+              "moLengthParameter_c",
+              284,
+              15421,
+              15464
+            ]
+          ]
+        },
+        "atom": [
+          "moAtom_c",
+          58,
+          3082,
+          3182
+        ],
+        "face_refs": {
+          "surface_ids": [
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                214,
+                8125,
+                8172
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                217,
+                8172,
+                8224
+              ],
+              1,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                222,
+                8271,
+                8295
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinOffsetSurfIdRep_c",
+                227,
+                8381,
+                8401
+              ],
+              2,
+              null,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                229,
+                8401,
+                8425
+              ],
+              0,
+              0,
+              33
+            ],
+            [
+              [
+                "moThinClosingSurfIdRep_c",
+                233,
+                8445,
+                8469
+              ],
+              1,
+              0,
+              33
+            ]
+          ],
+          "face_ref_rows": {
+            "203": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "224": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ],
+            "238": [
+              [
+                1,
+                214
+              ],
+              [
+                2,
+                217
+              ],
+              [
+                4,
+                222
+              ]
+            ],
+            "239": [
+              [
+                1,
+                227
+              ],
+              [
+                2,
+                229
+              ],
+              [
+                4,
+                233
+              ]
+            ]
+          }
+        }
+      },
+      "streams": {
+        "Contents/Config-0": {
+          "sha256": "f35d2c71391a9ccbc7af374cb1665b81486f73dbca54b39540aa9f11b034301a",
+          "bytes": 25214,
+          "map_counter": 109
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "sha256": "629ba42e35abd6b5dab9445011223fdc0de33f079952ad4a431f0d2845cffe0b",
+          "bytes": 16423,
+          "map_counter": 287
+        }
+      },
+      "ordinary_projection": "ordinary revolve history contains another unqualified feature class",
+      "schema_negatives": null,
+      "runtime_external_access_attempts": 0
+    }
+  ],
+  "native_execution": false,
+  "writer_output_count": 0,
+  "heldout_acceptance": false
+}

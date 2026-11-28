@@ -1,0 +1,41 @@
+{
+  "heldout_inputs_read": 0,
+  "native_failed_report_sha256": "e402c2967320c0309e8d02b0eb90a290e3220c17c429e633b43429b35b185895",
+  "native_processes_started": 0,
+  "native_source_remains_failed": true,
+  "observer_sha256": "6d3a16a4d8e1497542918b95fd4c4a32a025383e536418072cf01a7f66b6a089",
+  "offline_numeric_checks": 128,
+  "passed": true,
+  "phases": [
+    {
+      "api_calls_observed": 907,
+      "native_source_numeric_checks": 0,
+      "native_source_record_sha256": "7baace8c2e369b28f842fa116d1ae7191e9505529f4bd1622d5a98af3feff67a",
+      "numeric_checks": 56,
+      "passed": true,
+      "phase": "CornerAsciiPlain",
+      "replay_record_sha256": "361f4e3e95a5458187f030875ab2aad0e969ad47150a372a23ea63683c614fa5",
+      "states": [
+        "Initial",
+        "Rebuilt"
+      ]
+    },
+    {
+      "api_calls_observed": 1071,
+      "native_source_numeric_checks": 0,
+      "native_source_record_sha256": "cdac15835fbf68c5fb319dece3dbdcb816e0d31cea58cc57f00598be12bd1b4a",
+      "numeric_checks": 72,
+      "passed": true,
+      "phase": "CenterWidePlain",
+      "replay_record_sha256": "ca88ffea3e6196790c91b444d68e4e2ee52b8d1e2f905ab950f8a8fd86b1b85f",
+      "states": [
+        "Initial",
+        "Rebuilt"
+      ]
+    }
+  ],
+  "recorded_candidate_states": 4,
+  "retry_trial_sha256": "542de0e34ace2fb574d112302fb57c71302781fcbb81fb39f1ef9be2812af9fc",
+  "schema": "kit.sw2026.anchored-parent-observer-offline-replay.v1",
+  "writer_changes": 0
+}

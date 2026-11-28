@@ -1,0 +1,209 @@
+{
+  "base": "e0d4349f18711d5ba9a04171c8a4b84d6e6603db",
+  "generated_model": {
+    "right": {
+      "body_graph_sha256": "38a274483bab23808ceb2f42af138acd44b1d5408dd87a8224441f3bfa7dcf58",
+      "creation_epoch": 2592000,
+      "display_centre_m": [
+        0.0,
+        0.0505,
+        0.0135
+      ],
+      "field_bytes": 243,
+      "field_sha256": "1339465bc60cb187e6318e2748da2ba58884d91115c2f0b6d6c5fa2ce7137fe1",
+      "map": [
+        221,
+        225
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "plane_id": 16,
+      "plane_role": 1,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    },
+    "top": {
+      "body_graph_sha256": "873c3fb1beda435cc2c0a2293be365866b30d59a4054ad00f53ec2147f6f616d",
+      "creation_epoch": 1795590003,
+      "display_centre_m": [
+        0.094,
+        0.0,
+        0.018000000000000002
+      ],
+      "field_bytes": 243,
+      "field_sha256": "e61d97299469b823505dc0450c67dfb5d8a34ec8918c362f2ba4d7515e4f62e2",
+      "map": [
+        221,
+        225
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "plane_id": 15,
+      "plane_role": 2,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    }
+  },
+  "guarded_workers": 16,
+  "heldout_inputs_read": 0,
+  "native_build": "34.5.2.0604",
+  "new_native_launches": 0,
+  "refusals": {
+    "crossed_headers": "ValueError: pattern direction requires paired local part headers",
+    "detached_plane": "ValueError: pattern direction must use its actual registered principal plane",
+    "empty_display": "ValueError: datum display requires two finite positive spans",
+    "front": "ValueError: pattern direction requires an ordinary Top or Right datum",
+    "missing_peer_event": "ValueError: pattern direction creation differs between its own headers",
+    "off_plane_display": "ValueError: pattern direction requires an ordinary Top or Right datum"
+  },
+  "schema": "kit.sw2026.principal-pattern-selected-direction.v1",
+  "source": {
+    "D01X.SLDPRT": {
+      "archive_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+      "creation_epoch": 1794529625,
+      "display_centre_m": [
+        0.0,
+        0.031090000000000007,
+        0.00533
+      ],
+      "frames": [
+        "3d907c69875881895c1cddf1dcb328a9fa931952e12a9d745c962a02917bed2a",
+        "e502cfbc9bcd027a1536d6f9d72b71d6c5aecae1632a8a059fc6101104418ca8"
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "plane_id": 4,
+      "plane_role": 1,
+      "reversed": 0,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    },
+    "D01XInstances.SLDPRT": {
+      "archive_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+      "creation_epoch": 1794529625,
+      "display_centre_m": [
+        0.0,
+        0.031090000000000007,
+        0.00533
+      ],
+      "frames": [
+        "a3ba42e64644e62df2888f2e7ff6e2b91f198fea6d383ea5517f26d28018fdae",
+        "b460f235270e9de94ac62274274434f28ed6046999b8e07a2aeecc8bfb383ba1"
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "plane_id": 4,
+      "plane_role": 1,
+      "reversed": 0,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    },
+    "D01XSpacing.SLDPRT": {
+      "archive_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+      "creation_epoch": 1794529625,
+      "display_centre_m": [
+        0.0,
+        0.031090000000000007,
+        0.00533
+      ],
+      "frames": [
+        "86f88d2fc620496eea28accbbc608123f36e3e6c219e9eed51186f2fc1cc1a3b",
+        "ee62cefcc4dd8f0a270417a8f6e4bd3cbb96206669a9b2f2560708f2cdb62b6c"
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "plane_id": 4,
+      "plane_role": 1,
+      "reversed": 0,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    },
+    "D02Y.SLDPRT": {
+      "archive_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+      "creation_epoch": 1794529625,
+      "display_centre_m": [
+        0.09673999999999999,
+        0.0,
+        0.0054199999999999995
+      ],
+      "frames": [
+        "99323ed45509bc433e6c649ca08375a21cd1ffefb5304af2492f7b6e69901abc",
+        "8d90f9bd93ea45d25c334df76aa5ca6bdfa25edb1dbdf62630f4d923e4bcd7a9"
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "plane_id": 3,
+      "plane_role": 2,
+      "reversed": 1,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    },
+    "D02YInstances.SLDPRT": {
+      "archive_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+      "creation_epoch": 1794529625,
+      "display_centre_m": [
+        0.09673999999999999,
+        0.0,
+        0.0054199999999999995
+      ],
+      "frames": [
+        "fa6710128ab29af93213a8df34933b69affb5a91eb86522dfb58d626b459cc49",
+        "96500e6a76d9c4018254c3fddb6d2af3f7501937a10403a2d48f765892fc2a70"
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "plane_id": 3,
+      "plane_role": 2,
+      "reversed": 1,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    },
+    "D02YSpacing.SLDPRT": {
+      "archive_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+      "creation_epoch": 1794529625,
+      "display_centre_m": [
+        0.09673999999999999,
+        0.0,
+        0.0054199999999999995
+      ],
+      "frames": [
+        "1ca8efc48a357d9960a9aa8b745ecfe3c12c81a0a5c75b5e99be70371feab221",
+        "fe291652c8611a12eadc23f275b9157d87c583a8471a1ef3a8f25146e2d609cb"
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "plane_id": 3,
+      "plane_role": 2,
+      "reversed": 1,
+      "runtime_file_reads": 0,
+      "span": 1.0
+    }
+  },
+  "source_geometry_receipt_sha256": "827baa41493ed7fc459dcb5d7b4485a733494cf20fd4fb8d9ecb5aee4a70f566",
+  "tool_sha256": "fcd26d2260ca43a4fa9861e3575c4e345fe570073bc0b08d1c95d5196ff08fbf",
+  "writer_files_published": 0
+}

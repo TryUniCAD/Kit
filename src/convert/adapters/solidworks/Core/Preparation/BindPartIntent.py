@@ -3,8 +3,8 @@ from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
@@ -16,7 +16,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 # neutral geometry configuration units and support names must override stale recipe projections while explicit presentation and provenance remain caller owned
 def BindPartIntent(
     DocumentValue: CadDocument,
-    PlanValue: BlindPlan,
+    PlanValue: KPartPlan,
     RecipeValue: PartBuildInput,
     OutputValue: SelfFileInput,
 ) -> PartBuildInput:
@@ -24,16 +24,26 @@ def BindPartIntent(
         raise TypeError("plain part preparation requires an explicit typed recipe")
     UnitName = str(DocumentValue.units)
     SystemsValue = {"mm": "mmgs", "m": "mks", "in": "ips"}
-    DocumentUnits = UnitInput(
-        UnitName,
-        RecipeValue.DocumentUnits.AngleUnit,
-        SystemsValue[UnitName],
-        RecipeValue.DocumentUnits.DecimalPlaces,
-    )
+    DocumentUnits = RecipeValue.DocumentUnits
+    if DocumentUnits.UnitSystem == "custom":
+        if DocumentUnits.LengthUnit != UnitName:
+            raise ValueError(
+                "custom display length must match the actual neutral units"
+            )
+    else:
+        DocumentUnits = UnitInput(
+            UnitName,
+            DocumentUnits.AngleUnit,
+            SystemsValue[UnitName],
+            DocumentUnits.DecimalPlaces,
+        )
     SystemValue = ReplaceValue(
         RecipeValue.SystemValue,
         PlaneNames=tuple(
-            (AxisValue, PlanValue.PlaneName if AxisValue == "z" else NameValue)
+            (
+                AxisValue,
+                PlanValue.PlaneName if AxisValue == PlanValue.AxisValue else NameValue,
+            )
             for AxisValue, NameValue in RecipeValue.SystemValue.PlaneNames
         ),
     )

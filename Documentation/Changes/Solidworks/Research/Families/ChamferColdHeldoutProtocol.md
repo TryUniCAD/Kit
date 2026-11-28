@@ -1,0 +1,5 @@
+# Cold distance-angle chamfer held-out protocol
+
+The [guest-private evaluation method](../../../../../re/solidworks/records/ChamferColdHeldoutProtocol2026.md) binds two independently authored pre-writer sources to the exact cold chamfer constructor. It stages a checked Python-only compiler and reuses the ordinary native verification helpers for the D1 and D2 edit paths. Source operands, captures, generated files and native observations stay on the Windows guest. The shared receipt contains lifecycle verdicts, digests and counts.
+
+Host verification exercises the two exact previously measured generated inputs and two independently translated neutral models. The retry uses the same compiler bundle and validates the nested source receipt job in a guest-only preflight before the native run. The original attempt recorded two healthy controls and stopped before source observation. Held-out credit requires the separate exact-build native run. Source annotation layout and public writer qualification are outside this change.

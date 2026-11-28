@@ -1,0 +1,311 @@
+{
+  "schema": "kit.sw2026.generated-blank-strict-reader-owners.v1",
+  "task": "B04-SW2026-DRAWPROPS/strict-generated-blank-read",
+  "delivery_pr": 121,
+  "owner": "configuration_header",
+  "scope": "canonical SDK blank seven-stream drawing 19000; private source tranche",
+  "source_manifest_sha256": "2a2de793f43b3cbca7c301fb526686f15c1bca4b7bceb564460fcb005b00dac0",
+  "source_delta": [
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/ReadDrawing.py",
+      "sha256": "f3e9b9756f380d1932db1ed45e16871e3b28da2652f667538d4dffe09388793b",
+      "bytes": 2479,
+      "base_sha256": "cfb9599cb12c169f4a0a86ec581cdf8b5f802b28bef82062ae028f774bc91e9b"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/BlankIntent.py",
+      "sha256": "169b3f15749401ad6d126ca85e041434c32691215f62d66a14f64dbf6ceadf5a",
+      "bytes": 371,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/BlankStreamNames.py",
+      "sha256": "6ad8634bbd1d7a3f381c7d66cd638820347f61dea245108dccab72cf6d8ec6f7",
+      "bytes": 382,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/Fields.py",
+      "sha256": "181ce1c6f72d218875cd7e1c456367fba98bdf0c6591209648656c8b7be05d6e",
+      "bytes": 739,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/Integer.py",
+      "sha256": "8c7d1443b029395459fc175173b1e4e1636906e5cb4d1b2e65e2a3fc8954d87e",
+      "bytes": 339,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/One.py",
+      "sha256": "003010998dec068c37e794205c88f81fe77de80b97845c8859e798e48886c9d3",
+      "bytes": 513,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/Plain.py",
+      "sha256": "addf67389f9bb2071e202aa0fa35d3b197cc67ba5d210311bdff2e46a78cc727",
+      "bytes": 896,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankHeader.py",
+      "sha256": "47505de06a11b655dad742ab57a41a2d5e871de9162ba8091eb020f94fd6010b",
+      "bytes": 2268,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankHistory.py",
+      "sha256": "514b6e80522714be394167ac64bf9749a857bf1fdc66336265c477d1fdf65abd",
+      "bytes": 1860,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankIntent.py",
+      "sha256": "990d559a9d52b7035f111f7a2089c46e3effd9cde370f5c7115c77e1939671e0",
+      "bytes": 5491,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankLocale.py",
+      "sha256": "a1b35dda1658a1d7eba26a9a282ce46a965885801401667beba6922ec50f7c3d",
+      "bytes": 1033,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankOptions.py",
+      "sha256": "1ac2c7bc53fd89ca0d4bf58a95c18361b1f6460ae58ce702dd86f739705e9ad3",
+      "bytes": 3786,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankStyle.py",
+      "sha256": "08b3b353005cf5c7674c1845f91d1e114eeb3cc3d61b47039c2a4fdfe3bc76d3",
+      "bytes": 1795,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankUi.py",
+      "sha256": "369f2486608615a14a77b2a971d88686790314ff8990d01d326c852bec4515b9",
+      "bytes": 1494,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/ReadBlankUnits.py",
+      "sha256": "5393260dc17a4098a757ca83b1c4c0853b4acf1db8e843832159f151590c5f62",
+      "bytes": 2066,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/Require.py",
+      "sha256": "19ccfd8b1b3312ca3a507c8c4ee5a1ce54fce216864f7ab62e556b5345ff505d",
+      "bytes": 285,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/Blank/Rows.py",
+      "sha256": "8d4f1f7176a674aa625746f847642a1be2747781e85d6f918d57d14d785473d5",
+      "bytes": 470,
+      "base_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Reading/ReadGeneratedBlank.py",
+      "sha256": "793ec4153fbcccddd8d84444d7418b15de00c4598e8c6448cc7bf82c8fd9684f",
+      "bytes": 1621,
+      "base_sha256": null
+    }
+  ],
+  "existing_authorities": [
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Portable/MakeBlankFile.py",
+      "sha256": "d5f50042862315a92d385e937644e5cd41acfe938af6df11f99d7bec98a3a93b",
+      "bytes": 2215
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Metadata/MakeDrawStreams.py",
+      "sha256": "db860cb6177208dce146bb4fc247ba80a92d17052ed24dbac4b7ae591872570a",
+      "bytes": 2273
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Emission/ReadBlankDef.py",
+      "sha256": "a0206f0fd8fc8aa4fb960851cb83a53eacaea4e7eddfd52026fbaa8925bf8251",
+      "bytes": 3988
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankGraph.py",
+      "sha256": "16dfd2c9d42c83cdb7d3eaa97c8b27b1c9115b1f7c68af9a21c78dd4c244b8e8",
+      "bytes": 3163
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankNode.py",
+      "sha256": "df3495c3f0d0587956be63a586a509d23a7f5a0e9d8ffe997e65aae946cfa97a",
+      "bytes": 2307
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankSheet.py",
+      "sha256": "8afa5918f1fe02c5225cd690401c65eddc96395167bb4769f56a6d115e0479da",
+      "bytes": 1610
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Header/ReadNativeHeader.py",
+      "sha256": "58ce33b0c360f522d80c7cff7a9f6933bf44be266085f00c0710beb912d63ec1",
+      "bytes": 2304
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/History/ReadHistMut.py",
+      "sha256": "491a4c48eb859f180106bd6dc43322a468a94bf50d870fba0acbf069c0d2ffe8",
+      "bytes": 1648
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeAnnoStyle.py",
+      "sha256": "574a33c958e57a087d134649b64579810c5b198f9528ccd37235ad0d42a48c04",
+      "bytes": 3214
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeDetails.py",
+      "sha256": "21c370f333e45c7a2da57eb6fac90652d8bc4747e578c38ae44b6bfa07c13352",
+      "bytes": 6926
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Metadata/Writing/MakeInfoProps.py",
+      "sha256": "a94637f2fe3c4fe59e692cf2b9e27781519fc7ab9b6c3f1218d88d7d25dec2d9",
+      "bytes": 1884
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/NeedBlankDrawing.py",
+      "sha256": "18908c8a74c99abd29c9e26914df18e8b410866586a4a83a1b95aaf015c1faff",
+      "bytes": 2301
+    }
+  ],
+  "stream_classification": [
+    {
+      "name": "Contents/Definition",
+      "input": [
+        "sheet name and ratio",
+        "folder and support names",
+        "style vocabulary font and widths",
+        "document units",
+        "UI standard and preferences",
+        "UUID4",
+        "target release metadata",
+        "inline HeaderInput and SelfFileInput"
+      ],
+      "derived": [
+        "persistent allocation",
+        "object maps and aliases",
+        "support transforms and zones",
+        "empty managers and references"
+      ],
+      "acceptance": "full typed decode and complete generative byte identity"
+    },
+    {
+      "name": "Header2",
+      "input": [
+        "author company comment",
+        "created modified updated epochs",
+        "physical self path and saved epoch"
+      ],
+      "derived": [
+        "model log identity",
+        "persistent counter",
+        "fresh update body counters"
+      ],
+      "acceptance": "complete typed decode, separate inline owner equality and generative byte identity"
+    },
+    {
+      "name": "_MO_VERSION_19000/Biography",
+      "kind": "volatile telemetry",
+      "supported": "typed canonical fresh empty only",
+      "unrepresented_population": "reject"
+    },
+    {
+      "name": "_MO_VERSION_19000/History",
+      "input": [
+        "originating build",
+        "creation comment",
+        "license category",
+        "stored locale and CJK flag"
+      ],
+      "derived": [
+        "single version event and build entry"
+      ],
+      "unsupported": [
+        "multiple events",
+        "native-only provenance outside fresh domains",
+        "conflicting creation owners"
+      ]
+    },
+    {
+      "name": "ModelStamps",
+      "kind": "derived bookkeeping",
+      "fields": [
+        "header.f70",
+        "header.f40",
+        "header.f44"
+      ],
+      "types": [
+        "u32",
+        "u32",
+        "u32"
+      ],
+      "encoding": "little endian through existing EncodeScalar"
+    },
+    {
+      "name": "swXmlContents/KeyWords",
+      "input": [
+        "model title creation epoch sheet identity and property-view name"
+      ],
+      "derived": [
+        "paper vocabulary scale text and XML framing"
+      ],
+      "unknown_owner": "reject through complete computed stream equality"
+    },
+    {
+      "name": "docProps/ISolidWorksInformation.xml",
+      "kind": "derived six sheet system properties",
+      "rules": [
+        "ordered IDs 3 through 8",
+        "matching name dictionary",
+        "unqualified section/property grammar",
+        "per-tree literal vt declaration"
+      ],
+      "unknown_custom_properties": "reject"
+    }
+  ],
+  "container_policy": {
+    "canonical_complete_reconstruction": true,
+    "alternate_equivalent_compression": "outside profile and refuses",
+    "trailing_unscanned_bytes": "refuse",
+    "signature_or_vendor_origin_forging": false
+  },
+  "language_owner": {
+    "style_effect_fields": "model.fae0.f1f18 annotation subtype f1c",
+    "effect_rule": "2 if selector & 1023 == 13 else 0",
+    "original_full_style_locale_recovered": false,
+    "representative_selector_explicitly_marked": true,
+    "actual_history_locale_preserved": true
+  },
+  "public_source_metadata": {
+    "solidworks.blank.profile": "fresh-v19000-seven-stream-v1",
+    "solidworks.blank.intent": "structured official constructor input owners; no raw bytes or field program",
+    "solidworks.blank.native_sheet_id": "actual parsed persistent sheet ID",
+    "solidworks.blank.complete_stream_reconstruction": true,
+    "solidworks.blank.complete_container_reconstruction": true,
+    "solidworks.blank.style_language_selector_is_representative": true
+  },
+  "measurement": {
+    "repo_path": "re/solidworks/measurements/2026/SdkGeneratedBlankStrictRead01.json",
+    "sha256": "7388067fb7b0902250871843d387fec92eceb15a299515a69f47ad77cdafa622",
+    "raw_replay_sha256": "d664df3daffb937f036d741c937f4d1380f0e2483909c76465bcdf3741f72629",
+    "workers": 72,
+    "paired_groups": 36
+  },
+  "scope_limits": [
+    "not a general native authored or saved drawing reader",
+    "valid native note/control qualification remains absent; structural rejection evidence only",
+    "no public rewrite registration in this tranche",
+    "no native app or private source access by this lane",
+    "no original-source held-out credit"
+  ],
+  "confidence": "confirmed against current SDK construction rules and exact diverse process results; native scope remains the previously measured generated blank writer"
+}

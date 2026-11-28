@@ -1,0 +1,5 @@
+# Drawing projection occurrence observer
+
+The drawing-edge observer now admits the exact drawing-context part occurrence produced by GetVisibleComponents rather than requiring the child model's unit-root semantics. It requires IsRoot=false, no assembly parent, exact empty occurrence configuration and an actual component model identical to the view's part with the explicit authored active configuration. Existing edge, annotation, persistent-reference, geometry, tree, control and custody requirements remain intact.
+
+The previous native trial remains failed on both pristine control observers and launched no generated phase. The [source record and frozen commands](../../../../../../re/solidworks/records/DrawingProjectionOccurrence2026.md) bind the exact producer and retain that refuted assumption. Host-only exact input custody, syntax, F821 and verify mode passed; the corrected six-phase native annotation lifecycle remains pending. No writer or generated downstream-cache support is activated.

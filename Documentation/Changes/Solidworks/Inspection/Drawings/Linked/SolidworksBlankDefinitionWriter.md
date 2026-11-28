@@ -1,0 +1,9 @@
+# Complete SDK blank drawing Definition codec
+
+The internal archive codec now writes and reads an entire ordinary blank drawing `Contents/Definition` stream from typed graph owners. It composes the shared model and header layouts, the existing sheet writer, drawing managers, UI state and trailer. All object tags, counts and map indexes follow the generated graph. It uses no saved spans, recorded field programs, templates or CAD runtime.
+
+Use `BlankGraph`, `WriteBlankDef` and `ReadBlankDef` under `Drawing.Definition.Emission`. The admitted graph is version 19000 with one unformatted ANSI A landscape sheet, actual support aliases, empty sketch geometry and empty layer/block/model-link collections. Other layouts, optional payloads and unknown classes fail explicitly. The semantic neutral-document factory remains in research, and the public adapter remains read-only.
+
+Four independently authored designs each pass two isolated processes, including long Unicode metadata, imperial units and ISO drafting vocabulary. Complete Definition bytes, final object map, all surrounding logical streams, full SDK read/write and independent readback match. Twelve additional complete jobs reject the unsupported profiles. All twenty processes retain zero runtime input-file access. Targeted steering, Black, Mypy, Pyright and the donor scan pass. This slice performs no native oracle run and claims no new vendor acceptance.
+
+See the [usage guide](../../../../../Reference/Research/Solidworks/DrawingDefinitionWriting.md), [field/source ledger](../../../../../../re/solidworks/records/DrawingDefinitionWriter2026.md), [process evidence](../../../../../../re/solidworks/measurements/2026/SdkDrawingDefinition01.json) and [inline-header gotcha](../../../../../Gotchas/Conversion/Solidworks/Archive/Drawings/DrawingInlineHeadersNeedTheDefinitionMap.md).

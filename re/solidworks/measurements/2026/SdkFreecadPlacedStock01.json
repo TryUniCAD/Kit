@@ -1,0 +1,306 @@
+{
+  "base": "2e3c2ab7c83ae5f6632dbc0bf64482f7546d8bab",
+  "cases": {
+    "C057-P01": {
+      "case": "C057-P01",
+      "file_name": "C057-RotatedStock.SLDPRT",
+      "logical_locator": "C:\\KitSdkCandidates\\C057-RotatedStock.SLDPRT",
+      "original_neutral_unchanged": true,
+      "result": {
+        "actual_rotation": {
+          "local_axis": [
+            -0.8944271909999159,
+            0.4472135954999579,
+            0.0
+          ],
+          "placement_rotation_rad": 0.6405223126794245,
+          "stored_axis_norm": 0.5976143046671969,
+          "world_corner_count": 8,
+          "world_corners_sha256": "8e09d4ffef468d8767a5c74ea4c02270c09dda99f15ea09c63c57243ec16e785"
+        },
+        "intact_public_refusals": {
+          "adapter": "native-only feature definitions cannot be exported",
+          "registry": "native-only feature definitions cannot be exported"
+        },
+        "rotation_refused": "unsupported rigid rotation"
+      },
+      "runtime_data_reads": 0,
+      "source": {
+        "native_object_id": "4972",
+        "placement_mm": [
+          2000.0,
+          6000.0,
+          0.0
+        ],
+        "release": "1.1R20260414 (Git shallow)",
+        "shape_sha256": "3af76e03091dcb3256e56cd1322838aadcf427859b62f6ceaf48f62ec5cb4d8a",
+        "size_mm": [
+          200.0,
+          500.0,
+          100.0
+        ],
+        "source_alias": "Box001"
+      },
+      "source_sha256": "6f821c04ddd34092779e6781288cef62436f108dee5ff948117d35820d3d9c87"
+    },
+    "C151-P01": {
+      "case": "C151-P01",
+      "file_name": "C151-TranslatedStock.SLDPRT",
+      "logical_locator": "C:\\KitSdkCandidates\\C151-TranslatedStock.SLDPRT",
+      "original_neutral_unchanged": true,
+      "result": {
+        "area_mm2": 133600.0,
+        "bounds_mm": [
+          [
+            181.8,
+            0.0,
+            0.0
+          ],
+          [
+            341.8,
+            400.0,
+            5.0
+          ]
+        ],
+        "bytes": 8589,
+        "centre_mm": [
+          261.8,
+          200.0,
+          2.5
+        ],
+        "counts": [
+          1,
+          1,
+          6,
+          12,
+          8,
+          24
+        ],
+        "design_only_parameter_count": 3,
+        "dimensions": {
+          "160x400x006.Height": 5.0,
+          "160x400x006.Length": 159.99999999999997,
+          "160x400x006.Width": 400.0
+        },
+        "fixed_corner_index": 0,
+        "incidence_sha256": "a7c2f2078fdaa8b741c48e393dac91c7bcba91e90d0762ae289267b15b258a04",
+        "intact_public_refusals": {
+          "adapter": "native-only feature definitions cannot be exported",
+          "registry": "native-only feature definitions cannot be exported"
+        },
+        "origin_only_refusal": "alternate attachment or placement",
+        "plane": {
+          "distance_mm": 0,
+          "read_owner": "Front Plane"
+        },
+        "public_full_read_boundary": "contains no readable Parasolid payload",
+        "sha256": "0bfecec8cbb8e271620bc7d71f2ac0b69677ab6e486c9164a0ba82dd05571057",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22274,
+            "sha256": "bb4a0931e056c584e43868b9dbc91a76cff377189076d3e7058340e75ef33762"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 663,
+            "sha256": "ee40afbaf73e1d06f7f214370646e66608616b54de03aefb766b857fc9afb6c1"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17458,
+            "sha256": "528e9bde5472c51de65fdc6ce3f29062fcdfc177bf53b358c1b1dadea2d3043d"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 663,
+            "sha256": "2e79524179f120b567c46f21035bcb26343915911afe1c7eabf068094e7e8a33"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1571,
+            "sha256": "2aab586aae5da09ecb8e7d3efab608fa4281f553ceac3c274bdbcf447269a716"
+          }
+        },
+        "volume_mm3": 320000.0,
+        "wrong_corner_refused": true
+      },
+      "runtime_data_reads": 0,
+      "source": {
+        "native_object_id": "891",
+        "placement_mm": [
+          181.8,
+          0.0,
+          0.0
+        ],
+        "release": "0.21R30669 (Git)",
+        "shape_sha256": "e2132e1781f9e00180d77d79287271561fef70a092364da5ac12388e90246271",
+        "size_mm": [
+          160.0,
+          400.0,
+          5.0
+        ],
+        "source_alias": "160x400x006"
+      },
+      "source_sha256": "ef5661105657e402988327f6ae87611982d236bf6e5e04eaf9b1606694c2d9d4"
+    },
+    "standalone": {
+      "case": "standalone",
+      "file_name": "DisclosedLiveBox.SLDPRT",
+      "logical_locator": "C:\\KitSdkCandidates\\DisclosedLiveBox.SLDPRT",
+      "original_neutral_unchanged": true,
+      "result": {
+        "area_mm2": 1077.96875,
+        "bounds_mm": [
+          [
+            4.25,
+            6.125,
+            -2.2500000000000004
+          ],
+          [
+            21.625,
+            19.75,
+            7.5
+          ]
+        ],
+        "bytes": 8859,
+        "centre_mm": [
+          12.9375,
+          12.9375,
+          2.625
+        ],
+        "counts": [
+          1,
+          1,
+          6,
+          12,
+          8,
+          24
+        ],
+        "dimensions": {
+          "Disclosed Live Box.Height": 9.75,
+          "Disclosed Live Box.Length": 17.375,
+          "Disclosed Live Box.Width": 13.625
+        },
+        "fixed_corner_index": 0,
+        "incidence_sha256": "a7c2f2078fdaa8b741c48e393dac91c7bcba91e90d0762ae289267b15b258a04",
+        "intact_public_refusals": {
+          "adapter": "native-only feature definitions cannot be exported",
+          "registry": "native-only feature definitions cannot be exported"
+        },
+        "origin_only_refusal": "alternate attachment or placement",
+        "plane": {
+          "distance_mm": 2.25,
+          "live_parameter": "D1",
+          "read_owner": "Disclosed Live Box Placement",
+          "reversed": true
+        },
+        "public_design_read_boundary": "unsupported typed offset-plane part",
+        "public_full_read_boundary": "unsupported typed offset-plane part",
+        "sha256": "72f4ac60dfe101913282ce9a091ddf9e7bada8caceadb5628000f6d5714ab54b",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "bb05044cb5938edcd9f87cd57b1453c8dc65b4c06b032e44be758c7f5d25b8e9"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22248,
+            "sha256": "6386b7afbad5c99fc4b0c53e03e08682ee5e3d887c5094da8a4bd8cff036da2a"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 639,
+            "sha256": "926bd4d363585d351d2fbbadf1e24a95c915308841951d69c6a83a7067fe1abe"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 19954,
+            "sha256": "91a6e2bdd0276c26915152c2286baefc469e4e776daeee871ee1e4db286bf188"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 639,
+            "sha256": "f5887ff910b31c6235bce70da66d0f08324bd3fc91372253dc3e9fbefdf29dc0"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1709,
+            "sha256": "c0226c88c71f25c79a08a4a5af311cf11be666a25545823f50a4eb6fbfe49256"
+          }
+        },
+        "volume_mm3": 2308.16015625,
+        "wrong_corner_refused": true
+      },
+      "runtime_data_reads": 0,
+      "source": {
+        "native_object_id": "92",
+        "placement_mm": [
+          4.25,
+          6.125,
+          -2.25
+        ],
+        "release": "1.1R20260928 (Git shallow)",
+        "shape_sha256": "12f1b215655f2f55eab0d4eacf6a1cf60f7b576d887b2fce310daba91a0b9708",
+        "size_mm": [
+          17.375,
+          13.625,
+          9.75
+        ],
+        "source_alias": "Disclosed Live Box"
+      },
+      "source_sha256": "0de6a5bdd0e3c092a8ce12e932a6dd3937a8eaac8b5e7eb1fac37a73151c9c51"
+    }
+  },
+  "code_sha256": {
+    "re/tooling/sw2026/freecad_census/primitive_stock/ProvePlacedStock.py": "81bb11ee4b5e9e8e2e90ba6e3cd0767206f86b05726a49558396f735cd941ff2",
+    "src/convert/adapters/solidworks/Archive/Construction/OffsetPlane/BeginOffProf.py": "36b791a2bd5ba18c00c78efa33feb841ab9e1899f2cf45c0d1e2ce535b170295",
+    "src/convert/adapters/solidworks/Archive/Construction/OffsetPlane/CheckOffProf.py": "070fde5365353d02e2113c7e90d8327176788c949e5e2c8399b99e04c699c8a8",
+    "src/convert/adapters/solidworks/Archive/Construction/OffsetPlane/CheckOffRadial.py": "e119c8fb0bf61a9c109fd1e71d3ae5a435049ea8303ca74a3cb14916ae4ab307",
+    "src/convert/adapters/solidworks/Archive/Construction/OffsetPlane/MakeOffCircMut.py": "833252d915cf2a6d4892b800fe4da288416adbb1269a970a7041f07ba94e5df0",
+    "src/convert/adapters/solidworks/Archive/Construction/OffsetPlane/MakeOffPolyMut.py": "ecb502a48774fbc688f4c21491e28438111013377c047b68a04930641b2c9834",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectDimsMut.py": "a9e983072f8ae59a96905fd655cb6d1bdc060170e6aef825b417a361d457bae7",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/ReadRectDrivers.py": "1ef890b578225f149780f2ba040e480e409917dec1b37335a49df269d1a148a1",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/BindStockFix.py": "9437723d2044d0b3412b9855568447ead7aea6ccc75bd887c833ecd58d1cc180",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/BuildPlacedBox.py": "3710ec9d928435467d0008a9f75b3f0cadd4f437693560bb4d85ea918047516f",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/CheckStockShape.py": "199b8851f2582eaddd295e74e89a4ad3602d8dd1af3cbb09f0e53c960fef0572",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/PlanFcStock.py": "2a7e068e573f3ad6488761049b628f01fdc531458a936df76f09e84a7f1eb869",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/PrepFcStock.py": "5c4eac63bd199a1cfb99eaa61c5476056383a43026c20a3c0d4fb61ea196668b",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/ReadStockDims.py": "6c07722f42839119ba179a223ead991e9e4779ef844c19cf7ddac0e830d92d00",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/ReadStockPlace.py": "f02a72f2dcf58f31569c2cdcb092e221ca53ba66db70e28afdd7c30a49188894"
+  },
+  "corpus_credit": 0,
+  "creation_epoch": 1790000000,
+  "fresh_workers": 6,
+  "heldout_cases": 0,
+  "inventory_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
+  "native_processes": 0,
+  "public_qualified": false,
+  "schema": "kit.sw2026.freecad-placed-stock.v1"
+}

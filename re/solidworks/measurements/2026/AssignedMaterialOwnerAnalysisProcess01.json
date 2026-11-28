@@ -1,0 +1,75 @@
+{
+  "cad_inputs_opened": 0,
+  "heldout_credit": 0,
+  "heldout_inputs_read": 0,
+  "host_smoke": {
+    "cad_files_opened": 0,
+    "catalog_sha256": "1e36282e0e5933fb21e3391990c6283ecc4e5a514fea5b569510566e821d4d17",
+    "disclosed_synthetic_designs": 2,
+    "heldout_inputs_read": 0,
+    "independent_decimal_checks": 10,
+    "native_launch_ready": false,
+    "native_runs": 0,
+    "negative_inputs": [
+      {
+        "exit_code": 1,
+        "kind": "negative-density",
+        "rejected_before_output": true
+      },
+      {
+        "exit_code": 1,
+        "kind": "ambiguous-name",
+        "rejected_before_output": true
+      },
+      {
+        "exit_code": 1,
+        "kind": "missing-api-shape",
+        "rejected_before_output": true
+      }
+    ],
+    "passed": true,
+    "plan_sha256": "82829d1302de2903357ddfd339849b0e9e79c444eb42ba6e6c2d5d6733901c97",
+    "preparer_processes": 4,
+    "schema": "kit.sw2026.assigned-material-host-tool-smoke.v1",
+    "scope": "research metadata preparer CLI only; synthetic material data, no product/native proof",
+    "tool_sha256": "c346d588b099489365998358a3718cc1df29861fe119f431c6383d6fbf2bba1b",
+    "writer_outputs": 0
+  },
+  "host_smoke_method_sha256": "e941ca79f6fc67afadd2c1f25eae35bebc57b2fcb318fa7c1da3ec0098201da7",
+  "host_smoke_result_sha256": "061fae950585ee1568e2be16de2a52a53d62e995001e0916de1e5526673dbc5c",
+  "independent_root_replay": {
+    "analysis_manifest_sha256": "a61304cf2ae470fe673d5b71480ceef288ca5330619d88200732c9876740a9ee",
+    "host_smoke_result_sha256": "061fae950585ee1568e2be16de2a52a53d62e995001e0916de1e5526673dbc5c",
+    "original_pe_metadata_sha256": "7adc86f05bf26ca67c0f7935c8b6d4cc573c357a2229377e24e3d31856ac2d51"
+  },
+  "limits": [
+    "exact native live assignment has not been measured",
+    "the host smoke uses synthetic catalog metadata and supplies no installed material evidence",
+    "the new model-free metadata capture has AST/compile verification only until root executes it",
+    "the source-authoring protocol requires independently captured database/unit/API metadata and source locks"
+  ],
+  "native_assignment_qualified": false,
+  "native_runs": 0,
+  "no_shared_checkout_mutations": true,
+  "passed": true,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.assigned-material-owner-analysis-process.v1",
+  "scope": "static original-PE field mapping and research metadata-plan CLI only",
+  "shared_target_sessions_opened": 0,
+  "static_counts": {
+    "declared_literals": 8,
+    "function_or_leaf_ranges": 35,
+    "import_bindings": 3,
+    "modules": 5,
+    "vtable_slots": 5
+  },
+  "static_pins_sha256": "7adc86f05bf26ca67c0f7935c8b6d4cc573c357a2229377e24e3d31856ac2d51",
+  "task": "B04-SW2026-NAMED-MATERIAL",
+  "tools_sha256": {
+    "CaptureMaterialCatalog.py": "4c84dc492a80b3cfe6403d2e90c7f0e372aba4c33d21c323c92228c82bde61ae",
+    "InspectMaterialOwners.py": "160a0de344b388c4320dd8c616b4963aeff12d3f0779f62f0192e1705b861c28",
+    "MaterialPe.py": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7",
+    "PrepareMaterialSourceRecipe.py": "c346d588b099489365998358a3718cc1df29861fe119f431c6383d6fbf2bba1b"
+  },
+  "writer_outputs": 0
+}

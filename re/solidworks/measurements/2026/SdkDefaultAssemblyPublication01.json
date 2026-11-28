@@ -1,0 +1,115 @@
+{
+  "delivery_pr": 121,
+  "fcstd_qualification_credit": 0,
+  "framework_files": {
+    "re/tooling/sw2026/CheckPublicAssemblyRegistration.py": "a5da6087f5378ec14ec7573a6ec70e0f09a050a4804fe2b19e114eb7d1bfe67e",
+    "re/tooling/sw2026/PublicAssemblyRegistryProcess.py": "703352e49b7f94c398a974ce351e3984c1ae4927b40c3b5465018a1d8eece879",
+    "src/convert/adapters/Staging/PathStaging.py": "789f8ff6716cdfad32a0a8dafdb3fb45b755444a10da31acca33ba7e31d4ff20"
+  },
+  "frozen_code_paths": 5835,
+  "frozen_sdk_files": 4255,
+  "heldout_inputs_read": 0,
+  "host_native_equivalence": true,
+  "host_preserved_concurrent_companion": true,
+  "host_result_sha256": "daf28a90d7a8277755d5f6bd0796ba8c6ba0d531be8517b1971e4c8f248d1b48",
+  "host_worker_stdout_sha256": {
+    "baseline-diameter-front": "5e348beafc7aa0771646102a91529d9fe253d4707882eb5e87f5fcbe057c6fdc",
+    "baseline-polygon": "3a3e7d4e40ec8669bcdd17f9a66813e341bd9679343cd4be108b9a38234fdfcb",
+    "baseline-radius-top-reverse": "04d25927b25c74eec2c6c25a1da3f6e1c335544752c78cd5b137e8f14f77425c",
+    "case-collision-3": "5410d7ea31b3af686a5a20e0716577a0b810b6f40a0bde6503d8ff07a7bcc431",
+    "child-collision-3": "5869280d6c5ebcbea62ce3cce6a7c22d2697194199b25eab74a8242e5dc63515",
+    "commit-failure-3": "773b9f1a16b435ce0d7b36e0e15bddca4d75f7a6ba4d463d37a32ed6d9ddbf19",
+    "dangling-child-3": "74d3073356fa8231d64254f9a523c0c789c4855827855372ddece197df501c4b",
+    "directory-collision-3": "4af77752f432627dd76f54ac33e793139642b6945f65397d928e8a4e057e6870",
+    "explicit-2": "75b2ef1b1337c127fd5347037dbbedc025a569aca6a2800ed27d135fbb586037",
+    "explicit-3": "b31b7494d7b32d453d2d7bd1bd4b8f9e70c6b92b5c06c0993ab3ebbd1b3404ce",
+    "fresh-2": "009b5db9ef1fd6be0e9173f3b1d9bcbab027d625d96b46c7cea1f8022f6e903b",
+    "fresh-3": "22726d0c0bbdc6e6e44d59b2d02f687c3fb40baa1639f637a848a529f36a02ae",
+    "integrated-diameter-front": "a356a6d86664b4e8ceb08f86ea11058ba9ad499f0ce34cc52d56eaebb0efcd74",
+    "integrated-polygon": "1f24c46ad47899752a48cf262e69ef398ba0479de3de533d30b265e8e895e814",
+    "integrated-radius-top-reverse": "3e984fad969ce930444fc7bbf5511dc8f9c2d6780b48f243d8b3aead1b3538ac",
+    "missing-mapping-3": "40dcac4376b00c9492abe17327756a1517b60cb306a8fd57cdcebafcb757b791",
+    "native-explicit": "17080be2c3f0c12700c35a85b2df2c7bb23cf7cab3e11878ffed2e0a1e0f9653",
+    "native-fresh": "d9ea0e98578ef7b304337cc83042e4ae6d6279f350267f11ad1252bd3667f7e0",
+    "overwrite-empty-3": "3a42eceec45a76fdf7a23c72ffad96303037b6d619083c25e9fecf2a323719a1",
+    "overwrite-rejected-3": "3d15f3df19685f34493b7bef4295f74559e2ac47061dfec3ce66253444680194",
+    "race-protection-3": "838fe558310f51ecf2e280cd94a43b3c5928e939f2533911f7f6f9f978ce530e",
+    "relative-mapping-3": "288d6d0ec17f785dd92772ee67499c3d3c7e8d35b618e9239e60771847438f22",
+    "root-collision-3": "2ddda7492e1c184ec0fb5a6069aa6511d068758556c2a4d3e6c3607d992d520a",
+    "stream-rejected-3": "f152ff9fd8398ef35a8228797921cefaee299d5b86c1e115394f5f48ef08491a",
+    "unqualified-child-3": "4e8f1aca1f5c704cab34d22359cb075a0783c717865fb13717848112b300a645",
+    "unqualified-option-3": "59d221a593a5382d4e5aa9bc329dd101e602b5b863e73e9eae53edd07071d509",
+    "unsupported-mate-3": "3a1401e804876158a799e114770f1b3f6308499464226fbedac3e6bf934d6b0a",
+    "wrong-format-3": "407b24b32086e96e075cf65ee3114c9ab4f99ee1269275b1f0922b65bbd3f814",
+    "wrong-mapping-3": "59176eea961cfcc6d7503999c48b2a6103bc6d1c6c98c24016648b98ba732d2f"
+  },
+  "host_workers": 29,
+  "initial_windows_audit_failure": {
+    "error_type": "AttributeError",
+    "missing_platform_attribute": "os.O_ACCMODE",
+    "observer_repair": "use os.O_WRONLY | os.O_RDWR when ACCMODE is unavailable",
+    "stdout_sha256": "070adc5d6d0d5d3c69515e5f54cb7df5d25822da4a132361eaeb7352c73d21fe"
+  },
+  "measured_native_pair_receipt_sha256": "917228049ffc5de9bf0bfacb63c1b41345a341e838d18ee29bd3a440c2671a87",
+  "new_cad_processes": 0,
+  "passed": true,
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.default-assembly-registration-and-publication.v1",
+  "source_manifest_sha256": "0c44bfa88a8bb78816204f0797566e3626a6cd8cd83ac30d7d9b2ac415e2ebf0",
+  "standalone_part_preservation": [
+    {
+      "bytes": 8084,
+      "exact": true,
+      "profile": "polygon",
+      "sha256": "d42c7b05244e660af2aae2601728038190dfdfbf3224cfe0796e61ae953849f1",
+      "strict_document_json_sha256": "407a31b05224be727a6a4466949c1349838c0a673b1523c192bbc8ed6e6c0d08"
+    },
+    {
+      "bytes": 8413,
+      "exact": true,
+      "profile": "diameter-front",
+      "sha256": "ede4aa896df215b90ccf3a5d1e923759e56dfc7a397dc1dd93bb940ef45a929f",
+      "strict_document_json_sha256": "23a8b274cab1e4f145f6b9c61756c5bed6833a1454f2d4d2746761a4c4018ae8"
+    },
+    {
+      "bytes": 8431,
+      "exact": true,
+      "profile": "radius-top-reverse",
+      "sha256": "457901acc43fbc988c5e4ebd5966ca6b4620fbf0906be7b908eb8e9b9748837f",
+      "strict_document_json_sha256": "0fa59b9363d145c4a169f552fc0546b325db1cce0afb3bf9770ba88d6367d9ef"
+    }
+  ],
+  "windows_guest": "Windows 11",
+  "windows_processes": {
+    "direct": {
+      "error_type": null,
+      "files": {
+        "PublicDatumPrism.SLDPRT": {
+          "bytes": 8624,
+          "sha256": "6df0144e4eeacf33978b80f2b298ce6a076db47ffa6cb0badf115896adaedf6b"
+        },
+        "PublicPlanarPair3.SLDASM": {
+          "bytes": 10625,
+          "sha256": "4123654aa7f0a359d4df83a8e26f651085a0079cdfbcd84fb0e741dd145fbbea"
+        }
+      },
+      "mode": "direct",
+      "passed": true,
+      "requested_native_mapping": false,
+      "stdout_sha256": "f6006b40c13c5840070b3f32680f29791ebeee3eb8f1bf03eea85908f2811688"
+    },
+    "race": {
+      "error_type": "FileExistsError",
+      "files": {
+        "PublicDatumPrism.SLDPRT": {
+          "bytes": 26,
+          "sha256": "d6786b5f9e58de6b678aa1f2c87ea83430fdc8263abf0e86c2bfaa10fd355d66"
+        }
+      },
+      "mode": "race-protection",
+      "passed": true,
+      "requested_native_mapping": true,
+      "stdout_sha256": "b6bd910f828ca799c78e92879ead96eca39ee656688b4e593240cee134750178"
+    }
+  }
+}

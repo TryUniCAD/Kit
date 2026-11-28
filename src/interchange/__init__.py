@@ -90,6 +90,11 @@ from interchange.document.Models.DocumentError import DocumentError
 from interchange.document.Models.DocumentFilter import FilterDocument
 from interchange.document.Models.DocumentMetadata import AddWrapperMeta, GetSemanticMeta
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.document.Models.Drawing.DrawingData import DrawingData
+from interchange.document.Models.Drawing.DrawingModelRef import DrawingModelRef
+from interchange.document.Models.Drawing.DrawingNote import DrawingNote
+from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
+from interchange.document.Models.Drawing.DrawingView import DrawingView
 from interchange.document.Models.DocumentPayload import GetPayloadIds
 from interchange.Enums.EnumDocument import Capability, Severity
 from interchange.Enums.EnumFeatures import FeatureKind
@@ -97,6 +102,7 @@ from interchange.Enums.EnumGeometry import ConstraintKind, GeometryKind
 from interchange.Enums.EnumUnits import UnitSystem
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.Features.FeatureAngleRev import AngularRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.Features.FeatureBody import DesignBody
 from interchange.Features.FeatureContract import FeatureDef
 from interchange.Features.FeatureBoundPlane import BoundConstructionPlane
@@ -126,6 +132,7 @@ from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.FeatureStep import FeatureCfgState, FeatureStep
 from interchange.Features.ScopedExtrude import ScopedExtrude
+from interchange.Features.SweepFeature import SweepFeature
 from interchange.geometry.Models.GeometryConics import (
     ArcEllipseGeom,
     ArcHyperGeom,
@@ -341,6 +348,11 @@ __all__ = (
     "BrepWire",
     "CadDocument",
     "CadDocumentValidationError",
+    "DrawingData",
+    "DrawingModelRef",
+    "DrawingNote",
+    "DrawingSheet",
+    "DrawingView",
     "CadSource",
     "Capability",
     "ChamferFeature",
@@ -422,6 +434,7 @@ __all__ = (
     "SphereSurface",
     "SplineGeometry",
     "SupportPlane",
+    "SweepFeature",
     "SpaceVector",
     "TopologySummary",
     "TorusSurface",
@@ -470,6 +483,7 @@ BindTypeGlobals(
 
 RegisterTypes(
     AngularRevolve,
+    ThinRevolve,
     BoundConstructionPlane,
     BoundScale,
     DistanceExtrude,

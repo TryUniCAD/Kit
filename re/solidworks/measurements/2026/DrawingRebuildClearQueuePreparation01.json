@@ -1,0 +1,47 @@
+{
+  "delivery_pr": 121,
+  "heldout_accepted": false,
+  "hidden_inputs_read": 0,
+  "input_drawings": {
+    "Inputs/Control.SLDDRW": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+    "Inputs/Generated/Disclosed01.SLDDRW": "5e5e7612b4ba3167623187673b0729ef125a55dde697f3969438c939c6124bc5",
+    "Inputs/NativeSource/Disclosed01.SLDDRW": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad"
+  },
+  "job_sha256": "d9ff868f32eefd551a91e40ff9dddf24c8bdd8fb410dcc536c91e2f23c2cb195",
+  "new_tool_hashes": {
+    "InspectMessengerQueue.py": "3dfa02b4d70957230aa9c44837a278439f8e85ba52175234e9f9f9851f5e7ae0",
+    "OwnedMessengerQueue.py": "e061565957302717376bae41ac22a8cf019eb0b6aa535430368eba7176d1454d"
+  },
+  "new_tools": 2,
+  "packet_files": 21,
+  "packet_manifest_sha256": "33445e007ba944f98747dc881743ea6d3884a17c7ec96af01fc98fb1a7fa094a",
+  "prior_runtime_result_sha256": "2753a8d3fe258179119f13911d44a848511d468f9eda972549c39535cedefc2b",
+  "proprietary_bytes_or_listings_included": false,
+  "runtime_execution": false,
+  "schema": "kit.sw2026.clear-queue-preparation.v1",
+  "source_replay": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 17,
+    "data_windows": 3,
+    "imports": 13,
+    "instruction_windows": 5,
+    "modules": 3,
+    "native_execution": false,
+    "record_sha256": "96320b7e63b8846ab3d202681f9664c0f2c4b1c974a77f5ae9909fc473cf3a1f",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 4
+  },
+  "source_replay_sha256": "031eeca9e6ced73a8a89a487f9dcebba6bfb9b69c17cb05eb212882201b70aec",
+  "static_ast_parsed": 13,
+  "status": "prepared; runtime pending",
+  "task": "DRAWING-NOTES-C10",
+  "tests_run": false,
+  "tool_files": 13,
+  "unchanged_prior_tools": 11,
+  "vm_calls": 0,
+  "writer_qualified": false
+}

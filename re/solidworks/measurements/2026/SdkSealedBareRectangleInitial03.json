@@ -1,0 +1,118 @@
+{
+  "build_sha256": "159796015dbeb276c5d871c9741c979bb1916f329a72eb7bbbf2ad7841e552ba",
+  "cases": {
+    "Slot01": {
+      "actual_staged_write": true,
+      "candidate": {
+        "bytes": 9868,
+        "sha256": "d807d0a1bb7a0b9849c1fa1a6fd5569ac1ad3148924151d5c5209c8f05030102"
+      },
+      "candidate_sdk_readback": true,
+      "native_geometry_and_owners_match": true,
+      "native_saved_sdk_readback": true,
+      "native_transfers": [
+        "brep",
+        "configurations"
+      ],
+      "neutral_sha256": "a6cfd8052f092bedf4e2d276d991dad155eef9e1c8a673739cbcdd641596df47",
+      "passed": true,
+      "phases": {
+        "Candidate": {
+          "numeric_checks": 58,
+          "passed": true,
+          "record_sha256": "9dc8acf6bbfa5edbd3eaf20bf11d0266299e75cab9b40101bbc8d70cc2b6c8be"
+        },
+        "FreshReopen": {
+          "numeric_checks": 58,
+          "passed": true,
+          "record_sha256": "02466d257efcba92c4fbe87c8e480cc80da5c1e6790bed4e6515b14aba3046d3"
+        },
+        "Original": {
+          "numeric_checks": 58,
+          "passed": true,
+          "record_sha256": "8d86097b2dcee7e3236c474d79d7680e319f9b41d2e72c7c40d80967581fff8a"
+        }
+      },
+      "runtime_input_reads": 0,
+      "saved_sha256": "cf8834160fb35bc7544aba2b9dad63f88c3bd3aba5da7454583a3f0dbd1c8deb",
+      "source_sha256": "27de26139590fe292ae420212af7515660fdb48d8f4f1830fae739cb3799b93a",
+      "writer_epoch": 1795178775
+    },
+    "Slot02": {
+      "actual_staged_write": true,
+      "candidate": {
+        "bytes": 9884,
+        "sha256": "4c037e5f0a691febfd12ad1d9526bb3172309cae412566794bf07e03978fc1e8"
+      },
+      "candidate_sdk_readback": true,
+      "error_type": "ValueError",
+      "native_transfers": [
+        "brep",
+        "configurations"
+      ],
+      "neutral_sha256": "e886671cd28f1e942424326db08e6a19fd6be7fe5340e269cbfc72148c13ed13",
+      "passed": false,
+      "phases": {
+        "Candidate": {
+          "numeric_checks": 58,
+          "passed": true,
+          "record_sha256": "cb505dd6691ce19eb1913227cd5399c3988fb83cabe6d8f4812d716fc2a60666"
+        },
+        "FreshReopen": {
+          "numeric_checks": 58,
+          "passed": true,
+          "record_sha256": "ebb595cf899ac9654e707903a6933f4f3a4916268416b82178df5f1afa7519c9"
+        },
+        "Original": {
+          "numeric_checks": 58,
+          "passed": true,
+          "record_sha256": "d8fa3df71e32a0a271de620e3d1a20ecfcea5815594edded9c714fc0a0500c6b"
+        }
+      },
+      "runtime_input_reads": 0,
+      "source_sha256": "db9a9dc8cdaec057421ad7934ab8a55680d6e50b1e966e61887c56a43bbe755d",
+      "writer_epoch": 1795178776
+    }
+  },
+  "complete_paired_regressions": 0,
+  "controls": {
+    "ControlAfter": {
+      "numeric_checks": 0,
+      "passed": true,
+      "record_sha256": "5129842b81c70673b2e23b900d31b131b67fa49d369cb97524efad00171ec1f0"
+    },
+    "ControlBefore": {
+      "numeric_checks": 0,
+      "passed": true,
+      "record_sha256": "8e787d86acd489cce66718014ef30480255fc067936d1b669c29438392aee1b9"
+    }
+  },
+  "controls_healthy": true,
+  "job_sha256": "8bf479a956ad974f4e57b16c3b57dd2fe4eaba7958f57e58134e3fbf857fa060",
+  "method_revision": "d803fe68e05c7e0aec74ddb998e2739c7eda3e9b",
+  "native_processes": 8,
+  "new_independent_cases": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "original_fcstd_conversions": 0,
+  "original_specs_and_payloads_shared": 0,
+  "originals_and_specifications_unchanged": true,
+  "passed": false,
+  "prior_locked_cases": 2,
+  "schema": "kit.sw2026.rectangular-bare-paired-native.v1",
+  "sdk_revision": "05e3fceb6ad43593435d39cffe309b1cb044fc57",
+  "source_lock_sha256": "1a5a4993881c967682496c90924c262c7954fddd67dd9d1ee3e105186deed281",
+  "source_omissions": [
+    "source part and body labels",
+    "datum and system tree entries",
+    "configuration identifiers, states and properties beyond the active configuration name",
+    "material, appearance, document properties and application settings",
+    "source entity identifiers, attributes and provenance",
+    "source analytic carrier parameterization",
+    "source archive structures, native payloads and tessellation",
+    "source import feature name and persistent identity"
+  ],
+  "source_receipt_sha256": "d2568776891dec3f5671dc89d9696ae3d4d4005fb22f4dedf500347939f6de2a",
+  "specifications_sha256": "1f145836a8db6fe13893546c83957b8e82b5b80771546f3ae39724a9a716d2bf",
+  "whole_source_conversions": 0
+}

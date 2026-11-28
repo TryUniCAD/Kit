@@ -1,0 +1,7 @@
+# SOLIDWORKS assembly exchange databases
+
+The research configuration exchange codec derives a configuration header cell from the actual active assembly configuration and its lightweight header entry. It verifies the independent model exchange `TOC` and ordinary empty reference override set.
+
+Twelve disclosed files reproduced the exact six-field map and the complete configuration database. Guarded neutral workers built an ordinary and a longer Unicode cell. Two independent creation events added the full database to the disclosed 33-stream research parent with zero runtime input accesses. [Procedure](../../../../../re/solidworks/records/ConfigHeaderExchange2026.md) · [Cell receipt](../../../../../re/solidworks/measurements/2026/ConfigHeaderExchange01.json) · [Parent receipt](../../../../../re/solidworks/measurements/2026/D01ConfigHeaderStore01.json)
+
+The linked model database adds the actual manager, selection folder, standard datums, mate group, table of contents and document state. Concentric endpoint text follows the selected occurrence and the associated child face attributes. The same writer handles the measured aligned planar coincident and distance group. Twelve complete live stores reproduce all 96 disclosed records. The guarded 34-stream research parent preserves the other 33 streams and the linked part. [Model procedure](../../../../../re/solidworks/records/AssemblyModelExchange2026.md) · [Model receipt](../../../../../re/solidworks/measurements/2026/D01ModelExchange01.json)

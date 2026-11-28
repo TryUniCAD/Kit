@@ -1,0 +1,62 @@
+{
+  "actual_preference_changes": 0,
+  "actual_source_ids": [
+    24,
+    25
+  ],
+  "child_tree_rows": 25,
+  "delivery_pr": 121,
+  "distinct_lease_schema": "kit.sw2026.component-name-readonly-preference-lease.v1",
+  "document_setter_calls": 0,
+  "file_saves": 0,
+  "frozen_files": 63,
+  "frozen_saved_author_sha256": "6359a688f86552c95f8934f6106a406d200fc3b025cf649038dcec3b168527d0",
+  "heldout_inputs_read": 0,
+  "host_recovery_cad_payload_file_opens": 0,
+  "host_recovery_com_modules_loaded": false,
+  "host_recovery_tools_verification_passed": true,
+  "host_verification_passed": true,
+  "lease_scope": "one owned read-only native name observation only",
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "new_python_ast_files": 3,
+  "old_author_and_journal_sources_unchanged": true,
+  "original_intent_sha256": "0faaef5ff9bfaf0fb8e2573f758d41ffce6502c4cc93ee3a75006c956a8eb612",
+  "original_prediction_sha256": "2ed860d27f02eafb59f8e34d672ab68d9b071d9e94d35f3b6bd72badaf78ba90",
+  "original_true_required": true,
+  "parameter_edits": 0,
+  "parent_tree_rows": 25,
+  "prior_native_result_sha256": "9ce16e3107f58a0262a26447ec1d882ed86449ac245151c49ee70335e757f251",
+  "recipe_sha256": "b05e72d30825033ca2a9cec0bc49f927d1b2120ef40e59242a40f3b9cc20da79",
+  "recovery_requires_current_source_files": false,
+  "recovery_requires_exact_captured_armed_original_true": true,
+  "required_full_names": [
+    "AuthoredAxisA-1",
+    "AuthoredAxisB-2"
+  ],
+  "retained_hopper_sessions": 0,
+  "roles": [
+    "ControlBefore",
+    "ReopenFalse",
+    "ControlAfter"
+  ],
+  "schema": "kit.sw2026.component-name-readonly-policy-host.v1",
+  "snapshots_are_custody_only": true,
+  "source_child_sha256": "3a39ac65c61cad230c36b27d53f7179813e68afabff2090e1ca98bdd08b2d16f",
+  "source_parent_sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c",
+  "task": "B04-SW2026-MATES-CONCENTRIC",
+  "tools_sha256": {
+    "FreezeComponentNameReadOnly01.py": "c8d7d3f25d2f278ed0640f140426d7e2fb27abe56390a6704a932d904a82449b",
+    "InspectComponentNameReadOnly01.py": "c369f1f7a2e2f203d86df2eeb4764715c775c8454da753ea305af91932616100",
+    "ReadOnlyNamePreferenceLease.py": "86b07fb2256206b92a2bde0d0674878332dd4b48bc35a9d9d902a57fae6fe40c"
+  },
+  "trial_sha256": "a1dd46620b5ba350eccead37510ac103343167a2dfd426b4fde541ee53e5682c",
+  "unchanged_original_source_routes": true,
+  "undefined_name_check": "ruff 0.17.3 F821 passed",
+  "unmeasured": [
+    "native same-file false-setting name/geometry/rebuild observation",
+    "actual read-only lease and recovery native execution"
+  ],
+  "writer_outputs": 0,
+  "wrong_packet_digest_refused": true
+}

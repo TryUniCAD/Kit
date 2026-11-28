@@ -1,0 +1,550 @@
+{
+  "schema": "kit.sw2026.sdk-revolve-build-proof.v1",
+  "passed": true,
+  "source_revision": "80094b57f8ea2e8d2312e613f8cd2875107a500e",
+  "source_manifest_sha256": "ead445cfd87f174fcc3e62e48883aa3e6e7a823c0dd3fba8c8b5ec98677993c5",
+  "baseline_manifest_sha256": "cfdc3630ccef90c1f24ba287dc865e935c49688ef5a397ed78b555ddb5271390",
+  "tools_manifest_sha256": "095f5ffd21f2626c7326a732a8e4c8b187a26ea2bc6740d25b26c38233628550",
+  "specs_sha256": "f7e4be9fa53ad2f58e59a40997ffdb40a59ab3a3c5fcb2117bea5844dbd60596",
+  "runner_sha256": "25ae888eb27ae5cbab81516b6dc15087acc5cfc36abedfc4281391e2aade1239",
+  "fresh_processes": 30,
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "positive_pairs": [
+    {
+      "name": "SdkRevolveFullAlpha",
+      "sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "bytes": 8101,
+      "receipt_sha256": "416080257bc16c15d6447633ac5d9aae77f1a1f6acd053bd7a493f0331fdbe10",
+      "prediction_sha256": "0612a6c60a36a74a2da7fae3a440210ae29d048746072305c0a042ae5f0305ee",
+      "streams": {
+        "Header2": {
+          "bytes": 789,
+          "sha256": "cb168b45c48485e04d5f5689452c8e157abfa4b25149176f1bb21a2dcbcf7295",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 789,
+          "sha256": "4f04e4d3ac9653f897e4f6a831c4dfb3e562317316658100e2340a77dd4f1d64",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "5cf3a4eda361b3a3bf16f9e7eac0cccfe0b72dcc9a14413f5968e5d060a0be4c",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "0f05375a3b379c345600223891f3a47e7d78a71acb3c9f7e3ddb189afe375097",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1399,
+          "sha256": "48ace6ff1046ca4880d93a9ef64c0def490419220bfd8d99daa93c9a22bea82f",
+          "roundtrip": true
+        }
+      },
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 6.283185307179586,
+        "reverse": false
+      },
+      "geometry": {
+        "volume_m3": 6.242972921213639e-05,
+        "area_m2": 0.010706547763434016,
+        "com_m": [
+          -0.003125000000000001,
+          0.009375,
+          -0.0
+        ],
+        "faces": 4,
+        "edges": 4,
+        "vertices": 4,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    },
+    {
+      "name": "SdkRevolveForwardBeta",
+      "sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "bytes": 8118,
+      "receipt_sha256": "0bbb8cea722a2ee06846efc1f172d2e59d1ed84797eddfaa1782ad3439ef13d0",
+      "prediction_sha256": "98f40d102dfb6f85c30ecba95db1c384c59aaf443cb29f82318d2c8761f92ff1",
+      "streams": {
+        "Header2": {
+          "bytes": 801,
+          "sha256": "ae1b5d0a1f8a0e978a83e32fc3ec7cef465fbfd3a79fb6d93a9687a897dfa906",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "7a42efb050d649be541d7610bac4778ac006a0b2f6fb301bd3357cf8ce5524b5",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "c9f8d310bbbe65ede56d71abe73093b91df60976770b2f3b9b01e566ccc0e1a3",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a799a477e7c7088cc782beda69e2125401e709bf0eb180d4fb8f4f9a38e4a5d7",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "a9a31979e6b2f2d155043441224a69f4ac12f6b42048378c889bd0dae3971b5a",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "85abf2087dcc26d03eb684aab9f6315035cde431f854144ae471dfb2b32c80dd",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "4d77e59e2616673b814ea508ed920fc48aa89d6d21992a34b89646099681a90f",
+          "roundtrip": true
+        }
+      },
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 2.2471114119426994,
+        "reverse": false
+      },
+      "geometry": {
+        "volume_m3": 1.418208189862336e-05,
+        "area_m2": 0.003840741714975807,
+        "com_m": [
+          0.007728890375055391,
+          0.004625,
+          -0.010119517009637603
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    },
+    {
+      "name": "SdkRevolveReverseBeta",
+      "sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "bytes": 8111,
+      "receipt_sha256": "08784c431f7f5d5df70a3e6d95036cf892b0b90cc09a6c64da01363f3c01ad5f",
+      "prediction_sha256": "461ca5e64a29aeb29cdae66848992c3b0e5f64bc65a04b248f780e89937cecc0",
+      "streams": {
+        "Header2": {
+          "bytes": 801,
+          "sha256": "3956beaf5fbb07d687149d56554f0ed7c9505c32208b176f7d744d731d1ef702",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "c679c10f041f2a47e5de712d5be6627fd27957d97e4c5a34fde0357ec17a2b7a",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "094efdfc8af684aa3f4ed2bbd4720fffe145bb74550852905b863b4ac4654f20",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "57a5c03a57f60181dfe01f1b8ec4c12d261121027416fd8efaab83f5edba03ab",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "5b4ce1a259b177f2a586df9b42c97f1b2e4caa9e75621ecef04e9ff888abca0b",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "767c51d1633c5a0dd9e4c68c14f75c65f307ae16cbbb8593e5001012d94549be",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "71ed907ee2f9ad10159f2f269c6537f8ba882bdaa2768abb0a5f94a506e2b705",
+          "roundtrip": true
+        }
+      },
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 2.2471114119426994,
+        "reverse": true
+      },
+      "geometry": {
+        "volume_m3": 1.418208189862336e-05,
+        "area_m2": 0.003840741714975807,
+        "com_m": [
+          0.007728890375055391,
+          0.004625,
+          0.010119517009637603
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    },
+    {
+      "name": "SdkRevolvePartialGamma",
+      "sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "bytes": 8125,
+      "receipt_sha256": "f40146116065d56359e9c04d7892b0f6f59a5c158ab4067939e33631fe3ba7d3",
+      "prediction_sha256": "4ff4ef58a8f25ec444c0c06c48c09a710db311e151de1970a05078ab0513f5bd",
+      "streams": {
+        "Header2": {
+          "bytes": 807,
+          "sha256": "1c13598a312220190f370a58c2f0937eb54688e5bd07ff7da324e6ddd5eefa0c",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 807,
+          "sha256": "85c60f411057e6c238beb7bfc39f43ce5e50e5f497b27b937a1f3913d853d4ed",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22278,
+          "sha256": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "de49bddd73f30520d8da90f9501d82a1850822a4f53a71f13bf59f52dc2dced6",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "51873f6dfc519d70d51c6e0101ea457045f4a4a4b7c22a97c3238a857d1bcbed",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1406,
+          "sha256": "0ac12ebec4908115e8adf980b004d52fb4ec472c6c131ccf85f60e29e9a8da21",
+          "roundtrip": true
+        }
+      },
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 4.391684730330732,
+        "reverse": true
+      },
+      "geometry": {
+        "volume_m3": 7.748167025633817e-05,
+        "area_m2": 0.012814486165755064,
+        "com_m": [
+          -0.012402451607957634,
+          -0.0036249999999999998,
+          0.006621054906101878
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    }
+  ],
+  "negative_variants": [
+    {
+      "mutation": "expression",
+      "error_class": "ValueError",
+      "error_message": "revolve requires its actual sole unexpressed D1 radian driver"
+    },
+    {
+      "mutation": "negative_angle",
+      "error_class": "ValueError",
+      "error_message": "revolve angle must be finite positive radians through one full turn"
+    },
+    {
+      "mutation": "excess_angle",
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: angular revolution sweep must exceed tolerance and span at most one turn"
+    },
+    {
+      "mutation": "tiny_angle",
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: angular revolution sweep must exceed tolerance and span at most one turn"
+    },
+    {
+      "mutation": "nonfinite_angle",
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: angular revolution angles must be finite numbers"
+    },
+    {
+      "mutation": "two_sided",
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: has an unlinked or unowned angle parameter parameter/other"
+    },
+    {
+      "mutation": "axis_in_contour",
+      "error_class": "ValueError",
+      "error_message": "revolve selected axis must be outside its perimeter"
+    },
+    {
+      "mutation": "missing_axis_relation",
+      "error_class": "ValueError",
+      "error_message": "revolve sketch must contain four contour lines one axis and four unary relations"
+    },
+    {
+      "mutation": "fixed_axis",
+      "error_class": "ValueError",
+      "error_message": "revolve requires actual ordinary lines and a distinct unfixed construction axis"
+    },
+    {
+      "mutation": "extra_metadata",
+      "error_class": "ValueError",
+      "error_message": "revolve requires only its explicit modeled document name"
+    },
+    {
+      "mutation": "body_name",
+      "error_class": "ValueError",
+      "error_message": "ordinary boss body must have its real creating feature and no material"
+    },
+    {
+      "mutation": "support_origin",
+      "error_class": "ValueError",
+      "error_message": "boss support must be a canonical principal frame at origin"
+    },
+    {
+      "mutation": "alternate_unit",
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: requires a numeric angle in rad for parameter parameter/angle"
+    },
+    {
+      "mutation": "wrong_relation",
+      "error_class": "ValueError",
+      "error_message": "revolve must preserve exactly its authored contour axis relations"
+    },
+    {
+      "mutation": "axis_relation",
+      "error_class": "ValueError",
+      "error_message": "revolve must preserve exactly its authored contour axis relations"
+    },
+    {
+      "mutation": "downward_axis",
+      "error_class": "ValueError",
+      "error_message": "revolve axis must point upward strictly left of the rectangle"
+    },
+    {
+      "mutation": "axis_origin",
+      "error_class": "ValueError",
+      "error_message": "revolve normalized definition must agree with the actual selected axis"
+    },
+    {
+      "mutation": "additional_configuration",
+      "error_class": "ValueError",
+      "error_message": "revolve requires one complete ordinary model inventory"
+    }
+  ],
+  "baseline_pairs": [
+    {
+      "passed": true,
+      "sha256": "3af083e7a7ad07d1bcccb0838e659591d2915b1556617625415e2cbea30db60b",
+      "bytes": 8083,
+      "lines": 4,
+      "streams": {
+        "Header2": "779e7e913f2e1d6c6577356b5f3fcfa53cec2ecdcceddbdde77201d468bbf578",
+        "Contents/Config-0-ModelHeader": "f26ec57f7944564455d8836d3123fcadfd1f310dd65e39865544688f663cf8ed",
+        "Contents/Config-0": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299",
+        "Contents/CMgr": "57e6bb206a3c85144a3345f92ace33033c62a44d03a9d4fc9fac7ef5e1f3acb6",
+        "Contents/CMgrHdr2": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135",
+        "Contents/Config-0-ResolvedFeatures": "ef6b8bced24688e8d470341995184060c4237288ed9c911d171544eafce6e518",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73",
+        "swXmlContents/KeyWords": "2a7cbaa39f8948fe0d8196a5e60fae01631b4a18dcfa41b4c16aeefffc28c62b"
+      },
+      "runtime_external_attempts": []
+    },
+    {
+      "passed": true,
+      "sha256": "f4300db1b749d4f2a1a580e394c88452dd541647afd09e0e8bb5877ed2db7303",
+      "bytes": 8101,
+      "lines": 4,
+      "streams": {
+        "Header2": "2ad6b62316c867c2b80231a64819f772d8727f6a41dfb28e81234e31f174125e",
+        "Contents/Config-0-ModelHeader": "7796770b4ea12071e3fbf8b9639f89bac0ce201a29014113ca8285e2db3a94b2",
+        "Contents/Config-0": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1",
+        "Contents/CMgr": "8fbcccbaf8eb70bcbf8ff92175b8cddd51bc9f728f6d30ce0ca2acd64539a629",
+        "Contents/CMgrHdr2": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de",
+        "Contents/Config-0-ResolvedFeatures": "35ff32ed2adae346735653a96a07c615b2e2f088466c0161531912a4df6170a0",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a",
+        "swXmlContents/KeyWords": "f8effab53f40a674fbc9c4851f3e85d9bd58359f94d5049c85c1db646db12f3b"
+      },
+      "runtime_external_attempts": []
+    }
+  ],
+  "private_raw_report_sha256": "8091389ba2089e04550ff9e95206c7a85ebc7e4b0d7b7cea353e3f0b1c5163b3",
+  "previous_report": {
+    "sha256": "61c21a945c2706c9ff0a965d7843c2bdfcb57bf97c130313e85791fb9ddb1030",
+    "passed": false,
+    "fresh_processes": 27,
+    "positive_pairs_passed": 4,
+    "negative_variants_passed": 18,
+    "cause": "regression observer lazy DocumentIo import before product assertions",
+    "product_source_changed": false,
+    "all_prior_report_bytes_preserved": true
+  },
+  "runtime_external_attempts": 0,
+  "independent_closed_analytic_brep_cases": 4,
+  "model_streams_per_positive": 10,
+  "logical_stream_comparison_visits": 80,
+  "public_revolve_registration": false,
+  "vendor_loadable": null,
+  "application_usable": null,
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "default_strict_geometry_read": {
+    "observed": true,
+    "mode": "default strict",
+    "source": "generated full-turn candidate",
+    "error_class": "SldprtFormat",
+    "message": "SLDPRT contains no readable Parasolid payload",
+    "no_geometry_semantic_read_passed": true,
+    "derived_validation_brep_transmitted": false
+  },
+  "static": {
+    "black": true,
+    "ruff": true,
+    "strict_mypy": true,
+    "strict_pyright_errors": 0,
+    "strict_pyright_warnings": 0,
+    "donor_scan": {
+      "passed": true,
+      "scanned_python_files": 4473
+    }
+  },
+  "native_packet": {
+    "sha256": "d16de9429e638f9dea4ad5e3027c98da13bfd019565746af676c37a7dd852a45",
+    "files": 40,
+    "expected_fresh_processes": 10,
+    "executed": false,
+    "host_verify_only_passed": true
+  }
+}

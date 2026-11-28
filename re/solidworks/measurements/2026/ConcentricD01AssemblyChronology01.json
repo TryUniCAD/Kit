@@ -1,0 +1,1747 @@
+{
+  "base": "4f3fe8ee989b7df7b15c9b87c29793617047e1aa",
+  "disclosed_sources": {
+    "after": {
+      "attribution_counts": [
+        1,
+        1
+      ],
+      "chronology_sha256": "a6aaeb96e4a71e46cdd5a2492af68a5addde8f8c784565385b33340e972e02eb",
+      "clock_owners": [
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 9,
+          "role": [
+            "resolved",
+            "moCommentsFolder_c",
+            "Comments"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 21,
+          "role": [
+            "resolved",
+            "moFavoriteFolder_c",
+            "Favorites"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 22,
+          "role": [
+            "resolved",
+            "moHistoryFolder_c",
+            "History"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 23,
+          "role": [
+            "resolved",
+            "moSelectionSetFolder_c",
+            "Selection Sets"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 20,
+          "role": [
+            "resolved",
+            "moSensorFolder_c",
+            "Sensors"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 10,
+          "role": [
+            "resolved",
+            "moLiveSectionFolder_c",
+            "Live Section Planes"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 8,
+          "role": [
+            "resolved",
+            "moDocsFolder_c",
+            "Design Binder"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 2,
+          "role": [
+            "resolved",
+            "moDetailCabinet_c",
+            "Annotations"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 7,
+          "role": [
+            "resolved",
+            "moEnvFolder_c",
+            "Lights and Cameras"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 19,
+          "role": [
+            "resolved",
+            "moInkMarkupFolder_c",
+            "Markups"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 16,
+          "role": [
+            "resolved",
+            "moEqnFolder_c",
+            "Equations"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 3,
+          "role": [
+            "resolved",
+            "moRefPlane_c",
+            "Front Plane"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 4,
+          "role": [
+            "resolved",
+            "moRefPlane_c",
+            "Top Plane"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 5,
+          "role": [
+            "resolved",
+            "moRefPlane_c",
+            "Right Plane"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 6,
+          "role": [
+            "resolved",
+            "moOriginProfileFeature_c",
+            "Origin"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 11,
+          "role": [
+            "resolved",
+            "moMateGroup_c",
+            "Mates"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 12,
+          "role": [
+            "light",
+            "moAmbientLight_c",
+            "Ambient"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 13,
+          "role": [
+            "light",
+            "moDirectionLight_c",
+            "Directional1"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 14,
+          "role": [
+            "light",
+            "moDirectionLight_c",
+            "Directional2"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 15,
+          "role": [
+            "light",
+            "moDirectionLight_c",
+            "Directional3"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 17,
+          "role": [
+            "note",
+            "moNotesAreaFtrFolder_c",
+            "Notes"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 18,
+          "role": [
+            "note",
+            "moNotesAreaFtrFolder_c",
+            "Notes1___EndTag___"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 1,
+          "role": [
+            "exploded",
+            "moExplViewManager_c",
+            ""
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 9113911,
+            "SecondsValue": 1795044312
+          },
+          "owner_id": 24,
+          "role": [
+            "occurrence",
+            "moReference_c",
+            "ConcentricD01Child-1"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 9113911,
+            "SecondsValue": 1795044312
+          },
+          "owner_id": 25,
+          "role": [
+            "occurrence",
+            "moReference_c",
+            "ConcentricD01Child-2"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 1283413,
+            "SecondsValue": 1795044314
+          },
+          "owner_id": 26,
+          "role": [
+            "mate",
+            "moMateConcentric",
+            "Concentric1"
+          ]
+        }
+      ],
+      "clocks": {
+        "ArchiveAt": 1794529626,
+        "CreatedAt": 1795044311,
+        "UpdatedAt": 1795044345
+      },
+      "events": 30,
+      "exploded_has_log": false,
+      "file_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "headers": {
+        "Contents/Config-0-ModelHeader": {
+          "body_counter": 101,
+          "bytes": 2955,
+          "exact_log_reconstruction": true,
+          "model_present": 1,
+          "next_id": 27,
+          "own_save_seconds": 1795044372,
+          "sha256": "797472ae638e6b4562381dcab1dccc6758e906a913e50d030678add6de641a89",
+          "update_counter": 106
+        },
+        "Header2": {
+          "body_counter": 101,
+          "bytes": 2955,
+          "exact_log_reconstruction": true,
+          "model_present": 1,
+          "next_id": 27,
+          "own_save_seconds": 1795044372,
+          "sha256": "797472ae638e6b4562381dcab1dccc6758e906a913e50d030678add6de641a89",
+          "update_counter": 106
+        }
+      },
+      "log_event_counts": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "original_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/CnfgObjs",
+        "Contents/Config-0",
+        "Contents/Config-0-Attachment",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-MatesList",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/CusProps",
+        "Contents/Definition",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/User Units Table",
+        "Contents/eModelLic",
+        "FaceTessellations/000-000-002",
+        "FaceTessellations/Directory",
+        "Header2",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/COMPINSTANCETREE",
+        "swXmlContents/KeyWords"
+      ],
+      "owner_plane_clocks": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 5,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 4,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 3,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        }
+      ],
+      "revision_owner_ids_in_order": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "root_geometry_stamp": 103,
+      "root_log_caption": "Assem2",
+      "source_runtime_history": {
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1639,
+          "sha256": "dd22f0905756204a54304495c03f96aedfe958855df85db2ff56027997abecec"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682"
+        }
+      },
+      "stream_count": 43,
+      "strict_source_refusal": "assembly root contains unprojected model content"
+    },
+    "before": {
+      "attribution_counts": [
+        1,
+        1
+      ],
+      "chronology_sha256": "13be538c91712f9d54b159a3031aaa41b647438a2e21ccac9cda4fa780af757f",
+      "clock_owners": [
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 9,
+          "role": [
+            "resolved",
+            "moCommentsFolder_c",
+            "Comments"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 21,
+          "role": [
+            "resolved",
+            "moFavoriteFolder_c",
+            "Favorites"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 22,
+          "role": [
+            "resolved",
+            "moHistoryFolder_c",
+            "History"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 23,
+          "role": [
+            "resolved",
+            "moSelectionSetFolder_c",
+            "Selection Sets"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 20,
+          "role": [
+            "resolved",
+            "moSensorFolder_c",
+            "Sensors"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 10,
+          "role": [
+            "resolved",
+            "moLiveSectionFolder_c",
+            "Live Section Planes"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 8,
+          "role": [
+            "resolved",
+            "moDocsFolder_c",
+            "Design Binder"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 2,
+          "role": [
+            "resolved",
+            "moDetailCabinet_c",
+            "Annotations"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 7,
+          "role": [
+            "resolved",
+            "moEnvFolder_c",
+            "Lights and Cameras"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 19,
+          "role": [
+            "resolved",
+            "moInkMarkupFolder_c",
+            "Markups"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 16,
+          "role": [
+            "resolved",
+            "moEqnFolder_c",
+            "Equations"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 3,
+          "role": [
+            "resolved",
+            "moRefPlane_c",
+            "Front Plane"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 4,
+          "role": [
+            "resolved",
+            "moRefPlane_c",
+            "Top Plane"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 4889481,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 5,
+          "role": [
+            "resolved",
+            "moRefPlane_c",
+            "Right Plane"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 6,
+          "role": [
+            "resolved",
+            "moOriginProfileFeature_c",
+            "Origin"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 11,
+          "role": [
+            "resolved",
+            "moMateGroup_c",
+            "Mates"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 12,
+          "role": [
+            "light",
+            "moAmbientLight_c",
+            "Ambient"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 13,
+          "role": [
+            "light",
+            "moDirectionLight_c",
+            "Directional1"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 14,
+          "role": [
+            "light",
+            "moDirectionLight_c",
+            "Directional2"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          "owner_id": 15,
+          "role": [
+            "light",
+            "moDirectionLight_c",
+            "Directional3"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 17,
+          "role": [
+            "note",
+            "moNotesAreaFtrFolder_c",
+            "Notes"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 18,
+          "role": [
+            "note",
+            "moNotesAreaFtrFolder_c",
+            "Notes1___EndTag___"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 8441349,
+            "SecondsValue": 1795044311
+          },
+          "owner_id": 1,
+          "role": [
+            "exploded",
+            "moExplViewManager_c",
+            ""
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 9113911,
+            "SecondsValue": 1795044312
+          },
+          "owner_id": 24,
+          "role": [
+            "occurrence",
+            "moReference_c",
+            "ConcentricD01Child-1"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 9113911,
+            "SecondsValue": 1795044312
+          },
+          "owner_id": 25,
+          "role": [
+            "occurrence",
+            "moReference_c",
+            "ConcentricD01Child-2"
+          ]
+        },
+        {
+          "instant": {
+            "FractionTicks": 1283413,
+            "SecondsValue": 1795044314
+          },
+          "owner_id": 26,
+          "role": [
+            "mate",
+            "moMateConcentric",
+            "Concentric1"
+          ]
+        }
+      ],
+      "clocks": {
+        "ArchiveAt": 1794529626,
+        "CreatedAt": 1795044311,
+        "UpdatedAt": 1795044315
+      },
+      "events": 30,
+      "exploded_has_log": false,
+      "file_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "headers": {
+        "Contents/Config-0-ModelHeader": {
+          "body_counter": 101,
+          "bytes": 2651,
+          "exact_log_reconstruction": true,
+          "model_present": 1,
+          "next_id": 27,
+          "own_save_seconds": 1795044326,
+          "sha256": "d9a160a35e731906a9186d5b08acb350bbbd4144fc542332e808e1813ee84360",
+          "update_counter": 105
+        },
+        "Header2": {
+          "body_counter": 101,
+          "bytes": 2651,
+          "exact_log_reconstruction": true,
+          "model_present": 1,
+          "next_id": 27,
+          "own_save_seconds": 1795044326,
+          "sha256": "d9a160a35e731906a9186d5b08acb350bbbd4144fc542332e808e1813ee84360",
+          "update_counter": 105
+        }
+      },
+      "log_event_counts": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "original_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/CnfgObjs",
+        "Contents/Config-0",
+        "Contents/Config-0-Attachment",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-MatesList",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/CusProps",
+        "Contents/Definition",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/User Units Table",
+        "Contents/eModelLic",
+        "FaceTessellations/000-000-001",
+        "FaceTessellations/Directory",
+        "Header2",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/COMPINSTANCETREE",
+        "swXmlContents/KeyWords"
+      ],
+      "owner_plane_clocks": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 5,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 4,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 3,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        }
+      ],
+      "revision_owner_ids_in_order": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "root_geometry_stamp": 102,
+      "root_log_caption": "Assem2",
+      "source_runtime_history": {
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1639,
+          "sha256": "e685d9cdd1e5c547c083578117e328cb12336c51746823580f617651829e405f"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682"
+        }
+      },
+      "stream_count": 43,
+      "strict_source_refusal": "assembly root contains unprojected model content"
+    }
+  },
+  "generated": {
+    "actual_mate": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.04690999999999999
+        ],
+        [
+          0.0,
+          -0.04691000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        150,
+        203
+      ],
+      "mate_bytes": 3596,
+      "mate_sha256": "217f18c6b94af88cb0cbf577ed3fc5e09fffd2d8ba2e2c24397b216ef0b83a59",
+      "occurrence_names": [
+        "ConcentricD01Child-1",
+        "ConcentricD01Child-2"
+      ],
+      "occurrences": [
+        24,
+        25
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.03126999999999999,
+          0.26817
+        ]
+      ]
+    },
+    "altered_one_plane_event": {
+      "parent_bytes": 11936,
+      "parent_sha256": "54b993c93c48a72c0a103ab3c0ef1451a44a9b50698ec1de6d565b60b99290c3",
+      "visual_roundtrip": {
+        "byte_identity": true,
+        "bytes": 1449,
+        "opaque_bytes": 0,
+        "provisional_schemas": [],
+        "sha256": "3b43df7be68d5ae3d601fca2c7d4ec8a30a78829bdbeda52247548ca1f707516",
+        "terminal_map": 40
+      }
+    },
+    "base_parent_sha256": "232e6a2423d91dd25e1752acf837ab5dcaad443ae71b13dfebbca5b445335ca8",
+    "child_unchanged": true,
+    "differential_plane": [
+      {
+        "class": "moRefPlane_c",
+        "config_creation_seconds": 1794529626,
+        "feature_id": 13,
+        "header2_creation_seconds": 1794529626,
+        "log_event_counts": [
+          2,
+          2
+        ],
+        "resolved_filetime_seconds": 1794529626,
+        "visual_seconds": 1794529626
+      },
+      {
+        "class": "moRefPlane_c",
+        "config_creation_seconds": 1794529619,
+        "feature_id": 13,
+        "header2_creation_seconds": 1794529619,
+        "log_event_counts": [
+          2,
+          2
+        ],
+        "resolved_filetime_seconds": 1794529626,
+        "visual_seconds": 1794529619
+      }
+    ],
+    "generated_streams": [
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/Definition",
+      "Header2",
+      "ThirdPtyStore/VisualStates",
+      "_MO_VERSION_19000/Biography",
+      "_MO_VERSION_19000/History",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "modeled_changes": [
+      "Contents/CMgr",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Header2",
+      "ThirdPtyStore/VisualStates",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "one_log_only_changes": [
+      "Contents/Config-0-ModelHeader",
+      "Header2",
+      "ThirdPtyStore/VisualStates"
+    ],
+    "original_chronology": {
+      "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+      "linked_occurrences": [
+        {
+          "before_child_clock_used_for_live": false,
+          "child_display": [
+            "<Default>_Display State 1",
+            1
+          ],
+          "current_placement": 103,
+          "manager_stamp": 203,
+          "name": "ConcentricD01Child-2",
+          "occurrence_id": 25
+        },
+        {
+          "before_child_clock_used_for_live": false,
+          "child_display": [
+            "<Default>_Display State 1",
+            1
+          ],
+          "current_placement": 102,
+          "manager_stamp": 203,
+          "name": "ConcentricD01Child-1",
+          "occurrence_id": 24
+        }
+      ],
+      "manager_stamps": [
+        205,
+        309
+      ],
+      "parent_bytes": 11908,
+      "parent_chronology": {
+        "attribution_counts": [
+          1,
+          1
+        ],
+        "chronology_sha256": "a6aaeb96e4a71e46cdd5a2492af68a5addde8f8c784565385b33340e972e02eb",
+        "clock_owners": [
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 1,
+            "role": [
+              "resolved",
+              "moCommentsFolder_c",
+              "Comments"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 2,
+            "role": [
+              "resolved",
+              "moFavoriteFolder_c",
+              "Favorites"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 3,
+            "role": [
+              "resolved",
+              "moHistoryFolder_c",
+              "History"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 4,
+            "role": [
+              "resolved",
+              "moSelectionSetFolder_c",
+              "Selection Sets"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 5,
+            "role": [
+              "resolved",
+              "moSensorFolder_c",
+              "Sensors"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 6,
+            "role": [
+              "resolved",
+              "moLiveSectionFolder_c",
+              "Live Section Planes"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 7,
+            "role": [
+              "resolved",
+              "moDocsFolder_c",
+              "Design Binder"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 4889481,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 11,
+            "role": [
+              "resolved",
+              "moDetailCabinet_c",
+              "Annotations"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 8,
+            "role": [
+              "resolved",
+              "moEnvFolder_c",
+              "Lights and Cameras"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 9,
+            "role": [
+              "resolved",
+              "moInkMarkupFolder_c",
+              "Markups"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 10,
+            "role": [
+              "resolved",
+              "moEqnFolder_c",
+              "Equations"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 4889481,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 12,
+            "role": [
+              "resolved",
+              "moRefPlane_c",
+              "Front Plane"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 4889481,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 13,
+            "role": [
+              "resolved",
+              "moRefPlane_c",
+              "Top Plane"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 4889481,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 14,
+            "role": [
+              "resolved",
+              "moRefPlane_c",
+              "Right Plane"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 15,
+            "role": [
+              "resolved",
+              "moOriginProfileFeature_c",
+              "Origin"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 16,
+            "role": [
+              "resolved",
+              "moMateGroup_c",
+              "Mates"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 17,
+            "role": [
+              "light",
+              "moAmbientLight_c",
+              "Ambient"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 18,
+            "role": [
+              "light",
+              "moDirectionLight_c",
+              "Directional1"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 19,
+            "role": [
+              "light",
+              "moDirectionLight_c",
+              "Directional2"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 5046049,
+              "SecondsValue": 1794529626
+            },
+            "owner_id": 20,
+            "role": [
+              "light",
+              "moDirectionLight_c",
+              "Directional3"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 21,
+            "role": [
+              "note",
+              "moNotesAreaFtrFolder_c",
+              "Notes"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 22,
+            "role": [
+              "note",
+              "moNotesAreaFtrFolder_c",
+              "Notes1___EndTag___"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 8441349,
+              "SecondsValue": 1795044311
+            },
+            "owner_id": 23,
+            "role": [
+              "exploded",
+              "moExplViewManager_c",
+              ""
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 9113911,
+              "SecondsValue": 1795044312
+            },
+            "owner_id": 24,
+            "role": [
+              "occurrence",
+              "moReference_c",
+              "ConcentricD01Child-1"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 9113911,
+              "SecondsValue": 1795044312
+            },
+            "owner_id": 25,
+            "role": [
+              "occurrence",
+              "moReference_c",
+              "ConcentricD01Child-2"
+            ]
+          },
+          {
+            "instant": {
+              "FractionTicks": 1283413,
+              "SecondsValue": 1795044314
+            },
+            "owner_id": 26,
+            "role": [
+              "mate",
+              "moMateConcentric",
+              "Concentric1"
+            ]
+          }
+        ],
+        "clocks": {
+          "ArchiveAt": 1794529626,
+          "CreatedAt": 1795044311,
+          "UpdatedAt": 1795044345
+        },
+        "events": 30,
+        "exploded_has_log": false,
+        "headers": {
+          "Contents/Config-0-ModelHeader": {
+            "body_counter": 101,
+            "bytes": 2573,
+            "exact_log_reconstruction": true,
+            "model_present": 1,
+            "next_id": 27,
+            "own_save_seconds": 1816327100,
+            "sha256": "5f2a4ba0fc3e11ee335cad53f2a059021516a8af2b82bcff6425502671cca525",
+            "update_counter": 101
+          },
+          "Header2": {
+            "body_counter": 101,
+            "bytes": 2573,
+            "exact_log_reconstruction": true,
+            "model_present": 0,
+            "next_id": 27,
+            "own_save_seconds": 1816327100,
+            "sha256": "9cb12fe2468dbbbcdc86c186f4b7241276cc37e1b6fe70a528b3119f06dab199",
+            "update_counter": 101
+          }
+        },
+        "log_event_counts": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "revision_owner_ids_in_order": [
+          0,
+          11,
+          12,
+          13,
+          14,
+          15,
+          8,
+          7,
+          1,
+          6,
+          16,
+          17,
+          18,
+          19,
+          20,
+          10,
+          21,
+          22,
+          9,
+          5,
+          2,
+          3,
+          4,
+          24,
+          25,
+          26
+        ],
+        "root_log_caption": "Assem2",
+        "source_runtime_history": {
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "ee6e6ec80093a60e36ee23f52c963433db7251047856ffdacc3795c725191433"
+          }
+        },
+        "stream_count": 13
+      },
+      "parent_sha256": "d30a40ca8d0b96192c66da436d58addb03021c3d8369c17b55f834b1b71c8b39",
+      "plane_keys": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 14,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 13,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 12,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        }
+      ],
+      "visual_roundtrip": {
+        "byte_identity": true,
+        "bytes": 1449,
+        "opaque_bytes": 0,
+        "provisional_schemas": [],
+        "sha256": "4c47c7fda974829b50a025872df0c5fd3453b874f4ed3a95863ff2b404f8d478",
+        "terminal_map": 40
+      }
+    },
+    "parent_stream_count": 13,
+    "refusals": {
+      "divergent_plane_header": "VisualStates plane creation-log owners differ between the two generated headers",
+      "document_is_not_a_feature": "feature instant owner is missing, foreign or duplicated",
+      "duplicate_log_owner": "revision log owner is missing, foreign or duplicated",
+      "incorrect_tick_range": "feature instant requires wall seconds and fractional filetime ticks",
+      "invalid_child_state": "neutral selection differs from its actual ordered occurrence, configuration or child display",
+      "omitted_log_owner": "revision log inventory omits an actual owner or displaces the root"
+    },
+    "runtime_accesses": 0,
+    "unrepresented_original_streams": [
+      "Contents/3DExperienceExchange2",
+      "Contents/3DExperienceExchange_ConfigHeader",
+      "Contents/CnfgObjs",
+      "Contents/Config-0-Attachment",
+      "Contents/Config-0-LWDATA",
+      "Contents/CusProps",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/User Units Table",
+      "Contents/eModelLic",
+      "FaceTessellations/000-000-002",
+      "FaceTessellations/Directory",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPty/CM_MOTION_LOAD_1",
+      "ThirdPty/SWA_Schedules",
+      "[Content_Types].xml",
+      "_DL_VERSION_19000/DLUpdateStamp",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml"
+    ]
+  },
+  "guarded_writer_processes": 2,
+  "heldout_reads": 0,
+  "native_runs": 0,
+  "neutral_request_sha256": "bc616bc846b1ee50043fcb81ae4c864842175cfbe70ae44c292d3827f0a1efa0",
+  "prior_saved_context_receipt_sha256": "9be4fcf109235e41b0d240d3bb1e0c929cb67235047065000c3242e9b6c945c9",
+  "public_publication": false,
+  "schema": "kit.sw2026.d01-assembly-chronology.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/para/concentric/D01RevisionIntent.py": "05203611714d6d0ee81c81d232e5645770f7396c4174f3ab18e9211edfc8e345",
+    "re/tooling/sw2026/para/concentric/ProveD01AssemblyChronology.py": "695f1d2b8cf7365447c61386beed0df624320631e6e09843be472c094f73caee"
+  },
+  "source_transition": {
+    "current_locator_chars": 134,
+    "current_locator_sha256": "cc7898af97c9cb4d45314252220cd854a8a88cc74b61732f45cde174b908cce8",
+    "current_model_name": "ConcentricD01AlignedFree",
+    "current_previous_signature": [
+      0,
+      3,
+      1795044311
+    ],
+    "occurrence_clocks": [
+      [
+        25,
+        "ConcentricD01Child-2",
+        102,
+        103,
+        203
+      ],
+      [
+        24,
+        "ConcentricD01Child-1",
+        102,
+        102,
+        203
+      ]
+    ],
+    "previous_locator_chars": 0,
+    "previous_model_name": "Assem1",
+    "separate_targets": 2
+  },
+  "whole_source_admitted": false
+}

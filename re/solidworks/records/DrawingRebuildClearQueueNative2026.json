@@ -1,0 +1,588 @@
+{
+  "acceptance": false,
+  "data_windows": [
+    {
+      "bound": "typed RTTI data span, hashes only",
+      "bytes": 24,
+      "end_exclusive": "0x32d5d670",
+      "module": "sldgraphicsuiu.dll",
+      "name": "handler RTTI complete object locator",
+      "sha256": "5aa6099ebfa00ec5f16c97da151911aa1853a38dbddb003992fc7485a1b393d5",
+      "start": "0x32d5d658"
+    },
+    {
+      "bound": "typed RTTI data span, hashes only",
+      "bytes": 43,
+      "end_exclusive": "0x32db851b",
+      "module": "sldgraphicsuiu.dll",
+      "name": "handler RTTI type descriptor",
+      "sha256": "997c97f31fae4df2c2d9791b94d5f486cf7264d55e2c7dab285f63f5410abd9d",
+      "start": "0x32db84f0"
+    },
+    {
+      "bound": "typed RTTI data span, hashes only",
+      "bytes": 24,
+      "end_exclusive": "0x32d5d4f8",
+      "module": "sldgraphicsuiu.dll",
+      "name": "drawing-interface RTTI complete object locator",
+      "sha256": "3b8e9276b64c406b496d43e6c05b4a9479e21a2bf6090fa4d872511d2e501b9d",
+      "start": "0x32d5d4e0"
+    }
+  ],
+  "delivery_pr": 121,
+  "execution": {
+    "cad_execution": false,
+    "static_original_pe_only": true,
+    "tests": false,
+    "vm_calls": 0
+  },
+  "format_rules": {
+    "actual_owner": {
+      "callback_rva": "0xd1e40",
+      "handler_offset": "0x8",
+      "handler_singleton_rva": "0x1ebde0",
+      "handler_type": "grUiMessageHandler_c",
+      "handler_vtable_rva": "0x166b68",
+      "messenger_rva": "0x1ebe38",
+      "messenger_vtable_rva": "0x166c40"
+    },
+    "callback_effect": "when handler exists and pending pointer is zero, processClearAllMessage clears queued model/view messages and queues a clear-all object; then the local phase invalidates active document layer zero, and the drawing interface ends view drag and invalidates again",
+    "confidence": "source-bound static queue layout; successor runtime observations pending",
+    "heldout_accepted": false,
+    "modules": [
+      {
+        "file_bytes": 2071128,
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "name": "sldgraphicsuiu.dll",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      {
+        "file_bytes": 2736728,
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "name": "sldgfxu.dll",
+        "sha256": "eb0a385b396cd0abc03fd92afae26b9df8cab588a737a3b10c806cfe46282249"
+      }
+    ],
+    "native_execution_here": false,
+    "new_private_or_hidden_inputs": 0,
+    "per_document_limit": "activeRecipeDoc selection and primary-thread condition belong to native app/frame state; the successor does not guess a native document pointer from unrelated fields",
+    "per_document_read_added": false,
+    "predicate": {
+      "bytes": 9,
+      "meaning": "hasClearAllMessage returns qword(handler+0x28)!=0",
+      "module": "sldgfxu.dll",
+      "pending_offset": "0x28",
+      "rva": "0x1727d0",
+      "sha256": "9d52413d08f660c9ff98255aa9958a2324e509449f5eddaf8774548ab6bfbad4"
+    },
+    "prior_runtime_result_sha256": "2753a8d3fe258179119f13911d44a848511d468f9eda972549c39535cedefc2b",
+    "process_rights": "0x410 query/read only",
+    "schema": "kit.sw2026.disclosed-gr-clear-queue-read-plan.v1",
+    "snapshot": {
+      "bounded_consistency_attempts": 3,
+      "compare_pending_pointer_and_handler_chain_twice": true,
+      "invocation_observed": false,
+      "null_handler": "record and preserve selected callback null early-return branch",
+      "queue_pointer_dereferenced": false,
+      "stages": [
+        "after_open",
+        "before_rebuild",
+        "after_rebuild",
+        "after_redraw"
+      ],
+      "unexpected_handler_owner": "fail closed and retain partial metadata"
+    },
+    "source_or_generated_files_changed": false,
+    "writer_qualified": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 77,
+      "end_exclusive": "0x32cc1e8d",
+      "module": "sldgraphicsuiu.dll",
+      "name": "ActualMessengerCallback",
+      "sha256": "3a2eee93317b8e424aa0b53dbe20475475f99fe096cf84a756a5f330cb1f4591",
+      "start": "0x32cc1e40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 77,
+          "end_exclusive": "0x32cc1e8d",
+          "sha256": "3a2eee93317b8e424aa0b53dbe20475475f99fe096cf84a756a5f330cb1f4591",
+          "start": "0x32cc1e40",
+          "unwind_rva": "0x172504"
+        }
+      ]
+    },
+    {
+      "bound": "actual concrete vtable target; complete no-unwind leaf through return and tail jump",
+      "bytes": 30,
+      "end_exclusive": "0x32cc1f0e",
+      "module": "sldgraphicsuiu.dll",
+      "name": "MessengerLocalPhaseLeaf",
+      "sha256": "df4951ea951b957d6c4c3e08e653b7bc38f990497b408d7ed3d6d16c319a7e32",
+      "start": "0x32cc1ef0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 40,
+      "end_exclusive": "0x32cc01a8",
+      "module": "sldgraphicsuiu.dll",
+      "name": "DrawingInterfaceEndViewDragAdapter",
+      "sha256": "94608807bc7f941139d95d104b0e2f99f0d47473ae439f67413c7474b01c30eb",
+      "start": "0x32cc0180",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 40,
+          "end_exclusive": "0x32cc01a8",
+          "sha256": "94608807bc7f941139d95d104b0e2f99f0d47473ae439f67413c7474b01c30eb",
+          "start": "0x32cc0180",
+          "unwind_rva": "0x1724d0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 529,
+      "end_exclusive": "0x32d13af1",
+      "module": "sldgraphicsuiu.dll",
+      "name": "GraphicsInterfacesInstall01",
+      "sha256": "06de1638119fc9def157af1f5e4354cdbf76cd96ecec6ce9a07d2d78158cae1d",
+      "start": "0x32d138e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 529,
+          "end_exclusive": "0x32d13af1",
+          "sha256": "06de1638119fc9def157af1f5e4354cdbf76cd96ecec6ce9a07d2d78158cae1d",
+          "start": "0x32d138e0",
+          "unwind_rva": "0x188878"
+        }
+      ]
+    },
+    {
+      "bound": "actual reached entry; complete no-unwind leaf through return or tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x32d138c8",
+      "module": "sldgraphicsuiu.dll",
+      "name": "HandlerSingleton01",
+      "sha256": "483e5784780be1b56172953ed52ae7b61dd3b784bb2223a4ee3dcf53b24428dd",
+      "start": "0x32d138c0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "actual reached entry; complete no-unwind leaf through return or tail jump",
+      "bytes": 5,
+      "end_exclusive": "0x32c92fc5",
+      "module": "sldgraphicsuiu.dll",
+      "name": "MessageHandlerHolderStore01",
+      "sha256": "2faec2066f24fe0c5a26c361fa7d89d6f776f30e782457c499981aee1aaa8033",
+      "start": "0x32c92fc0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 39,
+      "end_exclusive": "0x32cc0ff7",
+      "module": "sldgraphicsuiu.dll",
+      "name": "HandlerConstructor01",
+      "sha256": "0c3d0a6fa1b91ce72a03350ce0aa58e469a962f0ba893a33e7fad7349440a8ae",
+      "start": "0x32cc0fd0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 39,
+          "end_exclusive": "0x32cc0ff7",
+          "sha256": "0c3d0a6fa1b91ce72a03350ce0aa58e469a962f0ba893a33e7fad7349440a8ae",
+          "start": "0x32cc0fd0",
+          "unwind_rva": "0x17b0bc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 37,
+      "end_exclusive": "0x32cbf725",
+      "module": "sldgraphicsuiu.dll",
+      "name": "DrawingInterfaceConstructor01",
+      "sha256": "c0d19cc8bfbf62117080b2bc66015b155ea308747fd84c2cde9c6962370e57bf",
+      "start": "0x32cbf700",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 37,
+          "end_exclusive": "0x32cbf725",
+          "sha256": "c0d19cc8bfbf62117080b2bc66015b155ea308747fd84c2cde9c6962370e57bf",
+          "start": "0x32cbf700",
+          "unwind_rva": "0x17ab9c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 9,
+      "end_exclusive": "0x338f27d9",
+      "module": "sldgfxu.dll",
+      "name": "HasClearAllLeaf02",
+      "sha256": "9d52413d08f660c9ff98255aa9958a2324e509449f5eddaf8774548ab6bfbad4",
+      "start": "0x338f27d0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 60,
+      "end_exclusive": "0x338f325c",
+      "module": "sldgfxu.dll",
+      "name": "processClearAllMessage",
+      "sha256": "9e51cc598d69614519cf6f1b229c17389bcc288689b17e4d01e0d8d53d012c4d",
+      "start": "0x338f3220",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 60,
+          "end_exclusive": "0x338f325c",
+          "sha256": "9e51cc598d69614519cf6f1b229c17389bcc288689b17e4d01e0d8d53d012c4d",
+          "start": "0x338f3220",
+          "unwind_rva": "0x20b5d8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 313,
+      "end_exclusive": "0x338f2669",
+      "module": "sldgfxu.dll",
+      "name": "ClearAllMessages01",
+      "sha256": "84ff20da0806cf67c471010b55f2e0104675bfe11952d6d6f26be3327bc9f215",
+      "start": "0x338f2530",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 313,
+          "end_exclusive": "0x338f2669",
+          "sha256": "84ff20da0806cf67c471010b55f2e0104675bfe11952d6d6f26be3327bc9f215",
+          "start": "0x338f2530",
+          "unwind_rva": "0x1e5c68"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1354,
+      "end_exclusive": "0x338f30ca",
+      "module": "sldgfxu.dll",
+      "name": "processAllMessages",
+      "sha256": "9145ba4da8669f585d67111e75fcbcbfa3795aeefd654320af13250f1b236ae3",
+      "start": "0x338f2b80",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1354,
+          "end_exclusive": "0x338f30ca",
+          "sha256": "9145ba4da8669f585d67111e75fcbcbfa3795aeefd654320af13250f1b236ae3",
+          "start": "0x338f2b80",
+          "unwind_rva": "0x20b548"
+        }
+      ]
+    },
+    {
+      "bound": "actual reached entry; complete no-unwind leaf through return or tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x32d13d2b",
+      "module": "sldgraphicsuiu.dll",
+      "name": "SceneExternalInvalidateThunk01",
+      "sha256": "b78560ded05ac28fab4acabf90cc6b9ede9a3c0130e4ef1f2f46590066c15b4f",
+      "start": "0x32d13d25",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 48,
+      "end_exclusive": "0x49ced370",
+      "module": "slduiu.dll",
+      "name": "InvalidateLayerZeroGlobal",
+      "sha256": "beee354546a9d4a17f9afe9df72b75df653325093734e375255614f784416506",
+      "start": "0x49ced340",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 48,
+          "end_exclusive": "0x49ced370",
+          "sha256": "beee354546a9d4a17f9afe9df72b75df653325093734e375255614f784416506",
+          "start": "0x49ced340",
+          "unwind_rva": "0x1ab48a0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 58,
+      "end_exclusive": "0x49e2c31a",
+      "module": "slduiu.dll",
+      "name": "LayerZeroActiveDocument01",
+      "sha256": "aabad6139b8f0a285fb96a1f9ef6b214a68c7f053b52a4c35bb37436b01626c0",
+      "start": "0x49e2c2e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 58,
+          "end_exclusive": "0x49e2c31a",
+          "sha256": "aabad6139b8f0a285fb96a1f9ef6b214a68c7f053b52a4c35bb37436b01626c0",
+          "start": "0x49e2c2e0",
+          "unwind_rva": "0x1ab4c00"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 245,
+      "end_exclusive": "0x49c21615",
+      "module": "slduiu.dll",
+      "name": "LayerZeroInvalidateAll01",
+      "sha256": "3720af2e41f17012fb91ad4eddfbb97fb57d8ca2b948f20bdf9b377a9cc051e8",
+      "start": "0x49c21520",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 51,
+          "end_exclusive": "0x49c21553",
+          "sha256": "181ac5387e57ada1bffdbb56923163a4d09bde25ee9418567b753b50d0e549c5",
+          "start": "0x49c21520",
+          "unwind_rva": "0x1b67df0"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 175,
+          "end_exclusive": "0x49c21602",
+          "sha256": "ad354f6bd7cf77c986b71da04f2a1f57afee8f16afeeda5eab84cc07e03664c1",
+          "start": "0x49c21553",
+          "unwind_rva": "0x1c61df8"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 19,
+          "end_exclusive": "0x49c21615",
+          "sha256": "40521d4c117bc45aa0e23fcdbd02ac84082053ab683bdd30d9d0f4e47d0bbf61",
+          "start": "0x49c21602",
+          "unwind_rva": "0x1c61e0c"
+        }
+      ]
+    },
+    {
+      "bound": "actual constructor reached by static initialization; complete no-unwind leaf",
+      "bytes": 37,
+      "end_exclusive": "0x32cc1d05",
+      "module": "sldgraphicsuiu.dll",
+      "name": "MessengerConstructor",
+      "sha256": "36d9dba514615586e35a05af8eb25e6f733f8450ace5f8e966eacb6e9cfe6942",
+      "start": "0x32cc1ce0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 37,
+          "end_exclusive": "0x32cc1d05",
+          "sha256": "36d9dba514615586e35a05af8eb25e6f733f8450ace5f8e966eacb6e9cfe6942",
+          "start": "0x32cc1ce0",
+          "unwind_rva": "0x17b408"
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x32d3ad78",
+      "module": "sldsessionu.dll",
+      "name": "?setSldGrDrawingInterface@SldSession_c@@SAXPEAVSldGrDrawingInterface_c@@@Z",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d3adf8",
+      "module": "sldsessionu.dll",
+      "name": "?setSldGrMessenger@SldSession_c@@SAXPEAVSldGrMessenger_c@@@Z",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d3ae40",
+      "module": "sldsessionu.dll",
+      "name": "?SldGrDrawingInterface@SldSession_c@@SAPEAVSldGrDrawingInterface_c@@XZ",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d3aea8",
+      "module": "sldsessionu.dll",
+      "name": "?SldGrMessenger@SldSession_c@@SAPEAVSldGrMessenger_c@@XZ",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d3b9b0",
+      "module": "slduiu.dll",
+      "name": "?invalidateLayerZero@uiGfxSgInterface_c@@UEAAXXZ",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d38e90",
+      "module": "sldgfxu.dll",
+      "name": "?endViewDrag@gfxSceneGraph_c@@QEAAXXZ",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d38ef8",
+      "module": "sldgfxu.dll",
+      "name": "??0gfxSgMessageHandler_c@@QEAA@XZ",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d38f80",
+      "module": "sldgfxu.dll",
+      "name": "?hasClearAllMessage@gfxSgMessageHandler_c@@QEAA_NXZ",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d38f90",
+      "module": "sldgfxu.dll",
+      "name": "?processClearAllMessage@gfxSgMessageHandler_c@@QEAAXXZ",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x32d3a878",
+      "module": "sldgfxu.dll",
+      "name": "?m_scenegraph@gfxSceneGraph_c@@0PEAV1@EA",
+      "source_module": "sldgraphicsuiu.dll"
+    },
+    {
+      "iat": "0x4a4641b0",
+      "module": "sldappu.dll",
+      "name": "?isPrimaryThread@CAmApp@@QEBAHXZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a4655e8",
+      "module": "sldappu.dll",
+      "name": "?am_GetApp@@YAPEAVCAmApp@@XZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a4655f0",
+      "module": "sldappu.dll",
+      "name": "?activeRecipeDoc@CAmApp@@QEBAPEAVuiBaseDoc_c@@PEAVCFrameWnd@@@Z",
+      "source_module": "slduiu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "instruction-boundary window inside complete function",
+      "bytes": 29,
+      "end_exclusive": "0x32cc1e66",
+      "module": "sldgraphicsuiu.dll",
+      "name": "messenger null and pending-clear early-return gates",
+      "sha256": "6e8d7708aee10dc043e64fb6367f129abcbd36e5a292b3e5fe52f1ce224d0f08",
+      "start": "0x32cc1e49"
+    },
+    {
+      "bound": "instruction-boundary window inside complete function",
+      "bytes": 23,
+      "end_exclusive": "0x32d13946",
+      "module": "sldgraphicsuiu.dll",
+      "name": "actual handler binding and messenger installation",
+      "sha256": "d093a1a83adb3e5075ae5f22963e6fc6576c35a742d73bd7bc9aff454e01dfd6",
+      "start": "0x32d1392f"
+    },
+    {
+      "bound": "instruction-boundary window inside complete function",
+      "bytes": 45,
+      "end_exclusive": "0x338f3256",
+      "module": "sldgfxu.dll",
+      "name": "clear queue producer and conditional publication",
+      "sha256": "33bd448a7026648c1bfc4cda0080cde6b6fb59574531bf952a073c75267c6cc8",
+      "start": "0x338f3229"
+    },
+    {
+      "bound": "instruction-boundary window inside complete function",
+      "bytes": 35,
+      "end_exclusive": "0x338f309e",
+      "module": "sldgfxu.dll",
+      "name": "clear queue consumer and removal",
+      "sha256": "d998b55df7ab1839b25b910ca8193ad4e73a3a481e72ae9f9fbe34c822ab467c",
+      "start": "0x338f307b"
+    },
+    {
+      "bound": "instruction-boundary window inside complete function",
+      "bytes": 44,
+      "end_exclusive": "0x49e2c312",
+      "module": "slduiu.dll",
+      "name": "selected-document active-recipe and primary-thread gates",
+      "sha256": "9dfee071aa121ffac11d4d4ac6290ac30369feb5239dfd055dec2bb77feda54c",
+      "start": "0x49e2c2e6"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 2071128,
+      "machine": "0x8664",
+      "name": "sldgraphicsuiu.dll",
+      "preferred_base": "0x32bf0000",
+      "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+    },
+    {
+      "bytes": 2736728,
+      "machine": "0x8664",
+      "name": "sldgfxu.dll",
+      "preferred_base": "0x33780000",
+      "sha256": "eb0a385b396cd0abc03fd92afae26b9df8cab588a737a3b10c806cfe46282249"
+    },
+    {
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  ],
+  "owner": "flag_ownership; root owns oracle and integration",
+  "prior_runtime_result_sha256": "2753a8d3fe258179119f13911d44a848511d468f9eda972549c39535cedefc2b",
+  "proprietary_bytes_or_listings_in_record": false,
+  "remaining_boundaries": [
+    "registered target identity does not establish execution",
+    "sequential queue reads cannot observe an event entirely between COM-return stages",
+    "actual clear-message update-engine action and rendering refresh are separate from the established queue producer/consumer",
+    "activeRecipeDoc and primary-thread selection are not guessed as extra memory reads",
+    "no wire-field or constructor suppression is proposed from queue state"
+  ],
+  "schema": "kit.sw2026.gr-messenger-clear-and-invalidation-source.v1",
+  "task": "DRAWING-NOTES-C10",
+  "vtable_cells": [
+    {
+      "cell": "0x32d56c50",
+      "module": "sldgraphicsuiu.dll",
+      "target": "0x32cc1e40"
+    },
+    {
+      "cell": "0x32d56c78",
+      "module": "sldgraphicsuiu.dll",
+      "target": "0x32cc1ef0"
+    },
+    {
+      "cell": "0x32d569e0",
+      "module": "sldgraphicsuiu.dll",
+      "target": "0x32cc0180"
+    },
+    {
+      "cell": "0x32d57c30",
+      "module": "sldgraphicsuiu.dll",
+      "target": "0x32d13d25"
+    }
+  ]
+}

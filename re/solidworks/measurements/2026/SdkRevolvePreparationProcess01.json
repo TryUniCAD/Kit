@@ -1,0 +1,2640 @@
+{
+  "schema": "kit.sw2026.sdk-revolve-internal-prepare-proof.v1",
+  "passed": true,
+  "source_manifest_sha256": "76728cdbd332d6b9b00c19d873ce56eb746d4a9e7e12b00a4616e50257c59584",
+  "base_manifest_sha256": "ead445cfd87f174fcc3e62e48883aa3e6e7a823c0dd3fba8c8b5ec98677993c5",
+  "tools_manifest_sha256": "0743fd9e8117f69bdc0ab3b60d4a654af9b7413d6b7ded1235deac8a40673a3e",
+  "inputs_sha256": "ed2dd83b79191a3b50c6f597f49a441e001b33459fe9d65284e8d86dd81dc3ad",
+  "runner_sha256": "45763093a8fdf49562685eff3e6abe57f79799a6fc6516ac17a001c0bd5d1181",
+  "native_report_sha256": "52833c66d1dd3f279d518217f6796f0df9338ebac565e9b5fd85d5c7a3433c51",
+  "lifecycle_adjudication_sha256": "25af072fc6d1122a593c12474c532a35f0b1b3987f519af39bedc3e91f5c27f9",
+  "fresh_processes": 60,
+  "paired_reader_modes": 55,
+  "critical_model_streams": 88,
+  "metadata_qualification_complete": false,
+  "inputs_immutable": true,
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "private_raw_sha256": "ebb0f245f80f6d2a300dfcec81f301b5235731799591e48df2698fb951a7a966",
+  "construction": [
+    {
+      "sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "bytes": 8101,
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 6.283185307179586,
+        "reverse": false
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 789,
+          "sha256": "cb168b45c48485e04d5f5689452c8e157abfa4b25149176f1bb21a2dcbcf7295",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 789,
+          "sha256": "4f04e4d3ac9653f897e4f6a831c4dfb3e562317316658100e2340a77dd4f1d64",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "5cf3a4eda361b3a3bf16f9e7eac0cccfe0b72dcc9a14413f5968e5d060a0be4c",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "0f05375a3b379c345600223891f3a47e7d78a71acb3c9f7e3ddb189afe375097",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1399,
+          "sha256": "48ace6ff1046ca4880d93a9ef64c0def490419220bfd8d99daa93c9a22bea82f",
+          "roundtrip": true
+        }
+      },
+      "geometry": {
+        "volume_m3": 6.242972921213639e-05,
+        "area_m2": 0.010706547763434016,
+        "com_m": [
+          -0.003125000000000001,
+          0.009375,
+          -0.0
+        ],
+        "faces": 4,
+        "edges": 4,
+        "vertices": 4,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    },
+    {
+      "sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "bytes": 8118,
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 2.2471114119426994,
+        "reverse": false
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 801,
+          "sha256": "ae1b5d0a1f8a0e978a83e32fc3ec7cef465fbfd3a79fb6d93a9687a897dfa906",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "7a42efb050d649be541d7610bac4778ac006a0b2f6fb301bd3357cf8ce5524b5",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "c9f8d310bbbe65ede56d71abe73093b91df60976770b2f3b9b01e566ccc0e1a3",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a799a477e7c7088cc782beda69e2125401e709bf0eb180d4fb8f4f9a38e4a5d7",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "a9a31979e6b2f2d155043441224a69f4ac12f6b42048378c889bd0dae3971b5a",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "85abf2087dcc26d03eb684aab9f6315035cde431f854144ae471dfb2b32c80dd",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "4d77e59e2616673b814ea508ed920fc48aa89d6d21992a34b89646099681a90f",
+          "roundtrip": true
+        }
+      },
+      "geometry": {
+        "volume_m3": 1.418208189862336e-05,
+        "area_m2": 0.003840741714975807,
+        "com_m": [
+          0.007728890375055391,
+          0.004625,
+          -0.010119517009637603
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    },
+    {
+      "sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "bytes": 8111,
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 2.2471114119426994,
+        "reverse": true
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 801,
+          "sha256": "3956beaf5fbb07d687149d56554f0ed7c9505c32208b176f7d744d731d1ef702",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "c679c10f041f2a47e5de712d5be6627fd27957d97e4c5a34fde0357ec17a2b7a",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "094efdfc8af684aa3f4ed2bbd4720fffe145bb74550852905b863b4ac4654f20",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "57a5c03a57f60181dfe01f1b8ec4c12d261121027416fd8efaab83f5edba03ab",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "5b4ce1a259b177f2a586df9b42c97f1b2e4caa9e75621ecef04e9ff888abca0b",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "767c51d1633c5a0dd9e4c68c14f75c65f307ae16cbbb8593e5001012d94549be",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "71ed907ee2f9ad10159f2f269c6537f8ba882bdaa2768abb0a5f94a506e2b705",
+          "roundtrip": true
+        }
+      },
+      "geometry": {
+        "volume_m3": 1.418208189862336e-05,
+        "area_m2": 0.003840741714975807,
+        "com_m": [
+          0.007728890375055391,
+          0.004625,
+          0.010119517009637603
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    },
+    {
+      "sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "bytes": 8125,
+      "graph": {
+        "resolved_roots": 19,
+        "model_id": 0,
+        "profile_id": 18,
+        "feature_id": 19,
+        "angle_dimension_id": 20,
+        "selected_axis_index": 4,
+        "axis_mark": 5,
+        "axis_profile_time": 2592000,
+        "point_rows": 6,
+        "line_rows": 5,
+        "axis_relations": 0,
+        "contour_relations": 4,
+        "angle_rad": 4.391684730330732,
+        "reverse": true
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 807,
+          "sha256": "1c13598a312220190f370a58c2f0937eb54688e5bd07ff7da324e6ddd5eefa0c",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 807,
+          "sha256": "85c60f411057e6c238beb7bfc39f43ce5e50e5f497b27b937a1f3913d853d4ed",
+          "roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22278,
+          "sha256": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1",
+          "roundtrip": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "de49bddd73f30520d8da90f9501d82a1850822a4f53a71f13bf59f52dc2dced6",
+          "roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de",
+          "roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "51873f6dfc519d70d51c6e0101ea457045f4a4a4b7c22a97c3238a857d1bcbed",
+          "roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a",
+          "roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1406,
+          "sha256": "0ac12ebec4908115e8adf980b004d52fb4ec472c6c131ccf85f60e29e9a8da21",
+          "roundtrip": true
+        }
+      },
+      "geometry": {
+        "volume_m3": 7.748167025633817e-05,
+        "area_m2": 0.012814486165755064,
+        "com_m": [
+          -0.012402451607957634,
+          -0.0036249999999999998,
+          0.006621054906101878
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8,
+        "brep_validated": true,
+        "independently_computed_not_transmitted": true
+      }
+    }
+  ],
+  "preparation": [
+    {
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": false,
+      "sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "bytes": 8101,
+      "named_path_and_stream_equal": true,
+      "caller_target_untouched": true,
+      "actual_header_alias": true,
+      "native_profile_id": 18,
+      "native_feature_id": 19,
+      "selected_axis_index": 4,
+      "native_angle_parameter": "D1",
+      "runtime_external_attempts": []
+    },
+    {
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": false,
+      "sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "bytes": 8118,
+      "named_path_and_stream_equal": true,
+      "caller_target_untouched": true,
+      "actual_header_alias": true,
+      "native_profile_id": 18,
+      "native_feature_id": 19,
+      "selected_axis_index": 4,
+      "native_angle_parameter": "D1",
+      "runtime_external_attempts": []
+    },
+    {
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": false,
+      "sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "bytes": 8111,
+      "named_path_and_stream_equal": true,
+      "caller_target_untouched": true,
+      "actual_header_alias": true,
+      "native_profile_id": 18,
+      "native_feature_id": 19,
+      "selected_axis_index": 4,
+      "native_angle_parameter": "D1",
+      "runtime_external_attempts": []
+    },
+    {
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": false,
+      "sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "bytes": 8125,
+      "named_path_and_stream_equal": true,
+      "caller_target_untouched": true,
+      "actual_header_alias": true,
+      "native_profile_id": 18,
+      "native_feature_id": 19,
+      "selected_axis_index": 4,
+      "native_angle_parameter": "D1",
+      "runtime_external_attempts": []
+    }
+  ],
+  "neutral_rejects": [
+    {
+      "mutation": "expression",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve construction requires its actual sole D1 radian driver",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "negative_angle",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve angle must be positive through one full turn",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "excess_angle",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: angular revolution sweep must exceed tolerance and span at most one turn",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "tiny_angle",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: angular revolution sweep must exceed tolerance and span at most one turn",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "nonfinite_angle",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: angular revolution angles must be finite numbers",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "two_sided",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: has an unlinked or unowned angle parameter parameter/other",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "axis_in_contour",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve requires one explicit four edge contour outside its axis",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "missing_axis_relation",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve requires five lines and four actual contour relations",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "fixed_axis",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve requires ordinary lines and one real construction axis",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "extra_metadata",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve construction requires explicit names and millimetres",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "body_name",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "ordinary boss body must have its real creating feature and no material",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "support_origin",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "boss support must be a canonical principal frame at origin",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "alternate_unit",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "CadDocumentValidationError",
+      "error_message": "angular revolution feature/revolve has invalid angles: requires a numeric angle in rad for parameter parameter/angle",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "wrong_relation",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve requires its actual contour axis relations",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "axis_relation",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve requires its actual contour axis relations",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "downward_axis",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve requires a rectangle right of an upward construction axis",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "axis_origin",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "normalized revolve definition differs from its actual selected axis",
+      "runtime_external_attempts": []
+    },
+    {
+      "mutation": "additional_configuration",
+      "schema": "kit.sw2026.sdk-revolve-build-worker.v1",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "revolve construction requires one complete ordinary model",
+      "runtime_external_attempts": []
+    }
+  ],
+  "option_rejects": [
+    {
+      "variant": "configuration",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "requested revolve write configuration is unavailable",
+      "runtime_external_attempts": []
+    },
+    {
+      "variant": "unknown_option",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "unsupported plain part preparation options",
+      "runtime_external_attempts": []
+    },
+    {
+      "variant": "unnamed_stream",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "unnamed native streams require an explicit final destination",
+      "runtime_external_attempts": []
+    },
+    {
+      "variant": "wrong_suffix",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "plain part preparation cannot target an assembly or drawing",
+      "runtime_external_attempts": []
+    },
+    {
+      "variant": "wrong_basename",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "native self filename must match the actual modeled part name",
+      "runtime_external_attempts": []
+    },
+    {
+      "variant": "wrong_format",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "plain part preparation requires a part destination format",
+      "runtime_external_attempts": []
+    },
+    {
+      "variant": "bad_epoch",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "feature creation time must fit unsigned unix seconds",
+      "runtime_external_attempts": []
+    },
+    {
+      "variant": "wrong_stream_final",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "rejected": true,
+      "error_class": "ValueError",
+      "error_message": "plain part preparation cannot target an assembly or drawing",
+      "runtime_external_attempts": []
+    }
+  ],
+  "polygon_regressions": [
+    {
+      "passed": true,
+      "sha256": "3af083e7a7ad07d1bcccb0838e659591d2915b1556617625415e2cbea30db60b",
+      "bytes": 8083,
+      "lines": 4,
+      "streams": {
+        "Header2": "779e7e913f2e1d6c6577356b5f3fcfa53cec2ecdcceddbdde77201d468bbf578",
+        "Contents/Config-0-ModelHeader": "f26ec57f7944564455d8836d3123fcadfd1f310dd65e39865544688f663cf8ed",
+        "Contents/Config-0": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299",
+        "Contents/CMgr": "57e6bb206a3c85144a3345f92ace33033c62a44d03a9d4fc9fac7ef5e1f3acb6",
+        "Contents/CMgrHdr2": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135",
+        "Contents/Config-0-ResolvedFeatures": "ef6b8bced24688e8d470341995184060c4237288ed9c911d171544eafce6e518",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73",
+        "swXmlContents/KeyWords": "2a7cbaa39f8948fe0d8196a5e60fae01631b4a18dcfa41b4c16aeefffc28c62b"
+      },
+      "runtime_external_attempts": []
+    },
+    {
+      "passed": true,
+      "sha256": "f4300db1b749d4f2a1a580e394c88452dd541647afd09e0e8bb5877ed2db7303",
+      "bytes": 8101,
+      "lines": 4,
+      "streams": {
+        "Header2": "2ad6b62316c867c2b80231a64819f772d8727f6a41dfb28e81234e31f174125e",
+        "Contents/Config-0-ModelHeader": "7796770b4ea12071e3fbf8b9639f89bac0ce201a29014113ca8285e2db3a94b2",
+        "Contents/Config-0": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1",
+        "Contents/CMgr": "8fbcccbaf8eb70bcbf8ff92175b8cddd51bc9f728f6d30ce0ca2acd64539a629",
+        "Contents/CMgrHdr2": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de",
+        "Contents/Config-0-ResolvedFeatures": "35ff32ed2adae346735653a96a07c615b2e2f088466c0161531912a4df6170a0",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a",
+        "swXmlContents/KeyWords": "f8effab53f40a674fbc9c4851f3e85d9bd58359f94d5049c85c1db646db12f3b"
+      },
+      "runtime_external_attempts": []
+    }
+  ],
+  "native_states": [
+    {
+      "name": "generated-SdkRevolveFullAlpha",
+      "role": "generated",
+      "sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "0f05375a3b379c345600223891f3a47e7d78a71acb3c9f7e3ddb189afe375097",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 789,
+          "sha256": "cb168b45c48485e04d5f5689452c8e157abfa4b25149176f1bb21a2dcbcf7295",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 789,
+          "sha256": "4f04e4d3ac9653f897e4f6a831c4dfb3e562317316658100e2340a77dd4f1d64",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "5cf3a4eda361b3a3bf16f9e7eac0cccfe0b72dcc9a14413f5968e5d060a0be4c",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1399,
+          "sha256": "48ace6ff1046ca4880d93a9ef64c0def490419220bfd8d99daa93c9a22bea82f",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73"
+        }
+      },
+      "all_metadata_qualified": true,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "82fdc59e66d698584bac30a008fa46497bc047f2e9a56d43d66e0d4341886b05",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "tessellation_only": {
+          "document_sha256": "82fdc59e66d698584bac30a008fa46497bc047f2e9a56d43d66e0d4341886b05",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "defaults": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        }
+      },
+      "angle_rad": 6.283185307179586,
+      "reverse": false,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "saved-SdkRevolveFullAlpha",
+      "role": "saved",
+      "sha256": "963dce1db82760fc1941d9ce6b41410ee5b1b4b3c563594900cb30b12a635e6e",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26075,
+          "sha256": "642d83284b6eff16b0636e255ca348fd6e8e3d04ad1779ec1c81afbbd3807a7a",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 11791,
+          "sha256": "45557333a9dcdef7da0e8891d6ce5f32dda6cd6d667af2745ec414b8b20b0d39",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 1267,
+          "sha256": "47f7067c16c6c07da5ddf8d8f919d40fa39f8a04c190b4c530a58aefe639fd71",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1267,
+          "sha256": "47f7067c16c6c07da5ddf8d8f919d40fa39f8a04c190b4c530a58aefe639fd71",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 2527,
+          "sha256": "565f8844b540f391693638eb1c76a575837ad453c8d401f9f95ca0403be52917",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "ed6231281abe1fdc0bec621a0610755e7cc12e286a9cf884349ffcfdede1d399",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1694,
+          "sha256": "c64cde88c0d72a2e122b40361b10fefa1da0cfda477005ca7dc595de7a5a563c",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": false,
+          "byte_identity": false,
+          "error_class": "BodyUnsupported",
+          "error_message": "unsupported SOLIDWORKS native field path populated biography is outside fresh history admission"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73"
+        }
+      },
+      "all_metadata_qualified": false,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "8b7e43ba585af1dad37630e7206c1ba724cc66f76bf295086d85ef940b8bd6ac",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "document_sha256": "a4a433470f5d2d80c679570d46cba8f716c6c7e5d8abefe2a1534b2da8e2ce6a",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "tessellation_only": {
+          "document_sha256": "8b7e43ba585af1dad37630e7206c1ba724cc66f76bf295086d85ef940b8bd6ac",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "document_sha256": "a4a433470f5d2d80c679570d46cba8f716c6c7e5d8abefe2a1534b2da8e2ce6a",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "defaults": {
+          "document_sha256": "a4a433470f5d2d80c679570d46cba8f716c6c7e5d8abefe2a1534b2da8e2ce6a",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        }
+      },
+      "angle_rad": 2.3954643983622175,
+      "reverse": false,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CnfgObjs",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-Partition",
+        "Contents/CusProps",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/PMISemanticDataDB",
+        "Contents/eModelLic",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/Features"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "generated-SdkRevolveForwardBeta",
+      "role": "generated",
+      "sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "c9f8d310bbbe65ede56d71abe73093b91df60976770b2f3b9b01e566ccc0e1a3",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "85abf2087dcc26d03eb684aab9f6315035cde431f854144ae471dfb2b32c80dd",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 801,
+          "sha256": "ae1b5d0a1f8a0e978a83e32fc3ec7cef465fbfd3a79fb6d93a9687a897dfa906",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "7a42efb050d649be541d7610bac4778ac006a0b2f6fb301bd3357cf8ce5524b5",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a799a477e7c7088cc782beda69e2125401e709bf0eb180d4fb8f4f9a38e4a5d7",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "a9a31979e6b2f2d155043441224a69f4ac12f6b42048378c889bd0dae3971b5a",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "4d77e59e2616673b814ea508ed920fc48aa89d6d21992a34b89646099681a90f",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781"
+        }
+      },
+      "all_metadata_qualified": true,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "78c8271b406c5ba2004b92a0aab009716cdd33002c2410a3db48accc4eed32e2",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "tessellation_only": {
+          "document_sha256": "78c8271b406c5ba2004b92a0aab009716cdd33002c2410a3db48accc4eed32e2",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "defaults": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        }
+      },
+      "angle_rad": 2.2471114119426994,
+      "reverse": false,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "saved-SdkRevolveForwardBeta",
+      "role": "saved",
+      "sha256": "36667ae4b8ad9d0853af4b43a5d7386dd146b00e424bfe3760b9a7aab1c4a62b",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26079,
+          "sha256": "f1566134275318a462fb8529eea4ee7f377bb2f90e51c5a15e14171a463da44b",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 11699,
+          "sha256": "c9e9c78ca1cbd1b0a3ea06c977a24430dfbb99d0bd073b12b081025368d9ad6f",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 1279,
+          "sha256": "0943885d6efb3f3f9dd14c54bcbf911bedb6d6f9f6751baeadcccc4b52c5ec4a",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1279,
+          "sha256": "0943885d6efb3f3f9dd14c54bcbf911bedb6d6f9f6751baeadcccc4b52c5ec4a",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 2539,
+          "sha256": "db911883544b1483dcbb98c0e345e9b6b014cd8e9ef8dd36a1681b2a5816c12e",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "f714c117754ac1ea778ba674953cdd588bc30a283706653727bbd619ce4312d1",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1696,
+          "sha256": "9a5050ea6a9cc865fbeb976ae9c72d1e273b407a26741a28cc4741ecf39e8c6e",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": false,
+          "byte_identity": false,
+          "error_class": "BodyUnsupported",
+          "error_message": "unsupported SOLIDWORKS native field path populated biography is outside fresh history admission"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781"
+        }
+      },
+      "all_metadata_qualified": false,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "49aed7125e4d39fb9d0645c1e66a9265233120c5dab869e615e14f40de44f12d",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "document_sha256": "69038a22ffa60a98298f694c74a3cd0b639a34f46fd59e80ab0a66fda2f048c5",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "tessellation_only": {
+          "document_sha256": "49aed7125e4d39fb9d0645c1e66a9265233120c5dab869e615e14f40de44f12d",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "document_sha256": "69038a22ffa60a98298f694c74a3cd0b639a34f46fd59e80ab0a66fda2f048c5",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "defaults": {
+          "document_sha256": "69038a22ffa60a98298f694c74a3cd0b639a34f46fd59e80ab0a66fda2f048c5",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        }
+      },
+      "angle_rad": 1.2806353386508393,
+      "reverse": false,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CnfgObjs",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-Partition",
+        "Contents/CusProps",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/PMISemanticDataDB",
+        "Contents/eModelLic",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/Features"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "generated-SdkRevolveReverseBeta",
+      "role": "generated",
+      "sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "094efdfc8af684aa3f4ed2bbd4720fffe145bb74550852905b863b4ac4654f20",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "767c51d1633c5a0dd9e4c68c14f75c65f307ae16cbbb8593e5001012d94549be",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 801,
+          "sha256": "3956beaf5fbb07d687149d56554f0ed7c9505c32208b176f7d744d731d1ef702",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "c679c10f041f2a47e5de712d5be6627fd27957d97e4c5a34fde0357ec17a2b7a",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "57a5c03a57f60181dfe01f1b8ec4c12d261121027416fd8efaab83f5edba03ab",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "5b4ce1a259b177f2a586df9b42c97f1b2e4caa9e75621ecef04e9ff888abca0b",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "71ed907ee2f9ad10159f2f269c6537f8ba882bdaa2768abb0a5f94a506e2b705",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58"
+        }
+      },
+      "all_metadata_qualified": true,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "cfecd70e80685ae5ef3caebd0f587ca25050ba1d07c7ef50522b1fa9593f2d20",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "tessellation_only": {
+          "document_sha256": "cfecd70e80685ae5ef3caebd0f587ca25050ba1d07c7ef50522b1fa9593f2d20",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "defaults": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        }
+      },
+      "angle_rad": 2.2471114119426994,
+      "reverse": true,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "saved-SdkRevolveReverseBeta",
+      "role": "saved",
+      "sha256": "451a54e66ed9f97cbf5bfc752cb59306f4fb7eb3f2be5fcbec70d3a33b3d699d",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26079,
+          "sha256": "ed1d43c1f9c180b4af5ee24e75334438ef94e276af0039a78ad9aed6bf2a53bd",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 11699,
+          "sha256": "09e37f3d4a733df1a92dada0b95c6fee5904d4a2f3094b27ea938ab7f62e8ea8",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 1279,
+          "sha256": "c8362d2d4f99aa033c907525a719bacfb70fabcc7cd76efaa8fa7d567bc879fc",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1279,
+          "sha256": "c8362d2d4f99aa033c907525a719bacfb70fabcc7cd76efaa8fa7d567bc879fc",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 2539,
+          "sha256": "c0af995d5e4eda008d3a49d8cc5c14bfc3da938e03aceae3017e9a78ce7a77f7",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "1fc5612254802285c7eb629fb6668dbcf012541322b3cd8cdf085e8ca9031695",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1696,
+          "sha256": "c344004fc554b070f289c7735b7a1b762142f36900c66d9506949c83ee84c449",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": false,
+          "byte_identity": false,
+          "error_class": "BodyUnsupported",
+          "error_message": "unsupported SOLIDWORKS native field path populated biography is outside fresh history admission"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58"
+        }
+      },
+      "all_metadata_qualified": false,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "be0d33d3b51220ac195690b01a7dc4b949246580b630e9d845ade08ae226886f",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "document_sha256": "1384ce8b8310b7b04f88ebb04ba302ec02f779983991e9156e90d9c6491e0cf5",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "tessellation_only": {
+          "document_sha256": "be0d33d3b51220ac195690b01a7dc4b949246580b630e9d845ade08ae226886f",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "document_sha256": "1384ce8b8310b7b04f88ebb04ba302ec02f779983991e9156e90d9c6491e0cf5",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "defaults": {
+          "document_sha256": "1384ce8b8310b7b04f88ebb04ba302ec02f779983991e9156e90d9c6491e0cf5",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        }
+      },
+      "angle_rad": 1.2806353386508393,
+      "reverse": true,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CnfgObjs",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-Partition",
+        "Contents/CusProps",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/PMISemanticDataDB",
+        "Contents/eModelLic",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/Features"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "generated-SdkRevolvePartialGamma",
+      "role": "generated",
+      "sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 22278,
+          "sha256": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "51873f6dfc519d70d51c6e0101ea457045f4a4a4b7c22a97c3238a857d1bcbed",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 807,
+          "sha256": "1c13598a312220190f370a58c2f0937eb54688e5bd07ff7da324e6ddd5eefa0c",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 807,
+          "sha256": "85c60f411057e6c238beb7bfc39f43ce5e50e5f497b27b937a1f3913d853d4ed",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "de49bddd73f30520d8da90f9501d82a1850822a4f53a71f13bf59f52dc2dced6",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1406,
+          "sha256": "0ac12ebec4908115e8adf980b004d52fb4ec472c6c131ccf85f60e29e9a8da21",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a"
+        }
+      },
+      "all_metadata_qualified": true,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "2423afb67c47279282c269c789b81bbb2e5eb053b67072401038c420c9863475",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "tessellation_only": {
+          "document_sha256": "2423afb67c47279282c269c789b81bbb2e5eb053b67072401038c420c9863475",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        },
+        "defaults": {
+          "error_class": "SldprtFormat",
+          "error_message": "SLDPRT contains no readable Parasolid payload"
+        }
+      },
+      "angle_rad": 4.391684730330732,
+      "reverse": true,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "saved-SdkRevolvePartialGamma",
+      "role": "saved",
+      "sha256": "50cebaee7eb8dfd8c3f903af7db0e7bd78098935561fddcbc0ccaaaf370dbe57",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26081,
+          "sha256": "03fe16ac4a2cffa3d3eea4d3223203906d5a80a74af357adb65ec8d08e27fcf5",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 11703,
+          "sha256": "9327ab6a29a67b09da77a40f65464cee4cbf96ddcbca7d8e33515ced6314e284",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 1285,
+          "sha256": "b10af6b42bd9fe16b973c2c1443d86def058a91a977b7ae55de6cfd6484d3bfc",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1285,
+          "sha256": "b10af6b42bd9fe16b973c2c1443d86def058a91a977b7ae55de6cfd6484d3bfc",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 2545,
+          "sha256": "e35cade29270e9afb7cfaa45cf2a111dc2cf44d6bec42a90c4c742094182c420",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "c9a26b12239a7b3f678d3ec342e83e8011e29b7668f11b213da4e5f2058eaa54",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1698,
+          "sha256": "11af24e84a9f421b0c8a67fc5d4240ad78e6c56d2557013e5455b08ae200bcc8",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": false,
+          "byte_identity": false,
+          "error_class": "BodyUnsupported",
+          "error_message": "unsupported SOLIDWORKS native field path populated biography is outside fresh history admission"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a"
+        }
+      },
+      "all_metadata_qualified": false,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "3a08baef0504c279de5b85920cb2c139d6ea5295b5f77a5537b910544f9e5069",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "document_sha256": "2ee81ee2d1a4f54abaa69c8c4ac691c8c8e7afbf5939d6e369ad3bc2dbc3356f",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "tessellation_only": {
+          "document_sha256": "3a08baef0504c279de5b85920cb2c139d6ea5295b5f77a5537b910544f9e5069",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "document_sha256": "2ee81ee2d1a4f54abaa69c8c4ac691c8c8e7afbf5939d6e369ad3bc2dbc3356f",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "defaults": {
+          "document_sha256": "2ee81ee2d1a4f54abaa69c8c4ac691c8c8e7afbf5939d6e369ad3bc2dbc3356f",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        }
+      },
+      "angle_rad": 6.267913676224636,
+      "reverse": true,
+      "selected_axis_index": 4,
+      "selected_axis_mark": 5,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CnfgObjs",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-Partition",
+        "Contents/CusProps",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/PMISemanticDataDB",
+        "Contents/eModelLic",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/Features"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "control-RevolveFull",
+      "role": "native_control",
+      "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25476,
+          "sha256": "d5148de01dba03ef6ed203bf4d44cfb67044a69bb26367621319ef31d3260793",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12345,
+          "sha256": "bc11aac1af0a62306f3abec9ea05b99de7b5e30f7d1e63eb9dfa4d9d4f76ebb2",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 2371,
+          "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2371,
+          "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "7554382552fe45055073aff95e499abb74a9db17fedde925efb366de64825342",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "8fc8a5d15c0b405bde0ec62dee31eae9ec8050eeee872c0477dcaa875ad57f7e",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1667,
+          "sha256": "8ff4f012b66f8a40c0b81be158eef8d9b4bfa3fb44c405791a0d053e94e16c64",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": false,
+          "byte_identity": false,
+          "error_class": "BodyUnsupported",
+          "error_message": "unsupported SOLIDWORKS native field path populated biography is outside fresh history admission"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 101,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        }
+      },
+      "all_metadata_qualified": false,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "c395da483ea07b29e687c67ac13f66ac76482d0639b16e623c688c3fdae9b087",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "document_sha256": "719d97ff09f4a4c00bf9ed6829e829aa102e83969cb88d46221abb26a436efa1",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "tessellation_only": {
+          "document_sha256": "c395da483ea07b29e687c67ac13f66ac76482d0639b16e623c688c3fdae9b087",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "document_sha256": "719d97ff09f4a4c00bf9ed6829e829aa102e83969cb88d46221abb26a436efa1",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "defaults": {
+          "document_sha256": "719d97ff09f4a4c00bf9ed6829e829aa102e83969cb88d46221abb26a436efa1",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        }
+      },
+      "angle_rad": 6.283185307179586,
+      "reverse": false,
+      "selected_axis_index": 5,
+      "selected_axis_mark": 1,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CnfgObjs",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-Partition",
+        "Contents/CusProps",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/PMISemanticDataDB",
+        "Contents/eModelLic",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/Features"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "control-RevolvePartialForward",
+      "role": "native_control",
+      "sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25476,
+          "sha256": "b853b0865bf6b92587969c9cdcb80068a3f4c5e8e9c2c1eb8fb0db0596e2f8c3",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12465,
+          "sha256": "9eb4b47c1f8906c1eae5e2b218152fac2b18310957a2edc6f4b7dff6847142be",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 2371,
+          "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2371,
+          "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "d6c3371c33b4be612eb29e5190658e2ab843b9fcd3750d29eb6e7a24ae4f10b6",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "cc92bb29a5abf78b274ea7aaedc83d3d5635f0eefe74aeda3b9d4d960d04fde5",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1667,
+          "sha256": "e133a3fd3192c755c0c8a9f82874890879bca45c57e3935b09d5771bda4d4cce",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": false,
+          "byte_identity": false,
+          "error_class": "BodyUnsupported",
+          "error_message": "unsupported SOLIDWORKS native field path populated biography is outside fresh history admission"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 101,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        }
+      },
+      "all_metadata_qualified": false,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "2d3a789283383819d5db8b868716021e6ce8ae90eb4dba7445b2d2f90f4d3c8f",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "document_sha256": "edbec32018c5af979359b277e1cfaf836907c8c62e8aab5808ebb2799b8bf6cc",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "tessellation_only": {
+          "document_sha256": "2d3a789283383819d5db8b868716021e6ce8ae90eb4dba7445b2d2f90f4d3c8f",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "document_sha256": "edbec32018c5af979359b277e1cfaf836907c8c62e8aab5808ebb2799b8bf6cc",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "defaults": {
+          "document_sha256": "edbec32018c5af979359b277e1cfaf836907c8c62e8aab5808ebb2799b8bf6cc",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        }
+      },
+      "angle_rad": 1.9722220547535925,
+      "reverse": false,
+      "selected_axis_index": 5,
+      "selected_axis_mark": 1,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CnfgObjs",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-Partition",
+        "Contents/CusProps",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/PMISemanticDataDB",
+        "Contents/eModelLic",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/Features"
+      ],
+      "runtime_external_attempts": []
+    },
+    {
+      "name": "control-RevolvePartialReverse",
+      "role": "native_control",
+      "sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "passed": true,
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25482,
+          "sha256": "e1fbcfe71b5972443928e33e3595b1ee04db30c047fc4ade52d2fbaa7a47e1a8",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12465,
+          "sha256": "de224a0d463df78e174e9da1493251862a2ab686e80f48c0f0812be3266968ef",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 2371,
+          "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2371,
+          "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "d988c5b59ac3d4add7b07588bdebe89569d8b6d46918f2580faa3f230bfec3c5",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "e09afcbbdbed823b416c7afe48a53ac9ed0e0216e770f9f5d89fb7023b20cd11",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1667,
+          "sha256": "a2e66be36baec686bee6870b665be0236396529ecd0b2b05522141d7f5435256",
+          "byte_identity": true
+        }
+      },
+      "metadata_attempts": {
+        "_MO_VERSION_19000/Biography": {
+          "qualified": false,
+          "byte_identity": false,
+          "error_class": "BodyUnsupported",
+          "error_message": "unsupported SOLIDWORKS native field path populated biography is outside fresh history admission"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 101,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        }
+      },
+      "all_metadata_qualified": false,
+      "modes": {
+        "no_geometry": {
+          "document_sha256": "235ce1a2c75bf4b9e9cc41597d0417e647e24a8dee886ad77fdfd7843165fcce",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "brep_only": {
+          "document_sha256": "7f8666ecc8a31c1fd4ce2f19a040943239114c547133007f60bc4e59accf9421",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "tessellation_only": {
+          "document_sha256": "235ce1a2c75bf4b9e9cc41597d0417e647e24a8dee886ad77fdfd7843165fcce",
+          "brep_bodies": 0,
+          "payloads": 0,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "both": {
+          "document_sha256": "7f8666ecc8a31c1fd4ce2f19a040943239114c547133007f60bc4e59accf9421",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        },
+        "defaults": {
+          "document_sha256": "7f8666ecc8a31c1fd4ce2f19a040943239114c547133007f60bc4e59accf9421",
+          "brep_bodies": 1,
+          "payloads": 2,
+          "feature_label": "OrdinaryBossRevolve",
+          "sketch_label": "RevolveSketch",
+          "parameter_label": "D1",
+          "body_projection_labels": [
+            "Body 1"
+          ],
+          "planar_relations": [
+            "horizontal",
+            "horizontal",
+            "vertical",
+            "vertical"
+          ]
+        }
+      },
+      "angle_rad": 1.9722220547535925,
+      "reverse": true,
+      "selected_axis_index": 5,
+      "selected_axis_mark": 1,
+      "contour_relations": 4,
+      "unexamined_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CnfgObjs",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-Partition",
+        "Contents/CusProps",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/PMISemanticDataDB",
+        "Contents/eModelLic",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPty/Animator",
+        "ThirdPty/CMMotionLoadMapU",
+        "ThirdPty/CM_MOTION_LOAD_1",
+        "ThirdPty/SWA_Schedules",
+        "ThirdPtyStore/VisualStates",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/Config-0-Properties.xml",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/Features"
+      ],
+      "runtime_external_attempts": []
+    }
+  ],
+  "runtime_external_attempts": 0,
+  "critical_model_stream_comparison_visits": 176,
+  "public_revolve_registration": false,
+  "original_heldout_acceptance": false,
+  "source_epoch": "fixed explicit caller authoring epochs",
+  "default_geometry_boundary": {
+    "scope": "frozen pre-cacheless-reader source snapshot only",
+    "generated_default_brep_refusal_preserved": true,
+    "cached_saved_controls_read_strictly": true,
+    "later_independent_reader_evidence": "SdkColdRevolveGeometry01.json",
+    "later_reader_code_in_this_snapshot": false
+  },
+  "previous_failure": {
+    "private_raw_sha256": "36515245792a3b275e6baaa24cbf7933151eaff0d1d02f6d01521f59c3ff2179",
+    "passed": false,
+    "fresh_processes": 31,
+    "cause": "internal support admitted a mismatched Windows basename while actual construction refused before emitting bytes",
+    "fix": "RevPrepInput performs unchanged shared CheckPartInput before returning supported input",
+    "candidate_output_hashes_changed": false,
+    "previous_source_and_report_preserved": true
+  },
+  "static": {
+    "steering": true,
+    "black": true,
+    "ruff": true,
+    "strict_mypy": true,
+    "strict_pyright_errors": 0,
+    "strict_pyright_warnings": 0,
+    "donor_scan": {
+      "passed": true,
+      "python_files": 4498,
+      "recorded_payloads": 0,
+      "stdout": "no recorded payloads in 4498 files",
+      "exit_code": 0,
+      "source_manifest_sha256": "76728cdbd332d6b9b00c19d873ce56eb746d4a9e7e12b00a4616e50257c59584"
+    }
+  },
+  "notes": [
+    "Biography remains unqualified for native-populated controls and saves; its explicit fresh-only guards remain intact",
+    "History re-emission results are recorded individually alongside eight complete critical model streams",
+    "Full native-file roundtrip and complete original-source conversion acceptance are not claimed"
+  ],
+  "normal_strict_read_attempts": {
+    "unique_modes": 55,
+    "baseline_and_layer_attempts": 110,
+    "baseline_and_layer_successes": 86,
+    "baseline_and_layer_preserved_errors": 24,
+    "source_scope": "pinned pre-cacheless-reader source closure"
+  }
+}

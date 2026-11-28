@@ -1,0 +1,248 @@
+{
+  "base_commit": "b8bf400072534fafaaa47bd985478cf61ae266d3",
+  "base_sdk_tree": "335b609e834fbae472a88e041264b3c84704c57f",
+  "cases": {
+    "beta": {
+      "authored": {
+        "actual_occurrence_order": [
+          "occurrence/0",
+          "occurrence/1"
+        ],
+        "alignment": 2,
+        "assembly_sha256": "9980ca4115ba8c4b8ef28e43a972837c92af372547f5ad4f8ff62fdb2bb7d38f",
+        "authored_parent_datum_count": 3,
+        "body_atom": 101,
+        "child_sha256": "6373176c60749e69c458c63cb344029ab8b3d3395103d19821df5c3fb61dc4d8",
+        "driver_mode": "diameter",
+        "face_node": 5,
+        "fixed_occurrence_slot": 1,
+        "fixed_selected_slot": 0,
+        "neutral_side": "body/round-sweep-side-1-face",
+        "radius_m": 0.008471000000000001,
+        "rotation_locked": true,
+        "selected_indexes": [
+          1,
+          0
+        ],
+        "world_axes": [
+          [
+            0.18065529823420398,
+            0.5144806193887359,
+            -0.8382561395500145
+          ],
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_centers_m": [
+          [
+            -0.044225791065869546,
+            -0.009411588480897709,
+            0.05107639464879625
+          ],
+          [
+            -0.03452116910002634,
+            0.018225795912045796,
+            0.006046113088309022
+          ]
+        ]
+      },
+      "neutral_json": "exact child and parent byte parity"
+    },
+    "feature": {
+      "authored": {
+        "actual_occurrence_order": [
+          "occurrence/0",
+          "occurrence/1"
+        ],
+        "alignment": 1,
+        "assembly_sha256": "1d2a75f9874a9347980ced33e2c5c441f231e138047177de6db0a754b419670f",
+        "authored_parent_datum_count": 0,
+        "body_atom": 101,
+        "child_sha256": "c89f60006cfbaab7e463a590d30f73489a939228e01d22d075c4c3f5feec7678",
+        "driver_mode": "diameter",
+        "face_node": 5,
+        "fixed_occurrence_slot": 0,
+        "fixed_selected_slot": 0,
+        "neutral_side": "body/round-sweep-side-1-face",
+        "radius_m": 0.005137,
+        "rotation_locked": false,
+        "selected_indexes": [
+          0,
+          1
+        ],
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            -0.18065529823420404,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_centers_m": [
+          [
+            -0.015460606420462484,
+            0.014658111018034136,
+            0.007964246252471139
+          ],
+          [
+            -0.025165228386305687,
+            -0.012979273374909369,
+            0.052994527812958374
+          ]
+        ]
+      },
+      "neutral_json": "exact child and parent byte parity",
+      "reordered_endpoints": {
+        "actual_occurrence_order": [
+          "occurrence/0",
+          "occurrence/1"
+        ],
+        "alignment": 1,
+        "assembly_sha256": "aa5ce2801fea59c32f02d8f7a133c8f7f6615c0c9d9a7b119825d1d44c2c663c",
+        "authored_parent_datum_count": 0,
+        "body_atom": 101,
+        "child_sha256": "c89f60006cfbaab7e463a590d30f73489a939228e01d22d075c4c3f5feec7678",
+        "driver_mode": "diameter",
+        "face_node": 5,
+        "fixed_occurrence_slot": 0,
+        "fixed_selected_slot": 1,
+        "neutral_side": "body/round-sweep-side-1-face",
+        "radius_m": 0.005137,
+        "rotation_locked": false,
+        "selected_indexes": [
+          1,
+          0
+        ],
+        "world_axes": [
+          [
+            -0.18065529823420404,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_centers_m": [
+          [
+            -0.025165228386305687,
+            -0.012979273374909369,
+            0.052994527812958374
+          ],
+          [
+            -0.015460606420462484,
+            0.014658111018034136,
+            0.007964246252471139
+          ]
+        ]
+      }
+    },
+    "radius": {
+      "authored": {
+        "actual_occurrence_order": [
+          "occurrence/0",
+          "occurrence/1"
+        ],
+        "alignment": 1,
+        "assembly_sha256": "1d2a75f9874a9347980ced33e2c5c441f231e138047177de6db0a754b419670f",
+        "authored_parent_datum_count": 0,
+        "body_atom": 101,
+        "child_sha256": "e45f6ae405173f7fe08160da466c8b242990da97120c9e22787df7544264e019",
+        "driver_mode": "radius",
+        "face_node": 5,
+        "fixed_occurrence_slot": 0,
+        "fixed_selected_slot": 0,
+        "neutral_side": "body/round-sweep-side-1-face",
+        "radius_m": 0.005137,
+        "rotation_locked": false,
+        "selected_indexes": [
+          0,
+          1
+        ],
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            -0.18065529823420404,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_centers_m": [
+          [
+            -0.015460606420462484,
+            0.014658111018034136,
+            0.007964246252471139
+          ],
+          [
+            -0.025165228386305687,
+            -0.012979273374909369,
+            0.052994527812958374
+          ]
+        ]
+      },
+      "neutral_json": "exact child and parent byte parity"
+    }
+  },
+  "failure_diagnostics": {
+    "bad_alignment": "coaxial alignment",
+    "bad_lock": "explicit boolean",
+    "boolean_radius": "radius differs",
+    "cap_face": "actual neutral lateral face",
+    "cloned_neutral_child": "actual embedded child",
+    "missing_face": "actual neutral lateral face",
+    "native_index": "actual neutral lateral face",
+    "off_axis_pose": "coaxial alignment",
+    "public_plan": "all three actual principal plane ids",
+    "radius_metres": "radius differs",
+    "reflected_pose": "proper rigid placement",
+    "same_occurrence": "two distinct occurrences",
+    "stale_generated_owner": "typed links disagree with its generated archive",
+    "supplied_disclosed_brep": "feature-only child",
+    "supplied_equal_brep": "feature-only child",
+    "wrong_face_tag": "minted kernel owner"
+  },
+  "fresh_sdk_workers": 3,
+  "host": {
+    "os": "Darwin",
+    "python": "3.14.7"
+  },
+  "input_sha256": {
+    "re/solidworks/inputs/ConcentricBrepNeutral01.json": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63",
+    "re/solidworks/inputs/ConcentricFeatureNeutral01.json": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+    "re/solidworks/inputs/ConcentricNeutralAdmissionCases01.json": "e7f762b149063615ac5abb9d4c0d2049a88181922c47c4fbee5c0d422847ebe4"
+  },
+  "internal_parent_constructions": 7,
+  "native_processes": 0,
+  "previous_independent_beta_neutral_sha256": "c18bd23e516c36029794ea20b73f1ba6946a04fc6375bd7ebc82e08046078c06",
+  "protected_inputs_read": 0,
+  "publication_or_geometry_refusals": 16,
+  "runtime_io_attempts": 0,
+  "schema": "kit.sw2026.sdk-concentric-mate-plan.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/ConcentricNeutralProcess.py": "1d7b55599be164f4ad2f5815353704eceed2ddd03b8cf5d94c0b53c0608377e2",
+    "re/tooling/sw2026/para/concentric/ConcentricAssembly.py": "f02bd38257344fed32c3d66c885304a04bba57e1f7dd652fb5de389d427294c6",
+    "re/tooling/sw2026/para/concentric/PrepareConcentricPersistence.py": "1e6ecee38c23c18dc8bba0b02a1f39e1359b101a0fa84f9d2e331f2c0bf4f85c",
+    "re/tooling/sw2026/para/concentric/ProveSdkConcPlan.py": "d2319133f01b6c75c7b245ff61cd3fd56c689a3f0ce206856ebbf6f590470a46",
+    "re/tooling/sw2026/para/cylinder/CylinderAttachment.py": "c1cfaec7f5078cafa9fa71f6d7cb8b40e7929aa00bbcc95f0981a9ccb221d9c6",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/BindConcSide.py": "370fd7462603bbca4dbe15e08282a185ecb6020d5e029fa6346f2cb89c23c834",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/CylMateEnd.py": "2461981c4a025a9df4fd01622cf6211bcc80ac9373ee313cafeb0c63bfee80cf",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/CylMatePlan.py": "655ef847fd55284db483c6973389894971e540ba5ea241f5435c25a9cdf83a19",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/PlanCylMate.py": "7cd6b19d6be4635defe03efe57c7938278689b927968f4d8274456448bda7fea",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/ReadConcEnd.py": "dd3ceb1b1489ec6eef3ee641770f68775078bf92cf43e1d21e9e943e82fce226",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/ReadConcMate.py": "4a263dff7d67db2d0a94ec94c55b5f7886c0fc2475bef4a15a486f18f900358d"
+  },
+  "whole_native_bundle_publication_qualified": false
+}

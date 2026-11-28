@@ -1,0 +1,84 @@
+{
+  "schema": "kit.sw2026.rectangle-corner-anchor-construction-discovery.v1",
+  "oracle_build": "34.5.2.0604",
+  "closure_file_count": 4590,
+  "source_closure_sha256": "d676d1f33fe553d1f01b3e602b9862337dcbe2be2962e30ec8b37dbbb33a531f",
+  "build_sources_sha256": {
+    "re/tooling/sw2026/builders/Part.py": "bca3aa8cb3bad3b8d6a306b0f3a020797c73465d91d63b28593b30422666f697",
+    "re/tooling/sw2026/builders/Sketch.py": "ed239eecd6008dcad3462ab074f69938e101f573aa25420473c961c2dd302f1c",
+    "re/tooling/sw2026/builders/RectangleAnchor.py": "62290c28ebc03484039d65b47eaec194b9b8f9645eb1861578a9f3c4b21f9d80"
+  },
+  "construction_guard_sha256": "b46bf6c066fcd74d24cd1e077d2234e146569ae66d225a2edcb1518f4a2ce50a",
+  "neutral_request_sha256": "5355ad963ca9b8c108c01cadae84cdd23a8bba5afacc2b7b1ec8d37c41aedebd",
+  "anchored": {
+    "bytes": 8289,
+    "linked_config_counter": 82,
+    "linked_resolved_counter": 232,
+    "new_origin_relations": 1,
+    "sha256": "2327958585cd978733cbc0b099eb48ed93ab473d1738b98e019b819a20f94681",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "bb4192ed168d22ce2fb2f85ec030ebbfcdd6a6074e302351c69402d58a69ef02"
+      },
+      "Contents/Config-0": {
+        "bytes": 21144,
+        "sha256": "4df19892bfad9ce460b565f12e56682bc8df02c88a6d07136c2ba8a7c4bcd455"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 470,
+        "sha256": "8ade542b9a437e1f539ab6f110053e85f93aa48537b598fd9d979d3a79cd9216"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 17881,
+        "sha256": "5f6bc2b2492c762db10545e2f90bd4fd0299ae551c38780d989944bd5655f321"
+      },
+      "Contents/Definition": {
+        "bytes": 477,
+        "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+      },
+      "Header2": {
+        "bytes": 470,
+        "sha256": "cd95d1702767ed671bfca5b9d3520ec7f8f371e7ee335d083f751ffbf4d37fe7"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 163,
+        "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+      }
+    },
+    "zero_runtime_input_reads": true
+  },
+  "first_generation_receipt_sha256": "aeff2e38090ce1cba0eb0e063bff2adc456abd302e9644084a311860ede6550e",
+  "second_generation_receipt_sha256": "aeff2e38090ce1cba0eb0e063bff2adc456abd302e9644084a311860ede6550e",
+  "anchored_process_count": 2,
+  "baseline_part_identity_preserved": true,
+  "baseline": {
+    "prior_builder_guard_sha256": "ecf1b24d4224c118bc0428738626e50109ccd8d11b86a7f3c36f18248d6fdc75",
+    "new_unanchored_guard_sha256": "ecf1b24d4224c118bc0428738626e50109ccd8d11b86a7f3c36f18248d6fdc75",
+    "unanchored_part_sha256": "9ff6b1c9b6d6840188a846379fd0b3dc2be465b180b500336a8309a1b67179d9"
+  },
+  "unsupported_input_rejections": {
+    "center_not_admitted": {
+      "request_sha256": "b4ff468fddf425eb20831ed8e4d7e9040517e4d9ea6b21a0f70327a3e167be06",
+      "returncode": 1,
+      "diagnostic": "Core.ArchiveError: rectangle anchor discovery requires one origin-corner dimensioned Front Plane blind boss"
+    },
+    "first_point_away_from_origin": {
+      "request_sha256": "09ede1552c3c959e47fb85f5b428499a704a7d57de6f45dab03cb63553a1a34b",
+      "returncode": 1,
+      "diagnostic": "builders.Sketch.ConstructionError: an origin corner requires the authored first vertex at (0, 0)"
+    }
+  },
+  "shape_guard_initial_attempt": {
+    "writer_source_closure_sha256": "fafa594bc70b8d72e047c38f9f5ae4c956c541b9deb241a7036de73ad9b8628d",
+    "accepted": false,
+    "reason": "the appended reference point reached the four-vertex body gate; the corrected build attaches the reference after binding the four-edge contour"
+  },
+  "native_trial_pending": true,
+  "heldout_count": 0,
+  "public_writer_qualified": false
+}

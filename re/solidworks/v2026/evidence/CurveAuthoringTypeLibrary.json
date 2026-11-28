@@ -1,0 +1,144 @@
+{
+  "authority": "static installed 2026 type-library inspection",
+  "oracle_application_launched_or_attached": false,
+  "tool_source_revision": "e1762f9e29539ce8cc86cc3ef42ad7ec93c99e3b",
+  "tool_script_sha256": "d71b8468ecd9e43290aeaea5104300ed97fb0e3094552bab8cff1116560d292d",
+  "type_library_sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+  "queries": [
+    {
+      "path": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+      "interface": "ISldWorks",
+      "method": "SetUserPreferenceToggle",
+      "methods": [
+        {
+          "names": ["SetUserPreferenceToggle", "UserPreferenceValue", "OnFlag"],
+          "member_id": 45,
+          "invoke_kind": 1,
+          "arguments": "((3, 1, None), (11, 1, None))",
+          "return_type": "(24, 0, None)"
+        }
+      ],
+      "scope": "Static installed type-library metadata; no CAD application launched or attached",
+      "exit_code": 0,
+      "raw_report_sha256": "5c9fd189f41ad857cce81b44e14630f65dd7944b78acd8e491a979c56630b359"
+    },
+    {
+      "path": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+      "interface": "IFeature",
+      "method": "GetErrorCode2",
+      "methods": [
+        {
+          "names": ["GetErrorCode2", "IsWarning"],
+          "member_id": 104,
+          "invoke_kind": 1,
+          "arguments": "(((26, 11), 2, None),)",
+          "return_type": "(3, 0, None)"
+        }
+      ],
+      "scope": "Static installed type-library metadata; no CAD application launched or attached",
+      "exit_code": 0,
+      "raw_report_sha256": "3f7e9dacafe92f8a18c824187ea233f84b770a7a1a15ee10b077e60a02779ea3"
+    },
+    {
+      "path": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+      "interface": "IModelDocExtension",
+      "method": "SelectByID2",
+      "methods": [
+        {
+          "names": [
+            "SelectByID2",
+            "Name",
+            "Type",
+            "X",
+            "Y",
+            "Z",
+            "Append",
+            "Mark",
+            "Callout",
+            "SelectOption"
+          ],
+          "member_id": 68,
+          "invoke_kind": 1,
+          "arguments": "((8, 1, None), (8, 1, None), (5, 1, None), (5, 1, None), (5, 1, None), (11, 1, None), (3, 1, None), ((26, (29, 50334720)), 1, None), (3, 1, None))",
+          "return_type": "(11, 0, None)"
+        }
+      ],
+      "scope": "Static installed type-library metadata; no CAD application launched or attached",
+      "exit_code": 0,
+      "raw_report_sha256": "93b0661747efdd9910e9d6227ea42287439c2be263f2706cd60c6782d3e54356"
+    },
+    {
+      "path": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+      "interface": "ISketchSegment",
+      "method": "Select4",
+      "methods": [
+        {
+          "names": ["Select4", "Append", "Data"],
+          "member_id": 65562,
+          "invoke_kind": 1,
+          "arguments": "((11, 1, None), ((26, (29, 50335488)), 1, None))",
+          "return_type": "(11, 0, None)"
+        }
+      ],
+      "scope": "Static installed type-library metadata; no CAD application launched or attached",
+      "exit_code": 0,
+      "raw_report_sha256": "4e0dda983c539fec6fe0e3a10491795cc1d86298cedf2ab1143e76b9f10e9481"
+    },
+    {
+      "path": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+      "interface": "ISketchRelation",
+      "method": "GetEntitiesCount",
+      "methods": [
+        {
+          "names": ["GetEntitiesCount"],
+          "member_id": 2,
+          "invoke_kind": 1,
+          "arguments": "()",
+          "return_type": "(3, 0, None)"
+        }
+      ],
+      "scope": "Static installed type-library metadata; no CAD application launched or attached",
+      "exit_code": 0,
+      "raw_report_sha256": "ae54391fcad13443067f4d73cfd72e7532f17047eed290189ad545f5e9178a8a"
+    },
+    {
+      "path": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+      "interface": "ISketch",
+      "method": "GetSketchSegments",
+      "methods": [
+        {
+          "names": ["GetSketchSegments"],
+          "member_id": 37,
+          "invoke_kind": 1,
+          "arguments": "()",
+          "return_type": "(12, 0, None)"
+        }
+      ],
+      "scope": "Static installed type-library metadata; no CAD application launched or attached",
+      "exit_code": 0,
+      "raw_report_sha256": "057e25b0f70f4747197950fda7a8b153ed8cdc2041f1e6a05676ce09a54714e9"
+    },
+    {
+      "interface": "ISketch",
+      "method": "GetFeature",
+      "exit_code": 1,
+      "absent": true,
+      "error": "ValueError: ISketch.GetFeature is absent from the type library",
+      "raw_stderr_sha256": "482cd42e4f42ca2a2d90f85465f6f0ddba34fc7d6588427bb0a7b46217d155b4",
+      "interface_presence_evidence": "successful ISketch.GetSketchSegments lookup in this same hash-bound type library"
+    }
+  ],
+  "native_acceptance_claimed": false
+}

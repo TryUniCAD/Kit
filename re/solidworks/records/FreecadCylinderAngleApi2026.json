@@ -1,0 +1,2667 @@
+{
+  "schema": "kit.sw2026.cylinder-angle-api.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "document_version": 19000,
+  "application_build": "34.5.2.0604",
+  "confidence": "partial",
+  "dependencies": {
+    "re/tooling/sw2026/freecad_cylinder/NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+    "re/tooling/sw2026/freecad_cylinder/PinCylinderDirectionWire.py": "8e212ceb466a119e5b8445b814221cde8f81c4632f0bc7ce23d7bf420d9434d7",
+    "re/tooling/sw2026/ManagedConstructionIndex.py": "47c6c797931804b3d0012217ee718a4fc94f3c1b6667cc6f8e06fd638960c30c"
+  },
+  "modules": {
+    "sldapiu.dll": {
+      "sha256": "97bc3d859637c8b420108a1a3ebd4262580fa45d05c761874df7658fad49b6c2",
+      "bytes": 19441752,
+      "base": "0x423f0000",
+      "machine": "0x8664"
+    },
+    "apicoupleru.dll": {
+      "sha256": "de69e03b5818a91311af2488ec08bb21954a6c0b131138373e2014a0d4232eaf",
+      "bytes": 1396312,
+      "base": "0x180000000",
+      "machine": "0x8664"
+    },
+    "sldappu.dll": {
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "bytes": 16519768,
+      "base": "0x453f0000",
+      "machine": "0x8664"
+    },
+    "slduiu.dll": {
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "bytes": 36036696,
+      "base": "0x48ea0000",
+      "machine": "0x8664"
+    },
+    "sldmfcu.dll": {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "bytes": 8274520,
+      "base": "0x3c720000",
+      "machine": "0x8664"
+    },
+    "sldcoreu.dll": {
+      "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3",
+      "bytes": 5416536,
+      "base": "0x180000000",
+      "machine": "0x8664"
+    }
+  },
+  "native_functions": [
+    {
+      "key": "PublicInsertPlane",
+      "module": "sldappu.dll",
+      "entry": "0x45658f20",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x45658f20",
+          "end_exclusive": "0x4565905a",
+          "bytes": 314,
+          "sha256": "59890fba736151bbf53866d00df38ff1b53861c23503b2af9f0966a69fdadd4a",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 314,
+      "ordered_fragment_sha256": "59890fba736151bbf53866d00df38ff1b53861c23503b2af9f0966a69fdadd4a"
+    },
+    {
+      "key": "FeatureManagerOwner",
+      "module": "slduiu.dll",
+      "entry": "0x49784b60",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x49784b60",
+          "end_exclusive": "0x49784ba7",
+          "bytes": 71,
+          "sha256": "034aa0f1fca9292ec17adb5c9c92500cfd87af35db1c7ca1d410aced8a9d3304",
+          "unwind_flags": 0
+        }
+      ],
+      "total_bytes": 71,
+      "ordered_fragment_sha256": "034aa0f1fca9292ec17adb5c9c92500cfd87af35db1c7ca1d410aced8a9d3304"
+    },
+    {
+      "key": "BridgeLoader",
+      "module": "sldappu.dll",
+      "entry": "0x45843c60",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x45843c60",
+          "end_exclusive": "0x45843cac",
+          "bytes": 76,
+          "sha256": "c31ba667695992eaac48cded398f6ff680c9f9b2a0ab01054544d867191750a9",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 76,
+      "ordered_fragment_sha256": "c31ba667695992eaac48cded398f6ff680c9f9b2a0ab01054544d867191750a9"
+    },
+    {
+      "key": "GetLibHandle",
+      "module": "sldmfcu.dll",
+      "entry": "0x3c84bde0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x3c84bde0",
+          "end_exclusive": "0x3c84becf",
+          "bytes": 239,
+          "sha256": "35476e91118f734d7cd6703e08eae5823c13e7b25cda7fef0da2e50938f5de6e",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 239,
+      "ordered_fragment_sha256": "35476e91118f734d7cd6703e08eae5823c13e7b25cda7fef0da2e50938f5de6e"
+    },
+    {
+      "key": "GetLibHandleEx",
+      "module": "sldmfcu.dll",
+      "entry": "0x3c84bed0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x3c84bed0",
+          "end_exclusive": "0x3c84bfb1",
+          "bytes": 225,
+          "sha256": "e5537e61e019879e683057571e0efa930dd311af62daea04b8b7562f29b68706",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 225,
+      "ordered_fragment_sha256": "e5537e61e019879e683057571e0efa930dd311af62daea04b8b7562f29b68706"
+    },
+    {
+      "key": "ApiMgrFactory",
+      "module": "sldapiu.dll",
+      "entry": "0x42a98570",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x42a98570",
+          "end_exclusive": "0x42a985ac",
+          "bytes": 60,
+          "sha256": "e7c91cb312670dd59502ab4d7752c4459f03eaf1e979a04f77e36341213d03b1",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 60,
+      "ordered_fragment_sha256": "e7c91cb312670dd59502ab4d7752c4459f03eaf1e979a04f77e36341213d03b1"
+    },
+    {
+      "key": "ApiMgrCtor",
+      "module": "sldapiu.dll",
+      "entry": "0x42c32a20",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x42c32a20",
+          "end_exclusive": "0x42c32a82",
+          "bytes": 98,
+          "sha256": "e1d914144f9f2eed846d502ec90ed5ca4b180a12368c01d0c81bd3f3862a88cf",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 98,
+      "ordered_fragment_sha256": "e1d914144f9f2eed846d502ec90ed5ca4b180a12368c01d0c81bd3f3862a88cf"
+    },
+    {
+      "key": "ApiInsertPlane",
+      "module": "sldapiu.dll",
+      "entry": "0x42c66e80",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x42c66e80",
+          "end_exclusive": "0x42c66fa5",
+          "bytes": 293,
+          "sha256": "ffe3e10987a91e964918c9f32f8830ba62954fa17d691f1c86e96b29f73dad7e",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 293,
+      "ordered_fragment_sha256": "ffe3e10987a91e964918c9f32f8830ba62954fa17d691f1c86e96b29f73dad7e"
+    },
+    {
+      "key": "ApiInsertPlaneCore",
+      "module": "sldapiu.dll",
+      "entry": "0x42c7c8f0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x42c7c8f0",
+          "end_exclusive": "0x42c7ca64",
+          "bytes": 372,
+          "sha256": "c65ffd12b076161e825c96883beff61f16446798d10bc247e0230a8e20270bb1",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 372,
+      "ordered_fragment_sha256": "c65ffd12b076161e825c96883beff61f16446798d10bc247e0230a8e20270bb1"
+    },
+    {
+      "key": "CreateRunningCommand",
+      "module": "sldappu.dll",
+      "entry": "0x45c43ff0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x45c43ff0",
+          "end_exclusive": "0x45c440c6",
+          "bytes": 214,
+          "sha256": "1a70a74d0630d44a0859c3f3488a2befd45d787b1d254370aab0f3a536a89044",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 214,
+      "ordered_fragment_sha256": "1a70a74d0630d44a0859c3f3488a2befd45d787b1d254370aab0f3a536a89044"
+    },
+    {
+      "key": "RegisterCouplerCommands",
+      "module": "apicoupleru.dll",
+      "entry": "0x18004fc30",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x18004fc30",
+          "end_exclusive": "0x18004fe19",
+          "bytes": 489,
+          "sha256": "cebe3fc6a34c22e594ab91231e25a3a1912c92098096bc1f33f0a4cc85c3adcd",
+          "unwind_flags": 0
+        }
+      ],
+      "total_bytes": 489,
+      "ordered_fragment_sha256": "cebe3fc6a34c22e594ab91231e25a3a1912c92098096bc1f33f0a4cc85c3adcd"
+    },
+    {
+      "key": "NewPlaneCommandFactory",
+      "module": "apicoupleru.dll",
+      "entry": "0x1800535d0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x1800535d0",
+          "end_exclusive": "0x180053610",
+          "bytes": 64,
+          "sha256": "fc8297460fe4be31beee4cc8a34409cddc0642935e72060345e7cd510c0b8c89",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 64,
+      "ordered_fragment_sha256": "fc8297460fe4be31beee4cc8a34409cddc0642935e72060345e7cd510c0b8c89"
+    },
+    {
+      "key": "ApiExtrusion3",
+      "module": "sldapiu.dll",
+      "entry": "0x42c43430",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x42c43430",
+          "end_exclusive": "0x42c43711",
+          "bytes": 737,
+          "sha256": "e3f79328f2a8791027b26ec5c720113c2f3d65064fbe5ff99bbfe98a157d31a7",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 737,
+      "ordered_fragment_sha256": "e3f79328f2a8791027b26ec5c720113c2f3d65064fbe5ff99bbfe98a157d31a7"
+    },
+    {
+      "key": "ApiExtrusion3Core",
+      "module": "sldapiu.dll",
+      "entry": "0x42c43720",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x42c43720",
+          "end_exclusive": "0x42c439d0",
+          "bytes": 688,
+          "sha256": "73d8ea3dc737c5877dad5bb7fd523107bdfca20dde22b42c0f4c76a7ac13abb5",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 688,
+      "ordered_fragment_sha256": "73d8ea3dc737c5877dad5bb7fd523107bdfca20dde22b42c0f4c76a7ac13abb5"
+    },
+    {
+      "key": "UiExtrusion4",
+      "module": "slduiu.dll",
+      "entry": "0x492546e0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x492546e0",
+          "end_exclusive": "0x49254c2d",
+          "bytes": 1357,
+          "sha256": "9940db5b115830cc04371946ca825a7a33089cd3a9f788e6d5c94f6f22dd6e12",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 1357,
+      "ordered_fragment_sha256": "9940db5b115830cc04371946ca825a7a33089cd3a9f788e6d5c94f6f22dd6e12"
+    },
+    {
+      "key": "MacroFeatureLoad",
+      "module": "sldappu.dll",
+      "entry": "0x459ee330",
+      "fragment_count": 3,
+      "fragments": [
+        {
+          "begin": "0x459ee330",
+          "end_exclusive": "0x459ee360",
+          "bytes": 48,
+          "sha256": "15fbaca52c2d003342c6b08544564d1aa031c7dbec019f3dc85d151856cb2bc1",
+          "unwind_flags": 0
+        },
+        {
+          "begin": "0x459ee360",
+          "end_exclusive": "0x459ee3d7",
+          "bytes": 119,
+          "sha256": "c6bc36040aaf4077e9a28ef4bd4647639d2dee17455c04e6fb2c0944a915ab43",
+          "unwind_flags": 4
+        },
+        {
+          "begin": "0x459ee3d7",
+          "end_exclusive": "0x459ee404",
+          "bytes": 45,
+          "sha256": "7eff73108f81743f68ac456c0106c5a18c12876d31ef7f6ffe6ea0666d0059da",
+          "unwind_flags": 4
+        }
+      ],
+      "total_bytes": 212,
+      "ordered_fragment_sha256": "a0694abd72ba38b1eb353dfcd700edfee14328a0d46414781b9c473edb27f2e7"
+    },
+    {
+      "key": "ExtrusionAdditionalData",
+      "module": "slduiu.dll",
+      "entry": "0x493e6470",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x493e6470",
+          "end_exclusive": "0x493e6c87",
+          "bytes": 2071,
+          "sha256": "a937487a46fb86513e4b1d3760f1934ddcccaa42eb22ca272419bf78ba633ac6",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 2071,
+      "ordered_fragment_sha256": "a937487a46fb86513e4b1d3760f1934ddcccaa42eb22ca272419bf78ba633ac6"
+    },
+    {
+      "key": "ExtrusionApply",
+      "module": "slduiu.dll",
+      "entry": "0x493e5a80",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x493e5a80",
+          "end_exclusive": "0x493e638a",
+          "bytes": 2314,
+          "sha256": "f4e5053b4a3f8c4edefae0b7dd8c62cb70e42ec2cf8c37cbd545cf71d594e244",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 2314,
+      "ordered_fragment_sha256": "f4e5053b4a3f8c4edefae0b7dd8c62cb70e42ec2cf8c37cbd545cf71d594e244"
+    },
+    {
+      "key": "GetExtrusionDirection",
+      "module": "slduiu.dll",
+      "entry": "0x4924fad0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4924fad0",
+          "end_exclusive": "0x49250095",
+          "bytes": 1477,
+          "sha256": "b4bc5620b4d9c3cd0d59511062c034ac256ab8f8bd3485bce6952eb6ed850638",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 1477,
+      "ordered_fragment_sha256": "b4bc5620b4d9c3cd0d59511062c034ac256ab8f8bd3485bce6952eb6ed850638"
+    },
+    {
+      "key": "ApiGetEnd2",
+      "module": "sldapiu.dll",
+      "entry": "0x42998cf0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x42998cf0",
+          "end_exclusive": "0x42998d60",
+          "bytes": 112,
+          "sha256": "fed8f0f0e5be25f9c7ae4d065f5249e8eff078092673d8b73cd36dd7b0749fcd",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 112,
+      "ordered_fragment_sha256": "fed8f0f0e5be25f9c7ae4d065f5249e8eff078092673d8b73cd36dd7b0749fcd"
+    }
+  ],
+  "qwords": [
+    {
+      "module": "sldapiu.dll",
+      "address": "0x4321a460",
+      "value": "0x42a98570",
+      "role": "actual bridge feature-manager factory"
+    },
+    {
+      "module": "sldapiu.dll",
+      "address": "0x43252810",
+      "value": "0x42c66e80",
+      "role": "actual InsertRefPlane COM slot"
+    },
+    {
+      "module": "sldapiu.dll",
+      "address": "0x43252990",
+      "value": "0x42c43430",
+      "role": "actual FeatureExtrusion3 COM slot"
+    },
+    {
+      "module": "apicoupleru.dll",
+      "address": "0x180151b68",
+      "value": "0x6000ab9",
+      "role": "native-to-managed constructor fixup"
+    }
+  ],
+  "spans": [
+    {
+      "module": "apicoupleru.dll",
+      "address": "0x18005e2a0",
+      "bytes": 16,
+      "sha256": "cc09a3201b2402469dc3813099457fefb2be525e0daef859247bd6171b9ea7d2",
+      "role": "native constructor bridge to declared CLR slot"
+    }
+  ],
+  "managed": {
+    "apicoupleru.dll": {
+      "mvid": "149fe54a-217f-4a9a-a467-01838eff8420",
+      "cli_flags": "0x18",
+      "methods": [
+        {
+          "token": "0x06000ab9",
+          "table": "MethodDef",
+          "name": "apiNewConstraintRefplaneCommand_c.{ctor}",
+          "owner": "<Module>",
+          "rva": "0x5453c",
+          "implementation_flags": "0x0",
+          "method_flags": "0x13",
+          "signature_sha256": "7c0a2ef0c7271214b3a1bbf2c52e839c95484a3c381d53757abf05ea3243eae5",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 26,
+          "complete_body_bytes": 38,
+          "code_sha256": "0db2ff9bced93f80cfb264aac0de53bd604394f792ab630f2d0be469acf3bae0",
+          "complete_body_sha256": "7134b3641d8950adefbbc9bbdf1a098cb70f502475fa3d4e9e4a4c5c8bd75874",
+          "instruction_count": 17,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [18],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06000ac0",
+                "table": "MethodDef",
+                "name": "gcroot<APICoupler::apiNewConstraintRefplaneCoupler_c ^>.{ctor}",
+                "owner": "<Module>",
+                "rva": "0x4d54c"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06000abb",
+          "table": "MethodDef",
+          "name": "apiNewConstraintRefplaneCommand_c.run",
+          "owner": "<Module>",
+          "rva": "0x546b8",
+          "implementation_flags": "0x0",
+          "method_flags": "0x13",
+          "signature_sha256": "763d97e278fd5239dbddabc09ded3929a571663fd41b5ad761bf8d402451d83e",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 51,
+          "complete_body_bytes": 63,
+          "code_sha256": "4d4a6ca7ace34a9b16858164dff9652e5e42d3bcb3e3d2f59f7daf18001fa6da",
+          "complete_body_sha256": "89ea64c50375997cff44d5f84db2b59b48bf8dd893d4001c9216b49102889c46",
+          "instruction_count": 26,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [14],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0600154f",
+                "table": "MethodDef",
+                "name": ".ctor",
+                "owner": "APICoupler.apiNewConstraintRefplaneCoupler_c",
+                "rva": "0x558b4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [19],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06000abf",
+                "table": "MethodDef",
+                "name": "gcroot<APICoupler::apiNewConstraintRefplaneCoupler_c ^>.=",
+                "owner": "<Module>",
+                "rva": "0x4d524"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [26, 38],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06000abe",
+                "table": "MethodDef",
+                "name": "gcroot<APICoupler::apiNewConstraintRefplaneCoupler_c ^>.->",
+                "owner": "<Module>",
+                "rva": "0x4d500"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [31],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001547",
+                "table": "MethodDef",
+                "name": "run",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x545a4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [43],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600154d",
+                "table": "MethodDef",
+                "name": "updateFeature",
+                "owner": "APICoupler.apiFeatureCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c,moFeature_c>",
+                "rva": "0x54564"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x0600154f",
+          "table": "MethodDef",
+          "name": ".ctor",
+          "owner": "APICoupler.apiNewConstraintRefplaneCoupler_c",
+          "rva": "0x558b4",
+          "implementation_flags": "0x0",
+          "method_flags": "0x1886",
+          "signature_sha256": "a5c3b7afc08513eacf984ff4015ccc5c7431bc0e4e209c250570fdf55aa906fd",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 28,
+          "complete_body_bytes": 40,
+          "code_sha256": "df570ac813b09fb11a812efa766c31f08917e68cb2e4121a16c75cdd7632db4b",
+          "complete_body_sha256": "86ba0cb5ffca32a33c939071db808c6b9329d196c01630dc83ad352b1de9be53",
+          "instruction_count": 15,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [3],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600154e",
+                "table": "MethodDef",
+                "name": ".ctor",
+                "owner": "APICoupler.apiFeatureCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c,moFeature_c>",
+                "rva": "0x5581c"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06001547",
+          "table": "MethodDef",
+          "name": "run",
+          "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+          "rva": "0x545a4",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 38,
+          "complete_body_bytes": 50,
+          "code_sha256": "beb33da462dabedf858a57f26c4705df0fb65516377d690a9ffea9e6b00e8fe4",
+          "complete_body_sha256": "a9145d764f6501c0deb46d552d8b21006624d32b7c74921aa822936cfbed0198",
+          "instruction_count": 18,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [1],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0600152f",
+                "table": "MethodDef",
+                "name": "startAPICommand",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x51c98"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [9],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x06001530",
+                "table": "MethodDef",
+                "name": "setDataPacket",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x506a0"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [15],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x06001531",
+                "table": "MethodDef",
+                "name": "populateDataPacket",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x0"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [25],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x06001536",
+                "table": "MethodDef",
+                "name": "finishAPICommand",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x505b0"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x0600152f",
+          "table": "MethodDef",
+          "name": "startAPICommand",
+          "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+          "rva": "0x51c98",
+          "implementation_flags": "0x0",
+          "method_flags": "0x1c4",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 126,
+          "complete_body_bytes": 138,
+          "code_sha256": "12cde379b93039753e1929f34e98e00efadcd61c4325c334d7ec755dad5f1d9e",
+          "complete_body_sha256": "d023dfa69f8524c5e1292a6f3ef58adc3d086c8f5daa464ae88d0fd7b5fe07a4",
+          "instruction_count": 47,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [1],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0600152d",
+                "table": "MethodDef",
+                "name": "createOperation",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x506d8"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [12],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0600136f",
+                "table": "MethodDef",
+                "name": ".ctor",
+                "owner": "APICoupler.apiUserInterface_c",
+                "rva": "0x4cf70"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [19],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000023",
+                "table": "MemberRef",
+                "name": "set_UserInterface",
+                "owner": "OperationBase.OperationBase_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [25],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0600152e",
+                "table": "MethodDef",
+                "name": "startOperation",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x506b8"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [39, 77],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a00001a",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "System.ApplicationException"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [51],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000024",
+                "table": "MemberRef",
+                "name": "get_Request",
+                "owner": "OperationBase.OperationBase_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [84],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a00000a",
+                "table": "MemberRef",
+                "name": "get_ActivePacket",
+                "owner": "SolidCore.DataPacket_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [113],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a000084",
+                "table": "MemberRef",
+                "name": "reInitPacketOnAPICancel"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [119],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000016",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06001551",
+          "table": "MethodDef",
+          "name": "populateDataPacket",
+          "owner": "APICoupler.apiNewConstraintRefplaneCoupler_c",
+          "rva": "0x558dc",
+          "implementation_flags": "0x0",
+          "method_flags": "0xc6",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 527,
+          "complete_body_bytes": 539,
+          "code_sha256": "a0a838a1527e11f5c8c5688fcde3b8531487d451f46c95faeeeac101f07ba549",
+          "complete_body_sha256": "c1a0fd6c59c30f7e88cbe0adcfbf2bac38351b0683dcac4987f7473ec951a19a",
+          "instruction_count": 258,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [1, 107],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001544",
+                "table": "MethodDef",
+                "name": "get_APISelectionCoupler",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x50498"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [11, 117],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000032",
+                "table": "MemberRef",
+                "name": "GetTypeFromHandle",
+                "owner": "System.Type"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [20],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060013bb",
+                "table": "MethodDef",
+                "name": "createWrapperList",
+                "owner": "APICoupler.apiSelectionCoupler_c",
+                "rva": "0x5659c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [29],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a000044",
+                "table": "MemberRef",
+                "name": "get_Count"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [53, 452, 470, 493],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600153a",
+                "table": "MethodDef",
+                "name": "get_Request",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x50560"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [59],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000b7",
+                "table": "MemberRef",
+                "name": "set_IsBeingCreatedByAPI",
+                "owner": "SolidCore.ConstrRefPlaneRequest_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [73],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000034",
+                "table": "MemberRef",
+                "name": "GetEnumerator"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [82, 180],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000035",
+                "table": "MemberRef",
+                "name": "MoveNext"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [94],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000036",
+                "table": "MemberRef",
+                "name": "get_Current"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [128],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060013be",
+                "table": "MethodDef",
+                "name": "getSelectionMark",
+                "owner": "APICoupler.apiSelectionCoupler_c",
+                "rva": "0x563a8"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [203, 512, 520],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000016",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [267, 330, 393],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001553",
+                "table": "MethodDef",
+                "name": "createConstrainedGeom",
+                "owner": "APICoupler.apiNewConstraintRefplaneCoupler_c",
+                "rva": "0x5537c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [405, 422, 439, 464, 487],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600153b",
+                "table": "MethodDef",
+                "name": "get_DataPacket",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x5054c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [412],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000b5",
+                "table": "MemberRef",
+                "name": "set_Geometry0",
+                "owner": "GeometryConstraintTriplet_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [429],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000b4",
+                "table": "MemberRef",
+                "name": "set_Geometry1",
+                "owner": "GeometryConstraintTriplet_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [446],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000b3",
+                "table": "MemberRef",
+                "name": "set_Geometry2",
+                "owner": "GeometryConstraintTriplet_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [458],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000b6",
+                "table": "MemberRef",
+                "name": "set_isOKClicked",
+                "owner": "SolidCore.ConstrRefPlaneRequest_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [479],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000a5",
+                "table": "MemberRef",
+                "name": "Validate",
+                "owner": "GeometryConstraintTriplet_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [502],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000a6",
+                "table": "MemberRef",
+                "name": "DataRequiresPreApplyWarning",
+                "owner": "GeometryConstraintTriplet_c"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06001553",
+          "table": "MethodDef",
+          "name": "createConstrainedGeom",
+          "owner": "APICoupler.apiNewConstraintRefplaneCoupler_c",
+          "rva": "0x5537c",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "7a8221ac0409096e982c313c7277d8ccc8402948d30fdb3c32df179c71464b5c",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 973,
+          "complete_body_bytes": 1184,
+          "code_sha256": "7c33fae8253f8c74def4095264982bfdb124edad1b826414171fa50669a47507",
+          "complete_body_sha256": "f681c693cbec62ee550688b079320832948b4c650bca55fa0326d0f0ea048bfc",
+          "instruction_count": 406,
+          "exception_region_count": 8,
+          "call_edges": [
+            {
+              "cil_code_offsets": [115],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000a7",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "CoincidentGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [142],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000ad",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "TangentGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [166],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000a9",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "AngleGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [181],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000aa",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "ParallelGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [196],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000ab",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "PerpendicularGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [216],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000ac",
+                "table": "MemberRef",
+                "name": "set_SetOriginOnCurve",
+                "owner": "PerpendicularGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [242],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000af",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "MidPlaneGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [262],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000a8",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "DistanceGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [281],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000ae",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "ProjectionGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [303],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000b0",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "ParallelToScreenGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [310],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600153a",
+                "table": "MethodDef",
+                "name": "get_Request",
+                "owner": "APICoupler.apiCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c>",
+                "rva": "0x50560"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [319, 331, 433],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a00009e",
+                "table": "MemberRef",
+                "name": "get_CoreComponent",
+                "owner": "SolidCore.ModelRequest_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [336],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a00009c",
+                "table": "MemberRef",
+                "name": "getTopModel",
+                "owner": "SolidCore.CoreComponent_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [368],
+              "dispatch": "calli",
+              "target": {
+                "token": "0x110000f3",
+                "table": "StandAloneSig"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [401],
+              "dispatch": "calli",
+              "target": {
+                "token": "0x110000f1",
+                "table": "StandAloneSig"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [409, 417],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600130a",
+                "table": "MethodDef",
+                "name": "mgUnitVector_c.{ctor}",
+                "owner": "<Module>",
+                "rva": "0x59f03"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [425],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600130f",
+                "table": "MethodDef",
+                "name": "mgXform_c.{ctor}",
+                "owner": "<Module>",
+                "rva": "0x59f09"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [438],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a00009d",
+                "table": "MemberRef",
+                "name": "get_Component",
+                "owner": "SolidCore.CoreComponent_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [467],
+              "dispatch": "calli",
+              "target": {
+                "token": "0x110000f2",
+                "table": "StandAloneSig"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [478],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001310",
+                "table": "MethodDef",
+                "name": "mgXform_c.=",
+                "owner": "<Module>",
+                "rva": "0x59f0f"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [486, 583, 658, 875, 944],
+              "dispatch": "ldftn",
+              "target": {
+                "token": "0x060012d8",
+                "table": "MethodDef",
+                "name": "mgXform_c.{dtor}",
+                "owner": "<Module>",
+                "rva": "0x57883"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [494, 547, 591, 666, 883, 906, 929, 952],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001272",
+                "table": "MethodDef",
+                "name": "___CxxCallUnwindDtor",
+                "owner": "<Module>",
+                "rva": "0x58848"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [502, 599, 674, 891, 960],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060012d8",
+                "table": "MethodDef",
+                "name": "mgXform_c.{dtor}",
+                "owner": "<Module>",
+                "rva": "0x57883"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [511],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001305",
+                "table": "MethodDef",
+                "name": "mgXform_c.getZAxis",
+                "owner": "<Module>",
+                "rva": "0x59f15"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [520],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600130e",
+                "table": "MethodDef",
+                "name": "-",
+                "owner": "<Module>",
+                "rva": "0x59f1b"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [531],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600130b",
+                "table": "MethodDef",
+                "name": "mgUnitVector_c.=",
+                "owner": "<Module>",
+                "rva": "0x59f21"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [539, 898, 921],
+              "dispatch": "ldftn",
+              "target": {
+                "token": "0x06001303",
+                "table": "MethodDef",
+                "name": "mgUnitVector_c.{dtor}",
+                "owner": "<Module>",
+                "rva": "0x59efd"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [555, 914, 937],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001303",
+                "table": "MethodDef",
+                "name": "mgUnitVector_c.{dtor}",
+                "owner": "<Module>",
+                "rva": "0x59efd"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [564, 639],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001311",
+                "table": "MethodDef",
+                "name": "mgXform_c.inverse",
+                "owner": "<Module>",
+                "rva": "0x59f27"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [575, 650],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600130c",
+                "table": "MethodDef",
+                "name": "mgUnitVector_c.*=",
+                "owner": "<Module>",
+                "rva": "0x59f2d"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [612, 687],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a00009f",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "SolidCore.CoreVector_s"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [621],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000b2",
+                "table": "MemberRef",
+                "name": "set_Normal",
+                "owner": "ParallelToScreenGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [630],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001304",
+                "table": "MethodDef",
+                "name": "mgXform_c.getXAxis",
+                "owner": "<Module>",
+                "rva": "0x59f33"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [696],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a0000b1",
+                "table": "MemberRef",
+                "name": "set_XAxis",
+                "owner": "ParallelToScreenGeom_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [733],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600154d",
+                "table": "MethodDef",
+                "name": "updateFeature",
+                "owner": "APICoupler.apiFeatureCoupler_c<apiNewConstraintRefplaneData_c,RefGeomOperation::ConstrRefPlaneOperation_c,SolidCore::ConstrRefPlaneRequest_c,SolidCore::ConstrRefPlaneRequest_c::GeometryConstraintTriplet_c,moFeature_c>",
+                "rva": "0x54564"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [750, 795, 818],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060012df",
+                "table": "MethodDef",
+                "name": "__RTDynamicCast",
+                "owner": "<Module>",
+                "rva": "0x5a198"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [768],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001306",
+                "table": "MethodDef",
+                "name": "moRefPlane_c.getRefPlnData",
+                "owner": "<Module>",
+                "rva": "0x59f7b"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [833, 857],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001309",
+                "table": "MethodDef",
+                "name": "mgUnitVector_c.{ctor}",
+                "owner": "<Module>",
+                "rva": "0x59ef7"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [844],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001307",
+                "table": "MethodDef",
+                "name": "moPTSRefPlnData_c.setNormal",
+                "owner": "<Module>",
+                "rva": "0x59f81"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [868],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001308",
+                "table": "MethodDef",
+                "name": "moPTSRefPlnData_c.setXAxis",
+                "owner": "<Module>",
+                "rva": "0x59f87"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [966],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000016",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x060013bb",
+          "table": "MethodDef",
+          "name": "createWrapperList",
+          "owner": "APICoupler.apiSelectionCoupler_c",
+          "rva": "0x5659c",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "4810ea765fc62afef8607b21fd1c5f44c53080d93688301cd6e5e65a04b0bd84",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 81,
+          "complete_body_bytes": 124,
+          "code_sha256": "4001528cb385baf260261e5cfe698c6cea8bb69e46b2d3f05517b0b698dc32a1",
+          "complete_body_sha256": "4e625d7c731a53e7ec55997e0d21536a45d0115e08ed2a556c993738c933f9c2",
+          "instruction_count": 33,
+          "exception_region_count": 1,
+          "call_edges": [
+            {
+              "cil_code_offsets": [0],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x0a0000c4",
+                "table": "MemberRef",
+                "name": ".ctor",
+                "owner": "SolidCore.WrapperList_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [6],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x060013b6",
+                "table": "MethodDef",
+                "name": ".ctor",
+                "owner": "APICoupler.SelTypeList",
+                "rva": "0x4d3f0"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [14],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000ca",
+                "table": "MemberRef",
+                "name": "Add"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [21],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060013bf",
+                "table": "MethodDef",
+                "name": "getSelectionsByType",
+                "owner": "APICoupler.apiSelectionCoupler_c",
+                "rva": "0x56504"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [26],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000d0",
+                "table": "MemberRef",
+                "name": "GetEnumerator"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [33],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000c9",
+                "table": "MemberRef",
+                "name": "MoveNext",
+                "owner": "System.Collections.IEnumerator"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [41],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000ce",
+                "table": "MemberRef",
+                "name": "get_Current"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [49],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000c6",
+                "table": "MemberRef",
+                "name": "get_CoreWrapper",
+                "owner": "CmdInterface.SelectionHandle_c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [54],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a000043",
+                "table": "MemberRef",
+                "name": "Add"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [67],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000c7",
+                "table": "MemberRef",
+                "name": "Dispose",
+                "owner": "System.IDisposable"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [74],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000016",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x060013be",
+          "table": "MethodDef",
+          "name": "getSelectionMark",
+          "owner": "APICoupler.apiSelectionCoupler_c",
+          "rva": "0x563a8",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "72e92312268554adcb628bf161dfc4f883998287f1c3d42c472324d8a5c1ec76",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 145,
+          "complete_body_bytes": 188,
+          "code_sha256": "c262ec0c6d60533da52f19e8391a44240fe0e4e149f3d166cd9234f256d0baa9",
+          "complete_body_sha256": "acb7f0611a1096fd3b463f6752ca75baf98d8659ffbf29eb8039bdda5bafc183",
+          "instruction_count": 72,
+          "exception_region_count": 1,
+          "call_edges": [
+            {
+              "cil_code_offsets": [4],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001316",
+                "table": "MethodDef",
+                "name": "suObList.{ctor}",
+                "owner": "<Module>",
+                "rva": "0x59f45"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [10],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x060013b6",
+                "table": "MethodDef",
+                "name": ".ctor",
+                "owner": "APICoupler.SelTypeList",
+                "rva": "0x4d3f0"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [18],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x0a0000ca",
+                "table": "MemberRef",
+                "name": "Add"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [25],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060013c0",
+                "table": "MethodDef",
+                "name": "createSelRequest",
+                "owner": "APICoupler.apiSelectionCoupler_c",
+                "rva": "0x5620c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [60],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001318",
+                "table": "MethodDef",
+                "name": "uiSelectionMan_c.getAllSelectedObj",
+                "owner": "<Module>",
+                "rva": "0x59ff9"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [72],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001313",
+                "table": "MethodDef",
+                "name": "su_CObList.GetHeadPosition",
+                "owner": "<Module>",
+                "rva": "0x59f5d"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [85],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001314",
+                "table": "MethodDef",
+                "name": "su_CObList.GetNext",
+                "owner": "<Module>",
+                "rva": "0x59f63"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [108],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001315",
+                "table": "MethodDef",
+                "name": "uoSelectedObj_c.getSelMark",
+                "owner": "<Module>",
+                "rva": "0x5a01d"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [115],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a000016",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [122],
+              "dispatch": "ldftn",
+              "target": {
+                "token": "0x06001317",
+                "table": "MethodDef",
+                "name": "suObList.{dtor}",
+                "owner": "<Module>",
+                "rva": "0x59f4b"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [130],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001272",
+                "table": "MethodDef",
+                "name": "___CxxCallUnwindDtor",
+                "owner": "<Module>",
+                "rva": "0x58848"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [138],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06001317",
+                "table": "MethodDef",
+                "name": "suObList.{dtor}",
+                "owner": "<Module>",
+                "rva": "0x59f4b"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        }
+      ]
+    },
+    "sldcoreu.dll": {
+      "mvid": "3f9c2ded-9024-4b12-ac82-deb36cae1451",
+      "cli_flags": "0x18",
+      "methods": [
+        {
+          "token": "0x06004de0",
+          "table": "MethodDef",
+          "name": "isOldRefPlaneFeature",
+          "owner": "SolidCore.RefPlaneEvaluator_c",
+          "rva": "0x135d7c",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 66,
+          "complete_body_bytes": 78,
+          "code_sha256": "7b2ee5d79e3db0a0c9550ef1cfc9a1856bbbd47e1b20064a84b565243084ba30",
+          "complete_body_sha256": "7fbe63d26544fe211930d50fc0bc3bd85dd1dbb2ed9d05745effaab808fa3bb5",
+          "instruction_count": 28,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [8, 26],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060049a5",
+                "table": "MethodDef",
+                "name": "get_Feature",
+                "owner": "SolidCore.FeatureRequest_c",
+                "rva": "0x1188a8"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [13, 31],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x06004905",
+                "table": "MethodDef",
+                "name": "get_Feature",
+                "owner": "SolidCore.CoreFeature_c",
+                "rva": "0x1181b4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [44],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600429f",
+                "table": "MethodDef",
+                "name": "moFeature_c.getCreateVersion",
+                "owner": "<Module>",
+                "rva": "0x1664ad"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [59],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a00001e",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06004de1",
+          "table": "MethodDef",
+          "name": "isCreatedByOldApi",
+          "owner": "SolidCore.RefPlaneEvaluator_c",
+          "rva": "0x1371fc",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 59,
+          "complete_body_bytes": 71,
+          "code_sha256": "aeb92159d8d749022db415e14826c3b9f8caab7ee41513a4bdb4cfe212e6c3c0",
+          "complete_body_sha256": "9d5f918d8cc007914f4a534dc807e642b91ba8ad838836b50eff2d5f0d540870",
+          "instruction_count": 27,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [8, 21],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004bb9",
+                "table": "MethodDef",
+                "name": "get_ModelFeature",
+                "owner": "SolidCore.ModelFeatureRequest_c<moRefPlane_c>",
+                "rva": "0x131018"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [26],
+              "dispatch": "call",
+              "target": {
+                "token": "0x060043d7",
+                "table": "MethodDef",
+                "name": "moRefPlane_c.getRefPlnData",
+                "owner": "<Module>",
+                "rva": "0x16698d"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [36],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600446a",
+                "table": "MethodDef",
+                "name": "moRefPlnData_c.isCreatedByOldAPI_0",
+                "owner": "<Module>",
+                "rva": "0x166bdf"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [52],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a00001e",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06004de2",
+          "table": "MethodDef",
+          "name": "isOldRefPlaneOrCreatedByApi",
+          "owner": "SolidCore.RefPlaneEvaluator_c",
+          "rva": "0x137244",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 25,
+          "complete_body_bytes": 37,
+          "code_sha256": "65c4ca8e59839c0228a5dfa055c86e31e954e23a8e7120e51e7c83a3ebf503a9",
+          "complete_body_sha256": "5b4254a39d6ae8d1e155ca9fcc44401e16a4b8f96e2fd7b3749ee500ca4a02ca",
+          "instruction_count": 14,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [1],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004de0",
+                "table": "MethodDef",
+                "name": "isOldRefPlaneFeature",
+                "owner": "SolidCore.RefPlaneEvaluator_c",
+                "rva": "0x135d7c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [9],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004de1",
+                "table": "MethodDef",
+                "name": "isCreatedByOldApi",
+                "owner": "SolidCore.RefPlaneEvaluator_c",
+                "rva": "0x1371fc"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06004f25",
+          "table": "MethodDef",
+          "name": "isCoincLineAtAnglePlane_ParallelCase",
+          "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+          "rva": "0x1399ec",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 59,
+          "complete_body_bytes": 71,
+          "code_sha256": "d91246fbb85bc8991334a5681870520e18d9bfb2994594e6b42b1e81af1afc96",
+          "complete_body_sha256": "b5618969e65d8facbe779c8d84070bda7e67fa78745f4ca8ef9e1772c9214611",
+          "instruction_count": 25,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [3],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f27",
+                "table": "MethodDef",
+                "name": "isCoincLineAtAnglePlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139160"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [11],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x06004f14",
+                "table": "MethodDef",
+                "name": "isInputGeomAvailable",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x138fe4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [24, 36],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004c4a",
+                "table": "MethodDef",
+                "name": "get_GeomWrapper",
+                "owner": "ConstrainedGeom_c",
+                "rva": "0x12e2b4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [45],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f17",
+                "table": "MethodDef",
+                "name": "isLineAndPlaneParallel",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139544"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [52],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a00001e",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06004f27",
+          "table": "MethodDef",
+          "name": "isCoincLineAtAnglePlane",
+          "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+          "rva": "0x139160",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "59a9a8765c535212b9ad71c5c8e1e24ffadbd3331fd04b3bbe1b121ecf6004cc",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 44,
+          "complete_body_bytes": 56,
+          "code_sha256": "ce3ea8f2354328e26537ac9541c0725f17264585063d8e7d76fc134fe93bc694",
+          "complete_body_sha256": "9607fd6ec6f73da199c00d02b54ee076c8d3d3bb2e2105861e52941ca3327236",
+          "instruction_count": 20,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [1],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x06004f14",
+                "table": "MethodDef",
+                "name": "isInputGeomAvailable",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x138fe4"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06004f32",
+          "table": "MethodDef",
+          "name": "createRefPlaneDataPacket",
+          "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+          "rva": "0x139ee8",
+          "implementation_flags": "0x0",
+          "method_flags": "0xc6",
+          "signature_sha256": "9b40a4e541b4f8d5e6f403c0fe1d64d2962c5ca994902f7c01f1987133732f9e",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 313,
+          "complete_body_bytes": 325,
+          "code_sha256": "d6625f6278c3419675f835a5cd2b0e45d8f632b086f47e74cac30e2070741d00",
+          "complete_body_sha256": "e9d5cb7d5353c221d60dbb838cc58d734d0e0a994ba95a411901276d89b38390",
+          "instruction_count": 118,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [1],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f25",
+                "table": "MethodDef",
+                "name": "isCoincLineAtAnglePlane_ParallelCase",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x1399ec"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [12],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004de2",
+                "table": "MethodDef",
+                "name": "isOldRefPlaneOrCreatedByApi",
+                "owner": "SolidCore.RefPlaneEvaluator_c",
+                "rva": "0x137244"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [20, 136],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004dde",
+                "table": "MethodDef",
+                "name": "get_Request",
+                "owner": "SolidCore.RefPlaneEvaluator_c",
+                "rva": "0x12db7c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [25, 141],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004bd1",
+                "table": "MethodDef",
+                "name": "get_RefPlaneData",
+                "owner": "SolidCore.ConstrRefPlaneRequest_c",
+                "rva": "0x134dfc"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [45, 161],
+              "dispatch": "calli",
+              "target": {
+                "token": "0x110003a8",
+                "table": "StandAloneSig"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [67, 183],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004295",
+                "table": "MethodDef",
+                "name": "__RTDynamicCast",
+                "owner": "<Module>",
+                "rva": "0x16798f"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [78, 194],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004c4a",
+                "table": "MethodDef",
+                "name": "get_GeomWrapper",
+                "owner": "ConstrainedGeom_c",
+                "rva": "0x12e2b4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [83, 199],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004845",
+                "table": "MethodDef",
+                "name": "get_Line",
+                "owner": "SolidCore.GeometryWrapper_w",
+                "rva": "0x15b85c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [88, 204],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600477f",
+                "table": "MethodDef",
+                "name": "get_Ref",
+                "owner": "SolidCore.GeomWrapper_w<moLineRef_w>",
+                "rva": "0x11a5bc"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [93, 209],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600447f",
+                "table": "MethodDef",
+                "name": "moConeNormalData_c.isLineAxisOfCone",
+                "owner": "<Module>",
+                "rva": "0x166c51"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [101, 217],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a00001e",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [107],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f33",
+                "table": "MethodDef",
+                "name": "convertToAngle",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139328"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [114, 230],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f35",
+                "table": "MethodDef",
+                "name": "convertToConeNormal",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139e4c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [121, 290],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f2a",
+                "table": "MethodDef",
+                "name": "convertToCoincLineAtAnglePlnRefPlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x1394a8"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [128],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f1c",
+                "table": "MethodDef",
+                "name": "isProjLineAtAnglePlane_AngledCase",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x13962c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [223, 245],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f34",
+                "table": "MethodDef",
+                "name": "convertToProjLineAnglePlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x1393a4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [237],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f1b",
+                "table": "MethodDef",
+                "name": "isProjLineAtAnglePlane_ParallelCase",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x1395e4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [252],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f24",
+                "table": "MethodDef",
+                "name": "isCoincLinePerpPlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x1399bc"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [260],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f2c",
+                "table": "MethodDef",
+                "name": "convertToCoincLinePerpPlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139420"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [267],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f1f",
+                "table": "MethodDef",
+                "name": "isProjLinePerpPlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139678"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [275],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f2e",
+                "table": "MethodDef",
+                "name": "convertToProjLinePerpPlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139464"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [282],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f26",
+                "table": "MethodDef",
+                "name": "isCoincLineAtAnglePlane_AngledCase",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139a34"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [297],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f21",
+                "table": "MethodDef",
+                "name": "isCoincLineParallelPlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x1396a8"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [305],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004f30",
+                "table": "MethodDef",
+                "name": "convertToCoincLineParallelPlane",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x139500"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        },
+        {
+          "token": "0x06004f33",
+          "table": "MethodDef",
+          "name": "convertToAngle",
+          "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+          "rva": "0x139328",
+          "implementation_flags": "0x0",
+          "method_flags": "0x86",
+          "signature_sha256": "9b40a4e541b4f8d5e6f403c0fe1d64d2962c5ca994902f7c01f1987133732f9e",
+          "managed": true,
+          "cil": true,
+          "native": false,
+          "abstract": false,
+          "body_kind": "cil",
+          "header_bytes": 12,
+          "code_bytes": 110,
+          "complete_body_bytes": 122,
+          "code_sha256": "8fe04c9cca9249be73514a6c08829710695ee5aca686a55ed334254be79f823a",
+          "complete_body_sha256": "2f38f17b97c3ffef13c3bca4e29e8adfa3b86b5c9785df52cf9d1104de1b4e09",
+          "instruction_count": 37,
+          "exception_region_count": 0,
+          "call_edges": [
+            {
+              "cil_code_offsets": [1],
+              "dispatch": "callvirt",
+              "target": {
+                "token": "0x06004f14",
+                "table": "MethodDef",
+                "name": "isInputGeomAvailable",
+                "owner": "SolidCore.LnPlNullPlaneEvaluator_c",
+                "rva": "0x138fe4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [23, 39],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004c4a",
+                "table": "MethodDef",
+                "name": "get_GeomWrapper",
+                "owner": "ConstrainedGeom_c",
+                "rva": "0x12e2b4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [28],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0600484b",
+                "table": "MethodDef",
+                "name": "get_Plane",
+                "owner": "SolidCore.GeometryWrapper_w",
+                "rva": "0x15b80c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [44],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004845",
+                "table": "MethodDef",
+                "name": "get_Line",
+                "owner": "SolidCore.GeometryWrapper_w",
+                "rva": "0x15b85c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [50],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004c6c",
+                "table": "MethodDef",
+                "name": "get_Angle",
+                "owner": "AngleGeom_c",
+                "rva": "0x12ebac"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [56],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004c6e",
+                "table": "MethodDef",
+                "name": "get_Reverse",
+                "owner": "AngleGeom_c",
+                "rva": "0x12ebd4"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [62],
+              "dispatch": "newobj",
+              "target": {
+                "token": "0x06004cf1",
+                "table": "MethodDef",
+                "name": ".ctor",
+                "owner": "Angle_c",
+                "rva": "0x12fdfc"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [75, 92],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004c48",
+                "table": "MethodDef",
+                "name": "get_Index",
+                "owner": "ConstrainedGeom_c",
+                "rva": "0x12e28c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [80],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004cfd",
+                "table": "MethodDef",
+                "name": "set_PlaneRefIndex",
+                "owner": "Angle_c",
+                "rva": "0x12ff0c"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [97],
+              "dispatch": "call",
+              "target": {
+                "token": "0x06004cff",
+                "table": "MethodDef",
+                "name": "set_LineRefIndex",
+                "owner": "Angle_c",
+                "rva": "0x12ff34"
+              },
+              "resolution": "metadata-declaration"
+            },
+            {
+              "cil_code_offsets": [103],
+              "dispatch": "call",
+              "target": {
+                "token": "0x0a00001e",
+                "table": "MemberRef",
+                "name": "KeepAlive",
+                "owner": "System.GC"
+              },
+              "resolution": "metadata-declaration"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rea_evidence": {
+    "artifact": "ev_23d9f791797c196d8a1188b8bac4df398a63d9de5d814f2573ff5aa8cfdd1df3",
+    "artifact_summary": "ev_4f23d4fa80590b5f63740729da00b8f8526a73c93a84b1cfb5798a0f6cfd4160",
+    "selected_members": "ev_e6f9eaf53b43d1f935bb5faf9679c24272ce2bf6151789235fa0c211aea97544",
+    "members_summary": "ev_9bd73ee213f97be0b7032e41b9423bc7b71531976b6569531bc7c94974c9f272"
+  },
+  "registered_metadata": {
+    "sha256": "fb37d7dcde62d33b33564fa4fddba6f9c37ffbf3f681e70bd0bd4925e917b010",
+    "major": 34,
+    "minor": 0,
+    "interface": "IFeatureManager",
+    "iid": "{6B39655E-381B-4BD0-89F5-640D48593F15}",
+    "method": "InsertRefPlane",
+    "dispid": 182,
+    "arguments": [
+      "FirstConstraint",
+      "FirstConstraintAngleOrDistance",
+      "SecondConstraint",
+      "SecondConstraintAngleOrDistance",
+      "ThirdConstraint",
+      "ThirdConstraintAngleOrDistance"
+    ],
+    "vartypes": [3, 5, 3, 5, 3, 5],
+    "status": "prior measured registered metadata only; this delivery starts no vendor process"
+  },
+  "rules": {
+    "selection_marks": [0, 1, 2],
+    "max_selected_wrappers": 3,
+    "constraint_offsets": ["0x20", "0x24", "0x28"],
+    "angle_distance_offsets": ["0x30", "0x38", "0x40"],
+    "count_offset": "0x48",
+    "count_clamp": [1, 100],
+    "single_plane_count": 1,
+    "angle_constraint_bit": 16,
+    "coincident_constraint_bit": 4,
+    "reverse_bit": 256,
+    "nonpositive_angle_normalized_to_zero": true,
+    "angle_unit": "radians, no scale in public bridge or consumer; actual angular native model uses radians",
+    "is_being_created_by_api_is_not_old_api_predicate": true,
+    "type10_translation": "not found; no conversion in the pinned FeatureExtrusion3 to ESDlgData branch; reference acquisition handles native3/4/5/7, not10",
+    "selected_plane_end_constructor_native_type": 4
+  },
+  "limits": {
+    "target_executed": false,
+    "vendor_sources_read": 0,
+    "vendor_model_files_read": 0,
+    "vendor_outputs_written": 0,
+    "heldout_files_read": 0,
+    "writer_implemented": false,
+    "native_acceptance": false,
+    "full_cylinder_source_lowering": false,
+    "mode_geometry_native_correlation": "pending first independent angular-plane corpus",
+    "two_angle_numeric_replay": "authored calculations only, not oracle observations"
+  }
+}

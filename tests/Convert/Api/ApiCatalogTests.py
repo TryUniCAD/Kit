@@ -4,7 +4,7 @@ from typing import cast
 import pytest as Pytest
 
 from convert import available_adapters as GetAdapters
-from convert.adapters import AdapterInfo, AdapterNotFoundError, AdapterRegistry
+from convert.adapters import AdapterInfo, AdapterRegistry
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter, CadWriterAdapter
 from interchange import Capability
 from tests.Convert.Api.ApiTestHelpers import GetPackNames, ListFormatPacks
@@ -62,18 +62,17 @@ def AssertCaps(
     )
 
 
-# the part writer must retain separate capabilities from the assembly capable native reader
+# the bounded native writer retains actual part assembly and drawing registration
 def AssertSwModes(Registry: AdapterRegistry) -> None:
     Reader = Registry.reader("solidworks.sldprt")
-    Writer = Registry.writer("solidworks.sldprt").info
-    assert Registry.reader("solidworks.sldasm") is Reader
+    Writer = Registry.writer("solidworks.sldprt")
     assert Reader.info.capabilities == frozenset(Capability)
-    assert Writer.extensions == Writer.part_extensions == (".sldprt",)
-    assert Writer.assembly_extensions == Writer.aliases == ()
+    assert Writer.info.extensions == (".sldprt", ".sldasm", ".slddrw")
+    assert Writer.info.part_extensions == (".sldprt",)
+    assert Writer.info.assembly_extensions == (".sldasm",)
+    assert Writer.info.aliases == ("solidworks.sldasm", "solidworks.slddrw")
     assert (
-        Writer.capabilities
-        == Writer.native_capabilities
-        == {
+        {
             Capability.BODY_STRUCTURE,
             Capability.CONFIGURATIONS,
             Capability.EDITABLE_SKETCHES,
@@ -85,11 +84,12 @@ def AssertSwModes(Registry: AdapterRegistry) -> None:
             Capability.ROUNDTRIP_METADATA,
             Capability.SELECTIONS,
         }
+        <= Writer.info.native_capabilities
+        == Writer.info.capabilities
     )
-    with Pytest.raises(AdapterNotFoundError):
-        _ = Registry.writer("solidworks.sldasm")
-    with Pytest.raises(AdapterNotFoundError):
-        _ = Registry.writer("solidworks.slddrw")
+    for FormatId in Writer.info.aliases:
+        assert Registry.reader(FormatId) is Reader
+        assert Registry.writer(FormatId) is Writer
 
 
 # document kind extensions remain introspective so clients need no format specific branches

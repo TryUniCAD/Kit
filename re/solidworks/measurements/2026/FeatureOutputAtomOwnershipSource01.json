@@ -1,0 +1,49 @@
+{
+  "delivery_pr": 121,
+  "execution": {
+    "cad_or_com": false,
+    "heldout_reads": false,
+    "hopper_or_rea_target_opened": false,
+    "schema_or_codec": false,
+    "shared_edits": false,
+    "tests": false,
+    "vendor_code": false,
+    "vm": false
+  },
+  "method": "Read original pinned AMD64 PE metadata, independently decode complete bounded functions with LLVM, verify every selected instruction-window boundary, then replay original span/import/vtable identities using the existing source-only metadata verifier",
+  "owner": "/root/flag_ownership",
+  "proprietary_artifacts": "No vendor bytes or listings are included; original modules and bounded listings remain in the external licensed research directory",
+  "qualification": {
+    "cause_measured_in_same_native_invocation": false,
+    "heldout_generalization": false,
+    "native_acceptance": false,
+    "public_writer_admission": false,
+    "source_rule_checkpoint": true
+  },
+  "record_path": "re/solidworks/records/FeatureOutputAtomOwnership2026.json",
+  "record_sha256": "ac05ca8347aebcbcd8bdc1099e39e46bfeceb1d95ba1e90db2270bd72f49790f",
+  "retained_local_history": {
+    "earlier_atom_manager_packet_unchanged": true,
+    "final_metadata_has_one_additional_concrete_node-ID-slot_leaf": true,
+    "initial_metadata_draft_preserved": true
+  },
+  "schema": "feature-output-atom-ownership-source-receipt-v1",
+  "task_id": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD",
+  "verification": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 33,
+    "data_windows": 7,
+    "imports": 22,
+    "instruction_windows": 36,
+    "modules": 3,
+    "native_execution": false,
+    "record_sha256": "ac05ca8347aebcbcd8bdc1099e39e46bfeceb1d95ba1e90db2270bd72f49790f",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 6
+  },
+  "verified": true
+}

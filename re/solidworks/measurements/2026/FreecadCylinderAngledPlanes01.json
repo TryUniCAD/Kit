@@ -1,0 +1,236 @@
+{
+  "counts": {
+    "cil_code_bytes": 3716,
+    "cil_complete_body_bytes": 4465,
+    "cil_instruction_count": 1571,
+    "field_rule_rows": 20,
+    "independent_positive_processes": 2,
+    "managed_methods": 31,
+    "managed_native_boundaries": 7,
+    "native_call_edges": 25,
+    "native_constants": 8,
+    "native_function_bytes": 13884,
+    "native_function_fragments": 46,
+    "native_functions": 42,
+    "negative_processes": 3,
+    "runtime_classes": 11,
+    "unchanged_prior_files": 13,
+    "virtual_slots": 27
+  },
+  "delivery_pr": 121,
+  "derived_construction_rules": {
+    "allocation_bytes": {
+      "actual_plane_feature": 1792,
+      "compatibility_angle_plane": 184,
+      "constrained_angle_plane": 344,
+      "selected_angle_geometry": 72
+    },
+    "compatibility_preserves_both_reference_indexes": true,
+    "feature_initialization_flag": 1,
+    "managed_angle_readback_follows_actual_display": true,
+    "managed_display_value_virtual_offset": "0x868",
+    "old_creation_version_threshold": 4150,
+    "ordered_geometry_slot_count": 3,
+    "plane_owner_offset": "0x10",
+    "published_modes": {
+      "compatibility_angle_plane": {
+        "mode": 7,
+        "owner_offset": "0x5c"
+      },
+      "constrained_angle_plane": {
+        "mode": 22,
+        "owner_offset": "0x5c"
+      }
+    }
+  },
+  "evidence_kind": "exact-build static construction and serialization; not native acceptance",
+  "frozen_inputs": {
+    "knowledge_path": "re/solidworks/records/FreecadCylinderAngledPlanes2026.json",
+    "knowledge_sha256": "c7a04b0f5cda6cfefe89ccfc8e5e0c5a1da6806bda53adda02e657cd3befb89b",
+    "tool_path": "re/tooling/sw2026/freecad_cylinder/PinCylinderAngledPlanes.py",
+    "tool_sha256": "2689d4ee827c65663c93be9e107b64bab8657d93754d9a0d54f3f19371100360"
+  },
+  "independent_replays": [
+    {
+      "exit_code": 0,
+      "ordinal": 1,
+      "receipt_sha256": "0928f938acc62956a99beec47239823055c6160a940f0093a50bc68219284ec1"
+    },
+    {
+      "exit_code": 0,
+      "ordinal": 2,
+      "receipt_sha256": "0928f938acc62956a99beec47239823055c6160a940f0093a50bc68219284ec1"
+    }
+  ],
+  "negative_probes": [
+    {
+      "case": "WrongModuleHash",
+      "error": "ValueError: pinned angular plane original image differs",
+      "exit_code": 1,
+      "knowledge_sha256": "353658739a5c3741003e5ede238e58d6afb42ec3fa3ba44436a6eae5f9eebb96",
+      "output_absent": true,
+      "passed": true,
+      "stderr_sha256": "9a30c7c2e40952a26c36b632304deff0e81e54b6cdae5cfd54b77a12e98a13c3"
+    },
+    {
+      "case": "WrongDocumentVersion",
+      "error": "ValueError: angular plane evidence requires version 19000",
+      "exit_code": 1,
+      "knowledge_sha256": "0ad81b601049833feb2a6207a6b0ce60f093ce4cd9116b8c45853a05b1737f2e",
+      "output_absent": true,
+      "passed": true,
+      "stderr_sha256": "1a26cb1a2c0c3cda9ebf9638703e1dc98d77d5dcd725c8ddecba4c5202236f34"
+    },
+    {
+      "case": "WrongPublishedDescriptor",
+      "error": "ValueError: published archive descriptor differs",
+      "exit_code": 1,
+      "knowledge_sha256": "996782f156669ec855b7fa0cb88dc5047a4ff20336de94e03ff34dcee8132007",
+      "output_absent": true,
+      "passed": true,
+      "stderr_sha256": "aa6842f451e9498223fe39580023036b66376b80655bee8fd489f086ff9a500a"
+    }
+  ],
+  "owner": "/root/assembly_occurrence",
+  "passed": true,
+  "preserved_prior_packets": [
+    {
+      "all_matched": true,
+      "files": [
+        {
+          "path": "Documentation/Changes/Solidworks/Inspection/Freecad/SolidworksCylinderPersistentDirectionWire.md",
+          "sha256": "58f2bf68861a5dfcf905db89bdf24c537a2f12f0699a5487a0969c66f45999fc"
+        },
+        {
+          "path": "Documentation/Gotchas/Conversion/Solidworks/Model/Extrusion/ExplicitVectorBypassesSelectedDirection.md",
+          "sha256": "01eec8fbc863cfc6895b21979c93ef3ff061b5ed20206fbac090badffc274ecc"
+        },
+        {
+          "path": "Documentation/Gotchas/Conversion/Solidworks/Oracle/Interop/ChainedUnwindFragmentsHideFunctionTails.md",
+          "sha256": "749e9af0c4d1d793a4b5bf9b28ff3a78dd127d5a8c1c0a64e13b682b77e5f331"
+        },
+        {
+          "path": "re/solidworks/measurements/2026/FreecadCylinderDirectionWire01.json",
+          "sha256": "81b3518b79610a1baf8105ca528329fa5daabe0bbecb862a8919243d565ceefa"
+        },
+        {
+          "path": "re/solidworks/records/FreecadCylinderDirectionWire2026.json",
+          "sha256": "9aede29f31dafc0a89bd4250228993486098200c9bfe94a545924fbbd31659d8"
+        },
+        {
+          "path": "re/solidworks/records/FreecadCylinderDirectionWire2026.md",
+          "sha256": "4c9a442ac2cc0f8fd6194f2fea38aa7e014d93685d5ec14fce131ad7201bff14"
+        },
+        {
+          "path": "re/tooling/sw2026/freecad_cylinder/PinCylinderDirectionWire.py",
+          "sha256": "8e212ceb466a119e5b8445b814221cde8f81c4632f0bc7ce23d7bf420d9434d7"
+        }
+      ],
+      "handoff_sha256": "8c53bb121cec35a66cc7a12b8a48fa6c64db0da14db6d67f3783993f8089eaae",
+      "key": "persistent_direction",
+      "stageable_manifest_sha256": "185e9cd4f06f9d425257d43e161384cdd957135743ef39495932a98005571529",
+      "unchanged_file_count": 7
+    },
+    {
+      "all_matched": true,
+      "files": [
+        {
+          "path": "Documentation/Changes/Solidworks/Inspection/Freecad/SolidworksCylinderSelectedEndLifecycle.md",
+          "sha256": "5b6b21be79de20cf597068e54d16086fee2b4645ca147d940387f2f027210bd9"
+        },
+        {
+          "path": "Documentation/Gotchas/Conversion/Solidworks/Model/Extrusion/SelectedSurfaceModeDoesNotPruneDistance.md",
+          "sha256": "969db470e5a6c9e78c5c5a0ce449de515ae64379a943ffb4987c722c39630beb"
+        },
+        {
+          "path": "re/solidworks/measurements/2026/FreecadCylinderSelectedEnd01.json",
+          "sha256": "cca8c229fe68252944cbaf92152f47f2955b65d892302b462a30e59290902801"
+        },
+        {
+          "path": "re/solidworks/records/FreecadCylinderSelectedEnd2026.json",
+          "sha256": "7e9352865be32bf0de9cd1ba37c10fef1c5406d0e917ee6f1d6264e67a7de514"
+        },
+        {
+          "path": "re/solidworks/records/FreecadCylinderSelectedEnd2026.md",
+          "sha256": "77303ea5ded7e23b8eff7b7b1fcd04d2f4cf59482e6e61915b03989502b72d31"
+        },
+        {
+          "path": "re/tooling/sw2026/freecad_cylinder/PinCylinderSelectedEnd.py",
+          "sha256": "da2dda738a96054b038bf4929c2b61886c2f62c1c44bf74337e7cf783b9831cd"
+        }
+      ],
+      "handoff_sha256": "4ac3212eae217591621cde58e8db24a3a7264ae4ece3f70964e9bf5fa5953f8b",
+      "key": "selected_end_lifecycle",
+      "stageable_manifest_sha256": "191c0b6a6bdfa3522b995b62b7c88d6d1048fe2b580821b2f252994b70f82be3",
+      "unchanged_file_count": 6
+    }
+  ],
+  "proprietary_payloads_or_listings_included": false,
+  "refuted_private_interpretations": [
+    {
+      "claim": "f148 inverse-frame chooser transforms the selected plane normal",
+      "result": "refuted before delivery: the pinned mgUnitVector copy constructor receives the actual selected line direction"
+    },
+    {
+      "claim": "the +0x200 reference-frame predicate returns true for every valid selector",
+      "result": "refuted: nonzero reports reconstructed basis perpendicularity to the line and triggers recomputation; zero does not certify arbitrary illegal selectors"
+    },
+    {
+      "claim": "base angle C++ vtable always publishes its own larger archive class",
+      "result": "refuted: base angle slot zero publishes common moConstraintRefplaneData_c; the concrete coincident-line subclass overrides the archive descriptor"
+    }
+  ],
+  "remaining_gates": [
+    "Independently authored angled-plane native source and pre-writer holdout locks",
+    "Actual command/API branch and signed zero-angle and reverse conventions",
+    "Final nonzero-angle display placement/style and header allocation under actual plane owner",
+    "Complete current typed angle-plane schemas and byte-identical native source readback",
+    "Native edit of each tilt through actual intersection-axis and selected-end chain, save/reopen, independent geometry",
+    "Full/partial sector transition and complete FreeCAD source envelope remain separate obligations"
+  ],
+  "schema": "kit.sw2026.cylinder-angled-planes-static-audit.v1",
+  "scope_limits": {
+    "angular_plane_source_corpus_qualified": false,
+    "angular_plane_writer_qualified": false,
+    "generated_native_files": 0,
+    "heldout_inputs_read": 0,
+    "hopper_documents_opened": 0,
+    "native_oblique_cylinder_acceptance": false,
+    "native_processes_started": 0,
+    "vendor_code_or_bodies_emitted": false
+  },
+  "shared_checkout_files_changed": 0,
+  "source_identity": {
+    "dependencies": {
+      "re/tooling/sw2026/ManagedConstructionIndex.py": "47c6c797931804b3d0012217ee718a4fc94f3c1b6667cc6f8e06fd638960c30c",
+      "re/tooling/sw2026/freecad_cylinder/NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+      "re/tooling/sw2026/freecad_cylinder/PinCylinderDirectionWire.py": "8e212ceb466a119e5b8445b814221cde8f81c4632f0bc7ce23d7bf420d9434d7"
+    },
+    "managed_identity": {
+      "cli_flags": "0x18",
+      "mvid": "3f9c2ded-9024-4b12-ac82-deb36cae1451"
+    },
+    "modules": [
+      {
+        "base": "0x180000000",
+        "bytes": 5416536,
+        "machine": "0x8664",
+        "name": "sldcoreu.dll",
+        "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3"
+      },
+      {
+        "base": "0x4b140000",
+        "bytes": 46536280,
+        "machine": "0x8664",
+        "name": "sldmodu.dll",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      }
+    ],
+    "parser_versions": {
+      "dncil": "1.0.2",
+      "dnfile": "0.18.0",
+      "pefile": "2024.8.26"
+    }
+  },
+  "task_id": "B04-SW2026-FREECAD-CYLINDER"
+}

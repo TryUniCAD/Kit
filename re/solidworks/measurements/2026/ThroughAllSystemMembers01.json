@@ -1,0 +1,182 @@
+{
+  "baseline_paths": 4755,
+  "candidate_paths": 4772,
+  "delivery_pr": 121,
+  "fresh_process_count": 74,
+  "full_source_refusal_changed": false,
+  "git_mutations": false,
+  "heldout_inputs_read": 0,
+  "measured_host_results": {
+    "actual_environment_config_resolved_alias_preserved": true,
+    "actual_source_member_semantics_and_identity_order_retained": true,
+    "duplicate_directional_external_identifiers_preserved_without_merging": true,
+    "fragment_round_trips": 30,
+    "independent_scene_revision_log_counts": [
+      26,
+      29
+    ],
+    "independent_scene_sizes": [
+      2,
+      5
+    ],
+    "legacy_ambient_six_fragment_identity": true,
+    "legacy_complete_container_public_read_pairs": 2,
+    "legacy_component_pairs": 3,
+    "no_spurious_flat_member_roots": true,
+    "note_pair_reciprocal_node_aliases_preserved": true,
+    "part_and_environment_flags_unchanged": true,
+    "preceding_geometry_and_dimension_ids_unchanged": true,
+    "product_construction_runtime_reads": 0,
+    "pyright_existing_unrecognized_configuration_keys": 3,
+    "resolved_root_count": 21,
+    "sdk_donor_scan_python_sources": 4731,
+    "source_ambient_keep_in_scene_false_preserved": true,
+    "source_logs_per_header": 28,
+    "source_member_allocation_delta": 6,
+    "source_revision_headers": 6,
+    "source_static_errors": 0,
+    "static_checked_sdk_paths": 19
+  },
+  "native_processes": 0,
+  "native_source_rules_sha256": "538d232a242beafa6c79f7e135ec952f89f2a99653040135d75646066912d658",
+  "negative_process_count": 44,
+  "negative_scope": {
+    "invalid_actual_system_configuration_or_empty_owner_state": 5,
+    "invalid_nested_revision_binding": 6,
+    "invalid_typed_lighting_pair_or_time_inputs": 15,
+    "malformed_linked_archive_streams": 3,
+    "source_member_ownership_order_state_or_coordinates": 15
+  },
+  "new_native_complete_source_outputs": 0,
+  "outcome": "passed private typed member and revision-owner composition; complete original-source conversion and native acceptance remain refused",
+  "owner": "configuration-header lane; root owns integration and native oracle",
+  "positive_scenes": [
+    {
+      "allocation": {
+        "after": 33,
+        "before": 27
+      },
+      "case": "D01",
+      "full_source_refusal_retained": true,
+      "legacy_fragments_exact": true,
+      "light_ids": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "note_ids": [
+        31,
+        32
+      ],
+      "owner_flags_unchanged": true,
+      "previous_ids_unchanged": true,
+      "revision_header_logs": [
+        28,
+        28
+      ],
+      "source_document_sha256": "220b058dad01a550543ef8b7961761cc77efa3aca16f68ef54388c258e031af8",
+      "source_member_count": 6,
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "wire_round_trips": 6
+    },
+    {
+      "allocation": {
+        "after": 33,
+        "before": 27
+      },
+      "case": "D02",
+      "full_source_refusal_retained": true,
+      "legacy_fragments_exact": true,
+      "light_ids": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "note_ids": [
+        31,
+        32
+      ],
+      "owner_flags_unchanged": true,
+      "previous_ids_unchanged": true,
+      "revision_header_logs": [
+        28,
+        28
+      ],
+      "source_document_sha256": "d7cc49de60ad656ef131d5a501f39cd4f6ed97e2b40f99603f3982a1208749a4",
+      "source_member_count": 6,
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "wire_round_trips": 6
+    },
+    {
+      "allocation": {
+        "after": 33,
+        "before": 27
+      },
+      "case": "D03",
+      "full_source_refusal_retained": true,
+      "legacy_fragments_exact": true,
+      "light_ids": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "note_ids": [
+        31,
+        32
+      ],
+      "owner_flags_unchanged": true,
+      "previous_ids_unchanged": true,
+      "revision_header_logs": [
+        28,
+        28
+      ],
+      "source_document_sha256": "a35c98d88e785c5cccd0fd786ddc95bde92c9db5610de479c3a237c5f14d142a",
+      "source_member_count": 6,
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "wire_round_trips": 6
+    },
+    {
+      "case": "independent_scene_2",
+      "explicit_nonunit_vector_retained": true,
+      "external_ids_intentionally_shared": true,
+      "member_count": 4,
+      "revision_header_logs": [
+        26,
+        26
+      ],
+      "wire_round_trips": 6
+    },
+    {
+      "case": "independent_scene_5",
+      "explicit_nonunit_vector_retained": true,
+      "external_ids_intentionally_shared": true,
+      "member_count": 7,
+      "revision_header_logs": [
+        29,
+        29
+      ],
+      "wire_round_trips": 6
+    }
+  ],
+  "prerequisite_stageable_sha256": "dc1a997af25ad962d88536d3afe409801b7fc272443e585db15dbfd06203aa2a",
+  "process_report_sha256": "272229041bfaa8a155fd32ba4b5c89a1ce4e1f30ebf2af56814e6eec0ca23679",
+  "public_writer_activation": false,
+  "remaining_boundaries": [
+    "complete source feature provenance update state and appearance are not reconstructed by this member-tail component",
+    "native registration dirty propagation unique-name generation and annotation-view lifecycle are not simulated",
+    "Header component log identity and event construction do not qualify complete source chronology or reference-time joins",
+    "source style units manager state sketch state automatic selection and body naming retain the existing full-source refusal",
+    "independently measured native lifecycle and original held-out equivalence are still required before promotion"
+  ],
+  "schema": "kit.sw2026.throughall-system-member-process.v1",
+  "sdk_delta_paths": 19,
+  "shared_source_edits": false,
+  "source_manifest_sha256": "dab888a1624b7ea82c8b9ef063860510477800d4a321dc1217a002d0246ace43",
+  "source_scope": "only previously disclosed D01 Front, D02 reverse Top and D03 dual Right controls",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL/source-system-members",
+  "vendor_binary_or_listing_in_delivery": false,
+  "vm_access": false
+}

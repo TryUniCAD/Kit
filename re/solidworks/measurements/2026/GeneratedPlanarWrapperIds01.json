@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "design": "ParallelFrontDatums",
+      "report": {
+        "config_byte_offset": 21337,
+        "config_map_next_index": 76,
+        "heldout_inputs_tested": 0,
+        "ids": [
+          [
+            19,
+            0,
+            0
+          ],
+          [
+            19,
+            1,
+            1
+          ],
+          [
+            20,
+            2,
+            0
+          ],
+          [
+            20,
+            3,
+            1
+          ]
+        ],
+        "input_runtime_file_access_attempts": 0,
+        "invalid_input_left_state_unchanged": true,
+        "native_acceptance": false,
+        "next_reference_id": 4,
+        "retry_preserved_ids": true,
+        "schema": "kit.sw2026.planar-wrapper-reference-ids.v1",
+        "wrapper_archive_bytes": 1414,
+        "wrapper_archive_sha256": "907a97a2897ada3d3a01326a68feede89a7e79ae21c1c550270fba27ccd0a8a5",
+        "wrapper_map_next_index": 149,
+        "writer_output_count": 0
+      },
+      "request_sha256": "80785459a0b427f026838b1184e3d51f41736a7ffb90ac82f9a5bc3368f5fb31"
+    },
+    {
+      "design": "RotatedSelectedDatum",
+      "report": {
+        "config_byte_offset": 21415,
+        "config_map_next_index": 76,
+        "heldout_inputs_tested": 0,
+        "ids": [
+          [
+            19,
+            0,
+            0
+          ],
+          [
+            19,
+            1,
+            1
+          ],
+          [
+            20,
+            2,
+            0
+          ],
+          [
+            20,
+            3,
+            1
+          ]
+        ],
+        "input_runtime_file_access_attempts": 0,
+        "invalid_input_left_state_unchanged": true,
+        "native_acceptance": false,
+        "next_reference_id": 4,
+        "retry_preserved_ids": true,
+        "schema": "kit.sw2026.planar-wrapper-reference-ids.v1",
+        "wrapper_archive_bytes": 1990,
+        "wrapper_archive_sha256": "62138b1df2d6d3b3fc132c54acfddd110cb13766da899d7f17c8470db1853c85",
+        "wrapper_map_next_index": 149,
+        "writer_output_count": 0
+      },
+      "request_sha256": "603711e031a5bd9c84f595cd4250d1b05ef333689f807621806deeb07a6274ff"
+    }
+  ],
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "schema": "kit.sw2026.generated-planar-wrapper-ids.v1",
+  "writer_output_count": 0
+}

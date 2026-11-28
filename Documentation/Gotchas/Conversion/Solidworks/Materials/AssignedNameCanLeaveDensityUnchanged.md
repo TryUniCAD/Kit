@@ -1,0 +1,5 @@
+# The legacy part mass API can stay at unit density
+
+In SOLIDWORKS 2026 SP05.2, both disclosed part assignments reported the requested catalog and material after rebuild with a blank explicit body assignment. The legacy `IMassProperty` returned 1 kg/m³. On the disclosed corner control, the selected sole-solid `IMassProperty2` reported 1000 kg/m³ unassigned and 2700 kg/m³ after assignment, save, and fresh read-only reopen. Both interfaces returned the same volume.
+
+Measure the actual active solid. Clear the selection, select the sole `Body2`, create `IMassProperty2`, set `UseSystemUnits` to true, recalculate and clear the selection again. Check density against mass divided by measured and analytic volumes. Keep the legacy shape and override checks as separate diagnostics. [Original legacy comparison](../../../../../re/solidworks/measurements/2026/AssignedMaterialDensitySource01.json) · [Selected-body diagnostic](../../../../../re/solidworks/measurements/2026/AssignedMaterialDensityProbe01.json)

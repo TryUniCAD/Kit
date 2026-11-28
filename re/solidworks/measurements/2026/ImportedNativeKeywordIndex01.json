@@ -1,0 +1,198 @@
+{
+  "baseline_revision": "1b70d67b854814cb5066f44028439c43f2b4a632",
+  "build_reference_sha256": "728ab68458024189e9a6d54530a801c34e07985d53d73c5e7f2bae90f1dba1e4",
+  "cases": {
+    "Disclosed": {
+      "binary_map_counts": [
+        103,
+        171
+      ],
+      "binary_part_name": "Disclosed",
+      "changed_streams": [
+        "swXmlContents/KeyWords"
+      ],
+      "config_id": 0,
+      "config_material": "Material <not specified>",
+      "exploded": true,
+      "file_sha256": "114b5fe154fbd7f4c6e04c2c85f65e3cfe95ba50467ce8580e03983b9502f8ba",
+      "import_id": 18,
+      "import_map_index": 168,
+      "keys_bytes": 1554,
+      "keys_sha256": "a04cf1f262e996dd1e68211eb96c320b9cac1ba9f8816b91753e6814b638e3b7",
+      "keyword_epoch": 1795127796,
+      "keyword_rows": 25,
+      "keyword_title": "Part1",
+      "legacy_file_sha256": "bb0f7b13a746c3f3850f8d6c34f1779021d12c27818b5b43eb786418c99fcff3",
+      "legacy_reference_exact": true,
+      "manager_id": 25,
+      "manager_map_index": 102,
+      "modes": {
+        "legacy": false,
+        "native": true
+      },
+      "runtime_reads": 0,
+      "source_index_owners": {
+        "import_id": 26,
+        "import_map_index": 177,
+        "indexed_owners": 25,
+        "manager_id": 19,
+        "manager_map_index": 106
+      },
+      "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+      "strict_local_solid_count": 1
+    },
+    "OtherShape": {
+      "binary_map_counts": [
+        103,
+        171
+      ],
+      "binary_part_name": "OtherShape",
+      "changed_streams": [
+        "swXmlContents/KeyWords"
+      ],
+      "config_id": 0,
+      "config_material": "Material <not specified>",
+      "exploded": true,
+      "file_sha256": "0c7f9624833389b834b1494fe52739813904104b6bc123270c18ba3bac67d91b",
+      "import_id": 18,
+      "import_map_index": 168,
+      "keys_bytes": 1554,
+      "keys_sha256": "6a7c204f316cad895f7636c60deab7e057d12de473c6a54a5e29105240b1d98f",
+      "keyword_epoch": 1795130644,
+      "keyword_rows": 25,
+      "keyword_title": "Part1",
+      "legacy_file_sha256": "f8fdae21c341d7d809ed3fdb108d05bb6fa0714d90ce6582da0411e89d647b73",
+      "legacy_reference_exact": true,
+      "manager_id": 25,
+      "manager_map_index": 102,
+      "modes": {
+        "legacy": false,
+        "native": true
+      },
+      "runtime_reads": 0,
+      "source_index_owners": {
+        "import_id": 26,
+        "import_map_index": 177,
+        "indexed_owners": 25,
+        "manager_id": 19,
+        "manager_map_index": 106
+      },
+      "source_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+      "strict_local_solid_count": 1
+    },
+    "RenamedFeature": {
+      "binary_map_counts": [
+        103,
+        171
+      ],
+      "binary_part_name": "RenamedFeature",
+      "changed_streams": [
+        "swXmlContents/KeyWords"
+      ],
+      "config_id": 0,
+      "config_material": "Material <not specified>",
+      "exploded": true,
+      "file_sha256": "7bc263ae884375c841ea6c2ff2faf88ce741d3cea0b040cbf6d20658d3875594",
+      "import_id": 18,
+      "import_map_index": 168,
+      "keys_bytes": 1558,
+      "keys_sha256": "ebdc554c50ca318e2836bbef92dbf181ece0a9756c507e4f612b8fb6d8eb66de",
+      "keyword_epoch": 1795130833,
+      "keyword_rows": 25,
+      "keyword_title": "Part1",
+      "legacy_file_sha256": "cb4e73545a797617e8baeeaca9646355925a199d1eb3e3af7c6f93feab15ee0c",
+      "legacy_reference_exact": true,
+      "manager_id": 25,
+      "manager_map_index": 102,
+      "modes": {
+        "legacy": false,
+        "native": true
+      },
+      "runtime_reads": 0,
+      "source_index_owners": {
+        "import_id": 26,
+        "import_map_index": 177,
+        "indexed_owners": 25,
+        "manager_id": 19,
+        "manager_map_index": 106
+      },
+      "source_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8",
+      "strict_local_solid_count": 1
+    }
+  },
+  "heldout_cases": 0,
+  "native_index_without_manager": {
+    "binary_map_counts": [
+      101,
+      169
+    ],
+    "binary_part_name": "Disclosed",
+    "changed_streams": [
+      "swXmlContents/KeyWords"
+    ],
+    "config_id": 0,
+    "config_material": "Material <not specified>",
+    "exploded": false,
+    "file_sha256": "5c649b2359f4325025a064b048601dd8eada07bf7b6edc7fc1c76b7c5e60fb34",
+    "import_id": 18,
+    "import_map_index": 166,
+    "keys_bytes": 1506,
+    "keys_sha256": "40a2bb261d04fd34430c0dca83e32492534207da363b4886ba6769d4078c0013",
+    "keyword_epoch": 1795127796,
+    "keyword_rows": 24,
+    "keyword_title": "Part1",
+    "legacy_file_sha256": "f08a5c08e57082f3fb9fd9e0500b263350623fbbc435b2429adbba401932012c",
+    "legacy_reference_exact": null,
+    "manager_id": null,
+    "manager_map_index": null,
+    "modes": {
+      "legacy": false,
+      "native": true
+    },
+    "runtime_reads": 0,
+    "source_index_owners": {
+      "import_id": 26,
+      "import_map_index": 177,
+      "indexed_owners": 25,
+      "manager_id": 19,
+      "manager_map_index": 106
+    },
+    "strict_local_solid_count": 1
+  },
+  "observer_sha256": "6867be437b86dee5161fae0b1bbee9dccffe022cac8e6239d6a0684bdd7ee0bd",
+  "oracle_processes": 0,
+  "refusals": [
+    "stale_import_id",
+    "stale_manager_id",
+    "fabricated_manager_name",
+    "omitted_light",
+    "omitted_notes",
+    "duplicate_light",
+    "wrong_light_name",
+    "wrong_origin_tag",
+    "wrong_config_id",
+    "misattached_config_name",
+    "wrong_material",
+    "missing_material",
+    "empty_title",
+    "noncanonical_epoch",
+    "omitted_native_inventory",
+    "omitted_inventory_with_class_row",
+    "spaced_native_roles",
+    "physical_manager_removed"
+  ],
+  "retained_default_streams": {
+    "blind_circle_keywords": "f31f2ddd58c669ef1bc0ec89233941ce1cec36a61395f7057825c8f502225e6f",
+    "degree_revolve_keywords": "4ee15eb8e9cd1e9b00f4bd70b40a3deaec2da411358fb8b418d9f5be0ad22814"
+  },
+  "schema": "kit.sw2026.disclosed-native-import-index.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeKeywords.py": "41231d1aef2ad52377ec0e0cb42c339126914a2ebee699b0cef128745d01db3c",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/ImportKeyInput.py": "33b93a234d6c88b4561dcfbb386afc581d42421cde017e9da256f7867bc20254",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeBareImport.py": "294337121117ed1ed034e154e3a7a1486d777c7f75a19adadca66b1d67931cc9",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeImportKeys.py": "13d29f832bd16dc116c01d30bf26405a3323af66cd85972f3cdd75d39ed24664",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/ReadImpKeyNodes.py": "f1dc27617d7b8f8a8b4376ad60bdb89d2d90d87d9d61b1effd68c7b3306d6ef0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/FindLocalOwner.py": "be4b49b6deed783ad297d7c1ec9b21d3d67f555b7560c44fbe749dc6a6bb793c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/ReadLocalKeys.py": "1610e18e1eb97500088d980dd8902dd751df0eb6b95dcc86b308b7c1a0b47e64"
+  }
+}

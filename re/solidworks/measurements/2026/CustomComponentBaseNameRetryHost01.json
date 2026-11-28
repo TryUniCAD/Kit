@@ -1,0 +1,64 @@
+{
+  "actual_preference_changes": 0,
+  "ast_files": 2,
+  "child_tree_rows": 25,
+  "delivery_pr": 121,
+  "frozen_files": 53,
+  "heldout_inputs_read": 0,
+  "host_preparation_failure_retained": true,
+  "host_verify_passed": true,
+  "native_acceptance": false,
+  "native_pending": [
+    "corrected base-name source author/save",
+    "fresh original-setting native reopen with retained custom names",
+    "generated-parent name restoration fix"
+  ],
+  "native_processes_started": 0,
+  "old_author_methods_unchanged": true,
+  "original_full_names": [
+    "AuthoredAxisA-1",
+    "AuthoredAxisB-2"
+  ],
+  "original_intent_sha256": "0faaef5ff9bfaf0fb8e2573f758d41ffce6502c4cc93ee3a75006c956a8eb612",
+  "original_prediction_sha256": "2ed860d27f02eafb59f8e34d672ab68d9b071d9e94d35f3b6bd72badaf78ba90",
+  "parent_tree_rows": 25,
+  "prediction_replay_exact": true,
+  "preference_lease_sha256": "d4c6d86915ea7618226b28f129f6d9f4ba46071781f63d7d744dccf41ef12f60",
+  "preference_lease_unchanged": true,
+  "prior_controlled_author_record_sha256": "de627bf51e636753f9d66601aeff33ac398dc222b10e5b2541075fd8a91edd0b",
+  "prior_controlled_native_result_sha256": "da64946316bcea15fa51d1dd3662994b8f3ca23ecff9ade283b906f3e0886800",
+  "recipe_sha256": "0407f0583c38f5ef31f6a5632080d1c154f33b8019a53ce464e7fe26d746175f",
+  "retained_hopper_sessions": 0,
+  "schema": "kit.sw2026.component-base-name-retry-host.v1",
+  "setter_bases": [
+    "AuthoredAxisA",
+    "AuthoredAxisB"
+  ],
+  "source": {
+    "method": "stateless pinned PE read and complete unwind-group verification",
+    "original_vendor_images_executed": false,
+    "vendor_payloads_in_delivery": false
+  },
+  "source_record_sha256": "5e8298f16bc168df5ea5acb3619a73c5a4b7a59540c374aae5cc7cbd25ea0c49",
+  "source_verification": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 13,
+    "data_windows": 6,
+    "imports": 0,
+    "instruction_windows": 0,
+    "modules": 3,
+    "native_execution": false,
+    "record_sha256": "5e8298f16bc168df5ea5acb3619a73c5a4b7a59540c374aae5cc7cbd25ea0c49",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 6
+  },
+  "task": "B04-SW2026-MATES-CONCENTRIC",
+  "trial_sha256": "944ff0fb4eb3a4d58ce560975e155ca212238960ff77d59c8ac3c2c496052ade",
+  "undefined_name_check": "ruff 0.17.3 F821 passed",
+  "writer_outputs": 0,
+  "wrong_trial_digest_refused": true
+}

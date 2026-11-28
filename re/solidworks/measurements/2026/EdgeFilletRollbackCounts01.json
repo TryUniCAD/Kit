@@ -1,0 +1,421 @@
+{
+  "authored": [
+    {
+      "deleted": {
+        "header_count": 0,
+        "hidden_pointer_slots": {},
+        "wire_rows": 0
+      },
+      "guarded_external_access_attempts": 0,
+      "new": {
+        "header_count": 64,
+        "hidden_pointer_slots": {
+          "ATOM_ID_2001": 1,
+          "BODY_IN_LIGHTWEIGHT_PERM": 1,
+          "BODY_RECIPE_2001": 1,
+          "ENT_TIME_STAMP_2001": 1,
+          "FACE_ID_2001": 6,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 1
+        },
+        "wire_rows": 53
+      },
+      "partition_sha256": "b156c7fac924d58432eb867380a9ae4cbf8bbe131eebcbb05ee255302a3b9153",
+      "refusals": {
+        "detached_physical_allocation": "SOLIDWORKS rollback allocations repeat or detach a transmit slot",
+        "duplicate_hidden_slot": "SOLIDWORKS rollback has unbound hidden pointer slots",
+        "duplicate_physical_allocation": "SOLIDWORKS rollback allocations repeat or detach a transmit slot",
+        "hidden_owner_not_in_transition": "kernel reference has no matching typed owner",
+        "null_nonpointer_field": "SOLIDWORKS rollback has unbound hidden pointer slots",
+        "resident_value_slot": "SOLIDWORKS rollback has unbound hidden pointer slots"
+      }
+    },
+    {
+      "deleted": {
+        "header_count": 0,
+        "hidden_pointer_slots": {},
+        "wire_rows": 0
+      },
+      "guarded_external_access_attempts": 0,
+      "new": {
+        "header_count": 64,
+        "hidden_pointer_slots": {
+          "ATOM_ID_2001": 1,
+          "BODY_IN_LIGHTWEIGHT_PERM": 1,
+          "BODY_RECIPE_2001": 1,
+          "ENT_TIME_STAMP_2001": 1,
+          "FACE_ID_2001": 6,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 1
+        },
+        "wire_rows": 53
+      },
+      "partition_sha256": "6ecf48373f9c01809219ae41b6830cf68cd9b6c53cea72f37bf0ad271e502223",
+      "refusals": {
+        "detached_physical_allocation": "SOLIDWORKS rollback allocations repeat or detach a transmit slot",
+        "duplicate_hidden_slot": "SOLIDWORKS rollback has unbound hidden pointer slots",
+        "duplicate_physical_allocation": "SOLIDWORKS rollback allocations repeat or detach a transmit slot",
+        "hidden_owner_not_in_transition": "kernel reference has no matching typed owner",
+        "null_nonpointer_field": "SOLIDWORKS rollback has unbound hidden pointer slots",
+        "resident_value_slot": "SOLIDWORKS rollback has unbound hidden pointer slots"
+      }
+    }
+  ],
+  "fillet_archives_written": 0,
+  "fresh_guarded_workers": 7,
+  "hidden_pointer_kernel_sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+  "native_launches": 0,
+  "new_heldout_credit": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "previous_rollback_receipt_sha256": "a8b954ac2eab2d5064055282cf1f029bec4d0a2ba83c4b09e1023d646f06b849",
+  "saved": {
+    "EdgeFilletAxial": {
+      "guarded_external_access_attempts": 0,
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+      "transitions": {
+        "activation": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 3,
+          "new": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        },
+        "fillet": {
+          "copy_staging_capacity": 79,
+          "deleted": {
+            "header_count": 27,
+            "hidden_pointer_slots": {
+              "BODY_RECIPE_2001": 1
+            },
+            "wire_rows": 26
+          },
+          "different_copy_rows": 55,
+          "mark_id": 17,
+          "new": {
+            "header_count": 66,
+            "hidden_pointer_slots": {
+              "BODY_IN_LIGHTWEIGHT_PERM": 1,
+              "BODY_RECIPE_2001": 1,
+              "FACE_AUTOMATION_2_2001": 1,
+              "FACE_ID_2001": 2
+            },
+            "wire_rows": 61
+          },
+          "physical_copy_rows": 76,
+          "processed_copy_count": 40
+        },
+        "stock": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 13,
+          "new": {
+            "header_count": 158,
+            "hidden_pointer_slots": {
+              "ATOM_ID_2001": 1,
+              "BODY_RECIPE_2001": 1,
+              "ENT_TIME_STAMP_2001": 1,
+              "FACE_ID_2001": 12,
+              "LAST_BODY_MODIFYING_FEATURE_ID": 1
+            },
+            "wire_rows": 142
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        }
+      }
+    },
+    "EdgeFilletAxialEdited": {
+      "guarded_external_access_attempts": 0,
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a",
+      "transitions": {
+        "activation": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 3,
+          "new": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        },
+        "fillet": {
+          "copy_staging_capacity": 79,
+          "deleted": {
+            "header_count": 27,
+            "hidden_pointer_slots": {
+              "BODY_RECIPE_2001": 1
+            },
+            "wire_rows": 26
+          },
+          "different_copy_rows": 55,
+          "mark_id": 29,
+          "new": {
+            "header_count": 64,
+            "hidden_pointer_slots": {
+              "BODY_IN_LIGHTWEIGHT_PERM": 1,
+              "BODY_RECIPE_2001": 1,
+              "FACE_ID_2001": 2
+            },
+            "wire_rows": 60
+          },
+          "physical_copy_rows": 76,
+          "processed_copy_count": 40
+        },
+        "stock": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 25,
+          "new": {
+            "header_count": 158,
+            "hidden_pointer_slots": {
+              "ATOM_ID_2001": 1,
+              "BODY_RECIPE_2001": 1,
+              "ENT_TIME_STAMP_2001": 1,
+              "FACE_ID_2001": 12,
+              "LAST_BODY_MODIFYING_FEATURE_ID": 1
+            },
+            "wire_rows": 142
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        }
+      }
+    },
+    "EdgeFilletTransverse": {
+      "guarded_external_access_attempts": 0,
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e",
+      "transitions": {
+        "activation": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 3,
+          "new": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        },
+        "fillet": {
+          "copy_staging_capacity": 81,
+          "deleted": {
+            "header_count": 30,
+            "hidden_pointer_slots": {
+              "BODY_RECIPE_2001": 1
+            },
+            "wire_rows": 29
+          },
+          "different_copy_rows": 57,
+          "mark_id": 17,
+          "new": {
+            "header_count": 69,
+            "hidden_pointer_slots": {
+              "BODY_IN_LIGHTWEIGHT_PERM": 1,
+              "BODY_RECIPE_2001": 1,
+              "FACE_AUTOMATION_2_2001": 1,
+              "FACE_ID_2001": 2
+            },
+            "wire_rows": 64
+          },
+          "physical_copy_rows": 78,
+          "processed_copy_count": 37
+        },
+        "stock": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 13,
+          "new": {
+            "header_count": 158,
+            "hidden_pointer_slots": {
+              "ATOM_ID_2001": 1,
+              "BODY_RECIPE_2001": 1,
+              "ENT_TIME_STAMP_2001": 1,
+              "FACE_ID_2001": 12,
+              "LAST_BODY_MODIFYING_FEATURE_ID": 1
+            },
+            "wire_rows": 142
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        }
+      }
+    },
+    "EdgeFilletTransverseEdited": {
+      "guarded_external_access_attempts": 0,
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3",
+      "transitions": {
+        "activation": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 3,
+          "new": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        },
+        "fillet": {
+          "copy_staging_capacity": 81,
+          "deleted": {
+            "header_count": 30,
+            "hidden_pointer_slots": {
+              "BODY_RECIPE_2001": 1
+            },
+            "wire_rows": 29
+          },
+          "different_copy_rows": 53,
+          "mark_id": 29,
+          "new": {
+            "header_count": 67,
+            "hidden_pointer_slots": {
+              "BODY_IN_LIGHTWEIGHT_PERM": 1,
+              "BODY_RECIPE_2001": 1,
+              "FACE_ID_2001": 2
+            },
+            "wire_rows": 63
+          },
+          "physical_copy_rows": 78,
+          "processed_copy_count": 37
+        },
+        "stock": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 25,
+          "new": {
+            "header_count": 158,
+            "hidden_pointer_slots": {
+              "ATOM_ID_2001": 1,
+              "BODY_RECIPE_2001": 1,
+              "ENT_TIME_STAMP_2001": 1,
+              "FACE_ID_2001": 12,
+              "LAST_BODY_MODIFYING_FEATURE_ID": 1
+            },
+            "wire_rows": 142
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        }
+      }
+    },
+    "GeneratedAxialNativeSave": {
+      "guarded_external_access_attempts": 0,
+      "source_sha256": "2c29407f931e290fa0cd1262f20af19cb345052432a7ee8f544bc91615b6d743",
+      "transitions": {
+        "activation": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 2,
+          "new": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        },
+        "fillet": {
+          "copy_staging_capacity": 79,
+          "deleted": {
+            "header_count": 27,
+            "hidden_pointer_slots": {
+              "BODY_RECIPE_2001": 1
+            },
+            "wire_rows": 26
+          },
+          "different_copy_rows": 55,
+          "mark_id": 20,
+          "new": {
+            "header_count": 64,
+            "hidden_pointer_slots": {
+              "BODY_IN_LIGHTWEIGHT_PERM": 1,
+              "BODY_RECIPE_2001": 1,
+              "FACE_ID_2001": 2
+            },
+            "wire_rows": 60
+          },
+          "physical_copy_rows": 76,
+          "processed_copy_count": 40
+        },
+        "stock": {
+          "copy_staging_capacity": 1,
+          "deleted": {
+            "header_count": 0,
+            "hidden_pointer_slots": {},
+            "wire_rows": 0
+          },
+          "different_copy_rows": 1,
+          "mark_id": 16,
+          "new": {
+            "header_count": 158,
+            "hidden_pointer_slots": {
+              "ATOM_ID_2001": 1,
+              "BODY_RECIPE_2001": 1,
+              "ENT_TIME_STAMP_2001": 1,
+              "FACE_ID_2001": 12,
+              "LAST_BODY_MODIFYING_FEATURE_ID": 1
+            },
+            "wire_rows": 142
+          },
+          "physical_copy_rows": 1,
+          "processed_copy_count": 0
+        }
+      }
+    }
+  },
+  "schema": "kit.sw2026.fillet-rollback-node-counts.v1",
+  "sdk_base": "8ea2fa45b285499f1f50c61f04b29c7f0649ebf4"
+}

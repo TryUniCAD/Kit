@@ -1,0 +1,261 @@
+{
+  "all_three_live_lengths_measured_each_phase": true,
+  "application_usable": true,
+  "attestation_scope": "only the four generated pairs and declared edit/view-move lifecycle measured here",
+  "candidate_phases": 16,
+  "control_processes": 2,
+  "controls_healthy": true,
+  "declared_independent_size_edits": 4,
+  "delivery_pr": 121,
+  "disclosed_native_origin_lifecycle_qualified": true,
+  "full_original_source_conversion_qualified": false,
+  "generated_inputs": [
+    {
+      "case": "OriginConstructorAlpha",
+      "child": {
+        "bytes": 8910,
+        "sha256": "55f4b4be5a308d5592e8120031b2cc3918967cf1fabae8b41a10be5c88e5d9c3"
+      },
+      "drawing": {
+        "bytes": 7335,
+        "sha256": "3712197b18310c873c64601bd0ca6399240fa1fe5a3d39c82627caa310aeae8b"
+      },
+      "kind": "corner"
+    },
+    {
+      "case": "OriginConstructorBetaΩ",
+      "child": {
+        "bytes": 8914,
+        "sha256": "7189a6832077e99601d7d4d6b769d17959fa1c8a35d7658fc480c306ed4b9304"
+      },
+      "drawing": {
+        "bytes": 7403,
+        "sha256": "f316361bea226564d906113910a50a5ff416393b6f70f88582608d418b25fa99"
+      },
+      "kind": "corner"
+    },
+    {
+      "case": "OriginCenterGamma",
+      "child": {
+        "bytes": 8989,
+        "sha256": "030447a1501cefd2f7b28c0dc324c0869872f22c2cd17f0085ada2b56315e882"
+      },
+      "drawing": {
+        "bytes": 7331,
+        "sha256": "8593da8c3b87f537ab7d7463a00f382addb8e964c6447b445b8a7cd1a068caad"
+      },
+      "kind": "center"
+    },
+    {
+      "case": "OriginCenterDeltaΩ",
+      "child": {
+        "bytes": 9010,
+        "sha256": "f3d81cd6955a6e4f83f64bb0b533627c6593f9120c58aa3c6d3fd51d48c12075"
+      },
+      "drawing": {
+        "bytes": 7314,
+        "sha256": "b52f33629e0e0879d26f36f105f8c27cd6043694c104736b30434d06da73375a"
+      },
+      "kind": "center"
+    }
+  ],
+  "generated_process_result_sha256": "23314e11d78d40d95477828d95855b74d923ce679201ddefec0b0d279bed93c5",
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "host_qualification_sha256": "bf6476d8a0c35d55ecda0ead8cf7b91aba8a5e1bc153221edc2705101ebfcd77",
+  "input_packet_unchanged": true,
+  "linked_child_body_count": 1,
+  "native_processes": 18,
+  "native_result_sha256": "ac0440f44281df7d485500b50910551b4c17a5a68c5c991a5c758ae952d39b84",
+  "numeric_comparisons_excluding_controls": 3328,
+  "oracle": {
+    "cad_use": "isolated root-owned ordinary COM measurement only",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "origin_glyph_pixel_rendering_measured": false,
+  "original_heldout_drawing_verdict_changed": false,
+  "owners": [
+    "/root",
+    "/root/flag_ownership"
+  ],
+  "packet_sha256": "862adb0519afd892aa690ce7b4e283a33de95cdf3bcdc71be465498244118842",
+  "phase_receipts": [
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 210,
+      "passed": true,
+      "phase": "OriginConstructorAlpha/open-save",
+      "record_sha256": "62b21cabd2d1a1ac551888c588eac4c2e12d12a518736bac3ea99b2e32171e24"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginConstructorAlpha/reopen",
+      "record_sha256": "fa341bb5c0f5da75272e76512b5fe88bbe5fb8241cf9b39380afcf999ebe1419"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 342,
+      "passed": true,
+      "phase": "OriginConstructorAlpha/edit-move-save",
+      "record_sha256": "c8eb750f93b6873beec98c834b8ccbf5d638e0fa200d04a25128c2e977a8db26"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginConstructorAlpha/reopen-edited",
+      "record_sha256": "81d3845b2bd7c11d6aab21e9a111be78f83b96eda084f6a8415172945b6cf8ac"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 210,
+      "passed": true,
+      "phase": "OriginConstructorBetaΩ/open-save",
+      "record_sha256": "1cdf35eb5569f2a4a243a4a3cde3a6c5b0e546dd6b2ae22e9629ec85e5b1f48a"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginConstructorBetaΩ/reopen",
+      "record_sha256": "48c24013020f1f372d731b6c9981570c2885c921edccc956ba425b893c94ed59"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 342,
+      "passed": true,
+      "phase": "OriginConstructorBetaΩ/edit-move-save",
+      "record_sha256": "953fb4d9192813c400c41c11f659ad7800e2bab1d328c62cc7437490a1a0d158"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginConstructorBetaΩ/reopen-edited",
+      "record_sha256": "fee267223cce9fccc4fc24e3aea1ec7ceb20b01607f21b2ea132a7bfa8af7d9b"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 210,
+      "passed": true,
+      "phase": "OriginCenterGamma/open-save",
+      "record_sha256": "5287e87ddee37fcd1f8a78a6a4a45a4e3d59cb9ae5b4a3f37e0527cab7c44842"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginCenterGamma/reopen",
+      "record_sha256": "1d8f20cb8d7650d7b7913e4ac6f5ab12b749ce11b664b4dd7d27903da3197696"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 342,
+      "passed": true,
+      "phase": "OriginCenterGamma/edit-move-save",
+      "record_sha256": "79d6d4f09ed8a06ed59fd2fc5f76dcbccc9f2642f8cbb182c32b3917e7e211a1"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginCenterGamma/reopen-edited",
+      "record_sha256": "095e0d4cecd6e13cee8dde57226bcfd1e046a5d9b324d055b7a37d248508d4d9"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 210,
+      "passed": true,
+      "phase": "OriginCenterDeltaΩ/open-save",
+      "record_sha256": "33a650e5a93057b2b903e159d322b03f7d930da381611cf66e1a24d24d038445"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginCenterDeltaΩ/reopen",
+      "record_sha256": "3648c9bcc72c0282cf0b83412ca2d24d439fb4b5a6a88ae864b5eb4565bff787"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 342,
+      "passed": true,
+      "phase": "OriginCenterDeltaΩ/edit-move-save",
+      "record_sha256": "4277ae4f96d2434d52d4243311045cebdac2f270843f6ad85387468b1a36cad9"
+    },
+    {
+      "child_profile_ids_retained": true,
+      "child_tree_rows": 25,
+      "drawing_tree_rows": 16,
+      "numeric_comparisons": 140,
+      "passed": true,
+      "phase": "OriginCenterDeltaΩ/reopen-edited",
+      "record_sha256": "ddce5b2a0efc6690f125735cf32a76b70e4a3c063062de3cf5d72b1667189c76"
+    }
+  ],
+  "public_drawing_writer_enabled": false,
+  "retained_failed_trial": {
+    "alpha_initial_edit_record_sha256": "20785400b221eadc8f96b98dee8800ae04ec0221d1e04e1c886924fd9a1c0c8e",
+    "diagnostic_analysis_sha256": "15b16a9447f2b32e1e3c38ab6070508d823039c5324f540d94c87977eb0e6373",
+    "failure": "observer assumed edited-bounds recentering before drawing rebuild or view move",
+    "prior_packet_sha256": "5d350702e43a78788e0b08de7de0d2a71e211ffd6bd28a0f1785f8abda9287fa",
+    "retroactive_acceptance": false
+  },
+  "schema": "kit.sw2026.disclosed-origin-drawing-lifecycle-receipt.v1",
+  "scope": "four completely generated disclosed origin-linked drawings and corner/center dimensioned child pairs",
+  "sdk_constructor_bytes_changed_for_retry": false,
+  "source_manifest_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc",
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "typed_saved_checks": {
+    "actual_child_creation_epoch": true,
+    "actual_child_origin_persistent_identity": true,
+    "actual_file_and_configuration_origin": true,
+    "complete_definition_bytes_maps_and_aliases": true,
+    "edited_profiles_sha256": "a0b9f7490197de3eb3970815dc09be9d78dddbfc9a9fe5e649470c5a051fec1f",
+    "fresh_reader_processes": 2,
+    "initial_profiles_sha256": "afbb236bd16b747c1f8dc55cce65ec2a9cc7872e284a1f8c36efded2f4d65750",
+    "pairs": 8,
+    "same_actual_external_component_and_view": true,
+    "source_immutable": true
+  },
+  "vendor_loadable": true,
+  "view_frame_preservation": {
+    "declared_view_move_only_translation": true,
+    "original_constructed_transform_used_for_edited_child_bounds": true,
+    "rebuild_save_and_fresh_reopen_checked": true
+  },
+  "worker_vm_or_cad_execution": false
+}

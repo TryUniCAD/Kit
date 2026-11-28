@@ -1,0 +1,271 @@
+{
+  "actual_normal_registry_output_measured": true,
+  "additional_heldout_credit": 0,
+  "agent_vm_actions": 0,
+  "all_open_errors_and_warnings_zero": true,
+  "child_drivers": 3,
+  "complete_linked_codec_and_three_drivers": true,
+  "controls_read_only": true,
+  "delivery_pr": 121,
+  "existing_public_recipe_preserved": true,
+  "fresh_native_process_count": 4,
+  "fresh_saved_reopen_passed": true,
+  "healthy_bracketing_controls": 2,
+  "hidden_payloads_read": 0,
+  "initial_source_only_files": {
+    "NeutralPerpPair.SLDASM": {
+      "bytes": 10021,
+      "encoded_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PublicPerpendicularRegistry01\\GeneratedInput\\NeutralPerpPair.SLDASM",
+      "sha256": "0a740c7a632ad769174c3d145710ca68502c33d07f575ac02ccb583363293187"
+    },
+    "NeutralPerpPrism.SLDPRT": {
+      "bytes": 8694,
+      "encoded_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PublicPerpendicularRegistry01\\GeneratedInput\\NeutralPerpPrism.SLDPRT",
+      "sha256": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+    }
+  },
+  "inputs_unchanged": true,
+  "invalid_angle_correction_proven": false,
+  "live_edit": {
+    "depth_after_m": 0.01591,
+    "depth_before_m": 0.01037,
+    "three_actual_drivers_preserved": true,
+    "valid_rotation_degrees": -27.9
+  },
+  "mate": {
+    "actual_owner_and_order_checks_passed": true,
+    "child_datum_feature_ids": [
+      16,
+      15
+    ],
+    "internal_alignment": 0,
+    "kind": "perpendicular",
+    "mate_feature_id": 19,
+    "native_api_alignment": 2,
+    "neutral_alignment": "unknown",
+    "occurrence_feature_ids": [
+      17,
+      18
+    ]
+  },
+  "measured_effective_mass_density": [
+    {
+      "assembly_effective_density": 1000.0,
+      "assembly_to_child_mass_ratio": 2000.0000000000005,
+      "child_effective_density": 1.0,
+      "phase": "control-before",
+      "stage": "initial"
+    },
+    {
+      "assembly_effective_density": 1000.0000000000002,
+      "assembly_to_child_mass_ratio": 2000.0000000000005,
+      "child_effective_density": 1.0,
+      "phase": "control-before",
+      "stage": "rebuilt"
+    },
+    {
+      "assembly_effective_density": 999.9999999999999,
+      "assembly_to_child_mass_ratio": 1999.9999999999998,
+      "child_effective_density": 1.0,
+      "phase": "generated",
+      "stage": "initial"
+    },
+    {
+      "assembly_effective_density": 999.9999999999999,
+      "assembly_to_child_mass_ratio": 1999.9999999999998,
+      "child_effective_density": 1.0,
+      "phase": "generated",
+      "stage": "rebuilt"
+    },
+    {
+      "assembly_effective_density": 1000.0,
+      "assembly_to_child_mass_ratio": 1999.9999999999998,
+      "child_effective_density": 1.0,
+      "phase": "generated",
+      "stage": "edited"
+    },
+    {
+      "assembly_effective_density": 1000.0,
+      "assembly_to_child_mass_ratio": 1999.9999999999998,
+      "child_effective_density": 1.0,
+      "phase": "generated",
+      "stage": "saved"
+    },
+    {
+      "assembly_effective_density": 1000.0,
+      "assembly_to_child_mass_ratio": 1999.9999999999998,
+      "child_effective_density": 1.0,
+      "phase": "reopen",
+      "stage": "initial"
+    },
+    {
+      "assembly_effective_density": 1000.0,
+      "assembly_to_child_mass_ratio": 2000.0,
+      "child_effective_density": 1.0,
+      "phase": "reopen",
+      "stage": "rebuilt"
+    },
+    {
+      "assembly_effective_density": 1000.0,
+      "assembly_to_child_mass_ratio": 2000.0000000000005,
+      "child_effective_density": 1.0,
+      "phase": "control-after",
+      "stage": "initial"
+    },
+    {
+      "assembly_effective_density": 999.9999999999999,
+      "assembly_to_child_mass_ratio": 2000.0000000000005,
+      "child_effective_density": 1.0,
+      "phase": "control-after",
+      "stage": "rebuilt"
+    }
+  ],
+  "native_observer_sha256": "a36dac1103e94e6dc233bba8e6f96a710155b5ed4299f5cefa7218ab7a87dec5",
+  "native_packet_sha256": "a719214c4e12170239a22a07598039d62c15ab176583871ce639f745eaddc42b",
+  "normal_saved_sdk_audit_sha256": "838004669c96519e8c2e7a6480011550c91571f7630177ee985c24cabe0ac763",
+  "normal_saved_sdk_status": "admitted",
+  "numeric_checks": 190,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "ordered_native_trees": {
+    "all_stages_exact": true,
+    "child_rows": 25,
+    "parent_rows": 25
+  },
+  "owner": "assembly_occurrence",
+  "passed": true,
+  "phase_checks": {
+    "control-after": 26,
+    "control-before": 26,
+    "generated": 92,
+    "reopen": 46
+  },
+  "phase_receipts": {
+    "control-after": "98f858f2f68e48d5a42461d9bd759e524ab9672e6149e5709cd71158d1a86ca9",
+    "control-before": "dffb6da3c77347044df364139c1f0d1747574ea9dc3d4af9027ebc878501f939",
+    "generated": "96ed9177cff537c423032e41baf0e64d834b27636fd391ba460e42cbb4d7aea0",
+    "reopen": "a6a0313a2c315f5a3c1a22f70a8a6cab775e6e34b4171c43d4df96b94d5927c9"
+  },
+  "prelaunch_transport_failure_retained": {
+    "exit_code": 255,
+    "guest_progress_records": 0,
+    "message": "PrlJob_GetRetCode: Invalid argument",
+    "native_failure_claimed": false,
+    "report_sha256": "c010663215fb9cbb9e3faeb46fa8c2c035d71df9afae48ee5feb95acab76a36d",
+    "root_verified_idle_and_license_identity_before_exact_retry": true
+  },
+  "process_identities": [
+    {
+      "file_version": "34.5.2.0604",
+      "process_creation_filetime": 134394861767231336,
+      "process_id": 7620,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+    },
+    {
+      "file_version": "34.5.2.0604",
+      "process_creation_filetime": 134394862160849959,
+      "process_id": 5160,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+    },
+    {
+      "file_version": "34.5.2.0604",
+      "process_creation_filetime": 134394863002898209,
+      "process_id": 4216,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+    },
+    {
+      "file_version": "34.5.2.0604",
+      "process_creation_filetime": 134394864930195708,
+      "process_id": 9836,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+    }
+  ],
+  "public_perpendicular_writer_qualified": false,
+  "raw_result_sha256": "2c694d52c50d65971dd569c51bd91a8313ee1f606e3536b63160bc939dd26272",
+  "rebuilds_passed": true,
+  "recipe_sha256": "1589e42113d9223371395f12900c32080be82c72e0418a67ed5c368fcbb76b63",
+  "save_order": [
+    "child",
+    "parent"
+  ],
+  "schema": "kit.sw2026.actual-public-registry-perpendicular-native-proof.v1",
+  "scope": "Disclosed self-lifecycle of actual normal-registry output using the existing public recipe; separate public-default held-out evaluation remains pending",
+  "source_only_registry_proof_sha256": "dac307b3371f6102aa036684a60f9b6613c0e425bab2aa591a984aa14e360539",
+  "stored_density_preference": 1000,
+  "synchronized_saved_files": {
+    "child": {
+      "bytes": 28874,
+      "sha256": "9b457e330949020af9d34a80b32d7df2fccd43b17aee0d623aa8723b6917a94c",
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "update_stamp": 158
+    },
+    "parent": {
+      "bytes": 41281,
+      "sha256": "d0d873c121c150efe93e6ffb29a0b498ae8de4b2c4079d8b70af0ff54c548f51",
+      "status": [
+        true,
+        0,
+        0
+      ]
+    }
+  },
+  "task": "B04-SW2026-MATES-PERPENDICULAR/public",
+  "transport_attempts": [
+    {
+      "attempt": 1,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "phase": "control-before",
+      "progress_record_count": 1,
+      "report_sha256": "addda5e3d3acbe011826edef6a27cf915348b55328c5839192b5cac1578a3fbe",
+      "supervisor_exit_code": 0,
+      "transport_returncode": 0
+    },
+    {
+      "attempt": 1,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "phase": "generated",
+      "progress_record_count": 1,
+      "report_sha256": "3869fc6b74ae608897b1cc6d32f377a5da46096859548dcb233b6b8c41f95ff4",
+      "supervisor_exit_code": 0,
+      "transport_returncode": 0
+    },
+    {
+      "attempt": 1,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "phase": "reopen",
+      "progress_record_count": 1,
+      "report_sha256": "9695165109c759146b00ae127b6b304883ff21ae01e122ce0dad447f1fc657c9",
+      "supervisor_exit_code": 0,
+      "transport_returncode": 0
+    },
+    {
+      "attempt": 1,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "phase": "control-after",
+      "progress_record_count": 0,
+      "report_sha256": "c010663215fb9cbb9e3faeb46fa8c2c035d71df9afae48ee5feb95acab76a36d",
+      "supervisor_exit_code": 255,
+      "transport_returncode": 255
+    },
+    {
+      "attempt": 2,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "phase": "control-after",
+      "progress_record_count": 1,
+      "report_sha256": "5f145bb4a3a36a421a35850974baea999e6a24512a1187c901ca3709b12f6f3b",
+      "supervisor_exit_code": 0,
+      "transport_returncode": 0
+    }
+  ],
+  "unchanged_native_core_observer_sha256": "943db8da0c9fc58d2857b1c23b08391d29bd8b1bf8e2cef6a648f01830ab6e07",
+  "writer_source_manifest_sha256": "68f3acd0d0a65f25783dd31def611c63b8651163497bed9c8abb129f2bbf26c1"
+}

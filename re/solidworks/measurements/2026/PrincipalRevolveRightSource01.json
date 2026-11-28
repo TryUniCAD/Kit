@@ -1,0 +1,189 @@
+{
+  "asset": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveRightReverse.SLDPRT",
+  "capture_tool_hashes": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorRevolveSources.py": "1190f61d1158a7643d4c2d53a5707659edf04e0c0c1b9412db9606e9400f6369",
+    "CapturePrincipalRevolveControl.py": "7736592fbba4d9ab85f4884faf68331d1268eee3df47d426cc1ed734da6b6920",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "capture_wrapper_error": "phase was read at the wrong record depth",
+  "capture_wrapper_exit": 1,
+  "capture_wrapper_stderr_sha256": "70444f669960f24bdfc3b1829980b2cd54b7a23e02dcf332530395ba03f123d0",
+  "case": {
+    "angle_deg": 87.5,
+    "axial_m": [
+      -0.0169,
+      0.0122
+    ],
+    "axis_axial_m": [
+      -0.0219,
+      0.0202
+    ],
+    "axis_x_m": 0.0093,
+    "edit_angle_deg": 138.25,
+    "name": "PrincipalRevolveRightReverse",
+    "plane": "right",
+    "radius_m": [
+      0.0113,
+      0.0347
+    ],
+    "reverse": true,
+    "split": "discovery"
+  },
+  "controls_healthy": true,
+  "distinct_processes": 4,
+  "edited": {
+    "angle_radians": 2.4129176908821606,
+    "axis": {
+      "id": [
+        5,
+        5
+      ],
+      "name": "Line5",
+      "owner_segment_ids": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "points": [
+        [
+          0.0093,
+          -0.0219,
+          0.0
+        ],
+        [
+          0.0093,
+          0.0202,
+          0.0
+        ]
+      ]
+    },
+    "bodies": 1,
+    "mass": {
+      "area": 0.007189076223480417,
+      "com": [
+        0.01807908566144117,
+        -0.0023499999999999984,
+        -0.016194694213348425
+      ],
+      "mass": 3.779019996587386e-05,
+      "volume": 3.779019996587386e-05
+    },
+    "reverse": true
+  },
+  "initial": {
+    "angle_radians": 1.5271630954950384,
+    "axis": {
+      "id": [
+        5,
+        5
+      ],
+      "name": "Line5",
+      "owner_segment_ids": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "points": [
+        [
+          0.0093,
+          -0.0219,
+          0.0
+        ],
+        [
+          0.0093,
+          0.0202,
+          0.0
+        ]
+      ]
+    },
+    "bodies": 1,
+    "mass": {
+      "area": 0.0050499788756205154,
+      "com": [
+        0.0156460892310834,
+        -0.0023499999999999992,
+        -0.025644118036817647
+      ],
+      "mass": 2.391784807966699e-05,
+      "volume": 2.391784807966699e-05
+    },
+    "reverse": true
+  },
+  "native_bytes": 57732,
+  "native_sha256": "0c3ef35a0f8412895cf870359df037ae3450aad45abaa426767838894e18e681",
+  "new_heldout_credit": 0,
+  "oracle": {
+    "com": "SldWorks.Application.34",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "passed": true,
+  "phases": [
+    {
+      "native_process_birth": 134396892394568578,
+      "passed": true,
+      "record_sha256": "485cec2f77ad2fad8ee8dc30d89ad588cb854b29b3a03c903f74852e7d5db4ad",
+      "role": "control_before"
+    },
+    {
+      "native_process_birth": 134396892616126856,
+      "passed": true,
+      "record_sha256": "3563b1333c54827ef5bb98a01fe29eea7d4b801ec70336cd985936618e78a9b2",
+      "role": "author"
+    },
+    {
+      "native_process_birth": 134396892871450130,
+      "passed": true,
+      "record_sha256": "4b49e414e21229f93f0b704e0a0468babf6cc21f58960884363cb40f6c93eca1",
+      "role": "reopen"
+    },
+    {
+      "native_process_birth": 134396893195370922,
+      "passed": true,
+      "record_sha256": "7f310b9af0e22e51e10087dfc7238d7140258ca77057a575bb99a6f8a68f387d",
+      "role": "control_after"
+    }
+  ],
+  "production_source_tree": "f6830bfd53fc99747c91ca4a3cd7eead3915d6ee",
+  "schema": "kit.sw2026.principal-revolve-disclosed-source.v1",
+  "sealed_inputs_read": 0,
+  "source_revision": "6fa60f10d5569b1daf4033aa20802791b90222a8",
+  "writer_outputs": 0
+}

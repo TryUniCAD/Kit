@@ -1,0 +1,46 @@
+{
+  "schema": "kit.sw2026.blank-rewrite-observer-isolation.v1",
+  "task_id": "B04-SW2026-DRAWPROPS/canonical-rewrite-heldout",
+  "owner": "configuration_header",
+  "delivery_pr": 121,
+  "observation": "observer setup failed before any native process or record; native file acceptance remains unmeasured",
+  "source": "root-relayed privacy-safe guest diagnostics",
+  "failed_method_sha256": "8a234bbb7fb1ba90e197395838d7aad80e0cc30643480cf6f8ab21e8c98c0323",
+  "failed_binding_sha256": "9d7a5ba1fb43dd56deef1e43b0d945314ba47babdaa83b8b2c662fa7157827fe",
+  "failed_public_export_sha256": "696370acc651fdb6ed46169ed00a38a7c1b48a081021c1364188019c9284be90",
+  "failed_private_result_sha256": "243553f26e6fabb618d66b43486d52484b173f482bfc976616c07ea1573260c6",
+  "sdk_builds": 4,
+  "both_pairs_identical": true,
+  "writer_runtime_input_reads": 0,
+  "native_processes": 0,
+  "healthy_native_controls": 0,
+  "native_records": 0,
+  "control_worker_exit_codes": [
+    3,
+    3
+  ],
+  "common_worker_error_type": "ModuleNotFoundError",
+  "missing_module": "pythoncom",
+  "isolated_import_probe": {
+    "passed": false,
+    "native_launches": 0
+  },
+  "legacy_environment_import_probe": {
+    "passed": true,
+    "modules": [
+      "Swapp",
+      "InspectDrawingCache"
+    ],
+    "native_launches": 0
+  },
+  "product_failure_inferred": false,
+  "cad_crash_inferred": false,
+  "oracle_interpretable": false,
+  "retry_sdk_manifest_sha256": "80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80",
+  "retry_method_sha256": "cfd67212f1a15807ae7f3f1f16e1003661b36cd5171fc5bb0fe65c550e51c161",
+  "retry_reuses_original_generated_bytes": true,
+  "retry_new_sdk_builds": 0,
+  "retry_native_result": "pending root-owned execution",
+  "private_paths_or_semantic_values_published": false,
+  "native_acceptance_claim": false
+}

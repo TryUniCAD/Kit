@@ -1,0 +1,44 @@
+{
+  "schema": "kit.sw2026.blank-preserved-rewrite-heldout-method.v1",
+  "writer_manifest_sha256": "80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80",
+  "tools_sha256": "66bd6d4508b58100207fba2626d5bb68443d85f17db61c12b6a759ce33fb7bf4",
+  "prior_public_receipt_sha256": "2004c80805ef54e3c539506c12c3e9f9704f0a6438122bbd1c6dbe20aadf3c19",
+  "prior_binding_sha256": "9c2fc4de170e96b29b01ee1a92f358c495f7d84b3829c0cfc394e6d499df9988",
+  "prior_generation_sha256": "8ef2fa34d4facecd328178ab0cd106215047b3d097e69b305a36e6d913c695d9",
+  "prior_comparison_sha256": "d0f8484dec9170cfb90a008f82d489a50e6654fa98c7c240efd5ff1bbe60f888",
+  "prior_tools_sha256": "be474292df04082ee8b8e9712c0d11b8a85a14677cf61eb993d6635b4f222627",
+  "prior_output_sha256": {
+    "Slot01": "0b2ab21af0a495bd3efbf423b33aa85a496ca1be5a2c1000bf7298e8c0713c56",
+    "Slot02": "f50438ffda2d0fa6698ce6628952bca2cdb0ed713638a5597231b3c1feb7b91c"
+  },
+  "filenames": {
+    "Slot01": "RewriteHeldoutAlpha12101.SLDDRW",
+    "Slot02": "RewriteHeldoutBeta12101.SLDDRW"
+  },
+  "save_epochs": {
+    "Slot01": 1795104101,
+    "Slot02": 1795104197
+  },
+  "source_access_order": [
+    "external method/tool/writer freeze",
+    "guest-only metadata custody",
+    "new binding SHA freeze with zero canonical payload reads",
+    "two independent actual same-path writes per canonical source",
+    "both generated output hashes frozen",
+    "fresh source/rewrite/control native lifecycles",
+    "strict allowlisted hash/count/boolean export"
+  ],
+  "source_profile": "canonical SDK seven-stream blank output, locked before RewriteCode03",
+  "original_native_source_credit": false,
+  "canonical_sdk_rewrite_heldout_only": true,
+  "private_canonical_files_read": "guest only after new binding freeze",
+  "exports": "only PublicExport.json and final fixed-schema stdout; all other files stay in C guest storage",
+  "native_phase_count": 12,
+  "expected_sheet_state_count": 30,
+  "expected_ordered_tree_rows": 120,
+  "rewrite_native_flags": [
+    false,
+    false
+  ],
+  "preparation_host_reads_of_private_data": 0
+}

@@ -1,0 +1,435 @@
+{
+  "counts": {
+    "complete_functions": 9,
+    "declared_unwind_fragments": 12,
+    "explicit_leaf_functions": 1,
+    "instruction_windows": 19,
+    "native_function_bytes": 14278,
+    "negative_processes": 7,
+    "positive_processes": 4,
+    "prior_packet_files_unchanged": 19,
+    "prism_keys": 12,
+    "scalar_imports": 3,
+    "source_immediates": 6
+  },
+  "delivery_pr": 121,
+  "evidence_kind": "static source and independent bounded numeric process replay, no native CAD acceptance",
+  "face_numeric": {
+    "claim": "collision-free completed insertion and rehash branches only; no native CAD acceptance",
+    "final_bucket_count": 8,
+    "final_buckets_in_store_order": [4, 7, 6, 1, 0, 3],
+    "final_mask": 7,
+    "history": [
+      {
+        "before_bucket": 4,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xad2aca7747985764",
+        "insertion_bucket": 4,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 1,
+        "key_bits": 1,
+        "ordinal": 0
+      },
+      {
+        "before_bucket": 7,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x8d1ace904a398d17",
+        "insertion_bucket": 7,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 2,
+        "key_bits": 2,
+        "ordinal": 1
+      },
+      {
+        "before_bucket": 6,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xed202287f403d086",
+        "insertion_bucket": 6,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 3,
+        "key_bits": 3,
+        "ordinal": 2
+      },
+      {
+        "before_bucket": 1,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xcd3ac65e44f721b1",
+        "insertion_bucket": 1,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 4,
+        "key_bits": 4,
+        "ordinal": 3
+      },
+      {
+        "before_bucket": 0,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x2d401a55eec16520",
+        "insertion_bucket": 0,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 5,
+        "key_bits": 5,
+        "ordinal": 4
+      },
+      {
+        "before_bucket": 3,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xd301e6ef1629ad3",
+        "insertion_bucket": 3,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 6,
+        "key_bits": 6,
+        "ordinal": 5
+      }
+    ],
+    "input_keys": [1, 2, 3, 4, 5, 6],
+    "serialized_key_bits": [1, 2, 3, 4, 5, 6],
+    "serialized_key_order": [1, 2, 3, 4, 5, 6],
+    "wire_key_words_le_hex": "010000000200000003000000040000000500000006000000",
+    "wire_type": "u32"
+  },
+  "frozen_source": {
+    "dependency_path": "re/tooling/sw2026/downstream/VerifyRuntimeOwnerSources.py",
+    "dependency_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "module": {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "record_path": "re/solidworks/records/DownstreamEdgeRegistrationOrder2026.json",
+    "record_sha256": "8ed7c85582347a6b13951fc35b1b58c0b89da2caf73588592b1b9e44479d2e41",
+    "tool_path": "re/tooling/sw2026/downstream/CheckEdgeRegistrationOrder.py",
+    "tool_sha256": "45e9c886840bd3eca2e2d6a3b9a6988989e157ad433cd63483709b1059221cc7"
+  },
+  "limits": {
+    "cad_inputs_read": 0,
+    "counts_larger_than_twelve_admitted": false,
+    "edge_wrapper_or_operand_construction_included": false,
+    "general_collision_order_admitted": false,
+    "heldout_inputs_read": 0,
+    "hopper_targets_opened": 0,
+    "native_acceptance": false,
+    "native_processes_started": 0,
+    "proprietary_listings_included": false,
+    "shared_checkout_files_written": 0,
+    "vm_calls": 0,
+    "writer_output_count": 0
+  },
+  "negative_processes": [
+    {
+      "case": "OccupiedFinalBucket",
+      "error": "ValueError: numeric scope excludes an occupied final insertion bucket",
+      "exit_code": 1,
+      "output_absent": true,
+      "request_sha256": "51c758a510309f37afb4179005bb4e8a2cdfee70d429b0a6f28639837c279564",
+      "stderr_sha256": "056ba252cd804d67ffaecdc89cc976e54291bb6961d9950e6cf29fc90af9b1c6"
+    },
+    {
+      "case": "DuplicateIdentity",
+      "error": "ValueError: fresh registration requires distinct allocated IDs",
+      "exit_code": 1,
+      "output_absent": true,
+      "request_sha256": "2ab93db3087a109647408a8974a027a152d4ddc614fceeddfff87f4ebb17750e",
+      "stderr_sha256": "b30d18e08ffb0d8981598286e11cab05f5d3d997f98cda36382f4393f8ba2bbd"
+    },
+    {
+      "case": "ZeroIdentity",
+      "error": "ValueError: identity key is outside the nonzero wire domain",
+      "exit_code": 1,
+      "output_absent": true,
+      "request_sha256": "e754404a206704e3bd1800235b51d2cadd6190d6ef9087847dd196f3cd06c301",
+      "stderr_sha256": "10c42bf3182e24a687ce96985935dce9fef94c179002e7f899b4c674a5f05af1"
+    },
+    {
+      "case": "SignedOverflow",
+      "error": "ValueError: identity key is outside the nonzero wire domain",
+      "exit_code": 1,
+      "output_absent": true,
+      "request_sha256": "26482f37b369f3c35b645e13792d6220c3c97555a1472043b42d8f68d1eab46e",
+      "stderr_sha256": "10c42bf3182e24a687ce96985935dce9fef94c179002e7f899b4c674a5f05af1"
+    },
+    {
+      "case": "UnknownWireType",
+      "error": "ValueError: identity wire type must be i32 or u32",
+      "exit_code": 1,
+      "output_absent": true,
+      "request_sha256": "8fa485fe62cf067c72da3e11725656c845a627880f8aacd04c1febb7ed865e14",
+      "stderr_sha256": "7f8597eafd20842e9f4d3423a9d079d9dd677b0f5480d5036a1fb3eacf4525ba"
+    },
+    {
+      "case": "TooManyKeys",
+      "error": "ValueError: numeric profile needs one to twelve supplied keys",
+      "exit_code": 1,
+      "output_absent": true,
+      "request_sha256": "6da3dd22afd7ee7235e294708cb10b6db7f2291636ec5c60a18d7288ea004280",
+      "stderr_sha256": "a0c42836d5645c6cea9d016e594dac9500989bd6814f3beae9588f789649e4e4"
+    },
+    {
+      "case": "WrongModuleHash",
+      "error": "ValueError: original module identity differs: sldmodu.dll",
+      "exit_code": 1,
+      "output_absent": true,
+      "request_sha256": "22a47894823f9b569d631f90f9f6a75a35d107f7921cf46fd40755753ba0e224",
+      "stderr_sha256": "76ada33f5a52bb60a664d619e600268c170cbca23ef58307a1dd0d4250dd52ac"
+    }
+  ],
+  "owner": "/root/assembly_occurrence",
+  "passed": true,
+  "positive_processes": [
+    {
+      "case": "FinalPrism01",
+      "exit_code": 0,
+      "final_bucket_count": 64,
+      "order": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+      "receipt_sha256": "b8fe00d12db8309effac8550d51f9614e0ade642b919b5843a096200c9f9c74c",
+      "request_sha256": "36efdd6e024b77b8c2c24787818c9e65e6219b9c12265660552de0cf26689713"
+    },
+    {
+      "case": "FinalPrism02",
+      "exit_code": 0,
+      "final_bucket_count": 64,
+      "order": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+      "receipt_sha256": "b8fe00d12db8309effac8550d51f9614e0ade642b919b5843a096200c9f9c74c",
+      "request_sha256": "36efdd6e024b77b8c2c24787818c9e65e6219b9c12265660552de0cf26689713"
+    },
+    {
+      "case": "FinalUnsigned01",
+      "exit_code": 0,
+      "final_bucket_count": 64,
+      "order": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+      "receipt_sha256": "502c146daf4041628690d3d51e4fefc49b55ff1a28ad3de3746c7764a5fcd500",
+      "request_sha256": "88160e62b19225bdfff9ab123c8cffe8ae4ef729326433f4965c36528931132f"
+    },
+    {
+      "case": "FinalFaces01",
+      "exit_code": 0,
+      "final_bucket_count": 8,
+      "order": [1, 2, 3, 4, 5, 6],
+      "receipt_sha256": "5afb5716995326bcea21f6eda5be470b220b9ef876b16f18c8ebefb7a2dac5a1",
+      "request_sha256": "3d05f6d0bd36de9862e64e62958efc55c2460b8430a13d1145b323c8315a3f6f"
+    }
+  ],
+  "preserved_prior_packets": [
+    {
+      "handoff_sha256": "8c53bb121cec35a66cc7a12b8a48fa6c64db0da14db6d67f3783993f8089eaae",
+      "packet": "FreecadCylinderDirectionWire01",
+      "stageable_manifest_sha256": "185e9cd4f06f9d425257d43e161384cdd957135743ef39495932a98005571529",
+      "unchanged_files": 7
+    },
+    {
+      "handoff_sha256": "4ac3212eae217591621cde58e8db24a3a7264ae4ece3f70964e9bf5fa5953f8b",
+      "packet": "FreecadCylinderSelectedEnd01",
+      "stageable_manifest_sha256": "191c0b6a6bdfa3522b995b62b7c88d6d1048fe2b580821b2f252994b70f82be3",
+      "unchanged_files": 6
+    },
+    {
+      "handoff_sha256": "3c8d7170e98bd0427981b207bfe526d9710c957e67f7d35128a3841614e67ed1",
+      "packet": "FreecadCylinderAngledPlanes01",
+      "stageable_manifest_sha256": "cc23d16fa5005d3a20989de5a76d9e4b29e66393c2ca54feae83678320371751",
+      "unchanged_files": 6
+    }
+  ],
+  "prism_numeric": {
+    "claim": "collision-free completed insertion and rehash branches only; no native CAD acceptance",
+    "final_bucket_count": 64,
+    "final_buckets_in_store_order": [
+      2, 61, 44, 31, 14, 57, 40, 27, 10, 5, 52, 39
+    ],
+    "final_mask": 63,
+    "history": [
+      {
+        "before_bucket": 2,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x6d3572669b2cde42",
+        "insertion_bucket": 2,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 7,
+        "key_bits": 7,
+        "ordinal": 0
+      },
+      {
+        "before_bucket": 5,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x4cfad6c24f7bf87d",
+        "insertion_bucket": 5,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 8,
+        "key_bits": 8,
+        "ordinal": 1
+      },
+      {
+        "before_bucket": 4,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xad002ab9f9463bec",
+        "insertion_bucket": 4,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 9,
+        "key_bits": 9,
+        "ordinal": 2
+      },
+      {
+        "before_bucket": 7,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x8cf02ed2fbe7719f",
+        "insertion_bucket": 7,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 10,
+        "key_bits": 10,
+        "ordinal": 3
+      },
+      {
+        "before_bucket": 6,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xecf582caa5b1b50e",
+        "insertion_bucket": 6,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 11,
+        "key_bits": 11,
+        "ordinal": 4
+      },
+      {
+        "before_bucket": 1,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xcd1026a0f6a50639",
+        "insertion_bucket": 1,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 12,
+        "key_bits": 12,
+        "ordinal": 5
+      },
+      {
+        "before_bucket": 0,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x2d157a98a06f49a8",
+        "insertion_bucket": 0,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 13,
+        "key_bits": 13,
+        "ordinal": 6
+      },
+      {
+        "before_bucket": 3,
+        "before_bucket_count": 8,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xd057eb1a3107f5b",
+        "insertion_bucket": 3,
+        "insertion_bucket_count": 8,
+        "insertion_position": "shared sentinel",
+        "key": 14,
+        "key_bits": 14,
+        "ordinal": 7
+      },
+      {
+        "before_bucket": 2,
+        "before_bucket_count": 8,
+        "before_bucket_members": [7],
+        "growth": {
+          "load_binary32": 1.125,
+          "minimum_required_buckets": 9,
+          "new_buckets": 64,
+          "old_buckets": 8,
+          "prospective_count": 9,
+          "rehash_empty_bucket_count": 8,
+          "rehash_splices": 0,
+          "requested_buckets": 64
+        },
+        "hash64": "0x6d0ad2a94cdac2ca",
+        "insertion_bucket": 10,
+        "insertion_bucket_count": 64,
+        "insertion_position": "shared sentinel",
+        "key": 15,
+        "key_bits": 15,
+        "ordinal": 8
+      },
+      {
+        "before_bucket": 5,
+        "before_bucket_count": 64,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x4cd037050129dd05",
+        "insertion_bucket": 5,
+        "insertion_bucket_count": 64,
+        "insertion_position": "shared sentinel",
+        "key": 16,
+        "key_bits": 16,
+        "ordinal": 9
+      },
+      {
+        "before_bucket": 52,
+        "before_bucket_count": 64,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0xacd58afcaaf42074",
+        "insertion_bucket": 52,
+        "insertion_bucket_count": 64,
+        "insertion_position": "shared sentinel",
+        "key": 17,
+        "key_bits": 17,
+        "ordinal": 10
+      },
+      {
+        "before_bucket": 39,
+        "before_bucket_count": 64,
+        "before_bucket_members": [],
+        "growth": null,
+        "hash64": "0x8cc58f15ad955627",
+        "insertion_bucket": 39,
+        "insertion_bucket_count": 64,
+        "insertion_position": "shared sentinel",
+        "key": 18,
+        "key_bits": 18,
+        "ordinal": 11
+      }
+    ],
+    "input_keys": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    "serialized_key_bits": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    "serialized_key_order": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    "wire_key_words_le_hex": "0700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000",
+    "wire_type": "i32"
+  },
+  "schema": "kit.sw2026.downstream-edge-order-static-audit.v1",
+  "signed_unsigned_prism_numeric_equal": true,
+  "six_face_order_preserved": true,
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "two_prism_receipts_identical": true
+}

@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "task_id": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "owner": "assembly_occurrence",
+  "delivery_pr": 121,
+  "status": "bounded_disclosed_source_presentation_passed",
+  "baseline_revision": "ce7468a11aea304bf2740f79d0cbc01051c6069b",
+  "baseline_source_manifest_sha256": "d4cc160e2fc304e6b43c14b20d76b13530b0816226e9967d7ba5c0c33061ceb8",
+  "process_source_manifest_sha256": "e0e5333b498900b6d8a3cd74c4362dddd3615e91e950c319c3b3b1a0da61770b",
+  "process_raw_sha256": "538279431d132f2b8f74e032e47b6dd2fd37c0743ee3540bb5a5d841075d13b4",
+  "sdk_files_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruCircle.py": "049771464eafc31891a5c33ed5f480b3935f42e1ae5c5aead03c0d35bdc5351c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruRoots.py": "e21e51838b7884f4879386daeee2a788d0d746f2422370ffeae9509a379e23a6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruRows.py": "9a1d075946512f7170454a1ec49357b59b13b239b109efe7e5b0c81d562863f9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruScope.py": "ebad6728dd986cbe9cbe602a766a60226d6d3738ea7118e1faf80910ba598f53",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruShape.py": "9575f237f9083cc7f12a7bd2eca5e76c716b92d6b22991acf88767bc8746cf83",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckTreeAlias.py": "edf75792d74c31efb3e259ed7a04cfa594e4270d03abdd73aeee1496c053f2e5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectThruTree.py": "f7d7087ffd6a4cde752e111b1d0904a3e13ca8b4273e93e849151aeb0023804d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectTree.py": "67e1daf747a3d05a83f3e3ce2667c269fd2de644005a9f5963010fc69d758073",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ReadThruOwners.py": "6c39d0178ee51a5b52b1865dba8fc5a4102f325d0f419fb9aec35353e4d969e7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ReadThruStock.py": "79a31d402a3784311b6c11bfaf73cb30945f8e85722222beff62ff510185b5d8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/RootOrder.py": "19c59a7d880a2e670d4418967f0d160a85f4819388ec81bcc6608c1a4a836a65",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ThruTreeReport.py": "221bfc5f3a904042dc35bf0a1c20d4d8db6f501ec26cca1646cf2225fdd06dfb"
+  },
+  "tool_files_sha256": {
+    "AuditThruTree.py": "fce59593b8cb275c3555d6db38fd29f384fef6779f8a2efd5c23b1f26415fef8",
+    "InspectThruTree.py": "1a761ceaf33f4d254fdd3229b80977fc29203f8843ae01faf44e3c1ee2bbc935",
+    "throughpresentation/Compat.py": "e18449788fb02dec574e2257b5fac592492b33254979eb933fe2bd7307df99d7",
+    "throughpresentation/Mutate.py": "91c89b764d8591d31f5c8a8d90f1ee2affcd81503ac6da4d2bb1f12ff48bef41"
+  },
+  "fresh_sdk_process_count": 44,
+  "scope": {
+    "ordinary_path_and_bytes_reads": 12,
+    "malformed_owned_graph_probes": 28,
+    "old_two_argument_caller_processes": 4,
+    "unchanged_portable_fields": true,
+    "unchanged_old_caller_complete_outputs": true,
+    "native_oracle_used": false,
+    "held_out_accessed": false,
+    "source_conversion_qualified": false,
+    "public_writer_promoted": false,
+    "provenance_qualified": false,
+    "continuous_automatic_scope_qualified": false,
+    "full_native_tree_qualified": false
+  },
+  "cases": [
+    {
+      "id": "D01",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "status": "ordinary_through_all_source_profile",
+      "public_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40"
+      ],
+      "root_ids": [
+        8,
+        23,
+        24,
+        25,
+        22,
+        7,
+        1,
+        10,
+        9,
+        6,
+        21,
+        16,
+        11,
+        2,
+        3,
+        4,
+        5,
+        26,
+        32,
+        33,
+        40
+      ],
+      "owned_member_ids": [
+        17,
+        18,
+        12,
+        13,
+        14,
+        15
+      ],
+      "configuration_helper_ids": [
+        19
+      ],
+      "public_identity_count": 28,
+      "persisted_tree_row_count": 27,
+      "all_public_ids_accounted": true,
+      "portable_fields_unchanged": true,
+      "actual_helper_owner_field": "f13f8",
+      "malformed_probes": [
+        {
+          "mutation": "CopiedRoot",
+          "record_sha256": "116119fc7200f431a1427a19b4bcf34c1cbb31fdc8baf5268cf2a3186c7ad57c",
+          "diagnostic": "part presentation has an unqualified root layout"
+        },
+        {
+          "mutation": "CopiedMember",
+          "record_sha256": "66e70f12b82860f65b1e3270333781c7b7749b98753970353ac2f45d45378ea8",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "CopiedHelper",
+          "record_sha256": "dc76be4124a3f4d6c3b28ac96b5f561915b0c48bb3a2dd123b3ee29f500ad357",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "ForeignHelper",
+          "record_sha256": "ad4953c1d076e61d2f4c1b0d296973792390d06ae10d99643edd3804a44ee4aa",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "StrippedPublicMember",
+          "record_sha256": "f8ea0bfe1425a62a7c8f8cf50d4b7ca03150b377ab176842f91927c5a6310b9b",
+          "diagnostic": "through-all source has stripped or unaccounted public owners"
+        },
+        {
+          "mutation": "StrippedMembers",
+          "record_sha256": "eb81a7755b4e291194158525626a41c876c6c2aa808e56972fcd49149cb5c30a",
+          "diagnostic": "through-all source requires all actual persisted system owners"
+        },
+        {
+          "mutation": "StrippedHelper",
+          "record_sha256": "197c39b5f07e8879b11234b5c5ba33244c9e85e68b995ef16968d710ef8ed686",
+          "diagnostic": "through-all source requires all actual persisted system owners"
+        },
+        {
+          "mutation": "ForeignEnvironment",
+          "record_sha256": "f74d888c0f2edde07888c803e91058e347d883335437453beff6257819c91f28",
+          "diagnostic": "part environment root lacks its actual model binding"
+        },
+        {
+          "mutation": "ForeignProfile",
+          "record_sha256": "95b13b40c82e77a6227aebcf9a28d9d50c4c14a6227cee861a58c816775ccea4",
+          "diagnostic": "extrusion parent does not alias its resolved feature root"
+        },
+        {
+          "mutation": "CopiedComponent",
+          "record_sha256": "9f8cd438af80660202605730aa764f7f981fc16da96fe44b9c088ccdfb297399",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "CopiedDepth",
+          "record_sha256": "12c5bc0a9988b46ff8618b0c761c66b2d8ac88b71233184051cab0d8441d4e80",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "CopiedScope",
+          "record_sha256": "dc955728603c466ddb8aa787bd50faf9de05d0f4ec81cbab9c6686ba1828e4e7",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "ForeignScope",
+          "record_sha256": "5e7eb72e152fe02770953fc9f099e1735b492f29ba8cce34828d27d3d46d55df",
+          "diagnostic": "cut selection wrapper differs from the consumed boss atom"
+        },
+        {
+          "mutation": "UnusedCutDepth",
+          "record_sha256": "1c58a1ad74a5add8143a3701039c0b9d6dc1af49d45439340da7830c6a3d76d9",
+          "diagnostic": "typed through all cut carries active distance or draft state"
+        },
+        {
+          "mutation": "WrongEnd",
+          "record_sha256": "b54ada2819a4f953e2e22e835f2a7017285b6eda3f8ab2ca7ebd09926d411cc3",
+          "diagnostic": "typed model expected concrete schema one node"
+        },
+        {
+          "mutation": "LostAxisRelation",
+          "record_sha256": "6a34895bc6c545035f1ab547e64a009768bf12f3d158473aa1ff56b62fb3abaf",
+          "diagnostic": "typed rectangle has unqualified drivers or owned axes"
+        },
+        {
+          "mutation": "BrokenNotePair",
+          "record_sha256": "ed006add31188d5124da99b056bf53d755f1382bdce60fbe25d76c82ea4a8ae6",
+          "diagnostic": "notes folder lacks the native head and end partnership"
+        },
+        {
+          "mutation": "AuthoredLight",
+          "record_sha256": "38f1f4a73fc1dd2dede290b467a34cceb7cf20b5838e910ea4786af3aa7fd2a3",
+          "diagnostic": "authored system children are outside the default profile"
+        },
+        {
+          "mutation": "ExtraFeature",
+          "record_sha256": "42281b86dcc762d0097e2090e800ac200d233cac4858a13f735ddaf5d8aa3189",
+          "diagnostic": "legacy presentation includes an unaccounted feature"
+        },
+        {
+          "mutation": "UnqualifiedVersion",
+          "record_sha256": "ceb0a866d8b01df158a38f62e5824b6fdafc8b55d54c5def99bda3e057a44ebe",
+          "diagnostic": "part presentation has an unqualified root layout"
+        }
+      ],
+      "path_read_sha256": "54f7658f7a1e18c191fea514b1ff63a8f01f48bbc0ff1cce7b5f0d2c3f78ecf0",
+      "bytes_read_sha256": "a7d5617f3e41b0ea246f5325b4cedded910a30d785415b36d2ffd594fcc6d4fd"
+    },
+    {
+      "id": "D02",
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "status": "ordinary_through_all_source_profile",
+      "public_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40"
+      ],
+      "root_ids": [
+        8,
+        23,
+        24,
+        25,
+        22,
+        7,
+        1,
+        10,
+        9,
+        6,
+        21,
+        16,
+        11,
+        2,
+        3,
+        4,
+        5,
+        26,
+        32,
+        33,
+        40
+      ],
+      "owned_member_ids": [
+        17,
+        18,
+        12,
+        13,
+        14,
+        15
+      ],
+      "configuration_helper_ids": [
+        19
+      ],
+      "public_identity_count": 28,
+      "persisted_tree_row_count": 27,
+      "all_public_ids_accounted": true,
+      "portable_fields_unchanged": true,
+      "actual_helper_owner_field": "f13f8",
+      "malformed_probes": [
+        {
+          "mutation": "CopiedRoot",
+          "record_sha256": "331d0e7724eaa50c4f174dcf5c615bb28bc3cbc28cafe594dd2b098113282043",
+          "diagnostic": "part presentation has an unqualified root layout"
+        },
+        {
+          "mutation": "CopiedHelper",
+          "record_sha256": "b25b30e52baee3e3a9e544288524e2af401914c54276085578452e043d1fa7a3",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "ForeignScope",
+          "record_sha256": "d6dbb4a6e92ed2888a8c06e276dd5b06543bcd229be121b2dbc08bfcfb329f24",
+          "diagnostic": "cut selection wrapper differs from the consumed boss atom"
+        },
+        {
+          "mutation": "StrippedMembers",
+          "record_sha256": "d5f71195ad623864a1241f9bea569d893253963867205c4dbccda69e3fc73260",
+          "diagnostic": "through-all source requires all actual persisted system owners"
+        }
+      ],
+      "path_read_sha256": "52e693fc0affcdfe42e8516b70f8f5a5593ab7b4eb82414962280cb16224e706",
+      "bytes_read_sha256": "c48261b297dc07cd20d0f83f60739fea0dabd3947bc63d51dd8d40e6aa6bce1b"
+    },
+    {
+      "id": "D03",
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "status": "ordinary_through_all_source_profile",
+      "public_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40"
+      ],
+      "root_ids": [
+        8,
+        23,
+        24,
+        25,
+        22,
+        7,
+        1,
+        10,
+        9,
+        6,
+        21,
+        16,
+        11,
+        2,
+        3,
+        4,
+        5,
+        26,
+        32,
+        33,
+        40
+      ],
+      "owned_member_ids": [
+        17,
+        18,
+        12,
+        13,
+        14,
+        15
+      ],
+      "configuration_helper_ids": [
+        19
+      ],
+      "public_identity_count": 28,
+      "persisted_tree_row_count": 27,
+      "all_public_ids_accounted": true,
+      "portable_fields_unchanged": true,
+      "actual_helper_owner_field": "f13f8",
+      "malformed_probes": [
+        {
+          "mutation": "CopiedRoot",
+          "record_sha256": "fe697c6965458c42888dadde7032c8bcb3b5809c95704c8d6cd9db8f9e8c4f58",
+          "diagnostic": "part presentation has an unqualified root layout"
+        },
+        {
+          "mutation": "CopiedHelper",
+          "record_sha256": "45e867baf62d927f3a8393e202925c538d75593104e6dd80e96b4d3b60443a25",
+          "diagnostic": "through-all presentation owner does not alias its archive map"
+        },
+        {
+          "mutation": "ForeignScope",
+          "record_sha256": "c4ab128f1e746db89c4465e5950b50afb6b0231bf9eaa93700f11afe59b335c0",
+          "diagnostic": "cut selection wrapper differs from the consumed boss atom"
+        },
+        {
+          "mutation": "StrippedMembers",
+          "record_sha256": "f8718e1b9a3ddbba2395e535d5eb00ec21d9015ea1be089695e1b360a09409a7",
+          "diagnostic": "through-all source requires all actual persisted system owners"
+        }
+      ],
+      "path_read_sha256": "2cdfff0e9308ffbb5b6984f260c894904eddf2bfa64081ee3f978ab9b68e6d9d",
+      "bytes_read_sha256": "a59fcb21c5738fb005efc856d51ce8c8162fd67c5618bcd0ef11a49d2bcd47bf"
+    }
+  ],
+  "old_caller_compatibility": [
+    {
+      "status": "ordinary_default_profile",
+      "variant": 0,
+      "generated_sha256": "ee3e99bf4df1ba04ea00a209c504213920a90fe4ddc8785c28977001f20a8407",
+      "public_document_sha256": "171408ed875c63162bd894d9fa113f210c3ed9a35e0cfb3d5a577e88caace9d1",
+      "ordered_root_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "two_argument_caller_passed": true,
+      "native_oracle_used": false
+    },
+    {
+      "status": "ordinary_default_profile",
+      "variant": 1,
+      "generated_sha256": "a41e5c28b97461685a834dd764b16e6afc9f8959471ce77559dda9660453216a",
+      "public_document_sha256": "42d380cad8ec2754351a6a68be587d95e366e721b8ef7bda64c388d8af4b87d6",
+      "ordered_root_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "two_argument_caller_passed": true,
+      "native_oracle_used": false
+    }
+  ],
+  "verification_limits": [
+    "No native process or native paired feature-tree measurement was performed",
+    "All native source files were the three explicitly disclosed controls",
+    "No original source equivalence or source writer qualification was inferred",
+    "Strict pyright reported zero source diagnostics; its existing repository config emits three unrecognized-setting messages",
+    "Frozen candidate closure includes three incidental ruff cache files; they are not delivered source or construction inputs"
+  ]
+}

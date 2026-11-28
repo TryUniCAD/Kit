@@ -1,0 +1,81 @@
+{
+  "cases": [
+    {
+      "concept_prefix_bytes": 5919,
+      "map_next_index": 119,
+      "method_count": 96,
+      "name": "D00EmptySheet",
+      "native_views": [],
+      "object_count": 76,
+      "source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b"
+    },
+    {
+      "concept_prefix_bytes": 11235,
+      "map_next_index": 178,
+      "method_count": 115,
+      "name": "D01FrontView",
+      "native_views": [
+        {
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.09341,
+            0.08263,
+            -0.0035,
+            1.0
+          ],
+          "orientation": "*Front",
+          "scale_ratio": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "object_count": 125,
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    {
+      "concept_prefix_bytes": 11245,
+      "map_next_index": 178,
+      "method_count": 115,
+      "name": "D02MovedFrontView",
+      "native_views": [
+        {
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.11937000000000002,
+            0.11487,
+            -0.0035,
+            1.0
+          ],
+          "orientation": "*Front",
+          "scale_ratio": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "object_count": 125,
+      "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47"
+    }
+  ],
+  "native_archive_version": 19000,
+  "schema": "kit.sw2026.drawing-rule-port.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "source_rule_sha256": "8c6094f2f9c670442ef52b14c8f6face13ebdf48d335b93802aa76b713e29b3a"
+}

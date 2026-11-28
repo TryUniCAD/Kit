@@ -1,0 +1,154 @@
+{
+  "cases": [
+    {
+      "bytes": 37250,
+      "cache": {
+        "n": 0
+      },
+      "cache_selector": 1,
+      "case": "NativeBefore",
+      "colour": [
+        {
+          "key": 1,
+          "value": 15000804
+        }
+      ],
+      "count": 1,
+      "definition_sha256": "c36e8b4eb1f3b54d6dae2d38d0d4b6d7e9fe1e58613a328a411146a9a2d75fbc",
+      "flag_words": {
+        "fe30_flags": 1,
+        "fe30_name": "<authored configuration>_Display State 1"
+      },
+      "full_raw_decode": true,
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    {
+      "bytes": 29408,
+      "cache": null,
+      "cache_selector": 0,
+      "case": "GeneratedBefore",
+      "colour": [],
+      "count": 0,
+      "definition_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+      "flag_words": {
+        "fe30_flags": -1,
+        "fe30_name": ""
+      },
+      "full_raw_decode": true,
+      "source_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee"
+    },
+    {
+      "bytes": 34952,
+      "cache": {
+        "n": 0
+      },
+      "cache_selector": 1,
+      "case": "ControlBeforeSaved",
+      "colour": [
+        {
+          "key": 1,
+          "value": 15000804
+        }
+      ],
+      "count": 1,
+      "definition_sha256": "d7689e44ea0d0ca3ea17082b3bd03b10f63110b82051bbc44be90830c3fa9a7e",
+      "flag_words": {
+        "fe30_flags": 1,
+        "fe30_name": "<authored configuration>_Display State 1"
+      },
+      "full_raw_decode": true,
+      "source_sha256": "77713dfab03b4166994cc8e4c79f43e08088c797459ec86e556f60d28b239633"
+    },
+    {
+      "bytes": 32844,
+      "cache": {
+        "n": 0
+      },
+      "cache_selector": 1,
+      "case": "GeneratedSaved",
+      "colour": [
+        {
+          "key": 1,
+          "value": 15000804
+        }
+      ],
+      "count": 1,
+      "definition_sha256": "fdd2754d39ff50d48a850ef382c2fddefd19fcd4e7c930b595a1f61cb6b3f6c5",
+      "flag_words": {
+        "fe30_flags": 1,
+        "fe30_name": "<modeled default>_Display State 1"
+      },
+      "full_raw_decode": true,
+      "source_sha256": "1c6953d1e4c8f321012689ff1700978c6b8d69417bede3ed1bdd9ca47459a767"
+    },
+    {
+      "bytes": 34952,
+      "cache": {
+        "n": 0
+      },
+      "cache_selector": 1,
+      "case": "ControlAfterSaved",
+      "colour": [
+        {
+          "key": 1,
+          "value": 15000804
+        }
+      ],
+      "count": 1,
+      "definition_sha256": "91f351e9c14bc65e7095c836309e0601fef4107b737916948b72e3d0f37c344c",
+      "flag_words": {
+        "fe30_flags": 1,
+        "fe30_name": "<authored configuration>_Display State 1"
+      },
+      "full_raw_decode": true,
+      "source_sha256": "a73d591a1db5b64cf17add2df1230856b62bd167edd48adc07f2ea22168c3596"
+    },
+    {
+      "bytes": 37612,
+      "cache": {
+        "n": 0
+      },
+      "cache_selector": 1,
+      "case": "H01SheetA",
+      "colour": [
+        {
+          "key": 1,
+          "value": 15000804
+        }
+      ],
+      "count": 1,
+      "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "flag_words": {
+        "fe30_flags": 1,
+        "fe30_name": "<authored configuration>_Display State 1"
+      },
+      "full_raw_decode": true,
+      "source_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b"
+    },
+    {
+      "bytes": 37608,
+      "cache": {
+        "n": 0
+      },
+      "cache_selector": 1,
+      "case": "H02SheetB",
+      "colour": [
+        {
+          "key": 1,
+          "value": 15000804
+        }
+      ],
+      "count": 1,
+      "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "flag_words": {
+        "fe30_flags": 1,
+        "fe30_name": "<authored configuration>_Display State 1"
+      },
+      "full_raw_decode": true,
+      "source_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77"
+    }
+  ],
+  "heldout_inputs_newly_opened": 0,
+  "native_processes_started": 0,
+  "schema": "kit.sw2026.drawing-colour-regeneration-observation.v1"
+}

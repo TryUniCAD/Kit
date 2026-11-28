@@ -1,0 +1,241 @@
+{
+  "native_processes_started": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "physical_baseline_revision": "872478d2b7026941949d98036465bb615854c5e1",
+  "physical_baseline_sha256": "a8b954ac2eab2d5064055282cf1f029bec4d0a2ba83c4b09e1023d646f06b849",
+  "private_inputs_read": 0,
+  "production_entry": "ReadFilletHist",
+  "public_fillet_admission": false,
+  "results": [
+    {
+      "all_rows_and_states_match": true,
+      "body_slot": 2,
+      "case": "EdgeFilletAxial",
+      "controller_mark_ids": [
+        3,
+        13,
+        17
+      ],
+      "controller_slots": [
+        104,
+        257,
+        276
+      ],
+      "edited": false,
+      "node_counts": [
+        206,
+        171,
+        29,
+        29
+      ],
+      "ordinary_link_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+      "radius_m": 0.00437,
+      "refusals": {
+        "contradictory_source_qualifier": "inconsistent source index selector for a rollback target",
+        "crossed_actual_partition": "SOLIDWORKS live fillet topology or radius differs",
+        "detached_equal_controller": "through-all presentation owner does not alias its archive map",
+        "foreign_removal_class": "rollback slots overlap or disagree with the actual live owners",
+        "short_copy_capacity": "rollback rows exceed their bounded capacity",
+        "unresolved_previous_dependency": "rollback graph has an unresolved pointer owner"
+      },
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+      "strict_history_refusal": "current kernel framing differs"
+    },
+    {
+      "all_rows_and_states_match": true,
+      "body_slot": 2,
+      "case": "EdgeFilletAxial",
+      "controller_mark_ids": [
+        3,
+        25,
+        29
+      ],
+      "controller_slots": [
+        104,
+        257,
+        276
+      ],
+      "edited": true,
+      "node_counts": [
+        203,
+        169,
+        27,
+        27
+      ],
+      "ordinary_link_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+      "radius_m": 0.00611,
+      "refusals": {},
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a",
+      "strict_history_refusal": "current kernel framing differs"
+    },
+    {
+      "all_rows_and_states_match": true,
+      "body_slot": 2,
+      "case": "EdgeFilletTransverse",
+      "controller_mark_ids": [
+        3,
+        13,
+        17
+      ],
+      "controller_slots": [
+        104,
+        257,
+        276
+      ],
+      "edited": false,
+      "node_counts": [
+        206,
+        171,
+        29,
+        29
+      ],
+      "ordinary_link_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+      "radius_m": 0.00283,
+      "refusals": {},
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e",
+      "strict_history_refusal": "current kernel framing differs"
+    },
+    {
+      "all_rows_and_states_match": true,
+      "body_slot": 2,
+      "case": "EdgeFilletTransverse",
+      "controller_mark_ids": [
+        3,
+        25,
+        29
+      ],
+      "controller_slots": [
+        104,
+        257,
+        276
+      ],
+      "edited": true,
+      "node_counts": [
+        203,
+        169,
+        27,
+        27
+      ],
+      "ordinary_link_refusal": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+      "radius_m": 0.0052699999999999995,
+      "refusals": {},
+      "runtime_external_access_attempts": 0,
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3",
+      "strict_history_refusal": "current kernel framing differs"
+    }
+  ],
+  "schema": "kit.sw2026.edge-fillet-transaction.v1",
+  "source_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797",
+  "strict_delete_control": {
+    "chronological_rollback": [
+      {
+        "copy_staging_capacity": 1,
+        "delta_key": 3,
+        "earlier": 118,
+        "header_counts": {
+          "n_copy_mod_nodes": 0,
+          "n_del_nodes": 0,
+          "n_new_nodes": 99
+        },
+        "later": 0,
+        "logical_id": 7,
+        "mark": 117,
+        "pointer_qualifiers": {
+          "nonnull_false": 0,
+          "nonnull_true": 0,
+          "null_true": 15
+        },
+        "previous_copies": {
+          "101": 1
+        },
+        "removed": {
+          "12": 1,
+          "13": 2,
+          "14": 4,
+          "15": 8,
+          "16": 4,
+          "17": 8,
+          "19": 2,
+          "31": 4,
+          "50": 2,
+          "51": 2,
+          "70": 1,
+          "74": 1,
+          "81": 22,
+          "82": 21,
+          "83": 3,
+          "98": 1
+        },
+        "restored": {},
+        "rollback_payload_offset": 144
+      },
+      {
+        "copy_staging_capacity": 1,
+        "delta_key": 2,
+        "earlier": 119,
+        "header_counts": {
+          "n_copy_mod_nodes": 0,
+          "n_del_nodes": 0,
+          "n_new_nodes": 0
+        },
+        "later": 117,
+        "logical_id": 3,
+        "mark": 118,
+        "pointer_qualifiers": {
+          "nonnull_false": 0,
+          "nonnull_true": 0,
+          "null_true": 15
+        },
+        "previous_copies": {
+          "101": 1
+        },
+        "removed": {},
+        "restored": {},
+        "rollback_payload_offset": 784
+      },
+      {
+        "copy_staging_capacity": 0,
+        "delta_key": 0,
+        "earlier": 0,
+        "header_counts": {
+          "n_copy_mod_nodes": 0,
+          "n_del_nodes": 0,
+          "n_new_nodes": 0
+        },
+        "later": 118,
+        "logical_id": 1,
+        "mark": 119,
+        "pointer_qualifiers": {
+          "nonnull_false": 0,
+          "nonnull_true": 0,
+          "null_true": 0
+        },
+        "previous_copies": {},
+        "removed": {},
+        "restored": {},
+        "rollback_payload_offset": 751
+      }
+    ],
+    "explicit_fillet_refusal": "SOLIDWORKS fillet history needs one actual fillet root",
+    "history_payload_sha256": "b22e3eab0bb2c0bdc1cc9db6084d26b122e9189b688a113198a9dd3f690245a9",
+    "runtime_external_access_attempts": 0,
+    "selectors_from_typed_archive": [
+      3,
+      7
+    ],
+    "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "state_node_counts": [
+      113,
+      27,
+      27
+    ],
+    "strict_prior_mark": 3,
+    "typed_history_consumes_payload": true
+  },
+  "writer_outputs": 0
+}

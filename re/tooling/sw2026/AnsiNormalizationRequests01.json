@@ -1,0 +1,3468 @@
+{
+  "cases": [
+    {
+      "analysis_precision": 6,
+      "name": "AnsiNormalizedCornerPrecisionThreeIso",
+      "precision": 3,
+      "request": {
+        "mode": "iso",
+        "origin_request": {
+          "child_policy": {
+            "height_text_m": [
+              0.0545051,
+              0.0138065
+            ],
+            "kind": "corner-anchored",
+            "route_centerline": false,
+            "width_text_m": [
+              0.0209635,
+              -0.008283899999999999
+            ]
+          },
+          "drawing_document": {
+            "$type": "DrawingData",
+            "active_sheet_id": "neutral:sheet:AnsiDetailCornerAlpha",
+            "model_refs": {
+              "$tuple": [
+                {
+                  "$type": "DrawingModelRef",
+                  "id": "neutral:child:AnsiDetailCornerAlpha",
+                  "source_format_id": "solidworks.sldprt",
+                  "source_path": "C:\\KitAnsiNormalized01\\AnsiNormalizedCornerPrecisionThreeIso\\AnsiDetailCornerAlphaChild.SLDPRT"
+                }
+              ]
+            },
+            "sheets": {
+              "$tuple": [
+                {
+                  "$type": "DrawingSheet",
+                  "height": 0.21589999999999998,
+                  "id": "neutral:sheet:AnsiDetailCornerAlpha",
+                  "name": "AnsiDetailCornerAlpha paper",
+                  "scale_ratio": {
+                    "$tuple": [
+                      7.0,
+                      5.0
+                    ]
+                  },
+                  "views": {
+                    "$tuple": [
+                      {
+                        "$type": "DrawingView",
+                        "configuration_name": "modeled default",
+                        "id": "neutral:view:AnsiDetailCornerAlpha",
+                        "model_ref_id": "neutral:child:AnsiDetailCornerAlpha",
+                        "model_to_sheet": null,
+                        "name": "AnsiDetailCornerAlpha model view",
+                        "orientation_name": "*Front",
+                        "outline": null,
+                        "position": {
+                          "$type": "Vector2",
+                          "x": 0.11917,
+                          "y": 0.09137
+                        },
+                        "scale_ratio": {
+                          "$tuple": [
+                            0.893,
+                            1.0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "width": 0.2794
+                }
+              ]
+            }
+          },
+          "native": {
+            "options": {
+              "auto_dim_text_link": true,
+              "block_identity": "c9e3e4d6-77d6-47d9-9ed4-079a25663854",
+              "created_at": 1794871231,
+              "folder_names": {
+                "annotations": "AnsiDetailCornerAlpha annotations",
+                "binder": "Design Binder",
+                "blocks": "AnsiDetailCornerAlpha blocks",
+                "comments": "AnsiDetailCornerAlpha comments",
+                "ink_markups": "AnsiDetailCornerAlpha ink",
+                "review_markups": "AnsiDetailCornerAlpha review"
+              },
+              "name": "AnsiDetailCornerAlpha",
+              "property_view": "authored AnsiDetailCornerAlpha",
+              "sheet_names": {
+                "detail_name": "AnsiDetailCornerAlpha details",
+                "plane_name": "AnsiDetailCornerAlpha datum",
+                "profile_name": "AnsiDetailCornerAlpha profile"
+              },
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "m",
+                  "mm",
+                  "cm",
+                  "km",
+                  "um",
+                  "µm",
+                  "nm",
+                  "s",
+                  "Hz",
+                  "Pa"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "Continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.0003,
+                  0.0004,
+                  0.0005,
+                  0.0006,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 1,
+                "task_labels": [
+                  "description",
+                  "high",
+                  "low",
+                  "complete",
+                  "reminder"
+                ]
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              },
+              "units": {
+                "angle_unit": "degree",
+                "decimal_places": 3,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              }
+            },
+            "output": {
+              "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCornerPrecisionThreeIso\\AnsiDetailCornerAlpha.SLDDRW",
+              "saved_at": 1794871291
+            },
+            "provenance": {
+              "author": "independent author AnsiDetailCornerAlpha",
+              "cjk_saved": false,
+              "comment": "authored definition AnsiDetailCornerAlpha",
+              "company": "independent whole definition",
+              "created_at": 1794871231,
+              "language_id": 1033,
+              "license_origin": 0,
+              "modified_at": 1794871272,
+              "originating_build_code": 2026001,
+              "updated_at": 1794871272
+            },
+            "ui": {
+              "detail_flags": [],
+              "drafting_standard": "moISO_c",
+              "journal_name": "Drawing Layout Journal",
+              "system_preference_7a": false,
+              "tessellation": [
+                20,
+                15,
+                3,
+                false
+              ]
+            }
+          },
+          "origin_display": {
+            "population_argument": 0,
+            "selection": "actual-child-origin"
+          },
+          "part": {
+            "document": {
+              "$type": "CadDocument",
+              "assembly": null,
+              "bodies": {
+                "$tuple": [
+                  {
+                    "$type": "Body",
+                    "attributes": {},
+                    "final_feature_id": "feature/boss",
+                    "id": "body/boss",
+                    "material_id": null,
+                    "name": "Boss-Extrude1",
+                    "provenance": null,
+                    "topology": {
+                      "$type": "TopologySummary",
+                      "bounding_box": null,
+                      "edge_count": 0,
+                      "face_count": 0,
+                      "shell_count": 0,
+                      "solid_count": 0,
+                      "surface_area": null,
+                      "valid": null,
+                      "vertex_count": 0,
+                      "volume": null
+                    }
+                  }
+                ]
+              },
+              "brep": null,
+              "brep_payloads": {
+                "$tuple": []
+              },
+              "capabilities": {
+                "$frozenset": []
+              },
+              "configurations": {
+                "$tuple": [
+                  {
+                    "$type": "Configuration",
+                    "active": true,
+                    "attributes": {},
+                    "id": "configuration/default",
+                    "name": "modeled default",
+                    "overrides": {
+                      "$tuple": []
+                    },
+                    "parent_id": null,
+                    "suppressed_feature_ids": {
+                      "$tuple": []
+                    }
+                  }
+                ]
+              },
+              "diagnostics": {
+                "$tuple": []
+              },
+              "feature_timeline": {
+                "$tuple": [
+                  {
+                    "$type": "FeatureStep",
+                    "attributes": {},
+                    "configuration_states": {
+                      "$tuple": []
+                    },
+                    "definition": {
+                      "$type": "ExtrusionFeature",
+                      "direction": null,
+                      "draft_angle": null,
+                      "end_condition": {
+                        "$enum": "ExtrusionEndCondition",
+                        "value": "blind"
+                      },
+                      "length": {
+                        "$type": "ParameterValue",
+                        "kind": {
+                          "$enum": "ValueKind",
+                          "value": "length"
+                        },
+                        "unit": "mm",
+                        "value": 9.173
+                      },
+                      "offset": null,
+                      "reversed": false,
+                      "second_draft_angle": null,
+                      "second_end_condition": null,
+                      "second_length": null,
+                      "second_offset": null,
+                      "second_up_to_reference": "",
+                      "symmetric": false,
+                      "up_to_reference": ""
+                    },
+                    "id": "feature/boss",
+                    "input_feature_ids": {
+                      "$tuple": []
+                    },
+                    "kind": {
+                      "$enum": "FeatureKind",
+                      "value": "extrusion"
+                    },
+                    "name": "Boss-Extrude1",
+                    "operation": {
+                      "$enum": "BooleanOperation",
+                      "value": "create"
+                    },
+                    "order": 0,
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/depth"
+                      ]
+                    },
+                    "provenance": null,
+                    "selection_ids": {
+                      "$tuple": []
+                    },
+                    "sketch_id": "sketch/profile",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "materials": {
+                "$tuple": []
+              },
+              "meshes": {
+                "$tuple": []
+              },
+              "metadata": {
+                "name": "AnsiDetailCornerAlphaChild"
+              },
+              "parameters": {
+                "$tuple": [
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/width",
+                    "name": "D1",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 41.927
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/height",
+                    "name": "D2",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 27.613
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/depth",
+                    "name": "D1",
+                    "owner_id": "feature/boss",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 9.173
+                    }
+                  }
+                ]
+              },
+              "schema_version": "1.0",
+              "selections": {
+                "$tuple": []
+              },
+              "sketches": {
+                "$tuple": [
+                  {
+                    "$type": "Sketch",
+                    "attributes": {},
+                    "closed_profile_entity_ids": {
+                      "$tuple": [
+                        {
+                          "$tuple": [
+                            "edge/0",
+                            "edge/1",
+                            "edge/2",
+                            "edge/3"
+                          ]
+                        }
+                      ]
+                    },
+                    "constraints": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/0",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/1",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/2",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/2",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/3",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/3",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/0",
+                          "kind": "distance",
+                          "parameter_id": "parameter/width",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/1",
+                          "kind": "distance",
+                          "parameter_id": "parameter/height",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        }
+                      ]
+                    },
+                    "entities": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 0.0
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 0.0
+                            }
+                          },
+                          "id": "edge/0",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 27.613
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 0.0
+                            }
+                          },
+                          "id": "edge/1",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 27.613
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 27.613
+                            }
+                          },
+                          "id": "edge/2",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 0.0
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 27.613
+                            }
+                          },
+                          "id": "edge/3",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        }
+                      ]
+                    },
+                    "id": "sketch/profile",
+                    "name": "Sketch1",
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/width",
+                        "parameter/height"
+                      ]
+                    },
+                    "provenance": null,
+                    "support_plane_id": "plane/front",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "source": {
+                "$type": "CadSource",
+                "application_version": "",
+                "attributes": {},
+                "container_version": "",
+                "format_id": "kit-neutral",
+                "path": "<authored-in-memory>",
+                "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "support_planes": {
+                "$tuple": [
+                  {
+                    "$type": "SupportPlane",
+                    "attributes": {},
+                    "id": "plane/front",
+                    "name": "Front Plane",
+                    "offset_parameter_id": null,
+                    "provenance": null,
+                    "support_selection_id": null,
+                    "transform": {
+                      "$type": "Transform",
+                      "origin": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "x_axis": {
+                        "$type": "Vector3",
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "y_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                      },
+                      "z_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                      }
+                    }
+                  }
+                ]
+              },
+              "units": {
+                "$enum": "UnitSystem",
+                "value": "mm"
+              }
+            },
+            "settings": {
+              "analysis_units": {
+                "angle_unit": "radian",
+                "decimal_places": 6,
+                "length_unit": "m",
+                "unit_system": "mks"
+              },
+              "definition": {
+                "detail_flags": [],
+                "drafting_standard": "moISO_c",
+                "journal_name": "authored journal",
+                "system_preference_7a": false,
+                "tessellation": [
+                  20,
+                  15,
+                  3,
+                  false
+                ]
+              },
+              "density_kg_m3": 1.0,
+              "design_intent": false,
+              "document_units": {
+                "angle_unit": "degree",
+                "decimal_places": 3,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              },
+              "hatch_name": "authored hatch",
+              "manager_name": "Configurations",
+              "output": {
+                "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCornerPrecisionThreeIso\\AnsiDetailCornerAlphaChild.SLDPRT",
+                "saved_at": 1794000120
+              },
+              "provenance": {
+                "author": "Kit authored neutral input",
+                "cjk_saved": false,
+                "comment": "independent plain rectangular boss",
+                "company": "SDK interoperability research",
+                "created_at": 1794000100,
+                "license_origin": 0,
+                "modified_at": 1794000110,
+                "originating_build_code": 2026001,
+                "updated_at": 1794000110
+              },
+              "selected_leader": 0,
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "m",
+                  "mm",
+                  "cm",
+                  "km",
+                  "um",
+                  "µm",
+                  "nm",
+                  "s",
+                  "Hz",
+                  "Pa"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "sdk plain AnsiDetailCornerAlphaChild continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.00030000000000000003,
+                  0.0004,
+                  0.0005,
+                  0.0006000000000000001,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 1,
+                "task_labels": [
+                  "sdk plain AnsiDetailCornerAlphaChild description",
+                  "sdk plain AnsiDetailCornerAlphaChild high",
+                  "sdk plain AnsiDetailCornerAlphaChild low",
+                  "sdk plain AnsiDetailCornerAlphaChild complete",
+                  "sdk plain AnsiDetailCornerAlphaChild reminder"
+                ]
+              },
+              "system": {
+                "cabinet_name": "Annotations",
+                "construction_flag": true,
+                "created_at": 1794000100,
+                "folders": [
+                  [
+                    "moCommentsFolder_c",
+                    "Comments"
+                  ],
+                  [
+                    "moFavoriteFolder_c",
+                    "Favorites"
+                  ],
+                  [
+                    "moHistoryFolder_c",
+                    "History"
+                  ],
+                  [
+                    "moSelectionSetFolder_c",
+                    "Selection Sets"
+                  ],
+                  [
+                    "moSensorFolder_c",
+                    "Sensors"
+                  ],
+                  [
+                    "moDocsFolder_c",
+                    "Design Binder"
+                  ],
+                  [
+                    "moSurfaceBodyFolder_c",
+                    "Surface Bodies"
+                  ],
+                  [
+                    "moSolidBodyFolder_c",
+                    "Solid Bodies"
+                  ],
+                  [
+                    "moEnvFolder_c",
+                    "Environment"
+                  ],
+                  [
+                    "moInkMarkupFolder_c",
+                    "Markups"
+                  ],
+                  [
+                    "moEqnFolder_c",
+                    "Equations"
+                  ],
+                  [
+                    "moMaterialFolder_c",
+                    "Material <not specified>"
+                  ]
+                ],
+                "origin_axis": "z",
+                "origin_name": "Origin",
+                "planes": {
+                  "x": "Right Plane",
+                  "y": "Top Plane",
+                  "z": "Front Plane"
+                }
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              }
+            }
+          },
+          "schema": "kit.sw2026.sdk-origin-drawing-process.v1",
+          "support_names": {
+            "detail": "AnsiDetailCornerAlpha view detail",
+            "model_plane": "AnsiDetailCornerAlpha model plane",
+            "model_profile": "AnsiDetailCornerAlpha model sketch",
+            "sheet_plane": "AnsiDetailCornerAlpha paper plane",
+            "sheet_profile": "AnsiDetailCornerAlpha paper sketch"
+          }
+        },
+        "schema": "kit.sw2026.ansi-normalization-request.v1"
+      }
+    },
+    {
+      "analysis_precision": 6,
+      "name": "AnsiNormalizedCornerPrecisionThreeAnsi",
+      "precision": 3,
+      "request": {
+        "mode": "ansi",
+        "origin_request": {
+          "child_policy": {
+            "height_text_m": [
+              0.0545051,
+              0.0138065
+            ],
+            "kind": "corner-anchored",
+            "route_centerline": false,
+            "width_text_m": [
+              0.0209635,
+              -0.008283899999999999
+            ]
+          },
+          "drawing_document": {
+            "$type": "DrawingData",
+            "active_sheet_id": "neutral:sheet:AnsiDetailCornerAlpha",
+            "model_refs": {
+              "$tuple": [
+                {
+                  "$type": "DrawingModelRef",
+                  "id": "neutral:child:AnsiDetailCornerAlpha",
+                  "source_format_id": "solidworks.sldprt",
+                  "source_path": "C:\\KitAnsiNormalized01\\AnsiNormalizedCornerPrecisionThreeAnsi\\AnsiDetailCornerAlphaChild.SLDPRT"
+                }
+              ]
+            },
+            "sheets": {
+              "$tuple": [
+                {
+                  "$type": "DrawingSheet",
+                  "height": 0.21589999999999998,
+                  "id": "neutral:sheet:AnsiDetailCornerAlpha",
+                  "name": "AnsiDetailCornerAlpha paper",
+                  "scale_ratio": {
+                    "$tuple": [
+                      7.0,
+                      5.0
+                    ]
+                  },
+                  "views": {
+                    "$tuple": [
+                      {
+                        "$type": "DrawingView",
+                        "configuration_name": "modeled default",
+                        "id": "neutral:view:AnsiDetailCornerAlpha",
+                        "model_ref_id": "neutral:child:AnsiDetailCornerAlpha",
+                        "model_to_sheet": null,
+                        "name": "AnsiDetailCornerAlpha model view",
+                        "orientation_name": "*Front",
+                        "outline": null,
+                        "position": {
+                          "$type": "Vector2",
+                          "x": 0.11917,
+                          "y": 0.09137
+                        },
+                        "scale_ratio": {
+                          "$tuple": [
+                            0.893,
+                            1.0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "width": 0.2794
+                }
+              ]
+            }
+          },
+          "native": {
+            "options": {
+              "auto_dim_text_link": true,
+              "block_identity": "c9e3e4d6-77d6-47d9-9ed4-079a25663854",
+              "created_at": 1794871231,
+              "folder_names": {
+                "annotations": "AnsiDetailCornerAlpha annotations",
+                "binder": "Design Binder",
+                "blocks": "AnsiDetailCornerAlpha blocks",
+                "comments": "AnsiDetailCornerAlpha comments",
+                "ink_markups": "AnsiDetailCornerAlpha ink",
+                "review_markups": "AnsiDetailCornerAlpha review"
+              },
+              "name": "AnsiDetailCornerAlpha",
+              "property_view": "authored AnsiDetailCornerAlpha",
+              "sheet_names": {
+                "detail_name": "AnsiDetailCornerAlpha details",
+                "plane_name": "AnsiDetailCornerAlpha datum",
+                "profile_name": "AnsiDetailCornerAlpha profile"
+              },
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "m",
+                  "mm",
+                  "cm",
+                  "km",
+                  "um",
+                  "µm",
+                  "nm",
+                  "s",
+                  "Hz",
+                  "Pa"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "Continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.0003,
+                  0.0004,
+                  0.0005,
+                  0.0006,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 0,
+                "task_labels": [
+                  "description",
+                  "high",
+                  "low",
+                  "complete",
+                  "reminder"
+                ]
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              },
+              "units": {
+                "angle_unit": "degree",
+                "decimal_places": 3,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              }
+            },
+            "output": {
+              "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCornerPrecisionThreeAnsi\\AnsiDetailCornerAlpha.SLDDRW",
+              "saved_at": 1794871291
+            },
+            "provenance": {
+              "author": "independent author AnsiDetailCornerAlpha",
+              "cjk_saved": false,
+              "comment": "authored definition AnsiDetailCornerAlpha",
+              "company": "independent whole definition",
+              "created_at": 1794871231,
+              "language_id": 1033,
+              "license_origin": 0,
+              "modified_at": 1794871272,
+              "originating_build_code": 2026001,
+              "updated_at": 1794871272
+            },
+            "ui": {
+              "detail_flags": [],
+              "drafting_standard": "moANSI_c",
+              "journal_name": "Drawing Layout Journal",
+              "system_preference_7a": false,
+              "tessellation": [
+                20,
+                15,
+                3,
+                false
+              ]
+            }
+          },
+          "origin_display": {
+            "population_argument": 0,
+            "selection": "actual-child-origin"
+          },
+          "part": {
+            "document": {
+              "$type": "CadDocument",
+              "assembly": null,
+              "bodies": {
+                "$tuple": [
+                  {
+                    "$type": "Body",
+                    "attributes": {},
+                    "final_feature_id": "feature/boss",
+                    "id": "body/boss",
+                    "material_id": null,
+                    "name": "Boss-Extrude1",
+                    "provenance": null,
+                    "topology": {
+                      "$type": "TopologySummary",
+                      "bounding_box": null,
+                      "edge_count": 0,
+                      "face_count": 0,
+                      "shell_count": 0,
+                      "solid_count": 0,
+                      "surface_area": null,
+                      "valid": null,
+                      "vertex_count": 0,
+                      "volume": null
+                    }
+                  }
+                ]
+              },
+              "brep": null,
+              "brep_payloads": {
+                "$tuple": []
+              },
+              "capabilities": {
+                "$frozenset": []
+              },
+              "configurations": {
+                "$tuple": [
+                  {
+                    "$type": "Configuration",
+                    "active": true,
+                    "attributes": {},
+                    "id": "configuration/default",
+                    "name": "modeled default",
+                    "overrides": {
+                      "$tuple": []
+                    },
+                    "parent_id": null,
+                    "suppressed_feature_ids": {
+                      "$tuple": []
+                    }
+                  }
+                ]
+              },
+              "diagnostics": {
+                "$tuple": []
+              },
+              "feature_timeline": {
+                "$tuple": [
+                  {
+                    "$type": "FeatureStep",
+                    "attributes": {},
+                    "configuration_states": {
+                      "$tuple": []
+                    },
+                    "definition": {
+                      "$type": "ExtrusionFeature",
+                      "direction": null,
+                      "draft_angle": null,
+                      "end_condition": {
+                        "$enum": "ExtrusionEndCondition",
+                        "value": "blind"
+                      },
+                      "length": {
+                        "$type": "ParameterValue",
+                        "kind": {
+                          "$enum": "ValueKind",
+                          "value": "length"
+                        },
+                        "unit": "mm",
+                        "value": 9.173
+                      },
+                      "offset": null,
+                      "reversed": false,
+                      "second_draft_angle": null,
+                      "second_end_condition": null,
+                      "second_length": null,
+                      "second_offset": null,
+                      "second_up_to_reference": "",
+                      "symmetric": false,
+                      "up_to_reference": ""
+                    },
+                    "id": "feature/boss",
+                    "input_feature_ids": {
+                      "$tuple": []
+                    },
+                    "kind": {
+                      "$enum": "FeatureKind",
+                      "value": "extrusion"
+                    },
+                    "name": "Boss-Extrude1",
+                    "operation": {
+                      "$enum": "BooleanOperation",
+                      "value": "create"
+                    },
+                    "order": 0,
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/depth"
+                      ]
+                    },
+                    "provenance": null,
+                    "selection_ids": {
+                      "$tuple": []
+                    },
+                    "sketch_id": "sketch/profile",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "materials": {
+                "$tuple": []
+              },
+              "meshes": {
+                "$tuple": []
+              },
+              "metadata": {
+                "name": "AnsiDetailCornerAlphaChild"
+              },
+              "parameters": {
+                "$tuple": [
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/width",
+                    "name": "D1",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 41.927
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/height",
+                    "name": "D2",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 27.613
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/depth",
+                    "name": "D1",
+                    "owner_id": "feature/boss",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 9.173
+                    }
+                  }
+                ]
+              },
+              "schema_version": "1.0",
+              "selections": {
+                "$tuple": []
+              },
+              "sketches": {
+                "$tuple": [
+                  {
+                    "$type": "Sketch",
+                    "attributes": {},
+                    "closed_profile_entity_ids": {
+                      "$tuple": [
+                        {
+                          "$tuple": [
+                            "edge/0",
+                            "edge/1",
+                            "edge/2",
+                            "edge/3"
+                          ]
+                        }
+                      ]
+                    },
+                    "constraints": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/0",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/1",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/2",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/2",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/3",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/3",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/0",
+                          "kind": "distance",
+                          "parameter_id": "parameter/width",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/1",
+                          "kind": "distance",
+                          "parameter_id": "parameter/height",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        }
+                      ]
+                    },
+                    "entities": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 0.0
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 0.0
+                            }
+                          },
+                          "id": "edge/0",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 27.613
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 0.0
+                            }
+                          },
+                          "id": "edge/1",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 27.613
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 41.927,
+                              "y": 27.613
+                            }
+                          },
+                          "id": "edge/2",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 0.0
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 0.0,
+                              "y": 27.613
+                            }
+                          },
+                          "id": "edge/3",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        }
+                      ]
+                    },
+                    "id": "sketch/profile",
+                    "name": "Sketch1",
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/width",
+                        "parameter/height"
+                      ]
+                    },
+                    "provenance": null,
+                    "support_plane_id": "plane/front",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "source": {
+                "$type": "CadSource",
+                "application_version": "",
+                "attributes": {},
+                "container_version": "",
+                "format_id": "kit-neutral",
+                "path": "<authored-in-memory>",
+                "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "support_planes": {
+                "$tuple": [
+                  {
+                    "$type": "SupportPlane",
+                    "attributes": {},
+                    "id": "plane/front",
+                    "name": "Front Plane",
+                    "offset_parameter_id": null,
+                    "provenance": null,
+                    "support_selection_id": null,
+                    "transform": {
+                      "$type": "Transform",
+                      "origin": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "x_axis": {
+                        "$type": "Vector3",
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "y_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                      },
+                      "z_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                      }
+                    }
+                  }
+                ]
+              },
+              "units": {
+                "$enum": "UnitSystem",
+                "value": "mm"
+              }
+            },
+            "settings": {
+              "analysis_units": {
+                "angle_unit": "radian",
+                "decimal_places": 6,
+                "length_unit": "m",
+                "unit_system": "mks"
+              },
+              "definition": {
+                "detail_flags": [],
+                "drafting_standard": "moANSI_c",
+                "journal_name": "authored journal",
+                "system_preference_7a": false,
+                "tessellation": [
+                  20,
+                  15,
+                  3,
+                  false
+                ]
+              },
+              "density_kg_m3": 1.0,
+              "design_intent": false,
+              "document_units": {
+                "angle_unit": "degree",
+                "decimal_places": 3,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              },
+              "hatch_name": "authored hatch",
+              "manager_name": "Configurations",
+              "output": {
+                "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCornerPrecisionThreeAnsi\\AnsiDetailCornerAlphaChild.SLDPRT",
+                "saved_at": 1794000120
+              },
+              "provenance": {
+                "author": "Kit authored neutral input",
+                "cjk_saved": false,
+                "comment": "independent plain rectangular boss",
+                "company": "SDK interoperability research",
+                "created_at": 1794000100,
+                "license_origin": 0,
+                "modified_at": 1794000110,
+                "originating_build_code": 2026001,
+                "updated_at": 1794000110
+              },
+              "selected_leader": 0,
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "m",
+                  "mm",
+                  "cm",
+                  "km",
+                  "um",
+                  "µm",
+                  "nm",
+                  "s",
+                  "Hz",
+                  "Pa"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "sdk plain AnsiDetailCornerAlphaChild continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.00030000000000000003,
+                  0.0004,
+                  0.0005,
+                  0.0006000000000000001,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 0,
+                "task_labels": [
+                  "sdk plain AnsiDetailCornerAlphaChild description",
+                  "sdk plain AnsiDetailCornerAlphaChild high",
+                  "sdk plain AnsiDetailCornerAlphaChild low",
+                  "sdk plain AnsiDetailCornerAlphaChild complete",
+                  "sdk plain AnsiDetailCornerAlphaChild reminder"
+                ]
+              },
+              "system": {
+                "cabinet_name": "Annotations",
+                "construction_flag": true,
+                "created_at": 1794000100,
+                "folders": [
+                  [
+                    "moCommentsFolder_c",
+                    "Comments"
+                  ],
+                  [
+                    "moFavoriteFolder_c",
+                    "Favorites"
+                  ],
+                  [
+                    "moHistoryFolder_c",
+                    "History"
+                  ],
+                  [
+                    "moSelectionSetFolder_c",
+                    "Selection Sets"
+                  ],
+                  [
+                    "moSensorFolder_c",
+                    "Sensors"
+                  ],
+                  [
+                    "moDocsFolder_c",
+                    "Design Binder"
+                  ],
+                  [
+                    "moSurfaceBodyFolder_c",
+                    "Surface Bodies"
+                  ],
+                  [
+                    "moSolidBodyFolder_c",
+                    "Solid Bodies"
+                  ],
+                  [
+                    "moEnvFolder_c",
+                    "Environment"
+                  ],
+                  [
+                    "moInkMarkupFolder_c",
+                    "Markups"
+                  ],
+                  [
+                    "moEqnFolder_c",
+                    "Equations"
+                  ],
+                  [
+                    "moMaterialFolder_c",
+                    "Material <not specified>"
+                  ]
+                ],
+                "origin_axis": "z",
+                "origin_name": "Origin",
+                "planes": {
+                  "x": "Right Plane",
+                  "y": "Top Plane",
+                  "z": "Front Plane"
+                }
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              }
+            }
+          },
+          "schema": "kit.sw2026.sdk-origin-drawing-process.v1",
+          "support_names": {
+            "detail": "AnsiDetailCornerAlpha view detail",
+            "model_plane": "AnsiDetailCornerAlpha model plane",
+            "model_profile": "AnsiDetailCornerAlpha model sketch",
+            "sheet_plane": "AnsiDetailCornerAlpha paper plane",
+            "sheet_profile": "AnsiDetailCornerAlpha paper sketch"
+          }
+        },
+        "schema": "kit.sw2026.ansi-normalization-request.v1"
+      }
+    },
+    {
+      "analysis_precision": 1,
+      "name": "AnsiNormalizedCenteredPrecisionFiveIso",
+      "precision": 5,
+      "request": {
+        "mode": "iso",
+        "origin_request": {
+          "child_policy": {
+            "height_text_m": [
+              0.0425752,
+              0.0
+            ],
+            "kind": "center-anchored",
+            "route_centerline": false,
+            "width_text_m": [
+              0.0,
+              -0.025496799999999997
+            ]
+          },
+          "drawing_document": {
+            "$type": "DrawingData",
+            "active_sheet_id": "neutral:sheet:AnsiDetailCenteredBetaΩ",
+            "model_refs": {
+              "$tuple": [
+                {
+                  "$type": "DrawingModelRef",
+                  "id": "neutral:child:AnsiDetailCenteredBetaΩ",
+                  "source_format_id": "solidworks.sldprt",
+                  "source_path": "C:\\KitAnsiNormalized01\\AnsiNormalizedCenteredPrecisionFiveIso\\AnsiDetailCenteredBetaΩChild.SLDPRT"
+                }
+              ]
+            },
+            "sheets": {
+              "$tuple": [
+                {
+                  "$type": "DrawingSheet",
+                  "height": 0.21589999999999998,
+                  "id": "neutral:sheet:AnsiDetailCenteredBetaΩ",
+                  "name": "AnsiDetailCenteredBetaΩ paper",
+                  "scale_ratio": {
+                    "$tuple": [
+                      7.0,
+                      5.0
+                    ]
+                  },
+                  "views": {
+                    "$tuple": [
+                      {
+                        "$type": "DrawingView",
+                        "configuration_name": "modeled default",
+                        "id": "neutral:view:AnsiDetailCenteredBetaΩ",
+                        "model_ref_id": "neutral:child:AnsiDetailCenteredBetaΩ",
+                        "model_to_sheet": null,
+                        "name": "AnsiDetailCenteredBetaΩ model view",
+                        "orientation_name": "*Top",
+                        "outline": null,
+                        "position": {
+                          "$type": "Vector2",
+                          "x": 0.13371,
+                          "y": 0.09913
+                        },
+                        "scale_ratio": {
+                          "$tuple": [
+                            1.071,
+                            1.0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "width": 0.2794
+                }
+              ]
+            }
+          },
+          "native": {
+            "options": {
+              "auto_dim_text_link": true,
+              "block_identity": "a10f99a1-590d-42b2-86f6-6da0f03c8921",
+              "created_at": 1794871231,
+              "folder_names": {
+                "annotations": "AnsiDetailCenteredBetaΩ annotations",
+                "binder": "Design Binder",
+                "blocks": "AnsiDetailCenteredBetaΩ blocks",
+                "comments": "AnsiDetailCenteredBetaΩ comments",
+                "ink_markups": "AnsiDetailCenteredBetaΩ ink",
+                "review_markups": "AnsiDetailCenteredBetaΩ review"
+              },
+              "name": "AnsiDetailCenteredBetaΩ",
+              "property_view": "authored AnsiDetailCenteredBetaΩ",
+              "sheet_names": {
+                "detail_name": "AnsiDetailCenteredBetaΩ details",
+                "plane_name": "AnsiDetailCenteredBetaΩ datum",
+                "profile_name": "AnsiDetailCenteredBetaΩ profile"
+              },
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "authored µm exclusion",
+                  "NeutralCaseToken"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "Continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.0003,
+                  0.0004,
+                  0.0005,
+                  0.0006,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 1,
+                "task_labels": [
+                  "description",
+                  "high",
+                  "low",
+                  "complete",
+                  "reminder"
+                ]
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              },
+              "units": {
+                "angle_unit": "degree",
+                "decimal_places": 5,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              }
+            },
+            "output": {
+              "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCenteredPrecisionFiveIso\\AnsiDetailCenteredBetaΩ.SLDDRW",
+              "saved_at": 1794871291
+            },
+            "provenance": {
+              "author": "independent author AnsiDetailCenteredBetaΩ",
+              "cjk_saved": false,
+              "comment": "authored definition AnsiDetailCenteredBetaΩ",
+              "company": "independent whole definition",
+              "created_at": 1794871231,
+              "language_id": 1033,
+              "license_origin": 0,
+              "modified_at": 1794871272,
+              "originating_build_code": 2026001,
+              "updated_at": 1794871272
+            },
+            "ui": {
+              "detail_flags": [],
+              "drafting_standard": "moISO_c",
+              "journal_name": "Drawing Layout Journal",
+              "system_preference_7a": false,
+              "tessellation": [
+                20,
+                15,
+                3,
+                false
+              ]
+            }
+          },
+          "origin_display": {
+            "population_argument": 0,
+            "selection": "actual-child-origin"
+          },
+          "part": {
+            "document": {
+              "$type": "CadDocument",
+              "assembly": null,
+              "bodies": {
+                "$tuple": [
+                  {
+                    "$type": "Body",
+                    "attributes": {},
+                    "final_feature_id": "feature/boss",
+                    "id": "body/boss",
+                    "material_id": null,
+                    "name": "Boss-Extrude1",
+                    "provenance": null,
+                    "topology": {
+                      "$type": "TopologySummary",
+                      "bounding_box": null,
+                      "edge_count": 0,
+                      "face_count": 0,
+                      "shell_count": 0,
+                      "solid_count": 0,
+                      "surface_area": null,
+                      "valid": null,
+                      "vertex_count": 0,
+                      "volume": null
+                    }
+                  }
+                ]
+              },
+              "brep": null,
+              "brep_payloads": {
+                "$tuple": []
+              },
+              "capabilities": {
+                "$frozenset": []
+              },
+              "configurations": {
+                "$tuple": [
+                  {
+                    "$type": "Configuration",
+                    "active": true,
+                    "attributes": {},
+                    "id": "configuration/default",
+                    "name": "modeled default",
+                    "overrides": {
+                      "$tuple": []
+                    },
+                    "parent_id": null,
+                    "suppressed_feature_ids": {
+                      "$tuple": []
+                    }
+                  }
+                ]
+              },
+              "diagnostics": {
+                "$tuple": []
+              },
+              "feature_timeline": {
+                "$tuple": [
+                  {
+                    "$type": "FeatureStep",
+                    "attributes": {},
+                    "configuration_states": {
+                      "$tuple": []
+                    },
+                    "definition": {
+                      "$type": "ExtrusionFeature",
+                      "direction": null,
+                      "draft_angle": null,
+                      "end_condition": {
+                        "$enum": "ExtrusionEndCondition",
+                        "value": "blind"
+                      },
+                      "length": {
+                        "$type": "ParameterValue",
+                        "kind": {
+                          "$enum": "ValueKind",
+                          "value": "length"
+                        },
+                        "unit": "mm",
+                        "value": 7.348999999999999
+                      },
+                      "offset": null,
+                      "reversed": false,
+                      "second_draft_angle": null,
+                      "second_end_condition": null,
+                      "second_length": null,
+                      "second_offset": null,
+                      "second_up_to_reference": "",
+                      "symmetric": false,
+                      "up_to_reference": ""
+                    },
+                    "id": "feature/boss",
+                    "input_feature_ids": {
+                      "$tuple": []
+                    },
+                    "kind": {
+                      "$enum": "FeatureKind",
+                      "value": "extrusion"
+                    },
+                    "name": "Boss-Extrude1",
+                    "operation": {
+                      "$enum": "BooleanOperation",
+                      "value": "create"
+                    },
+                    "order": 0,
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/depth"
+                      ]
+                    },
+                    "provenance": null,
+                    "selection_ids": {
+                      "$tuple": []
+                    },
+                    "sketch_id": "sketch/profile",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "materials": {
+                "$tuple": []
+              },
+              "meshes": {
+                "$tuple": []
+              },
+              "metadata": {
+                "name": "AnsiDetailCenteredBetaΩChild"
+              },
+              "parameters": {
+                "$tuple": [
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/width",
+                    "name": "D1",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 53.219
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/height",
+                    "name": "D2",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 31.870999999999995
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/depth",
+                    "name": "D1",
+                    "owner_id": "feature/boss",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 7.348999999999999
+                    }
+                  }
+                ]
+              },
+              "schema_version": "1.0",
+              "selections": {
+                "$tuple": []
+              },
+              "sketches": {
+                "$tuple": [
+                  {
+                    "$type": "Sketch",
+                    "attributes": {},
+                    "closed_profile_entity_ids": {
+                      "$tuple": [
+                        {
+                          "$tuple": [
+                            "edge/0",
+                            "edge/1",
+                            "edge/2",
+                            "edge/3"
+                          ]
+                        }
+                      ]
+                    },
+                    "constraints": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/0",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/1",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/2",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/2",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/3",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/3",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/0",
+                          "kind": "distance",
+                          "parameter_id": "parameter/width",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/1",
+                          "kind": "distance",
+                          "parameter_id": "parameter/height",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        }
+                      ]
+                    },
+                    "entities": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": -15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": -15.935499999999998
+                            }
+                          },
+                          "id": "edge/0",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": 15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": -15.935499999999998
+                            }
+                          },
+                          "id": "edge/1",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": 15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": 15.935499999999998
+                            }
+                          },
+                          "id": "edge/2",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": -15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": 15.935499999999998
+                            }
+                          },
+                          "id": "edge/3",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        }
+                      ]
+                    },
+                    "id": "sketch/profile",
+                    "name": "Sketch1",
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/width",
+                        "parameter/height"
+                      ]
+                    },
+                    "provenance": null,
+                    "support_plane_id": "plane/front",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "source": {
+                "$type": "CadSource",
+                "application_version": "",
+                "attributes": {},
+                "container_version": "",
+                "format_id": "kit-neutral",
+                "path": "<authored-in-memory>",
+                "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "support_planes": {
+                "$tuple": [
+                  {
+                    "$type": "SupportPlane",
+                    "attributes": {},
+                    "id": "plane/front",
+                    "name": "Front Plane",
+                    "offset_parameter_id": null,
+                    "provenance": null,
+                    "support_selection_id": null,
+                    "transform": {
+                      "$type": "Transform",
+                      "origin": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "x_axis": {
+                        "$type": "Vector3",
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "y_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                      },
+                      "z_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                      }
+                    }
+                  }
+                ]
+              },
+              "units": {
+                "$enum": "UnitSystem",
+                "value": "mm"
+              }
+            },
+            "settings": {
+              "analysis_units": {
+                "angle_unit": "radian",
+                "decimal_places": 1,
+                "length_unit": "m",
+                "unit_system": "mks"
+              },
+              "definition": {
+                "detail_flags": [],
+                "drafting_standard": "moISO_c",
+                "journal_name": "authored journal",
+                "system_preference_7a": false,
+                "tessellation": [
+                  20,
+                  15,
+                  3,
+                  false
+                ]
+              },
+              "density_kg_m3": 1.0,
+              "design_intent": false,
+              "document_units": {
+                "angle_unit": "degree",
+                "decimal_places": 5,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              },
+              "hatch_name": "authored hatch",
+              "manager_name": "Configurations",
+              "output": {
+                "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCenteredPrecisionFiveIso\\AnsiDetailCenteredBetaΩChild.SLDPRT",
+                "saved_at": 1794000120
+              },
+              "provenance": {
+                "author": "Kit authored neutral input",
+                "cjk_saved": false,
+                "comment": "independent plain rectangular boss",
+                "company": "SDK interoperability research",
+                "created_at": 1794000100,
+                "license_origin": 0,
+                "modified_at": 1794000110,
+                "originating_build_code": 2026001,
+                "updated_at": 1794000110
+              },
+              "selected_leader": 0,
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "authored µm exclusion",
+                  "NeutralCaseToken"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "sdk plain AnsiDetailCenteredBetaΩChild continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.00030000000000000003,
+                  0.0004,
+                  0.0005,
+                  0.0006000000000000001,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 1,
+                "task_labels": [
+                  "sdk plain AnsiDetailCenteredBetaΩChild description",
+                  "sdk plain AnsiDetailCenteredBetaΩChild high",
+                  "sdk plain AnsiDetailCenteredBetaΩChild low",
+                  "sdk plain AnsiDetailCenteredBetaΩChild complete",
+                  "sdk plain AnsiDetailCenteredBetaΩChild reminder"
+                ]
+              },
+              "system": {
+                "cabinet_name": "Annotations",
+                "construction_flag": true,
+                "created_at": 1794000100,
+                "folders": [
+                  [
+                    "moCommentsFolder_c",
+                    "Comments"
+                  ],
+                  [
+                    "moFavoriteFolder_c",
+                    "Favorites"
+                  ],
+                  [
+                    "moHistoryFolder_c",
+                    "History"
+                  ],
+                  [
+                    "moSelectionSetFolder_c",
+                    "Selection Sets"
+                  ],
+                  [
+                    "moSensorFolder_c",
+                    "Sensors"
+                  ],
+                  [
+                    "moDocsFolder_c",
+                    "Design Binder"
+                  ],
+                  [
+                    "moSurfaceBodyFolder_c",
+                    "Surface Bodies"
+                  ],
+                  [
+                    "moSolidBodyFolder_c",
+                    "Solid Bodies"
+                  ],
+                  [
+                    "moEnvFolder_c",
+                    "Environment"
+                  ],
+                  [
+                    "moInkMarkupFolder_c",
+                    "Markups"
+                  ],
+                  [
+                    "moEqnFolder_c",
+                    "Equations"
+                  ],
+                  [
+                    "moMaterialFolder_c",
+                    "Material <not specified>"
+                  ]
+                ],
+                "origin_axis": "z",
+                "origin_name": "Origin",
+                "planes": {
+                  "x": "Right Plane",
+                  "y": "Top Plane",
+                  "z": "Front Plane"
+                }
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              }
+            }
+          },
+          "schema": "kit.sw2026.sdk-origin-drawing-process.v1",
+          "support_names": {
+            "detail": "AnsiDetailCenteredBetaΩ view detail",
+            "model_plane": "AnsiDetailCenteredBetaΩ model plane",
+            "model_profile": "AnsiDetailCenteredBetaΩ model sketch",
+            "sheet_plane": "AnsiDetailCenteredBetaΩ paper plane",
+            "sheet_profile": "AnsiDetailCenteredBetaΩ paper sketch"
+          }
+        },
+        "schema": "kit.sw2026.ansi-normalization-request.v1"
+      }
+    },
+    {
+      "analysis_precision": 1,
+      "name": "AnsiNormalizedCenteredPrecisionFiveAnsi",
+      "precision": 5,
+      "request": {
+        "mode": "ansi",
+        "origin_request": {
+          "child_policy": {
+            "height_text_m": [
+              0.0425752,
+              0.0
+            ],
+            "kind": "center-anchored",
+            "route_centerline": false,
+            "width_text_m": [
+              0.0,
+              -0.025496799999999997
+            ]
+          },
+          "drawing_document": {
+            "$type": "DrawingData",
+            "active_sheet_id": "neutral:sheet:AnsiDetailCenteredBetaΩ",
+            "model_refs": {
+              "$tuple": [
+                {
+                  "$type": "DrawingModelRef",
+                  "id": "neutral:child:AnsiDetailCenteredBetaΩ",
+                  "source_format_id": "solidworks.sldprt",
+                  "source_path": "C:\\KitAnsiNormalized01\\AnsiNormalizedCenteredPrecisionFiveAnsi\\AnsiDetailCenteredBetaΩChild.SLDPRT"
+                }
+              ]
+            },
+            "sheets": {
+              "$tuple": [
+                {
+                  "$type": "DrawingSheet",
+                  "height": 0.21589999999999998,
+                  "id": "neutral:sheet:AnsiDetailCenteredBetaΩ",
+                  "name": "AnsiDetailCenteredBetaΩ paper",
+                  "scale_ratio": {
+                    "$tuple": [
+                      7.0,
+                      5.0
+                    ]
+                  },
+                  "views": {
+                    "$tuple": [
+                      {
+                        "$type": "DrawingView",
+                        "configuration_name": "modeled default",
+                        "id": "neutral:view:AnsiDetailCenteredBetaΩ",
+                        "model_ref_id": "neutral:child:AnsiDetailCenteredBetaΩ",
+                        "model_to_sheet": null,
+                        "name": "AnsiDetailCenteredBetaΩ model view",
+                        "orientation_name": "*Top",
+                        "outline": null,
+                        "position": {
+                          "$type": "Vector2",
+                          "x": 0.13371,
+                          "y": 0.09913
+                        },
+                        "scale_ratio": {
+                          "$tuple": [
+                            1.071,
+                            1.0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "width": 0.2794
+                }
+              ]
+            }
+          },
+          "native": {
+            "options": {
+              "auto_dim_text_link": true,
+              "block_identity": "a10f99a1-590d-42b2-86f6-6da0f03c8921",
+              "created_at": 1794871231,
+              "folder_names": {
+                "annotations": "AnsiDetailCenteredBetaΩ annotations",
+                "binder": "Design Binder",
+                "blocks": "AnsiDetailCenteredBetaΩ blocks",
+                "comments": "AnsiDetailCenteredBetaΩ comments",
+                "ink_markups": "AnsiDetailCenteredBetaΩ ink",
+                "review_markups": "AnsiDetailCenteredBetaΩ review"
+              },
+              "name": "AnsiDetailCenteredBetaΩ",
+              "property_view": "authored AnsiDetailCenteredBetaΩ",
+              "sheet_names": {
+                "detail_name": "AnsiDetailCenteredBetaΩ details",
+                "plane_name": "AnsiDetailCenteredBetaΩ datum",
+                "profile_name": "AnsiDetailCenteredBetaΩ profile"
+              },
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "authored µm exclusion",
+                  "NeutralCaseToken"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "Continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.0003,
+                  0.0004,
+                  0.0005,
+                  0.0006,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 0,
+                "task_labels": [
+                  "description",
+                  "high",
+                  "low",
+                  "complete",
+                  "reminder"
+                ]
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              },
+              "units": {
+                "angle_unit": "degree",
+                "decimal_places": 5,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              }
+            },
+            "output": {
+              "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCenteredPrecisionFiveAnsi\\AnsiDetailCenteredBetaΩ.SLDDRW",
+              "saved_at": 1794871291
+            },
+            "provenance": {
+              "author": "independent author AnsiDetailCenteredBetaΩ",
+              "cjk_saved": false,
+              "comment": "authored definition AnsiDetailCenteredBetaΩ",
+              "company": "independent whole definition",
+              "created_at": 1794871231,
+              "language_id": 1033,
+              "license_origin": 0,
+              "modified_at": 1794871272,
+              "originating_build_code": 2026001,
+              "updated_at": 1794871272
+            },
+            "ui": {
+              "detail_flags": [],
+              "drafting_standard": "moANSI_c",
+              "journal_name": "Drawing Layout Journal",
+              "system_preference_7a": false,
+              "tessellation": [
+                20,
+                15,
+                3,
+                false
+              ]
+            }
+          },
+          "origin_display": {
+            "population_argument": 0,
+            "selection": "actual-child-origin"
+          },
+          "part": {
+            "document": {
+              "$type": "CadDocument",
+              "assembly": null,
+              "bodies": {
+                "$tuple": [
+                  {
+                    "$type": "Body",
+                    "attributes": {},
+                    "final_feature_id": "feature/boss",
+                    "id": "body/boss",
+                    "material_id": null,
+                    "name": "Boss-Extrude1",
+                    "provenance": null,
+                    "topology": {
+                      "$type": "TopologySummary",
+                      "bounding_box": null,
+                      "edge_count": 0,
+                      "face_count": 0,
+                      "shell_count": 0,
+                      "solid_count": 0,
+                      "surface_area": null,
+                      "valid": null,
+                      "vertex_count": 0,
+                      "volume": null
+                    }
+                  }
+                ]
+              },
+              "brep": null,
+              "brep_payloads": {
+                "$tuple": []
+              },
+              "capabilities": {
+                "$frozenset": []
+              },
+              "configurations": {
+                "$tuple": [
+                  {
+                    "$type": "Configuration",
+                    "active": true,
+                    "attributes": {},
+                    "id": "configuration/default",
+                    "name": "modeled default",
+                    "overrides": {
+                      "$tuple": []
+                    },
+                    "parent_id": null,
+                    "suppressed_feature_ids": {
+                      "$tuple": []
+                    }
+                  }
+                ]
+              },
+              "diagnostics": {
+                "$tuple": []
+              },
+              "feature_timeline": {
+                "$tuple": [
+                  {
+                    "$type": "FeatureStep",
+                    "attributes": {},
+                    "configuration_states": {
+                      "$tuple": []
+                    },
+                    "definition": {
+                      "$type": "ExtrusionFeature",
+                      "direction": null,
+                      "draft_angle": null,
+                      "end_condition": {
+                        "$enum": "ExtrusionEndCondition",
+                        "value": "blind"
+                      },
+                      "length": {
+                        "$type": "ParameterValue",
+                        "kind": {
+                          "$enum": "ValueKind",
+                          "value": "length"
+                        },
+                        "unit": "mm",
+                        "value": 7.348999999999999
+                      },
+                      "offset": null,
+                      "reversed": false,
+                      "second_draft_angle": null,
+                      "second_end_condition": null,
+                      "second_length": null,
+                      "second_offset": null,
+                      "second_up_to_reference": "",
+                      "symmetric": false,
+                      "up_to_reference": ""
+                    },
+                    "id": "feature/boss",
+                    "input_feature_ids": {
+                      "$tuple": []
+                    },
+                    "kind": {
+                      "$enum": "FeatureKind",
+                      "value": "extrusion"
+                    },
+                    "name": "Boss-Extrude1",
+                    "operation": {
+                      "$enum": "BooleanOperation",
+                      "value": "create"
+                    },
+                    "order": 0,
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/depth"
+                      ]
+                    },
+                    "provenance": null,
+                    "selection_ids": {
+                      "$tuple": []
+                    },
+                    "sketch_id": "sketch/profile",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "materials": {
+                "$tuple": []
+              },
+              "meshes": {
+                "$tuple": []
+              },
+              "metadata": {
+                "name": "AnsiDetailCenteredBetaΩChild"
+              },
+              "parameters": {
+                "$tuple": [
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/width",
+                    "name": "D1",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 53.219
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/height",
+                    "name": "D2",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 31.870999999999995
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/depth",
+                    "name": "D1",
+                    "owner_id": "feature/boss",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 7.348999999999999
+                    }
+                  }
+                ]
+              },
+              "schema_version": "1.0",
+              "selections": {
+                "$tuple": []
+              },
+              "sketches": {
+                "$tuple": [
+                  {
+                    "$type": "Sketch",
+                    "attributes": {},
+                    "closed_profile_entity_ids": {
+                      "$tuple": [
+                        {
+                          "$tuple": [
+                            "edge/0",
+                            "edge/1",
+                            "edge/2",
+                            "edge/3"
+                          ]
+                        }
+                      ]
+                    },
+                    "constraints": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/0",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/1",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/2",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/2",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/axis/3",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/3",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/0",
+                          "kind": "distance",
+                          "parameter_id": "parameter/width",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "relation/length/1",
+                          "kind": "distance",
+                          "parameter_id": "parameter/height",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        }
+                      ]
+                    },
+                    "entities": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": -15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": -15.935499999999998
+                            }
+                          },
+                          "id": "edge/0",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": 15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": -15.935499999999998
+                            }
+                          },
+                          "id": "edge/1",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": 15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 26.6095,
+                              "y": 15.935499999999998
+                            }
+                          },
+                          "id": "edge/2",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": -15.935499999999998
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -26.6095,
+                              "y": 15.935499999999998
+                            }
+                          },
+                          "id": "edge/3",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        }
+                      ]
+                    },
+                    "id": "sketch/profile",
+                    "name": "Sketch1",
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/width",
+                        "parameter/height"
+                      ]
+                    },
+                    "provenance": null,
+                    "support_plane_id": "plane/front",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "source": {
+                "$type": "CadSource",
+                "application_version": "",
+                "attributes": {},
+                "container_version": "",
+                "format_id": "kit-neutral",
+                "path": "<authored-in-memory>",
+                "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "support_planes": {
+                "$tuple": [
+                  {
+                    "$type": "SupportPlane",
+                    "attributes": {},
+                    "id": "plane/front",
+                    "name": "Front Plane",
+                    "offset_parameter_id": null,
+                    "provenance": null,
+                    "support_selection_id": null,
+                    "transform": {
+                      "$type": "Transform",
+                      "origin": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "x_axis": {
+                        "$type": "Vector3",
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "y_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                      },
+                      "z_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                      }
+                    }
+                  }
+                ]
+              },
+              "units": {
+                "$enum": "UnitSystem",
+                "value": "mm"
+              }
+            },
+            "settings": {
+              "analysis_units": {
+                "angle_unit": "radian",
+                "decimal_places": 1,
+                "length_unit": "m",
+                "unit_system": "mks"
+              },
+              "definition": {
+                "detail_flags": [],
+                "drafting_standard": "moANSI_c",
+                "journal_name": "authored journal",
+                "system_preference_7a": false,
+                "tessellation": [
+                  20,
+                  15,
+                  3,
+                  false
+                ]
+              },
+              "density_kg_m3": 1.0,
+              "design_intent": false,
+              "document_units": {
+                "angle_unit": "degree",
+                "decimal_places": 5,
+                "length_unit": "mm",
+                "unit_system": "mmgs"
+              },
+              "hatch_name": "authored hatch",
+              "manager_name": "Configurations",
+              "output": {
+                "path_name": "C:\\KitAnsiNormalized01\\AnsiNormalizedCenteredPrecisionFiveAnsi\\AnsiDetailCenteredBetaΩChild.SLDPRT",
+                "saved_at": 1794000120
+              },
+              "provenance": {
+                "author": "Kit authored neutral input",
+                "cjk_saved": false,
+                "comment": "independent plain rectangular boss",
+                "company": "SDK interoperability research",
+                "created_at": 1794000100,
+                "license_origin": 0,
+                "modified_at": 1794000110,
+                "originating_build_code": 2026001,
+                "updated_at": 1794000110
+              },
+              "selected_leader": 0,
+              "styles": {
+                "cutlist_expressions": [
+                  "item",
+                  "description",
+                  "stock"
+                ],
+                "exclusion_names": [
+                  "authored µm exclusion",
+                  "NeutralCaseToken"
+                ],
+                "font_name": "Arial",
+                "language_id": 1033,
+                "line_style_name": "sdk plain AnsiDetailCenteredBetaΩChild continuous",
+                "print_widths_m": [
+                  0.0001,
+                  0.0002,
+                  0.00030000000000000003,
+                  0.0004,
+                  0.0005,
+                  0.0006000000000000001,
+                  0.0007,
+                  0.0008
+                ],
+                "standard": 0,
+                "task_labels": [
+                  "sdk plain AnsiDetailCenteredBetaΩChild description",
+                  "sdk plain AnsiDetailCenteredBetaΩChild high",
+                  "sdk plain AnsiDetailCenteredBetaΩChild low",
+                  "sdk plain AnsiDetailCenteredBetaΩChild complete",
+                  "sdk plain AnsiDetailCenteredBetaΩChild reminder"
+                ]
+              },
+              "system": {
+                "cabinet_name": "Annotations",
+                "construction_flag": true,
+                "created_at": 1794000100,
+                "folders": [
+                  [
+                    "moCommentsFolder_c",
+                    "Comments"
+                  ],
+                  [
+                    "moFavoriteFolder_c",
+                    "Favorites"
+                  ],
+                  [
+                    "moHistoryFolder_c",
+                    "History"
+                  ],
+                  [
+                    "moSelectionSetFolder_c",
+                    "Selection Sets"
+                  ],
+                  [
+                    "moSensorFolder_c",
+                    "Sensors"
+                  ],
+                  [
+                    "moDocsFolder_c",
+                    "Design Binder"
+                  ],
+                  [
+                    "moSurfaceBodyFolder_c",
+                    "Surface Bodies"
+                  ],
+                  [
+                    "moSolidBodyFolder_c",
+                    "Solid Bodies"
+                  ],
+                  [
+                    "moEnvFolder_c",
+                    "Environment"
+                  ],
+                  [
+                    "moInkMarkupFolder_c",
+                    "Markups"
+                  ],
+                  [
+                    "moEqnFolder_c",
+                    "Equations"
+                  ],
+                  [
+                    "moMaterialFolder_c",
+                    "Material <not specified>"
+                  ]
+                ],
+                "origin_axis": "z",
+                "origin_name": "Origin",
+                "planes": {
+                  "x": "Right Plane",
+                  "y": "Top Plane",
+                  "z": "Front Plane"
+                }
+              },
+              "target": {
+                "date_code": 2026306,
+                "parasolid_version": 370108
+              }
+            }
+          },
+          "schema": "kit.sw2026.sdk-origin-drawing-process.v1",
+          "support_names": {
+            "detail": "AnsiDetailCenteredBetaΩ view detail",
+            "model_plane": "AnsiDetailCenteredBetaΩ model plane",
+            "model_profile": "AnsiDetailCenteredBetaΩ model sketch",
+            "sheet_plane": "AnsiDetailCenteredBetaΩ paper plane",
+            "sheet_profile": "AnsiDetailCenteredBetaΩ paper sketch"
+          }
+        },
+        "schema": "kit.sw2026.ansi-normalization-request.v1"
+      }
+    }
+  ],
+  "choices": {
+    "heldout_inputs_used": false,
+    "new_document_precisions": [
+      3,
+      5
+    ],
+    "new_exclusion_policy": "literal independently authored nonempty sets, constructor vocabulary in one design and unrelated authored text in the other",
+    "original_sources_used": false,
+    "separate_analysis_precisions": [
+      6,
+      1
+    ]
+  },
+  "schema": "kit.sw2026.ansi-normalization-authored-inputs.v1",
+  "source_inputs": [
+    {
+      "bytes": 12992,
+      "kind": "previously independently authored neutral request, not a native save",
+      "name": "AnsiDetailCornerAlphaNativeIsoBuild0.Request.json",
+      "sha256": "6854b971d5798cf55767aedc268f5dbf4b451fec4eaed084a9de1c0b3da3423f"
+    },
+    {
+      "bytes": 12998,
+      "kind": "previously independently authored neutral request, not a native save",
+      "name": "AnsiDetailCornerAlphaNativeAnsiBuild0.Request.json",
+      "sha256": "bfb6af3cb475e2518bcfdff1e3b4186fde4e91ac16cc2c7288ec8687dec2b42e"
+    },
+    {
+      "bytes": 13261,
+      "kind": "previously independently authored neutral request, not a native save",
+      "name": "AnsiDetailCenteredBetaΩNativeIsoBuild0.Request.json",
+      "sha256": "eaa56ce2ffebd6b31924a183da7aadd2c5e65318545c2c4c114d9ec985166efa"
+    },
+    {
+      "bytes": 13267,
+      "kind": "previously independently authored neutral request, not a native save",
+      "name": "AnsiDetailCenteredBetaΩNativeAnsiBuild0.Request.json",
+      "sha256": "18c1fab950393a82da7d359bd438ffe00b1adae7f78483c7aed16a199f66c60e"
+    }
+  ]
+}

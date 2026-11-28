@@ -6,8 +6,8 @@ from tests.Convert.Solidworks.Properties.RunPartText import (
     RunPartText,
 )
 
-# the unsupported advanced manager with xml keeps its specific reader failure
-KPartCause = "part properties require an empty compatible native manager"
+# the deliberately unqualified signed manager policy keeps its exact diagnostic
+KPartCause = "part property manager policy is outside the empty profile"
 
 
 # every ordinary write route refuses the inspected source before output publication
@@ -18,6 +18,15 @@ def TestTextRefusal() -> None:
     assert (
         ReportValue["source_sha256"]
         == "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    )
+    assert ReportValue["geometry_equal"] is True
+    assert (
+        ReportValue["original_manager_sha256"]
+        == "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+    )
+    assert (
+        ReportValue["changed_manager_sha256"]
+        == "68ddf954035f094bc198fef05d289ca8550eb929d30c2d057944b1dbd48b7e91"
     )
     InfoValue = CastValue(dict[str, object], ReportValue["status"])
     assert (

@@ -1,0 +1,2609 @@
+{
+  "schema": "kit.sw2026.saved-view-observation.v1",
+  "created_at_utc": "2026-11-16T19:28:36.162009+00:00",
+  "scope": "Complete remote saved-file decoding plus independently inspected native getter/setter ownership; diagnostic observations only, no active-camera formula or writer acceptance",
+  "passed": true,
+  "is_writer_output": false,
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "archive_schemas_executed_locally": false,
+  "writer_executed_locally": false,
+  "remote": {
+    "source_revision": "0da16563cfdf951439a74c37fcfbcb4ad4e393de",
+    "tested_revision": "72e0922880135db2d72ce99d32c87619f0acdc17",
+    "tested_tree": "83743669e208c1a63980d3cb27b56ea992f6d330",
+    "verified_tested_parents": [
+      "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+      "0da16563cfdf951439a74c37fcfbcb4ad4e393de"
+    ],
+    "run": 43935960237,
+    "job": 133540485854,
+    "job_conclusion": "success",
+    "artifact": {
+      "id": 14261360401,
+      "bytes": 23125020,
+      "sha256": "01bd03e34f692f26504b814c804caee52c11b6726727b0f16dc9ff938662d25e",
+      "reported_digest_independently_verified": true
+    },
+    "raw_report": {
+      "path": "SourceParser/Curve/TreeNames/Checked.json",
+      "bytes": 12155175,
+      "sha256": "adb8920a828d6dfcfd24e85ac2f4b9f7806605f7480f89e3f037b7f0e9b4f191"
+    },
+    "projection": "Typed view fields and graph proofs retained; complete per-stream report objects represented by canonical SHA-256 alongside byte comparisons; all source fingerprints retained"
+  },
+  "manifest_sha256": "11358f571936fec421593dbbd6e2f93ac4f9813797fe7d9e63703793dda762f9",
+  "source_receipt_sha256": "0ef049546db7e112cb0fd7109555abbaaf2275c92a6b7e1d160993c67d08c6d4",
+  "source_proof": [
+    {
+      "file": "re/tooling/sw2026/serial/TreeNames.py",
+      "sha256": "02ecffe53cdaa744a729bd85fec5724022a8196c93c22ec5ac657e1f4947faab"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/AnnotationWire.py",
+      "sha256": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Classes.py",
+      "sha256": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Core.py",
+      "sha256": "a57ee11c90fb018739e99f10a47a2e501d0dc06296c34362074def4bb0a5dd66"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Dsl.py",
+      "sha256": "8467587af31c6d2b92d2fd3191640ca75a15b4840c3958abca32707e8e9f9ea4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/FieldScan.py",
+      "sha256": "b4663fffc67df7a65e998ab259dac5094d029fb74fe481e3a0ae52a8431822a0"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/MapBridge.py",
+      "sha256": "eeb9b26114a3862e124e393c615c0c979c3dbf38c2b6d9b9cf2c54321d441393"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/RoundTrip.py",
+      "sha256": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Schema.py",
+      "sha256": "fafa579ea5bc961792fdaa697f1c8cf20856a9d4bedd1b14c288be938046b2bf"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Streams.py",
+      "sha256": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/StringCorpus.py",
+      "sha256": "f6b31a97abfa2d408b33e9eb30f38be5168425ed07856a1aab63f00fc56f92c9"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py",
+      "sha256": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigAssembly.py",
+      "sha256": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigDetail.py",
+      "sha256": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigPart.py",
+      "sha256": "5a94e9ad6554ec6e54f40c311ae3a3b2328b90dd3e4318b5cc649f7aff4208eb"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigUnits.py",
+      "sha256": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigVisual.py",
+      "sha256": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Definition.py",
+      "sha256": "7f8b6ad83f7305498a7aaf9ab9b66ca9ad68442e42492a55c0b45fc0e19f649a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ExtObject.py",
+      "sha256": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Geometry.py",
+      "sha256": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MaterialDisplay.py",
+      "sha256": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MfcMaps.py",
+      "sha256": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ModelHeader.py",
+      "sha256": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedBody.py",
+      "sha256": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedComp.py",
+      "sha256": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+      "sha256": "e8205429dce688a2d41ccb2f8ef781b428f9099c5b695adc182a6557c6095413"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+      "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFeatures.py",
+      "sha256": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFillet.py",
+      "sha256": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFolders.py",
+      "sha256": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedPattern.py",
+      "sha256": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedProfile.py",
+      "sha256": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py",
+      "sha256": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefs.py",
+      "sha256": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+      "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCusProps.py",
+      "sha256": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallDocContent.py",
+      "sha256": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHeader.py",
+      "sha256": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHistory.py",
+      "sha256": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallStreams.py",
+      "sha256": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmmMaster.py",
+      "sha256": "5942042520e93d84a36d9e2b7914c7227a76a4d90163a7d2caf26aa866129a32"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py",
+      "sha256": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py",
+      "sha256": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py",
+      "sha256": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py",
+      "sha256": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py",
+      "sha256": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py",
+      "sha256": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py",
+      "sha256": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py",
+      "sha256": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py",
+      "sha256": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Visual.py",
+      "sha256": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VisualRefs.py",
+      "sha256": "dbf0c8ea784d2128573af6e21d7f7e808bacb36ea859c4146853c8fa372bbf81"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
+      "sha256": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
+      "sha256": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/AddEntryMut.py",
+      "sha256": "74a2b02aa91f016609da5b01032e210de5d05984bd5f13034978048771a9a6f4"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ArchiveMaps.py",
+      "sha256": "d7e8ccdd0d8c81c68279672b3c6ccecc9a6330e3d4c814007a11f4e97d6a3841"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/BindClassMut.py",
+      "sha256": "b2249e7e0d2d8c14113dd6f8efff5d0ee8bdcca98ec47e86806f0b054d4d0269"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ClassIndex.py",
+      "sha256": "ea249652c2da2f6037d3637debe031c167a232b780c2782fff2fa76d7ecb41ba"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindClass.py",
+      "sha256": "7eb6b1c2920019aa100de053ca6f1d6160b98256d2563a24008f2ee32b7d7701"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindObject.py",
+      "sha256": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapEntry.py",
+      "sha256": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapSnapshot.py",
+      "sha256": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ObjectIndex.py",
+      "sha256": "f4ecf8ba48b9c68beb41b13dd984b820c42b88d09a0a6647e34f74aa972d3bf0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/PutEntryMut.py",
+      "sha256": "290ec9d3ec0236b58bec2259c73e9aeee48121a13c2cb984bee6ff989ec3e32b"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ArchiveNode.py",
+      "sha256": "550abe31b41eeffce87931ea07c8a8fe04a349c37bf42bc07c82897ad2d75179"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalClass.py",
+      "sha256": "ab73b43cc167a36e361ecd30c85109f1efaf81da90bf35b0d9b4a6fd92448dad"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalRef.py",
+      "sha256": "19258628bfa23ec0cc98f75532537a90127d38cfce999c0155b4fa5fdfbc9dcc"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectRead.py",
+      "sha256": "79d8cdd212237716fac6145a048aa5d2b50410ddef03c94a03648cc6abbbea39"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectStore.py",
+      "sha256": "619fc4dbd2e9865c738af1df63929ddcfe2ef5997ae3a6f864b08507458df69f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadClassMut.py",
+      "sha256": "f1e7fe9da0b747258fed8a46c9ec11689766c013d21f89f414b3b73d8b1ca906"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py",
+      "sha256": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadTypeMut.py",
+      "sha256": "52f1287b945bc1f9b952a409b0436d27a512d251e4426d513847da661d642b7c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/RuntimeClass.py",
+      "sha256": "be3d1dc45163164ab169648d5ab98e3bbb274f1c256c0606e9af8a1f6886240a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteClassMut.py",
+      "sha256": "d53198ac370718d013ae35b0daef81aba0996f2743a1dc79734e1f85a67d2260"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteObjectMut.py",
+      "sha256": "6cc29be5679a0f6c11ce3339624a256e7c5b1fbf3bb220b531c4ae1c314bc33f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py",
+      "sha256": "98732874a4fa36c8af8e5dde44dc1844617547a182f57e2d4f7c04844779dc86"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py",
+      "sha256": "850cba1b90e592be68e7fb6558df4b798d22abf756ff963eb7210a5cd650419c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py",
+      "sha256": "82c9924a621ee1a3a16d0226d39f16601d8689c9040e2870cecc8492a0263c4a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadString.py",
+      "sha256": "1d5c8222608e80a69d92f68b9fe36a87647bb87009df949678aad61ec5d81512"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
+      "sha256": "5046d947fbc1c2d6c7e9afa0904d1a3817d71573949aaa7768a0697decde11cf"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",
+      "sha256": "399f98355bf255a8ee498b3c3c71451f9cb3edaa1d83efd5262959243ef12f6a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py",
+      "sha256": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Archive.py",
+      "sha256": "6f09542d473fbc806f30e9dca8484422743e1cde39b57deb1a8ad0fab3a92eb0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Cmgr.py",
+      "sha256": "2bab2554e90fd8155d1ab50c1f8b50c869bc139820117535bdacece2957d4e8c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Container.py",
+      "sha256": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeName.py",
+      "sha256": "5fe691829bd89bae76a0694c1d7cf737e24b771bbd9e6789f8325bef518a45a6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodePayload.py",
+      "sha256": "bcd29a4cc9702a9ea714b4e6a0254ee214e8796f907403c6a9e0ad9dda8314a5"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeScanned.py",
+      "sha256": "68b2f995303a13f0d2f6a52874d9cb07e8ceddc6896fba019db35b7fe4971c1d"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Definition.py",
+      "sha256": "f0cc64fbb208ce3bc6b670c9d0800315c69b0231b471210acc7490a6c5b3a071"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Format.py",
+      "sha256": "2765a1d4cd829871e013e187481b526f2e11781a3861faf5745be5a7f9da3c79"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/InflateStream.py",
+      "sha256": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/LayoutQueries.py",
+      "sha256": "fcd7b0ca746dda67e662c1a0a2497e33be9c50103fa5679c4efc42be8fb30259"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Parasolid.py",
+      "sha256": "220107059a26880ec51a7a9f0eca8eb2096e745c73423d90fb5e2f2721a96c6c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RotateBytes.py",
+      "sha256": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RunGroups.py",
+      "sha256": "04a8784a98cdeecf1647829410ae072e27a5f29a08e4d10c0b6c57b03e7a532e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/SldprtFormat.py",
+      "sha256": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamLimits.py",
+      "sha256": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamRecord.py",
+      "sha256": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 8,
+  "archive_comparison_count": 72,
+  "document_transform_count": 16,
+  "per_user_cell_transform_count": 48,
+  "observed_transform_variants": 1,
+  "all_observed_transforms_identity": true,
+  "static_default_owner": {
+    "module": "slduiu.dll",
+    "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+    "image_base": "0x48ea0000",
+    "native_target_executed": false,
+    "get_default": {
+      "start": "0x49787270",
+      "end": "0x49787278",
+      "bytes": 8,
+      "sha256": "5f97072a435f56a63ce9394e819a479062d70967dc65cbe31e6ec3424ceee834",
+      "observed_runtime_member": "0xae8"
+    },
+    "set_default": {
+      "start": "0x48ee7f80",
+      "end": "0x48ee7f8e",
+      "bytes": 14,
+      "sha256": "5949a3a775520de7dc9bff803cbb63cd78ab6d87927dfa8d7c4acdcc2bca439f",
+      "observed_runtime_member": "0xae8",
+      "tail_import": [
+        {
+          "iat_address": "0x4a4718d8",
+          "module": "sldmgu.dll",
+          "name": "??4mgXform_c@@QEAAAEBV0@AEBV0@@Z"
+        }
+      ]
+    }
+  },
+  "records": [
+    {
+      "file": "H01Forward-open-save.SLDPRT",
+      "name": "H01Forward",
+      "phase": "open-save",
+      "sha256": "dd16987f0aa1bbe9b7bd8ce353fb856976376a6ec6bb2f7873cdb81da2a98349",
+      "source_sha256": "8ab443de0a8cfcbdb54d3c9e09c03f57ffd81ec3325e43ffd31a0a82cb28bb45",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "75020dd0f1830c2cae62ab169add77ffc5b46966a384d98c1fcb12352e2852bd",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "dd16987f0aa1bbe9b7bd8ce353fb856976376a6ec6bb2f7873cdb81da2a98349",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2519,
+              "sha256": "3923f8f7a5b1d8569e265743eeffcec8b9f1ed675490ba60bb1af95500e60d43",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "e692ba9946da99e04f4c31ca3c47d9f46c3cad85dbff7aebcdcae92198f6d05d"
+            },
+            "Contents/Config-0": {
+              "bytes": 24937,
+              "sha256": "dc1d1b48ceefe8dcdd5f52502b3dd9e4317a1b14cae731e6fad48b7081e0d2c5",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "77a33664241b016ea4c7613a57e04df864b1d105506bdfe412ae7b9c1a221987"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1287,
+              "sha256": "d411ab52017e61e2599153e719ac0e10a9f932b25bec4250d66ae21f6d770e19",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "31d4ad328a63f9352dfa8429b01462c7f171c6f9cf0a0e71f10d75784c3680b3"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17236,
+              "sha256": "3d6e8a860b6cc4cacebe78c0ea745273479cfa6d8d8f5a6fe1b9d05ca4b604fc",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "b5ce9d6294a84e89e1d7412ff42d738521de5fe82ffea5971cebb8c3d9b0fee0"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "986749d68b5b8e4b7556c6652a1755c228301bc72ba9bd25dd48b6770d5bc188"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1153,
+              "sha256": "6833a5f4c55e2aeb6d6556c45c22a5ddb1ff3662e68a2d7665cdc4f1bb2ee4eb",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "89b2f06e0c8b2e7123c997b8a3a0e65a8b5caeaf3ef6d7566050e89e9a5949cd"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1287,
+              "sha256": "d411ab52017e61e2599153e719ac0e10a9f932b25bec4250d66ae21f6d770e19",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "79e8231812258301818ff1e810bdde6fe467792cb08db48bda1c2a8d20db5810"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "dd16987f0aa1bbe9b7bd8ce353fb856976376a6ec6bb2f7873cdb81da2a98349",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17236,
+              "sha256": "3d6e8a860b6cc4cacebe78c0ea745273479cfa6d8d8f5a6fe1b9d05ca4b604fc",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "9f1927403728e7b3ba3515181b1d79d84468639ed6ce15df9b227fdfd2e749e5"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "H01Forward-fresh-reopen.SLDPRT",
+      "name": "H01Forward",
+      "phase": "fresh-reopen",
+      "sha256": "745e7186baa20cea2dd6091ab30ffb0e6508988556ced6045f6d09f572e9c771",
+      "source_sha256": "a598287b86d7bc103c9fdd2c112499f77d6e24b9908e208d202935da189c0dbf",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "8cc28d74d677a288dd25bb347bd366bb57dfcde0b50feb29438c93ac01d52a1c",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "745e7186baa20cea2dd6091ab30ffb0e6508988556ced6045f6d09f572e9c771",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2593,
+              "sha256": "a55c2e5f165e377b9fc0a8db0fbe1cdaf33a1419365c68488ec6ce7408073428",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "cbfa2b10c7a758bba3c7bd4bb1733fe84e69a50ff76171a540d3010dff2de71e"
+            },
+            "Contents/Config-0": {
+              "bytes": 24955,
+              "sha256": "3082db2f3ba2e8d4de38522069722c5375b12e031d004654cd33620b082a5485",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "b39c96bd62df407785f6086bd858e6470e344fbf11e1ffd1a235ad84eac9a19c"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1361,
+              "sha256": "6d94ca22973dd1a8b9c96d543b74871ae5461a4ad699ec83622f0bfbb2a2de3c",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "bf1ea2e82efaadcd4aba4134ec5ba87b25bccc27ca65507b38878a611c862426"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17324,
+              "sha256": "d1cb5f93c175ca0f89be54880d912fade15472d8881abf59054950cc0ed156be",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "f7217568f1e890fd905bee0da213420b1baf7c392890a145babc851dc6764307"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "7c75530c16927801535e6706a5c0b058cc6ef31beeace725680a80b4f42e953c"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1897,
+              "sha256": "ac99afd2becb4e473f19910988af2d51139efd871684fd8c26cf7466ce63aa1e",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "029ff3ad003a372cd5961179406a83b1784220f050dc15656dc7e81976de5abf"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1361,
+              "sha256": "6d94ca22973dd1a8b9c96d543b74871ae5461a4ad699ec83622f0bfbb2a2de3c",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "8a93f5c8189a724ed88867f3b46c3494e07875b961fcdc20c7ac847ca93d6652"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "745e7186baa20cea2dd6091ab30ffb0e6508988556ced6045f6d09f572e9c771",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17324,
+              "sha256": "d1cb5f93c175ca0f89be54880d912fade15472d8881abf59054950cc0ed156be",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "405fbf9399ee97f401e73a470b90db78d56bd9f5292ca86498a69f6924f234e9"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "H02Reverse-open-save.SLDPRT",
+      "name": "H02Reverse",
+      "phase": "open-save",
+      "sha256": "4cf34106ec9456d6179dc9f29c48480e971d1b0e6c620aee846d0bd90d1015b9",
+      "source_sha256": "afabf92d8c797c925c981321e08ba4adeb4c99d2e5d578f303e7668a9f277475",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "7f2f1be22e5421ad90dcbcc90b2c4c29768025d4a16128028fd02b01f0953dba",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "4cf34106ec9456d6179dc9f29c48480e971d1b0e6c620aee846d0bd90d1015b9",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2519,
+              "sha256": "0de2729884fd7e51c0c48e28b97d09c9f597731eec6a5d37a65485de861c1bdf",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "0d2207cee0ad1a5f473296dab0ce320374a211d4fa636dab2fd06e64853c1b24"
+            },
+            "Contents/Config-0": {
+              "bytes": 24937,
+              "sha256": "4e46a684bc9b22fda69503e6ad6e9ad288161ce61d372c4c6097908d5b34ce3c",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "946a5a14b9dfcfc1acd899e4a352e8c686629dc805f4268cdf854e8678ebe46c"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1287,
+              "sha256": "ae1f8a8e98f6b5a8038a8356a4b1a375b7681797caeaf3292f30d17751164ddb",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "d9b8d3bb3433b0b1224222a44347d9303050ad949ac9dd805b9041e1b80d4b9e"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17236,
+              "sha256": "09156fce3f0041521e9ff17a148854d911df523fd991fe022af457d6df29b811",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "bd4a40f989f01741ed25b95fbd2d93c6480f95fa21f075f23569ac8ddfeb7b29"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "986749d68b5b8e4b7556c6652a1755c228301bc72ba9bd25dd48b6770d5bc188"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1153,
+              "sha256": "1d48d9c71c0124846da81560dc1d008fffe2cce92e4c8fa657ff462247d2580a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "0c4e5fe5fb00d36d0f68304884444eb865fd0ce9195e6cf66bcc1b1c6ba248a4"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1287,
+              "sha256": "ae1f8a8e98f6b5a8038a8356a4b1a375b7681797caeaf3292f30d17751164ddb",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "780e1f9e2d6fbd4401613e9ffa802d6a4484011fa393fd8ee60f05b85d9d9c6a"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "4cf34106ec9456d6179dc9f29c48480e971d1b0e6c620aee846d0bd90d1015b9",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17236,
+              "sha256": "09156fce3f0041521e9ff17a148854d911df523fd991fe022af457d6df29b811",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "6c0bfdf66167aa4570ffe8a63bd5d48b7a17847a74bbc26568650b3bc304bb57"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "H02Reverse-fresh-reopen.SLDPRT",
+      "name": "H02Reverse",
+      "phase": "fresh-reopen",
+      "sha256": "7897a5517f2974d0ca6c4e6d39bb2f6bef72c26ba6dad36e47671f140a22afa0",
+      "source_sha256": "9f8076cde657666f1620cbd754fe0bb64a72e43fb5bacfa76384842133bb0307",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "04201e1c6f7a36c695414eff388cb487ed52567bfd81ec1674f3fba46d299475",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "7897a5517f2974d0ca6c4e6d39bb2f6bef72c26ba6dad36e47671f140a22afa0",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2593,
+              "sha256": "f1c8a66a14fb1bba58b8a16156664a71ea3e73030e9fe9f17edb814838398be0",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "d0eb0df0f4a3f5e191334c045177dcb59add1d090eb228a2338760188fbeb551"
+            },
+            "Contents/Config-0": {
+              "bytes": 24955,
+              "sha256": "eb8c024c1ca82edb78361cec077f4278dc1302fe66480f1eb26ae6add39cb280",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "86a59eeca61e472beaf43bcd23a27e7a3bfbe5d1675693fc7be93a46bc711d51"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1361,
+              "sha256": "6df17abcb9e41e4d9c8914afd0fef1c51ddbd597089e76c900fd935a9d3b9d56",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "14bc64f14c278561987a53e4abbfc46a5c3fea92d087ceab2ed101211f4b0e29"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17324,
+              "sha256": "8a04731ed84ab3c03101938520352a102ca86643553572a8e99284a272ada9a2",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "fccc6650bdbead484cee6be926465de769e45df3ea2c9195a781d30b34f35a36"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "7c75530c16927801535e6706a5c0b058cc6ef31beeace725680a80b4f42e953c"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1897,
+              "sha256": "70f24095de70531d429c152f1a5e702619f4c84518d5ce83319e3cb457e4f7a7",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "f255e874bb391f7731581fac4f05658798572b016d7018e7e47561af3db06848"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1361,
+              "sha256": "6df17abcb9e41e4d9c8914afd0fef1c51ddbd597089e76c900fd935a9d3b9d56",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "d848433d990652faa1f6e4b1f261d3d0e8e8b92b6f3f306a675b6f1e815ad2a0"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "7897a5517f2974d0ca6c4e6d39bb2f6bef72c26ba6dad36e47671f140a22afa0",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17324,
+              "sha256": "8a04731ed84ab3c03101938520352a102ca86643553572a8e99284a272ada9a2",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "e89d5b0488c0ae8d89957c0c4a14ca9d54d3c69bd705657175a73bc501776c22"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "H03MidPlane-open-save.SLDPRT",
+      "name": "H03MidPlane",
+      "phase": "open-save",
+      "sha256": "06fc822986e1c2e92b69d59dcd21450ab1abaa90a001f35d8f1b06ccf26fa10f",
+      "source_sha256": "f04172ae8877a630b594bde846c7acc326886c3f7ff0eeb24b29876effe4ba04",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "8df57a3830c71b405db63393d4bea61a845d94079833ed7f734e4de1861b9c66",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "06fc822986e1c2e92b69d59dcd21450ab1abaa90a001f35d8f1b06ccf26fa10f",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2525,
+              "sha256": "6817c7d08ffe610b9ca5239e1cad24bcd3c045cc1133ce2ffc8c0404fab203b1",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "56f84705dbe5eb88afd4d95105154ca823ef9fdfa70ba454f174ff6a84ecd9f1"
+            },
+            "Contents/Config-0": {
+              "bytes": 24939,
+              "sha256": "cd329320225416deffa5efc662e9e88f337a9fd3bae2a7ae58c6c4c635123eb5",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "678f55ed1a57e91a296ab5b7346c26115a20eda0c84540d442a8f9cd26590d09"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1293,
+              "sha256": "ce9214812c154a08cef7b471b82ce63076f34c269d8d841ac6b39836431168e4",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "7bd7641c6dfe67af45ac41354fe1e14dee2da0825c1af0b0d6c839693d3bd962"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17240,
+              "sha256": "c845fd9f6eaae075cc9f7cc60f252f7770d7616a41ee0f7982d65b15f40ffced",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "5bddc951cfd77b714dce8e4157d288ce0e14cf512a76c61a4530afd15ecbe029"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "986749d68b5b8e4b7556c6652a1755c228301bc72ba9bd25dd48b6770d5bc188"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1159,
+              "sha256": "c5eafcaafc912143af7c622757609e6b3b59d3cfe0a73bd6aac9c9395faa5b11",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "c1ebe4cdf1bf5377e5a4ab26bbfb5f831a1cf1c97779cf72f33653faea4c10c7"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1293,
+              "sha256": "ce9214812c154a08cef7b471b82ce63076f34c269d8d841ac6b39836431168e4",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "5039fb9df9c338e58eb87379482a590627ce05331aafc8bda65ecd3042ec492b"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "06fc822986e1c2e92b69d59dcd21450ab1abaa90a001f35d8f1b06ccf26fa10f",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17240,
+              "sha256": "c845fd9f6eaae075cc9f7cc60f252f7770d7616a41ee0f7982d65b15f40ffced",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "068ab60dab7afe0682c4938b43b2f7d183ffce3a59af2e3dcfa77e8e8467b621"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "H03MidPlane-fresh-reopen.SLDPRT",
+      "name": "H03MidPlane",
+      "phase": "fresh-reopen",
+      "sha256": "c1b2e39d5e3514b1c43cd36488c989a18e4beb6d01c17bce7b4765d480c674ce",
+      "source_sha256": "a3c0efea61828b1bca16c5120573a54765378d7b2ba84b6d94dfe28e317427ad",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "f8c93c49f0506a20860f8ac91edd5d6dbff21ee9290175faacce12d1c6770ede",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "c1b2e39d5e3514b1c43cd36488c989a18e4beb6d01c17bce7b4765d480c674ce",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2601,
+              "sha256": "795886c28d98e3b85fe70a16845c2b1c0777e74e4c30dd78d51fda415c2fa7d7",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "29456ab99b93ebd827f2f9c74630dd084f2b605ebc9018aa6605b591f5250c28"
+            },
+            "Contents/Config-0": {
+              "bytes": 24957,
+              "sha256": "567a86e79c479920dc75897e79eab6a900d0db3e58f7f9bdf7c4e445bc363882",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "e4b292b42051b74e2873c8bff69f67bee4311017dbd36e45ada5e1eeceae76b8"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1369,
+              "sha256": "c791df88865de94ddf920279ed177a6b8306477fe83f8a1922b19c9a9c4c8580",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "c56fa591ec578bf44b8170a2ad3d0917989ba88160ee983a9a573ee40ba75ecd"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17330,
+              "sha256": "f1ab1a1734667ee06365dfa3a6c05bf508b363f4d6204f0f4f87fc44eccf349a",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "b2e5d6f597ae5e59659b18b74ca31d8faa520bd7844c6ef5b2485d8b31b543c4"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "7c75530c16927801535e6706a5c0b058cc6ef31beeace725680a80b4f42e953c"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1911,
+              "sha256": "ce51aa22c77dcd4f288c284a178afe4afc977e9d028d60af41d9f3ba4e6141af",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "d09aea48c5b4b95e169c6150f12aa560f484df5a1efec7fc18cc3f517f34d2de"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1369,
+              "sha256": "c791df88865de94ddf920279ed177a6b8306477fe83f8a1922b19c9a9c4c8580",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "ff85b0f4cd1138af916cf0b032786a36b030ac8ab68316b139cf0a5e897bfdb8"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "c1b2e39d5e3514b1c43cd36488c989a18e4beb6d01c17bce7b4765d480c674ce",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17330,
+              "sha256": "f1ab1a1734667ee06365dfa3a6c05bf508b363f4d6204f0f4f87fc44eccf349a",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "6bbd3aa07572cd63fa611552c3e5a4421690d97e7202bdda12832c8c9600da5f"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "H04TwoDirections-open-save.SLDPRT",
+      "name": "H04TwoDirections",
+      "phase": "open-save",
+      "sha256": "6235f0a45c41bea9ac6b7878adf4bb4e8f43383e145a0b46f6c47c19b22f0085",
+      "source_sha256": "2d2a5a1abb76246311933e1f0fcf4a9f3fabcc18099058bacaeb9a7d1bf6a7ff",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "9d4638e28f11449ad5775b933d74f5ac683e83ae94add1cdd73b03411bc2c13c",
+        "node_count": 1754,
+        "reference_count": 2088,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "6235f0a45c41bea9ac6b7878adf4bb4e8f43383e145a0b46f6c47c19b22f0085",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2555,
+              "sha256": "c54d622b3f8a48adb2564e07e606af5058c70b062b3ea46008ceaa29f04d7ddf",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "0bf06090c8bc2db98966a3f8ba490979f009844de8da0e658fd7f4de5d6d965b"
+            },
+            "Contents/Config-0": {
+              "bytes": 24949,
+              "sha256": "294dd0992256f754de0b5289dc0fc6759366ab01a01540bcd6f408e275e34f4c",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "2491da64f41a79114344d9e1fcf12c80553ab1d6e86b7d20124121cdc618be11"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1323,
+              "sha256": "542ae662ada9619dfe8da920b42ef7b1626997936f3d5cf7e4df401054fd3d12",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "b0695f2f92e07daec5a376e98bd1edc7496dcafa8ae8e5db1976912900f1b93c"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17342,
+              "sha256": "6d711cd8f9422011bdacb90568d9da1b4398ec74272ba5342cb1efd48c6dd719",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "49eaeefd9314f525ed8aac53458ccb27c52e96c51c936bae72ac3173da26749d"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "986749d68b5b8e4b7556c6652a1755c228301bc72ba9bd25dd48b6770d5bc188"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1189,
+              "sha256": "57a14c289bf95f89b202fa5a274537182e50eaf2833748555d5624b913ec0576",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "ac19117d460f1dac828841bc8bed62644f2ecf36bcb7c5033aaef76c29e7755c"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1323,
+              "sha256": "542ae662ada9619dfe8da920b42ef7b1626997936f3d5cf7e4df401054fd3d12",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "72d0b789e660ad644962cc60f57b188872581b786f24d1cd36189d0700a1602d"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "6235f0a45c41bea9ac6b7878adf4bb4e8f43383e145a0b46f6c47c19b22f0085",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17342,
+              "sha256": "6d711cd8f9422011bdacb90568d9da1b4398ec74272ba5342cb1efd48c6dd719",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "cb476f4775119ef86be15f1c25ee1fd53d9ce96af432fe493bf909f0acd31e01"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "H04TwoDirections-fresh-reopen.SLDPRT",
+      "name": "H04TwoDirections",
+      "phase": "fresh-reopen",
+      "sha256": "b5f7ea5bf4b81ea06ae53c9200643c8a7b3c1636c7245e6901080978453c1b55",
+      "source_sha256": "f797682dbaf1d1a3e2950a3ab9cbea074f3260162cf701d7ddc638e88d0253b7",
+      "passed": true,
+      "source_immutable": true,
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "340eaf48c4c0f2f41fa1657aacfb84cc85c691557494aa9e71f362bbe5ae10c9",
+        "node_count": 1754,
+        "reference_count": 2088,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "b5f7ea5bf4b81ea06ae53c9200643c8a7b3c1636c7245e6901080978453c1b55",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2641,
+              "sha256": "0a15e04b0926633a2f0912bdd33e9fb944903416724813076ba6135fe00c2aae",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "7ac7e81caf4fd360e8cd54110a58b04ac79d3779d888bc5f0198e68ea4585d88"
+            },
+            "Contents/Config-0": {
+              "bytes": 24967,
+              "sha256": "f84bdea484c4e84203d587b60a30b2198be840728e8f82235f326ac12e3c8fb6",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "0c3a49f48d0170b0f7e3f1d559f2bfa6ae2f2e1dd8699c8a9d2a99f595e178d5"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1409,
+              "sha256": "58d88a213614917e2b9c4fb33be4a931fba4a19f05fbb263098ec608109b4638",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "316e93a86c042624f5b72b7d055f414798b919b81b639685b6033440339e7720"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17442,
+              "sha256": "70b12efbe3896c3ff2db8d14590c7a5332b4b791e73a8d1a2cf8aea78c3a80cc",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "3c19df52e2461ccfa1f610a82c8209b723ed51e541c66dbf3521a464941c991e"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "7c75530c16927801535e6706a5c0b058cc6ef31beeace725680a80b4f42e953c"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1981,
+              "sha256": "88bee8718f6cddd8319664d61b6d6aedbff50b26dba77cdfb14fabacb6feb94d",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "20a614a536da897dc829ae101a8248c51d5c938e1f3afad2d23b25384cbf5ac7"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1409,
+              "sha256": "58d88a213614917e2b9c4fb33be4a931fba4a19f05fbb263098ec608109b4638",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "621ac5c56f80dbbe05fc44b59319818a6b37fc2d3e2ee116795b9a6ce4013e0d"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "b5f7ea5bf4b81ea06ae53c9200643c8a7b3c1636c7245e6901080978453c1b55",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17442,
+              "sha256": "70b12efbe3896c3ff2db8d14590c7a5332b4b791e73a8d1a2cf8aea78c3a80cc",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "2bcfcb72b844e398c9e1314e3b7d5f2e7a2188fca88536651049858f9efd5542"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "All native observations used hidden sessions without an explicit camera intervention",
+    "Identity observations do not establish active viewport state or the role of the second document transform",
+    "Captured environment/window values are research observations and are prohibited as writer templates",
+    "The native default setter operation forwards to the transform assignment operator; higher active-camera callers are untraced"
+  ]
+}

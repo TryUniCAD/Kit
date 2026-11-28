@@ -1,0 +1,605 @@
+{
+  "candidate_numeric_checks": 322,
+  "current_source_only_tool_manifest_sha256": "262efe4e79968451e2b63b2bfc92d1783fa0f4d4452e559e83176b6652161bab",
+  "delivery_pr": 121,
+  "effective_density_kg_m3": 1.0,
+  "heldout_evaluations": 0,
+  "native_report_sha256": "1904630cd69b81e200c353023bae8b55c519a7cf45136316befa6cf63107d0ed",
+  "native_trial_passed": true,
+  "original_writer_output_changed_for_replay": false,
+  "phases": {
+    "ControlAfter": {
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394841086963141,
+        "process_id": 4496,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "482c5ecaf8bbbc6cfbb11aee3af1acbe474b0ae1a161de87a81ffdcbc330ca04"
+    },
+    "ControlBefore": {
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394838864126933,
+        "process_id": 4232,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "3836164728a8d8b6cfc156eb681c877052029b23ff7f3a02a7534331df2ccf8b"
+    },
+    "Design1Named": {
+      "derivative_sha256": "076c41d8bae6c0f9984ad516ef47e49a06a1238bdb4f31a3fe50bb9636ec73ec",
+      "numeric_checks": 69,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394839413184688,
+        "process_id": 1352,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "52b69cec4e8853a6f946b46d8b4a5a738e437328c484efb1a8daba0e45ccf89f",
+      "states": {
+        "Edited": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01103,
+          "mass": {
+            "area": 0.0029068782,
+            "com": [
+              0.009170000000000003,
+              -0.004389999999999999,
+              0.005515
+            ],
+            "mass": 8.902104532999998e-06,
+            "volume": 8.902104532999998e-06
+          },
+          "native_body_name": "Primary Solid",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Initial": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.008289999999999999,
+          "mass": {
+            "area": 0.0025857501999999996,
+            "com": [
+              0.009170000000000001,
+              -0.004389999999999999,
+              0.004144999999999999
+            ],
+            "mass": 6.690702318999998e-06,
+            "volume": 6.690702318999998e-06
+          },
+          "native_body_name": "Primary Solid",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.008289999999999999,
+          "mass": {
+            "area": 0.0025857501999999996,
+            "com": [
+              0.009170000000000001,
+              -0.004389999999999999,
+              0.004144999999999999
+            ],
+            "mass": 6.690702318999998e-06,
+            "volume": 6.690702318999998e-06
+          },
+          "native_body_name": "Primary Solid",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        }
+      }
+    },
+    "Design1Plain": {
+      "numeric_checks": 46,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394839116340834,
+        "process_id": 8088,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "85e6f31a9b62883f48162a6bf50a965cc2c2b2da4e996b2f8258a06208d837a3",
+      "states": {
+        "Initial": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.008289999999999999,
+          "mass": {
+            "area": 0.0025857501999999996,
+            "com": [
+              0.009170000000000001,
+              -0.004389999999999999,
+              0.004144999999999999
+            ],
+            "mass": 6.690702318999998e-06,
+            "volume": 6.690702318999998e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.008289999999999999,
+          "mass": {
+            "area": 0.0025857501999999996,
+            "com": [
+              0.009170000000000001,
+              -0.004389999999999999,
+              0.004144999999999999
+            ],
+            "mass": 6.690702318999998e-06,
+            "volume": 6.690702318999998e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        }
+      }
+    },
+    "Design1Reopen": {
+      "numeric_checks": 46,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394839788141963,
+        "process_id": 7260,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "97e0e13797f8e870f221f6d58584e3ad8efb03ca0a381d936e5d653f800dbdfb",
+      "states": {
+        "Initial": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01103,
+          "mass": {
+            "area": 0.0029068782,
+            "com": [
+              0.009170000000000003,
+              -0.004389999999999999,
+              0.005515
+            ],
+            "mass": 8.902104532999998e-06,
+            "volume": 8.902104532999998e-06
+          },
+          "native_body_name": "Primary Solid",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01103,
+          "mass": {
+            "area": 0.0029068782,
+            "com": [
+              0.009170000000000001,
+              -0.004389999999999999,
+              0.005515
+            ],
+            "mass": 8.902104532999998e-06,
+            "volume": 8.902104532999998e-06
+          },
+          "native_body_name": "Primary Solid",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        }
+      }
+    },
+    "Design2Named": {
+      "derivative_sha256": "52151eeccc681b403529f2fad7db1461d32f2cc991f021078dbb790e834c31c8",
+      "numeric_checks": 69,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394840393729916,
+        "process_id": 4692,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "34f4c878fb73a44e2351cd0e37edea7ee3bf8bb657b6e11185c06e3fab70df69",
+      "states": {
+        "Edited": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00937,
+          "mass": {
+            "area": 0.0025527582,
+            "com": [
+              -0.012430000000000004,
+              0.008570000000000001,
+              0.004685
+            ],
+            "mass": 6.7954585090000006e-06,
+            "volume": 6.7954585090000006e-06
+          },
+          "native_body_name": "Alternate Body",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Initial": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00671,
+          "mass": {
+            "area": 0.0022398358,
+            "com": [
+              -0.012430000000000005,
+              0.008570000000000001,
+              0.0033550000000000003
+            ],
+            "mass": 4.8663315470000005e-06,
+            "volume": 4.8663315470000005e-06
+          },
+          "native_body_name": "Alternate Body",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00671,
+          "mass": {
+            "area": 0.0022398358,
+            "com": [
+              -0.012430000000000005,
+              0.008570000000000001,
+              0.0033550000000000003
+            ],
+            "mass": 4.8663315470000005e-06,
+            "volume": 4.8663315470000005e-06
+          },
+          "native_body_name": "Alternate Body",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        }
+      }
+    },
+    "Design2Plain": {
+      "numeric_checks": 46,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394840095588642,
+        "process_id": 2576,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "5e0aa978bb2905b4b3f9b20d275d1a08ba00d4a5494c4b1aff223e2c8895235b",
+      "states": {
+        "Initial": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00671,
+          "mass": {
+            "area": 0.0022398358,
+            "com": [
+              -0.012430000000000005,
+              0.008570000000000001,
+              0.0033550000000000003
+            ],
+            "mass": 4.8663315470000005e-06,
+            "volume": 4.8663315470000005e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00671,
+          "mass": {
+            "area": 0.0022398358,
+            "com": [
+              -0.012430000000000005,
+              0.008570000000000001,
+              0.0033550000000000003
+            ],
+            "mass": 4.8663315470000005e-06,
+            "volume": 4.8663315470000005e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        }
+      }
+    },
+    "Design2Reopen": {
+      "numeric_checks": 46,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394840772570661,
+        "process_id": 10924,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "ccad14b9dfcdd7c514b867f54d1098beb72c6e30e9d1bc55fdb400c74bc2bc66",
+      "states": {
+        "Initial": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00937,
+          "mass": {
+            "area": 0.0025527582,
+            "com": [
+              -0.012430000000000004,
+              0.008570000000000001,
+              0.004685
+            ],
+            "mass": 6.7954585090000006e-06,
+            "volume": 6.7954585090000006e-06
+          },
+          "native_body_name": "Alternate Body",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "body_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00937,
+          "mass": {
+            "area": 0.0025527582,
+            "com": [
+              -0.012430000000000004,
+              0.008570000000000001,
+              0.004685
+            ],
+            "mass": 6.7954585090000006e-06,
+            "volume": 6.7954585090000006e-06
+          },
+          "native_body_name": "Alternate Body",
+          "native_body_type": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "whats_wrong": 0
+        }
+      }
+    }
+  },
+  "prior_reporter_failures": [
+    {
+      "cause": "observer compared an observed XY vector with a three-coordinate planar prediction",
+      "controls_healthy": 2,
+      "named_candidates_opened": 0,
+      "report_sha256": "4b0c03fec94db6f19c5b458cef9bd1f2b810e499d3bd1c90ddbbcdc16818811a"
+    },
+    {
+      "cause": "comparison used document density preference for an unassigned body",
+      "controls_healthy": 2,
+      "named_candidates_opened": 0,
+      "report_sha256": "d29d20a6c8f726a271418d213630581ff7d83979c10d7958bf8d261d23726905"
+    }
+  ],
+  "prior_source_only_packet_sha256": "bdccbaf78c2276b192549f9514a1aeaf302403c1b3d6f58beb7cbbf748df8810",
+  "pristine_controls_healthy": 2,
+  "public_writer_qualified": false,
+  "qualified_native_processes": 8,
+  "schema": "kit.sw2026.named-body-cold-reuse-native-measurement.v1",
+  "scope": "two disclosed ASCII labels on cache-free ordinary rectangles",
+  "source_only_build_sha256": "1e6cff0c65252666c8535156127a6f945d3d8981f5568674a11ef90e5e0191e3",
+  "trial_sha256": "20f481f114288850a77b9c9cbf3a22e251c563c54692ff9b05e614f8232032f4",
+  "unchanged_part_inputs": {
+    "Control.SLDPRT": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "Design1Named.SLDPRT": "0394bd9ed2c446f3ffdb6152ab5781e8a948f93798a915a5ff8e666d82e50e0a",
+    "Design1Plain.SLDPRT": "61149e0a47188b84f738bae4f1d677b030422add47012cf80c7659024542f2d1",
+    "Design2Named.SLDPRT": "1d81bf0e206741ab9c09626fbb84d121698245cdfedcca243f4d8cc00808c048",
+    "Design2Plain.SLDPRT": "33c621870a8427751e9f9004a562aa1d83a57876acc925760bc5ccc9ffb0d9c7"
+  }
+}

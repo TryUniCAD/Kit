@@ -1,0 +1,32 @@
+{
+  "actual_process_crash_verified": false,
+  "completed_native_sources": 0,
+  "controls_healthy": true,
+  "distinct_processes": 3,
+  "first_disconnected_call": "ICurve.IsCircle",
+  "hresult": "0x80010108",
+  "job_sha256": "a27bfab92f3a231e31973616028b29e0c697aed37ffdd601b971dec5ca25e578",
+  "model_lifecycle_passed": false,
+  "native_receipt_sha256": "44fad085bb4da94937b6485cd7b13f3dc5fc19f2e5973756204ddd0debc28c97",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "phases": [
+    {
+      "name": "ControlBefore",
+      "passed": true,
+      "record_sha256": "8e2d65f36185098a46e5bb9805a98169b07323a69b46fdd033cff9edb2d46870"
+    },
+    {
+      "name": "CylinderZAuthor",
+      "passed": false,
+      "record_sha256": "beac13cafee6ff052fb28ed18b285ad81d95278199c6aa2f9a7bfac5303828c0"
+    },
+    {
+      "name": "ControlAfter",
+      "passed": true,
+      "record_sha256": "b27f4ee42180703d125e2ae0da52929c652d8c264fbd54724111b95faf2040bd"
+    }
+  ],
+  "schema": "kit.sw2026.imported-cylinder-curve-dispatch.v1",
+  "source_revision": "470294b5852d2a0359d02a5a6702e70e5fa6a8b8"
+}

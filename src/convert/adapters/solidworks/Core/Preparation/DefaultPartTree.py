@@ -4,7 +4,10 @@ from convert.adapters.solidworks.Archive.Construction.System.SystemInput import 
 
 
 # the ordinary english tree initializes the classified folder roles and canonical supports before assigning model feature ids
-def DefaultPartTree(PlaneName: str, WrittenAt: int) -> SystemInput:
+def DefaultPartTree(
+    PlaneName: str, WrittenAt: int, PlaneAxis: str = "z"
+) -> SystemInput:
+    PlaneNames = (("x", "Right Plane"), ("y", "Top Plane"), ("z", "Front Plane"))
     return SystemInput(
         (
             ("moCommentsFolder_c", "Comments"),
@@ -20,7 +23,10 @@ def DefaultPartTree(PlaneName: str, WrittenAt: int) -> SystemInput:
             ("moEqnFolder_c", "Equations"),
             ("moMaterialFolder_c", "Material <not specified>"),
         ),
-        (("x", "Right Plane"), ("y", "Top Plane"), ("z", PlaneName)),
+        tuple(
+            (AxisValue, PlaneName if AxisValue == PlaneAxis else NameValue)
+            for AxisValue, NameValue in PlaneNames
+        ),
         "Annotations",
         "Origin",
         "z",

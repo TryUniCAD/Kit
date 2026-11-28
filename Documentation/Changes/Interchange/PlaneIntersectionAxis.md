@@ -11,3 +11,5 @@ The follow-up verified 23 additional inputs on both the previous and corrected r
 Explicit JSON configuration reads validate the requested complete variant. Suppressed bound axes still validate both support frames. A driving station may retain an expression and its linked parameters while resolving from its stored evaluated length. [JSON read and support checks](../../../tests/Interchange/Document/BoundAxisReadTests.py) · [Expression-backed station](../../../tests/Interchange/Document/BoundAxisExprTests.py)
 
 Configuration validation indexes the effective overrides and suppressions once per document. A guarded ordinary stream read of 256 axes and 512 inherited or local overrides builds one index and resolves all 512 stations. An invalid B-rep also fails before the requested geometry filter. [Complete-input validation](../../../tests/Interchange/Document/BoundAxisReadTests.py)
+
+The SOLIDWORKS research composer also verifies the portable snapshot definition against translated and oblique support frames and the earlier linked archive outputs. [Guarded archive comparison](../../../re/solidworks/records/PortablePlaneIntersectionAxis2026.md)

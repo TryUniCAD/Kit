@@ -1,0 +1,69 @@
+{
+  "custody": {
+    "foreign_cleanup_changed": false,
+    "git_mutations": false,
+    "hopper_open_or_close": false,
+    "saved_CAD_payloads_read": false,
+    "sealed_inputs_read": false,
+    "shared_source_changed": false,
+    "vendor_binary_or_listing_in_delivery": false,
+    "vm_calls": false
+  },
+  "delivery_pr": 121,
+  "instruction_boundaries": {
+    "passed": true,
+    "private_report_sha256": "c53829f402ca46e38410c9356325ab570ec10017e147f55a8721d602aef0b851",
+    "windows": 6
+  },
+  "prior_attempt": {
+    "correction": "table address-load/store span corrected; all29 complete-function hashes unchanged",
+    "metadata_record_sha256": "84f886b16167aa4fdbf15695b07bc11dd62923f8650267326e269c94499c08b4",
+    "result": "module/function replay passed; selected constructor-window end was not an instruction boundary",
+    "retained": true
+  },
+  "qualification": {
+    "application_usable": false,
+    "archive_round_trip": false,
+    "held_out": false,
+    "native_lifecycle": false,
+    "public_admission": false,
+    "vendor_loadable": false
+  },
+  "registered_metadata": {
+    "name": "AnnotationNameApi.json",
+    "native_processes_started": 0,
+    "sha256": "9d5fc41e83efa6ad574c708d0ca26b2701460896beb53dbc9660f9bb4a1c8226",
+    "type_library_version": [
+      34,
+      0
+    ]
+  },
+  "remaining": [
+    "localized basename resource carrier and spelling",
+    "full recursive graph-scan and numeric suffix edge domains",
+    "ordinary sheet-note text backlink producer",
+    "public placement getter/setter ownership and generated-note native qualification"
+  ],
+  "schema": "drawing-plain-note-name-source-v1",
+  "source_record": {
+    "path": "re/solidworks/records/DrawingPlainNoteNameOwners2026.json",
+    "sha256": "606803e8a0a61d3bb8a2f811f56f9b4e568c3e901f6f5afe1d068ca86662ceb7"
+  },
+  "source_verification": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 29,
+    "data_windows": 1,
+    "imports": 10,
+    "instruction_windows": 6,
+    "modules": 3,
+    "native_execution": false,
+    "record_sha256": "606803e8a0a61d3bb8a2f811f56f9b4e568c3e901f6f5afe1d068ca86662ceb7",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 13
+  },
+  "task": "B04-SW2026-DRAWING-PLAIN-NOTE-CONSTRUCTION"
+}

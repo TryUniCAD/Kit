@@ -1,0 +1,1771 @@
+{
+  "additional_sdk_runtime_file_access_attempts": 0,
+  "cases": [
+    {
+      "case": "D01Source",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "a3dff1e38c1608fee21315143a8690f666f024826c1ed62c06c4c7c1b1713dc6",
+        "feature_id": "sldprt:feature:33",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 703,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 33,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "input_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "9ea2f0912acc5d03c5c201a2a123699842496cb48d426dbee52bf39389dfe360",
+        "feature_id": "sldprt:feature:33",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "9e9f732f2001b7687f585cff8fb292b7411838f4adc9f18e391c671ed3f291c4",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "83c310859d83de7b23a08c26ca0dd1c8aa5eead7dd6e9a4e6afe081c6ac26102",
+        "a5fbd94fa2462eb45854b99bd05210c1d19ffa1758044241b20ba4638abc87e4"
+      ]
+    },
+    {
+      "case": "D01ParentSource",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "867df44e63b48ab905eac9dbdb2374b48e0a6b95aeebd3ecfbff9e90a6d5bcd8",
+        "feature_id": "sldprt:feature:33",
+        "group_count": 1,
+        "mate_status": "admitted",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 703,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 33,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "no_tessellation"
+      ],
+      "input_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "modes": [
+        "history_only",
+        "no_tessellation"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "5ce048c96881f0f3dc61b30ec6f721e48a9b1f03faa4e8f0f459f54cb1ee1f43",
+        "feature_id": "sldprt:feature:33",
+        "group_count": 1,
+        "mate_status": "admitted",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "ae6d28762a961f662e956bcca6b99803c6df6f01162901ae5fa332c35930cffb",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "83c310859d83de7b23a08c26ca0dd1c8aa5eead7dd6e9a4e6afe081c6ac26102",
+        "a5fbd94fa2462eb45854b99bd05210c1d19ffa1758044241b20ba4638abc87e4"
+      ]
+    },
+    {
+      "case": "D01Edited",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "5e25985e000d67485d9533bbeca0ab782691483c154d48e257250d635ca2f3bf",
+        "feature_id": "sldprt:feature:33",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 1473,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 33,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "input_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "3ed7a62177c93590207e68b2f943b3de95d13749ef028683b05280725a84a29a",
+        "feature_id": "sldprt:feature:33",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "da39f85ce709fbd259b06f7c19cc523c112b22166e27fa85fecef339c2ff87c2",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "e5069bfe9aa1fb8afdaa08dd5a8e09838b196a74ddc7697194e329981f7c96fb",
+        "c8cf71c6ef4176db3729b801db8baf75334834a37a72deb3b9f8d2474f875700"
+      ]
+    },
+    {
+      "case": "D01ParentEdited",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "efa966d28abbce6585bc438342f5f396a24be3befbb01bb3dd5d58800724814c",
+        "feature_id": "sldprt:feature:33",
+        "group_count": 1,
+        "mate_status": "admitted",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 1473,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 33,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "no_tessellation"
+      ],
+      "input_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "modes": [
+        "history_only",
+        "no_tessellation"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "b92131d37a648d871ce392ecfb8b48bf9d4886e4c0c47074a2de759d4c9da6e3",
+        "feature_id": "sldprt:feature:33",
+        "group_count": 1,
+        "mate_status": "admitted",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "81d2c18ebc53848d59d3f256d55d6f749cd4722237103f3363d17150faa4cb46",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "e5069bfe9aa1fb8afdaa08dd5a8e09838b196a74ddc7697194e329981f7c96fb",
+        "c8cf71c6ef4176db3729b801db8baf75334834a37a72deb3b9f8d2474f875700"
+      ]
+    },
+    {
+      "case": "RadialGenerated",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "0ab9f10996f302ef6ee85f47b8c5804ce3b9f7d46ce83a28a162acd14e3fcedf",
+        "feature_id": "sldprt:feature:20",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 1,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 20,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "input_sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "66bfd9e4a254401adec85b2f4a9a63e7d6bc1280d264cdbee5d82043e3cd02d1",
+        "feature_id": "sldprt:feature:20",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "ea77d57ff2ab7a5100edd8feaa24843f23580908ae90f232a9905fd40eec85c6",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "5c487d7a95d22b71b7ec01542d77e1646f449cc6ae1326ac1ccdede6a5ba1dca",
+        "0163ffd3edb62a28d2e0dce1f389ff07336628523b74c714b0b7b805a4fa5a61"
+      ]
+    },
+    {
+      "case": "RadialNativeSaved",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "286017c965d14f5e085aab8c8ab06709efba0e36970805a2424e75be44dc582f",
+        "feature_id": "sldprt:feature:20",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 788,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 20,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "input_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "ace17dcc3c3b7a258a0a7e65ce92c0fa9af0a2eefc74cd66bd057f4563430194",
+        "feature_id": "sldprt:feature:20",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "3ba597735d3ed23adb5594e7e57a551bde983bbe9261b5a667eeb5ad5bc051cf",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "35b57286effcce86aa416f91cc0ca0381dbb88d347eddf91cb1de89396a1e2ab",
+        "e33cd86e11d268bc969ff55cd89bef1ca7142fb4e254ae42c47cbccc9753c2ef"
+      ]
+    },
+    {
+      "case": "RadialNativeSavedParent",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "5825e375b5d16153e5214ca22e2031a1ef2e5e572b05d74093903cb9d4ff78e8",
+        "feature_id": "sldprt:feature:20",
+        "group_count": 1,
+        "mate_status": "admitted",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 788,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 20,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "no_tessellation"
+      ],
+      "input_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "modes": [
+        "history_only",
+        "no_tessellation"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "cc362493628e6bc7dcf086a9b1ec990fe8df80e11a96ec6f26d010958aab2a7a",
+        "feature_id": "sldprt:feature:20",
+        "group_count": 1,
+        "mate_status": "admitted",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "a09a6e9719b196332114ed2d2c6572bb3ccbb8867e6f9836ee4d85e6d1c8f670",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "35b57286effcce86aa416f91cc0ca0381dbb88d347eddf91cb1de89396a1e2ab",
+        "e33cd86e11d268bc969ff55cd89bef1ca7142fb4e254ae42c47cbccc9753c2ef"
+      ]
+    },
+    {
+      "case": "DiameterFront",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "d453c8550e710b393dd54daa614f00fb43fa09870f9c9c5dcbb3985983bd5fcd",
+        "feature_id": "sldprt:feature:20",
+        "name": "Boss-Extrude1",
+        "native_kernel_geometry": [
+          false
+        ],
+        "producer": "Boss-Extrude1",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "input_sha256": "62a07340be437efe6464cf7e0599ffa5e1f9d208b6c8976311bfb0fe15d54b64",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "2c02be24dadda7c2faf37d87c82552ac1f83d6561fa94a19129b0b25e805fc35",
+        "feature_id": "sldprt:feature:20",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [
+          false
+        ],
+        "producer": "Boss-Extrude1",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cold",
+      "stable_except_scoped_projection_sha256": "3e0725c2f3a3393d2b5c6716e8356c43234a0601f2d116d81152434f3ca68210",
+      "status": "read",
+      "underlying_payload_sha256": []
+    },
+    {
+      "case": "RadiusReverseTop",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "3f700115aa5e2bd9926816568006493bda120c5e291bba7ba71fe875a1eacf10",
+        "feature_id": "sldprt:feature:20",
+        "name": "CurveBoss",
+        "native_kernel_geometry": [
+          false
+        ],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "input_sha256": "363ea3ac80d334f6880095779780d1aa613a80aaf834739cfbea8a92488ea0a8",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "0f0fc32a6707af5f26eac7fbcf26b7dbf55ad0167b359c58e8464d26a915d4ce",
+        "feature_id": "sldprt:feature:20",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [
+          false
+        ],
+        "producer": "CurveBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cold",
+      "stable_except_scoped_projection_sha256": "68dbdcec4b96086350b332ca771f96b3f34aacda1949bf48443f17fd4c7b8021",
+      "status": "read",
+      "underlying_payload_sha256": []
+    },
+    {
+      "case": "DiameterNativeSaved",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "0c454357c72690f36b8d91e3e4642d0a60978bc0aa2a55c79b6902ed15574c31",
+        "feature_id": "sldprt:feature:20",
+        "name": "Boss-Extrude1",
+        "native_kernel_geometry": [],
+        "producer": "Boss-Extrude1",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 506,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 20,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "input_sha256": "f85b89e5920cfdb922657c57fc92d92c1e039db3e95286ad6e0f8e4c5712b6fc",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "655d443d71139789cefafa5542866345ffd2b928099a19bc7d57ee7acccfe23b",
+        "feature_id": "sldprt:feature:20",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "Boss-Extrude1",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "cached",
+      "stable_except_scoped_projection_sha256": "a16ac06794dbd9f87956680b3ddba444a3dc0f729c3852f6696f324caff62bd0",
+      "status": "read",
+      "underlying_payload_sha256": [
+        "78826fbb219952877ac7be98fed438f03349f8f2647f5748f0ea1d9bae878b81",
+        "4c547de52b510aa07c3381f151eba13b68c9eecb1bc430be48a458771f5076a8"
+      ]
+    },
+    {
+      "case": "RadiusForwardFrontRejected",
+      "expected_delta_modes": [],
+      "input_sha256": "fac76de7a6724c18f09bd1f8a15f1a870750d716b7968cac28da2eb1565b69eb",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ExplicitCached",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 24,
+          "curves": 12,
+          "edges": 12,
+          "faces": 6,
+          "loops": 6,
+          "surfaces": 6,
+          "vertices": 8
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "49b4a9fd98453df7fead3fc1642a55dc6fc47997f3be13e7136f0b036ab366bf",
+        "feature_id": "sldprt:feature:34",
+        "name": "Centered Solid",
+        "native_kernel_geometry": [],
+        "producer": "AnchorBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 1105,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 34,
+          "name_owner": "authored_atom_and_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [],
+      "input_sha256": "03f6756e214fd2a96975030143590d8e14643147470df86ee21123c59afd503b",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 24,
+          "curves": 12,
+          "edges": 12,
+          "faces": 6,
+          "loops": 6,
+          "surfaces": 6,
+          "vertices": 8
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "49b4a9fd98453df7fead3fc1642a55dc6fc47997f3be13e7136f0b036ab366bf",
+        "feature_id": "sldprt:feature:34",
+        "name": "Centered Solid",
+        "native_kernel_geometry": [],
+        "producer": "AnchorBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 1105,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 34,
+          "name_owner": "authored_atom_and_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "projection": "same",
+      "status": "read"
+    },
+    {
+      "case": "ExplicitCachedUnicode",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 24,
+          "curves": 12,
+          "edges": 12,
+          "faces": 6,
+          "loops": 6,
+          "surfaces": 6,
+          "vertices": 8
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "4d0e7ec0367a88a047a58aa50c82ce4c92dd3d88a957969b1cf14cf3cde1e9b6",
+        "feature_id": "sldprt:feature:34",
+        "name": "Pi\u00e8ce \u00c5ngstr\u00f6m",
+        "native_kernel_geometry": [],
+        "producer": "AnchorBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 617,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 34,
+          "name_owner": "authored_atom_and_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "agreeing_archive_and_implicit_utf16",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [],
+      "input_sha256": "9a8e1147253a483a6f9f2a8277459027d5eea6c9e56e3120abf8601e040a75cd",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 24,
+          "curves": 12,
+          "edges": 12,
+          "faces": 6,
+          "loops": 6,
+          "surfaces": 6,
+          "vertices": 8
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "4d0e7ec0367a88a047a58aa50c82ce4c92dd3d88a957969b1cf14cf3cde1e9b6",
+        "feature_id": "sldprt:feature:34",
+        "name": "Pi\u00e8ce \u00c5ngstr\u00f6m",
+        "native_kernel_geometry": [],
+        "producer": "AnchorBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 617,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 34,
+          "name_owner": "authored_atom_and_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "agreeing_archive_and_implicit_utf16",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-body-atom",
+          "native-body-partition"
+        ],
+        "status": "read"
+      },
+      "projection": "same",
+      "status": "read"
+    },
+    {
+      "case": "ExplicitCold",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 24,
+          "curves": 12,
+          "edges": 12,
+          "faces": 6,
+          "loops": 6,
+          "surfaces": 6,
+          "vertices": 8
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "4d6d589af9c213dca8421620154770f3f46862c00db995d4f83bb532faba3c4b",
+        "feature_id": "sldprt:feature:19",
+        "name": "Primary Solid",
+        "native_kernel_geometry": [
+          false
+        ],
+        "producer": "ColdBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "geometry_source": "typed_parametric_history",
+          "last_modifying_feature_id": 19,
+          "name_owner": "authored_archive_atom",
+          "native_kernel_identity": false,
+          "profile": "ordinary_current_cacheless_authored_output_name",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-output-atom",
+          "typed-native-output-name"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [],
+      "input_sha256": "0394bd9ed2c446f3ffdb6152ab5781e8a948f93798a915a5ff8e666d82e50e0a",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 24,
+          "curves": 12,
+          "edges": 12,
+          "faces": 6,
+          "loops": 6,
+          "surfaces": 6,
+          "vertices": 8
+        },
+        "brep_owned": true,
+        "design_body_id": "sldprt:body:1",
+        "document": "4d6d589af9c213dca8421620154770f3f46862c00db995d4f83bb532faba3c4b",
+        "feature_id": "sldprt:feature:19",
+        "name": "Primary Solid",
+        "native_kernel_geometry": [
+          false
+        ],
+        "producer": "ColdBoss",
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "geometry_source": "typed_parametric_history",
+          "last_modifying_feature_id": 19,
+          "name_owner": "authored_archive_atom",
+          "native_kernel_identity": false,
+          "profile": "ordinary_current_cacheless_authored_output_name",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "provenance_kinds": [
+          "typed-native-output-atom",
+          "typed-native-output-name"
+        ],
+        "status": "read"
+      },
+      "projection": "same",
+      "status": "read"
+    },
+    {
+      "case": "MissingOutput",
+      "expected_delta_modes": [],
+      "input_sha256": "2c4dfa9fdab3eb3e335c33ab72c1cdd2fce7b6a1fe4fd752a4d12f62142c6551",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "EmptyOutput",
+      "expected_delta_modes": [],
+      "input_sha256": "9cc9543ec97f492e6b0915dcc20eaba990498f7187094aa8c374d36acff8b209",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "DuplicateOutput",
+      "expected_delta_modes": [],
+      "input_sha256": "0e78fa71902c4ec2741581082ca23e6b03e91545ae478e41288a342477f3c9b3",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ForeignOutput",
+      "expected_delta_modes": [],
+      "input_sha256": "f9250d3d7509b2e1efe329c2ebd60a99cee9f106bdf1675bb712b33b198cb3ff",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "WrongOutputClass",
+      "expected_delta_modes": [],
+      "input_sha256": "5a06825f64a63b3f3f7df3499270eab4b0c13602b5bb61b179bf38cf2d6a0eb3",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "AlternateInput",
+      "expected_delta_modes": [],
+      "input_sha256": "fc8893e6032cae3f407c3bb647bcdc8f0f9517c08c0d89e619c163b50a81ee8b",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "WrongOutputId",
+      "expected_delta_modes": [],
+      "input_sha256": "76b7faf8956fea8c416cddf96a03ab2ba499b2861c97db08d6ce4b72c8d8f07b",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "MissingOutputId",
+      "expected_delta_modes": [],
+      "input_sha256": "b91c3c4e39171ee8e04885e7fcabdacf20688fbd97e013eb3e664b96d65433a8",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "WrongAtomId",
+      "expected_delta_modes": [],
+      "input_sha256": "1e8e3341117954ab423279f3fc2b8c530cc2872d5af442a2b3b8e0e136c3c1f2",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "WrongBase",
+      "expected_delta_modes": [],
+      "input_sha256": "0483d20845a93d3f8a63a5e51e434d1dff317ee407a64ebfc06606ccfb1d3d10",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "WrongModifier",
+      "expected_delta_modes": [],
+      "input_sha256": "e497e1ea8b335dc7acfc3993be480b00019e4eb3749f506edd9d26774f2abca7",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "AtomTag",
+      "expected_delta_modes": [],
+      "input_sha256": "612f61454232c64334a245e1590ed8b58c33cfdcbef09b8b3afa8acf376e5901",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "AtomDisplay",
+      "expected_delta_modes": [],
+      "input_sha256": "9ea12bef1b06eaffdbd46b4e20346c34ae2ba5d6ee39bdb71e729094ad4f3041",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "DerivedName",
+      "expected_delta_modes": [],
+      "input_sha256": "b796b85642fb9e1d7482258c8c1ab8367710a06a9f0f36bfc26f143e899c97be",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "EmptyName",
+      "expected_delta_modes": [],
+      "input_sha256": "ac8a76b61e15a5f6b9b9c251f08f195cbb3602d49e04b5c6eb647135b6b1726b",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "NonAsciiName",
+      "expected_delta_modes": [],
+      "input_sha256": "86cee89f04421e8c40184e677bcb476fbea45a3092a1a690507fa9a64a8c4663",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ManagerCounter",
+      "expected_delta_modes": [],
+      "input_sha256": "06bdc839aec8c4bb0e3afa09a59a752c71e62fd42ae3259d8da694bc360f5d7c",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "OldManager",
+      "expected_delta_modes": [],
+      "input_sha256": "c954db37875b05011fe4a76d081770adef97c4537301a6736a17eaa625779748",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "EmbeddedBody",
+      "expected_delta_modes": [],
+      "input_sha256": "8566ce92cc9635384f0a390690d30554573f2af4a3988cf257edaab9993ffaf6",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ExtraAtom",
+      "expected_delta_modes": [],
+      "input_sha256": "c492dd2b4533df1a0dde6a6c34408206102e486f6370e821b7cfe1a99f6ff034",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "GhostAtom",
+      "expected_delta_modes": [],
+      "input_sha256": "0b1af70ba9d4872e14ce3aef27c5c02c84354220b616a24a23a05769400997fa",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ExtraRoot",
+      "expected_delta_modes": [],
+      "input_sha256": "f8114f82947c3b493060a8bd1790d585c7540f4e632a214b3f5144376e78473a",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ModelMode",
+      "expected_delta_modes": [],
+      "input_sha256": "4c64a12e74c40b271e06eb1c5519343ade7a564b2a0d8b421861e0b4b37622e3",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ReversedEnd",
+      "expected_delta_modes": [],
+      "input_sha256": "dacf97036260a053694412e1eecb6e62d511728069739fb7b88cb1b039a8523a",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "DraftEnd",
+      "expected_delta_modes": [],
+      "input_sha256": "0c6ee234178654248ee9e018dfca5b95246bf9121abe67dca1a8db011506e184",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "ProfileMode",
+      "expected_delta_modes": [],
+      "input_sha256": "8dfe0756055008bedb32646bfc504a5f603ae241adb0d8bdb5fbd4a3fa9b9df3",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "SketchState",
+      "expected_delta_modes": [],
+      "input_sha256": "ab03334b7982b014e4facf8eea02401eaafe087a9f372e6395f8b9ed918ee449",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "EmptyPresentCache",
+      "expected_delta_modes": [],
+      "input_sha256": "8efb1de37e8dbedf1bb97fe67d4aff62a8d631edec2e94f5a3d512d9b977f546",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "CorruptPresentCache",
+      "expected_delta_modes": [],
+      "input_sha256": "454e3e320b19620e713a07952e04d9216228d92a1fcef0d8754df29f95c159ce",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "UnknownRole",
+      "expected_delta_modes": [],
+      "input_sha256": "ff70ca4ff8cd0d9697507f8c947df3da016ecd60ee79aa614dab85ffa1696c28",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "projection": "same",
+      "rejection": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "status": "rejected"
+    },
+    {
+      "case": "MismatchedCylinderProducer",
+      "current": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "8339e27f8c1723a5b8f01adb4ac56f6ee9de4791dd763f6d6e8733189120d6df",
+        "feature_id": "sldprt:feature:33",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "OtherBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "expected_delta_modes": [],
+      "in_memory_reader_diagnostic_sha256": "78aa11dd030bfb685537983a9913e66580a5dbe001d2b3179d833c48680f792e",
+      "input_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "modes": [
+        "history_only",
+        "lenient",
+        "no_tessellation",
+        "repeat",
+        "strict"
+      ],
+      "previous": {
+        "brep_counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "brep_owned": false,
+        "design_body_id": "sldprt:body:1",
+        "document": "8339e27f8c1723a5b8f01adb4ac56f6ee9de4791dd763f6d6e8733189120d6df",
+        "feature_id": "sldprt:feature:33",
+        "name": "Solid Bodies",
+        "native_kernel_geometry": [],
+        "producer": "OtherBoss",
+        "proof": null,
+        "provenance_kinds": [
+          "typed-archive-object"
+        ],
+        "status": "read"
+      },
+      "projection": "same",
+      "status": "read"
+    }
+  ],
+  "comparison_base": "1fae5822b3bdd742d9144fb2518637e9d2a0fe71",
+  "declared_component_reads": 24,
+  "expected_rejection_or_fallback_fixtures": 32,
+  "guarded_sdk_processes": 90,
+  "heldout_inputs_read": 0,
+  "method_sha256": "8467360944d5a9edef1fedd48b3d130566123fad159a69115911f23de7eecaf1",
+  "native_processes_started": 0,
+  "paired_api_calls": 216,
+  "passed": true,
+  "raw_result_sha256": "4e3c836ba043d1a608b8a5c893e188e1616a6e7dd0b1c9145834c4b91c60c45d",
+  "schema": "kit.sw2026.cylindrical-implicit-body-name-read.v1",
+  "scoped_source_checks": {
+    "black": "10 checked",
+    "mypy_strict": "10 checked",
+    "ruff": "10 checked"
+  },
+  "source_closures": {
+    "After": {
+      "paths": 4847,
+      "sha256": "89e4c285d7f2caab9c88aa917cdf7b4cfc2521b9f5b687466e46cb64f3f15d06"
+    },
+    "Before": {
+      "paths": 4846,
+      "sha256": "0c54cb7155d49417d1d3264f3dc537edac92acba61409175de0fb9d7ac027f70"
+    }
+  },
+  "source_delta_sha256": {
+    "convert/adapters/solidworks/Core/TypedResolved/BodyNames/ReadCylBodyTree.py": "c1af1a60d244c73e976423cad1bd9d16ed8c740101a926aac27da8f1b6b8f2e3",
+    "convert/adapters/solidworks/Core/TypedResolved/BodyNames/ReadNamedBody.py": "51333c0e5a2237235f13190fbf42e88058de7c1c54ceb3b4cece3d78fc49353d",
+    "convert/adapters/solidworks/Core/TypedResolved/BodyNames/Revolves/CheckRingVerts.py": "45f10622f90197ade27edabedfd3311117bfb89795038145074a5138bae6a9de",
+    "convert/adapters/solidworks/Core/TypedResolved/BodyNames/Revolves/ReadRevLoops.py": "6c453c3ee3731d5335024ff7a6ddd68317858044dafc8380a4ff1ccda8fc8937",
+    "convert/adapters/solidworks/Core/TypedResolved/Geometry/Circles/BuildCircGeom.py": "5b555d1c5a292e0be6ab5181c835e641263b6d8feb34592b386733b5b3cb418f",
+    "convert/adapters/solidworks/Core/TypedResolved/Geometry/Circles/CircleGeomPlan.py": "00cba5d71c510a8fe2ed409d77f28f28f60378d2b55745441a87c96dd77a5874",
+    "convert/adapters/solidworks/Core/TypedResolved/Geometry/Circles/ReadCircPlan.py": "8635752896cb5d8693444eb48e22d7ce9510e42b899aef24f9922569bad9a3ce",
+    "convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/CheckColdBind.py": "84bab77f3437479d3590ecbe9a2cb87c67902dfad6122bb2399827bcca67a2e2",
+    "convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/WithColdName.py": "132274440aa690ab11409eff4d2af179a8c70d6c33cfd5cab2d8a60079cd97f7",
+    "convert/adapters/solidworks/Core/TypedResolved/Geometry/PartGeometry.py": "ac9df0f185bfe2b7a9ea4446d627d08730b163862907583f9080ed3e0fbf2629"
+  },
+  "sources_unchanged": true,
+  "unit_tests_run": 0,
+  "verdict_counts": {
+    "exact_previous_read": 185,
+    "only_body_name_ownership_provenance_and_derived_seal": 31
+  },
+  "whole_case_input_unchanged": true
+}

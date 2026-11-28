@@ -1,0 +1,342 @@
+{
+  "source_revision": "f05fcf115d11aae384ac6d78ad0d958481a81e4e",
+  "job_sha256": "2c42a801e06403ae764d631930e0772427da4dce8093c32ec3cda7afa47bcc4d",
+  "specs_sha256": "6b67df9cdbe5cd6a40f337008549db31966fd016da1be8f393244d678ac08855",
+  "tool_sha256": "bb73143e11af5e7db43cb6e5eb05920d3a2774e4d202177fb5d5f76f9dec8d45",
+  "private_inspection_sha256": "36e70dec73063d4eaaa1c83c943a42110b5e2904a4c6e03116b6d3ce0ca6e21b",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "distinct_processes": 12,
+  "started_at": 1794876362.5747817,
+  "finished_at": 1794876687.5960166,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "cases": [
+    {
+      "name": "A07EmptyAssembly",
+      "split": "discovery",
+      "passed": false,
+      "native_sha256": "e6962a1922821a825d5c592bddf5f4ff50cc2bab01da888fc36b22c624541b47",
+      "native_bytes": 26035,
+      "phases": 2,
+      "record_sha256": [
+        "91bcc8461fd3aabee12ff9fef212c769f3e646992d6b796a7d779343b0731a32",
+        "ddf652002d75c86267647606e4fe677e8870541519c73f9e066f22a49fbb695f"
+      ],
+      "numeric_checks": 0
+    },
+    {
+      "name": "A08SingleAssembly",
+      "split": "discovery",
+      "passed": false,
+      "native_sha256": "e5c4502ef3b6da5d106c7bb362e9e1ac0bd3c324e011b49320466eb8ec8eb87d",
+      "native_bytes": 53689,
+      "phases": 2,
+      "record_sha256": [
+        "b256e21f78bd773343c6c60a0b42e5ae39388859d4d72bab471de6468c6a53bc",
+        "7f6c9eb0689228e1abd753094c223d002d859bf09c6a4fc033d8efabe869cc3f"
+      ],
+      "numeric_checks": 63
+    },
+    {
+      "name": "A09RepeatedAssembly",
+      "split": "discovery",
+      "passed": false,
+      "native_sha256": "56bd5e7864cb7d4c0b9272a49a02ba07efff907e285e9aaf75eb394d0d901f90",
+      "native_bytes": 45511,
+      "phases": 2,
+      "record_sha256": [
+        "26da0130ffdc05a8bffe12efe13ca7ce283868232cb7151b8f881d286e774107",
+        "77e01334582466fa0489dcec9f47c4d5c35024b509fd26ab1323c3f463100721"
+      ],
+      "numeric_checks": 111
+    },
+    {
+      "name": "A10HeldoutThree",
+      "split": "heldout",
+      "passed": false,
+      "native_sha256": "d9d542dc5399a75af5fabac726723e796c143908fd6e4ce1bffcdd6788614b1f",
+      "native_bytes": 48779,
+      "phases": 2,
+      "record_sha256": [
+        "faec7a32b573bb661825608bebf90e89b5154d443984862d321055cd1e20a944",
+        "dbead2b9d2d9d34364168d60beda209c339a3519b8992c39e719b55e09cdd949"
+      ],
+      "numeric_checks": 159
+    },
+    {
+      "name": "A11HeldoutFour",
+      "split": "heldout",
+      "passed": false,
+      "native_sha256": "58197d268b2e2de8a95e9f34b92688b5b30ddd744bf07a3ddfe54120c43ffbd9",
+      "native_bytes": 47396,
+      "phases": 2,
+      "record_sha256": [
+        "150ac1d96a48aed3203aaa0c940c7202a19c1f4732cbcdd3689485e2f03f90a3",
+        "cfe6a678241d91def7b0ff380282bab471f866c3ef0ae7404902a83418679827"
+      ],
+      "numeric_checks": 207
+    }
+  ],
+  "schema": "kit.sw2026.ordinary-assembly-source-attempt.v1",
+  "passed": false,
+  "eligible_for_heldout": false,
+  "source_lock_sha256": "228835d624bd0de4a75a85fad58a2e938f03346f349f843011a90ca037f2e4d9",
+  "source_phase_count": 10,
+  "heldout_native_payloads_read": false,
+  "heldout_detailed_observations_used": false,
+  "tool_manifest_sha256": "9a320fa661cb811cdcc14dad1ad49afe91a00f20e1d3fabddd13dd69cdcd430f",
+  "host_receipt_sha256": "09f49b4bf823263394a548a93b357ad238e7d78451aa995579dec45671c008df",
+  "postflight_no_cad_process": true,
+  "license_process_ids_unchanged": true,
+  "preflight": {
+    "at_utc": "2026-11-17T00:45:44.720769+00:00",
+    "returncode": 0,
+    "stdout_sha256": "20a31bed54ac72f21e885ae93db3380f62268f84b07efcafd3720b787dc816f5",
+    "stdout_bytes": 7473,
+    "row_count": 152,
+    "processes": [
+      {
+        "image": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "image": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "image": "sw_d.exe",
+        "pid": 3088
+      }
+    ]
+  },
+  "postflight": {
+    "at_utc": "2026-11-17T00:53:07.177657+00:00",
+    "returncode": 0,
+    "stdout_sha256": "f82464aa7df3ff13252bcfd4fd810fe63d86fd6b4e3f5a7fe8a39c16127b37b1",
+    "stdout_bytes": 7424,
+    "row_count": 151,
+    "processes": [
+      {
+        "image": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "image": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "image": "sw_d.exe",
+        "pid": 3088
+      }
+    ],
+    "licensing_unchanged": true
+  },
+  "discovery_diagnostics": [
+    {
+      "name": "A07EmptyAssembly",
+      "record_sha256": "ddf652002d75c86267647606e4fe677e8870541519c73f9e066f22a49fbb695f",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "first_failure": null,
+      "dialogs": [
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4492,
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            " ",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        },
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4492,
+          "text": [
+            "Opened -1\nComponents",
+            "Assembly\nUpdated",
+            "Generating\nGraphics",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A08SingleAssembly",
+      "record_sha256": "7f6c9eb0689228e1abd753094c223d002d859bf09c6a4fc033d8efabe869cc3f",
+      "open_errors": 0,
+      "open_warnings": 32,
+      "first_failure": {
+        "stage": "open locked assembly source",
+        "type": "EvidenceFailure",
+        "error": "EvidenceFailure('assembly source reopen failed or warned')",
+        "pending_capability": false
+      },
+      "dialogs": [
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4460,
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            " ",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        },
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4460,
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            "Opening File: <private path>",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        },
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4460,
+          "text": [
+            "Opened -1\nComponents",
+            "Updating\nAssembly",
+            "Update\nGraphics",
+            "Post load updating",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A09RepeatedAssembly",
+      "record_sha256": "77e01334582466fa0489dcec9f47c4d5c35024b509fd26ab1323c3f463100721",
+      "open_errors": 0,
+      "open_warnings": 32,
+      "first_failure": {
+        "stage": "open locked assembly source",
+        "type": "EvidenceFailure",
+        "error": "EvidenceFailure('assembly source reopen failed or warned')",
+        "pending_capability": false
+      },
+      "dialogs": [
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 8096,
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            " ",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        },
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 8096,
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            "Opening File: <private path>",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        },
+        {
+          "kind": "unclassified-owned-dialog",
+          "dialog": "",
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 8096,
+          "text": [
+            "Opened 2\nComponents",
+            "Updating\nAssembly",
+            "Update\nGraphics",
+            "Post load updating",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ]
+        }
+      ]
+    }
+  ]
+}

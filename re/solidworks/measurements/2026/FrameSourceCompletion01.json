@@ -1,0 +1,66 @@
+{
+  "schema": "kit.sw2026.frame-source-completion.v1",
+  "source_revision": "3ec62065ea4874e882007937da612dbfa7efad8e",
+  "source_lock_sha256": "503d5a3587515f949998e39be5f8f4fd7aaeb75b17b79007c2babfe4e22e5b59",
+  "job_sha256": "0474771bab3368d17667c90c6befae513fd13310ae850871109fca886dda2251",
+  "tool_manifest_sha256": "106bef106e76bbbac938b198da06b2fd71de2a7df97a6c695bcd8f7646bdda9e",
+  "host_receipt_sha256": "42f7663bdc6b7203d2f4801fe979e9be67450dc58d545faa4c6fb1adf42f0012",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "source_cases": 2,
+  "source_phases": 4,
+  "source_numeric_checks": 192,
+  "preflight": {
+    "at_utc": "2026-11-17T00:53:07.177657+00:00",
+    "returncode": 0,
+    "stdout_sha256": "f82464aa7df3ff13252bcfd4fd810fe63d86fd6b4e3f5a7fe8a39c16127b37b1",
+    "stdout_bytes": 7424,
+    "row_count": 151,
+    "processes": [
+      {
+        "image": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "image": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "image": "sw_d.exe",
+        "pid": 3088
+      }
+    ],
+    "licensing_unchanged": true
+  },
+  "postflight": {
+    "at_utc": "2026-11-17T00:57:32.316214+00:00",
+    "returncode": 0,
+    "stdout_sha256": "55dadf38ceb6db3420eb4abe34ae6ab36bbf6f061cae86b3c6bc39fbd72c8d15",
+    "stdout_bytes": 7328,
+    "row_count": 149,
+    "processes": [
+      {
+        "image": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "image": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "image": "sw_d.exe",
+        "pid": 3088
+      }
+    ],
+    "licensing_unchanged": true
+  },
+  "license_process_ids_unchanged": true,
+  "postflight_no_cad_process": true,
+  "heldout_payloads_decoded": false,
+  "private_observations_used": false,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "source_lock_passed": true,
+  "native_lock_sha256": "8d37f47deb3afb30f057783c3e562ade82ef69b1c285d306df89957415be7680"
+}

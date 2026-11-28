@@ -1,0 +1,11 @@
+# Independent drawing origin-profile source locks
+
+The source author creates each rectangular child part and principal drawing view through the SOLIDWORKS 2026 COM oracle. It records the actual origin and ordinary sketch IDs, then saves, reopens, moves and reopens the drawing. Each four-case cohort uses sixteen fresh case phases and two controls. The sealed cohort keeps its design inputs and native files inside the reserved guest.
+
+Stage the frozen `AuthorOriginProfileSources.py` packet with its pinned dependencies, template and pristine control. Run the source phases in separate owned processes. Run the final control after a case failure and publish a lock only after every required phase passes. The `export-disclosed` command makes the disclosed children and drawings available to the host observer.
+
+The disclosed cohort passed all 18 fresh processes and 2,192 numeric checks. All eight saved drawing Definitions re-emit exactly. Each view's sole profile display resolves to the actual linked child origin through the file, configuration, object aliases and feature ID. Its creation timestamp matches the child's log in the source and moved states. [Native source record](../../../../../../re/solidworks/records/DrawingOriginProfileSources2026.md) [Measurement receipt](../../../../../../re/solidworks/measurements/2026/DrawingOriginProfileSourceLock01.json)
+
+Use `InspectOriginProfileReaderRefresh.py CANDIDATE PACKET OUTPUT --packet-sha256 SHA` for the reproduced host join. The retained first attempt reached the embedded ghost-body record in the child. The corrected reader uses the published layout for that record, with the source packet held at its original hash. [Frozen reader layout](../../../../../Gotchas/Conversion/Solidworks/Archive/Profiles/FrozenChildReadersNeedEmbeddedBodyLayouts.md) [Origin creation time](../../../../../Gotchas/Conversion/Solidworks/Drawings/Qualification/OriginReferencesUseActualChildCreationTime.md)
+
+The four guest-private sources also completed all 18 phases with healthy controls. Their source lock predates the origin-display writer and binds the sealed manifest by hash. Writer evaluation remains open. [Sealed source lock](../../../../../../re/solidworks/measurements/2026/DrawingOriginProfileHeldoutSourceLock01.json)

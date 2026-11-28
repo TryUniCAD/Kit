@@ -1,0 +1,259 @@
+{
+  "cache": {
+    "actual_empty_payload_direct_measurement": "both exact original typed fb50 payloads are n=0 under ViewStateOriginals02; pointer presence retained",
+    "body_wire": "signed32 saved record count; only positive count enters record bodies",
+    "empty_wire_extra_archive_tags_or_map_entries": 0,
+    "empty_wire_load": "count<=0 returns without allocating record container or reading more primitives; selected SDK supports exactly0",
+    "load_allocate_owner": "0x4c95b3d7..0x4c95b3fd allocates16, stores actual view at+0, null record pointer+8, assigns view+0xb50",
+    "load_body_site": "0x4c95b403 ->0x4c54fe50",
+    "load_presence_site": "0x4c95b3ca",
+    "load_version_min": "0x2ee",
+    "native_class_name_of_outer16byte_state": "not claimed; no vtable is installed in that object",
+    "native_store_count_rule": "zero if no record container; otherwise count only40-byte internal records with state+0x18 equal0",
+    "populated_cache_row_type_and_semantic_projection": "actual moDrSgProp_c serializer vtable is bound, positive row grammar and semantic projection remain outside selected profile",
+    "runtime_member": "moDrView+0xb50",
+    "store_body_site": "0x4c9597c2 ->0x4c54fe50",
+    "store_presence_formula": "u8(runtime cache pointer !=null)",
+    "store_presence_site": "0x4c9597ad",
+    "structure": "16-byte non-tagged cache state, owner pointer+0 is actual view and record-container pointer+8"
+  },
+  "classification": {
+    "cache_pointer_presence": "retained source runtime state, not a constructor default",
+    "colour_count": "derived actual source row count",
+    "colour_word": "retained native source value without encoding assumption",
+    "occurrence_number": "retained native source key, not a feature id",
+    "saved_cache_count": "derived filtered native records; selected exactly zero"
+  },
+  "colours": {
+    "archive_object_or_class_tags_in_row": false,
+    "color_encoding_beyond_native_unsigned_color_word": "not newly proven; no RGB interpretation or observed color default",
+    "count_store_site": "0x4c959bb5",
+    "direct_serialized_object_aliases_in_row": false,
+    "getter": "0x4b288330 returns address of actual map",
+    "native_getter": "getOccNumToCompColorMap",
+    "native_occurrence_to_model_component_join": "not newly proven; retain explicit unprojected association",
+    "native_signature": "std::map<int,unsigned long> with32-bit signed key and32-bit unsigned color word",
+    "read_count_site": "0x4c95c636",
+    "read_key_site": "0x4c95c66f",
+    "read_value_site": "0x4c95c67c",
+    "read_version_branch": "0x4c95c61b",
+    "read_version_min": "0x11b5",
+    "row_key_store_site": "0x4c959bd6",
+    "row_value_store_site": "0x4c959be2",
+    "runtime_member": "moDrView+0xf60",
+    "wire_rule": "signed32 row count followed by signed32 occurrence number and unsigned32 color word for each map row"
+  },
+  "functions": {
+    "absolute_view_serializer": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 516,
+          "end": "0x4c94c1a4",
+          "sha256": "9cde5993ba41117ac61b78c8807d0a8d9e9c714469836169b00ecdba50a1477c",
+          "start": "0x4c94bfa0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c94bfa0",
+          "end": "0x4c94c1a4",
+          "unwind": "0x4d385bbc"
+        }
+      ]
+    },
+    "base_view_serializer": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 17785,
+          "end": "0x4c95d339",
+          "sha256": "b1018566bae23e886645bb5ffcc13ee501f2f6a0bd57fb041f9a1f4c516d2656",
+          "start": "0x4c958dc0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c958dc0",
+          "end": "0x4c95d339",
+          "unwind": "0x4d6c3820"
+        }
+      ]
+    },
+    "cache_helper": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 689,
+          "end": "0x4c550101",
+          "sha256": "830e867eb551504651113f034f68733ffe3347b09d33d95c683fe9947a2799af",
+          "start": "0x4c54fe50"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c54fe50",
+          "end": "0x4c550101",
+          "unwind": "0x4d6388a0"
+        }
+      ]
+    },
+    "occurrence_color_clear": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 120,
+          "end": "0x4b282158",
+          "sha256": "c8991672198ab853d19326ba05bb6154c6d48149021225e77b5fe5e231a6561b",
+          "start": "0x4b2820e0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4b2820e0",
+          "end": "0x4b282158",
+          "unwind": "0x4d3877f0"
+        }
+      ]
+    },
+    "occurrence_color_getter": {
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 8,
+          "end": "0x4b288338",
+          "sha256": "a15aa89e1dca0091861c4d62202f55c552658494cbf26342962ccf5f72320fe1",
+          "start": "0x4b288330"
+        }
+      ],
+      "unwind_rows": []
+    }
+  },
+  "heldout_acceptance": false,
+  "module": {
+    "bytes": 46536280,
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "vendor_file_distributed": false
+  },
+  "native_acceptance": false,
+  "native_execution": false,
+  "observations": {
+    "cases": [
+      {
+        "actual_colour_rows": 1,
+        "actual_view_index": 136,
+        "cache_presence": 1,
+        "captured_colour_values_used_as_defaults": false,
+        "case": "H01SheetA",
+        "declared_colour_rows": 1,
+        "definition_bytes": 37612,
+        "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "map_and_alias_identity_passed": true,
+        "native_colour_values_retained_by_source_reader": true,
+        "normal_annotation_guard_rejection_retained_at_observation": true,
+        "raw_byte_identity_passed": true,
+        "saved_cache_rows": 0
+      },
+      {
+        "actual_colour_rows": 1,
+        "actual_view_index": 136,
+        "cache_presence": 1,
+        "captured_colour_values_used_as_defaults": false,
+        "case": "H02SheetB",
+        "declared_colour_rows": 1,
+        "definition_bytes": 37608,
+        "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "map_and_alias_identity_passed": true,
+        "native_colour_values_retained_by_source_reader": true,
+        "normal_annotation_guard_rejection_retained_at_observation": true,
+        "raw_byte_identity_passed": true,
+        "saved_cache_rows": 0
+      }
+    ],
+    "observer_sha256": "5b0e76bf7637d9e0c2bd740bf4e94c5fe7f7c352dca1e096c8123189ccf0f774",
+    "originals_used_to_choose_saved_default_values": false,
+    "report_sha256": "9c09cb3f183a5d95c4f80016c470241f99c50aa513c3e46a4e8e360ebd614f6b",
+    "source_manifest_sha256": "865a837d791304f6cf5da690d04aedd916a929b55f418fb907bf88b400f3a419"
+  },
+  "original_heldout_verdict_changed": false,
+  "original_writer_changed": false,
+  "remaining_boundaries": [
+    "positive cache row grammar and projection",
+    "native occurrence number to actual child component identity join",
+    "native colour word to portable appearance semantics",
+    "remaining annotation and view-family guards retain their admission limits"
+  ],
+  "schema": "kit.sw2026.drawing-view-render-state-proof.v1",
+  "scope": "ordinary version19000 schema1 absolute view; wire-empty cache pointer state and native occurrence-colour rows retained without portable component join",
+  "selected_admission": {
+    "cache_presence_domain": [
+      0,
+      1
+    ],
+    "colour_count": "actual row length signed32 nonnegative; explicit saved nf68 must agree",
+    "colour_key": "exact signed32 integer native occurrence number",
+    "colour_word": "exact unsigned32 integer native colour word",
+    "concrete_view": {
+      "class": "moAbsoluteView",
+      "schema": 1
+    },
+    "duplicate_colour_occurrence_rejected": true,
+    "negative_cache_count_rejected": true,
+    "populated_cache_rejected": true,
+    "portable_component_colour_join": "unprojected",
+    "portable_rgb_encoding": "not claimed",
+    "present_cache_body": "exact mapping n=0 with no other fields; retained separately from absence",
+    "source_row_order_preserved": true,
+    "unknown_colour_row_fields_rejected": true,
+    "version": 19000
+  },
+  "source_fields_mutated": false,
+  "source_saved_defaults": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "vm_access": false,
+  "vtables": [
+    {
+      "class": "moAbsoluteView",
+      "rtti_locator": "0x4d314688",
+      "rtti_type": ".?AVmoAbsoluteView@@",
+      "serialize_slot": "0x28",
+      "serialize_target": "0x4c94bfa0",
+      "slot_sha256": "584f1082ac86f778ccb760e481addfb3b630542d2bfb93e44a5b0790747bf413",
+      "type_descriptor": "0x4db2cbf8",
+      "vtable": "0x4ce83fb8"
+    },
+    {
+      "class": "moDrView",
+      "rtti_locator": "0x4d376fd8",
+      "rtti_type": ".?AVmoDrView@@",
+      "serialize_slot": "0x28",
+      "serialize_target": "0x4c958dc0",
+      "slot_sha256": "5376cfcd985f83a7c515f4409a89b5c1fe9b9290f5fc4f3cfd19cedc31e9d7a6",
+      "type_descriptor": "0x4db2cbd8",
+      "vtable": "0x4d2713f0"
+    },
+    {
+      "class": "moDrSgProp_c",
+      "rtti_locator": "0x4d3650a0",
+      "rtti_type": ".?AVmoDrSgProp_c@@",
+      "serialize_slot": "0x28",
+      "serialize_target": "0x4c956f90",
+      "slot_sha256": "2b9d329aa75ac96c71340a3e9d4a7a8b17e7bd32bb8da7f28271de14feb7f47e",
+      "type_descriptor": "0x4db43cb8",
+      "vtable": "0x4d1c06e8"
+    }
+  ]
+}

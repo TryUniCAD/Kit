@@ -1,0 +1,1154 @@
+{
+  "schema": "kit.sw2026.sdk-config-header-handoff.v1",
+  "scope": "ordinary version-19000 header selection and direct map binding; research body decoders",
+  "archive_version": 19000,
+  "passed": true,
+  "public_config_graph_admission": false,
+  "governing_revision": "3e63141cc0edc741d3033a3af3fda2488639f346",
+  "heldout_payloads_read": false,
+  "native_application_runs": 0,
+  "cad_documents_written": 0,
+  "disclosed_vendor_pairs": 3,
+  "generated_pairs": 3,
+  "documents": 12,
+  "header_stream_comparisons": 24,
+  "config_handoffs": 12,
+  "projection_cli_outputs_unchanged": true,
+  "cases": [
+    {
+      "case": "A17PlaneCoincident",
+      "reader_output_sha256": "610f538749065349ea3cb4e26b92b5b8e852050148469493383cfff419ce4af2",
+      "cli_output_identical": true,
+      "report_sha256": "f17957d69404b9e394d29fe5a288b725c50e32b81642b6df702a7885e21cb3b3",
+      "files": [
+        {
+          "file": "A17PlaneCoincident.SLDASM",
+          "sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+          "streams": {
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+              "bytes": 2575,
+              "file_entries": 1,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            },
+            "Header2": {
+              "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+              "bytes": 2575,
+              "file_entries": 1,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 2,
+              "direct_start": 3,
+              "direct_base": 5,
+              "standalone_indices": [
+                73,
+                69
+              ],
+              "config_map_count": 107,
+              "resolved_map_count": 168,
+              "mate_map_count": 196,
+              "occurrence_aliases": 2,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": true,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        },
+        {
+          "file": "CohortChild.SLDPRT",
+          "sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+          "streams": {
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "f889c4bfbc00a16af42715fd1d95c2531a390d818680bc4593f3af7b76b4b5aa",
+              "bytes": 2549,
+              "file_entries": 0,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            },
+            "Header2": {
+              "sha256": "f889c4bfbc00a16af42715fd1d95c2531a390d818680bc4593f3af7b76b4b5aa",
+              "bytes": 2549,
+              "file_entries": 0,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 1,
+              "direct_start": 3,
+              "direct_base": 4,
+              "standalone_indices": [
+                69
+              ],
+              "config_map_count": 110,
+              "resolved_map_count": 288,
+              "mate_map_count": null,
+              "occurrence_aliases": 0,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": null,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "A18PlaneDistance",
+      "reader_output_sha256": "d1c7b7197e5e35d309a1db9fdf495345b82d44d5e8b3d28f26ca50ebf6219c6f",
+      "cli_output_identical": true,
+      "report_sha256": "fbde3a7496a9afc76d7b01d49306b713f61d32e77f78cb9f007e7f594205d274",
+      "files": [
+        {
+          "file": "A18PlaneDistance.SLDASM",
+          "sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+          "streams": {
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "3de9542563b43fa6068b91607ab3083a3292a0db7587e9b554be94fc587e51b3",
+              "bytes": 2567,
+              "file_entries": 1,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            },
+            "Header2": {
+              "sha256": "3de9542563b43fa6068b91607ab3083a3292a0db7587e9b554be94fc587e51b3",
+              "bytes": 2567,
+              "file_entries": 1,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 2,
+              "direct_start": 3,
+              "direct_base": 5,
+              "standalone_indices": [
+                73,
+                69
+              ],
+              "config_map_count": 107,
+              "resolved_map_count": 168,
+              "mate_map_count": 207,
+              "occurrence_aliases": 2,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": true,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        },
+        {
+          "file": "CohortChild.SLDPRT",
+          "sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+          "streams": {
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "6327370680fb1653ae7aa33aa132493930dc1e3655c8357c67b8cbaa59773d8c",
+              "bytes": 2545,
+              "file_entries": 0,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            },
+            "Header2": {
+              "sha256": "6327370680fb1653ae7aa33aa132493930dc1e3655c8357c67b8cbaa59773d8c",
+              "bytes": 2545,
+              "file_entries": 0,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 1,
+              "direct_start": 3,
+              "direct_base": 4,
+              "standalone_indices": [
+                69
+              ],
+              "config_map_count": 110,
+              "resolved_map_count": 288,
+              "mate_map_count": null,
+              "occurrence_aliases": 0,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": null,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "A19PlaneParallel",
+      "reader_output_sha256": "172e5a2e84993a6db32fbd4e5636d9d3d8ace5561cd5cdb2ee838d6cf93aab96",
+      "cli_output_identical": true,
+      "report_sha256": "d7cadec6f50160ae283b2a5c293afa4b1da148adff1c3a37849d4e781a2383aa",
+      "files": [
+        {
+          "file": "A19PlaneParallel.SLDASM",
+          "sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+          "streams": {
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "5ad59c82322fc0f3351568dbfe4353b83ba12ae1754be931dc497681fabfff19",
+              "bytes": 2567,
+              "file_entries": 1,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            },
+            "Header2": {
+              "sha256": "5ad59c82322fc0f3351568dbfe4353b83ba12ae1754be931dc497681fabfff19",
+              "bytes": 2567,
+              "file_entries": 1,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 2,
+              "direct_start": 3,
+              "direct_base": 5,
+              "standalone_indices": [
+                73,
+                69
+              ],
+              "config_map_count": 107,
+              "resolved_map_count": 168,
+              "mate_map_count": 196,
+              "occurrence_aliases": 2,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": true,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        },
+        {
+          "file": "CohortChild.SLDPRT",
+          "sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+          "streams": {
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "541f5e56e02f70b70dccd11eaa2e2f78eb196fdaa867cea9994f06bbdf25448c",
+              "bytes": 2545,
+              "file_entries": 0,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            },
+            "Header2": {
+              "sha256": "541f5e56e02f70b70dccd11eaa2e2f78eb196fdaa867cea9994f06bbdf25448c",
+              "bytes": 2545,
+              "file_entries": 0,
+              "revision_logs": 26,
+              "self_file": true,
+              "bounds": true
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 1,
+              "direct_start": 3,
+              "direct_base": 4,
+              "standalone_indices": [
+                69
+              ],
+              "config_map_count": 110,
+              "resolved_map_count": 288,
+              "mate_map_count": null,
+              "occurrence_aliases": 0,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": null,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "AlignedPlatePair",
+      "reader_output_sha256": "8eaca6e71bdb096db9eb9bc46935ae623ed60d5b2b39e1d9f696e27bd378a53a",
+      "cli_output_identical": true,
+      "report_sha256": "ad62138d25d96d970df0e6be31da10c016a3a57ce13714d0a5d27f2a7017c60e",
+      "files": [
+        {
+          "file": "AlignedPlatePair.SLDASM",
+          "sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+          "streams": {
+            "Header2": {
+              "sha256": "b6d4aa92dbf7b6d0403f5cd0fea03292c2c62726a7a381fba5952b82a252836b",
+              "bytes": 1267,
+              "file_entries": 1,
+              "revision_logs": 2,
+              "self_file": true,
+              "bounds": false
+            },
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "42163cc445df8d86e5e4f84c932578425da7fd17650ac121a31528359480bb70",
+              "bytes": 1267,
+              "file_entries": 1,
+              "revision_logs": 2,
+              "self_file": true,
+              "bounds": false
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 2,
+              "direct_start": 3,
+              "direct_base": 5,
+              "standalone_indices": [
+                21,
+                17
+              ],
+              "config_map_count": 76,
+              "resolved_map_count": 133,
+              "mate_map_count": 161,
+              "occurrence_aliases": 2,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": true,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        },
+        {
+          "file": "DatumPlate.SLDPRT",
+          "sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+          "streams": {
+            "Header2": {
+              "sha256": "4959da4c310491949460a14636da5dedd86384e5c51e8b1ecec75c692d1d50c3",
+              "bytes": 797,
+              "file_entries": 0,
+              "revision_logs": 1,
+              "self_file": true,
+              "bounds": false
+            },
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "ce1f00de20fd2defcf0bf379b18f4a617e5aed433daa0643b2c7656c4b3870a4",
+              "bytes": 797,
+              "file_entries": 0,
+              "revision_logs": 1,
+              "self_file": true,
+              "bounds": false
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 1,
+              "direct_start": 3,
+              "direct_base": 4,
+              "standalone_indices": [
+                13
+              ],
+              "config_map_count": 83,
+              "resolved_map_count": 221,
+              "mate_map_count": null,
+              "occurrence_aliases": 0,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": null,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "ParallelPlatePair",
+      "reader_output_sha256": "81c1a397d6d089ea96bd7a6276eedc72cc1370e1d1dfa8e3a83a715ab45001ad",
+      "cli_output_identical": true,
+      "report_sha256": "7203868bcefea6b528c23ee205a1f1460b638166646e41b3bd1f104041bd00ea",
+      "files": [
+        {
+          "file": "ParallelPlatePair.SLDASM",
+          "sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719",
+          "streams": {
+            "Header2": {
+              "sha256": "b4fac0bee92ca47680ec1c0dd7b28b379b9f8924b5994453422c277e21ecca11",
+              "bytes": 1261,
+              "file_entries": 1,
+              "revision_logs": 2,
+              "self_file": true,
+              "bounds": false
+            },
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "75959faff39dc0bef15752b61f823cd1df1baee595957d5780509854db8d81ec",
+              "bytes": 1261,
+              "file_entries": 1,
+              "revision_logs": 2,
+              "self_file": true,
+              "bounds": false
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 2,
+              "direct_start": 3,
+              "direct_base": 5,
+              "standalone_indices": [
+                21,
+                17
+              ],
+              "config_map_count": 76,
+              "resolved_map_count": 133,
+              "mate_map_count": 161,
+              "occurrence_aliases": 2,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": true,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        },
+        {
+          "file": "DatumPlate.SLDPRT",
+          "sha256": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4",
+          "streams": {
+            "Header2": {
+              "sha256": "1c2c89cbb16735c957dda7b5eabe473f9ade999f145761124bd7eba4a5af2581",
+              "bytes": 793,
+              "file_entries": 0,
+              "revision_logs": 1,
+              "self_file": true,
+              "bounds": false
+            },
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "3f989f3d5f3d2a35fbd9ab0dee1f04b7f46ce03cde4315e5c4cad6f217bf668a",
+              "bytes": 793,
+              "file_entries": 0,
+              "revision_logs": 1,
+              "self_file": true,
+              "bounds": false
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 1,
+              "direct_start": 3,
+              "direct_base": 4,
+              "standalone_indices": [
+                13
+              ],
+              "config_map_count": 83,
+              "resolved_map_count": 221,
+              "mate_map_count": null,
+              "occurrence_aliases": 0,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": null,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "DistanceMateDiscovery",
+      "reader_output_sha256": "d644c2f02f54d33ad3125096ace34eca85d4930ebfacc99cfed31feb316c582e",
+      "cli_output_identical": true,
+      "report_sha256": "5a7e1d99a02ae5d33feccc1118c7078a5e757b57176da6617b4509bf225c005c",
+      "files": [
+        {
+          "file": "DistanceMateDiscovery.SLDASM",
+          "sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198",
+          "streams": {
+            "Header2": {
+              "sha256": "9f66b1d9617f813ae71cfde09702fb762a05ed409149523d514245e9ba13eb4a",
+              "bytes": 1121,
+              "file_entries": 1,
+              "revision_logs": 2,
+              "self_file": true,
+              "bounds": false
+            },
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "958aeaee89bb535d9d5edcd49ffdec194945bd3b9d1687d491d09f778e39e2ae",
+              "bytes": 1121,
+              "file_entries": 1,
+              "revision_logs": 2,
+              "self_file": true,
+              "bounds": false
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 2,
+              "direct_start": 3,
+              "direct_base": 5,
+              "standalone_indices": [
+                21,
+                17
+              ],
+              "config_map_count": 76,
+              "resolved_map_count": 133,
+              "mate_map_count": 172,
+              "occurrence_aliases": 2,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": true,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        },
+        {
+          "file": "DistanceDatumPlate.SLDPRT",
+          "sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37",
+          "streams": {
+            "Header2": {
+              "sha256": "9686ce0f5823b5f10f615699a3e4393d74f63ac024bbcac23606e3dac27046ec",
+              "bytes": 743,
+              "file_entries": 0,
+              "revision_logs": 1,
+              "self_file": true,
+              "bounds": false
+            },
+            "Contents/Config-0-ModelHeader": {
+              "sha256": "9936e600ad5712d068194f04c8a8facb22babadca3ac93dd6a53c8abe9ff1a78",
+              "bytes": 743,
+              "file_entries": 0,
+              "revision_logs": 1,
+              "self_file": true,
+              "bounds": false
+            }
+          },
+          "config_handoffs": [
+            {
+              "configuration": "Contents/Config-0",
+              "header": "Contents/Config-0-ModelHeader",
+              "direct_count": 1,
+              "direct_start": 3,
+              "direct_base": 4,
+              "standalone_indices": [
+                13
+              ],
+              "config_map_count": 83,
+              "resolved_map_count": 199,
+              "mate_map_count": null,
+              "occurrence_aliases": 0,
+              "config_byte_identity": true,
+              "resolved_byte_identity": true,
+              "mate_byte_identity": null,
+              "standalone_indices_preserved": true,
+              "direct_identity_preserved": true,
+              "research_model_header_trace_retained": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_hashes": {
+    "re/tooling/sw2026/serial/AnnotationWire.py": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2",
+    "re/tooling/sw2026/serial/Classes.py": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b",
+    "re/tooling/sw2026/serial/Core.py": "e1b5b1440f048dc389e76e92b7cf5d2101b42aab2a8958f48685703dcefeec32",
+    "re/tooling/sw2026/serial/Dsl.py": "5434302632075f69e9bd47ffc133ac3ceff33e5fed1eb185b03476e5a2b6e086",
+    "re/tooling/sw2026/serial/FieldScan.py": "2b061a78ee6fb5f4c2ab0ebd8e1e392af8bb14c8cc16594ea715aae4d7220971",
+    "re/tooling/sw2026/serial/MapBridge.py": "eeb9b26114a3862e124e393c615c0c979c3dbf38c2b6d9b9cf2c54321d441393",
+    "re/tooling/sw2026/serial/RoundTrip.py": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae",
+    "re/tooling/sw2026/serial/Schema.py": "156b25625c7b05fa3f1a17bbb8c31953fce8cc1f082f7bbdfef2c8f9301efede",
+    "re/tooling/sw2026/serial/Streams.py": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5",
+    "re/tooling/sw2026/serial/StringCorpus.py": "f6b31a97abfa2d408b33e9eb30f38be5168425ed07856a1aab63f00fc56f92c9",
+    "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2",
+    "re/tooling/sw2026/serial/defs/ConfigAssembly.py": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62",
+    "re/tooling/sw2026/serial/defs/ConfigDetail.py": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52",
+    "re/tooling/sw2026/serial/defs/ConfigPart.py": "6927fe312eecc7f3dff9398a9b603f2d3fdeaeb5548abe0f3e58a8fba6aa8304",
+    "re/tooling/sw2026/serial/defs/ConfigUnits.py": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c",
+    "re/tooling/sw2026/serial/defs/ConfigVisual.py": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712",
+    "re/tooling/sw2026/serial/defs/Definition.py": "04dfa56204c742603a8a832ffd5146678d39cd12b6ffa6518137d2b4756a6702",
+    "re/tooling/sw2026/serial/defs/Drawing.py": "ae6cd6073d57f5fc5ef2037a22afe556ed9e7e760f65896efbe1e859ef443e69",
+    "re/tooling/sw2026/serial/defs/ExtObject.py": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d",
+    "re/tooling/sw2026/serial/defs/Geometry.py": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000",
+    "re/tooling/sw2026/serial/defs/MaterialDisplay.py": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556",
+    "re/tooling/sw2026/serial/defs/MfcMaps.py": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924",
+    "re/tooling/sw2026/serial/defs/ModelHeader.py": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b",
+    "re/tooling/sw2026/serial/defs/ResolvedBody.py": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457",
+    "re/tooling/sw2026/serial/defs/ResolvedComp.py": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946",
+    "re/tooling/sw2026/serial/defs/ResolvedCore.py": "553bb712e57d26e924635f45bd129f99f3387193b8bde9c622b254706b35e14e",
+    "re/tooling/sw2026/serial/defs/ResolvedDims.py": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a",
+    "re/tooling/sw2026/serial/defs/ResolvedFeatures.py": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47",
+    "re/tooling/sw2026/serial/defs/ResolvedFillet.py": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc",
+    "re/tooling/sw2026/serial/defs/ResolvedFolders.py": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718",
+    "re/tooling/sw2026/serial/defs/ResolvedPattern.py": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4",
+    "re/tooling/sw2026/serial/defs/ResolvedProfile.py": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4",
+    "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b",
+    "re/tooling/sw2026/serial/defs/ResolvedRefs.py": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576",
+    "re/tooling/sw2026/serial/defs/ResolvedSketch.py": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a",
+    "re/tooling/sw2026/serial/defs/SmallCMgr.py": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b",
+    "re/tooling/sw2026/serial/defs/SmallCusProps.py": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79",
+    "re/tooling/sw2026/serial/defs/SmallDocContent.py": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e",
+    "re/tooling/sw2026/serial/defs/SmallHeader.py": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444",
+    "re/tooling/sw2026/serial/defs/SmallHistory.py": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff",
+    "re/tooling/sw2026/serial/defs/SmallStreams.py": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183",
+    "re/tooling/sw2026/serial/defs/SmmMaster.py": "5942042520e93d84a36d9e2b7914c7227a76a4d90163a7d2caf26aa866129a32",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af",
+    "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5",
+    "re/tooling/sw2026/serial/defs/Visual.py": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001",
+    "re/tooling/sw2026/serial/defs/VisualRefs.py": "d1ef33a0bf7e7791f94c35f7ae0942ac84a98eb9ac31721e87cee1d885933220",
+    "re/tooling/sw2026/serial/defs/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6",
+    "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e",
+    "src/convert/adapters/solidworks/Archive/Counts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Maps/AddEntryMut.py": "74a2b02aa91f016609da5b01032e210de5d05984bd5f13034978048771a9a6f4",
+    "src/convert/adapters/solidworks/Archive/Maps/ArchiveMaps.py": "d7e8ccdd0d8c81c68279672b3c6ccecc9a6330e3d4c814007a11f4e97d6a3841",
+    "src/convert/adapters/solidworks/Archive/Maps/BindClassMut.py": "b2249e7e0d2d8c14113dd6f8efff5d0ee8bdcca98ec47e86806f0b054d4d0269",
+    "src/convert/adapters/solidworks/Archive/Maps/BindNodesMut.py": "e8fe8be7929caaf606977e44dd64921edaaeb90fb21973d5eb2be7f7fd1d369b",
+    "src/convert/adapters/solidworks/Archive/Maps/ClassIndex.py": "ea249652c2da2f6037d3637debe031c167a232b780c2782fff2fa76d7ecb41ba",
+    "src/convert/adapters/solidworks/Archive/Maps/FindClass.py": "7eb6b1c2920019aa100de053ca6f1d6160b98256d2563a24008f2ee32b7d7701",
+    "src/convert/adapters/solidworks/Archive/Maps/FindObject.py": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c",
+    "src/convert/adapters/solidworks/Archive/Maps/MapEntry.py": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0",
+    "src/convert/adapters/solidworks/Archive/Maps/MapSnapshot.py": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493",
+    "src/convert/adapters/solidworks/Archive/Maps/ObjectIndex.py": "f4ecf8ba48b9c68beb41b13dd984b820c42b88d09a0a6647e34f74aa972d3bf0",
+    "src/convert/adapters/solidworks/Archive/Maps/PutEntryMut.py": "290ec9d3ec0236b58bec2259c73e9aeee48121a13c2cb984bee6ff989ec3e32b",
+    "src/convert/adapters/solidworks/Archive/Maps/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Objects/ArchiveNode.py": "550abe31b41eeffce87931ea07c8a8fe04a349c37bf42bc07c82897ad2d75179",
+    "src/convert/adapters/solidworks/Archive/Objects/ExternalClass.py": "ab73b43cc167a36e361ecd30c85109f1efaf81da90bf35b0d9b4a6fd92448dad",
+    "src/convert/adapters/solidworks/Archive/Objects/ExternalRef.py": "19258628bfa23ec0cc98f75532537a90127d38cfce999c0155b4fa5fdfbc9dcc",
+    "src/convert/adapters/solidworks/Archive/Objects/ObjectRead.py": "79d8cdd212237716fac6145a048aa5d2b50410ddef03c94a03648cc6abbbea39",
+    "src/convert/adapters/solidworks/Archive/Objects/ObjectStore.py": "619fc4dbd2e9865c738af1df63929ddcfe2ef5997ae3a6f864b08507458df69f",
+    "src/convert/adapters/solidworks/Archive/Objects/ReadClassMut.py": "f1e7fe9da0b747258fed8a46c9ec11689766c013d21f89f414b3b73d8b1ca906",
+    "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73",
+    "src/convert/adapters/solidworks/Archive/Objects/ReadTypeMut.py": "52f1287b945bc1f9b952a409b0436d27a512d251e4426d513847da661d642b7c",
+    "src/convert/adapters/solidworks/Archive/Objects/RuntimeClass.py": "be3d1dc45163164ab169648d5ab98e3bbb274f1c256c0606e9af8a1f6886240a",
+    "src/convert/adapters/solidworks/Archive/Objects/WriteClassMut.py": "d53198ac370718d013ae35b0daef81aba0996f2743a1dc79734e1f85a67d2260",
+    "src/convert/adapters/solidworks/Archive/Objects/WriteObjectMut.py": "6cc29be5679a0f6c11ce3339624a256e7c5b1fbf3bb220b531c4ae1c314bc33f",
+    "src/convert/adapters/solidworks/Archive/Objects/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py": "98732874a4fa36c8af8e5dde44dc1844617547a182f57e2d4f7c04844779dc86",
+    "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py": "850cba1b90e592be68e7fb6558df4b798d22abf756ff963eb7210a5cd650419c",
+    "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py": "82c9924a621ee1a3a16d0226d39f16601d8689c9040e2870cecc8492a0263c4a",
+    "src/convert/adapters/solidworks/Archive/Strings/ReadString.py": "1d5c8222608e80a69d92f68b9fe36a87647bb87009df949678aad61ec5d81512",
+    "src/convert/adapters/solidworks/Archive/Strings/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py": "5046d947fbc1c2d6c7e9afa0904d1a3817d71573949aaa7768a0697decde11cf",
+    "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py": "399f98355bf255a8ee498b3c3c71451f9cb3edaa1d83efd5262959243ef12f6a",
+    "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db",
+    "src/convert/adapters/solidworks/Archive/Tags/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Container/Archive.py": "6f09542d473fbc806f30e9dca8484422743e1cde39b57deb1a8ad0fab3a92eb0",
+    "src/convert/adapters/solidworks/Container/Cmgr.py": "2bab2554e90fd8155d1ab50c1f8b50c869bc139820117535bdacece2957d4e8c",
+    "src/convert/adapters/solidworks/Container/Container.py": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81",
+    "src/convert/adapters/solidworks/Container/DecodeName.py": "5fe691829bd89bae76a0694c1d7cf737e24b771bbd9e6789f8325bef518a45a6",
+    "src/convert/adapters/solidworks/Container/DecodePayload.py": "bcd29a4cc9702a9ea714b4e6a0254ee214e8796f907403c6a9e0ad9dda8314a5",
+    "src/convert/adapters/solidworks/Container/DecodeScanned.py": "68b2f995303a13f0d2f6a52874d9cb07e8ceddc6896fba019db35b7fe4971c1d",
+    "src/convert/adapters/solidworks/Container/Definition.py": "f0cc64fbb208ce3bc6b670c9d0800315c69b0231b471210acc7490a6c5b3a071",
+    "src/convert/adapters/solidworks/Container/Format.py": "7f99f21c95f62ffb4554f00802f752c0b8cfb511f63d2a80ef0410b6f45a76bb",
+    "src/convert/adapters/solidworks/Container/InflateStream.py": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe",
+    "src/convert/adapters/solidworks/Container/LayoutQueries.py": "fcd7b0ca746dda67e662c1a0a2497e33be9c50103fa5679c4efc42be8fb30259",
+    "src/convert/adapters/solidworks/Container/Parasolid.py": "220107059a26880ec51a7a9f0eca8eb2096e745c73423d90fb5e2f2721a96c6c",
+    "src/convert/adapters/solidworks/Container/RotateBytes.py": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630",
+    "src/convert/adapters/solidworks/Container/RunGroups.py": "04a8784a98cdeecf1647829410ae072e27a5f29a08e4d10c0b6c57b03e7a532e",
+    "src/convert/adapters/solidworks/Container/SldprtFormat.py": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552",
+    "src/convert/adapters/solidworks/Container/StreamLimits.py": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece",
+    "src/convert/adapters/solidworks/Container/StreamRecord.py": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399",
+    "src/convert/adapters/solidworks/Container/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "re/tooling/sw2026/serial/CheckSdkHeaders.py": "76724d9d11acc02ec57a0074d42646ed181bd59e25c5057b5708a72062c70851",
+    "re/tooling/sw2026/serial/HeaderHandoff.py": "677f9dba82f61d463b159f7455187540b0468298e2f1a1b87eac59a0969560ff",
+    "re/tooling/sw2026/serial/AssemblyMates.py": "3b461a967190267bb40d9c853cac9e9db54f4b79ae5f0bbd276e364f0bf333bf",
+    "src/convert/adapters/solidworks/Archive/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Reading/GraphReader.py": "df6a09e3bc1674615f2c734576be5dd6ba10dd11d1865f375b6ab374eb969fd7",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadNativeText.py": "caa9cb053902c136609307ebbba8716ab2e4e873480c6a311474ff37509fc33a",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadGraphNode.py": "8cd9aa718407f419f8820fec6fa14fccd4dc673e31876bd32b5a99d31083c989",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadNativeCount.py": "44714480079ee9a517d8f21f2fccc52415d65ef20ee473a9482ca6e5a9ea499a",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadTypedNode.py": "4052f99335f2c81d130c2c52c15aa0435144806cc4bbb236432372d8e5f2e19f",
+    "src/convert/adapters/solidworks/Archive/Reading/BinaryReader.py": "c50ad2c851757bbfc074f5510310167a450c14d5a9e6478745603697adb772f6",
+    "src/convert/adapters/solidworks/Archive/Views/CheckRotation.py": "62e7da96e9bef4af747eee7cd24e1917f1133cfeb526b416e8eea316efdb11d1",
+    "src/convert/adapters/solidworks/Archive/Views/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Views/MakeViewPair.py": "aa00af5d438ee7110a6d72283976bb8906ba5e9d1b72ef6cb740c0ea0570e442",
+    "src/convert/adapters/solidworks/Archive/Views/RequireScalar.py": "6a0831d9643a5ee453672165e512c88eacd4fd42e926829f24363cd09d2cc51a",
+    "src/convert/adapters/solidworks/Archive/Views/ViewInput.py": "8a24d35109185bb1255bd804ab450181a59661ca178717f305b05e61455b0d22",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderBody.py": "a50588d8d4a0dd883283c9cacd86fb507836bd04763e740383b5ecdf3dd2db76",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderList.py": "bd3a36a3ca479c008c8c0f190b21706dcba7f877fb2013e0c3e1a4d8e6e5b0e2",
+    "src/convert/adapters/solidworks/Archive/Header/WriteHeaderGraph.py": "bbc209f0b3c8c6e62593efac16e2e31548f52a275d3fcb024f635b691a2c7a9e",
+    "src/convert/adapters/solidworks/Archive/Header/WriteHeaderBody.py": "3b1473e2091033367c5ffe22f24ff1a3f127933043d621d731190264fdf5b395",
+    "src/convert/adapters/solidworks/Archive/Header/HeaderClasses.py": "e852abd916b7dd3500f65e4194cd1addff4d42fdd96c58d322aabca55b1572b2",
+    "src/convert/adapters/solidworks/Archive/Header/ReadFileTable.py": "7d31ac0dc068c2866f96f12f02d3574431c5d9382e0e6a5863490a2091d7764e",
+    "src/convert/adapters/solidworks/Archive/Header/NativeHeader.py": "f352d3118b2c79113b7c2978c5f8425c7c36f4659adc8c11b4b94bf8c8bff62f",
+    "src/convert/adapters/solidworks/Archive/Header/NativeFileRef.py": "69d5bfc387c7337899a3a100f8f6cacd06c2fa37f10d7d864945012356ae5cbb",
+    "src/convert/adapters/solidworks/Archive/Header/ReadSharedFile.py": "c18772ca4a8a06b580a618c9d69049a28a5b4fb78ac79a7e6af918ce041587a3",
+    "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py": "a6792564852e0e46cbb147abc700147bfda23bbac5b40c2e48a1dfa02f7c6910",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeadItems.py": "b62ed305d7bbb0d30f42637a67f437f969a55c5bf418b89dcbfde25fb1c7f104",
+    "src/convert/adapters/solidworks/Archive/Header/HeaderFields.py": "40e405d8ac6763c0cc227154bd0a2dff827c8a7fbb4ad7578092cda1efb3fd32",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderWire.py": "b37eb93e70df221f051e20b4df085c3eaf12805af111fb65d0922504e7da609d",
+    "src/convert/adapters/solidworks/Archive/Header/ReadNativeHeader.py": "58ce33b0c360f522d80c7cff7a9f6933bf44be266085f00c0710beb912d63ec1",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderBounds.py": "fcb90cd84220fef233a2b2c9c3e010330cd549736f5cbedeb611198437604d46",
+    "src/convert/adapters/solidworks/Archive/Header/WriteHeaderWire.py": "525c21ade0c3caa0a2ba20c8648418427d54341e5c4f327b33fcbc607f6515af"
+  },
+  "local_process_integration": {
+    "passed": 5,
+    "failed": 0,
+    "seconds": 6.78,
+    "pytest_version": "9.1.1",
+    "python": "3.11",
+    "command_scope": [
+      "tests/Convert/Solidworks/Research/Assembly/SyncArchiveTests.py",
+      "tests/Convert/Solidworks/Research/Assembly/PlanarMateTests.py",
+      "tests/Convert/Solidworks/Research/Assembly/AssemblyRootTests.py",
+      "tests/Convert/Solidworks/Research/Assembly/OccurrenceBundleTests.py",
+      "tests/Convert/Solidworks/Research/Assembly/RepeatedOccurrenceBundleTests.py"
+    ],
+    "source_hashes": {
+      "tests/Convert/Solidworks/Research/Assembly/SyncArchiveTests.py": "ec804f4c14fd947f8e407b96067e4e42ce360d8632dbc0beda85e0a80ec25c4c",
+      "tests/Convert/Solidworks/Research/Assembly/PlanarMateTests.py": "29b054945c88b6a0ac9c8d5e4b124d18f9dd7e68d83b75aaf9aa7a3e4743bcf1",
+      "tests/Convert/Solidworks/Research/Assembly/AssemblyRootTests.py": "f8159e501009b1445769de98383d659c5ba7ea9a7157d5c59393e2b71b07c1be",
+      "tests/Convert/Solidworks/Research/Assembly/OccurrenceBundleTests.py": "ca00af926b3d0f780e64f17c9e6d8b68d6acbc1d2bfec686a560c43dcd73cd76",
+      "tests/Convert/Solidworks/Research/Assembly/RepeatedOccurrenceBundleTests.py": "1098d0363df71beb195761a1d097c9f2e7b01b3846bff1c5cc7e787bebb6fa84",
+      "tests/Convert/Solidworks/Research/Assembly/AssertHeadLink.py": "99745e7f05edc815821846db54723bb71cb19da12358a9a8e1ae7dccf2d9d6d4",
+      "tests/Convert/Solidworks/Research/Curve/Fields/AssertFieldCode.py": "5214d9c09ee885fa84a1b45e8776276c511957c5d7182ae65873429bca3d9f4f"
+    },
+    "synchronized_receipt_sha256": "c032ac0a531ba8484945fed08369e430d08a574dcd4af691fafbb704e132145a",
+    "synchronized_files": 5,
+    "synchronized_original_stream_comparisons": 40,
+    "synchronized_header_comparisons": 10,
+    "synchronized_sdk_config_handoffs": 5
+  },
+  "generated_child_field_inventory": {
+    "file": "DistanceDatumPlate.SLDPRT",
+    "sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37",
+    "bytes": 8070,
+    "stream": "Contents/Config-0-ResolvedFeatures",
+    "stream_tail": 0,
+    "require_proven": true,
+    "linked_configurations": true,
+    "proven_schemas": true,
+    "implementation_fingerprints": 89,
+    "implementation": [
+      {
+        "file": "re/tooling/sw2026/serial/FieldScan.py",
+        "sha256": "2b061a78ee6fb5f4c2ab0ebd8e1e392af8bb14c8cc16594ea715aae4d7220971"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/Core.py",
+        "sha256": "e1b5b1440f048dc389e76e92b7cf5d2101b42aab2a8958f48685703dcefeec32"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/Schema.py",
+        "sha256": "156b25625c7b05fa3f1a17bbb8c31953fce8cc1f082f7bbdfef2c8f9301efede"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/Classes.py",
+        "sha256": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/Streams.py",
+        "sha256": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/RoundTrip.py",
+        "sha256": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/Dsl.py",
+        "sha256": "5434302632075f69e9bd47ffc133ac3ceff33e5fed1eb185b03476e5a2b6e086"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/AnnotationWire.py",
+        "sha256": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/MapBridge.py",
+        "sha256": "eeb9b26114a3862e124e393c615c0c979c3dbf38c2b6d9b9cf2c54321d441393"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py",
+        "sha256": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ConfigAssembly.py",
+        "sha256": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ConfigDetail.py",
+        "sha256": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ConfigPart.py",
+        "sha256": "6927fe312eecc7f3dff9398a9b603f2d3fdeaeb5548abe0f3e58a8fba6aa8304"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ConfigUnits.py",
+        "sha256": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ConfigVisual.py",
+        "sha256": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/Definition.py",
+        "sha256": "04dfa56204c742603a8a832ffd5146678d39cd12b6ffa6518137d2b4756a6702"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/Drawing.py",
+        "sha256": "ae6cd6073d57f5fc5ef2037a22afe556ed9e7e760f65896efbe1e859ef443e69"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ExtObject.py",
+        "sha256": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/Geometry.py",
+        "sha256": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/MaterialDisplay.py",
+        "sha256": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/MfcMaps.py",
+        "sha256": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ModelHeader.py",
+        "sha256": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedBody.py",
+        "sha256": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedComp.py",
+        "sha256": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+        "sha256": "553bb712e57d26e924635f45bd129f99f3387193b8bde9c622b254706b35e14e"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+        "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedFeatures.py",
+        "sha256": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedFillet.py",
+        "sha256": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedFolders.py",
+        "sha256": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedPattern.py",
+        "sha256": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedProfile.py",
+        "sha256": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py",
+        "sha256": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedRefs.py",
+        "sha256": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+        "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+        "sha256": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/SmallCusProps.py",
+        "sha256": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/SmallDocContent.py",
+        "sha256": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/SmallHeader.py",
+        "sha256": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/SmallHistory.py",
+        "sha256": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/SmallStreams.py",
+        "sha256": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/SmmMaster.py",
+        "sha256": "5942042520e93d84a36d9e2b7914c7227a76a4d90163a7d2caf26aa866129a32"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py",
+        "sha256": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py",
+        "sha256": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py",
+        "sha256": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py",
+        "sha256": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py",
+        "sha256": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py",
+        "sha256": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py",
+        "sha256": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py",
+        "sha256": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py",
+        "sha256": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/Visual.py",
+        "sha256": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/VisualRefs.py",
+        "sha256": "d1ef33a0bf7e7791f94c35f7ae0942ac84a98eb9ac31721e87cee1d885933220"
+      },
+      {
+        "file": "re/tooling/sw2026/serial/defs/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
+        "sha256": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
+        "sha256": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py",
+        "sha256": "98732874a4fa36c8af8e5dde44dc1844617547a182f57e2d4f7c04844779dc86"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py",
+        "sha256": "850cba1b90e592be68e7fb6558df4b798d22abf756ff963eb7210a5cd650419c"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py",
+        "sha256": "82c9924a621ee1a3a16d0226d39f16601d8689c9040e2870cecc8492a0263c4a"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Strings/ReadString.py",
+        "sha256": "1d5c8222608e80a69d92f68b9fe36a87647bb87009df949678aad61ec5d81512"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
+        "sha256": "5046d947fbc1c2d6c7e9afa0904d1a3817d71573949aaa7768a0697decde11cf"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",
+        "sha256": "399f98355bf255a8ee498b3c3c71451f9cb3edaa1d83efd5262959243ef12f6a"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py",
+        "sha256": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Header/HeaderFields.py",
+        "sha256": "40e405d8ac6763c0cc227154bd0a2dff827c8a7fbb4ad7578092cda1efb3fd32"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py",
+        "sha256": "a6792564852e0e46cbb147abc700147bfda23bbac5b40c2e48a1dfa02f7c6910"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Header/ReadHeadItems.py",
+        "sha256": "b62ed305d7bbb0d30f42637a67f437f969a55c5bf418b89dcbfde25fb1c7f104"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/AddEntryMut.py",
+        "sha256": "74a2b02aa91f016609da5b01032e210de5d05984bd5f13034978048771a9a6f4"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/ArchiveMaps.py",
+        "sha256": "d7e8ccdd0d8c81c68279672b3c6ccecc9a6330e3d4c814007a11f4e97d6a3841"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/BindClassMut.py",
+        "sha256": "b2249e7e0d2d8c14113dd6f8efff5d0ee8bdcca98ec47e86806f0b054d4d0269"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/BindNodesMut.py",
+        "sha256": "e8fe8be7929caaf606977e44dd64921edaaeb90fb21973d5eb2be7f7fd1d369b"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/ClassIndex.py",
+        "sha256": "ea249652c2da2f6037d3637debe031c167a232b780c2782fff2fa76d7ecb41ba"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/FindClass.py",
+        "sha256": "7eb6b1c2920019aa100de053ca6f1d6160b98256d2563a24008f2ee32b7d7701"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/FindObject.py",
+        "sha256": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/MapEntry.py",
+        "sha256": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/MapSnapshot.py",
+        "sha256": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/ObjectIndex.py",
+        "sha256": "f4ecf8ba48b9c68beb41b13dd984b820c42b88d09a0a6647e34f74aa972d3bf0"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/PutEntryMut.py",
+        "sha256": "290ec9d3ec0236b58bec2259c73e9aeee48121a13c2cb984bee6ff989ec3e32b"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Maps/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ArchiveNode.py",
+        "sha256": "550abe31b41eeffce87931ea07c8a8fe04a349c37bf42bc07c82897ad2d75179"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalClass.py",
+        "sha256": "ab73b43cc167a36e361ecd30c85109f1efaf81da90bf35b0d9b4a6fd92448dad"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalRef.py",
+        "sha256": "19258628bfa23ec0cc98f75532537a90127d38cfce999c0155b4fa5fdfbc9dcc"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectRead.py",
+        "sha256": "79d8cdd212237716fac6145a048aa5d2b50410ddef03c94a03648cc6abbbea39"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectStore.py",
+        "sha256": "619fc4dbd2e9865c738af1df63929ddcfe2ef5997ae3a6f864b08507458df69f"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ReadClassMut.py",
+        "sha256": "f1e7fe9da0b747258fed8a46c9ec11689766c013d21f89f414b3b73d8b1ca906"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py",
+        "sha256": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/ReadTypeMut.py",
+        "sha256": "52f1287b945bc1f9b952a409b0436d27a512d251e4426d513847da661d642b7c"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/RuntimeClass.py",
+        "sha256": "be3d1dc45163164ab169648d5ab98e3bbb274f1c256c0606e9af8a1f6886240a"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/WriteClassMut.py",
+        "sha256": "d53198ac370718d013ae35b0daef81aba0996f2743a1dc79734e1f85a67d2260"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/WriteObjectMut.py",
+        "sha256": "6cc29be5679a0f6c11ce3339624a256e7c5b1fbf3bb220b531c4ae1c314bc33f"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Archive/Objects/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "receipt_sha256": "f60ee0583f64fd078d8ec2dffa6326dfa6a89cf74b103d0b8469049b87fcd52f",
+    "permanent_fingerprint_assertion_passed": true
+  },
+  "static_checks": {
+    "black": "passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 passed",
+    "pyright": "1.1.414 zero errors",
+    "steering": "seven scoped source files passed",
+    "pyright_existing_unrecognized_settings": 3
+  },
+  "custody": {
+    "comparison_driver_sha256": "a0f9692d085d453769a8f6be6b78869dbf6507d401bbda1f247cea089c5b3bea",
+    "comparison_receipt_sha256": "64f4d706fb64b0065f3d38882e541487c3239d722709bf6527685b239ae7195f",
+    "source_pins": "A17-A19 discovery source lock and three immutable generated Trial.json manifests",
+    "publication": "independently reconstructed metadata; original source and generated CAD files preserved"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "guest_python_series": "3.12 AMD64",
+  "guest_source_imports_passed": true,
+  "guest_source_stdout_sha256": "69847400cfe45c874f375772146c2550c32b3542dce1286c556c64698c8c059f",
+  "host_source_imports_passed": true,
+  "method_sha256": "8a234bbb7fb1ba90e197395838d7aad80e0cc30643480cf6f8ab21e8c98c0323",
+  "native_acceptance": false,
+  "native_launches": 0,
+  "original_native_source_reads": 0,
+  "packet_hashes_verified": 4728,
+  "packet_manifest_sha256": "6361fc8b1a79228789d12815b3519ed54de89775a55efca9df58f325c9d36225",
+  "prior_metadata_job_sha256": "e181338a02473785909684d9ce502e09f699587542ce0f641b1247f612ea64df",
+  "private_canonical_payload_reads": 0,
+  "raw_guest_output_exported": false,
+  "schema": "kit.sw2026.blank-preserved-rewrite-heldout-preparation.v1",
+  "writer_manifest_sha256": "80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80",
+  "writer_source_files": 4711
+}

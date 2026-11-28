@@ -1,0 +1,30 @@
+{
+  "SchemaVersion": 1,
+  "ProbeCommit": "b940314f169c7e97f42c0723033dbd2ea6fea269",
+  "TrustedImageSource": "68cec987d0b720762ae95f2f92799eb113d23b44",
+  "WorkflowRunId": 46177424027,
+  "JobId": 141079182620,
+  "WorkflowUrl": "https://github.com/TryUniCAD/Kit/actions/runs/46177424027",
+  "JobUrl": "https://github.com/TryUniCAD/Kit/actions/runs/46177424027/job/141079182620",
+  "Runner": "ubuntu-24.04",
+  "Conclusion": "success",
+  "Outputs": [
+    {
+      "hostname": "chatgpt.com",
+      "dns": "ok",
+      "tls": "ok",
+      "http": 405
+    },
+    {
+      "hostname": "auth.openai.com",
+      "dns": "ok",
+      "tls": "ok",
+      "http": 405
+    }
+  ],
+  "CredentialedPath": "admit, prepare, review, publish and react jobs all skipped",
+  "Limits": [
+    "Node DNS, TLS and unauthenticated HTTP HEAD only",
+    "No account credentials, authentication, Rust Codex transport, model invocation or review approval tested"
+  ]
+}

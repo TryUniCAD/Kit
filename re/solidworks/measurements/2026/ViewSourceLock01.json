@@ -1,0 +1,190 @@
+{
+  "schema": "kit.sw2026.unseen-view-source-lock.v1",
+  "passed": true,
+  "source_revision": "8672dd3340337a02cec5300bb838ebbc209063af",
+  "job_sha256": "1c4b058662148bb39e07835f026604452935100885ecc0c0110840b7052ba00b",
+  "specs_sha256": "8ce6c26c535afd87910448592a437ba1d954b5242dd3aa844025b929c95844bf",
+  "private_inspection_sha256": "f0ba5f6756332c8805847f1cdc5dfb4788e1d7bb75f4a10eae8adcddd38c5640",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "started_at": 1794859828.9040914,
+  "finished_at": 1794860047.731061,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "payload_and_api_observations_sealed_until_writer_freeze": true,
+  "cases": [
+    {
+      "name": "H01TrimetricPan",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "H01TrimetricPan/author/H01TrimetricPan.SLDPRT",
+      "native_sha256": "0a50a4d9a2fbea543ee90d05a487cc07a3fe4b0ec23e7ede1b7777f18d728895",
+      "native_bytes": 70805,
+      "record_sha256": [
+        "2b251bdeb17992466e149256a052e265a14b6ece7d564eff44dd2765b4c8d337",
+        "4054ba752e3f9503d47bfb7adeb56be6c992b417e1092667d6852604a6313170"
+      ],
+      "numeric_check_count": 96
+    },
+    {
+      "name": "H02DimetricPan",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "H02DimetricPan/author/H02DimetricPan.SLDPRT",
+      "native_sha256": "8082c3a3eeed0c08ff65b96b19590ea847c2b8b8dcc1dadcfd11ee4d3977a432",
+      "native_bytes": 47782,
+      "record_sha256": [
+        "b33b63390d3455234ef279cd3c7263ddb737e5d24983e3eb0ad0498e4f743034",
+        "8e4ed181cca63eb3398ade79438a7a0ee33e77484c7a21fee12430521dd7570a"
+      ],
+      "numeric_check_count": 96
+    }
+  ],
+  "published_at_utc": "2026-11-16T20:16:37.631672+00:00",
+  "scope": "Complete independent native camera source cohort locked before camera writer implementation; payloads and detailed native API observations remain sealed",
+  "raw_public_lock_sha256": "d264766dfae8671706ada13a1628165f22168aed36734a846e6769d3c594d66a",
+  "source_manifest_sha256": "b4335a266e25487b641bd267ef05bab7651dc713e8391dd5c39abf369adc2612",
+  "frozen_source_files": [
+    {
+      "path": "re/tooling/sw2026/AuthorViewCases.py",
+      "sha256": "f1d347e9a96f1d4d8b98a23bc51f6477f9d585b66ef0fb55f89812c03bf9f0c8",
+      "bytes": 11320
+    },
+    {
+      "path": "re/tooling/sw2026/ProbeViewState.py",
+      "sha256": "6272e224e4bcf44e7295a7f77d22f5ec00d9fc5cb3a07070b6c5b8346fcca7aa",
+      "bytes": 10801
+    },
+    {
+      "path": "re/tooling/sw2026/InspectCircleSketch.py",
+      "sha256": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+      "bytes": 27950
+    },
+    {
+      "path": "re/tooling/sw2026/AuthorCurves.py",
+      "sha256": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+      "bytes": 70324
+    },
+    {
+      "path": "re/tooling/sw2026/Swapp.py",
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "bytes": 15278
+    },
+    {
+      "path": "re/tooling/sw2026/InspectFresh.py",
+      "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+      "bytes": 4187
+    },
+    {
+      "path": "re/tooling/sw2026/OracleIdentity.py",
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "bytes": 4284
+    },
+    {
+      "path": "re/tooling/sw2026/ViewSourceSpecs.json",
+      "sha256": "8ce6c26c535afd87910448592a437ba1d954b5242dd3aa844025b929c95844bf",
+      "bytes": 1226
+    }
+  ],
+  "host_transport_sha256": "5353eb597e2377ac754c092deba15ab1f171dd193a2df9bd1dfdde3a7435b124",
+  "preflight_inventory": {
+    "started_at_utc": "2026-11-16T20:09:33.259477+00:00",
+    "command": [
+      "prlctl",
+      "exec",
+      "Windows 11",
+      "--current-user",
+      "C:\\Windows\\System32\\tasklist.exe",
+      "/FO",
+      "CSV",
+      "/NH"
+    ],
+    "guest_state_observed": true,
+    "returncode": 0,
+    "stdout_sha256": "2558a67efe83b3c6c7b935c5212fa0c0f0031604e265d47c29ab2e84279ec332",
+    "stdout_bytes": 7072,
+    "stderr": "",
+    "row_count": 144,
+    "selected_processes": [
+      [
+        "lmgrd.exe",
+        "1604",
+        "Services",
+        "0",
+        "14,584 K"
+      ],
+      [
+        "lmgrd.exe",
+        "7936",
+        "Services",
+        "0",
+        "18,588 K"
+      ],
+      [
+        "sw_d.exe",
+        "3088",
+        "Services",
+        "0",
+        "24,804 K"
+      ]
+    ],
+    "finished_at_utc": "2026-11-16T20:09:34.685498+00:00"
+  },
+  "postflight_inventory": {
+    "started_at_utc": "2026-11-16T20:15:44.397025+00:00",
+    "command": [
+      "prlctl",
+      "exec",
+      "Windows 11",
+      "--current-user",
+      "C:\\Windows\\System32\\tasklist.exe",
+      "/FO",
+      "CSV",
+      "/NH"
+    ],
+    "guest_state_observed": true,
+    "returncode": 0,
+    "stdout_sha256": "36eb58b581bd8de3f2589f26ce4ee4458853aab6b26504b0752e6868814f6a46",
+    "stdout_bytes": 7216,
+    "stderr": "",
+    "row_count": 147,
+    "selected_processes": [
+      [
+        "lmgrd.exe",
+        "1604",
+        "Services",
+        "0",
+        "14,584 K"
+      ],
+      [
+        "lmgrd.exe",
+        "7936",
+        "Services",
+        "0",
+        "18,588 K"
+      ],
+      [
+        "sw_d.exe",
+        "3088",
+        "Services",
+        "0",
+        "24,804 K"
+      ]
+    ],
+    "finished_at_utc": "2026-11-16T20:15:45.283110+00:00"
+  },
+  "license_process_ids_unchanged": true,
+  "postflight_no_cad_process": true,
+  "private_observations_read_by_operator": false,
+  "native_payloads_decoded_by_operator": false,
+  "previews_viewed_by_operator": false,
+  "camera_writer_started_before_lock": false,
+  "numeric_source_quality_rows": 192,
+  "external_payload_root": "ViewSource01",
+  "specs_path": "re/tooling/sw2026/ViewSourceSpecs.json"
+}

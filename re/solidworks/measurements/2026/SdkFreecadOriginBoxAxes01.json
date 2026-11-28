@@ -1,0 +1,1048 @@
+{
+  "base": "e9b36b5d7e588d7f386477d8f4538ede2b523593",
+  "base_src_tree": "0a55ce0714e270bf7e0c5f38c7368181aa52a9eb",
+  "changed_sdk_sha256": {
+    "Archive/Construction/Datums/PrincipalAxes/FinishAxesPart.py": "6092ae4c5269bd4894c17fc7dbfb00fabd381e3f18388566a5c544ea0c1d7406",
+    "Archive/Construction/Datums/PrincipalAxes/PutAxisViewsMut.py": "6050b5d5c6a2fcf00675aaa3d7c95786bbab40b020d93cfe5cd5408fca74d892",
+    "Core/Preparation/FreecadBox/PrepOrigAxes.py": "ea5ccd6b60d7d0034b8a07363be53a3d5f75cae03b2049a1248e7b6e99ec9751",
+    "Core/Preparation/FreecadBox/PrepareBoxAxes.py": "0cc598e9c11cf0f2d80b476721e9398b749c388061362191ae0996ee994509d2",
+    "Core/Preparation/FreecadBox/Source/ReadOriginAxes.py": "d1af7a19fbc27f305a1ecfaabc086430d8ed01d33a432f27f199a3e237278ff1",
+    "Core/TypedResolved/Geometry/Axes/CheckAxisViews.py": "d4eb79d1aee4a627f1ecf61172b5a91923319dcb8025d5ee812b5e34bd228527",
+    "Core/TypedResolved/Geometry/Axes/ReadAxisGeom.py": "89fcca63974acebe4a6dad96f5e4bb74ab5619ec49d058423d0368579cb19ec6"
+  },
+  "corpus_credit": 0,
+  "deterministic_worker_count": 6,
+  "heldout_inputs": 0,
+  "input_manifest_sha256": "e2053d84764ed9b65fc4bfe62f98b08c4d33bb57f096f3a4e9265e802e9288fa",
+  "linked_prior_receipts_sha256": {
+    "AttachedBoxAxesCandidate01": "93189f21691fc1cd3ba0f26beb62541f85ac3f814ae68444d178f639099efe60",
+    "AttachedBoxAxesNative01": "7df283cd1c0ea388f3a0675deb63ef37184eada40ebbd4cd0898628c9996d624",
+    "SdkFreecadBoxReleaseNative01": "e87ae3d9520edcffd262b1dc2457b2bd4e5a70fe4ff34c1a1271079d5628b856",
+    "SdkFreecadF14aOriginPlan01": "feb0a35f8975ee7d9a74e2eb416068e1337f7071cd2ec1c4bfdb524e5943ac61"
+  },
+  "native_processes": 0,
+  "new_native_acceptance": 0,
+  "proof_tool_sha256": "2069c572e01db71de17125f8dd57de5ccd970bf76c9df421f440a49cf920a41c",
+  "reports": {
+    "recipe-0.21.2-F14c": {
+      "archive": {
+        "bytes": 10707,
+        "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "addd8067179375e3da59c7dad93b6074052b7e7aeb3fe5047746ae13611e21a5"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+          },
+          "Contents/Config-0": {
+            "bytes": 22354,
+            "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 953,
+            "sha256": "912e0842cb91d3643169f294ed61582609bcf3f38f429f447143e16947473486"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 21389,
+            "sha256": "124373c6523ee2e26b3fb0dd94643e38ad6d970fc5484406fc258c12e5eaec30"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 953,
+            "sha256": "74fba4ab46794b39c421b44f394085184e1b13f54ef3b753c12af6e1f82c42d0"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+          },
+          "docProps/core.xml": {
+            "bytes": 490,
+            "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+          },
+          "docProps/custom.xml": {
+            "bytes": 5202,
+            "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1638,
+            "sha256": "a7e2ac3f3c206aa1587c339c7dea07ee280caf732699a14d2c8ef976cc4ae721"
+          }
+        }
+      },
+      "existing_complete_native_hash_preserved": true,
+      "runtime_file_reads": 0,
+      "source_and_model_unchanged": true,
+      "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+      "typed_linked_stream_byte_replay": [
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Definition",
+        "Header2",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "swXmlContents/KeyWords"
+      ],
+      "typed_readback": {
+        "analytic_centroid_mm": [
+          10.0,
+          -5.0,
+          15.0
+        ],
+        "area_mm2": 2200.0,
+        "axes": [
+          {
+            "bounds_mm": [
+              [
+                -0.9999999999999991,
+                0.0,
+                0.0
+              ],
+              [
+                20.999999999999996,
+                0.0,
+                0.0
+              ]
+            ],
+            "name": "X-axis",
+            "source_id": "1778",
+            "source_role": "X_Axis",
+            "target_id": "sldprt:feature:27",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:15",
+                "plane": "Top Plane",
+                "selection": "sldprt:selection:27:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:14",
+                "plane": "Front Plane",
+                "selection": "sldprt:selection:27:axis-second-plane"
+              }
+            ]
+          },
+          {
+            "bounds_mm": [
+              [
+                0.0,
+                -10.499999999999998,
+                0.0
+              ],
+              [
+                0.0,
+                0.49999999999999956,
+                0.0
+              ]
+            ],
+            "name": "Y-axis",
+            "source_id": "1779",
+            "source_role": "Y_Axis",
+            "target_id": "sldprt:feature:28",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:14",
+                "plane": "Front Plane",
+                "selection": "sldprt:selection:28:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:16",
+                "plane": "Right Plane",
+                "selection": "sldprt:selection:28:axis-second-plane"
+              }
+            ]
+          },
+          {
+            "bounds_mm": [
+              [
+                0.0,
+                0.0,
+                -1.5000000000000013
+              ],
+              [
+                0.0,
+                0.0,
+                31.5
+              ]
+            ],
+            "name": "Z-axis",
+            "source_id": "1780",
+            "source_role": "Z_Axis",
+            "target_id": "sldprt:feature:29",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:16",
+                "plane": "Right Plane",
+                "selection": "sldprt:selection:29:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:15",
+                "plane": "Top Plane",
+                "selection": "sldprt:selection:29:axis-second-plane"
+              }
+            ]
+          }
+        ],
+        "body": "Body",
+        "creator_id": "sldprt:feature:21",
+        "drivers_mm": {
+          "Height": 10.0,
+          "Length": 20.0,
+          "Width": 30.0
+        },
+        "source_origin_id": "1777",
+        "volume_mm3": 6000.0
+      }
+    },
+    "recipe-1.0.2-F14a": {
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2",
+        "swXmlContents/KeyWords"
+      ],
+      "independent_neutral_contrast": {
+        "authored_sizes_mm": [
+          11.25,
+          24.5,
+          37.75
+        ],
+        "match": {
+          "analytic_centroid_mm": [
+            5.625,
+            12.25,
+            18.875
+          ],
+          "area_mm2": 3250.375,
+          "axes": [
+            {
+              "bounds_mm": [
+                [
+                  -0.5624999999999997,
+                  0.0,
+                  0.0
+                ],
+                [
+                  11.8125,
+                  0.0,
+                  0.0
+                ]
+              ],
+              "name": "X-axis",
+              "source_id": "2274",
+              "source_role": "X_Axis",
+              "target_id": "sldprt:feature:27",
+              "target_parents": [
+                {
+                  "feature": "sldprt:feature:15",
+                  "plane": "Top Plane",
+                  "selection": "sldprt:selection:27:axis-first-plane"
+                },
+                {
+                  "feature": "sldprt:feature:14",
+                  "plane": "Front Plane",
+                  "selection": "sldprt:selection:27:axis-second-plane"
+                }
+              ]
+            },
+            {
+              "bounds_mm": [
+                [
+                  0.0,
+                  -1.2250000000000003,
+                  0.0
+                ],
+                [
+                  0.0,
+                  25.725,
+                  0.0
+                ]
+              ],
+              "name": "Y-axis",
+              "source_id": "2275",
+              "source_role": "Y_Axis",
+              "target_id": "sldprt:feature:28",
+              "target_parents": [
+                {
+                  "feature": "sldprt:feature:14",
+                  "plane": "Front Plane",
+                  "selection": "sldprt:selection:28:axis-first-plane"
+                },
+                {
+                  "feature": "sldprt:feature:16",
+                  "plane": "Right Plane",
+                  "selection": "sldprt:selection:28:axis-second-plane"
+                }
+              ]
+            },
+            {
+              "bounds_mm": [
+                [
+                  0.0,
+                  0.0,
+                  -1.8875000000000002
+                ],
+                [
+                  0.0,
+                  0.0,
+                  39.637499999999996
+                ]
+              ],
+              "name": "Z-axis",
+              "source_id": "2276",
+              "source_role": "Z_Axis",
+              "target_id": "sldprt:feature:29",
+              "target_parents": [
+                {
+                  "feature": "sldprt:feature:16",
+                  "plane": "Right Plane",
+                  "selection": "sldprt:selection:29:axis-first-plane"
+                },
+                {
+                  "feature": "sldprt:feature:15",
+                  "plane": "Top Plane",
+                  "selection": "sldprt:selection:29:axis-second-plane"
+                }
+              ]
+            }
+          ],
+          "body": "Body",
+          "creator_id": "sldprt:feature:21",
+          "drivers_mm": {
+            "Height": 37.75,
+            "Length": 11.25,
+            "Width": 24.5
+          },
+          "source_origin_id": "2273",
+          "volume_mm3": 10404.84375
+        },
+        "sha256": "10f1d8c596e0e5a7122ef3ab9234aef929bbe54388c5124d26d263967d1317f3"
+      },
+      "measured_stock_controls_reproduced": true,
+      "model_only_build": {
+        "bytes": 10900,
+        "sha256": "1667a585d3a81efac54b316d8998a87f46c2743dc1451353abd96ba2253e4a2c",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "8c737042f26da0feaeabf7495b175e081a1e651020e3468b031c26a09bdf7503"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "6027db44af9fbcc326e805a03d9185dd159818a83a16250fba00b05445d7b071"
+          },
+          "Contents/Config-0": {
+            "bytes": 22422,
+            "sha256": "0a7f26d66e73b3a0c05c1000ffcbaab3c57d727c8ccf3f3431de1b7d3cc5043c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 957,
+            "sha256": "4aa877fd202011e760f32fdb5557ac5b6fec0146ddf055e4236edea4f34c85e9"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 21317,
+            "sha256": "9f48c6de3f9dce64b0f56d69d76494dbd737d19363f5188cce0c98d739d40a8f"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 957,
+            "sha256": "994a072d19dce2898c9691e1721ecab99e91bed11250a4d32cf79bef6a02824c"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "16b327d67fafffff62a01ff7015b7f3a9b374b33c7751b796f8e5da3663727e0"
+          },
+          "docProps/core.xml": {
+            "bytes": 489,
+            "sha256": "7b94bd72f278cefa5317472ff9bdc60781b606d4e94ac52f490f3ef672fab106"
+          },
+          "docProps/custom.xml": {
+            "bytes": 6372,
+            "sha256": "637172f07b6c4cfc5b7ab1374b5a7af3f2eb891168e35281a74f6f29b89d0a8a"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1638,
+            "sha256": "294abafa2bac331660d96ce4548b605636de19bd2771541532b75ea670cfdd79"
+          }
+        }
+      },
+      "native_candidate_qualified": false,
+      "neutral_json_regeneration_exact": true,
+      "public_write_boundary": {
+        "empty_directory": true,
+        "missing_from_adapter_capabilities": [],
+        "refusals": {
+          "direct_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_stream": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "inferred_path": {
+            "diagnostic": "no writer supports the destination",
+            "type": "AdapterNotFoundError"
+          }
+        },
+        "source_capabilities": [
+          "body_structure",
+          "brep",
+          "configurations",
+          "native_payloads",
+          "parameters",
+          "parametric_history",
+          "provenance",
+          "roundtrip_metadata",
+          "support_planes"
+        ],
+        "stream_unchanged": true
+      },
+      "read_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "refusals": {
+        "coherent_old_endpoint": "cache free origin axis endpoints disagree with their finite support",
+        "crossed_wrappers": "cache free origin axis has crossed or nonprincipal supports",
+        "displaced_source_origin_plane": "FreeCAD origin plane no longer matches its signed principal support",
+        "foreign_creation": "cache free origin axes lack complete creation ownership",
+        "hidden_axis": "cache free origin axis has unsupported feature state",
+        "inauthentic_neutral_label": "FreeCAD origin datum owners disagree with the source archive",
+        "ordinary_full_reader_closed": "SLDPRT contains no readable Parasolid payload",
+        "wrong_stock_profile": "cache free origin axes require the signed Top stock"
+      },
+      "runtime_file_reads": 0,
+      "source_and_model_unchanged": true,
+      "source_boundary_roles_verified": 26,
+      "source_origin_point_ids_without_native_point": [],
+      "source_sha256": "2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df",
+      "stock_native_control": {
+        "bytes": 10337,
+        "sha256": "13608463d0c389e53f4a78ccd7d8768e34080f497d81ac34a1fc35bc1b97b95f",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "e3c618df4b3238c9a75aec2c7c3340eb96bd7a6bccb82b3c364d1d78d7dce06f"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "6027db44af9fbcc326e805a03d9185dd159818a83a16250fba00b05445d7b071"
+          },
+          "Contents/Config-0": {
+            "bytes": 22422,
+            "sha256": "0a7f26d66e73b3a0c05c1000ffcbaab3c57d727c8ccf3f3431de1b7d3cc5043c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 579,
+            "sha256": "a1f47b52625ac86b217c9335e730208ab0224bdb0e6d161f8113f01b9d7fbcbb"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17915,
+            "sha256": "7dc206c9dd5b41b328de474079ad8b3994ee5ed9fe3598bce3e0803a4701943f"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 579,
+            "sha256": "2bd1f20a107621f58283a8fbe7f644c4e714b6bbb48dc35a0aa0c1fe1e5049d4"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "16b327d67fafffff62a01ff7015b7f3a9b374b33c7751b796f8e5da3663727e0"
+          },
+          "docProps/core.xml": {
+            "bytes": 489,
+            "sha256": "7b94bd72f278cefa5317472ff9bdc60781b606d4e94ac52f490f3ef672fab106"
+          },
+          "docProps/custom.xml": {
+            "bytes": 6372,
+            "sha256": "637172f07b6c4cfc5b7ab1374b5a7af3f2eb891168e35281a74f6f29b89d0a8a"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1503,
+            "sha256": "5aacd4aa99dea0481a6ea9cd8d85d63de6590ed8a9cb8bce21a12e147a840d79"
+          }
+        }
+      },
+      "typed_linked_stream_byte_replay": [
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Definition",
+        "Header2",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "swXmlContents/KeyWords"
+      ],
+      "typed_readback": {
+        "analytic_centroid_mm": [
+          10.0,
+          15.0,
+          5.0
+        ],
+        "area_mm2": 2200.0,
+        "axes": [
+          {
+            "bounds_mm": [
+              [
+                -0.9999999999999991,
+                0.0,
+                0.0
+              ],
+              [
+                20.999999999999996,
+                0.0,
+                0.0
+              ]
+            ],
+            "name": "X-axis",
+            "source_id": "2274",
+            "source_role": "X_Axis",
+            "target_id": "sldprt:feature:27",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:15",
+                "plane": "Top Plane",
+                "selection": "sldprt:selection:27:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:14",
+                "plane": "Front Plane",
+                "selection": "sldprt:selection:27:axis-second-plane"
+              }
+            ]
+          },
+          {
+            "bounds_mm": [
+              [
+                0.0,
+                -1.5000000000000013,
+                0.0
+              ],
+              [
+                0.0,
+                31.5,
+                0.0
+              ]
+            ],
+            "name": "Y-axis",
+            "source_id": "2275",
+            "source_role": "Y_Axis",
+            "target_id": "sldprt:feature:28",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:14",
+                "plane": "Front Plane",
+                "selection": "sldprt:selection:28:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:16",
+                "plane": "Right Plane",
+                "selection": "sldprt:selection:28:axis-second-plane"
+              }
+            ]
+          },
+          {
+            "bounds_mm": [
+              [
+                0.0,
+                0.0,
+                -0.49999999999999956
+              ],
+              [
+                0.0,
+                0.0,
+                10.499999999999998
+              ]
+            ],
+            "name": "Z-axis",
+            "source_id": "2276",
+            "source_role": "Z_Axis",
+            "target_id": "sldprt:feature:29",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:16",
+                "plane": "Right Plane",
+                "selection": "sldprt:selection:29:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:15",
+                "plane": "Top Plane",
+                "selection": "sldprt:selection:29:axis-second-plane"
+              }
+            ]
+          }
+        ],
+        "body": "Body",
+        "creator_id": "sldprt:feature:21",
+        "drivers_mm": {
+          "Height": 10.0,
+          "Length": 20.0,
+          "Width": 30.0
+        },
+        "source_origin_id": "2273",
+        "volume_mm3": 6000.0
+      }
+    },
+    "recipe-1.1.4-F14a": {
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2",
+        "swXmlContents/KeyWords"
+      ],
+      "independent_neutral_contrast": {
+        "authored_sizes_mm": [
+          31.0,
+          12.75,
+          5.5
+        ],
+        "match": {
+          "analytic_centroid_mm": [
+            15.5,
+            6.375,
+            2.75
+          ],
+          "area_mm2": 1271.75,
+          "axes": [
+            {
+              "bounds_mm": [
+                [
+                  -1.5499999999999994,
+                  0.0,
+                  0.0
+                ],
+                [
+                  32.55,
+                  0.0,
+                  0.0
+                ]
+              ],
+              "name": "X-axis",
+              "source_id": "4914",
+              "source_role": "X_Axis",
+              "target_id": "sldprt:feature:27",
+              "target_parents": [
+                {
+                  "feature": "sldprt:feature:15",
+                  "plane": "Top Plane",
+                  "selection": "sldprt:selection:27:axis-first-plane"
+                },
+                {
+                  "feature": "sldprt:feature:14",
+                  "plane": "Front Plane",
+                  "selection": "sldprt:selection:27:axis-second-plane"
+                }
+              ]
+            },
+            {
+              "bounds_mm": [
+                [
+                  0.0,
+                  -0.6375000000000001,
+                  0.0
+                ],
+                [
+                  0.0,
+                  13.3875,
+                  0.0
+                ]
+              ],
+              "name": "Y-axis",
+              "source_id": "4915",
+              "source_role": "Y_Axis",
+              "target_id": "sldprt:feature:28",
+              "target_parents": [
+                {
+                  "feature": "sldprt:feature:14",
+                  "plane": "Front Plane",
+                  "selection": "sldprt:selection:28:axis-first-plane"
+                },
+                {
+                  "feature": "sldprt:feature:16",
+                  "plane": "Right Plane",
+                  "selection": "sldprt:selection:28:axis-second-plane"
+                }
+              ]
+            },
+            {
+              "bounds_mm": [
+                [
+                  0.0,
+                  0.0,
+                  -0.2750000000000001
+                ],
+                [
+                  0.0,
+                  0.0,
+                  5.7749999999999995
+                ]
+              ],
+              "name": "Z-axis",
+              "source_id": "4916",
+              "source_role": "Z_Axis",
+              "target_id": "sldprt:feature:29",
+              "target_parents": [
+                {
+                  "feature": "sldprt:feature:16",
+                  "plane": "Right Plane",
+                  "selection": "sldprt:selection:29:axis-first-plane"
+                },
+                {
+                  "feature": "sldprt:feature:15",
+                  "plane": "Top Plane",
+                  "selection": "sldprt:selection:29:axis-second-plane"
+                }
+              ]
+            }
+          ],
+          "body": "Body",
+          "creator_id": "sldprt:feature:21",
+          "drivers_mm": {
+            "Height": 5.5,
+            "Length": 31.0,
+            "Width": 12.750000000000002
+          },
+          "source_origin_id": "4913",
+          "volume_mm3": 2173.875
+        },
+        "sha256": "f9909b1d71c35d6d1636a2bb6dada957a9de63478c1de344e847b9edde9d96d8"
+      },
+      "measured_stock_controls_reproduced": true,
+      "model_only_build": {
+        "bytes": 11020,
+        "sha256": "e8afd4b6baec7c8238fd66e396876e3309d91f1583f8b9ae338d80a0af9ed174",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "9f03bd747602fe3d73eee226dd52eb5fb9312b82e839635e2ff61005d578c670"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "c4c562ccfb6e34d09fd36bf69a75f4f3bb7ee955d44f1588a816504824806240"
+          },
+          "Contents/Config-0": {
+            "bytes": 22422,
+            "sha256": "7f906831b06782b813f3f691716fe131c11d55076a797f672d330e81b4fb942c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 957,
+            "sha256": "b3bc462e0362eebacdd57a5142cd4276df4f1c48cd41d656896a0f167690d5ab"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 21317,
+            "sha256": "4f1c883eaf352aa7b0bf0e85b8e0d69573a41c1317c962af6fe26013b596be29"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 957,
+            "sha256": "d91abb5092addaf2a04313f98e781d9ea432680b976d6b907a4f8683b97cc657"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "6de82ecb16af98e4c0c02d66404ae3832d73732a793a61a47e7bd4952eae60d1"
+          },
+          "docProps/core.xml": {
+            "bytes": 489,
+            "sha256": "17de53f99b54c9c5b7bba2ee625056f0fb5d64e9dfb6cd49e6f7e9c419505b96"
+          },
+          "docProps/custom.xml": {
+            "bytes": 7267,
+            "sha256": "b128ab6ebbfcfe6be68b52dd8861413bd6382cb69aa95e4f17fc60d5b86935f5"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1638,
+            "sha256": "57656029f616bb7648acb0bdd06c0925eb597286dbfedf1f6d403e101dae07bf"
+          }
+        }
+      },
+      "native_candidate_qualified": false,
+      "neutral_json_regeneration_exact": true,
+      "public_write_boundary": {
+        "empty_directory": true,
+        "missing_from_adapter_capabilities": [],
+        "refusals": {
+          "direct_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_stream": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "inferred_path": {
+            "diagnostic": "no writer supports the destination",
+            "type": "AdapterNotFoundError"
+          }
+        },
+        "source_capabilities": [
+          "body_structure",
+          "brep",
+          "configurations",
+          "native_payloads",
+          "parameters",
+          "parametric_history",
+          "provenance",
+          "roundtrip_metadata",
+          "support_planes"
+        ],
+        "stream_unchanged": true
+      },
+      "read_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "refusals": {
+        "coherent_old_endpoint": "cache free origin axis endpoints disagree with their finite support",
+        "crossed_wrappers": "cache free origin axis has crossed or nonprincipal supports",
+        "displaced_source_origin_plane": "FreeCAD origin plane no longer matches its signed principal support",
+        "foreign_creation": "cache free origin axes lack complete creation ownership",
+        "hidden_axis": "cache free origin axis has unsupported feature state",
+        "inauthentic_neutral_label": "FreeCAD origin datum owners disagree with the source archive",
+        "missing_documented_transient_status": "FreeCAD origin datum has an unrepresented owner or property",
+        "ordinary_full_reader_closed": "SLDPRT contains no readable Parasolid payload",
+        "wrong_stock_profile": "cache free origin axes require the signed Top stock"
+      },
+      "runtime_file_reads": 0,
+      "source_and_model_unchanged": true,
+      "source_boundary_roles_verified": 26,
+      "source_origin_point_ids_without_native_point": [
+        "4920"
+      ],
+      "source_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8",
+      "stock_native_control": {
+        "bytes": 10455,
+        "sha256": "51f6e11f730f85035c840bc03925a7b7b452db15b5fa00bddfb3683163c36b1d",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "096a1b196f07ed0ea08c8ecac872e48cc9fa75fb1c082102520e87a4b10e06bd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "c4c562ccfb6e34d09fd36bf69a75f4f3bb7ee955d44f1588a816504824806240"
+          },
+          "Contents/Config-0": {
+            "bytes": 22422,
+            "sha256": "7f906831b06782b813f3f691716fe131c11d55076a797f672d330e81b4fb942c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 579,
+            "sha256": "5606707023d7bc0c58245d1d3158b928ba3bee06b8d43b4057654aee52dc087a"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17915,
+            "sha256": "bc901ff33305fb225bda974bbdade8e8a8950dab1fa342f99f1064c209226b73"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 579,
+            "sha256": "a78c7855e6307adee6b7c08fccf45af9b3278b7556bc09fcac10d0ca58ed108c"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "6de82ecb16af98e4c0c02d66404ae3832d73732a793a61a47e7bd4952eae60d1"
+          },
+          "docProps/core.xml": {
+            "bytes": 489,
+            "sha256": "17de53f99b54c9c5b7bba2ee625056f0fb5d64e9dfb6cd49e6f7e9c419505b96"
+          },
+          "docProps/custom.xml": {
+            "bytes": 7267,
+            "sha256": "b128ab6ebbfcfe6be68b52dd8861413bd6382cb69aa95e4f17fc60d5b86935f5"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1503,
+            "sha256": "e304627314aa79a6ea2645f0ac45eb7bb0a3769bc5eb0955913739fbbf4af4e0"
+          }
+        }
+      },
+      "typed_linked_stream_byte_replay": [
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Definition",
+        "Header2",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "swXmlContents/KeyWords"
+      ],
+      "typed_readback": {
+        "analytic_centroid_mm": [
+          10.0,
+          15.0,
+          5.0
+        ],
+        "area_mm2": 2200.0,
+        "axes": [
+          {
+            "bounds_mm": [
+              [
+                -0.9999999999999991,
+                0.0,
+                0.0
+              ],
+              [
+                20.999999999999996,
+                0.0,
+                0.0
+              ]
+            ],
+            "name": "X-axis",
+            "source_id": "4914",
+            "source_role": "X_Axis",
+            "target_id": "sldprt:feature:27",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:15",
+                "plane": "Top Plane",
+                "selection": "sldprt:selection:27:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:14",
+                "plane": "Front Plane",
+                "selection": "sldprt:selection:27:axis-second-plane"
+              }
+            ]
+          },
+          {
+            "bounds_mm": [
+              [
+                0.0,
+                -1.5000000000000013,
+                0.0
+              ],
+              [
+                0.0,
+                31.5,
+                0.0
+              ]
+            ],
+            "name": "Y-axis",
+            "source_id": "4915",
+            "source_role": "Y_Axis",
+            "target_id": "sldprt:feature:28",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:14",
+                "plane": "Front Plane",
+                "selection": "sldprt:selection:28:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:16",
+                "plane": "Right Plane",
+                "selection": "sldprt:selection:28:axis-second-plane"
+              }
+            ]
+          },
+          {
+            "bounds_mm": [
+              [
+                0.0,
+                0.0,
+                -0.49999999999999956
+              ],
+              [
+                0.0,
+                0.0,
+                10.499999999999998
+              ]
+            ],
+            "name": "Z-axis",
+            "source_id": "4916",
+            "source_role": "Z_Axis",
+            "target_id": "sldprt:feature:29",
+            "target_parents": [
+              {
+                "feature": "sldprt:feature:16",
+                "plane": "Right Plane",
+                "selection": "sldprt:selection:29:axis-first-plane"
+              },
+              {
+                "feature": "sldprt:feature:15",
+                "plane": "Top Plane",
+                "selection": "sldprt:selection:29:axis-second-plane"
+              }
+            ]
+          }
+        ],
+        "body": "Body",
+        "creator_id": "sldprt:feature:21",
+        "drivers_mm": {
+          "Height": 10.0,
+          "Length": 20.0,
+          "Width": 30.0
+        },
+        "source_origin_id": "4913",
+        "volume_mm3": 6000.0
+      }
+    }
+  },
+  "schema": "kit.sw2026.freecad-origin-box-axes.v1",
+  "whole_source_publication": false
+}

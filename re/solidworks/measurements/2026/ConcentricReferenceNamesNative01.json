@@ -1,0 +1,239 @@
+{
+  "controls_healthy": true,
+  "distinct_processes": 3,
+  "feature_name_refreshed_to_component_label": true,
+  "file_saves": 0,
+  "global_preference_changes": 0,
+  "heldout_inputs_read": 0,
+  "name_probe_completed": true,
+  "native_acceptance": false,
+  "parameter_edits": 0,
+  "phases": {
+    "ControlAfter": {
+      "observations": [
+        {
+          "expected_occurrence_names": [
+            "ConcentricD01Child-1",
+            "ConcentricD01Child-2"
+          ],
+          "references": [
+            {
+              "component_id": 24,
+              "component_name2": "ConcentricD01Child-1",
+              "component_path_matches_actual_child": true,
+              "feature_id": 24,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-1",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            },
+            {
+              "component_id": 25,
+              "component_name2": "ConcentricD01Child-2",
+              "component_path_matches_actual_child": true,
+              "feature_id": 25,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-2",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            }
+          ],
+          "top_level_features_visited": 18
+        },
+        {
+          "expected_occurrence_names": [
+            "ConcentricD01Child-1",
+            "ConcentricD01Child-2"
+          ],
+          "references": [
+            {
+              "component_id": 24,
+              "component_name2": "ConcentricD01Child-1",
+              "component_path_matches_actual_child": true,
+              "feature_id": 24,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-1",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            },
+            {
+              "component_id": 25,
+              "component_name2": "ConcentricD01Child-2",
+              "component_path_matches_actual_child": true,
+              "feature_id": 25,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-2",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            }
+          ],
+          "top_level_features_visited": 18
+        }
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": "134395753584917916"
+    },
+    "ControlBefore": {
+      "observations": [
+        {
+          "expected_occurrence_names": [
+            "ConcentricD01Child-1",
+            "ConcentricD01Child-2"
+          ],
+          "references": [
+            {
+              "component_id": 24,
+              "component_name2": "ConcentricD01Child-1",
+              "component_path_matches_actual_child": true,
+              "feature_id": 24,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-1",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            },
+            {
+              "component_id": 25,
+              "component_name2": "ConcentricD01Child-2",
+              "component_path_matches_actual_child": true,
+              "feature_id": 25,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-2",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            }
+          ],
+          "top_level_features_visited": 18
+        },
+        {
+          "expected_occurrence_names": [
+            "ConcentricD01Child-1",
+            "ConcentricD01Child-2"
+          ],
+          "references": [
+            {
+              "component_id": 24,
+              "component_name2": "ConcentricD01Child-1",
+              "component_path_matches_actual_child": true,
+              "feature_id": 24,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-1",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            },
+            {
+              "component_id": 25,
+              "component_name2": "ConcentricD01Child-2",
+              "component_path_matches_actual_child": true,
+              "feature_id": 25,
+              "feature_id_equals_component_id": true,
+              "feature_name": "ConcentricD01Child-2",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            }
+          ],
+          "top_level_features_visited": 18
+        }
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": "134395752846482329"
+    },
+    "ParentRebuild": {
+      "observations": [
+        {
+          "expected_occurrence_names": [
+            "Cylinder-1",
+            "Cylinder-2"
+          ],
+          "references": [
+            {
+              "component_id": 17,
+              "component_name2": "NeutralCylinderAlphaDerived-1",
+              "component_path_matches_actual_child": true,
+              "feature_id": 17,
+              "feature_id_equals_component_id": true,
+              "feature_name": "NeutralCylinderAlphaDerived-1",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            },
+            {
+              "component_id": 18,
+              "component_name2": "NeutralCylinderAlphaDerived-2",
+              "component_path_matches_actual_child": true,
+              "feature_id": 18,
+              "feature_id_equals_component_id": true,
+              "feature_name": "NeutralCylinderAlphaDerived-2",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            }
+          ],
+          "top_level_features_visited": 18
+        },
+        {
+          "expected_occurrence_names": [
+            "Cylinder-1",
+            "Cylinder-2"
+          ],
+          "references": [
+            {
+              "component_id": 17,
+              "component_name2": "NeutralCylinderAlphaDerived-1",
+              "component_path_matches_actual_child": true,
+              "feature_id": 17,
+              "feature_id_equals_component_id": true,
+              "feature_name": "NeutralCylinderAlphaDerived-1",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            },
+            {
+              "component_id": 18,
+              "component_name2": "NeutralCylinderAlphaDerived-2",
+              "component_path_matches_actual_child": true,
+              "feature_id": 18,
+              "feature_id_equals_component_id": true,
+              "feature_name": "NeutralCylinderAlphaDerived-2",
+              "feature_type": "Reference",
+              "repeated_component_read_stable": true,
+              "repeated_feature_read_stable": true,
+              "specific_nonnull": true
+            }
+          ],
+          "top_level_features_visited": 18
+        }
+      ],
+      "open_errors": 0,
+      "open_warnings": 32,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": "134395753317658037"
+    }
+  },
+  "raw_result_sha256": "fcb613c3aa4c6006b4647572ba35a81dba12b5c94e0e4a5cccfe9fb09161b157",
+  "same_reference_id_under_both_apis": true,
+  "schema": "kit.sw2026.concentric-reference-name-result.v1",
+  "trial_sha256": "a6014ebd881f872de70711d1993fc2027dcddd59b32a770dfd3d06f2f43fb325"
+}

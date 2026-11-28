@@ -1,0 +1,236 @@
+{
+  "build": "34.5.2.0604",
+  "cad_inputs_read": 0,
+  "functions": [
+    {
+      "entry": "0x4c19f170",
+      "fragments": [
+        {
+          "bytes": 2646,
+          "end_exclusive": "0x4c19fbc6",
+          "file_offset": 17163632,
+          "name": "complete unwind fragment",
+          "sha256": "7b4e722302717f2661b1ee0895d5e88cce37dca09723f19bf72536b33af28d94",
+          "start": "0x4c19f170"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "part constructor"
+    },
+    {
+      "entry": "0x4b285b20",
+      "fragments": [
+        {
+          "bytes": 8,
+          "end_exclusive": "0x4b285b28",
+          "file_offset": 1330976,
+          "name": "complete leaf",
+          "sha256": "77c89f3bec3cec8d5caed75e3d04e10c6d3af214ade3cb66b04d8a93f923b651",
+          "start": "0x4b285b20"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "owned model header getter"
+    },
+    {
+      "entry": "0x4b578680",
+      "fragments": [
+        {
+          "bytes": 549,
+          "end_exclusive": "0x4b5788a5",
+          "file_offset": 4422272,
+          "name": "complete unwind fragment",
+          "sha256": "79313b4a2c0693d269b567e4c5f49df89645b38bde0d802ba35303922c86156b",
+          "start": "0x4b578680"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "part cache creation caller"
+    },
+    {
+      "entry": "0x4b58f550",
+      "fragments": [
+        {
+          "bytes": 649,
+          "end_exclusive": "0x4b58f7d9",
+          "file_offset": 4516176,
+          "name": "complete unwind fragment",
+          "sha256": "e6916f80384a25563c94d5ff38c59e210b4f61c8fb54ba860433e27151c28f57",
+          "start": "0x4b58f550"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "part cache update caller"
+    },
+    {
+      "entry": "0x4b5263c0",
+      "fragments": [
+        {
+          "bytes": 1455,
+          "end_exclusive": "0x4b52696f",
+          "file_offset": 4085696,
+          "name": "complete unwind fragment",
+          "sha256": "68c7e1a4d4dbc2bd6cead7780d9284b0f5267e4243129eba3a46f03a177ec2ad",
+          "start": "0x4b5263c0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "fresh cache finalization"
+    },
+    {
+      "entry": "0x4b53a480",
+      "fragments": [
+        {
+          "bytes": 1943,
+          "end_exclusive": "0x4b53ac17",
+          "file_offset": 4167808,
+          "name": "complete unwind fragment",
+          "sha256": "6010d07ffb16592964767d78fe14fc32f1433cb8ea15ac20a3fd37b592933de9",
+          "start": "0x4b53a480"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "cache update finalization"
+    },
+    {
+      "entry": "0x4b535b80",
+      "fragments": [
+        {
+          "bytes": 62,
+          "end_exclusive": "0x4b535bbe",
+          "file_offset": 4149120,
+          "name": "complete unwind fragment",
+          "sha256": "10b3042985d951b24c17d2c1302a14afaabb53403188e45f95d76c68a8ad68fc",
+          "start": "0x4b535b80"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "cache freshness predicate"
+    },
+    {
+      "entry": "0x319f9810",
+      "fragments": [
+        {
+          "bytes": 4,
+          "end_exclusive": "0x319f9814",
+          "file_offset": 35856,
+          "name": "complete leaf",
+          "sha256": "68b70ba1e6ad2356c69cac8e846649e599945994fa7690a0bf4af28fa25c24a5",
+          "start": "0x319f9810"
+        }
+      ],
+      "module": "sldarchiveu.dll",
+      "name": "header update-counter getter"
+    }
+  ],
+  "header_update_stamp_import_export": {
+    "address": "0x319f9810",
+    "forwarder": null,
+    "name": "?getCurrentUpdateStamp@moHeader_c@@QEBAKPEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+  },
+  "imports": [
+    {
+      "module": "SLDMFCU.dll",
+      "name": "?get@moVersionManager_c@@SAAEAV1@XZ",
+      "slot": "0x4cd33d00"
+    },
+    {
+      "module": "SLDMFCU.dll",
+      "name": "?getCurrentFileVerion@moVersionManager_c@@CAKXZ",
+      "slot": "0x4cd33cf8"
+    },
+    {
+      "module": "sldutu.dll",
+      "name": "?su_getFullDateCode@@YAIXZ",
+      "slot": "0x4cd3d580"
+    },
+    {
+      "module": "sldarchiveu.dll",
+      "name": "?getCurrentUpdateStamp@moHeader_c@@QEBAKPEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z",
+      "slot": "0x4cd351a8"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bytes": 10,
+      "end_exclusive": "0x4c19f1d7",
+      "file_offset": 17163725,
+      "name": "install part table",
+      "sha256": "aed59f0495da2747172465e8ae141cf8cb641f811ed6f206cebf8bc3128adf18",
+      "start": "0x4c19f1cd"
+    },
+    {
+      "bytes": 12,
+      "end_exclusive": "0x4b578829",
+      "file_offset": 4422685,
+      "name": "fresh finalization call",
+      "sha256": "9576e6c767bd7ce59742152e5de7722ca8869ba35cc33290c43fc18375ac72cd",
+      "start": "0x4b57881d"
+    },
+    {
+      "bytes": 12,
+      "end_exclusive": "0x4b58f765",
+      "file_offset": 4516697,
+      "name": "update finalization call",
+      "sha256": "5442c24a73e9bc5ed0978603c316e820f8fb1446cae559964fb63213f14be4a3",
+      "start": "0x4b58f759"
+    },
+    {
+      "bytes": 82,
+      "end_exclusive": "0x4b526829",
+      "file_offset": 4086743,
+      "name": "fresh header values",
+      "sha256": "e51d7df22f85f3ac0e900944846d06754037287477c7e2f46addcf16f42c72f4",
+      "start": "0x4b5267d7"
+    },
+    {
+      "bytes": 39,
+      "end_exclusive": "0x4b53a530",
+      "file_offset": 4167945,
+      "name": "updated header owner",
+      "sha256": "8043097155f1296f5fe7450c3e0c0c86df4efeaf576cc6ce73b98a3de057cf14",
+      "start": "0x4b53a509"
+    },
+    {
+      "bytes": 57,
+      "end_exclusive": "0x4b53ab95",
+      "file_offset": 4169564,
+      "name": "updated header values",
+      "sha256": "ac77be0f519b5f48a644b402ee08fb9f786e63cb409f4ce25e1f7e22889c8ba7",
+      "start": "0x4b53ab5c"
+    },
+    {
+      "bytes": 36,
+      "end_exclusive": "0x4b535bad",
+      "file_offset": 4149129,
+      "name": "cache and current update times",
+      "sha256": "e527018ef2ffbd4fd927be71372c9e096fa71793f5ab12aeba821c84091aced5",
+      "start": "0x4b535b89"
+    }
+  ],
+  "modules": [
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "base": "0x319f0000",
+      "bytes": 231512,
+      "name": "sldarchiveu.dll",
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48"
+    }
+  ],
+  "part_header_table_cell": {
+    "bytes": 8,
+    "end_exclusive": "0x4d1264d0",
+    "file_offset": 33443528,
+    "name": "actual part header target",
+    "sha256": "6e8f06be6d9a303bf61c72d7cc980a4103453a30bb188b8fdec89ee050d04677",
+    "start": "0x4d1264c8"
+  },
+  "part_header_target": "0x4b285b20",
+  "schema": "kit.sw2026.downstream-cache-prefix-sources.v1",
+  "vendor_runs": 0
+}

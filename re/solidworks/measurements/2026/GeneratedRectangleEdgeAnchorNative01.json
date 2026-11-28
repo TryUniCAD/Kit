@@ -1,0 +1,113 @@
+{
+  "schema": "kit.sw2026.rectangle-edge-anchor-native-comparison.v1",
+  "diagnostic_completed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "original_warning_reproduced": true,
+  "corrected_clean_open_and_rebuild": false,
+  "controls_healthy": [
+    true,
+    true
+  ],
+  "distinct_processes": 4,
+  "inputs_immutable": true,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "job_sha256": "7b0be888892265b162693ed40ed26fa14be3fa855a9346dc8670c2db291949d1",
+  "freeze_sha256": "e41112d134c4d4f60eff11ee40269a127c647bc89ea5061920ab4ae194153853",
+  "private_observations_sha256": "032f983108fae4a6ed12f2650bde17704f6fa96bf65c329cb14f48c6e660b9f9",
+  "host_transport_sha256": "b72d820bff1258de800b527a3278e9e12d29d6f7af7b5d51037eaf29965476a7",
+  "transport_manifest_sha256": "b5a32f03053eb0daf457b39318e77c35501925c2db0ff72d6c305ba6767f03af",
+  "host_transport_returncode": 0,
+  "tool_sha256": {
+    "InspectRectanglePartitionOpen.py": "af3748b1115d0b469ff6fd2d0d565fd2bb1833b5bf0b491e2a2e878c7bdee425",
+    "InspectPartitionOpen.py": "4bdbb913f1cba294ee50cb029eb6769b2a9566f3a7ef38d0efb89406a97723c6",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "cases": [
+    {
+      "name": "OriginalAttachment",
+      "native_source_sha256": "8dbf7463a15f14c9905720a47e24863b702d98cdf3d695dfca51e20b8d8deede",
+      "open_status": [
+        true,
+        0,
+        32
+      ],
+      "rebuild_return": true,
+      "record_sha256": "d175a89c0e9ce3d4b693d2d34ebd0623d2cd4dcaa3603fd389a3cc98c8cefb63",
+      "after_open": {
+        "body_count": 0,
+        "model_update_stamp": 110,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": null,
+        "extrusion_owned_faces": 0
+      },
+      "after_rebuild": {
+        "body_count": 1,
+        "model_update_stamp": 125,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": {
+          "volume": 2.94984375e-06,
+          "area": 0.001334875,
+          "com": [
+            0.01425,
+            -0.0055,
+            0.004375
+          ],
+          "mass": 2.94984375e-06
+        },
+        "extrusion_owned_faces": 6
+      }
+    },
+    {
+      "name": "CorrectedAttachment",
+      "native_source_sha256": "81099353af3b39650d93da59aaf1dec4d693197756534d25a3ca2c9e5ab381f9",
+      "open_status": [
+        true,
+        0,
+        32
+      ],
+      "rebuild_return": true,
+      "record_sha256": "ac534dc2ad01e0c1460e37ffe10d244d185a8c6eb616059e55828b2dcccf90a1",
+      "after_open": {
+        "body_count": 0,
+        "model_update_stamp": 110,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": null,
+        "extrusion_owned_faces": 0
+      },
+      "after_rebuild": {
+        "body_count": 1,
+        "model_update_stamp": 125,
+        "configuration": "Default",
+        "needs_rebuild": 0,
+        "whats_wrong": 0,
+        "mass": {
+          "volume": 2.94984375e-06,
+          "area": 0.001334875,
+          "com": [
+            0.01425,
+            -0.0055,
+            0.004375
+          ],
+          "mass": 2.94984375e-06
+        },
+        "extrusion_owned_faces": 6
+      }
+    }
+  ]
+}

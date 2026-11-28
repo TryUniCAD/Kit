@@ -1,0 +1,308 @@
+{
+  "OpenDoc6_path_value_recorded_by_first_observer": false,
+  "candidate_body_geometry_mate_or_path_claimed": false,
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "distinct_native_processes": 6,
+  "file_saves": 0,
+  "first_failing_source_predicate": {
+    "GetPathName_and_same_file_not_evaluated": true,
+    "chain": "model is not None and errors==warnings==0 and same_file(GetPathName,parent)",
+    "errors": 0,
+    "errors_equals_warnings": false,
+    "model_is_not_none": true,
+    "warnings": 32
+  },
+  "frozen_sources": {
+    "InspectGeneratedConcentric.py": "6df9c0703256aaf93e79b10dce543b792596f2fd0d9584e2373e7d5566eb702d",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "generated_native_passes": 0,
+  "generated_reopens_run": 0,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_processes": 6,
+  "packet_sha256": "5b90a632eab95d19fdf4f676798ec2bc44a6f0d464595a8198be25984d77ad34",
+  "parameter_edits": 0,
+  "phase_summary_sha256": "2b7e5e0a87d0ba80a24c19c52f0c02a709ea932d964479b6737e201cf6bf5445",
+  "phases": [
+    {
+      "actual_returned_document_type_observed": false,
+      "actual_returned_path_observed": true,
+      "case": "Feature",
+      "cleanup_errors": [],
+      "first_failure": null,
+      "immutable_inputs_unchanged": true,
+      "input_filename": "ConcentricD01AlignedFree.SLDASM",
+      "input_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_creation_filetime": 134395699563015273,
+      "oracle_process_id": 1160,
+      "passed": true,
+      "record_sha256": "ca41db92343ac71eb3638c1d956866e34e01eb478d07bc3157d575dd3ff5e9aa",
+      "recorded_outer_call": {
+        "arguments": [
+          {
+            "returned_object": "WindowsPath"
+          }
+        ],
+        "keyword_arguments": {
+          "read_only": true
+        },
+        "method": "cold open exact immutable concentric pair",
+        "result": [
+          {
+            "returned_object": "CDispatch"
+          },
+          0,
+          0
+        ]
+      },
+      "returned_model_nonnull": true,
+      "role": "ControlBefore",
+      "source_reconstructed_OpenDoc6_nonpath_arguments": {
+        "configuration": "",
+        "document_type": 2,
+        "errors_and_warnings": "VT_I4|VT_BYREF",
+        "options": 3
+      }
+    },
+    {
+      "actual_returned_document_type_observed": false,
+      "actual_returned_path_observed": false,
+      "case": "Feature",
+      "cleanup_errors": [],
+      "first_failure": {
+        "error": "ValueError('native load failed warned or selected another file')",
+        "pending_capability": false,
+        "stage": "cold open exact immutable concentric pair",
+        "type": "ValueError"
+      },
+      "immutable_inputs_unchanged": true,
+      "input_filename": "ConcentricNeutralAlphaDerived.SLDASM",
+      "input_sha256": "e07d04635daf7a8b9ee5790dc34e7876c555b12690d36b9ff0cc6138a7222a59",
+      "numeric_checks": 0,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "oracle_creation_filetime": 134395699972373732,
+      "oracle_process_id": 7596,
+      "passed": false,
+      "record_sha256": "329dc8ad5968e3de5afcd0ca5800b7b547b9135c495fc4715065fe66a9609b90",
+      "recorded_outer_call": {
+        "arguments": [
+          {
+            "returned_object": "WindowsPath"
+          }
+        ],
+        "keyword_arguments": {
+          "read_only": true
+        },
+        "method": "cold open exact immutable concentric pair",
+        "result": [
+          {
+            "returned_object": "CDispatch"
+          },
+          0,
+          32
+        ]
+      },
+      "returned_model_nonnull": true,
+      "role": "Generated",
+      "source_reconstructed_OpenDoc6_nonpath_arguments": {
+        "configuration": "",
+        "document_type": 2,
+        "errors_and_warnings": "VT_I4|VT_BYREF",
+        "options": 3
+      }
+    },
+    {
+      "actual_returned_document_type_observed": false,
+      "actual_returned_path_observed": true,
+      "case": "Feature",
+      "cleanup_errors": [],
+      "first_failure": null,
+      "immutable_inputs_unchanged": true,
+      "input_filename": "ConcentricD01AlignedFree.SLDASM",
+      "input_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_creation_filetime": 134395700216681554,
+      "oracle_process_id": 6300,
+      "passed": true,
+      "record_sha256": "9c3773abc21273cf2c568c2b5b9a82db7f5c0c773722c56839f49fd66a0334fe",
+      "recorded_outer_call": {
+        "arguments": [
+          {
+            "returned_object": "WindowsPath"
+          }
+        ],
+        "keyword_arguments": {
+          "read_only": true
+        },
+        "method": "cold open exact immutable concentric pair",
+        "result": [
+          {
+            "returned_object": "CDispatch"
+          },
+          0,
+          0
+        ]
+      },
+      "returned_model_nonnull": true,
+      "role": "ControlAfter",
+      "source_reconstructed_OpenDoc6_nonpath_arguments": {
+        "configuration": "",
+        "document_type": 2,
+        "errors_and_warnings": "VT_I4|VT_BYREF",
+        "options": 3
+      }
+    },
+    {
+      "actual_returned_document_type_observed": false,
+      "actual_returned_path_observed": true,
+      "case": "Brep",
+      "cleanup_errors": [],
+      "first_failure": null,
+      "immutable_inputs_unchanged": true,
+      "input_filename": "ConcentricD03AntiFree.SLDASM",
+      "input_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_creation_filetime": 134395700619211415,
+      "oracle_process_id": 1576,
+      "passed": true,
+      "record_sha256": "d1574f1a5d15d5b21643b918d8111d732ce6a91e6e366874eb9baa9f9122ff74",
+      "recorded_outer_call": {
+        "arguments": [
+          {
+            "returned_object": "WindowsPath"
+          }
+        ],
+        "keyword_arguments": {
+          "read_only": true
+        },
+        "method": "cold open exact immutable concentric pair",
+        "result": [
+          {
+            "returned_object": "CDispatch"
+          },
+          0,
+          0
+        ]
+      },
+      "returned_model_nonnull": true,
+      "role": "ControlBefore",
+      "source_reconstructed_OpenDoc6_nonpath_arguments": {
+        "configuration": "",
+        "document_type": 2,
+        "errors_and_warnings": "VT_I4|VT_BYREF",
+        "options": 3
+      }
+    },
+    {
+      "actual_returned_document_type_observed": false,
+      "actual_returned_path_observed": false,
+      "case": "Brep",
+      "cleanup_errors": [],
+      "first_failure": {
+        "error": "ValueError('native load failed warned or selected another file')",
+        "pending_capability": false,
+        "stage": "cold open exact immutable concentric pair",
+        "type": "ValueError"
+      },
+      "immutable_inputs_unchanged": true,
+      "input_filename": "ConcentricNeutralBetaAuthored.SLDASM",
+      "input_sha256": "0295b17d99658a7baec144f1ac9688a5c4e63d540b858fd36dc28e6884370bc5",
+      "numeric_checks": 0,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "oracle_creation_filetime": 134395701021859236,
+      "oracle_process_id": 5204,
+      "passed": false,
+      "record_sha256": "2c041394487fcd77f93f7d5849fde771a70655a60de85ea02442af3af4803e52",
+      "recorded_outer_call": {
+        "arguments": [
+          {
+            "returned_object": "WindowsPath"
+          }
+        ],
+        "keyword_arguments": {
+          "read_only": true
+        },
+        "method": "cold open exact immutable concentric pair",
+        "result": [
+          {
+            "returned_object": "CDispatch"
+          },
+          0,
+          32
+        ]
+      },
+      "returned_model_nonnull": true,
+      "role": "Generated",
+      "source_reconstructed_OpenDoc6_nonpath_arguments": {
+        "configuration": "",
+        "document_type": 2,
+        "errors_and_warnings": "VT_I4|VT_BYREF",
+        "options": 3
+      }
+    },
+    {
+      "actual_returned_document_type_observed": false,
+      "actual_returned_path_observed": true,
+      "case": "Brep",
+      "cleanup_errors": [],
+      "first_failure": null,
+      "immutable_inputs_unchanged": true,
+      "input_filename": "ConcentricD03AntiFree.SLDASM",
+      "input_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_creation_filetime": 134395701260690225,
+      "oracle_process_id": 6208,
+      "passed": true,
+      "record_sha256": "1e27ea23a110d642121d134a54aa8786969ba9eb880e81746c0c011ce5006a23",
+      "recorded_outer_call": {
+        "arguments": [
+          {
+            "returned_object": "WindowsPath"
+          }
+        ],
+        "keyword_arguments": {
+          "read_only": true
+        },
+        "method": "cold open exact immutable concentric pair",
+        "result": [
+          {
+            "returned_object": "CDispatch"
+          },
+          0,
+          0
+        ]
+      },
+      "returned_model_nonnull": true,
+      "role": "ControlAfter",
+      "source_reconstructed_OpenDoc6_nonpath_arguments": {
+        "configuration": "",
+        "document_type": 2,
+        "errors_and_warnings": "VT_I4|VT_BYREF",
+        "options": 3
+      }
+    }
+  ],
+  "result": "native acceptance failed, both generated opens returned warning32; all four native controls passed",
+  "schema": "kit.sw2026.generated-concentric-first-native-failure.v1",
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "warning_enum": {
+    "name": "swFileLoadWarning_NeedsRegen",
+    "read_only_warning_is_separate_value": 2,
+    "source": "https://help.solidworks.com/2026/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swFileLoadWarning_e.html?id=3b36a39206d34f468a0d2c24bef11595",
+    "value": 32
+  },
+  "writer_changes": 0
+}

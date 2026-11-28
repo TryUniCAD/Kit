@@ -1,0 +1,578 @@
+{
+  "base": "6d85ed1cb9ff6c033c5a0017dbfc49ffb52bc146",
+  "base_src_tree": "dd55dbf729a584a9fbac325303909eb8515c1a67",
+  "c130": {
+    "derived_body_archive": {
+      "bytes": 9043,
+      "sha256": "5c430281a3daec6bb029eb55282b0cf7ac2cc7d02d81fb26a802b0f66e47f3db",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 28779,
+          "sha256": "cd453e90d1c56cf2c4ab0bc348bff56b0ce8d56973d2d8e2838b123b6e43da4e"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 591,
+          "sha256": "01dd5e3024914a6df7cb2129d2f23ea4816178398cba8409297e0b34e2d82836"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12225,
+          "sha256": "7bc32f1ac78c8a7477f8d76213a26ad5642969107fc530c7f9a7c01340543c4d"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 591,
+          "sha256": "998cfffaaea18434883ae0c12b0557842a1e5bc390bf50609890a2f8abf6aad7"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1486,
+          "sha256": "4fc3d3b79696a6cb3d349e1982764b72573734f91484e35a3ab3ff8566374f88"
+        }
+      }
+    },
+    "lineage": {
+      "metrics": {
+        "area_mm2": 4000.0,
+        "bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            40.0,
+            20.0,
+            20.0
+          ]
+        ],
+        "center_mm": [
+          20.0,
+          10.0,
+          10.0
+        ],
+        "method": "closed six-face rectangular boundary verified by the independent topology comparison",
+        "volume_mm3": 16000.0
+      },
+      "occt_id_transfer": false,
+      "owned_boundaries": {
+        "freecad:brep:Body:Shape": {
+          "boundary": {
+            "coordinate_tolerance_mm": 1e-09,
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "bytes": 7070,
+          "sha256": "466cf3b915f469f3bd1587c18e63f2acbf92760248017d6405fb9592e6b87d81"
+        },
+        "freecad:brep:Pad:AddSubShape": {
+          "boundary": {
+            "coordinate_tolerance_mm": 1e-09,
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "bytes": 4964,
+          "sha256": "d05ce7b078f45aebe0d5668744410c6873e194350bc72163e0aee63a384ba360"
+        },
+        "freecad:brep:Pad:Shape": {
+          "boundary": {
+            "coordinate_tolerance_mm": 1e-09,
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "bytes": 5187,
+          "sha256": "fb585e1af4c400a34407ca471534c2a5d7135a72ba852e78da4b879407518bad"
+        },
+        "freecad:brep:Sketch:Shape": {
+          "boundary": {
+            "edges": 4,
+            "ordered_editable_line_ring": true,
+            "vertices": 4
+          },
+          "bytes": 1655,
+          "sha256": "ae4b0dc7d32167e2f21e4cef79da665bd37b0877200e7c65afb78813b57babc5"
+        }
+      },
+      "source_only": {
+        "freecad:native-document": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+        "freecad:native-document-binding": "7a73414985891efbff7155e4c2ed1952d56e189a0cf755e8fb251e6c970282ef"
+      }
+    },
+    "named_archive": {
+      "bytes": 9080,
+      "sha256": "5380e278a2bfd9745ddb5557b4f3584c21a96a2f26c5f243ce8b4065783093f9",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 28891,
+          "sha256": "c5df1c462b80c5dcd547988cac60f52c0a46328f51a04a8ab25da1dd7932b8e1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 591,
+          "sha256": "01dd5e3024914a6df7cb2129d2f23ea4816178398cba8409297e0b34e2d82836"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12233,
+          "sha256": "5dbbe860a2116b57b9e505aadd82bb87da3fbd8f8d8bfd9e99db6bf662883a15"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 591,
+          "sha256": "998cfffaaea18434883ae0c12b0557842a1e5bc390bf50609890a2f8abf6aad7"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1486,
+          "sha256": "4fc3d3b79696a6cb3d349e1982764b72573734f91484e35a3ab3ff8566374f88"
+        }
+      }
+    },
+    "named_stream_changes": [
+      "Contents/Config-0",
+      "Contents/Config-0-ResolvedFeatures"
+    ],
+    "native_part": {
+      "body_name": "Body",
+      "cold_body_atom_id": 101,
+      "cold_design_body_id": "sldprt:body:1",
+      "creator_and_result_alias_actual_atom": true,
+      "creator_feature_id": 21,
+      "design_only_body_label": "Solid Bodies",
+      "draft_radians": [
+        0.0,
+        0.0
+      ],
+      "end_mode": [
+        1,
+        0,
+        0
+      ]
+    },
+    "original_intake_reads": 1,
+    "original_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+    "publication_refusals": {
+      "intact_fcstd": {
+        "adapter": "does not support the destination",
+        "registry": "does not support the destination"
+      },
+      "named_native_readback": {
+        "adapter": "does not support the destination",
+        "registry": "does not support the destination"
+      }
+    },
+    "readback": {
+      "design_only": {
+        "document_sha256": "5c9ca8d2fc567438b45737174493bbecf80fa5f4185b5bd5a1cd8fadf3e7e681",
+        "dormant": {
+          "name": "D2",
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 238,
+            "display_index": 236,
+            "end": 7938,
+            "field_span": false,
+            "handle_index": 237,
+            "object_index": 239,
+            "offset": 7895,
+            "slot": "f818.f20",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "value_mm": 10.0
+        },
+        "feature_operation": "join",
+        "height": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 20,
+          "dimension_index": 107,
+          "display_index": 125,
+          "end": 4928,
+          "field_span": false,
+          "group_index": 1,
+          "handle_index": 126,
+          "object_index": 108,
+          "offset": 4877,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "parameter_ids": [
+          "sldprt:parameter:18:width",
+          "sldprt:parameter:18:height",
+          "sldprt:parameter:21:Length"
+        ],
+        "relation": {
+          "class": "moRelation_c",
+          "end": 8798,
+          "field_span": false,
+          "object_index": 56,
+          "offset": 2257,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 22,
+          "dimension_index": 67,
+          "display_index": 233,
+          "end": 2681,
+          "field_span": false,
+          "handle_index": 234,
+          "object_index": 69,
+          "offset": 2607,
+          "slot": "f818.f18",
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "width": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 19,
+          "dimension_index": 102,
+          "display_index": 121,
+          "end": 4778,
+          "field_span": false,
+          "group_index": 0,
+          "handle_index": 122,
+          "object_index": 103,
+          "offset": 4729,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        }
+      },
+      "full": {
+        "document_sha256": "ce730f98686ab528f7d83777a7c3467e268e966c7f8d1863757f3ea66da36b1a",
+        "dormant": {
+          "name": "D2",
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 238,
+            "display_index": 236,
+            "end": 7938,
+            "field_span": false,
+            "handle_index": 237,
+            "object_index": 239,
+            "offset": 7895,
+            "slot": "f818.f20",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "value_mm": 10.0
+        },
+        "feature_operation": "create",
+        "geometry": {
+          "area_mm2": 4000.0,
+          "bounds_mm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              40.0,
+              20.0,
+              20.0
+            ]
+          ],
+          "counts": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "volume_mm3": 16000.0
+        },
+        "height": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 20,
+          "dimension_index": 107,
+          "display_index": 125,
+          "end": 4928,
+          "field_span": false,
+          "group_index": 1,
+          "handle_index": 126,
+          "object_index": 108,
+          "offset": 4877,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "parameter_ids": [
+          "sldprt:parameter:18:width",
+          "sldprt:parameter:18:height",
+          "sldprt:parameter:21:Length"
+        ],
+        "relation": {
+          "class": "moRelation_c",
+          "end": 8798,
+          "field_span": false,
+          "object_index": 56,
+          "offset": 2257,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 22,
+          "dimension_index": 67,
+          "display_index": 233,
+          "end": 2681,
+          "field_span": false,
+          "handle_index": 234,
+          "object_index": 69,
+          "offset": 2607,
+          "slot": "f818.f18",
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "width": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 19,
+          "dimension_index": 102,
+          "display_index": 121,
+          "end": 4778,
+          "field_span": false,
+          "group_index": 0,
+          "handle_index": 122,
+          "object_index": 103,
+          "offset": 4729,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        }
+      }
+    },
+    "refusals": {
+      "body_label": "FreeCAD property Label",
+      "invalid_target_label": "valid ASCII body label",
+      "multi_face_policy": "Pad AllowMultiFace differs",
+      "refine_policy": "Pad Refine differs",
+      "same_geometry_wrong_payload_owner": "exact original member",
+      "wrong_profile": "Pad Profile differs",
+      "wrong_tip": "FreeCAD property Tip"
+    },
+    "runtime_data_reads": 0,
+    "source_body": {
+      "body_group": [
+        "freecad:sketch:Sketch",
+        "freecad:feature:Pad"
+      ],
+      "body_id": "freecad:body:Body",
+      "origin_source_object": "Origin",
+      "support": "freecad:plane:XY_Plane",
+      "tip_feature": "freecad:feature:Pad"
+    },
+    "source_document_label": "N10a",
+    "source_pad_rows": {
+      "AllowMultiFace": {
+        "classification": "unrepresented_profile_policy",
+        "parameter_id": "freecad:parameter:Pad:AllowMultiFace",
+        "saved_status": null,
+        "unit": "",
+        "value": true
+      },
+      "AlongSketchNormal": {
+        "classification": "guarded_sketch_normal",
+        "parameter_id": "freecad:parameter:Pad:AlongSketchNormal",
+        "saved_status": null,
+        "unit": "",
+        "value": true
+      },
+      "Label": {
+        "classification": "live_boss_name",
+        "parameter_id": "freecad:parameter:Pad:Label",
+        "saved_status": "134217728",
+        "unit": "",
+        "value": "Pad"
+      },
+      "Label2": {
+        "classification": "empty_alternate_label",
+        "parameter_id": "freecad:parameter:Pad:Label2",
+        "saved_status": "67108992",
+        "unit": "",
+        "value": ""
+      },
+      "Length": {
+        "classification": "live_forward_length",
+        "parameter_id": "freecad:parameter:Pad:Length",
+        "saved_status": null,
+        "unit": "mm",
+        "value": 20.0
+      },
+      "Length2": {
+        "classification": "distinct_dormant_length",
+        "parameter_id": "freecad:parameter:Pad:Length2",
+        "saved_status": "4",
+        "unit": "mm",
+        "value": 10.0
+      },
+      "Midplane": {
+        "classification": "single_forward_extent",
+        "parameter_id": "freecad:parameter:Pad:Midplane",
+        "saved_status": null,
+        "unit": "",
+        "value": false
+      },
+      "Offset": {
+        "classification": "guarded_inactive_zero_offset",
+        "parameter_id": "freecad:parameter:Pad:Offset",
+        "saved_status": "4",
+        "unit": "mm",
+        "value": 0.0
+      },
+      "Refine": {
+        "classification": "unrepresented_refinement_policy",
+        "parameter_id": "freecad:parameter:Pad:Refine",
+        "saved_status": null,
+        "unit": "",
+        "value": false
+      },
+      "Reversed": {
+        "classification": "forward_direction",
+        "parameter_id": "freecad:parameter:Pad:Reversed",
+        "saved_status": null,
+        "unit": "",
+        "value": false
+      },
+      "TaperAngle": {
+        "classification": "zero_forward_draft",
+        "parameter_id": "freecad:parameter:Pad:TaperAngle",
+        "saved_status": null,
+        "unit": "deg",
+        "value": 0.0
+      },
+      "TaperAngle2": {
+        "classification": "zero_dormant_draft",
+        "parameter_id": "freecad:parameter:Pad:TaperAngle2",
+        "saved_status": "4",
+        "unit": "deg",
+        "value": 0.0
+      },
+      "Type": {
+        "classification": "finite_length_extent",
+        "parameter_id": "freecad:parameter:Pad:Type",
+        "saved_status": null,
+        "unit": "",
+        "value": 0
+      },
+      "UseCustomVector": {
+        "classification": "guarded_sketch_normal",
+        "parameter_id": "freecad:parameter:Pad:UseCustomVector",
+        "saved_status": null,
+        "unit": "",
+        "value": false
+      },
+      "Visibility": {
+        "classification": "guarded_visible_source",
+        "parameter_id": "freecad:parameter:Pad:Visibility",
+        "saved_status": "649",
+        "unit": "",
+        "value": true
+      }
+    },
+    "unchanged_model_sha256": "6d0c04182c6fdfcee465022e8de0097b994a405a93d053b095d32f4616a04043"
+  },
+  "corpus_credit": 0,
+  "evidence_sources": {
+    "re/tooling/sw2026/freecad_census/owned_pad/C130GeometryOwners.py": "6d7514e1333da0a446bf98955dd1880b089371afbeb2c881cedddc7528aa58b3",
+    "re/tooling/sw2026/freecad_census/owned_pad/C130SourceOwners.py": "9fce3fc657901087de4ef5b09c5bd85efcb8d031eccf6b54e80994248acd329a",
+    "re/tooling/sw2026/freecad_census/owned_pad/ProveC130Owners.py": "207960053b75b0c8120892d66635f55c0f6718b31707f386016f4325a3e7b54e",
+    "src/convert/adapters/solidworks/Archive/Construction/BodyNames/FinishNamedPart.py": "30ffb11ebdbe605caeb7a0bdba90bce8ac4e379a9947e557ef854669866d5948",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/FinishBlindMut.py": "fd87bf747d794cafc2448e0763a21b256e8f6c6488becea02ec0063d40793e47",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/SelectBlindEnd.py": "49a4684cc876f6b2bc2f92139d555789d983d24fd79ee42ac01a027fd330b85c",
+    "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeAnchorPart.py": "5579cfe30d98dcc222d1a51c00cb2f4576679013131d57f77d2f41b12d58964b"
+  },
+  "native_processes": 0,
+  "old_c130_receipt": "13cdf1ab5fabf48af184cce0f9440a2cb492408ace7498eabb9145c003d120c4",
+  "ordinary_equation_unchanged": {
+    "archive": {
+      "bytes": 9157,
+      "sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "8e19dc894eca73aa1b68185608d6b785271812345bbaa19022567206bd9692af"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "4088c3b2b78efaa33d93da967797d2ac19d859070b739734062d47d8ee1ce355"
+        },
+        "Contents/Config-0": {
+          "bytes": 28811,
+          "sha256": "a6f986c4e8a09533e36dd4b255e78bf14ece4aaf51ab80efef9b4502dfcb7483"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 697,
+          "sha256": "08f89b3839f3ecdfc649e62ced641386c57381b52233b00169023c297cad3562"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12247,
+          "sha256": "af872eafdb9d1f91105415fcf1ededed573d0297bce10290f949e352327f6609"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 697,
+          "sha256": "1d6e112f85afd23b36234b3e90b868822ee05f16156b752bc89dfb3fd46292c6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "7420105d3cc2bba8fb54aac63795fe4d938853c8e2781d21c5301a4ee02d181e"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1522,
+          "sha256": "59dce410a9f90637ecba5ffdef5dc1808632013e9a042ec783780161a76fc842"
+        }
+      }
+    },
+    "documents": {
+      "design_only": "7c193c52f92f4203e32c9e396c6c4ef1ac8924d47934454ccd1522e29be11e2b",
+      "full": "33fd6f933c21ac8114d0c50feb0cc562a1e42a28a67fee74679c05aeef58a1f5"
+    },
+    "runtime_data_reads": 0
+  },
+  "original_source_admitted": false,
+  "runtime_data_reads": 0,
+  "sdk_processes": 4,
+  "source_custody_manifest": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f"
+}

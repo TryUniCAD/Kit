@@ -1,0 +1,131 @@
+{
+  "aggregate_base": "0f20fb7677bd30a3cb218da69c4c33ec0a5ec93b",
+  "authorized_profile": "fresh neutral five-step contained oblique linear pattern",
+  "baseline_map_counters": [
+    [
+      94,
+      316
+    ],
+    [
+      94,
+      316
+    ]
+  ],
+  "cases": [
+    {
+      "case": "ColdRaisedPatternA",
+      "generated_sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+      "native_processes": 0,
+      "packet_sha256": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1",
+      "publications": 6,
+      "refusals": 24,
+      "request_sha256": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+      "result_sha256": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b",
+      "runtime": "1.2.12",
+      "runtime_reads": 0,
+      "status": "native_hash_reproduced",
+      "streams": 10,
+      "strict_geometry": {
+        "area_mm2": 36638.0,
+        "count": 3,
+        "faces": 21,
+        "pitch_mm": 18.0,
+        "sdk_sketch_relations": [
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ],
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ]
+        ],
+        "volume_mm3": 107715.0
+      }
+    },
+    {
+      "case": "ColdRaisedPatternB",
+      "generated_sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+      "native_processes": 0,
+      "packet_sha256": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1",
+      "publications": 6,
+      "refusals": 24,
+      "request_sha256": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+      "result_sha256": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b",
+      "runtime": "1.2.12",
+      "runtime_reads": 0,
+      "status": "native_hash_reproduced",
+      "streams": 10,
+      "strict_geometry": {
+        "area_mm2": 36275.0,
+        "count": 4,
+        "faces": 26,
+        "pitch_mm": 19.0,
+        "sdk_sketch_relations": [
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ],
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ]
+        ],
+        "volume_mm3": 83836.0
+      }
+    }
+  ],
+  "changed_sdk_sha256": {
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/PrepPatPart.py": "dfe63974058eab1a0641580fc42f2e9e30647c451d902a2fff8aa0194f7cc57a",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "28a96587e365202d4b613d580b90af8a866b4c45ffa5291e039a2643a4968cb7",
+    "src/convert/adapters/solidworks/Core/Writing/Patterns/EmitPatMut.py": "9251ca83a84a9e094171dd6be66367dff38f884dc376217777e968fb10f6601a",
+    "src/convert/adapters/solidworks/Core/Writing/Patterns/MatchPatMeas.py": "34bf379ac904fbe9cba766c508e520bed919ea7433a1238702f46516d102c073",
+    "src/convert/adapters/solidworks/Core/Writing/Patterns/PatNativePins.py": "898f72f9f48a3457a1a933a154faa7d718b486f91fd3d6c15db89b7cc73dbdc9",
+    "src/convert/adapters/solidworks/Core/Writing/Patterns/ReadPatMeas.py": "f5e70bb8150da95f4b05831ea4ad13ab9fd8ce7897e9278eaaf57f99a199d637",
+    "src/convert/adapters/solidworks/Core/Writing/Patterns/ReadPatOptions.py": "be061fc87a2098cb0709e8cde8ed89d855614029fcd962fc7cc2c97fa24110cc"
+  },
+  "classic_host_fresh_processes": 2,
+  "imported_disclosed_fixture_sha256": {
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/ColdRaisedPatternARequest.json": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/ColdRaisedPatternBRequest.json": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/Packet.json": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1",
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/Result.json": "545467f5a478e363bbf75232f3dff5bf13a3c9d739ef919254d2d88d18f7113a",
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/Streams.json": "53021376d60c8fd7a2cf48d622455287c2a93ca12d5080853be5b5f8da7b06f0",
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredZlibNg01/Compression.json": "61f7862e5be14b7fdd5024db4ff4b9b65ad31dad9e533d241b694b35e1d0aee6",
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredZlibNg01/Packet.json": "9e8456c5f266646e7a96ffa711c5a4e3be957ffa807eaddc4e9aa8e0dae8bf8c",
+    "re/solidworks/v2026/corpus/linear-pattern/MeasuredZlibNg01/Result.json": "71057e3cfb473b814470f8fbb89364f4db6eb4606da340cf190a2914628cee5c"
+  },
+  "native_processes": 0,
+  "plain_cold_republication_control_receipt_sha256": "c478b0b1dec54a281adecdf5d1deb1fc83b4d066ed2ed928c1aef2145c22f69b",
+  "protected_inputs_read": 0,
+  "readback_republication_admitted": false,
+  "schema": "kit.sw2026.aggregate-measured-fresh-neutral-pattern-publication.v1",
+  "scoped_pr_source": "a501a3e2dcb5f7c01f9db320fd0c7f1245187edc",
+  "standalone_method": {
+    "re/tooling/sw2026/linear_pattern/neutral/VerifyMeasuredPattern.py": "ea57cf54455e1d2341445495eb9e1e9e935a98bdaf32abe057ded1a476752369"
+  }
+}

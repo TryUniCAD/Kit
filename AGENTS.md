@@ -220,7 +220,9 @@ save. Zero opaque bytes proves that each byte has a typed owner. It does not pro
 that Kit generated the value. Kit removed the SOLIDWORKS writer that used recorded
 programs. The current [bounded part writer](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 generates a part from the supported model and requires exact offline measurement evidence.
-SOLIDWORKS assembly support is read-only. CI runs
+Only that writer and the other independently qualified generative profiles in the
+[SOLIDWORKS adapter guide](Documentation/Reference/Adapters/Solidworks.md) are available
+for writing. CI runs
 `tools/Donors/CheckReplays.py` on `src` and fails on any recorded field operation or
 recorded payload re-emission call. Do not restore the removed programs or add a
 SOLIDWORKS writer family as a recorded program. Build the generative serializer

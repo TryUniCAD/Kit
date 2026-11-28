@@ -1,0 +1,190 @@
+{
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "edited": {
+    "body_count": 1,
+    "depth_m": 0.036797010000000005,
+    "diagnostics": 0,
+    "mass_properties": {
+      "area": 0.0019871616662096954,
+      "com": [
+        0.00263,
+        -0.00417,
+        0.018398505000000006
+      ],
+      "volume": 5.976132037453096e-06
+    },
+    "native_tree_rows": 25,
+    "ordered_lights": [
+      [
+        "Ambient",
+        "AmbientLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional1",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional2",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional3",
+        "DirectionLight",
+        "Lights and Cameras"
+      ]
+    ],
+    "radius_editable": true,
+    "radius_m": 0.00719
+  },
+  "fresh_reopen": {
+    "body_count": 1,
+    "depth_m": 0.036797010000000005,
+    "diagnostics": 0,
+    "mass_properties": {
+      "area": 0.0019871616662096954,
+      "com": [
+        0.00263,
+        -0.00417,
+        0.018398505000000006
+      ],
+      "volume": 5.976132037453096e-06
+    },
+    "native_tree_rows": 25,
+    "ordered_lights": [
+      [
+        "Ambient",
+        "AmbientLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional1",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional2",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional3",
+        "DirectionLight",
+        "Lights and Cameras"
+      ]
+    ],
+    "radius_editable": true,
+    "radius_m": 0.00719
+  },
+  "generated": {
+    "body_count": 1,
+    "depth_m": 0.03137,
+    "diagnostics": 0,
+    "mass_properties": {
+      "area": 0.0017419905069484343,
+      "com": [
+        0.00263,
+        -0.00417,
+        0.015685000000000004
+      ],
+      "volume": 5.094741719908863e-06
+    },
+    "native_tree_rows": 25,
+    "ordered_lights": [
+      [
+        "Ambient",
+        "AmbientLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional1",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional2",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional3",
+        "DirectionLight",
+        "Lights and Cameras"
+      ]
+    ],
+    "radius_editable": true,
+    "radius_m": 0.00719
+  },
+  "heldout_credit": 0,
+  "linked_archives": {
+    "generated": {
+      "all_byte_exact": true,
+      "bytes": {
+        "Contents/CMgr": 1129,
+        "Contents/Config-0": 23560,
+        "Contents/Config-0-ModelHeader": 811,
+        "Contents/Config-0-ResolvedFeatures": 15049,
+        "Header2": 811
+      },
+      "sha256": "6043b1404c1e20027a287a5ba6bda859651080b77091d64463943b8990d1256d"
+    },
+    "native_save": {
+      "all_byte_exact": true,
+      "bytes": {
+        "Contents/CMgr": 2549,
+        "Contents/Config-0": 26087,
+        "Contents/Config-0-ModelHeader": 1035,
+        "Contents/Config-0-ResolvedFeatures": 16789,
+        "Header2": 1035
+      },
+      "sha256": "2bf3b690a024c0852c57a2299eb21809aee364c54072a10bd3f5fb914da2d010"
+    }
+  },
+  "native_depth_edit_status": 0,
+  "native_save_status": [
+    true,
+    0,
+    0
+  ],
+  "numeric_checks": 100,
+  "observer_commit": "d934761c8",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "phases": {
+    "ControlAfter": {
+      "numeric_checks": 20,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "64f96142e3c53b2429fbde4178475376d49e8223969ea6dbb971f4d437774aea"
+    },
+    "ControlBefore": {
+      "numeric_checks": 20,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "cda0b4805a9a26dc2a8b0c8c8928a4e2fde70d84bd3b259c356791de688668af"
+    },
+    "Generated": {
+      "numeric_checks": 40,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "746c38b97e538d8ab39b2ecf130e09ffda093eaa4a443753b55e94e18a43ff5e"
+    },
+    "Reopen": {
+      "numeric_checks": 20,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "9b58cdb4ac43c997a5b29f054754bade28cc982141fc875a23a6698887f784a8"
+    }
+  },
+  "raw_summary_sha256": "deced53cda69c8b769112baeccfd4900a1f6533c23163a7b4124bb4e274d9ba8",
+  "schema": "kit.sw2026.disclosed-radial-scene-native.v1",
+  "trial_sha256": "5834a9b528b526aebf9056881f72a87cbeae2ca8b0ca387ab4bef6c44ac47186"
+}

@@ -5,25 +5,27 @@ from convert.adapters.solidworks.Archive.Definition.Fields.AssemblyDefTail impor
     KAssemblyDefTail,
 )
 from convert.adapters.solidworks.Archive.Definition.Fields.DocHeadFields import (
-    KDocHeadFields,
+    KDocHeadPrefix,
 )
 from convert.adapters.solidworks.Archive.Definition.Fields.DocTailFields import (
     KDocTailFields,
 )
-from convert.adapters.solidworks.Archive.Definition.Fields.ModelDefLayouts import (
-    KModelDefLayouts,
-)
 from convert.adapters.solidworks.Archive.Definition.Fields.ModelDefSchemas import (
-    KModelDefSchemas,
+    KOrdDefSchemas,
+)
+from convert.adapters.solidworks.Archive.Definition.Fields.OrdDefLayouts import (
+    KOrdDefLayouts,
+    KOrdDefRenderer,
 )
 
 # the assembly root extends the same ui layouts with its own inline tail
 KAsmDefLayouts = MappingProxyType(
     {
-        **KModelDefLayouts,
+        **KOrdDefLayouts,
         **KAssemblyDefTail,
         "uiAssemblyDoc_c": (
-            *KDocHeadFields,
+            *KDocHeadPrefix,
+            KOrdDefRenderer,
             *KDocTailFields,
             NativeField("Base", "uiAssemblyDoc_c.Serialize.own"),
         ),
@@ -31,4 +33,4 @@ KAsmDefLayouts = MappingProxyType(
 )
 
 # only the assembly root schema differs from the ordinary part object vocabulary
-KAsmDefSchemas = MappingProxyType({**KModelDefSchemas, "uiAssemblyDoc_c": (1,)})
+KAsmDefSchemas = MappingProxyType({**KOrdDefSchemas, "uiAssemblyDoc_c": (1,)})

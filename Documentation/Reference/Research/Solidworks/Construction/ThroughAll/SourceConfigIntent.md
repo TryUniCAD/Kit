@@ -1,0 +1,13 @@
+# Through-all source configuration component
+
+This internal component covers one ordinary version-19000 part with the previously measured rectangular mid-plane stock, undimensioned circle, selected stock, principal datum and through-all direction owners. It is preparation research for full source preservation, not a public writer route.
+
+Read the complete source through the normal strict SDK reader. Use the same input's existing typed Config/Resolved, CMgr and Definition graphs with `ReadThruIntent`. The helper validates the retained source tree against the real linked root identities and validates the ordinary manager's actual directory/selector aliases. It returns `ThruCfgIntent`, containing only explicit model/configuration/document-setting semantics.
+
+Pass the existing `ProjectThruSrc(...).InputValue`, explicit `PartBuildInput` target settings and that intent to `MakeThruConfig`. The result exposes `OwnersValue` and `DefinitionValue`. All native nodes, feature IDs, configuration IDs, map references, lengths and counts are freshly constructed. The complete source envelope remains a separate observation and must remain attached to any larger preparation method.
+
+The manager name may be `None`; this is distinct from empty text. The directory's independent update epoch is preserved. The model title is separate from the physical output name. Supported UI fields are the separate standard class, display mask, tessellation tuple, preference switch, journal text and document density. Remaining native manager, Definition, style/unit, chronology, system-state, sketch-state and body-name owners stay refused by `RequireThruFull`.
+
+The frozen process method performs normal strict source reads, pure typed builds with runtime I/O denied, independent seven-fragment decode/re-encode, malformed source/input/readback rejections and exact prior-caller comparisons. It reads only the three explicitly disclosed source paths after hash verification. The external private manifest identifies the immutable baseline and candidate SDK trees; the process tools take an explicit root, Python interpreter and unused output directory. Native application measurement is a separate root-owned gate and has not run for this component.
+
+[Ownership record](../../../../../../re/solidworks/records/ThroughAllSourceConfigIntent2026.md) · [Process evidence](../../../../../../re/solidworks/measurements/2026/ThroughAllSourceConfigIntent01.json) · [Change entry](../../../../../Changes/Solidworks/Writing/Parts/ThroughAll/SolidworksThroughAllSourceConfigIntent.md) · [Revision-owner gotcha](../../../../../Gotchas/Conversion/Solidworks/Model/ThroughAll/RevisionLogsNeedActualMembers.md)

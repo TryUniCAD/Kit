@@ -1,0 +1,282 @@
+{
+  "freeze": {
+    "control_trial_sha256": "2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a",
+    "native_phase_order": [
+      "before",
+      "a-open",
+      "a-reopen",
+      "b-open",
+      "b-reopen",
+      "after",
+      "summary"
+    ],
+    "oracle_build": "34.5.2.0604",
+    "oracle_exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "schema": "kit.sw2026.two-stock-writer-holdout-evaluation.v1",
+    "sdk_preparer": {
+      "path": "src/convert/adapters/solidworks/Core/Preparation/TwoStock/PrepareStockPart.py",
+      "sha256": "13d5bf2622a4112927de57e688b921da3f3a9d5cc6414eec329641c2eda6a2f9"
+    },
+    "source_lock_sha256": "1c07e988d425da1de7fd53ccdb30f7b18dc6b431236674404bcc1d8f3b21ae2c",
+    "tool_sha256": {
+      "EvaluateTwoStockHoldout01.py": "1f8641d682880cf438038d34674badca0f8c3339a12c54f6417c0d22637452b7",
+      "FreezeTwoStockSources01.py": "a69911f2e3050c115ed0bf1d3aebcef5d98829a0007bf0fcdc58ac9613b7e0f2",
+      "MeasureTwoStockConstruction01.py": "2d65b7dbfbd3179736b94156a0760980a41673e634928c7c621772bf41760ac9",
+      "ProbeThroughAutoScope01.py": "9d9065ea04a275b77e24371e74c7f98ebbfaa9fa2bc80bf774dd8e908a663f83",
+      "ProbeThroughMultiStock01.py": "b892caa8c228c816bb11cf81a04e2fefea8c9159ed952873b895798f64dabe4e"
+    },
+    "writer_revision": "6fc230fb31c3195ff16da5327d4a872f51e49290",
+    "written_at": 1765500071
+  },
+  "native": {
+    "cases": {
+      "a": {
+        "comparison": {
+          "edited": {
+            "checks": 24,
+            "full_tree_equal": false,
+            "native_tree_lengths": [
+              29,
+              29
+            ],
+            "native_tree_sha256": [
+              "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6",
+              "f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0"
+            ]
+          },
+          "initial": {
+            "checks": 24,
+            "full_tree_equal": false,
+            "native_tree_lengths": [
+              29,
+              29
+            ],
+            "native_tree_sha256": [
+              "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6",
+              "f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0"
+            ]
+          },
+          "reopened": {
+            "checks": 24,
+            "full_tree_equal": false,
+            "native_tree_lengths": [
+              29,
+              29
+            ],
+            "native_tree_sha256": [
+              "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6",
+              "f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0"
+            ]
+          }
+        },
+        "comparison_failures": {},
+        "full_native_tree_equal": false,
+        "generated_sha256": "27e9464db12ce08b61331896d778ead9a0766502d5ee35a293ae3d0dd5274af1",
+        "lifecycle_passed": true,
+        "native_phases": {
+          "Open": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "6720c75ad911b6ff300f36e5ce65ab8de9e109a8b69e5f2a31d9ee4254179a84"
+          },
+          "Reopen": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "2fce4dc5d795801a2943007b072b7a5bd239ce2dadce4e86ee434f52dc257edf"
+          }
+        },
+        "source_sha256": "7823a8743b514d4e21b20217bf244c8eb923644e69e50ffc238eef86fe20c76d"
+      },
+      "b": {
+        "comparison": {
+          "edited": {
+            "checks": 24,
+            "full_tree_equal": false,
+            "native_tree_lengths": [
+              29,
+              29
+            ],
+            "native_tree_sha256": [
+              "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6",
+              "f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0"
+            ]
+          },
+          "initial": {
+            "checks": 24,
+            "full_tree_equal": false,
+            "native_tree_lengths": [
+              29,
+              29
+            ],
+            "native_tree_sha256": [
+              "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6",
+              "f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0"
+            ]
+          },
+          "reopened": {
+            "checks": 24,
+            "full_tree_equal": false,
+            "native_tree_lengths": [
+              29,
+              29
+            ],
+            "native_tree_sha256": [
+              "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6",
+              "f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0"
+            ]
+          }
+        },
+        "comparison_failures": {},
+        "full_native_tree_equal": false,
+        "generated_sha256": "ce5308f1d08d7a78b1b89fd4ae05f1ce83736e84ba2d4f3382e7ff6ed67e08ba",
+        "lifecycle_passed": true,
+        "native_phases": {
+          "Open": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "e2ee35ab2233bb2b64a8a9ea512f27530ff9c8262debacfb4604c9d2cf8ac6c4"
+          },
+          "Reopen": {
+            "open": [
+              true,
+              0,
+              0
+            ],
+            "passed": true,
+            "sha256": "5f8bf28f6720bdd596611dda9f6a08ee5b63b84b4fa0d5a34e288308e07e40ea"
+          }
+        },
+        "source_sha256": "fe90beb7004019d5252b6e38a1898672589021e9cd803447ba512b8d0720ad85"
+      }
+    },
+    "control_sha256": {
+      "After": "7072f4c3583af0c93b77d7bc18b90aadd2e50785aa48c5c7eac5a2c126ebc9ce",
+      "Before": "88403dcd03b46aa8cd5d422fbdab2763a62b351a6445c33ac4f7b3b67405f90d"
+    },
+    "controls_passed": true,
+    "freeze_sha256": "10660269a55fa4f363ebc5f5d96e3e148a76a7cfdd628f844223a4a631fea8cb",
+    "native_candidate_records": 4,
+    "oracle_build": "34.5.2.0604",
+    "oracle_exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "passed": false,
+    "qualified_holdout_cases": 0,
+    "schema": "kit.sw2026.two-stock-writer-holdout-evaluation.v1",
+    "source_lock_sha256": "1c07e988d425da1de7fd53ccdb30f7b18dc6b431236674404bcc1d8f3b21ae2c",
+    "stage_sha256": "94a0e10010f7f5f30041eb88787cc149557a2ab959e6371dc62f06299a59e258",
+    "writer_revision": "6fc230fb31c3195ff16da5327d4a872f51e49290"
+  },
+  "staged": {
+    "freeze_sha256": "10660269a55fa4f363ebc5f5d96e3e148a76a7cfdd628f844223a4a631fea8cb",
+    "schema": "kit.sw2026.two-stock-writer-holdout-evaluation.v1",
+    "slots": {
+      "a": {
+        "bytes": 8664,
+        "cold_sdk_body_count": 2,
+        "cold_sdk_guarded_processes": 1,
+        "cold_sdk_semantic_sha256": "29f20dafd35344a0565537405a3864989fcf0380f82176c544185ab0247ceacc",
+        "generation_guarded_processes": 2,
+        "name": "TwoStockHoldoutA.SLDPRT",
+        "request_sha256": "dc4d3ac46202f0bdbe0b4c8acee2d84375c416e45e8ca4196f28cf7f2fba5228",
+        "runtime_access_attempts": 0,
+        "sha256": "27e9464db12ce08b61331896d778ead9a0766502d5ee35a293ae3d0dd5274af1"
+      },
+      "b": {
+        "bytes": 8665,
+        "cold_sdk_body_count": 2,
+        "cold_sdk_guarded_processes": 1,
+        "cold_sdk_semantic_sha256": "39c851e8801dfd37033446d0e472485d76d61edeba7d517433febfd085628053",
+        "generation_guarded_processes": 2,
+        "name": "TwoStockHoldoutB.SLDPRT",
+        "request_sha256": "ce0cb7c98f1854b72679949d058ae387c279fbc36ddf995a42aa991849f70e57",
+        "runtime_access_attempts": 0,
+        "sha256": "ce5308f1d08d7a78b1b89fd4ae05f1ce83736e84ba2d4f3382e7ff6ed67e08ba"
+      }
+    },
+    "writer_revision": "6fc230fb31c3195ff16da5327d4a872f51e49290"
+  },
+  "tree_difference": {
+    "columns": [
+      "name",
+      "type",
+      "parent",
+      "error",
+      "warning",
+      "suppressed"
+    ],
+    "differences": {
+      "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6/f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0": [
+        {
+          "candidate_rows": [
+            {
+              "error": 0,
+              "name": "stock:1:plane",
+              "parent": null,
+              "suppressed": false,
+              "type": "RefPlane",
+              "warning": false
+            }
+          ],
+          "candidate_start": 19,
+          "operation": "replace",
+          "source_rows": [
+            {
+              "error": 0,
+              "name": "Front Plane",
+              "parent": null,
+              "suppressed": false,
+              "type": "RefPlane",
+              "warning": false
+            }
+          ],
+          "source_start": 19
+        },
+        {
+          "candidate_rows": [
+            {
+              "error": 0,
+              "name": "stock:2:plane",
+              "parent": null,
+              "suppressed": false,
+              "type": "RefPlane",
+              "warning": false
+            }
+          ],
+          "candidate_start": 21,
+          "operation": "replace",
+          "source_rows": [
+            {
+              "error": 0,
+              "name": "Right Plane",
+              "parent": null,
+              "suppressed": false,
+              "type": "RefPlane",
+              "warning": false
+            }
+          ],
+          "source_start": 21
+        }
+      ]
+    },
+    "freeze_sha256": "10660269a55fa4f363ebc5f5d96e3e148a76a7cfdd628f844223a4a631fea8cb",
+    "snapshots": {
+      "a/edited": "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6/f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0",
+      "a/initial": "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6/f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0",
+      "a/reopened": "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6/f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0",
+      "b/edited": "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6/f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0",
+      "b/initial": "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6/f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0",
+      "b/reopened": "8f45918e59f0f3e09efdd4c94deafe12e6ef1e67675e876e65d21b86cb0641e6/f2628b0536a8ca21b9926e14e8698c66da31dff740e00659072c6d8bd88a4af0"
+    }
+  }
+}

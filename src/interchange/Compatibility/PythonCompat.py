@@ -20,6 +20,7 @@ from interchange.Core.Reflection import (
     GetDataFields,
     GetFieldMap,
 )
+from interchange.serialization.OptionalFields import KOmitNullField
 from interchange.serialization.Wire import GetModelField, GetSlotNames, GetWireField
 
 
@@ -153,6 +154,8 @@ def SetModelState(SelfValue: object, StateValues: list[object]) -> None:
                 FieldValue = DefaultValue
             elif callable(DefaultMaker):
                 FieldValue = DefaultMaker()
+            elif FieldSpec.metadata.get(KOmitNullField):
+                FieldValue = None
             else:
                 raise ValueError(f"Missing required pickle field {FieldName}")
         object.__setattr__(SelfValue, FieldName, FieldValue)

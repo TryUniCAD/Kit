@@ -1,0 +1,41 @@
+{
+  "native_calls": 0,
+  "passed": true,
+  "private_inputs": 0,
+  "raw_receipt_sha256": "2a75bde32506c30d0ae51211844cc89b0d502a32ac5ad5e5a9d65b6902525fe4",
+  "schema": "kit.sw2026.plain-note-display-distance-in-disclosed-sources.v1",
+  "source_cases": [
+    {
+      "case": "Disclosed01",
+      "computed_position_matches_intent": true,
+      "derived_distance_m": 0.10667466278912806,
+      "distance_m": 0.10667466278912806,
+      "file_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "residual_m": 0.0
+    },
+    {
+      "case": "Disclosed01Edit",
+      "computed_position_matches_intent": true,
+      "derived_distance_m": 0.1128176154031641,
+      "distance_m": 0.11281761540316408,
+      "file_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+      "residual_m": 0.0
+    },
+    {
+      "case": "Disclosed02",
+      "computed_position_matches_intent": true,
+      "derived_distance_m": 0.11374421610765413,
+      "distance_m": 0.11374421610765413,
+      "file_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+      "residual_m": 0.0
+    },
+    {
+      "case": "Disclosed02Edit",
+      "computed_position_matches_intent": true,
+      "derived_distance_m": 0.09972288432335474,
+      "distance_m": 0.09972288432335474,
+      "file_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+      "residual_m": 0.0
+    }
+  ]
+}

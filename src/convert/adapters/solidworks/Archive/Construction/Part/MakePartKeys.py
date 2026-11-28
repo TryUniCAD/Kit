@@ -1,3 +1,7 @@
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
+from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import (
     KeywordConfig,
 )
@@ -10,11 +14,23 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature im
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import (
     MakeKeywords,
 )
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.OffsetGraph import (
+    OffsetGraph,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.MakeCutKeys import (
+    MakeCutKeys,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
+)
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeSketchKeys import (
+    MakeSketchKeys,
 )
 from convert.adapters.solidworks.Archive.Construction.System.PartSystem import (
     PartSystem,
@@ -31,8 +47,13 @@ def MakePartKeys(
     SystemValue: PartSystem,
     FeatureValues: tuple[ArchiveNode, ...],
     InputValue: PartBuildInput,
-    PlanValue: BlindPlan,
+    PlanValue: KPartPlan | EllipsePlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    CutValue: CutGraph | None = None,
+    CutSketchDims: tuple[KeywordDim, ...] = (),
+    AdditionalRows: tuple[KeywordFeature, ...] = (),
+    OffsetValue: OffsetGraph | None = None,
 ) -> bytes:
     ConfigValues = tuple(
         KeywordConfig(
@@ -44,22 +65,43 @@ def MakePartKeys(
     ScaleValue = {"mm": 0.001, "m": 1.0, "in": 0.0254}[
         InputValue.DocumentUnits.LengthUnit
     ]
-    for IndexValue, NodeValue in enumerate(FeatureValues):
+    SecondDepth = PlanValue.SecondDepth
+    DepthName = PlanValue.DepthName if type(PlanValue) is BlindPlan else "D1"
+    DepthDims: tuple[KeywordDim, ...] = (
+        KeywordDim(DepthName, PlanValue.DepthValue / ScaleValue, None),
+    )
+    if SecondDepth is not None:
+        DepthDims += (KeywordDim("D2", SecondDepth / ScaleValue, None),)
+    PlainValues = FeatureValues
+    if CutValue is not None:
+        if (
+            FeatureValues[-2] is not CutValue.ProfileValue.ProfileValue
+            or FeatureValues[-1] is not CutValue.FeatureValue
+        ):
+            raise ValueError("cut keywords must refer to the actual emitted history")
+        PlainValues = FeatureValues[:-2]
+    for IndexValue, NodeValue in enumerate(PlainValues):
         TagValue = (
             "Sketch"
-            if IndexValue == len(FeatureValues) - 2
-            else "Extrusion" if IndexValue == len(FeatureValues) - 1 else "Feature"
+            if IndexValue == len(PlainValues) - 2
+            else "Extrusion" if IndexValue == len(PlainValues) - 1 else "Feature"
         )
         Dimensions = (
-            (KeywordDim("D1", PlanValue.DepthValue / ScaleValue, None),)
+            DepthDims
             if TagValue == "Extrusion"
             else SketchDims if TagValue == "Sketch" else ()
         )
+        NativeClass = NodeValue.ClassValue.NameValue
+        if OffsetValue is not None and NodeValue is OffsetValue.FeatureValue:
+            NativeClass = "PLANE"
+            Dimensions = MakeSketchKeys(
+                (OffsetValue.DistanceValue,), InputValue.DocumentUnits.LengthUnit
+            )
         RowsValue.append(
             KeywordFeature(
                 FieldInt(NodeValue.FieldsValue, "f08"),
                 ReadNodeName(NodeValue),
-                NodeValue.ClassValue.NameValue,
+                NativeClass,
                 TagValue,
                 Dimensions,
                 (),
@@ -67,9 +109,13 @@ def MakePartKeys(
                 None,
             )
         )
+    if CutValue is not None:
+        RowsValue.extend(
+            MakeCutKeys(CutValue, CutSketchDims, InputValue.DocumentUnits.LengthUnit)
+        )
     return MakeKeywords(
         PlanValue.NameValue,
         InputValue.HeaderValue.ModifiedAt,
         ConfigValues,
-        tuple(RowsValue),
+        (*RowsValue, *AdditionalRows),
     )

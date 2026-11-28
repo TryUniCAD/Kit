@@ -21,7 +21,19 @@ class KeywordFeature:
 
     # unsupported tags opaque dimensions and ambiguous child grammars must reject before the feature graph becomes an xml carrier
     def __post_init__(self) -> None:
-        if type(self.IdValue) is not int or not 1 <= self.IdValue <= 0x7FFFFFFF:
+        SheetMetalMaster = (
+            self.IdValue == -1
+            and self.TagValue == "Feature"
+            and self.KindValue == "Sheet-Metal Master"
+            and self.NameValue == ""
+            and self.DimensionValues == ()
+            and self.ChildIds == ()
+            and self.Dissectable is None
+            and self.RootValue is None
+        )
+        if type(self.IdValue) is not int or not (
+            SheetMetalMaster or 1 <= self.IdValue <= 0x7FFFFFFF
+        ):
             raise ValueError("keyword feature id must be a positive signed integer")
         _ = ReadStyleText(self.NameValue, "keyword feature name")
         if self.KindValue is not None:

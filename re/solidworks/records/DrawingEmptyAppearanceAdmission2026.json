@@ -1,0 +1,361 @@
+{
+  "schema": "kit.sw2026.drawing-empty-appearance-admission.v1",
+  "scope": "typed empty serialized manager state only; all populated appearance rows remain rejected",
+  "native_checkpoint_sha256": "f2bef737c839fed82a4c54d0d41692bd86355558fc2e490716fde033aa274092",
+  "native_checkpoint": {
+    "schema": "kit.sw2026.drawing-material-presence-static-checkpoint.v1",
+    "scope": "presence pointer ownership allocator counter and separate large ghost word; no semantic admission or constructor implementation",
+    "modules": [
+      {
+        "name": "slduiu.dll",
+        "bytes": 36036696,
+        "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+        "base": "0x48ea0000",
+        "file_version": [
+          34,
+          5,
+          2,
+          604
+        ]
+      },
+      {
+        "name": "sldmodu.dll",
+        "bytes": 46536280,
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "base": "0x4b140000",
+        "file_version": [
+          34,
+          5,
+          2,
+          604
+        ]
+      },
+      {
+        "name": "slddrwu.dll",
+        "bytes": 8949848,
+        "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+        "base": "0x3dbc0000",
+        "file_version": [
+          34,
+          5,
+          2,
+          604
+        ]
+      }
+    ],
+    "functions": {
+      "slduiu.dll": {
+        "0x497011e0": {
+          "ranges": [
+            {
+              "start": "0x497011e0",
+              "end": "0x49704a43",
+              "bytes": 14435,
+              "sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e"
+            }
+          ],
+          "unwind_rows": [
+            {
+              "begin": "0x497011e0",
+              "end": "0x49704a43",
+              "unwind": "0x4aa5c7d4"
+            }
+          ],
+          "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+        },
+        "0x497486b0": {
+          "ranges": [
+            {
+              "start": "0x497486b0",
+              "end": "0x4974a371",
+              "bytes": 7361,
+              "sha256": "bf5c4e74fb9831332234ac17884d67d733990bdc38fe933eb1240314a06d90b0"
+            }
+          ],
+          "unwind_rows": [
+            {
+              "begin": "0x497486b0",
+              "end": "0x4974a371",
+              "unwind": "0x4aa61728"
+            }
+          ],
+          "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+        },
+        "0x48ee7260": {
+          "ranges": [
+            {
+              "start": "0x48ee7260",
+              "end": "0x48ee7267",
+              "bytes": 7,
+              "sha256": "308fec821352a9f892362757c2408a95abf7f9a2a5802e13c271bd7d4f2a5d72"
+            }
+          ],
+          "unwind_rows": [],
+          "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+        },
+        "0x48ee8cc0": {
+          "ranges": [
+            {
+              "start": "0x48ee8cc0",
+              "end": "0x48ee8cc7",
+              "bytes": 7,
+              "sha256": "69818657ea65eb0b68e8bbead7cc7d21b4914a9242b9207b8937587a566916ed"
+            }
+          ],
+          "unwind_rows": [],
+          "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+        }
+      },
+      "sldmodu.dll": {
+        "0x4c1f15f0": {
+          "ranges": [
+            {
+              "start": "0x4c1f15f0",
+              "end": "0x4c1f1652",
+              "bytes": 98,
+              "sha256": "767a698799e9de6595c46eef87b7986af5e8d08528c59a197818c946b9f3e5e4"
+            }
+          ],
+          "unwind_rows": [
+            {
+              "begin": "0x4c1f15f0",
+              "end": "0x4c1f1652",
+              "unwind": "0x4d5be3f8"
+            }
+          ],
+          "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+        },
+        "0x4c204830": {
+          "ranges": [
+            {
+              "start": "0x4c204830",
+              "end": "0x4c204a8f",
+              "bytes": 607,
+              "sha256": "2ddc59c8d20a57c2d9c21f0f977a18acde69f7f8b5d04b51d722dfc2a8b10019"
+            }
+          ],
+          "unwind_rows": [
+            {
+              "begin": "0x4c204830",
+              "end": "0x4c204a8f",
+              "unwind": "0x4d5be4bc"
+            }
+          ],
+          "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+        },
+        "0x4c207050": {
+          "ranges": [
+            {
+              "start": "0x4c207050",
+              "end": "0x4c207180",
+              "bytes": 304,
+              "sha256": "59f05ebb5de173c5f66d9fc44a49846665629feb550d3f5d6c8a552baa7273b0"
+            }
+          ],
+          "unwind_rows": [
+            {
+              "begin": "0x4c207050",
+              "end": "0x4c207180",
+              "unwind": "0x4d5be490"
+            }
+          ],
+          "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+        },
+        "0x4c1ffb40": {
+          "ranges": [
+            {
+              "start": "0x4c1ffb40",
+              "end": "0x4c1ffb4d",
+              "bytes": 13,
+              "sha256": "2b6d1e0866a2cbb57078f532702157e8c931256b25628a3f63a17389a7dcca2f"
+            }
+          ],
+          "unwind_rows": [],
+          "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+        }
+      },
+      "slddrwu.dll": {
+        "0x3debc450": {
+          "ranges": [
+            {
+              "start": "0x3debc450",
+              "end": "0x3debcc5a",
+              "bytes": 2058,
+              "sha256": "3392f1113c73afcf24e6fd2d90d1d0fb21c29e0429948aab66c22b58794a05c7"
+            }
+          ],
+          "unwind_rows": [
+            {
+              "begin": "0x3debc450",
+              "end": "0x3debcc5a",
+              "unwind": "0x3e291810"
+            }
+          ],
+          "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+        }
+      }
+    },
+    "instruction_windows": {
+      "ui_manager_allocation": {
+        "start": "0x497491ad",
+        "end": "0x497491d6",
+        "bytes": 41,
+        "sha256": "5b2a3595123b18cb15ab256d538e1ed29112636da9dfc8ccfd2cedf15d294185"
+      },
+      "ui_presence_store": {
+        "start": "0x49701a7e",
+        "end": "0x49701aa9",
+        "bytes": 43,
+        "sha256": "71d5116059d37d04577381546aef0ef9738ee8885cddd766a50b75e33ef21f2a"
+      },
+      "ui_presence_read": {
+        "start": "0x49703e83",
+        "end": "0x49703eb5",
+        "bytes": 50,
+        "sha256": "fb6bed88141baa412ffd2baf9852b51a5ae0936085e765716b530444da9d03ff"
+      },
+      "adjacent_word_store": {
+        "start": "0x49701a6e",
+        "end": "0x49701a7e",
+        "bytes": 16,
+        "sha256": "9581709feb283c93635fdb9515f7635fcf1b45557b14e36531dc378985e647c4"
+      },
+      "adjacent_word_read_assignment": {
+        "start": "0x49703e45",
+        "end": "0x49703e5d",
+        "bytes": 24,
+        "sha256": "eabc7ae3e96c99b59be706934d36b9423ba0b23965187e39ce9217dd50d7078e"
+      },
+      "drawing_footer_write": {
+        "start": "0x3debc9ed",
+        "end": "0x3debc9fb",
+        "bytes": 14,
+        "sha256": "1eeb93368d86995088993625427530dcea96f38a779b804d3e074e98d99f2c86"
+      },
+      "drawing_footer_read_compare": {
+        "start": "0x3debca4c",
+        "end": "0x3debca71",
+        "bytes": 37,
+        "sha256": "11181086954796b4681c716fa286ad79a3f697b60649e55a043629fddbaaf709"
+      }
+    },
+    "presence": {
+      "owner": "uiModelDoc_c+0x1110 PWMaterialManager_c pointer",
+      "store_formula": "u8(ptr != null)",
+      "read_gate": "effective version>=0xf1e",
+      "read_action": "nonzero byte restores existing constructor owned manager through PWMaterialManager_c::restore; zero skips it",
+      "store_payload": "nonnull pointer calls PWMaterialManager_c::save without an object or class tag",
+      "native_constructor": "allocates80 bytes then invokes PWMaterialManager_c constructor and stores returned pointer at document+0x1110",
+      "presence_means_populated_appearances": false,
+      "input_sources_presence_observed_separately": true
+    },
+    "allocator": {
+      "native_owner": "u64 PWMaterialManager_c+0x08",
+      "wire_fields": {
+        "low_signed32": "f08",
+        "high_signed32": "f0c"
+      },
+      "join_formula": "(f08 &0xffffffff) | ((f0c &0xffffffff)<<32)",
+      "constructor_seed": 1,
+      "allocate_formula": "return old_u64; next=(old_u64+1) modulo2**64",
+      "native_allocator": "getNewApperanceID exact exported spelling",
+      "reference_collection": "save serializes a temporary list built from map properties whose property+0x2f0 is nonnull; restore reconstructs its runtime map from saved rows",
+      "constructor_empty_state": "manager+0x18 buckets null and+0x28 association count zero",
+      "constructor_state_not_substituted_for_source": true,
+      "counter_semantic_domain_beyond_uint64_not_claimed": true
+    },
+    "adjacent_word": {
+      "key": "f7b8",
+      "owner": "uiModelDoc_c+0x7b8",
+      "actual_getter": "getLargeGhostPartion@uiModelDoc_c at0x48ee7260",
+      "actual_setter": "setLargeGhostPartion@uiModelDoc_c at0x48ee8cc0",
+      "store": "low16bits asu16",
+      "load": "version>=0xe5c reads u16 and zero extends to runtime i32",
+      "generation_semantics_or_neutrality_proven": false,
+      "fixed_magic_marker": false
+    },
+    "drawing_footer": {
+      "value": 3503,
+      "hex": "0x0daf",
+      "independent_store_and_read_comparison": true,
+      "both_actual_sources_match": true,
+      "other_marker_identity_claimed": false
+    },
+    "source_observations": {
+      "report_sha256": "4cded03acba32e3aa58f859bcb23c3b4f120cd993642078b518b569de81194f3",
+      "both_presence_bytes": 1,
+      "both_footer_values": 3503,
+      "actual_manager_counter_and_reference_rows": "pending separate hash frozen metadata observer; not inferred from constructor"
+    },
+    "next_rule_scope": "represent serialized presence and exact allocator u64; require truly empty reference rows for any future narrow semantic admission; populated data remains rejected until projected and verified",
+    "sdk_changed": false,
+    "writer_changed": false,
+    "normal_guard_changed": false,
+    "native_execution": false,
+    "vm_access": false,
+    "native_acceptance": false,
+    "heldout_acceptance": false,
+    "stopping_conditions": [
+      "The first is success under every criterion on this page.",
+      "The second is the end of the available context."
+    ]
+  },
+  "independent_source_observer_sha256": "4b7666337a5124de01b680624d096668f9750b6beadce4c4f14f5ddfe7ab4176",
+  "independent_source_report_sha256": "510cecbeca761beca4ad58e9e13ffedf2b343ee50ac6f654e568c445f421e3ea",
+  "actual_source_states": [
+    {
+      "case": "H01SheetA",
+      "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "presence_byte": 1,
+      "next_appearance_id_u64": 1,
+      "declared_reference_count": 0,
+      "observed_reference_rows": 0
+    },
+    {
+      "case": "H02SheetB",
+      "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "presence_byte": 1,
+      "next_appearance_id_u64": 1,
+      "declared_reference_count": 0,
+      "observed_reference_rows": 0
+    }
+  ],
+  "typed_representation": {
+    "class": "AppearanceState",
+    "manager_on_wire": "bool retaining the serialized presence choice",
+    "next_appearance_id": "exact joined uint64 from signed32 words for presence1; native constructor seed1 only for absent manager payload",
+    "underlying_archive_fields_retained": true,
+    "source_counter_reset": false,
+    "accessor": "ReadAppearState"
+  },
+  "admission": {
+    "version": 19000,
+    "document_class": "concrete uiDrawingDoc_c schema1",
+    "presence0": "preserves existing absent branch and derives native constructor allocator state1",
+    "presence1": "requires embedded manager mapping, signed32 counter halves, explicit int count exactly0 and tuple or list rows genuinely empty",
+    "other_presence": "unsupported",
+    "populated_or_mismatched_counts": "unsupported including null rows; no appearance references dropped",
+    "footer": "unchanged3503 check",
+    "all_other_graph_sheet_layer_link_and_annotation_guards": "unchanged"
+  },
+  "writer_scope": "existing internal field store retains actual counter and count; no new public writer or fresh drawing constructor change",
+  "no_saved_defaults_added": true,
+  "actual_next_id1_not_used_as_global_admission_constant": true,
+  "uint64_bit_domain_supported_by_bound_native_qword_storage": true,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "original_heldout_verdict_changed": false,
+  "native_execution": false,
+  "vm_access": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "mechanical_revision": {
+    "previous_proof_sha256": "dd71a2e330f2c904f1b1a953780a5097717aa727925f184f6b1c24b66d3649c5",
+    "previous_candidate_manifest_sha256": "2b0ff4eccb98b502c0aa4aa2735f0c749dd47e323c86f5c6233606b15dbf817c",
+    "reason": "required short PascalCase declaration names and explicit sequence type after container guard; no admission rule changes",
+    "renaming_overlap_corrected": true,
+    "intermediate_candidate_manifest_sha256": "8488a85e01299fbe57a68bf4fc589b18daa512c6c11892c6e5a5c171f8ba1778"
+  }
+}

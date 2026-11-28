@@ -1,0 +1,81 @@
+{
+  "compared_snapshots": 6,
+  "controls": [
+    {
+      "control_slot": 1,
+      "passed": true,
+      "role": "before"
+    },
+    {
+      "control_slot": 2,
+      "passed": true,
+      "role": "before"
+    },
+    {
+      "control_slot": 1,
+      "passed": true,
+      "role": "after"
+    },
+    {
+      "control_slot": 2,
+      "passed": true,
+      "role": "after"
+    }
+  ],
+  "controls_equal": true,
+  "disposition": "native-qualified",
+  "distinct_processes": 11,
+  "generated_sha256": "4d953621bc46940c6650a6e334e3b6dae42c40cfb4400ff807429348fd9b3823",
+  "native_build": "34.5.2.0604",
+  "numeric_checks": 322,
+  "original_artifacts_immutable": true,
+  "packet_sha256": "5b3e56525cab650218c3d0c1c637dd50a11664071528dfe1eb2706b777bcaf67",
+  "parity_result_sha256": "8ecbd2223e052e1e912a96c87cf50e79da5d6012c3a01617c83e45f3b89b923c",
+  "passed": true,
+  "phases": [
+    {
+      "checks": 38,
+      "passed": true,
+      "role": "source-original"
+    },
+    {
+      "checks": 38,
+      "passed": true,
+      "role": "source-spacing"
+    },
+    {
+      "checks": 38,
+      "passed": true,
+      "role": "source-instances"
+    },
+    {
+      "checks": 66,
+      "passed": true,
+      "role": "spacing-edit"
+    },
+    {
+      "checks": 38,
+      "passed": true,
+      "role": "spacing-reopen"
+    },
+    {
+      "checks": 66,
+      "passed": true,
+      "role": "instances-edit"
+    },
+    {
+      "checks": 38,
+      "passed": true,
+      "role": "instances-reopen"
+    }
+  ],
+  "prior_locator_restored": true,
+  "prior_result_sha256": "abaa363a2722c95166fe33cc668baf4555582b172e663ca67b42b775c9bacfb2",
+  "private_data_guest_only": true,
+  "private_receipt_sha256": "1ec29f7da9d618db9eeea8884eeb35c53509f0c6f1f998d00ca72eb65d9563b3",
+  "same_original_locator": true,
+  "schema": "kit.sw2026.oblique-pattern-default-native-result.v1",
+  "sdk_revision": "e393f3080141976513fe0f397d7766b97879a63c",
+  "slot": "Slot02",
+  "source_lock_sha256": "3b35bab5c3f7d2b1b4dfcbb7d7eedfe132ae3ddc8c0a97eb91ba7d934c6a4c76"
+}

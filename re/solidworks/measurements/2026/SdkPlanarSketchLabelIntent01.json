@@ -1,0 +1,1251 @@
+{
+  "base_revision": "03e2e5ed376229565c6d381b132dd1c946d89218",
+  "base_sdk_tree": "f6830bfd53fc99747c91ca4a3cd7eead3915d6ee",
+  "cases": {
+    "rectangle-tall": {
+      "all_parent_bytes_and_measured_owner_ids_identical": true,
+      "default_child": {
+        "bytes": 8611,
+        "sha256": "214506aa737ecf6a8f93ecd2f0adf16ccbd7d20ba49481643ef95e627e492d4b",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1153,
+            "sha256": "2a48bae6be147dbe02386ed84d543e6cebf2d618110f8e844df21bd0b456624f"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 185,
+            "sha256": "4e23a00c8e3b6711f9775ab9bcab7f6e2864941d879055bdbdc8f5a8cd869ec5"
+          },
+          "Contents/Config-0": {
+            "bytes": 22266,
+            "sha256": "a3db0476bf853dd300e891eab6fdeb980da00b856258f7ae1fdbacce810a9d09"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 671,
+            "sha256": "2e9966b5f7744578d5c3a20913b485bd44f8f360ac23862cb17ce5d7e9496684"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17289,
+            "sha256": "89924280bb68b9b3c2f1573a9a3acbbd7ef13e6cc1495061a1e999dc445a1ded"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 671,
+            "sha256": "b8f5450a28d06069f5fb538f2e5d0a567ac29519fd14505a5c2a2629cd2761b2"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1554,
+            "sha256": "06e8dad160edd56395270bb44021634e8ace641deb1d0e7780612c19b38454b3"
+          }
+        }
+      },
+      "default_xy_witnesses": {
+        "D1": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.010574999999999998,
+          "end_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ],
+          "length_m": 0.0317,
+          "repeated_end_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ],
+          "repeated_start_m": [
+            -0.01585,
+            -0.02115,
+            0.0
+          ],
+          "start_m": [
+            -0.01585,
+            -0.02115,
+            0.0
+          ]
+        },
+        "D2": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "away_m": 0.007924999999999998,
+          "end_m": [
+            0.01585,
+            0.02115,
+            0.0
+          ],
+          "length_m": 0.0423,
+          "repeated_end_m": [
+            0.01585,
+            0.02115,
+            0.0
+          ],
+          "repeated_start_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ],
+          "start_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ]
+        }
+      },
+      "driver_owners": {
+        "D1": {
+          "display_id": 10,
+          "display_index": 177,
+          "driving_value_m": 0.0317,
+          "group_slot": 0,
+          "handle_index": 179,
+          "parameter_index": 162,
+          "selected_point_indices": [
+            0,
+            1
+          ],
+          "sketch_index": 149,
+          "value_id": 19,
+          "value_index": 160
+        },
+        "D2": {
+          "display_id": 11,
+          "display_index": 182,
+          "driving_value_m": 0.0423,
+          "group_slot": 1,
+          "handle_index": 183,
+          "parameter_index": 167,
+          "selected_point_indices": [
+            1,
+            2
+          ],
+          "sketch_index": 149,
+          "value_id": 20,
+          "value_index": 166
+        }
+      },
+      "explicit_default_complete_child_exact": true,
+      "nondefault_xy_witnesses": {
+        "D1": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.7486750788643532,
+          "away_axis": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.009909000000000001,
+          "end_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ],
+          "length_m": 0.0317,
+          "repeated_end_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ],
+          "repeated_start_m": [
+            -0.01585,
+            -0.02115,
+            0.0
+          ],
+          "start_m": [
+            -0.01585,
+            -0.02115,
+            0.0
+          ]
+        },
+        "D2": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.3551536643026004,
+          "away_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "away_m": 0.012721,
+          "end_m": [
+            0.01585,
+            0.02115,
+            0.0
+          ],
+          "length_m": 0.0423,
+          "repeated_end_m": [
+            0.01585,
+            0.02115,
+            0.0
+          ],
+          "repeated_start_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ],
+          "start_m": [
+            0.01585,
+            -0.02115,
+            0.0
+          ]
+        }
+      },
+      "shared_parent": {
+        "bytes": 10100,
+        "sha256": "7f42005459df9fcda431d15d8b23bab58a07d6f886ba0f8b57feabbb9266c4aa",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2476,
+            "sha256": "c57f8d6a9edaa95621879fd94f9cc0d38324691d6ecc33ff62d43ed8c7a69edd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 197,
+            "sha256": "5e11538875d1cf86bb3b86fd0e6ce56fa64cfca02aa77bb7b7eee1b326267abd"
+          },
+          "Contents/Config-0": {
+            "bytes": 22647,
+            "sha256": "aec7e07b4634c78fb1e3d236b225f6e0fda12965dfef024757cc0a8a19086b67"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 7737,
+            "sha256": "172c4e07448e1de5a088bc8a533b177d8089b07bd1209272870e94eeec158a8e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1171,
+            "sha256": "202ca2a6949ece931aa7a6fa366a7b505bae81998b87cc62ea787251f8fc0a63"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "1f47de7b7dd7218bf484634f0b7272198c8d08b94219dbf37f0f31a8f6351a85"
+          },
+          "Contents/Definition": {
+            "bytes": 543,
+            "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+          },
+          "Header2": {
+            "bytes": 1171,
+            "sha256": "4107fe9fd0f01857ef306f349afa73144c16491637e242371b36c7190a626d5a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2284,
+            "sha256": "a07a092011655ed3dbc6537fa256173bfffd0163e45528bc45d442d9fbb88c68"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1174,
+            "sha256": "7ff96177ff698ae48691444ab7ab5465a38f523f5ac95f185bda48f573cf0fe9"
+          }
+        }
+      },
+      "variants": {
+        "both-route": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.007883,
+                -0.031059,
+                -0.000457
+              ]
+            },
+            "D2": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.028571,
+                -0.006127,
+                0.000829
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8671,
+          "child_sha256": "fbfb89d4d85cae35f3fca23cbb0bafa4b2be9a2ccb99b496d611d8f383a146b8",
+          "request_sha256": "4d8f79cb855761ba5ed0a5db2d33ce3e6f756c7bf68197c3e8663177b5f20353",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "6dfdcdf6dbcdacd5b9a71fa4b2517dc82bd7a52c27d1d555da6484bfd44c0e00"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            76179,
+            76184
+          ],
+          "worker_stdout_sha256": [
+            "e52ec65ba3ce8a5f0464ebf12cadf763ba11981159af38112712fa8ffb002c18",
+            "5cb555e83dd3958eb6642c31be01dd45b0407e1a14ac67d18c3b09f20947cbd3"
+          ]
+        },
+        "default": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.0,
+                -0.031724999999999996,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.023774999999999998,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "changed_child_streams": [],
+          "child_bytes": 8611,
+          "child_sha256": "214506aa737ecf6a8f93ecd2f0adf16ccbd7d20ba49481643ef95e627e492d4b",
+          "request_sha256": "367dd16d6d5d8e7f93d1bee0f3dd100cff1aa6879b70d025815e8c5722ae1334",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "89924280bb68b9b3c2f1573a9a3acbbd7ef13e6cc1495061a1e999dc445a1ded"
+          },
+          "submitted_parameter_order": [],
+          "worker_pids": [
+            75205,
+            75204
+          ],
+          "worker_stdout_sha256": [
+            "9e54afeb75afdeb428561757b76e2f22139d351d17cf04906b944e8ae4e54ca1",
+            "8516f461fe5255bfbd2153c1554bb816fdaf16107003edf0dfc27ca375b48603"
+          ]
+        },
+        "explicit-default": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.0,
+                -0.031724999999999996,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.023774999999999998,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "changed_child_streams": [],
+          "child_bytes": 8611,
+          "child_sha256": "214506aa737ecf6a8f93ecd2f0adf16ccbd7d20ba49481643ef95e627e492d4b",
+          "request_sha256": "9942f3baaf863208537fba3826bca419b44d2da28b6d60bb9f34e31979485341",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "89924280bb68b9b3c2f1573a9a3acbbd7ef13e6cc1495061a1e999dc445a1ded"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75209,
+            75208
+          ],
+          "worker_stdout_sha256": [
+            "f585e3064337b204b70fcf7f8ebd65e5f53ad928dbe6aa514ab6de15fd128b07",
+            "06deefba9a5064ca2a17e2cd341ff974beb89e40ae5f5c70393d3d42b3baffa6"
+          ]
+        },
+        "height-route": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.007883,
+                -0.031059,
+                -0.000457
+              ]
+            },
+            "D2": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.028571,
+                -0.006127,
+                0.000829
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8673,
+          "child_sha256": "b7b7048cc7d4194c878f0004ebf818767c907a6343b569930453422eb857c896",
+          "request_sha256": "d55335eefc64ab6d3470a568f74a01499faaaf8518bcb3dfd35d1980976f668e",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "990422ed9fc5e2d26cd67e8531130262c281c2d87035221fbeb42a0c50d24d2b"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            76172,
+            76161
+          ],
+          "worker_stdout_sha256": [
+            "2c11da0169b7f4d37e4bbe9eb20a9912000d554d4111ab24899e4923a1bcaf93",
+            "507548c93585b2a1183b5ba8611b8b59472b7e12a2349a8c049346f563554de1"
+          ]
+        },
+        "width-route": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.007883,
+                -0.031059,
+                -0.000457
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.028571,
+                -0.006127,
+                0.000829
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8671,
+          "child_sha256": "c42f2f75209c6ce7eaf983aa8b7e0f6ca61531aea6b45ae31229bdb32b16ce3d",
+          "request_sha256": "01307e9bf843bf64a4099c4833347badf4236a284b05b38452fc47c76f8d0489",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "494620f3491098aa7d85cb344eedeb6c7c6356b7a7efba76ecae84b25c0b5b26"
+          },
+          "submitted_parameter_order": [
+            "parameter/height",
+            "parameter/width"
+          ],
+          "worker_pids": [
+            75215,
+            75216
+          ],
+          "worker_stdout_sha256": [
+            "9b11371568c850da4cc75960969d9175cbbfe2d48a6ebce719552259d5eb27f8",
+            "9f04f11fae7a51f8d141b79698a5bb649932bd3060752e2aabe86d3753c32f01"
+          ]
+        },
+        "xy-only": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.007883,
+                -0.031059,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.028571,
+                -0.006127,
+                0.0
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8644,
+          "child_sha256": "a38be19c775cda45ed9af23f4158ff98dca120f91e9d0cad80913fe5555af8cc",
+          "request_sha256": "aa9a90aa0a95f5e7cce3e95b13ed2b9aea237a143ad581702b0789a493070cf7",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "746c26c6a958500efb8d289fba644a247bccd1917a69266e3426a4f45a255981"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75210,
+            75211
+          ],
+          "worker_stdout_sha256": [
+            "d9c5b5e6bd9e6e60cefdfbb6c1ad519515689f24d4c2ba69ffbfcddf9718c5e8",
+            "e10e3d7ba1b62cd25acaf92798ded50ceec381695123469a2adacafdd2a83c07"
+          ]
+        },
+        "xyz": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.007883,
+                -0.031059,
+                -0.000457
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.028571,
+                -0.006127,
+                0.000829
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8672,
+          "child_sha256": "1346f2f10d93ad69f70a99ced06b8a1bdb0392aa934b4cfbed25f481d441bb83",
+          "request_sha256": "b479232b938a5beca48c7d3c394f7cb5abad67d0b249a997be6d1b5a4e86556c",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "01ad0a28d4e17a4a4d75aa6f9aea1006559cdcf2e88440b69a6f4fd3ffe35cdc"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75213,
+            75214
+          ],
+          "worker_stdout_sha256": [
+            "c4f013a2af84fe9cd20cecbf40c1b185cbe5f1526dd65166bc068aff0fc16b7e",
+            "9bf80f941cb5362b36992a0f2dbc260ba35dbad2946a913a397f771baa57668e"
+          ]
+        }
+      },
+      "z_and_routing_only_witnesses_exact": true
+    },
+    "rectangle-wide": {
+      "all_parent_bytes_and_measured_owner_ids_identical": true,
+      "default_child": {
+        "bytes": 8610,
+        "sha256": "a8700331a6e0b58c9e74d3e5e5de19504f3f1b5ede79b230a1ba36fdae05e631",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1153,
+            "sha256": "2a48bae6be147dbe02386ed84d543e6cebf2d618110f8e844df21bd0b456624f"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 185,
+            "sha256": "4e23a00c8e3b6711f9775ab9bcab7f6e2864941d879055bdbdc8f5a8cd869ec5"
+          },
+          "Contents/Config-0": {
+            "bytes": 22266,
+            "sha256": "a3db0476bf853dd300e891eab6fdeb980da00b856258f7ae1fdbacce810a9d09"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 671,
+            "sha256": "2e9966b5f7744578d5c3a20913b485bd44f8f360ac23862cb17ce5d7e9496684"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17289,
+            "sha256": "6a9957ebd9842dbf75ec067850b8d38095b393e06db8418e0a873f8c2c545bd4"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 671,
+            "sha256": "b8f5450a28d06069f5fb538f2e5d0a567ac29519fd14505a5c2a2629cd2761b2"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1554,
+            "sha256": "0f3922a319b0902edaa3814b39753081e46b3496aa043981507e7ec257a91548"
+          }
+        }
+      },
+      "default_xy_witnesses": {
+        "D1": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.0072250000000000005,
+          "end_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "length_m": 0.04730000000000001,
+          "repeated_end_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "repeated_start_m": [
+            -0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "start_m": [
+            -0.023650000000000004,
+            -0.01445,
+            0.0
+          ]
+        },
+        "D2": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.5,
+          "away_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "away_m": 0.011825000000000002,
+          "end_m": [
+            0.023650000000000004,
+            0.01445,
+            0.0
+          ],
+          "length_m": 0.0289,
+          "repeated_end_m": [
+            0.023650000000000004,
+            0.01445,
+            0.0
+          ],
+          "repeated_start_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "start_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ]
+        }
+      },
+      "driver_owners": {
+        "D1": {
+          "display_id": 10,
+          "display_index": 177,
+          "driving_value_m": 0.04730000000000001,
+          "group_slot": 0,
+          "handle_index": 179,
+          "parameter_index": 162,
+          "selected_point_indices": [
+            0,
+            1
+          ],
+          "sketch_index": 149,
+          "value_id": 19,
+          "value_index": 160
+        },
+        "D2": {
+          "display_id": 11,
+          "display_index": 182,
+          "driving_value_m": 0.0289,
+          "group_slot": 1,
+          "handle_index": 183,
+          "parameter_index": 167,
+          "selected_point_indices": [
+            1,
+            2
+          ],
+          "sketch_index": 149,
+          "value_id": 20,
+          "value_index": 166
+        }
+      },
+      "explicit_default_complete_child_exact": true,
+      "nondefault_xy_witnesses": {
+        "D1": {
+          "along_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "along_fraction": 0.3653276955602537,
+          "away_axis": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "away_m": 0.008724,
+          "end_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "length_m": 0.04730000000000001,
+          "repeated_end_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "repeated_start_m": [
+            -0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "start_m": [
+            -0.023650000000000004,
+            -0.01445,
+            0.0
+          ]
+        },
+        "D2": {
+          "along_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "along_fraction": 0.6482006920415225,
+          "away_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "away_m": 0.010336999999999999,
+          "end_m": [
+            0.023650000000000004,
+            0.01445,
+            0.0
+          ],
+          "length_m": 0.0289,
+          "repeated_end_m": [
+            0.023650000000000004,
+            0.01445,
+            0.0
+          ],
+          "repeated_start_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ],
+          "start_m": [
+            0.023650000000000004,
+            -0.01445,
+            0.0
+          ]
+        }
+      },
+      "shared_parent": {
+        "bytes": 10093,
+        "sha256": "150da685d93081224c54345ac681799834ef6b3ffbbb39f6e508b6121d14fd17",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2476,
+            "sha256": "c57f8d6a9edaa95621879fd94f9cc0d38324691d6ecc33ff62d43ed8c7a69edd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 197,
+            "sha256": "5e11538875d1cf86bb3b86fd0e6ce56fa64cfca02aa77bb7b7eee1b326267abd"
+          },
+          "Contents/Config-0": {
+            "bytes": 22647,
+            "sha256": "17654310931d76ed1d18559c4ad0ae572cd3824eb8a5290910480314eaccfa82"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 7737,
+            "sha256": "172c4e07448e1de5a088bc8a533b177d8089b07bd1209272870e94eeec158a8e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1171,
+            "sha256": "202ca2a6949ece931aa7a6fa366a7b505bae81998b87cc62ea787251f8fc0a63"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "1f47de7b7dd7218bf484634f0b7272198c8d08b94219dbf37f0f31a8f6351a85"
+          },
+          "Contents/Definition": {
+            "bytes": 543,
+            "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+          },
+          "Header2": {
+            "bytes": 1171,
+            "sha256": "4107fe9fd0f01857ef306f349afa73144c16491637e242371b36c7190a626d5a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "0d66799d1d9054d6507357331d5c7b693fcdfde6f143b5c809e95f14f008bbcc"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2270,
+            "sha256": "1859a7a25e13022f7266239fedaa9740a5122512ffd3f743b39fc5c54ab5ce57"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1174,
+            "sha256": "7ff96177ff698ae48691444ab7ab5465a38f523f5ac95f185bda48f573cf0fe9"
+          }
+        }
+      },
+      "variants": {
+        "both-route": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": true,
+              "text_point_m": [
+                -0.00637,
+                -0.023174,
+                0.000371
+              ]
+            },
+            "D2": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.033987,
+                0.004283,
+                -0.000613
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8654,
+          "child_sha256": "a9a4f274ae50777518c4293efb191c9142f1095c05dcc20a2eb1adc208c6acac",
+          "request_sha256": "216dde2f0b9ea42ff0cb99b222b126c5a472fb522ac675daf04d8da437641cb8",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "690a9e42d2d6a7826d4c77677158c5eadebc894b6a5c23b9272db7f3d09e3c9e"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75203,
+            75202
+          ],
+          "worker_stdout_sha256": [
+            "cd8ec022d0ff4f85f6e07454ca78562eea970eb8479bb6111848cd19805aaed9",
+            "fb310dd31997a035e16a4d98244af0d119ecee37c431b18bb85ddb281c5ae76f"
+          ]
+        },
+        "default": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.0,
+                -0.021675,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.035475000000000007,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "changed_child_streams": [],
+          "child_bytes": 8610,
+          "child_sha256": "a8700331a6e0b58c9e74d3e5e5de19504f3f1b5ede79b230a1ba36fdae05e631",
+          "request_sha256": "32d549610f26bfbe65ef1818770ffeeb8f79c0069a99f245d5a70484a5857708",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "6a9957ebd9842dbf75ec067850b8d38095b393e06db8418e0a873f8c2c545bd4"
+          },
+          "submitted_parameter_order": [],
+          "worker_pids": [
+            75189,
+            75190
+          ],
+          "worker_stdout_sha256": [
+            "0722474b9c70a0ae491ce8ab8288db224f67885e57d5ec27bc9ed6e1ff218511",
+            "ccb0fcf11d0279c4f535c35f2a03b75520845f5210ce6864ee3ae497f46fe834"
+          ]
+        },
+        "explicit-default": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.0,
+                -0.021675,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.035475000000000007,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "changed_child_streams": [],
+          "child_bytes": 8610,
+          "child_sha256": "a8700331a6e0b58c9e74d3e5e5de19504f3f1b5ede79b230a1ba36fdae05e631",
+          "request_sha256": "cbd9322c387777969d1577ac37f7e865cc688a15e33d4aabe2dd5b11a2748f62",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "6a9957ebd9842dbf75ec067850b8d38095b393e06db8418e0a873f8c2c545bd4"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75191,
+            75192
+          ],
+          "worker_stdout_sha256": [
+            "7a9bb5c2aa872ff09cb61b0724e41535330c08d17172e2e89b18b9a1189f82fc",
+            "4d65e59e50976e2bd2d1eecdc8669e67ff515b7074dc7879742ef16e384a6e32"
+          ]
+        },
+        "height-route": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                -0.00637,
+                -0.023174,
+                0.000371
+              ]
+            },
+            "D2": {
+              "route_centerline": true,
+              "text_point_m": [
+                0.033987,
+                0.004283,
+                -0.000613
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8654,
+          "child_sha256": "3be1650d6e743f663f8269bdbb1df89ba8d8cb0e7be12465f9552237917556ef",
+          "request_sha256": "c2f51dc062d0a3753a7cffee76a581d13b4ea4216093844ba9780afb7d36320b",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "8d7465e686f69b0fd576e0df4b3f23b41cd370f49b3f4768cba5356a3ce1192b"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75201,
+            75200
+          ],
+          "worker_stdout_sha256": [
+            "e4cfcf1a1250d9394d9919161900d0f8091ea25c60b9149dbfbb70c7c195ac26",
+            "7e079a0fcd0120c5f53421736971226090e4b2d4549127373fe0da55d907f84e"
+          ]
+        },
+        "width-route": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": true,
+              "text_point_m": [
+                -0.00637,
+                -0.023174,
+                0.000371
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.033987,
+                0.004283,
+                -0.000613
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8655,
+          "child_sha256": "6b8b360691cf3ce27dc973ec556b445171e95710129f3e4671396974213fbb03",
+          "request_sha256": "778d8d32ac5e73cdca80a37362094e3aa6d8a38f19856283677cfdd1cc2dce3c",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "a9a3ac6867c53f66652718b1fe7be27d3a5996c25ab5ffec506b800b3cb7f874"
+          },
+          "submitted_parameter_order": [
+            "parameter/height",
+            "parameter/width"
+          ],
+          "worker_pids": [
+            75198,
+            75199
+          ],
+          "worker_stdout_sha256": [
+            "1ddac8f4fd4118d3c2284e697f290617f1e2ac454c53678feaa86f1b5fd99973",
+            "dd150cc09d2c90afaa045020803d9adb0c7f61046d22f3484af6a0691ee6e97a"
+          ]
+        },
+        "xy-only": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                -0.00637,
+                -0.023174,
+                0.0
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.033987,
+                0.004283,
+                0.0
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8643,
+          "child_sha256": "7a81f12ff980280f4ada6fd360db614ff2201ac68bd778c12c2f443f2f473cda",
+          "request_sha256": "c4436ff0fc25244646e4dc8f98d29fc2837df197ac7e52a5cf66288251fad550",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "004c71023f75a691a6b10fffb590da7b8199c8d19ec93973464d56a5a8460403"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75194,
+            75193
+          ],
+          "worker_stdout_sha256": [
+            "6bd38e29ddbc77b8d6703b64a0e783be28f8e1df10c2bc43849c8647351680ea",
+            "d4b92150777aa1906d8f70eb2cccfb80090e6b0f5039f37b01747050d8b72230"
+          ]
+        },
+        "xyz": {
+          "actual_label_rows": {
+            "D1": {
+              "route_centerline": false,
+              "text_point_m": [
+                -0.00637,
+                -0.023174,
+                0.000371
+              ]
+            },
+            "D2": {
+              "route_centerline": false,
+              "text_point_m": [
+                0.033987,
+                0.004283,
+                -0.000613
+              ]
+            }
+          },
+          "changed_child_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "child_bytes": 8654,
+          "child_sha256": "749972e16c71e05094f0eeb9f9d88e39a758d02ba9c7d8b9a7cc03cb87623af5",
+          "request_sha256": "6077eb9236cc227ae7974ed660d01a40ddbf32848f02962737216ed1566ecc76",
+          "resolved_stream": {
+            "bytes": 17289,
+            "sha256": "14f4b05ecc99841eb483421670cb23fe35edb39754169603aa8a2fa574f6b3b5"
+          },
+          "submitted_parameter_order": [
+            "parameter/width",
+            "parameter/height"
+          ],
+          "worker_pids": [
+            75196,
+            75195
+          ],
+          "worker_stdout_sha256": [
+            "198b4728b1c3ce727119b8b0137584ccd4d6922a64874010369df6266b581a33",
+            "54e92fdafabf0e54c2af022ee24f2a8e8eea1b70cdc4306e8650c1fefb588b03"
+          ]
+        }
+      },
+      "z_and_routing_only_witnesses_exact": true
+    }
+  },
+  "event": 1794001931,
+  "guarded_workers": 36,
+  "interpreter": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "interpreter_sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634",
+  "native_acceptance": false,
+  "native_processes": 0,
+  "new_heldout_credit": 0,
+  "passed": true,
+  "prior_source_inputs_read": 0,
+  "raw_result_sha256": "8f4844bbc9aa3213034a01b7ad63aa7d18376f5550c509141a1d6404a87ba541",
+  "refusals": {
+    "boolean-coordinate": {
+      "cad_imports": [],
+      "error": "spatial text coordinates must be finite numbers without booleans",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76814,
+      "request_sha256": "1ea3a7595068274018e2e6c55f114efe33ee00a0c8325e4c33c17065b279fd68",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "c6c559cb6b438b13c725c93fd47313620bcdd5811d4bb46e5e9ccc4a4b704006"
+    },
+    "crossed-sketch": {
+      "cad_imports": [],
+      "error": "rectangle label must select its actual unique driving parameter and sketch",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76807,
+      "request_sha256": "887e27d4d68e7f0801fe1c42ce9c1a221ddd6a4827b50b97e32190c827c58868",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "29470e4b654e7b812c4ece29a152e31988dfc497cc19d4db1ef5f9aca1ef89ea"
+    },
+    "foreign-driver": {
+      "cad_imports": [],
+      "error": "rectangle label must select its actual unique driving parameter and sketch",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76809,
+      "request_sha256": "922eebba49921ac44f5ef7f6df492c0edead12425dae5600b41bc74b324df1cd",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "e9d2d9fa3d4b72476e404dd2601513693376f5d348850e87f2e0619dcc6376cd"
+    },
+    "implicit-routing": {
+      "cad_imports": [],
+      "error": "rectangle label centreline routing requires an explicit boolean",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76810,
+      "request_sha256": "cbafafebe91108e6e9970fc6c16c4ce42e3ace37fb592119624536cec55ba1ec",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "8f9fb54611883a2c19373ada84238b56c4e45a5fbac02e2538edd974551d5857"
+    },
+    "outside-witness-span": {
+      "cad_imports": [],
+      "error": "rectangle dimension text must lie outside beside its dimensioned edge",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76813,
+      "request_sha256": "955d8f14e40e0dbbb74e296541ef5afa849a6d704e269d8bf7c51babf98be3bf",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "229b2767654999143508cfff4044d8d26fbc3ab449ac7ef916b85e86d4fb65fd"
+    },
+    "same-driver-twice": {
+      "cad_imports": [],
+      "error": "rectangle label must select its actual unique driving parameter and sketch",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76808,
+      "request_sha256": "bea8429d18e0081809f0058fc0004c21988b54deda3eb8f36df506bbcfe7edf5",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "08d45c1902263ce86722c27c45063a87d18501049ebe5d90a45e5f464ee0d7d4"
+    },
+    "short-point": {
+      "cad_imports": [],
+      "error": "spatial text requires three explicit world coordinates",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76812,
+      "request_sha256": "19a39790c2ae9457bf6f4ccced011a7928331dce533b51641aa44321e8376779",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "feccbf61ee09b57f3b0b057a08524584e01658dcef09737548d02c842295613a"
+    },
+    "translated-front": {
+      "cad_imports": [],
+      "error": "boss support must be a canonical principal frame at origin",
+      "exception": "ValueError",
+      "passed": false,
+      "pid": 76815,
+      "request_sha256": "d2dcd83df40109b4980431f946cd1aad2c803315e1d77b7c57c6f944a8f03aee",
+      "runtime_input_reads": 0,
+      "stdout_sha256": "4a87e830799affb377ee7568b0806e9c30e56fd04117033008bcf27c247fb633"
+    }
+  },
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.planar-sketch-label-intent-host.v1",
+  "source_admission": false,
+  "source_sha256": {
+    "re/tooling/sw2026/MakeAssemblyBoundaryCase.py": "0376431bc85436a7016f704052d649052f5699a2321183910a22ffdbb5182028",
+    "re/tooling/sw2026/SpatialTextMut.py": "c7c1c9536827416b3a5aa5dd2e39c9e1c4b5dcfd735ab340ca5a7253d350f02a",
+    "re/tooling/sw2026/planar_registry/PlanarRegistryBuild.py": "21afc289a9657bda6664b7baaf9591aa6ddbe2decbddd42f5cb018c5b63beb0b",
+    "re/tooling/sw2026/planar_registry/ProveSketchLabelIntent.py": "7da9bdaad09b15af3329d64c97239e7d9788776aebcd41dc7f4d6a29e9f273c2",
+    "re/tooling/sw2026/planar_registry/RectanglePresentation.py": "de95d552038dc3069965c8a2c58d3e0810cc1b6cfe3cd1dfc75ea450dcd355f9",
+    "re/tooling/sw2026/planar_registry/SketchLabelIntent.py": "292aca3bbe14917a948dc0447db74eab1f1035c95a2f8f48ceb6dd7c20486d33",
+    "tests/Convert/Solidworks/Research/ConstructionGuard.py": "f31598bb5ee9811819fd5a7040674e5601a23dcd326d21ba8a76c50edff4e6bf"
+  },
+  "typed_linked_round_trips": 56
+}

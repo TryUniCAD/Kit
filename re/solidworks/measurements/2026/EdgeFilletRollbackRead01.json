@@ -1,0 +1,1223 @@
+{
+  "codec_revision": "60f0c883e028c1689b8eb96a4cb75449a98f5f51",
+  "disclosed_archive_receipt_sha256": "e7573a71c5fb709a26ae512a332f3fe6eecca5fef949b8f98380ac7cbd1337f3",
+  "full_histories": 4,
+  "native_launches": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "private_cases_read": 0,
+  "production_history_admission": false,
+  "pskernel_sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+  "results": [
+    {
+      "body_integrity": {
+        "previous_stock_counts": {
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8
+        },
+        "prior_stock": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1816,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "FilletStockBoss",
+          "label_attribute": 191,
+          "label_value_slot": 210
+        },
+        "selected": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1816,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34,
+          "body_slot": 2,
+          "label": "ConstantEdgeFillet",
+          "label_attribute": 191,
+          "label_value_slot": 205
+        },
+        "stock_selected_support": {
+          "edge_slot": 227,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 128,
+              "incident_to_edge": true,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 148
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 86,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 144
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 98,
+              "incident_to_edge": false,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 149
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 131,
+              "incident_to_edge": false,
+              "ordinal": 0,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 136
+            }
+          ]
+        }
+      },
+      "case": "EdgeFilletAxial",
+      "chronological_rollback": [
+        {
+          "copy_staging_capacity": 79,
+          "delta_key": 3,
+          "earlier": 209,
+          "header_counts": {
+            "n_copy_mod_nodes": 40,
+            "n_del_nodes": 27,
+            "n_new_nodes": 66
+          },
+          "later": 0,
+          "logical_id": 17,
+          "mark": 208,
+          "pointer_qualifiers": {
+            "nonnull_false": 25,
+            "nonnull_true": 415,
+            "null_true": 250
+          },
+          "previous_copies": {
+            "101": 1,
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 4,
+            "16": 9,
+            "17": 7,
+            "18": 6,
+            "19": 2,
+            "29": 5,
+            "30": 4,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 14,
+            "82": 7
+          },
+          "removed": {
+            "14": 1,
+            "15": 1,
+            "16": 6,
+            "17": 12,
+            "18": 4,
+            "29": 4,
+            "30": 2,
+            "31": 2,
+            "51": 1,
+            "81": 14,
+            "82": 10,
+            "83": 3,
+            "98": 1
+          },
+          "restored": {
+            "16": 3,
+            "17": 6,
+            "18": 2,
+            "29": 2,
+            "30": 1,
+            "81": 6,
+            "82": 5,
+            "98": 1
+          },
+          "rollback_payload_offset": 144
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 1,
+          "earlier": 237,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 158
+          },
+          "later": 208,
+          "logical_id": 13,
+          "mark": 209,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 6,
+            "16": 12,
+            "17": 24,
+            "18": 8,
+            "19": 2,
+            "29": 8,
+            "30": 12,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 24,
+            "82": 28,
+            "98": 1
+          },
+          "restored": {},
+          "rollback_payload_offset": 5377
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 2,
+          "earlier": 236,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 209,
+          "logical_id": 3,
+          "mark": 237,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5268
+        },
+        {
+          "copy_staging_capacity": 0,
+          "delta_key": 0,
+          "earlier": 0,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 237,
+          "logical_id": 1,
+          "mark": 236,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 0
+          },
+          "previous_copies": {},
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5235
+        }
+      ],
+      "edited": false,
+      "first_restored": {
+        "class": "UNICODE_VALUES",
+        "delta_payload_interval": [
+          144,
+          183
+        ],
+        "first_use_descriptor_bytes": 1,
+        "kind": 98,
+        "label": "FilletStockBoss",
+        "owner_attribute": "SWIMPLICITBODYNAME_ID_U",
+        "owner_attribute_slot": 191,
+        "owner_field": 0,
+        "record_interval": [
+          51,
+          90
+        ],
+        "slot": 210,
+        "wide_words": 15
+      },
+      "history_payload_bytes": 6025,
+      "history_payload_sha256": "fe08a23d047ca29ad2c199e1a8b3089c6ad05adf87d4205c52bdb18a255700f2",
+      "negative_contrasts": {
+        "contradictory_pointer_qualifier": "inconsistent source-index selector for a rollback target",
+        "insufficient_copy_capacity": "rollback copy capacity or retained WORLD differs",
+        "wrong_removal_class": "rollback slots overlap or differ from their actual current class"
+      },
+      "physical_mark_order": [
+        17,
+        1,
+        3,
+        13
+      ],
+      "root_slot": 207,
+      "runtime_external_access_attempts": 0,
+      "selectors_from_typed_archive": [
+        3,
+        13,
+        17
+      ],
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+      "state_node_counts": [
+        206,
+        171,
+        29,
+        29
+      ],
+      "strict_delete_profile_refusal": "current kernel framing differs",
+      "typed_history_consumes_payload": true
+    },
+    {
+      "body_integrity": {
+        "previous_stock_counts": {
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8
+        },
+        "prior_stock": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1409,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "FilletStockBoss",
+          "label_attribute": 192,
+          "label_value_slot": 209
+        },
+        "selected": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1409,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34,
+          "body_slot": 2,
+          "label": "ConstantEdgeFillet",
+          "label_attribute": 192,
+          "label_value_slot": 200
+        },
+        "stock_selected_support": {
+          "edge_slot": 226,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 126,
+              "incident_to_edge": true,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 144
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 88,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 145
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 96,
+              "incident_to_edge": false,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 146
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 131,
+              "incident_to_edge": false,
+              "ordinal": 0,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 138
+            }
+          ]
+        }
+      },
+      "case": "EdgeFilletAxial",
+      "chronological_rollback": [
+        {
+          "copy_staging_capacity": 79,
+          "delta_key": 1,
+          "earlier": 208,
+          "header_counts": {
+            "n_copy_mod_nodes": 40,
+            "n_del_nodes": 27,
+            "n_new_nodes": 64
+          },
+          "later": 0,
+          "logical_id": 29,
+          "mark": 207,
+          "pointer_qualifiers": {
+            "nonnull_false": 25,
+            "nonnull_true": 415,
+            "null_true": 250
+          },
+          "previous_copies": {
+            "101": 1,
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 4,
+            "16": 9,
+            "17": 7,
+            "18": 6,
+            "19": 2,
+            "29": 5,
+            "30": 4,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 14,
+            "82": 7
+          },
+          "removed": {
+            "14": 1,
+            "15": 1,
+            "16": 6,
+            "17": 12,
+            "18": 4,
+            "29": 4,
+            "30": 2,
+            "31": 2,
+            "51": 1,
+            "81": 13,
+            "82": 10,
+            "83": 3,
+            "98": 1
+          },
+          "restored": {
+            "16": 3,
+            "17": 6,
+            "18": 2,
+            "29": 2,
+            "30": 1,
+            "81": 6,
+            "82": 5,
+            "98": 1
+          },
+          "rollback_payload_offset": 144
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 4,
+          "earlier": 236,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 158
+          },
+          "later": 207,
+          "logical_id": 25,
+          "mark": 208,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 6,
+            "16": 12,
+            "17": 24,
+            "18": 8,
+            "19": 2,
+            "29": 8,
+            "30": 12,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 24,
+            "82": 28,
+            "98": 1
+          },
+          "restored": {},
+          "rollback_payload_offset": 5373
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 3,
+          "earlier": 235,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 208,
+          "logical_id": 3,
+          "mark": 236,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5264
+        },
+        {
+          "copy_staging_capacity": 0,
+          "delta_key": 0,
+          "earlier": 0,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 236,
+          "logical_id": 1,
+          "mark": 235,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 0
+          },
+          "previous_copies": {},
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5231
+        }
+      ],
+      "edited": true,
+      "first_restored": {
+        "class": "UNICODE_VALUES",
+        "delta_payload_interval": [
+          144,
+          183
+        ],
+        "first_use_descriptor_bytes": 1,
+        "kind": 98,
+        "label": "FilletStockBoss",
+        "owner_attribute": "SWIMPLICITBODYNAME_ID_U",
+        "owner_attribute_slot": 192,
+        "owner_field": 0,
+        "record_interval": [
+          51,
+          90
+        ],
+        "slot": 209,
+        "wide_words": 15
+      },
+      "history_payload_bytes": 6021,
+      "history_payload_sha256": "fb19e2727bc516111e297806b3e297f0f84a5168794c02c565fd5568a8bc665e",
+      "negative_contrasts": {
+        "contradictory_pointer_qualifier": "inconsistent source-index selector for a rollback target",
+        "insufficient_copy_capacity": "rollback copy capacity or retained WORLD differs",
+        "wrong_removal_class": "rollback slots overlap or differ from their actual current class"
+      },
+      "physical_mark_order": [
+        29,
+        1,
+        3,
+        25
+      ],
+      "root_slot": 206,
+      "runtime_external_access_attempts": 0,
+      "selectors_from_typed_archive": [
+        3,
+        25,
+        29
+      ],
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a",
+      "state_node_counts": [
+        203,
+        169,
+        27,
+        27
+      ],
+      "strict_delete_profile_refusal": "current kernel framing differs",
+      "typed_history_consumes_payload": true
+    },
+    {
+      "body_integrity": {
+        "previous_stock_counts": {
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8
+        },
+        "prior_stock": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1816,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "FilletStockBoss",
+          "label_attribute": 191,
+          "label_value_slot": 210
+        },
+        "selected": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1816,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34,
+          "body_slot": 2,
+          "label": "ConstantEdgeFillet",
+          "label_attribute": 191,
+          "label_value_slot": 205
+        },
+        "stock_selected_support": {
+          "edge_slot": 228,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 89,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 145
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 134,
+              "incident_to_edge": true,
+              "ordinal": 3,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 144
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 128,
+              "incident_to_edge": false,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 147
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 43,
+              "incident_to_edge": false,
+              "ordinal": 4,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 46
+            }
+          ]
+        }
+      },
+      "case": "EdgeFilletTransverse",
+      "chronological_rollback": [
+        {
+          "copy_staging_capacity": 81,
+          "delta_key": 3,
+          "earlier": 209,
+          "header_counts": {
+            "n_copy_mod_nodes": 37,
+            "n_del_nodes": 30,
+            "n_new_nodes": 69
+          },
+          "later": 0,
+          "logical_id": 17,
+          "mark": 208,
+          "pointer_qualifiers": {
+            "nonnull_false": 28,
+            "nonnull_true": 443,
+            "null_true": 267
+          },
+          "previous_copies": {
+            "101": 1,
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 4,
+            "16": 8,
+            "17": 8,
+            "18": 6,
+            "19": 2,
+            "29": 3,
+            "30": 6,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 16,
+            "82": 7
+          },
+          "removed": {
+            "14": 1,
+            "15": 1,
+            "16": 7,
+            "17": 14,
+            "18": 4,
+            "29": 4,
+            "30": 2,
+            "31": 2,
+            "51": 1,
+            "81": 14,
+            "82": 10,
+            "83": 3,
+            "98": 1
+          },
+          "restored": {
+            "16": 4,
+            "17": 8,
+            "18": 2,
+            "29": 2,
+            "30": 1,
+            "81": 6,
+            "82": 5,
+            "98": 1
+          },
+          "rollback_payload_offset": 144
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 1,
+          "earlier": 240,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 158
+          },
+          "later": 208,
+          "logical_id": 13,
+          "mark": 209,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 6,
+            "16": 12,
+            "17": 24,
+            "18": 8,
+            "19": 2,
+            "29": 8,
+            "30": 12,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 24,
+            "82": 28,
+            "98": 1
+          },
+          "restored": {},
+          "rollback_payload_offset": 5622
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 2,
+          "earlier": 239,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 209,
+          "logical_id": 3,
+          "mark": 240,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5513
+        },
+        {
+          "copy_staging_capacity": 0,
+          "delta_key": 0,
+          "earlier": 0,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 240,
+          "logical_id": 1,
+          "mark": 239,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 0
+          },
+          "previous_copies": {},
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5480
+        }
+      ],
+      "edited": false,
+      "first_restored": {
+        "class": "UNICODE_VALUES",
+        "delta_payload_interval": [
+          144,
+          183
+        ],
+        "first_use_descriptor_bytes": 1,
+        "kind": 98,
+        "label": "FilletStockBoss",
+        "owner_attribute": "SWIMPLICITBODYNAME_ID_U",
+        "owner_attribute_slot": 191,
+        "owner_field": 0,
+        "record_interval": [
+          51,
+          90
+        ],
+        "slot": 210,
+        "wide_words": 15
+      },
+      "history_payload_bytes": 6270,
+      "history_payload_sha256": "420f1359d014216fdf5440c9e7432d6f9da3effd0193b1de1fbd36881df4916f",
+      "negative_contrasts": {
+        "contradictory_pointer_qualifier": "inconsistent source-index selector for a rollback target",
+        "insufficient_copy_capacity": "rollback copy capacity or retained WORLD differs",
+        "wrong_removal_class": "rollback slots overlap or differ from their actual current class"
+      },
+      "physical_mark_order": [
+        17,
+        1,
+        3,
+        13
+      ],
+      "root_slot": 207,
+      "runtime_external_access_attempts": 0,
+      "selectors_from_typed_archive": [
+        3,
+        13,
+        17
+      ],
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e",
+      "state_node_counts": [
+        206,
+        171,
+        29,
+        29
+      ],
+      "strict_delete_profile_refusal": "current kernel framing differs",
+      "typed_history_consumes_payload": true
+    },
+    {
+      "body_integrity": {
+        "previous_stock_counts": {
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8
+        },
+        "prior_stock": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1412,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "body_slot": 2,
+          "label": "FilletStockBoss",
+          "label_attribute": 192,
+          "label_value_slot": 209
+        },
+        "selected": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1412,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34,
+          "body_slot": 2,
+          "label": "ConstantEdgeFillet",
+          "label_attribute": 192,
+          "label_value_slot": 200
+        },
+        "stock_selected_support": {
+          "edge_slot": 227,
+          "faces_in_archive_order": [
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 86,
+              "incident_to_edge": true,
+              "ordinal": 1,
+              "representation_class": "moEndFaceSurfIdRep_c",
+              "surface_slot": 142
+            },
+            {
+              "endpoints_on_face": [
+                0,
+                1
+              ],
+              "face_slot": 134,
+              "incident_to_edge": true,
+              "ordinal": 3,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 141
+            },
+            {
+              "endpoints_on_face": [
+                1
+              ],
+              "face_slot": 126,
+              "incident_to_edge": false,
+              "ordinal": 2,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 146
+            },
+            {
+              "endpoints_on_face": [
+                0
+              ],
+              "face_slot": 41,
+              "incident_to_edge": false,
+              "ordinal": 4,
+              "representation_class": "moFromSktEntSurfIdRep_c",
+              "surface_slot": 42
+            }
+          ]
+        }
+      },
+      "case": "EdgeFilletTransverse",
+      "chronological_rollback": [
+        {
+          "copy_staging_capacity": 81,
+          "delta_key": 1,
+          "earlier": 208,
+          "header_counts": {
+            "n_copy_mod_nodes": 37,
+            "n_del_nodes": 30,
+            "n_new_nodes": 67
+          },
+          "later": 0,
+          "logical_id": 29,
+          "mark": 207,
+          "pointer_qualifiers": {
+            "nonnull_false": 28,
+            "nonnull_true": 443,
+            "null_true": 267
+          },
+          "previous_copies": {
+            "101": 1,
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 4,
+            "16": 8,
+            "17": 8,
+            "18": 6,
+            "19": 2,
+            "29": 3,
+            "30": 6,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 16,
+            "82": 7
+          },
+          "removed": {
+            "14": 1,
+            "15": 1,
+            "16": 7,
+            "17": 14,
+            "18": 4,
+            "29": 4,
+            "30": 2,
+            "31": 2,
+            "51": 1,
+            "81": 13,
+            "82": 10,
+            "83": 3,
+            "98": 1
+          },
+          "restored": {
+            "16": 4,
+            "17": 8,
+            "18": 2,
+            "29": 2,
+            "30": 1,
+            "81": 6,
+            "82": 5,
+            "98": 1
+          },
+          "rollback_payload_offset": 144
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 4,
+          "earlier": 239,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 158
+          },
+          "later": 207,
+          "logical_id": 25,
+          "mark": 208,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {
+            "12": 1,
+            "13": 2,
+            "14": 6,
+            "15": 6,
+            "16": 12,
+            "17": 24,
+            "18": 8,
+            "19": 2,
+            "29": 8,
+            "30": 12,
+            "50": 6,
+            "70": 1,
+            "74": 1,
+            "81": 24,
+            "82": 28,
+            "98": 1
+          },
+          "restored": {},
+          "rollback_payload_offset": 5618
+        },
+        {
+          "copy_staging_capacity": 1,
+          "delta_key": 3,
+          "earlier": 238,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 208,
+          "logical_id": 3,
+          "mark": 239,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 15
+          },
+          "previous_copies": {
+            "101": 1
+          },
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5509
+        },
+        {
+          "copy_staging_capacity": 0,
+          "delta_key": 0,
+          "earlier": 0,
+          "header_counts": {
+            "n_copy_mod_nodes": 0,
+            "n_del_nodes": 0,
+            "n_new_nodes": 0
+          },
+          "later": 239,
+          "logical_id": 1,
+          "mark": 238,
+          "pointer_qualifiers": {
+            "nonnull_false": 0,
+            "nonnull_true": 0,
+            "null_true": 0
+          },
+          "previous_copies": {},
+          "removed": {},
+          "restored": {},
+          "rollback_payload_offset": 5476
+        }
+      ],
+      "edited": true,
+      "first_restored": {
+        "class": "UNICODE_VALUES",
+        "delta_payload_interval": [
+          144,
+          183
+        ],
+        "first_use_descriptor_bytes": 1,
+        "kind": 98,
+        "label": "FilletStockBoss",
+        "owner_attribute": "SWIMPLICITBODYNAME_ID_U",
+        "owner_attribute_slot": 192,
+        "owner_field": 0,
+        "record_interval": [
+          51,
+          90
+        ],
+        "slot": 209,
+        "wide_words": 15
+      },
+      "history_payload_bytes": 6266,
+      "history_payload_sha256": "c5684f163f7beb0aaa9b9d6055ec2cfd0df58a34399e59caf2082992a7cc58c3",
+      "negative_contrasts": {
+        "contradictory_pointer_qualifier": "inconsistent source-index selector for a rollback target",
+        "insufficient_copy_capacity": "rollback copy capacity or retained WORLD differs",
+        "wrong_removal_class": "rollback slots overlap or differ from their actual current class"
+      },
+      "physical_mark_order": [
+        29,
+        1,
+        3,
+        25
+      ],
+      "root_slot": 206,
+      "runtime_external_access_attempts": 0,
+      "selectors_from_typed_archive": [
+        3,
+        25,
+        29
+      ],
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3",
+      "state_node_counts": [
+        203,
+        169,
+        27,
+        27
+      ],
+      "strict_delete_profile_refusal": "current kernel framing differs",
+      "typed_history_consumes_payload": true
+    }
+  ],
+  "schema": "kit.sw2026.edge-fillet-rollback-audit.v1",
+  "shared_rollback_reader_sha256": "42f7d6f1f1a9b77a134a46fa5230629879791cdef3ae4a1bd74a107a64a8f46f",
+  "source_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797",
+  "strict_control": {
+    "chronological_rollback": [
+      {
+        "copy_staging_capacity": 1,
+        "delta_key": 3,
+        "earlier": 118,
+        "header_counts": {
+          "n_copy_mod_nodes": 0,
+          "n_del_nodes": 0,
+          "n_new_nodes": 99
+        },
+        "later": 0,
+        "logical_id": 7,
+        "mark": 117,
+        "pointer_qualifiers": {
+          "nonnull_false": 0,
+          "nonnull_true": 0,
+          "null_true": 15
+        },
+        "previous_copies": {
+          "101": 1
+        },
+        "removed": {
+          "12": 1,
+          "13": 2,
+          "14": 4,
+          "15": 8,
+          "16": 4,
+          "17": 8,
+          "19": 2,
+          "31": 4,
+          "50": 2,
+          "51": 2,
+          "70": 1,
+          "74": 1,
+          "81": 22,
+          "82": 21,
+          "83": 3,
+          "98": 1
+        },
+        "restored": {},
+        "rollback_payload_offset": 144
+      },
+      {
+        "copy_staging_capacity": 1,
+        "delta_key": 2,
+        "earlier": 119,
+        "header_counts": {
+          "n_copy_mod_nodes": 0,
+          "n_del_nodes": 0,
+          "n_new_nodes": 0
+        },
+        "later": 117,
+        "logical_id": 3,
+        "mark": 118,
+        "pointer_qualifiers": {
+          "nonnull_false": 0,
+          "nonnull_true": 0,
+          "null_true": 15
+        },
+        "previous_copies": {
+          "101": 1
+        },
+        "removed": {},
+        "restored": {},
+        "rollback_payload_offset": 784
+      },
+      {
+        "copy_staging_capacity": 0,
+        "delta_key": 0,
+        "earlier": 0,
+        "header_counts": {
+          "n_copy_mod_nodes": 0,
+          "n_del_nodes": 0,
+          "n_new_nodes": 0
+        },
+        "later": 118,
+        "logical_id": 1,
+        "mark": 119,
+        "pointer_qualifiers": {
+          "nonnull_false": 0,
+          "nonnull_true": 0,
+          "null_true": 0
+        },
+        "previous_copies": {},
+        "removed": {},
+        "restored": {},
+        "rollback_payload_offset": 751
+      }
+    ],
+    "history_payload_sha256": "b22e3eab0bb2c0bdc1cc9db6084d26b122e9189b688a113198a9dd3f690245a9",
+    "runtime_external_access_attempts": 0,
+    "selectors_from_typed_archive": [
+      3,
+      7
+    ],
+    "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "state_node_counts": [
+      113,
+      27,
+      27
+    ],
+    "strict_prior_mark": 3,
+    "typed_history_consumes_payload": true
+  },
+  "writer_outputs": 0
+}

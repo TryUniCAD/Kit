@@ -1,0 +1,1163 @@
+{
+  "schema": "kit.sw2026.assembly-child-save-receipt.v1",
+  "source_revision": "cbd08fb59cb9cba04de66db578ec4f12c48230d5",
+  "started_at": 1794880921.1024158,
+  "finished_at": 1794881114.056683,
+  "inspection_sha256": "09c3dd5b1123013e6718407bc9f550792eaf62a61069e6262ba76bafcfb118c7",
+  "transport_sha256": "22710caad94c5825d76ce10ba2ea2fdbfe1dfce0584d99f8477e28cb55ecacc1",
+  "job_sha256": "da2d780b0c34ba443bf28110a1709c364e5e6a01bb3bfe453d06cf8854362c1a",
+  "tool_sha256": "b4789fe200ea39face4a0814a197be6eb2925d0289e48621c7a04a7f7346060b",
+  "tools_manifest_sha256": "ed6a416e12930092bd3bea682903d23d705b10b4580e2a42ef6c112191a95494",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "distinct_processes": 6,
+  "controls": [
+    {
+      "kind": "control_before",
+      "healthy": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "process_id": 4168,
+        "process_creation_filetime": 134393545255463550,
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      }
+    },
+    {
+      "kind": "control_after",
+      "healthy": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "process_id": 4364,
+        "process_creation_filetime": 134393546664432372,
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      }
+    }
+  ],
+  "lanes": {
+    "silent": [
+      {
+        "phase": "author",
+        "completed": true,
+        "before_save": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "top_level_count": 1,
+          "child": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0,
+            "referenced_configuration": "Default",
+            "active_configuration": "Default",
+            "path_basename": "Child.SLDPRT"
+          }
+        },
+        "result_state": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "whats_wrong": 0,
+          "top_level_count": 1,
+          "child": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0,
+            "referenced_configuration": "Default",
+            "active_configuration": "Default",
+            "path_basename": "Child.SLDPRT"
+          }
+        },
+        "pre_save_update_stamp": 134,
+        "result_update_stamp": 134,
+        "child_sha256_before_parent_save": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "child_sha256_after_parent_save": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "parent_sha256": "2ae8c611ba32f8118520956ba2de3375b09a9f470f413d55b7e780a1d5ebe90e",
+        "child_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "record_sha256": "720b6e256c5f0e49f0a33e08e852115d24a5eea0d224c76fa7a310867b695c3c",
+        "geometry": {
+          "top_level_count": 1,
+          "total_count": 1,
+          "occurrences": [
+            {
+              "placement_index": 0,
+              "name": "Child-1",
+              "path_basename": "Child.SLDPRT",
+              "configuration": "Default",
+              "fixed": false,
+              "transform": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "body_count": 1,
+          "tree": [
+            {
+              "name": "Comments",
+              "type": "CommentsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Favorites",
+              "type": "FavoriteFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "History",
+              "type": "HistoryFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Selection Sets",
+              "type": "SelectionSetFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Sensors",
+              "type": "SensorFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Live Section Planes",
+              "type": "LiveSectionFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Design Binder",
+              "type": "DocsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Annotations",
+              "type": "DetailCabinet",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes1___EndTag___",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Lights and Cameras",
+              "type": "EnvFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Ambient",
+              "type": "AmbientLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional1",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional2",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional3",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Markups",
+              "type": "InkMarkupFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Equations",
+              "type": "EqnFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Front Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Top Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Right Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Origin",
+              "type": "OriginProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Child-1",
+              "type": "Reference",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Mates",
+              "type": "MateGroup",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            }
+          ],
+          "mass": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 0.008000000000000002
+          }
+        },
+        "oracle_identity": {
+          "process_id": 3436,
+          "process_creation_filetime": 134393545519960685,
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      },
+      {
+        "phase": "fresh-reopen",
+        "completed": true,
+        "result_state": {
+          "needs_rebuild": 1,
+          "save_flag": false,
+          "whats_wrong": 0,
+          "top_level_count": 1,
+          "child": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0,
+            "referenced_configuration": "Default",
+            "active_configuration": "Default",
+            "path_basename": "Child.SLDPRT"
+          }
+        },
+        "result_update_stamp": 120,
+        "parent_sha256": "2ae8c611ba32f8118520956ba2de3375b09a9f470f413d55b7e780a1d5ebe90e",
+        "child_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "inputs_immutable": true,
+        "record_sha256": "a7cf73c92454aa03c497d4a6a2536862a5930fef892bd201b96a9950c060cf7d",
+        "open_errors": 0,
+        "open_warnings": 32,
+        "geometry": {
+          "top_level_count": 1,
+          "total_count": 1,
+          "occurrences": [
+            {
+              "placement_index": 0,
+              "name": "Child-1",
+              "path_basename": "Child.SLDPRT",
+              "configuration": "Default",
+              "fixed": false,
+              "transform": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "body_count": 1,
+          "tree": [
+            {
+              "name": "Comments",
+              "type": "CommentsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Favorites",
+              "type": "FavoriteFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "History",
+              "type": "HistoryFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Selection Sets",
+              "type": "SelectionSetFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Sensors",
+              "type": "SensorFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Live Section Planes",
+              "type": "LiveSectionFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Design Binder",
+              "type": "DocsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Annotations",
+              "type": "DetailCabinet",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes1___EndTag___",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Lights and Cameras",
+              "type": "EnvFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Ambient",
+              "type": "AmbientLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional1",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional2",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional3",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Markups",
+              "type": "InkMarkupFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Equations",
+              "type": "EqnFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Front Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Top Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Right Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Origin",
+              "type": "OriginProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Child-1",
+              "type": "Reference",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Mates",
+              "type": "MateGroup",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            }
+          ],
+          "mass": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 0.008000000000000002
+          }
+        },
+        "oracle_identity": {
+          "process_id": 5508,
+          "process_creation_filetime": 134393545785818299,
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      }
+    ],
+    "synced": [
+      {
+        "phase": "author",
+        "completed": true,
+        "before_save": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "top_level_count": 1,
+          "child": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0,
+            "referenced_configuration": "Default",
+            "active_configuration": "Default",
+            "path_basename": "Child.SLDPRT"
+          }
+        },
+        "result_state": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "whats_wrong": 0,
+          "top_level_count": 1,
+          "child": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0,
+            "referenced_configuration": "Default",
+            "active_configuration": "Default",
+            "path_basename": "Child.SLDPRT"
+          }
+        },
+        "pre_save_update_stamp": 134,
+        "result_update_stamp": 134,
+        "child_save_status": [
+          true,
+          0,
+          0
+        ],
+        "child_sha256_before_parent_save": "6213e6c3a19cf67227db46f2a2a5287869f756b17aee2618772f7d9023018f90",
+        "child_sha256_after_parent_save": "6213e6c3a19cf67227db46f2a2a5287869f756b17aee2618772f7d9023018f90",
+        "parent_sha256": "1d23a19dbe4f04b26d0ad382cea235f96d7ce8bda92d666443c94fb6f30f54bf",
+        "child_sha256": "6213e6c3a19cf67227db46f2a2a5287869f756b17aee2618772f7d9023018f90",
+        "record_sha256": "150966033c0ad89684867b20d6e69ce68c182a07d2eda886ce7939b11b9cc6cb",
+        "geometry": {
+          "top_level_count": 1,
+          "total_count": 1,
+          "occurrences": [
+            {
+              "placement_index": 0,
+              "name": "Child-1",
+              "path_basename": "Child.SLDPRT",
+              "configuration": "Default",
+              "fixed": false,
+              "transform": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "body_count": 1,
+          "tree": [
+            {
+              "name": "Comments",
+              "type": "CommentsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Favorites",
+              "type": "FavoriteFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "History",
+              "type": "HistoryFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Selection Sets",
+              "type": "SelectionSetFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Sensors",
+              "type": "SensorFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Live Section Planes",
+              "type": "LiveSectionFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Design Binder",
+              "type": "DocsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Annotations",
+              "type": "DetailCabinet",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes1___EndTag___",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Lights and Cameras",
+              "type": "EnvFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Ambient",
+              "type": "AmbientLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional1",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional2",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional3",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Markups",
+              "type": "InkMarkupFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Equations",
+              "type": "EqnFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Front Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Top Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Right Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Origin",
+              "type": "OriginProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Child-1",
+              "type": "Reference",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Mates",
+              "type": "MateGroup",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            }
+          ],
+          "mass": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 0.008000000000000002
+          }
+        },
+        "oracle_identity": {
+          "process_id": 3892,
+          "process_creation_filetime": 134393546035732694,
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      },
+      {
+        "phase": "fresh-reopen",
+        "completed": true,
+        "result_state": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "whats_wrong": 0,
+          "top_level_count": 1,
+          "child": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0,
+            "referenced_configuration": "Default",
+            "active_configuration": "Default",
+            "path_basename": "Child.SLDPRT"
+          }
+        },
+        "result_update_stamp": 134,
+        "parent_sha256": "1d23a19dbe4f04b26d0ad382cea235f96d7ce8bda92d666443c94fb6f30f54bf",
+        "child_sha256": "6213e6c3a19cf67227db46f2a2a5287869f756b17aee2618772f7d9023018f90",
+        "inputs_immutable": true,
+        "record_sha256": "a08631d2d6eb0b37ba53f08d16c33d6d38cb6d856b323f4de5465ce1b615a103",
+        "open_errors": 0,
+        "open_warnings": 0,
+        "geometry": {
+          "top_level_count": 1,
+          "total_count": 1,
+          "occurrences": [
+            {
+              "placement_index": 0,
+              "name": "Child-1",
+              "path_basename": "Child.SLDPRT",
+              "configuration": "Default",
+              "fixed": false,
+              "transform": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "body_count": 1,
+          "tree": [
+            {
+              "name": "Comments",
+              "type": "CommentsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Favorites",
+              "type": "FavoriteFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "History",
+              "type": "HistoryFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Selection Sets",
+              "type": "SelectionSetFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Sensors",
+              "type": "SensorFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Live Section Planes",
+              "type": "LiveSectionFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Design Binder",
+              "type": "DocsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Annotations",
+              "type": "DetailCabinet",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes1___EndTag___",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Lights and Cameras",
+              "type": "EnvFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Ambient",
+              "type": "AmbientLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional1",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional2",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional3",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Markups",
+              "type": "InkMarkupFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Equations",
+              "type": "EqnFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Front Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Top Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Right Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Origin",
+              "type": "OriginProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Child-1",
+              "type": "Reference",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Mates",
+              "type": "MateGroup",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            }
+          ],
+          "mass": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 0.008000000000000002
+          }
+        },
+        "oracle_identity": {
+          "process_id": 10192,
+          "process_creation_filetime": 134393546338506279,
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      }
+    ]
+  },
+  "matching_geometry": true,
+  "explicit_child_save_cleared_warning_in_this_comparison": true,
+  "warning_origin_in_native_open_code_unverified": true,
+  "licensing_preflight": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "licensing_postflight": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "solidworks_postflight_count": 0,
+  "diagnostic_completed": true,
+  "writer_output_count": 0,
+  "full_native_acceptance": false,
+  "eligible_for_heldout": false
+}

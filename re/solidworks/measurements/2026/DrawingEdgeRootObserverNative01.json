@@ -1,0 +1,56 @@
+{
+  "cache_consumer_measured": false,
+  "controls_healthy": false,
+  "distinct_processes": 2,
+  "encoded_slots_unchanged": true,
+  "files_sha256": "c7b49f275a7cf4b843ef1522b4b759fa4fbd5342acc3055fd47b543f28da5cf2",
+  "generated_phases_started": 0,
+  "heldout_inputs_read": 0,
+  "inputs_unchanged": true,
+  "native_acceptance": false,
+  "outcome": "failed observer before edge enumeration; no generated phase launched",
+  "passed": false,
+  "phases": {
+    "ControlAfterOpenEditSave": {
+      "actual_child_active_configuration_observed": "authored configuration",
+      "annotation_created": false,
+      "cleanup_errors": [],
+      "edge_enumeration_reached": false,
+      "first_failure": {
+        "error": "RuntimeError('visible component configuration differs')",
+        "pending_capability": false,
+        "stage": "ReferencedConfiguration",
+        "type": "RuntimeError"
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": false,
+      "save_model_data_before": true,
+      "source_record_sha256": "fde9d040d307b58055676713025fc0a52578f4978f4350a85433e277da616ecf",
+      "view_configuration_observed": "authored configuration",
+      "visible_component_occurrence_configuration_observed": ""
+    },
+    "ControlBeforeOpenEditSave": {
+      "actual_child_active_configuration_observed": "authored configuration",
+      "annotation_created": false,
+      "cleanup_errors": [],
+      "edge_enumeration_reached": false,
+      "first_failure": {
+        "error": "RuntimeError('visible component configuration differs')",
+        "pending_capability": false,
+        "stage": "ReferencedConfiguration",
+        "type": "RuntimeError"
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": false,
+      "save_model_data_before": true,
+      "source_record_sha256": "2ffb37fda873c551ccb851293be1e023ecf38818cd6bd6082fd768c8f786fa50",
+      "view_configuration_observed": "authored configuration",
+      "visible_component_occurrence_configuration_observed": ""
+    }
+  },
+  "schema": "kit.sw2026.drawing-edge-root-observer-negative.v1",
+  "source_sha256": "1056bde8473497d695c89276812fab2db2a66136c9c7351e8ddac40af47c6eb0",
+  "trial_sha256": "36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872"
+}

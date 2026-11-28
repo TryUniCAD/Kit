@@ -1,25 +1,41 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.ObListFields import (
+    KObListFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# archive containers share exact count framing while retaining each native row type
+# native field order is shared by both archive directions without document supplied programs
 KContainerFields = MappingProxyType(
     {
-        "su_CObArray": (
-            NativeField(
-                "Array",
-                "items",
-                "Count",
-                BodyValue=(NativeField("Node", "o"),),
-                CountValue="n",
-            ),
-        ),
+        "suObList": KObListFields,
         "su_CDWordArray": (
             NativeField(
                 "Array",
                 "items",
                 "Count",
                 BodyValue=(NativeField("Scalar", "v", "u32"),),
+                CountValue="n",
+            ),
+        ),
+        "su_CMapStringToInt": (
+            NativeField(
+                "Array",
+                "items",
+                "Framework",
+                BodyValue=(
+                    NativeField("Text", "k"),
+                    NativeField("Scalar", "v", "i32"),
+                ),
+                CountValue="n",
+            ),
+        ),
+        "su_CObArray": (
+            NativeField(
+                "Array",
+                "items",
+                "Count",
+                BodyValue=(NativeField("Node", "o"),),
                 CountValue="n",
             ),
         ),

@@ -1,0 +1,71 @@
+{
+  "constructor": {
+    "bytes": 348,
+    "end": "0x4bad2f1c",
+    "entry": "0x4bad2dc0",
+    "sha256": "16d0a820136806160608075c94020697e463c82f372fe0a11a68873e365f15c5"
+  },
+  "create_object": "0x4bb02220",
+  "document_version": 19000,
+  "fields": {
+    "f148": {
+      "bytes": 8,
+      "constructor_value": 0,
+      "instruction": "0x4bad2f04",
+      "offset": 328,
+      "saved_semantic_meaning": "not established by this probe",
+      "value": 0,
+      "wire_type": "i32"
+    },
+    "f14c": {
+      "bytes": 8,
+      "constructor_value": 0,
+      "instruction": "0x4bad2f04",
+      "offset": 328,
+      "saved_semantic_meaning": "not established by this probe",
+      "value": 0,
+      "wire_type": "i32"
+    },
+    "f150": {
+      "bytes": 4,
+      "constructor_value": 0,
+      "instruction": "0x4bad2f0b",
+      "offset": 336,
+      "saved_semantic_meaning": "not established by this probe",
+      "value": 0,
+      "wire_type": "i32"
+    },
+    "f154": {
+      "bytes": 8,
+      "constructor_value": 0,
+      "instruction": "0x4bad2e47",
+      "offset": 340,
+      "saved_semantic_meaning": "not established by this probe",
+      "value": 0,
+      "wire_type": "i32"
+    },
+    "f158": {
+      "bytes": 8,
+      "constructor_value": 0,
+      "instruction": "0x4bad2e47",
+      "offset": 340,
+      "saved_semantic_meaning": "capped mid-plane surface extrusion flag",
+      "value": 0,
+      "wire_type": "i32"
+    }
+  },
+  "get_runtime_class": "0x4bb09b50",
+  "heldout_payloads_read": 0,
+  "module": "sldmodu.dll",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_processes_started": 0,
+  "native_writer_acceptance": false,
+  "object_size": 352,
+  "rule": "fresh ordinary end records use the native constructor's explicit scalar zero stores; saved runtime words are not writer inputs",
+  "runtime_class": "0x4dad9180",
+  "runtime_schema": 2147483649,
+  "schema": "kit.sw2026.through-all-end-default-constructor.v1",
+  "tool_sha256": "490e2afdc8d9c229acf4f77e50ddb611260ea174b3fc4b560eb4eae34a7bee11",
+  "vendor_listing_included": false,
+  "vtable": "0x4cf3d3f8"
+}

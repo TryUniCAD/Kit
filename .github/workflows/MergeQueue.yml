@@ -347,6 +347,9 @@ jobs:
           if grep --extended-regexp --quiet '^tests/(CliResearch/|Research/(Archives/|Inference/|Outputs/Ci|CorpusFlowTests|CaptureLineageFlowTests|Reader|FusionReader))' "${RUNNER_TEMP}/ShardTests.txt"; then
             echo "lineage=true" >> "$GITHUB_OUTPUT"
           fi
+          if grep --extended-regexp --quiet '^tests/Convert/Solidworks/Research/(Camera/HeldViewTests\.py|Curve/(Construction/EndHeldoutTests|Heldout/CircleTests)\.py|Presentation/(TreeHeldTests|Frame/FrameHeldTests)\.py)::' "${RUNNER_TEMP}/ShardTests.txt"; then
+            echo "solidworks_frozen=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Checkout candidate tools separately for research CLI cases
         if: steps.selection.outputs.research == 'true'
@@ -369,6 +372,23 @@ jobs:
       - name: Hydrate candidate CLI fixture inputs
         if: steps.selection.outputs.research == 'true'
         run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
+
+      - name: Hydrate pinned SOLIDWORKS writer sources
+        if: steps.selection.outputs.solidworks_frozen == 'true'
+        env:
+          FrozenReadToken: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          FrozenRepository="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
+          FrozenOrigin="$(git remote get-url origin)"
+          [[ "$FrozenOrigin" == "$FrozenRepository" || "$FrozenOrigin" == "$FrozenRepository.git" ]]
+          ReadAuthorization="$(printf 'x-access-token:%s' "$FrozenReadToken" | base64 -w 0)"
+          echo "::add-mask::$ReadAuthorization"
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0="http.${FrozenOrigin}.extraheader"
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $ReadAuthorization"
+          unset ReadAuthorization FrozenReadToken
+          uv run --no-sync --python 3.14 python re/automation/HydrateSolidWorksWriter.py
 
       - name: Run this shard's tests
         id: tests
@@ -1241,14 +1261,19 @@ jobs:
       - name: Verify the history exception stays narrow
         run: |
           set -euo pipefail
-          if printf 'end_spec_offset=%s, axis_kind=%s if AxisValue is None\n' 'Token' 'None' \
-            | "${RUNNER_TEMP}/gitleaks" stdin \
-              --config .github/config/Gitleaks.toml --redact --exit-code 23; then
-            echo "::error::The history exception unexpectedly accepted an unrelated source"
-            exit 1
-          else
-            test "$?" -eq 23
-          fi
+          RequireDetection() {
+            local Result=0
+            "${RUNNER_TEMP}/gitleaks" stdin \
+              --config .github/config/Gitleaks.toml --redact --exit-code 23 || Result=$?
+            if [ "$Result" -ne 23 ]; then
+              echo "::error::An unscoped history control did not produce the expected detection"
+              return 1
+            fi
+          }
+          printf 'end_spec_offset=%s, axis_kind=%s if AxisValue is None\n' 'Token' 'None' | RequireDetection
+          ReceiptPath=re/solidworks/measurements/2026/SdkColdEllipseReceipt01.json
+          PublicDigest="$(sha256sum "$ReceiptPath" | cut -d ' ' -f 1)"
+          printf '%s = "%s"\n' 'KEllipAuthSha' "$PublicDigest" | RequireDetection
 
       - name: Verify public checksum classification stays narrow
         env:

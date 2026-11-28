@@ -1,0 +1,20 @@
+# Default oblique pattern byte parity protocol
+
+Task `B04-SW2026-LOCAL-LINEAR-PATTERN` in PR #121. The sole native acceptance authority for this comparison is the prior successful SP05.2 `34.5.2.0604` evaluation of two pre-writer locked source slots. Its public freeze SHA-256 is `98bea34ca278386abc71a79644d5404304a35d355950ad025716ee8a513b1477` and its sanitized result SHA-256 is `abaa363a2722c95166fe33cc668baf4555582b172e663ca67b42b775c9bacfb2`. The new candidate runs the internal default neutral planner and complete shared emitter from `e393f3080141976513fe0f397d7766b97879a63c`. The comparison measures bytes at the previous candidate locator and epoch. Its two inputs remain under the existing Windows custody. [Prior native acceptance](../measurements/2026/LocalLinearPatternDatumHeldoutNative01.json) · [Pre-writer source lock](LocalLinearPatternDatumHoldoutProtocol2026.md) · [Disclosed default presentation evidence](../measurements/2026/SharedLinearPatternDefaults01.json)
+
+## Freeze
+
+The host reads the two pinned prior public JSON files and the metadata for the separate, disclosed trial. It obtains production Python from the fixed Git tree and the new research tools from their committed revision. Python 3.12 traces the code used by the disclosed neutral bridge and default worker. Each observed path must resolve to a tracked Python blob. The freezer packages only that source closure and checks every archive member's type, portable relative path, size and SHA-256. A fresh extraction runs both disclosed models through the packaged worker again. Each pass uses one bridge and two guarded fresh writer processes per model, plus a refusal for unrepresented presentation metadata. Both modeled containers and all ten stream hashes must agree with the prior disclosed default receipt. The manifest binds the immutable source inventory and terminal host smoke metadata. [Packet freezer](../../tooling/sw2026/linear_pattern/evaluation/default_parity/FreezePatternDefaultParity.py)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/linear_pattern/evaluation/default_parity/FreezePatternDefaultParity.py \
+  --prior /absolute/share/LinearPatternDatumEvaluation01 \
+  --disclosed /absolute/share/GeneratedLocalPatternNative02 \
+  --output /absolute/share/LinearPatternDefaultParity01 \
+  --local-python312 /absolute/host/python3.12 \
+  --guest-python 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
+```
+
+The root-owned dispatch uses the exact `guest_argv` from `Recipe.json`. The entrypoint is ordinary Windows Python 3.12 through `prlctl exec 'Windows 11' --current-user`. The guest uses the prior packet's verified `RunPatternEvaluation` and `PlanPatternEvaluation` copies to validate the protected source lock and reconstruct the original authored model. The bridge emits only the neutral `CadDocument` wire and explicit target. The existing neutral wire tag resolves to the public `PlaneAxis` class. The writer uses `PlanLinPattern` with default presentation, `MakePatGraph` and `EmitPatArchive` in two isolated processes. It retains nine typed stream replays, an exact in-memory container match and zero guarded input reads per generation. The previous native candidate and each source and saved derivative are separately checked against their existing hashes before and after generation. [Guest comparator](../../tooling/sw2026/linear_pattern/evaluation/default_parity/RunPatternDefaultParity.py) · [Pure neutral worker](../../tooling/sw2026/linear_pattern/evaluation/default_parity/PatternDefaultWorker.py)
+
+The packet preserves both generated copies on local C and leaves native source and candidate custody in place. If deterministic output differs, the receipt reports the mismatch and both raw generated copies remain available for a later controlled native comparison. The public result contains only opaque slot labels, digests, counts and dispositions. Exit `0` identifies two exact matches, exit `2` a completed deterministic byte mismatch, and exit `1` a refused comparison. The parity packet uses zero CAD processes.

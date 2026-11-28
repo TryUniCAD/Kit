@@ -1,0 +1,348 @@
+{
+  "archive_receipt_sha256": "89386f4bac8f4619bb4d37efdb1fb87cd0f52877caad193d08a323baa722178f",
+  "base_revision": "64a0b5947f5d71f7f1378f1a6fee12394efc959f",
+  "cases": [
+    {
+      "active_payload_sha256": "468fd08ca0582e8ec349a8f5ebc8e2f31c8623b380f02aec2ce076441bd65a60",
+      "bevel_face_slot": 48,
+      "case": "EqualOriginal",
+      "guarded_input_reads": 0,
+      "history_payload_sha256": "d072f191e6fd86a258d0d886794ea6f9e4bf6cf11810420365eb272d03300faf",
+      "mark_ids": [
+        13,
+        11,
+        3,
+        1
+      ],
+      "metrics_mm": [
+        55443.60351562499,
+        10013.564833435667,
+        11.125425038639875,
+        -8.209891808346214,
+        9.375
+      ],
+      "mode": "equal_distance",
+      "native_terminal_sha256": "d8ff6c2678c05c88f52a3d10e10e1ccdd84fb52a9b374bf7542be868f4215390",
+      "parameters_name_id_mm": [
+        [
+          "D1",
+          33,
+          4.875
+        ]
+      ],
+      "physical_body_slot": 2,
+      "placed_bounds_mm": [
+        [
+          -21.375,
+          -30.875,
+          0.0
+        ],
+        [
+          43.875,
+          14.625,
+          18.75
+        ]
+      ],
+      "refusals": {
+        "absent_partition": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "absent_partition_metadata_only": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "crossed_keeper": "ordinary chamfer has conflicting selected edge ownership",
+        "foreign_historical_self": "saved chamfer historical file differs from its actual local headers",
+        "foreign_live_owner": "saved distance chamfer ownership rejected: SOLIDWORKS rollback body is foreign to the recorded modifier",
+        "foreign_mark": "rollback mark differs from its actual controller",
+        "matching_driver_but_stale_solid": "saved chamfer outward boundary differs from its actual drivers",
+        "non_owner_chamfer": "extrusion sldprt:feature:32 is invalid: first creator scope requires one active root solid extrusion",
+        "refused_native_publication": "native-only feature definitions cannot be exported"
+      },
+      "restored_edge_slot": 222,
+      "sketch_constraints": 4,
+      "sketch_lines": 4,
+      "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+      "topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "tree_rows": 27
+    },
+    {
+      "active_payload_sha256": "3851e8e4c492c6d939f4c79a81985505485449af7a1fa5d155965718c75d2a88",
+      "bevel_face_slot": 46,
+      "case": "EqualEdited",
+      "guarded_input_reads": 0,
+      "history_payload_sha256": "d60b5614dbb1ba1515ec0a15c665394283ed91d64fef8c9cefb6f816e92f2c14",
+      "mark_ids": [
+        21,
+        19,
+        3,
+        1
+      ],
+      "metrics_mm": [
+        55314.69726562499,
+        9986.085463803785,
+        11.055541137578395,
+        -8.256670374146509,
+        9.375
+      ],
+      "mode": "equal_distance",
+      "native_terminal_sha256": "d8ff6c2678c05c88f52a3d10e10e1ccdd84fb52a9b374bf7542be868f4215390",
+      "parameters_name_id_mm": [
+        [
+          "D1",
+          33,
+          6.125
+        ]
+      ],
+      "physical_body_slot": 2,
+      "placed_bounds_mm": [
+        [
+          -21.375,
+          -30.875,
+          0.0
+        ],
+        [
+          43.875,
+          14.625,
+          18.75
+        ]
+      ],
+      "refusals": {
+        "absent_partition": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "absent_partition_metadata_only": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "crossed_keeper": "ordinary chamfer has conflicting selected edge ownership",
+        "foreign_historical_self": "saved chamfer historical file differs from its actual local headers",
+        "foreign_live_owner": "saved distance chamfer ownership rejected: SOLIDWORKS rollback body is foreign to the recorded modifier",
+        "foreign_mark": "rollback mark differs from its actual controller",
+        "matching_driver_but_stale_solid": "saved chamfer outward boundary differs from its actual drivers",
+        "non_owner_chamfer": "extrusion sldprt:feature:32 is invalid: first creator scope requires one active root solid extrusion",
+        "refused_native_publication": "native-only feature definitions cannot be exported"
+      },
+      "restored_edge_slot": 221,
+      "sketch_constraints": 4,
+      "sketch_lines": 4,
+      "source_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+      "topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "tree_rows": 27
+    },
+    {
+      "active_payload_sha256": "a49f99d2fbd37644a37a3ba5fa51e35aa95a35e2fd0527d910af30312f81f912",
+      "bevel_face_slot": 48,
+      "case": "UnequalOriginal",
+      "guarded_input_reads": 0,
+      "history_payload_sha256": "54d0b8bb12d3a3882bbd1aa2cd034f74da3cb54be3091c82251c8b1576f2ed41",
+      "mark_ids": [
+        13,
+        11,
+        3,
+        1
+      ],
+      "metrics_mm": [
+        55283.642578125,
+        9983.30669478107,
+        11.043444938169536,
+        -8.271261754676036,
+        9.375
+      ],
+      "mode": "two_distances",
+      "native_terminal_sha256": "d1892bc383b88c4d0b4a48d2fa768c2274a70f755068e218a28ca6475fb45b51",
+      "parameters_name_id_mm": [
+        [
+          "D1",
+          33,
+          4.875
+        ],
+        [
+          "D3",
+          34,
+          8.375
+        ]
+      ],
+      "physical_body_slot": 2,
+      "placed_bounds_mm": [
+        [
+          -21.375,
+          -30.875,
+          0.0
+        ],
+        [
+          43.875,
+          14.625,
+          18.75
+        ]
+      ],
+      "refusals": {
+        "absent_partition": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "absent_partition_metadata_only": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "crossed_keeper": "ordinary chamfer has conflicting selected edge ownership",
+        "foreign_historical_self": "saved chamfer historical file differs from its actual local headers",
+        "foreign_live_owner": "saved distance chamfer ownership rejected: SOLIDWORKS rollback body is foreign to the recorded modifier",
+        "foreign_mark": "rollback mark differs from its actual controller",
+        "matching_driver_but_stale_solid": "saved chamfer outward boundary differs from its actual drivers",
+        "non_owner_chamfer": "extrusion sldprt:feature:32 is invalid: first creator scope requires one active root solid extrusion",
+        "refused_native_publication": "native-only feature definitions cannot be exported"
+      },
+      "restored_edge_slot": 222,
+      "sketch_constraints": 4,
+      "sketch_lines": 4,
+      "source_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6",
+      "topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "tree_rows": 27
+    },
+    {
+      "active_payload_sha256": "6e83c09b529879ed19d34def9eef966079d20f5fa72fdb63106354dd3f1e8acc",
+      "bevel_face_slot": 46,
+      "case": "UnequalEdited",
+      "guarded_input_reads": 0,
+      "history_payload_sha256": "17091c1a7ddd70abd4a6ae772b581b6876039060d84267abe4bf8ddb110a4746",
+      "mark_ids": [
+        21,
+        19,
+        3,
+        1
+      ],
+      "metrics_mm": [
+        55226.513671875,
+        9974.3751152535,
+        11.015689114168474,
+        -8.293265749456914,
+        9.375
+      ],
+      "mode": "two_distances",
+      "native_terminal_sha256": "d1892bc383b88c4d0b4a48d2fa768c2274a70f755068e218a28ca6475fb45b51",
+      "parameters_name_id_mm": [
+        [
+          "D1",
+          33,
+          4.875
+        ],
+        [
+          "D3",
+          34,
+          9.625
+        ]
+      ],
+      "physical_body_slot": 2,
+      "placed_bounds_mm": [
+        [
+          -21.375,
+          -30.875,
+          0.0
+        ],
+        [
+          43.875,
+          14.625,
+          18.75
+        ]
+      ],
+      "refusals": {
+        "absent_partition": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "absent_partition_metadata_only": "saved distance chamfer ownership rejected: required stream is missing: Contents/Config-0-Partition",
+        "crossed_keeper": "ordinary chamfer has conflicting selected edge ownership",
+        "foreign_historical_self": "saved chamfer historical file differs from its actual local headers",
+        "foreign_live_owner": "saved distance chamfer ownership rejected: SOLIDWORKS rollback body is foreign to the recorded modifier",
+        "foreign_mark": "rollback mark differs from its actual controller",
+        "matching_driver_but_stale_solid": "saved chamfer outward boundary differs from its actual drivers",
+        "non_owner_chamfer": "extrusion sldprt:feature:32 is invalid: first creator scope requires one active root solid extrusion",
+        "refused_native_publication": "native-only feature definitions cannot be exported"
+      },
+      "restored_edge_slot": 221,
+      "sketch_constraints": 4,
+      "sketch_lines": 4,
+      "source_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+      "topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "tree_rows": 27
+    }
+  ],
+  "guarded_input_reads": 0,
+  "guarded_processes": 6,
+  "held_out_sources_read": 0,
+  "new_native_processes": 0,
+  "proof_dependencies_sha256": {
+    "re/tooling/sw2026/edge_chamfer_source/ProvePublicChamferWrite.py": "5b339a2ac0625e0c44fa942ee19f05d932af7d4bd5e3b1b751db567eee7a7ec5",
+    "re/tooling/sw2026/edge_chamfer_source/distance_pair/ObservePairArchives.py": "7e99d5881f5349c46833209358b524d6ba1e119e855e2daa3221207644cbd934",
+    "re/tooling/sw2026/edge_chamfer_source/distance_pair/ProvePairRead.py": "cf4ef5dd829ba592ff38611fcad1d8de3936a094cf2d6f9d71e5b4b0b126b640"
+  },
+  "proof_sha256": "b9701f988da5827eadbb0fb00bfe772f13df5099324ae678316d284484aaaa2a",
+  "reader_sha256": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "18376fbb8d09c4f7c369d7b464f9e12b5962ebf836043240a3e76cf2dde17a8d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfDoc.py": "7f36371598f40ef747f9320f6aabc9cb7c56958ac46661e5515e74387f448a8d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfModel.py": "c0e8b7d2ecb7e258f220451807864af9f7324e5ac0979fcc3e9811cf55bcd636",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BuildChmfGeom.py": "c33624c802eb4bb4756c2853de2fa5671b2552b45f93e9e80171fc827821d086",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfCold.py": "ab9b01cd54de95eba6982edb02828addc28b86d233e081758263d452472882d0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfDist.py": "ea8f74622253149df548184b1636c55dbdf5537f95acd7806c37d753b4dba88f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfMode.py": "b4b0f1454fb1a9156dacfd2850cb9e79d733dcf381439ba7a3afcabfb6eb6cdf",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfView.py": "f28cb247864e29c649afeb5ff63aa89e29e947c19b8879ae67c85381e554d9cb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfDriver.py": "e6f9066a7b620f3bd9b3810886e47c9f761c2857e49d54b20de394bfead9baf1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfOwners.py": "00d03868dec53f64c4d2224b6154870e4ea03daf043f7a7179b65e7bcbfc23a3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfPartRead.py": "9efe0255087b1fc3f0d03afbb9ed138ff168aeaca8ea4c127a809e6eea36bdde",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfViewAxes.py": "62007eb50e073ac9c756eee3293b5a982c4aba7df45df9882360556009a1859b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/JoinChmfEdge.py": "533937346872c60d98e7e4b51e8413d400557174e34e9ba46ec605be25c124f4",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDef.py": "b1987c9d4ca73d286237cf7fc10ef16f18dcb9333fe6a21a1c3a90fbf6cf495c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDim.py": "cd9355aec40b4a8cfe251b8b8d6492b7cbe5cfab6b3c6337f97d7f7dcedb77c0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDrives.py": "08777d3941cfb8bdec62b8070f26718ba26d9f69c5d7fcf34758fbcbb82df7e3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfOwn.py": "6b37e8f9ca9c8a812c8b8ad38f10cb09f1f14a8d7b9cb06959e37fe883bf7c73",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfPick.py": "be416194331cba6bf3f5a1f21dbaf009d000c28c8adf676cb3dce926b75688df",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfRoots.py": "07b0d4cf87d80393eb318e4c46d8a8d7f6faf3667b108447df20c3187175798b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfRows.py": "decb483405e8c66c0413d30d90647e47759e18ca609311fb0ee43f052f2c96ee",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfStock.py": "e70cf2bbab150ff50a529eeaab76f37cfe646295c9da480bbbe9aa908ed20092",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfViews.py": "9b432fb5819f2483bda7f464bfda9f6b68001970bf3586385826e02f7bdc68de",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/TryColdChmf.py": "c01d4d729305240a4f33a01f5e546e346f26bb544a79ab62a9a1ae9e7552e3ca",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/BindWarmActive.py": "4c9e65738f41dc947724d5bdd6b9aabdb260417ffa8fc65f7840fa318cd5f4a8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/CheckWarmGeo.py": "0f7b8408d863923ff1bab083143841a78fdb59485a68626508fbddef456a1dc3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/CheckWarmSelf.py": "f38995493bc98f264c7308a361f12c95508a336a3b0e39436d3fd145acae7374",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/CheckWarmSolid.py": "7408f546a9c1bdc0e28d7a08bccbf2f086b4b7ba97b6d0d88cad6ef8c7ed3c13",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/CheckWarmStock.py": "bbb807d55dc8882e3e3ff93fbc8d3698d5c2486da30738ff07fb1912372ab3a5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/PickWarmEdge.py": "4c37375f66311ce8553dd614cb4ef2061f7c5ed46c30fdd7cbb1c556d6da1fae",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/ReadWarmBody.py": "7ddc81be0973f5743e4b37f64ae2b45e85048459b52d7e5954f8482a49db5c80",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/ReadWarmChmf.py": "68ca7887016f0bd3f4261ec4bcd7e76919fbfa1be10899e895b21b4dfd42039b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/ReadWarmRoles.py": "a7d527d92b983d7c12058c2721ae2a885051b3815600c348baf09b2ac016055c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/ReadWarmSketch.py": "dd3c9b85c1bdfcb44a642009ac50610a3f00156941ef3d3c12a4bb7227989d65",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/WarmChmfBody.py": "da30dc40998dc15556d3f1d1f199b5e4099f6dffa6b378b1148faa243a428eb7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/SavedScope/CheckSavedFaces.py": "fc66db0c694120f0fb1a8a322739995c319a8f0c178a0f679d2737c5fbf473fb",
+    "src/interchange/document/Validation/FirstScopeErrs.py": "81d7cbd9d68006e80fce486d50566a776b56907dff9adc5eff7a5171ff225d52"
+  },
+  "schema": "kit-disclosed-saved-distance-chamfer-read/1",
+  "selector_receipt_sha256": "a1bdd5b12a650a36b17896cb78d287a701e2df3930c85ab038716feec26311b6",
+  "signed_cold_model_controls": {
+    "controls": [
+      {
+        "archive_sha256": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a",
+        "baseline_document_hashes": [
+          "cc5ce7ed9c4406af627a6f56ff9a67aa76f8c403f71c5a2fc18df61ab072d124",
+          "1b79d94ae2a21eaa68dcbbf241b885035f334c8b61307b274a232f13472618f4"
+        ],
+        "guarded_input_reads": 0
+      },
+      {
+        "archive_sha256": "77d7292d2ccb45807479612f8f55e6f934e65a855d34213ffe4ed199193281ad",
+        "baseline_document_hashes": [
+          "a2e872a54261e848856ed4a180efd0bd7a8b9a996a564a816a9350aa18239cf3",
+          "57d7b7a775de8a470e7f833db7778c36704e1c8391d6de8b171e72c3be798c44"
+        ],
+        "guarded_input_reads": 0
+      }
+    ],
+    "trial_sha256": "8db08a479cd2b3e29dd4d5ad38eec3e96631e0aec15f71868a37aea51d423f49"
+  },
+  "whole_source_transfer_admitted": false
+}

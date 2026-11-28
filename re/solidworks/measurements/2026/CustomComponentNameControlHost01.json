@@ -1,0 +1,51 @@
+{
+  "api_metadata_sha256": "121b887538a8cf22dd5018c73b6be0f5c4c35798fceb28b6a4763374fce95629",
+  "api_name2_offsets": {
+    "getter": 552,
+    "setter": 560
+  },
+  "assembly_geometry": {
+    "area": 0.002101868741876575,
+    "com": [0.002143, -0.003517, 0.0420535],
+    "volume": 5.101191077327861e-6
+  },
+  "ast_verified_python_files": 2,
+  "authored_occurrence_names": ["AuthoredAxisA-1", "AuthoredAxisB-2"],
+  "child_geometry": {
+    "area": 0.0010509343709382876,
+    "com": [0.002143, -0.003517, 0.0096585],
+    "volume": 2.5505955386639306e-6
+  },
+  "complete_tree_rows": {
+    "child": 25,
+    "parent": 25
+  },
+  "current_preference_read": false,
+  "delivery_pr": 121,
+  "earlier_host_only_packet_preserved": true,
+  "explicit_registered_selection_interface": "ISelectionMgr",
+  "frozen_files": 41,
+  "heldout_inputs_read": 0,
+  "host_verify": true,
+  "incorrect_host_cli_digest_refused_before_native": true,
+  "independent_child_name": "IndependentNameCylinder",
+  "intent_sha256": "0faaef5ff9bfaf0fb8e2573f758d41ffce6502c4cc93ee3a75006c956a8eb612",
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "owner": "/root/assembly_occurrence",
+  "parent_ambient_raw_result_sha256": "e565f5e940076262507fff43296ee1205ccd7fbcfb8eee6ad2ca92d36b6998fa",
+  "prediction_sha256": "2ed860d27f02eafb59f8e34d672ab68d9b071d9e94d35f3b6bd72badaf78ba90",
+  "preference_changes_authorized": false,
+  "public_name_preference_enum": 18,
+  "ready_packet": "NativePacket02",
+  "recipe_sha256": "29007570ae63512a867cbd11346e481603ab69cded9c39771ed23c889b9b90ce",
+  "roles": ["ControlBefore", "Author", "Reopen", "ControlAfter"],
+  "schema": "kit.sw2026.custom-component-name-control-host.v1",
+  "shared_source_mutations": false,
+  "source_code_before_native_required": true,
+  "source_control_qualified": false,
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "trial_sha256": "7c2dc5ed8f9490237620ac212e74c003f36d4ca2cedbe754563fe1d0b3d14b2b",
+  "undefined_name_check": "ruff 0.17.3 F821 passed",
+  "writer_outputs": 0
+}

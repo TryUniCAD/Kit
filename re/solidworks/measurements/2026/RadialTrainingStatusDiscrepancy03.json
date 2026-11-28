@@ -1,0 +1,75 @@
+{
+  "schema": "kit.sw2026.training-status-discrepancy.v1",
+  "scope": "immutable historical reporting discrepancy, not clean acceptance",
+  "original_source_revision": "feb8e11db40f0c50f13c9e673cdad87fa9dbc452",
+  "corrected_source_revision": "3efbca9693e7c2935dff1c500141bac71f1e3f56",
+  "records": [
+    {
+      "folder": "RadialTrainingAuthor03",
+      "overall_training_passed": true,
+      "raw_training_sha256": "33a992480b7bf7172eafbd21b0803ffb931f085a19556f589860be135c5dd6c4",
+      "cases": [
+        {
+          "file": "RadialTrainingAuthor03/TrainingD04Diameter/Record.json",
+          "bytes": 110171,
+          "sha256": "d836d72fd7ae991bc7840c68cdf99fd014745f5be596fa40748051ccc16bebb2",
+          "record_passed": false,
+          "training_result_passed": true,
+          "first_failure": null,
+          "cleanup_errors": [],
+          "numeric_checks": 8,
+          "all_numeric_checks_passed": true
+        },
+        {
+          "file": "RadialTrainingAuthor03/TrainingD04Radius/Record.json",
+          "bytes": 109730,
+          "sha256": "6822b3d534a77a963f17228726af1448e4f0bd4397ef6e30f1ed07dbda74e680",
+          "record_passed": false,
+          "training_result_passed": true,
+          "first_failure": null,
+          "cleanup_errors": [],
+          "numeric_checks": 8,
+          "all_numeric_checks_passed": true
+        }
+      ]
+    },
+    {
+      "folder": "RadialTrainingReopenEdit01",
+      "overall_training_passed": true,
+      "raw_training_sha256": "269d9faf0ae45917f7c4c766758009f292cbc17c7ada1832c7475fa6134380c2",
+      "cases": [
+        {
+          "file": "RadialTrainingReopenEdit01/TrainingD04Diameter/Record.json",
+          "bytes": 158043,
+          "sha256": "9ae31cca500b556b2744f13378f4f33faa8448c92d662eaaf11f99cb2f23b085",
+          "record_passed": false,
+          "training_result_passed": true,
+          "first_failure": null,
+          "cleanup_errors": [],
+          "numeric_checks": 15,
+          "all_numeric_checks_passed": true
+        },
+        {
+          "file": "RadialTrainingReopenEdit01/TrainingD04Radius/Record.json",
+          "bytes": 157896,
+          "sha256": "04c2f613e9ab969b39337478953bc6e49c50c2d94ec0fe3474002d32ed14271c",
+          "record_passed": false,
+          "training_result_passed": true,
+          "first_failure": null,
+          "cleanup_errors": [],
+          "numeric_checks": 15,
+          "all_numeric_checks_passed": true
+        }
+      ]
+    }
+  ],
+  "raw_records_changed": false,
+  "historical_clean_acceptance": false,
+  "fresh_repeat_receipts": [
+    "RadialTrainingAuthor04.json",
+    "RadialTrainingReopenEdit02.json"
+  ],
+  "generated_writer_output": false,
+  "native_acceptance": false,
+  "explanation": "The child recorder defaulted passed to false and did not finalize that field after successful training; nested and overall training statuses were true. The repair finalizes child status from completion, first failure and cleanup. Fresh repeats replace neither historical bytes nor status values."
+}

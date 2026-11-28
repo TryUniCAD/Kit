@@ -1,0 +1,12 @@
+{
+  "files": {
+    "BuildColdNames.py": "d2f09bec166efc6ee792f66d15bc51e6699d7f49d1178845dc39405ca6398345",
+    "InspectColdNamedPart.py": "08e3e8815cf2ed571e95b123541f61625af8c93bc27084133aa98f0719b4f463",
+    "MakeColdNamedPart.py": "36f218b5a295086f0d8b1a67a0c8dd8be687e1a8502d86833878f5058253b64d",
+    "MakeColdRequest.py": "70b3e3ea0677c8054bb724c0e147fe4d9556c1265d1f13ad7261868cea824af5",
+    "NeutralSpecs01.json": "e89512d92240ce912734dbbfe23b69c45708acbf68922ae616307d84603e5535",
+    "PrepareColdNames.py": "83792b7ddeac5be83717f1da1000253558a489294b42558d97c2ea0703e9eab4"
+  },
+  "schema": "kit.sw2026.cold-named-body-preparation-tools.v1",
+  "sdk_manifest_sha256": "cc8c4550aa01afebd5bca64de7b6f94ff429e92e97fa51aa1cc91abc240fe1a7"
+}

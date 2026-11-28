@@ -1,5 +1,14 @@
 from dataclasses import replace as ReplaceValue
 
+from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
+    HasEqIntent,
+)
+from convert.adapters.solidworks.Core.Preparation.Equations.ReadEqDrivers import (
+    ReadEqDrivers,
+)
+from convert.adapters.solidworks.Core.Preparation.Equations.ReadEqSketch import (
+    ReadEqSketch,
+)
 from convert.adapters.solidworks.Core.Preparation.Readback.ReadColdBoss import (
     ReadColdBoss,
 )
@@ -11,10 +20,12 @@ from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Records.RecordTopology import TopologyCounts
 
 
-# only the shared plain inputs reach construction while the enclosing writer verifies all readback state
+# exact readback verification needs a construction copy of the owned neutral inputs
 def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
+    IsEquation = HasEqIntent(Document)
     if (
         Document.assembly is not None
+        or len(Document.parameters) != (3 if IsEquation else 1)
         or Document.brep_payloads
         or Document.meshes
         or Document.materials
@@ -22,7 +33,6 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
             len(RowsValue) != 1
             for RowsValue in (
                 Document.configurations,
-                Document.parameters,
                 Document.sketches,
                 Document.bodies,
             )
@@ -31,11 +41,15 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
         raise ValueError(
             "SOLIDWORKS cold readback requires one ordinary body profile and D1"
         )
-    Sketch, Driver, BodyValue, Config = (
+    Sketch, BodyValue, Config = (
         Document.sketches[0],
-        Document.parameters[0],
         Document.bodies[0],
         Document.configurations[0],
+    )
+    Driver, SketchDrivers = (
+        ReadEqDrivers(Sketch, Document.parameters)
+        if IsEquation
+        else (Document.parameters[0], ())
     )
     Owners = tuple(
         ItemValue
@@ -64,11 +78,11 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
         Document,
         source=ReplaceValue(Document.source, attributes=FreezeMapping()),
         configurations=(ReplaceValue(Config, attributes=FreezeMapping()),),
-        parameters=(Parameter,),
+        parameters=(*SketchDrivers, Parameter),
         support_planes=(
             ReplaceValue(Planes[0], attributes=FreezeMapping(), provenance=None),
         ),
-        sketches=(ReadColdSketch(Sketch),),
+        sketches=((ReadEqSketch if IsEquation else ReadColdSketch)(Sketch),),
         selections=(),
         feature_timeline=(Feature,),
         bodies=(

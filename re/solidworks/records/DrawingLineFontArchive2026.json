@@ -1,0 +1,272 @@
+{
+  "schema": "kit.sw2026.drawing-line-font-static-proof.v1",
+  "scope": "ordinary current drawing Definition raw wire class admission only",
+  "module": {
+    "name": "sldmfcu.dll",
+    "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "bytes": 8274520,
+    "base": "0x3c720000",
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ]
+  },
+  "class": {
+    "name": "uiLFConfig_c",
+    "rtti": [
+      ".?AVuiLFConfig_c@@",
+      ".?AVsu_CObject@@",
+      ".?AVCObject@@"
+    ],
+    "vtable": "0x3cc719c0",
+    "vtable_span": {
+      "start": "0x3cc719c0",
+      "end": "0x3cc719f0",
+      "bytes": 48,
+      "sha256": "21d3625558e7fd76e64d0c7c8dde7544672773478a20258adadb78ba0f53e52f"
+    },
+    "locator_span": {
+      "start": "0x3ccd3290",
+      "end": "0x3ccd32a8",
+      "bytes": 24,
+      "sha256": "44a279319f47b3206320dad35bb9ab2668c52b74ee0f09695ea7b6f498e54db5"
+    },
+    "serializer_slot": "0x28",
+    "serializer_target": "0x3c7a7760",
+    "runtime_getter": {
+      "start": "0x3c7a7750",
+      "end": "0x3c7a7758",
+      "bytes": 8,
+      "sha256": "1a601c9f79474411c65e6917abfcfa08d506031d86d05f4f7c6c761756cda574"
+    },
+    "runtime_descriptor": {
+      "start": "0x3ce6cfd0",
+      "end": "0x3ce6d000",
+      "bytes": 48,
+      "sha256": "a60876f6ebeb9c7140335892828857aa5478ce4ea40fbaaa5cd6d0861a855909"
+    },
+    "schema_word": "0x80000001",
+    "object_size": 32
+  },
+  "functions": {
+    "0x3c7a7760": {
+      "ranges": [
+        {
+          "start": "0x3c7a7760",
+          "end": "0x3c7a782b",
+          "bytes": 203,
+          "sha256": "916eeff0928a3c5518cbfffa70d890be0f14f332d049a7e5ab8c37c10f1cd614"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x3c7a7760",
+          "end": "0x3c7a782b",
+          "unwind": "0x3ccef644"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "0x3c84a9e0": {
+      "ranges": [
+        {
+          "start": "0x3c84a9e0",
+          "end": "0x3c84aadb",
+          "bytes": 251,
+          "sha256": "5327ffc9c4850eecdadd8bf8bc689ee86d87eeb03da5ec41e3234872b82ff791"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x3c84a9e0",
+          "end": "0x3c84aadb",
+          "unwind": "0x3ccfef9c"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "0x3c84ab40": {
+      "ranges": [
+        {
+          "start": "0x3c84ab40",
+          "end": "0x3c84ac9d",
+          "bytes": 349,
+          "sha256": "e8a03afb203d9b3397df7c973e5723129c029b03a76bc503f38e6233295a996f"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x3c84ab40",
+          "end": "0x3c84ac9d",
+          "unwind": "0x3cd02838"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "0x3c84aca0": {
+      "ranges": [
+        {
+          "start": "0x3c84aca0",
+          "end": "0x3c84acb5",
+          "bytes": 21,
+          "sha256": "7eef88f6b45fe844fce4d297bc8ba0be3b1df4ae00054c811f0e5b7e15dfff37"
+        }
+      ],
+      "unwind_rows": [],
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+    }
+  },
+  "archive_import_identities": {
+    "0x3cb1d508": {
+      "module": "swccu.dll",
+      "symbol": "?Serialize@su_CObject@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    "0x3cb1d3d0": {
+      "module": "swccu.dll",
+      "symbol": "?IsStoring@su_CArchive@@QEBAHXZ"
+    },
+    "0x3cb1d470": {
+      "module": "swccu.dll",
+      "symbol": "??6@YAAEAVsu_CArchive@@AEAV0@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    "0x3cb1d468": {
+      "module": "swccu.dll",
+      "symbol": "??5@YAAEAVsu_CArchive@@AEAV0@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    "0x3cb1d3c8": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@G@Z"
+    },
+    "0x3cb1d3c0": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAF@Z"
+    },
+    "0x3cb1d028": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@F@Z"
+    },
+    "0x3cb1d460": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@M@Z"
+    },
+    "0x3cb1d450": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAM@Z"
+    },
+    "0x3cb1d448": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAH@Z"
+    },
+    "0x3cb1d230": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAD@Z"
+    }
+  },
+  "wire_order": [
+    {
+      "owner": "uiLFConfig_c",
+      "field": "f08",
+      "type": "CString",
+      "store_call": "0x3c7a77a4",
+      "load_call": "0x3c7a77cb"
+    },
+    {
+      "owner": "utLineWidth_c embedded at uiLFConfig_c+0x10",
+      "field": "f06",
+      "type": "i16",
+      "store_call": "0x3c84aa1e",
+      "load_call": "0x3c84aaac"
+    },
+    {
+      "owner": "utLineWidth_c embedded at uiLFConfig_c+0x10",
+      "field": "f00",
+      "type": "f32",
+      "store_call": "0x3c84aa2b",
+      "load_call": "0x3c84aab8"
+    },
+    {
+      "owner": "uiLFConfig_c",
+      "field": "f18",
+      "type": "i16 raw wire",
+      "store_call": "0x3c7a77c3",
+      "load_call": "0x3c7a77ff",
+      "runtime_load": "sign extend i16 to i32 at +0x18",
+      "native_store": "low 16 bits via unsigned short overload"
+    }
+  ],
+  "gates": {
+    "admitted_version": 19000,
+    "runtime_schema": 1,
+    "database_supported": false,
+    "base": "su_CObject::Serialize; ordinary non database wire prefix is empty",
+    "width_store": "always i16 f06 then f32 f00",
+    "width_load": "modern when force argument nonzero or version >= 0x0f41; this caller uses force zero and version19000",
+    "width_caller_arguments": {
+      "store": {
+        "restore_type": 0,
+        "force": 0
+      },
+      "load": {
+        "restore_type": 2,
+        "force": 0
+      }
+    },
+    "legacy_width_load_excluded": "version < 0x0f41 and force zero uses restore type 1 char, type 2 short, type 3 int truncated to short, or no field for other types; no modern float read",
+    "font_load_f18": "version >= 0x0c9f reads i16 and sign extends; older branch writes runtime zero without a wire word",
+    "font_store_f18": "always stores low 16 bits",
+    "own_object_references": []
+  },
+  "runtime_fixups_separate_from_raw_codec": {
+    "width_postload": "0x3c84aac1 calls 0x3c84ab40 after modern short and float reads",
+    "predicate": {
+      "function": "0x3c84aca0",
+      "condition": "f06 equals10 and CF is set after COMISS zero against f00; for finite f00 this means f00>0; unordered comparisons also set CF if the instruction completes",
+      "read_only_complete_leaf": true,
+      "floating_exception_boundary": "COMISS exception masking and pathological NaN inputs are not measured or admitted as constructor domains"
+    },
+    "direct_receiver_stores": [
+      "0x3c84ab6e clears u16 width+0x04",
+      "0x3c84ac71 sets u16 width+0x04 from computed print weight index"
+    ],
+    "receiver_alias_boundary": "original width receiver is passed only to the bound read only predicate; subsequent print data calls receive a distinct stack local",
+    "serialized_f00_f06_direct_stores_in_postload": [],
+    "cache_f04_not_serialized": true,
+    "print_weight_policy_implemented": false,
+    "runtime_normalization_applied_to_wire_values": false
+  },
+  "sdk_reuse": {
+    "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/FontFields.py",
+    "rule_sha256": "848b4e3ef8aa9bb00f9430dabd816d14137be32f12f7f5358f9bad1ced833e1e",
+    "keys": [
+      "uiLFConfig_c",
+      "utLineWidth_c.Serialize.2.0"
+    ],
+    "already_inherited_in_drawing_layouts": true,
+    "existing_field_layout_changed": false,
+    "only_new_admission": "uiLFConfig_c schema1 in linked drawing FrontSchemas"
+  },
+  "value_provenance": "source wire string and scalar inputs only; no saved font vocabulary width value or display default",
+  "limits": [
+    "no legacy version admission",
+    "no database archive admission",
+    "no font or line weight construction semantics",
+    "no native semantic or whole drawing acceptance from a class codec"
+  ],
+  "native_execution": false,
+  "vm_access": false,
+  "fresh_defaults_added": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "metadata_revision": {
+    "predecessor_proof_sha256": "593cd5f38e76f43006d93b96f980802ff92f98cba6a257bd8628d2804e44b2a3",
+    "reason": "correct ordered positive shorthand to actual COMISS and JAE flag predicate; no grammar or source code changes"
+  }
+}

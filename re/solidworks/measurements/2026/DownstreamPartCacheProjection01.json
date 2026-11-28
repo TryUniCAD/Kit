@@ -1,0 +1,414 @@
+{
+  "cad_input_files_read": 0,
+  "corpus_assemblies_newly_qualified": 0,
+  "corpus_parts_newly_qualified": 0,
+  "delivery_pr": 121,
+  "geometry_regressions": [
+    {
+      "profile": "Priorcylinder1",
+      "result": {
+        "cache_emitted": false,
+        "constructor_time_words": {
+          "-480": 631180800,
+          "0": 631152000,
+          "330": 631132200
+        },
+        "edge_allocations": 2,
+        "face_allocations": 3,
+        "independent_incidence_checks": 4,
+        "independent_left_right_checks": 4,
+        "native_runs": 0,
+        "negative_refusals": {
+          "equal_fin_senses": "downstream face roles require opposite fin senses",
+          "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+          "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+          "self_linked_edge": "downstream edge requires two linked fin owners"
+        },
+        "next_id": 6,
+        "partition_bytes": 1806,
+        "partition_sha256": "2348583e34958cb35886cfecfd1c24b49ea09115f58c4e4b49823f0b0ed8f68c",
+        "passed": true,
+        "profile": "cylinder",
+        "reversed_first_fin_checks": 2,
+        "runtime_io_attempts": 0,
+        "variant": 1
+      },
+      "stdout_sha256": "475654f6cb4f9596bc5e29b53187973b6eb16fdeae53514b0cf3419bbe1125b9"
+    },
+    {
+      "profile": "Priorcylinder2",
+      "result": {
+        "cache_emitted": false,
+        "constructor_time_words": {
+          "-480": 631180800,
+          "0": 631152000,
+          "330": 631132200
+        },
+        "edge_allocations": 2,
+        "face_allocations": 3,
+        "independent_incidence_checks": 4,
+        "independent_left_right_checks": 4,
+        "native_runs": 0,
+        "negative_refusals": {
+          "equal_fin_senses": "downstream face roles require opposite fin senses",
+          "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+          "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+          "self_linked_edge": "downstream edge requires two linked fin owners"
+        },
+        "next_id": 6,
+        "partition_bytes": 1807,
+        "partition_sha256": "1962d64e15d491bc302295d3404da44eae87076d00d8be492e405fc99075b6b3",
+        "passed": true,
+        "profile": "cylinder",
+        "reversed_first_fin_checks": 2,
+        "runtime_io_attempts": 0,
+        "variant": 2
+      },
+      "stdout_sha256": "dd21d8a49e0f8bdc1024a643d5bdd4b792c10957558cad5742c1195283a8578a"
+    },
+    {
+      "profile": "Priorprism1",
+      "result": {
+        "cache_emitted": false,
+        "constructor_time_words": {
+          "-480": 631180800,
+          "0": 631152000,
+          "330": 631132200
+        },
+        "edge_allocations": 12,
+        "face_allocations": 6,
+        "independent_incidence_checks": 24,
+        "independent_left_right_checks": 24,
+        "native_runs": 0,
+        "negative_refusals": {
+          "equal_fin_senses": "downstream face roles require opposite fin senses",
+          "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+          "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+          "self_linked_edge": "downstream edge requires two linked fin owners"
+        },
+        "next_id": 19,
+        "partition_bytes": 3996,
+        "partition_sha256": "1607232f01344b670ba1d6988478351b3194f54eca6e8876f25fd15f8fe2d536",
+        "passed": true,
+        "profile": "prism",
+        "reversed_first_fin_checks": 12,
+        "runtime_io_attempts": 0,
+        "variant": 1
+      },
+      "stdout_sha256": "4d26cffc6a90198ff519005f09769fac0e17cca491441a765844dad2ee969ae1"
+    },
+    {
+      "profile": "Priorprism2",
+      "result": {
+        "cache_emitted": false,
+        "constructor_time_words": {
+          "-480": 631180800,
+          "0": 631152000,
+          "330": 631132200
+        },
+        "edge_allocations": 12,
+        "face_allocations": 6,
+        "independent_incidence_checks": 24,
+        "independent_left_right_checks": 24,
+        "native_runs": 0,
+        "negative_refusals": {
+          "equal_fin_senses": "downstream face roles require opposite fin senses",
+          "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+          "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+          "self_linked_edge": "downstream edge requires two linked fin owners"
+        },
+        "next_id": 19,
+        "partition_bytes": 3994,
+        "partition_sha256": "489ae4fc4f71190261255676e26cd06585633a135e056aad29861abdde8b9bb4",
+        "passed": true,
+        "profile": "prism",
+        "reversed_first_fin_checks": 12,
+        "runtime_io_attempts": 0,
+        "variant": 2
+      },
+      "stdout_sha256": "368f05b96b7aa4a28736e352cf4447b9e755e715b947d388cbd784b8c64c6229"
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_application_runs": 0,
+  "native_cache_samples_read": 0,
+  "native_prefix_interval_boundaries_verified": 7,
+  "native_source_build": "34.5.2.0604",
+  "native_source_receipt_pair_sha256": "233dc3fa1e46b88257a0685d3629d2815b468db85249e9214393d485be48ad9c",
+  "parent_head": "d8302ce60cf70397b1ebe908aea457ed1db204a6",
+  "prior_storage_and_reference_receipts_byte_identical": true,
+  "repeated_profiles": [
+    {
+      "fresh_processes": 2,
+      "profile": "Boundarycylinder1",
+      "result": {
+        "boundary_roles_read_back": 4,
+        "edge_role_rows": 2,
+        "native_runs": 0,
+        "negative_refusals": 3,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated partition without any installed permanent edge identifier",
+        "selected_persistent_edge_attributes": 0,
+        "shape": "cylinder",
+        "variant": 1
+      },
+      "stdout_sha256": "495ee2c1e58b6643ea11d970a3034ffd7bbd9001e1b0a73d50f0f5651a6cd77f"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "Boundarycylinder2",
+      "result": {
+        "boundary_roles_read_back": 4,
+        "edge_role_rows": 2,
+        "native_runs": 0,
+        "negative_refusals": 3,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated partition without any installed permanent edge identifier",
+        "selected_persistent_edge_attributes": 0,
+        "shape": "cylinder",
+        "variant": 2
+      },
+      "stdout_sha256": "2355bbf94a80d2fff627c25199bb73fa22465a90a229a5ad0bc4d51eb8a691c3"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "Boundaryprism1",
+      "result": {
+        "boundary_roles_read_back": 24,
+        "edge_role_rows": 12,
+        "native_runs": 0,
+        "negative_refusals": 3,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated partition without any installed permanent edge identifier",
+        "selected_persistent_edge_attributes": 0,
+        "shape": "prism",
+        "variant": 1
+      },
+      "stdout_sha256": "1987bd0ca4b62b1d3fd63edbe18f46076404680aa0e5a0474cafcc4dac275ed9"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "Boundaryprism2",
+      "result": {
+        "boundary_roles_read_back": 24,
+        "edge_role_rows": 12,
+        "native_runs": 0,
+        "negative_refusals": 3,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated partition without any installed permanent edge identifier",
+        "selected_persistent_edge_attributes": 0,
+        "shape": "prism",
+        "variant": 2
+      },
+      "stdout_sha256": "f0f33ecdadd7e384733320108ca62646698dae4ea0eff7c968b3c5c947e393bb"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "References",
+      "result": {
+        "drawing_context": {
+          "bytes": 1523,
+          "classes": [
+            "moCompCompositeEdge_c",
+            "moCompEdge_c",
+            "moCompFace_c",
+            "moCompSolidBody_c",
+            "moCompSurfaceBody_c",
+            "moCompVertex_c",
+            "moEdgeRef_c",
+            "moEndFaceSurfIdRep_c",
+            "moFaceRef_c",
+            "moFromSktEntSurfIdRep_c",
+            "moVertexRef_c"
+          ],
+          "counter": 23,
+          "map_slots": 22,
+          "sha256": "36d1ebbd7613dc7969aaf82c62d49225791c75626362bef62d26ff558ab305aa"
+        },
+        "drawing_tail_bytes": 32,
+        "independent_embedded_rows": 6,
+        "independent_match_rows": 2,
+        "native_cache_samples_read": 0,
+        "native_runs": 0,
+        "ordinary_part": {
+          "bytes": 1491,
+          "classes": [
+            "moCompCompositeEdge_c",
+            "moCompEdge_c",
+            "moCompFace_c",
+            "moCompSolidBody_c",
+            "moCompSurfaceBody_c",
+            "moCompVertex_c",
+            "moEdgeRef_c",
+            "moEndFaceSurfIdRep_c",
+            "moFaceRef_c",
+            "moFromSktEntSurfIdRep_c",
+            "moVertexRef_c"
+          ],
+          "counter": 23,
+          "map_slots": 22,
+          "sha256": "db30302f000bca9167c24a016ece8efe7d63deccbed50b12ce70eaa87094f932"
+        },
+        "passed": true,
+        "refusals": {
+          "bad_atom_count": "atom count disagrees with its identifier array",
+          "bad_entity_count": "entity reference count disagrees with the inline ID bodies",
+          "drawing_in_part_context": "ValueError",
+          "drawing_tail_in_part": "ff8 presence disagrees with the downstream serialization branch",
+          "foreign_component_reference": "component fe8 requires its declared downstream pointer kind",
+          "foreign_edge_link": "edge f190 requires its declared downstream pointer kind",
+          "foreign_vertex_reference": "entity reference f40 requires its declared downstream pointer kind",
+          "part_in_drawing_context": "ValueError",
+          "truncated_drawing": "ValueError"
+        },
+        "runtime_io_attempts": 0
+      },
+      "stdout_sha256": "c19dddbd4401257ca65c15f77f4997ed7a2b8ec0f3e6397d5c898e463b67f463"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "Storage",
+      "result": {
+        "generated_part_streams_preserved": 10,
+        "invalid_inputs_refused": 3,
+        "isolated_envelope_bytes": 1315,
+        "isolated_envelope_sha256": "19a3d4c97fa680751bbba01d8909b93639521ab34295007f2394da68654ec4ec",
+        "modeled_cache_path": "Contents/Config-0-DownstreamIdData",
+        "native_runs": 0,
+        "part_container_bytes": 8994,
+        "part_container_sha256": "4093e24c25099994561be453ed68ee8f81f536f7902f0bc20d34cb0c4afdf770",
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "actual generated part envelope with controlled modeled cache, plus standalone name and branch replay",
+        "selection_branches": 6,
+        "stream_paths": [
+          "Contents/Config-42-DownstreamIdData",
+          "Contents/FlexCfg-12-9-DownstreamIdData"
+        ],
+        "stream_sizes": [
+          1491,
+          1503
+        ]
+      },
+      "stdout_sha256": "232ac8c01efe547fe4ab4c82e4a0b777abbd04295544e3417fd56e86717f114a"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "Surface1",
+      "result": {
+        "arc_marker": 1,
+        "cache_body_bytes": 514,
+        "cache_body_sha256": "edc0032797993ed918429f4d721a9f24ae2f48c7e4537657d8a0adbe32e538dc",
+        "container_sha256": "fa6473d32837a5f790562077890bda8c702866c183933e4d60b498fd628a1725",
+        "feature_creation": 2592000,
+        "feature_id": 20,
+        "finalized_prefix": {
+          "f08": 1,
+          "f0c": 19000,
+          "f10": 2026306,
+          "f14": 19000,
+          "f18": 2026306,
+          "f1c": 104,
+          "f20": 102,
+          "f28": 1818199685
+        },
+        "generated_part_streams_preserved": 11,
+        "native_runs": 0,
+        "object_map_counter": 15,
+        "passed": true,
+        "rejected_file_owners": 2,
+        "runtime_io_attempts": 0,
+        "scope": "actual generated surface and file owners inside a scoped raw cache-body witness",
+        "surface_node_ids": [
+          5,
+          6,
+          7
+        ],
+        "variant": 1
+      },
+      "stdout_sha256": "37cbcf2f5fbd27252be38471241aeba213a9b568c09cb1374ef0e30221718eae"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "Surface2",
+      "result": {
+        "arc_marker": 1,
+        "cache_body_bytes": 514,
+        "cache_body_sha256": "eaadcf4fe92053efe9a7fa80509d10fe0d9d0eed35cd25a222938cf39493c082",
+        "container_sha256": "9c28b6d876395c794c4da8e46863a56f3975aa37d24ca0b2aae9173347d6697e",
+        "feature_creation": 2592000,
+        "feature_id": 20,
+        "finalized_prefix": {
+          "f08": 1,
+          "f0c": 19000,
+          "f10": 2026306,
+          "f14": 19000,
+          "f18": 2026306,
+          "f1c": 105,
+          "f20": 103,
+          "f28": 1818199915
+        },
+        "generated_part_streams_preserved": 11,
+        "native_runs": 0,
+        "object_map_counter": 15,
+        "passed": true,
+        "rejected_file_owners": 2,
+        "runtime_io_attempts": 0,
+        "scope": "actual generated surface and file owners inside a scoped raw cache-body witness",
+        "surface_node_ids": [
+          5,
+          6,
+          7
+        ],
+        "variant": 2
+      },
+      "stdout_sha256": "d4b4673dd8cba0cf6f5a61a990584f2d430f13477e765028fc47a914cee130e6"
+    },
+    {
+      "fresh_processes": 2,
+      "profile": "UnitComponents",
+      "result": {
+        "cache_body_bytes": 1518,
+        "cache_body_sha256": "0cb609d4af74aa2a8b08473e2ef39aca6e94026294a167c4791ba0f73f7aa7e9",
+        "container_sha256": "77af5b847cde6724bdb7786cc21c329bb982b4801fb1f385b840c197d9915238",
+        "native_runs": 0,
+        "object_map_counter": 26,
+        "passed": true,
+        "per_unit_payload_bytes": 3,
+        "runtime_io_attempts": 0,
+        "scope": "modeled downstream references with separate generated local unit component clones",
+        "unit_component_class_slot": 7,
+        "unit_object_slots": [
+          8,
+          15
+        ]
+      },
+      "stdout_sha256": "cbd10391c6d475501da08de722ff23c40564083a7d2864a1670b559252b3253b"
+    }
+  ],
+  "replay_workers": 22,
+  "schema": "kit.sw2026.generated-part-cache-projection.v1",
+  "scope": "host archive container and scoped generated field projection",
+  "source_sha256": {
+    "re/solidworks/records/DownstreamBoundaryRoles2026.json": "75877bddfb6d9672352c24f7371408fcb9820689bac33241816a7d8e3f14803e",
+    "re/solidworks/records/DownstreamCachePrefixSources2026.json": "233dc3fa1e46b88257a0685d3629d2815b468db85249e9214393d485be48ad9c",
+    "re/solidworks/records/DownstreamConfigurationStorage2026.json": "0c09776f3cc5b548de4e2631d4745fff44a47b36fc6cf09e780fbc636fb1a488",
+    "re/solidworks/records/DownstreamLocalOwnerContext2026.json": "280ff24cb31d683dfea5d724ae24c3aa352fbfe30a3e3c109c0cfa6f71f3dbbb",
+    "re/solidworks/records/DownstreamStandaloneStore2026.json": "4ec3cf6e3a1730c1900bf2ab57c5906c283659e9de83359eb3f212a1f9d9df21",
+    "re/tooling/sw2026/downstream/BoundaryRoles.py": "69ed2e1cea84445e0721f14f2b65e3effc2c4d8e17643be60a17400918b750a8",
+    "re/tooling/sw2026/downstream/CacheInputs.py": "ffb893cc116788a73a9e6ab30339c27a3b6c539dfe4b6375f447d6b564004227",
+    "re/tooling/sw2026/downstream/CheckBoundaryRoles.py": "11083cc9359f49df2a685bf19d6535fe2d936e66f1445b26c881ee99e1f8039a",
+    "re/tooling/sw2026/downstream/CheckStorage.py": "ba89c88c52af67b2b9b78f11a50082e35a0eae3dd34220fafdd324f6e6bc5126",
+    "re/tooling/sw2026/downstream/CheckSurfaceIdentities.py": "0f8c804550862ee427a7a8789cc4dad672b03f3c9121dc3998049c129d972b72",
+    "re/tooling/sw2026/downstream/CheckUnitComponents.py": "6de807de6ad162f279b57c6298d3cc27537b0be6be144432e1e2699465022964",
+    "re/tooling/sw2026/downstream/Components.py": "80ba9c732d2c200ac04639a227dc6aa9250459a421280e2d8e09d33d32d3b9a5",
+    "re/tooling/sw2026/downstream/RecordCachePrefixSources.py": "7f0b86142b20c8ccc889ac43536bd35a557443f0ea0750f23434b25e6870cdad",
+    "re/tooling/sw2026/downstream/References.py": "7c6e0a948bdc8d097948c0712e14a4ec1f51d6d4f9f57b5723fc3c9b0139778a",
+    "re/tooling/sw2026/downstream/Storage.py": "7355bad465bdbe401b26d7e1388eac53ad7f188364ddb5b77caa5c94809c58e8",
+    "re/tooling/sw2026/downstream/SurfaceIdentities.py": "32c0fe9fde662cd1d80e2e429495e7afd87885a982d01fdcaeeb577e1f1e64bf"
+  }
+}

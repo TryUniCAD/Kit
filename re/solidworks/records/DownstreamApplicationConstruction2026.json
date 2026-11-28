@@ -1,0 +1,220 @@
+{
+  "schema": "solidworks-downstream-app-construction-v1",
+  "task": "B04-SW2026-DOWNSTREAM-ID-DATA",
+  "owner": "/root/flag_ownership",
+  "delivery_pr": 121,
+  "confidence": "confirmed static assignments; later runtime state unmeasured",
+  "module": {
+    "name": "sldworks.exe",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "bytes": 718936,
+    "machine": "0x8664",
+    "preferred_base": "0x140000000",
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "exception_directory_rva": "0x2e000",
+    "exception_directory_bytes": 7248
+  },
+  "functions": [
+    {
+      "start": "0x140009a10",
+      "end_exclusive": "0x14000a892",
+      "bytes": 3714,
+      "sha256": "7adf7bf6accbe54910736de23cd3962d2b2c8635af3adde94d64f793f9aab2c0",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "CAmApp executable constructor",
+      "unwind_fragments": [
+        {
+          "start": "0x140009a10",
+          "end_exclusive": "0x14000a892",
+          "bytes": 3714,
+          "sha256": "7adf7bf6accbe54910736de23cd3962d2b2c8635af3adde94d64f793f9aab2c0",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x22d28"
+        }
+      ]
+    },
+    {
+      "start": "0x1400065e0",
+      "end_exclusive": "0x140006600",
+      "bytes": 32,
+      "sha256": "7312ed1c3beef1970ce7d1e6f8f307f941503e29c89b01d3909b826ff6a1e58b",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "Executable static-object construction helper",
+      "unwind_fragments": [
+        {
+          "start": "0x1400065e0",
+          "end_exclusive": "0x140006600",
+          "bytes": 32,
+          "sha256": "7312ed1c3beef1970ce7d1e6f8f307f941503e29c89b01d3909b826ff6a1e58b",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x21624"
+        }
+      ]
+    }
+  ],
+  "instruction_windows": [
+    {
+      "name": "retain actual this",
+      "start": "0x140009a44",
+      "end_exclusive": "0x140009a4c",
+      "bytes": 8,
+      "sha256": "001db87ef23b30a772fed34bb3defcc241bad99aeca309ee7849bf6e394d0469",
+      "bound": "reviewed original instruction-boundary window"
+    },
+    {
+      "name": "zero retained R15D",
+      "start": "0x140009a65",
+      "end_exclusive": "0x140009a68",
+      "bytes": 3,
+      "sha256": "78869f68dea1bb1e0b5163ed7cf4084cb7fed27d7528eef8cb429c5a5821cd89",
+      "bound": "reviewed original instruction-boundary window"
+    },
+    {
+      "name": "install actual CAmApp primary table",
+      "start": "0x140009af0",
+      "end_exclusive": "0x140009afa",
+      "bytes": 10,
+      "sha256": "028b9041b7f845c63672d53993b5cf54636f550439de66caab1f0321c5c5deb5",
+      "bound": "reviewed original instruction-boundary window"
+    },
+    {
+      "name": "write zero qword at runtime this+0x464",
+      "start": "0x140009d9e",
+      "end_exclusive": "0x140009da5",
+      "bytes": 7,
+      "sha256": "e68b253c2d154a34bcc655b00aa0b56e11cb3dbd66eccb76f95ea076d8b211ce",
+      "bound": "reviewed original instruction-boundary window"
+    },
+    {
+      "name": "late embedded-member virtual call, not whole-this preservation proof",
+      "start": "0x14000a7ee",
+      "end_exclusive": "0x14000a801",
+      "bytes": 19,
+      "sha256": "0e56eebcc8a5cecd4ce5d7edad1dae0acd6eaaffddbdd742fe819420ad2e3d5f",
+      "bound": "reviewed original instruction-boundary window"
+    },
+    {
+      "name": "supply actual executable static object and call constructor",
+      "start": "0x1400065e4",
+      "end_exclusive": "0x1400065f0",
+      "bytes": 12,
+      "sha256": "e69860234f8addc2e91c90f666de1072c2c7ea8d80349405106e46564e3156d5",
+      "bound": "reviewed original instruction-boundary window"
+    }
+  ],
+  "rtti": {
+    "primary_vtable": "0x14001cda8",
+    "complete_object_locator": "0x14001f740",
+    "signature": 1,
+    "subobject_offset": 0,
+    "constructor_displacement": 0,
+    "type_descriptor": "0x14002a750",
+    "type_name": ".?AVCAmApp@@",
+    "class_hierarchy_descriptor": "0x14001f768",
+    "locator_self": "0x14001f740",
+    "locator_span": {
+      "start": "0x14001f740",
+      "end_exclusive": "0x14001f758",
+      "bytes": 24,
+      "sha256": "bca05feb016f90e737df93e18205fb9c77083fd202ace0b2fb8a6b0f1c466f14",
+      "bound": "complete MSVC x64 RTTI locator"
+    },
+    "table_prefix": {
+      "start": "0x14001cda0",
+      "end_exclusive": "0x14001cdb0",
+      "bytes": 16,
+      "sha256": "dc83dda20267c55db7be6d982c4378b690282094ccdbcffa3955e55da778cd51",
+      "bound": "COL pointer and first table cell"
+    },
+    "type_descriptor_span": {
+      "start": "0x14002a750",
+      "end_exclusive": "0x14002a76d",
+      "bytes": 29,
+      "sha256": "1d92124d359e1072a36d0415670073446a2800b6af230dac39bbda1ba7fdb3b0",
+      "bound": "type descriptor through complete null-terminated class name"
+    }
+  },
+  "rules": [
+    {
+      "id": "actual_constructor",
+      "status": "confirmed",
+      "rule": "The complete executable function constructs actual CAmApp and installs its primary RTTI-backed table at offset zero"
+    },
+    {
+      "id": "explicit_initial_assignment",
+      "status": "confirmed",
+      "member": "runtime +0x464",
+      "runtime_width_bits": 32,
+      "initial_assignment": 0,
+      "instruction_store_width_bits": 64,
+      "adjacent_member_covered": "runtime +0x468",
+      "rule": "A retained zero R15 qword explicitly initializes both words; the accessors bind +0x464 to downstream enable state"
+    },
+    {
+      "id": "full_direct_body",
+      "status": "confirmed bounded observation",
+      "rule": "The complete constructor was reviewed; its later direct stores contain no second overlap with runtime +0x464. Retained R15 stays zero until epilogue restoration"
+    },
+    {
+      "id": "actual_object_argument",
+      "status": "confirmed",
+      "object_address": "0x14002c510",
+      "callsite": "0x1400065eb",
+      "rule": "The complete construction helper supplies this static executable object directly to the constructor"
+    },
+    {
+      "id": "runtime_state",
+      "status": "unmeasured",
+      "rule": "No final startup, preference, callback, or later save state is inferred from the explicit constructor assignment"
+    }
+  ],
+  "prior_packets": [
+    {
+      "manifest": "CheckpointDelivery01.json",
+      "sha256": "de49be0855f4efd18d949aee0c0a00da2c1dfed695fda15bf5ac3327b8071f90",
+      "unchanged": true
+    },
+    {
+      "manifest": "StoreDelivery01.json",
+      "sha256": "afc5318d8e36b27bb7be9980759233b2f9d5a603617dabd2a66f0110cbca2625",
+      "unchanged": true
+    }
+  ],
+  "remaining_boundaries": [
+    "All post-construction startup and transitive callback writes are not closed",
+    "The internal setting 0x5f2 storage name and actual runtime preference are not bound here",
+    "The UI document +0x4a8 concrete manager installation remains separate from the known store endpoint",
+    "No selected saved standalone stream, full recursive alias replay, neutral populated-cache recipe or native acceptance is established"
+  ],
+  "method": {
+    "image_bytes": "unchanged pinned original PE",
+    "decoder": "Apple LLVM 21 llvm-objdump",
+    "extent_rule": "declared exception directory, complete contiguous chained unwind groups",
+    "metadata_helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad",
+    "report_producer_sha256": "837aa7e94f9a2a940b491b5c2a35023a5757ed06006060b87b81b9d02653d3c1"
+  },
+  "execution": {
+    "static_original_pe_reads": true,
+    "native_calls": false,
+    "cad_or_com": false,
+    "vm": false,
+    "preferences_or_licenses_changed": false,
+    "saved_cad_payload_reads": false,
+    "sealed_inputs": false,
+    "schema_or_codec_execution": false,
+    "tests_or_product_execution": false,
+    "rea_or_hopper_target_opened": false
+  },
+  "acceptance": {
+    "vendor_loadable": false,
+    "application_usable": false,
+    "held_out_accepted": false,
+    "status": "not measured by this static tranche"
+  },
+  "proprietary_listings_or_bytes_in_delivery": false
+}

@@ -9,11 +9,14 @@ from tempfile import TemporaryDirectory as TempDirectory
 from interchange import CadDocument
 from interchange import frozen_mapping as FreezeMapping
 
+from convert.Security.LexicalBoundary import ResolveLexical
+from convert.Security.PathBoundary import ResolveWithin
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.registry.RegistryErrors import RegistryError
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import RunCheckedMut
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.Staging.StageFileScope import StageFileScope
 
 
 # symlink aware existence protects replacement checks from dangling destination entries
@@ -193,7 +196,11 @@ def WritePathStaged(
     AllowCarrier: bool,
     NeedSelfContained: bool,
 ) -> WriteResult:
-    FinalPath = FilePath(TargetData).expanduser().resolve()
+    RequestedPath = FilePath(TargetData).expanduser().absolute()
+    ParentPath = ResolveWithin(RequestedPath.parent, FilePath(RequestedPath.anchor))
+    FinalPath = ResolveLexical(RequestedPath.name, ParentPath).resolve()
+    if not FinalPath.is_relative_to(ParentPath):
+        raise RegistryError("output path resolves outside the requested directory")
     if HasPath(FinalPath) and not OptionsData.Overwrite:
         raise FileExistsError(FinalPath)
     AbsentPaths = GetAbsentPaths(FinalPath.parent)
@@ -207,18 +214,19 @@ def WritePathStaged(
             OptionValues = dict(OptionsData.OptionValues)
             OptionValues["final_destination"] = str(FinalPath)
             OptionValues["final_overwrite"] = OptionsData.Overwrite
-            ResultData = RunCheckedMut(
-                DocumentData,
-                AdapterData,
-                StagedTarget,
-                ReplaceValue(
-                    OptionsData,
-                    overwrite=False,
-                    values=FreezeMapping(OptionValues),
-                ),
-                AllowCarrier,
-                NeedSelfContained,
-            )
+            with StageFileScope(StagedTarget, FinalPath):
+                ResultData = RunCheckedMut(
+                    DocumentData,
+                    AdapterData,
+                    StagedTarget,
+                    ReplaceValue(
+                        OptionsData,
+                        overwrite=False,
+                        values=FreezeMapping(OptionValues),
+                    ),
+                    AllowCarrier,
+                    NeedSelfContained,
+                )
             if (
                 ResultData.OutputPath is None
                 or ResultData.OutputPath.resolve() != StagedTarget.resolve()

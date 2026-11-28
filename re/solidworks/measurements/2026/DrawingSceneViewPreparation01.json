@@ -1,0 +1,47 @@
+{
+  "delivery_pr": 121,
+  "heldout_accepted": false,
+  "hidden_inputs_read": 0,
+  "input_drawings": {
+    "Inputs/Control.SLDDRW": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+    "Inputs/Generated/Disclosed01.SLDDRW": "5e5e7612b4ba3167623187673b0729ef125a55dde697f3969438c939c6124bc5",
+    "Inputs/NativeSource/Disclosed01.SLDDRW": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad"
+  },
+  "job_sha256": "37af7688381042f795b5489b5eef4132eaf96dbca1e6e737f323ecec8af71c5b",
+  "new_tool_hashes": {
+    "InspectSceneViews.py": "e04e1e5e14cdccf5ecaa1a8f20507c74694219535225cabae2cf4d066f73c0f1",
+    "OwnedSceneViews.py": "7bbdb22129ebd23d75b758ee6d5022f629c5c05f3e6766ee863e91fb48c4d575"
+  },
+  "new_tools": 2,
+  "packet_files": 24,
+  "packet_manifest_sha256": "331975071924eaa6d026577debc313eabd10da10fe5873991688177c1c94f91a",
+  "prior_queue_result_sha256": "6ccbd78f169b48cf169eb7f7be66759ce9802beef25c406aa679fd4db8e23a8d",
+  "proprietary_bytes_or_listings_included": false,
+  "runtime_execution": false,
+  "schema": "kit.sw2026.per-view-preparation.v1",
+  "source_replay": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 15,
+    "data_windows": 0,
+    "imports": 5,
+    "instruction_windows": 5,
+    "modules": 4,
+    "native_execution": false,
+    "record_sha256": "383c4d4026ec760d2f94e0abf7a280a54da74eb58acc37d5aaabe2dd3234a1f9",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 3
+  },
+  "source_replay_sha256": "510c9639320b5dfef3c082018697dedc648e0ab66ccc921e2ac309ed32d31a61",
+  "static_ast_parsed": 15,
+  "status": "prepared; root runtime pending",
+  "task": "DRAWING-NOTES-C10",
+  "tests_run": false,
+  "tools": 15,
+  "unchanged_prior_tools": 13,
+  "vm_calls": 0,
+  "writer_qualified": false
+}

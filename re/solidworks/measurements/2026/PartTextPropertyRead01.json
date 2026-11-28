@@ -1,0 +1,184 @@
+{
+  "advanced_negative": {
+    "case": "AdvancedRectangleNegative",
+    "file_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805",
+    "information_diagnostic": true,
+    "input_unchanged": true,
+    "process_exit_code": 0,
+    "process_stdout_sha256": "ad2f40261c63f358489b848e91abacbab0e7959f6a924acefe6995c9f0347357",
+    "property_status": "unsupported",
+    "qualified_text_fields": 0,
+    "retained_counts": {
+      "feature_timeline": 19,
+      "parameters": 3,
+      "sketches": 1
+    },
+    "typed_cmgr_exact_round_trip": true
+  },
+  "delivery_pr": 121,
+  "heldout_inputs_read": 0,
+  "inputs_unchanged": true,
+  "integration": {
+    "cases": [
+      "literal text dictionaries",
+      "stale binary cache",
+      "absent property streams",
+      "equation",
+      "advanced TypeID",
+      "linked value",
+      "different evaluated value",
+      "dictionary mismatch",
+      "duplicate value name",
+      "variant mismatch",
+      "unqualified XML child",
+      "stale configuration id",
+      "stale manager owner",
+      "malformed XML",
+      "doctype",
+      "utf16 doctype",
+      "advanced manager"
+    ],
+    "fresh_public_read_process_calls": 18,
+    "guarded_negative_cases": 14,
+    "passed": 3,
+    "report_sha256": "d4b32b0f131dd1577ed68ba03361bd12f8cfd8feb86b49bb6ac0bd1b259c970e",
+    "tests": 3
+  },
+  "native_processes_started": 0,
+  "new_native_acceptance": false,
+  "normal_public_processes": 6,
+  "original_native_evidence": [
+    "SdkPartPropertyNative01.json",
+    "PartPropertySources01.json"
+  ],
+  "passed": true,
+  "positive_cases": [
+    {
+      "case": "PolygonGenerated",
+      "cmgr_map_counter": 10,
+      "cmgr_property_records": 0,
+      "cmgr_round_trip": true,
+      "cmgr_sha256": "4311827a4ead991852d6771d99aa4ccc82c7ce78d53f4b3a16621e213caef088",
+      "configuration_name": "modeled default",
+      "configuration_property_count": 1,
+      "exact_dictionary_comparison": true,
+      "expected_evidence": {
+        "expected_request_sha256": "9129993976bd060e0cbea10c0ba0e837334d68964daf65bc4e8f091f69e84bf2"
+      },
+      "file_property_count": 2,
+      "file_sha256": "0d3ec3a66fa50793bc54f18d2b9b16cf5aef7a58545f2cd527b2c1a240922062",
+      "input_unchanged": true,
+      "native_configuration_id": 0,
+      "process_exit_code": 0,
+      "process_stdout_sha256": "d47f3e4f387c29c7f4ce6f027eef43b4c21d16aa1bb723f4e65533488061d5e1",
+      "summary_field_count": 4
+    },
+    {
+      "case": "CircleGenerated",
+      "cmgr_map_counter": 10,
+      "cmgr_property_records": 0,
+      "cmgr_round_trip": true,
+      "cmgr_sha256": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+      "configuration_name": "modeled default",
+      "configuration_property_count": 2,
+      "exact_dictionary_comparison": true,
+      "expected_evidence": {
+        "expected_request_sha256": "ef966168c7f3fa7765ba0ab88a0f716778c785ddc55be80ed5a035c3897cc125"
+      },
+      "file_property_count": 3,
+      "file_sha256": "392c5b51b63761f4bba2baf6dc0715de4af8d3e5036b83a42e0f388031cc6edd",
+      "input_unchanged": true,
+      "native_configuration_id": 0,
+      "process_exit_code": 0,
+      "process_stdout_sha256": "057bc371edca0b09b5e93516f8dc2723f06fb8eed99afadf87ec95b1f74b8669",
+      "summary_field_count": 3
+    },
+    {
+      "case": "PolygonSaved",
+      "cmgr_map_counter": 23,
+      "cmgr_property_records": 4,
+      "cmgr_round_trip": true,
+      "cmgr_sha256": "ddddccf097f9226e0d79e53108ed650c01c259e032d0007b28508ed45504bb62",
+      "configuration_name": "modeled default",
+      "configuration_property_count": 1,
+      "exact_dictionary_comparison": true,
+      "expected_evidence": {
+        "expected_record_sha256": "03e31da4b1e97e88af6c6ed945973b20be235191745b2afcf4725f73e0347d6a"
+      },
+      "file_property_count": 2,
+      "file_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14",
+      "input_unchanged": true,
+      "native_configuration_id": 0,
+      "process_exit_code": 0,
+      "process_stdout_sha256": "1159ca757f25bd01f1ac09d6ebbc36dae366a6dec64f171f84692fa5d8f2fe33",
+      "summary_field_count": 4
+    },
+    {
+      "case": "CircleSaved",
+      "cmgr_map_counter": 23,
+      "cmgr_property_records": 7,
+      "cmgr_round_trip": true,
+      "cmgr_sha256": "4cb42632b5866f4261b1a4857b665e459682a5b368f7f6d6810e09c982bdc611",
+      "configuration_name": "modeled default",
+      "configuration_property_count": 2,
+      "exact_dictionary_comparison": true,
+      "expected_evidence": {
+        "expected_record_sha256": "6b2aea71137e4f7b231cd1ad4c1d92bb46528afa3a111108749755b4b1722f95"
+      },
+      "file_property_count": 3,
+      "file_sha256": "8007d21df3db5fc58c23d3fe589cfc15cf274ac83d9b2daa4878ee792e104e30",
+      "input_unchanged": true,
+      "native_configuration_id": 0,
+      "process_exit_code": 0,
+      "process_stdout_sha256": "2ab4573ac814865bd388d1cc0cf22611b4601114493ef89dbe239f509996b259",
+      "summary_field_count": 3
+    },
+    {
+      "case": "CircleAuthored",
+      "cmgr_map_counter": 23,
+      "cmgr_property_records": 7,
+      "cmgr_round_trip": true,
+      "cmgr_sha256": "bac2ab3aba23b0a18bfaa98eb2d4cb9117f81ccee67f26569a27e4aaaab9a399",
+      "configuration_name": "modeled default",
+      "configuration_property_count": 2,
+      "exact_dictionary_comparison": true,
+      "expected_evidence": {
+        "expected_record_sha256": "2d3e7c0fdb5e32d482e5fde77b7b8359bbed07dda8e937856fb3979c49e3ee7c"
+      },
+      "file_property_count": 3,
+      "file_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "input_unchanged": true,
+      "native_configuration_id": 0,
+      "process_exit_code": 0,
+      "process_stdout_sha256": "d46ead3528432102d4b770f9b9ee2895d2a1823629e5482a16becdc0a625b682",
+      "summary_field_count": 3
+    }
+  ],
+  "public_writer_admission_changed": false,
+  "raw_result_sha256": "5741b9ee4accb1cdfbf820b1774136e62ae75f8bc9cd3f3c16d92d77022792e1",
+  "remaining_scope": [
+    "advanced manager ownership/value projection",
+    "linked or equation values",
+    "other variant types",
+    "native multiple-configuration qualification",
+    "complete property conversion and heldout qualification"
+  ],
+  "schema": "kit.sw2026.part-text-property-read.v1",
+  "scope": "normal SDK native part compatible literal-text projection; advanced optional metadata remains guarded",
+  "source_file_count": 4191,
+  "source_manifest_sha256": "948c1bcd8a296c262fbd5fa86652132c874ff9e1b646210a040ac4423a3f7ff0",
+  "static_checks": {
+    "black": "passed",
+    "pyright": "passed",
+    "recorded_payload_scan": "passed",
+    "ruff": "passed",
+    "steering": "passed",
+    "strict_mypy": "passed"
+  },
+  "task": "B04-SW2026-PARTPROPS-READ",
+  "tools": {
+    "re/tooling/sw2026/CheckPartTextReading.py": "2b2211f4068e0f51791da42449987b8bd3f18516b872751bb5849876d1951030",
+    "re/tooling/sw2026/ReadPartTextProbe.py": "768f1c5b4e315199431a7081f1cb6eda91a7f8bb9cdb556f9c58732ca53c5ba9"
+  },
+  "typed_cmgr_exact_round_trips": 6
+}

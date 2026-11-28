@@ -1,0 +1,5 @@
+# Sweep section cache records last access
+
+A Standard swept boss can carry an unresolved Path wrapper and a populated Section wrapper even when both references select ordinary sketches in the same model. The native shared constructor sets `f08=101` with `f0c=-1`. Those values remain on the Path reference in the measured files. The Section wrapper's `f08` changes from 121 to 155 after either independent sketch edit, despite the corresponding sweep mode and native reference remaining stable.
+
+On the pinned 2026 SP05.2 build, `moGeneralCurveRef_w` dispatches virtual slot `+0x3c8` to `0x4c3211d0`. After resolving geometry and installing its actual body at `0x4c321713`, it sets `f68=1` and calls `moRefWrapper_c::iUpdateLastAccess` at `0x4c321749`. The same-model branch assigns its current header update word and active configuration ID. These are access-time values and need not equal the final save stamp. A fresh model that already attaches the computed sheet supplies its own update and configuration state. [Construction anchors and disclosed observations](../../../../../re/solidworks/records/OrdinarySweepColdConstruction2026.md)

@@ -1,0 +1,502 @@
+{
+  "archive_files_written": 0,
+  "baseline": "758c9f1ca1e75e6e00af40d83bdd75965dd78c54",
+  "disclosed_read_after_generation": true,
+  "disclosed_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+  "external_access_attempts": 0,
+  "generated": {
+    "disclosed-depth-edit": {
+      "archive": [
+        8580,
+        "4198d4cb9f03c15b02981f956976af84aba2b5bdc76f1e889315a2bebfd19608"
+      ],
+      "body_face_counts": [
+        6,
+        8
+      ],
+      "body_order": [
+        [
+          "body:untouched",
+          "stock:2"
+        ],
+        [
+          "body:result",
+          "cut"
+        ]
+      ],
+      "combined_volume_area_com_mm": [
+        4504.306035734237,
+        2368.169391592174,
+        [
+          16.312929487359185,
+          3.2902804389511133,
+          8.163263313526532
+        ]
+      ],
+      "cut_brep_sha256": "e6204e2c4245adf4f8e871a5c3d533f3b49d93ed70c6b169a2ab41f3591b3dcb",
+      "cut_intersects_untouched_stock": true,
+      "cut_owner": {
+        "f810": 1,
+        "feature_id": 25,
+        "profile_id": 24,
+        "result_and_chooser_state": "pending_native_regeneration",
+        "scope": 1,
+        "selected_atom_id": 101,
+        "selected_feature_id": 19
+      },
+      "linked_round_trip": [
+        "Contents/Config-0-ModelHeader",
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "neutral_document_sha256": "034b9a4ffe4386bcaa02b86e185da3ac35d10aeb57740226e19dcea53f776f87",
+      "ordinary_cold_reader_refusal": "cold name requires one fresh actual atom manager member",
+      "root_count": 23,
+      "saved_lineage_refusal": "two stock operation has alternate body collections",
+      "stock_owners": [
+        {
+          "archive_atom_id": 101,
+          "d1_id": 20,
+          "depth_m": 0.012,
+          "f810": -1,
+          "feature_id": 19,
+          "feature_name": "SteadyStock",
+          "native_class": "moExtrusion_c",
+          "profile_id": 18,
+          "signed_normal": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "archive_atom_id": 102,
+          "d1_id": 23,
+          "depth_m": 0.029,
+          "f810": 0,
+          "feature_id": 22,
+          "feature_name": "MovingStock",
+          "native_class": "moICE_c",
+          "profile_id": 21,
+          "signed_normal": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "streams": {
+        "Contents/CMgr": [
+          1129,
+          "9d218db2b0f207beb54a842000f7ac4efd260dd07e1e19c7a3e17de593717405"
+        ],
+        "Contents/CMgrHdr2": [
+          137,
+          "457d1dad3e3d34774bab2ce6621eadd06239465120786dd3343a6c3fed64fba4"
+        ],
+        "Contents/Config-0": [
+          22474,
+          "c7f86e12c9173b000158aca53f5800da65f5eacc24473009b0ce68a8317ca674"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          699,
+          "845bdefb96233c69f67f6075b566355f6c05146bacd90e42671d38cc08a054cc"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          14904,
+          "2cf9b902e5c3525d5bd4cd306a7527ba15c0814c1eecb9664cd2f2bf695a2b1f"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          699,
+          "326f70b08a6c54715fa3ff1b5a5f5466a682de8a93c1c539d901aae935fa93c9"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "ee6d7a76ecbea92ecb33aae9e55f59e7c0b35447150d5c08a3a5cea874fe0941"
+        ],
+        "swXmlContents/KeyWords": [
+          1785,
+          "d9a4f69d520116e35f33480b31b66f32ab4a5bbdaf7aaee5d77a8af700d69492"
+        ]
+      }
+    },
+    "disclosed-initial": {
+      "archive": [
+        8588,
+        "c96a7c4eb844f3f65acff205930c7fb03509492a568d810c99fdd5c831ac50ca"
+      ],
+      "body_face_counts": [
+        6,
+        8
+      ],
+      "body_order": [
+        [
+          "body:untouched",
+          "stock:2"
+        ],
+        [
+          "body:result",
+          "cut"
+        ]
+      ],
+      "combined_volume_area_com_mm": [
+        2376.3060357342374,
+        1532.1693915921742,
+        [
+          13.45888377569052,
+          -0.9273089940594872,
+          7.413959292058028
+        ]
+      ],
+      "cut_brep_sha256": "e6204e2c4245adf4f8e871a5c3d533f3b49d93ed70c6b169a2ab41f3591b3dcb",
+      "cut_intersects_untouched_stock": false,
+      "cut_owner": {
+        "f810": 1,
+        "feature_id": 25,
+        "profile_id": 24,
+        "result_and_chooser_state": "pending_native_regeneration",
+        "scope": 1,
+        "selected_atom_id": 101,
+        "selected_feature_id": 19
+      },
+      "linked_round_trip": [
+        "Contents/Config-0-ModelHeader",
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "neutral_document_sha256": "5a9885692a407ead3fd538949f2b3b11819e9b64995db2c33f75c6a7544dd42c",
+      "ordinary_cold_reader_refusal": "cold name requires one fresh actual atom manager member",
+      "root_count": 23,
+      "saved_lineage_refusal": "two stock operation has alternate body collections",
+      "stock_owners": [
+        {
+          "archive_atom_id": 101,
+          "d1_id": 20,
+          "depth_m": 0.012,
+          "f810": -1,
+          "feature_id": 19,
+          "feature_name": "SteadyStock",
+          "native_class": "moExtrusion_c",
+          "profile_id": 18,
+          "signed_normal": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "archive_atom_id": 102,
+          "d1_id": 23,
+          "depth_m": 0.01,
+          "f810": 0,
+          "feature_id": 22,
+          "feature_name": "MovingStock",
+          "native_class": "moICE_c",
+          "profile_id": 21,
+          "signed_normal": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "streams": {
+        "Contents/CMgr": [
+          1129,
+          "9d218db2b0f207beb54a842000f7ac4efd260dd07e1e19c7a3e17de593717405"
+        ],
+        "Contents/CMgrHdr2": [
+          137,
+          "457d1dad3e3d34774bab2ce6621eadd06239465120786dd3343a6c3fed64fba4"
+        ],
+        "Contents/Config-0": [
+          22474,
+          "c7f86e12c9173b000158aca53f5800da65f5eacc24473009b0ce68a8317ca674"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          699,
+          "845bdefb96233c69f67f6075b566355f6c05146bacd90e42671d38cc08a054cc"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          14904,
+          "65afa828340d1f3396c8bc20dfed7d0310aa6037c807b560464ed8a069282c2b"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          699,
+          "326f70b08a6c54715fa3ff1b5a5f5466a682de8a93c1c539d901aae935fa93c9"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "ee6d7a76ecbea92ecb33aae9e55f59e7c0b35447150d5c08a3a5cea874fe0941"
+        ],
+        "swXmlContents/KeyWords": [
+          1785,
+          "8537c92003f67a4d2b5618bdce0add33175397580e70b17cc606607b8c1ba27a"
+        ]
+      }
+    },
+    "second-selected": {
+      "archive": [
+        8635,
+        "31bacf513f1704b0c7f2559fe25cb57d202f4363396f294d8cf0363a67ff39d8"
+      ],
+      "body_face_counts": [
+        8,
+        6
+      ],
+      "body_order": [
+        [
+          "body:result",
+          "cut"
+        ],
+        [
+          "body:untouched",
+          "stock:1"
+        ]
+      ],
+      "combined_volume_area_com_mm": [
+        2234.849010288429,
+        1351.0409526957656,
+        [
+          1.0249161300496188,
+          -4.945764605512689,
+          6.856014445306794
+        ]
+      ],
+      "cut_brep_sha256": "e83ac329dd9989f4b3653ee57e8efbebbb04fc27f58032e9a430b583b5f1970d",
+      "cut_intersects_untouched_stock": false,
+      "cut_owner": {
+        "f810": 1,
+        "feature_id": 25,
+        "profile_id": 24,
+        "result_and_chooser_state": "pending_native_regeneration",
+        "scope": 1,
+        "selected_atom_id": 102,
+        "selected_feature_id": 22
+      },
+      "linked_round_trip": [
+        "Contents/Config-0-ModelHeader",
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "neutral_document_sha256": "2cc962ae65e28f5f743e15cbf523fbd781e9231afe7c9ae80d32380d76d1e62e",
+      "ordinary_cold_reader_refusal": "cold name requires one fresh actual atom manager member",
+      "root_count": 23,
+      "saved_lineage_refusal": null,
+      "stock_owners": [
+        {
+          "archive_atom_id": 101,
+          "d1_id": 20,
+          "depth_m": 0.0075,
+          "f810": -1,
+          "feature_id": 19,
+          "feature_name": "AlphaSolid",
+          "native_class": "moExtrusion_c",
+          "profile_id": 18,
+          "signed_normal": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "archive_atom_id": 102,
+          "d1_id": 23,
+          "depth_m": 0.0095,
+          "f810": 0,
+          "feature_id": 22,
+          "feature_name": "IndependentRightPrism",
+          "native_class": "moICE_c",
+          "profile_id": 21,
+          "signed_normal": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "streams": {
+        "Contents/CMgr": [
+          1129,
+          "9d218db2b0f207beb54a842000f7ac4efd260dd07e1e19c7a3e17de593717405"
+        ],
+        "Contents/CMgrHdr2": [
+          137,
+          "457d1dad3e3d34774bab2ce6621eadd06239465120786dd3343a6c3fed64fba4"
+        ],
+        "Contents/Config-0": [
+          22474,
+          "c7f86e12c9173b000158aca53f5800da65f5eacc24473009b0ce68a8317ca674"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          699,
+          "845bdefb96233c69f67f6075b566355f6c05146bacd90e42671d38cc08a054cc"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          14992,
+          "706ca352b9fad7f3eabec43a97c4a04e9a5f1a945a230dcc2aa1a2f81a29632c"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          699,
+          "326f70b08a6c54715fa3ff1b5a5f5466a682de8a93c1c539d901aae935fa93c9"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "ee6d7a76ecbea92ecb33aae9e55f59e7c0b35447150d5c08a3a5cea874fe0941"
+        ],
+        "swXmlContents/KeyWords": [
+          1795,
+          "33d44a6c609cc034753146ae3ca7b44c8ff5a0ea64993c5bbfa6646630a46a39"
+        ]
+      }
+    }
+  },
+  "guarded_processes": 13,
+  "held_out_cases": 0,
+  "in_memory_archive_only": true,
+  "independent_repeat_exact": true,
+  "native_acceptance_runs": 0,
+  "saved_typed_comparison": {
+    "owners": [
+      {
+        "d1_id": 27,
+        "depth_m": 0.012,
+        "end_f158": 0,
+        "f810": -1,
+        "feature_id": 32,
+        "native_class": "moExtrusion_c",
+        "owners_f4a8_f4b0_f4c0_f528_f530_f548": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "profile_id": 26,
+        "scope": 0,
+        "signed_normal": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "d1_id": 34,
+        "depth_m": 0.01,
+        "end_f158": 1,
+        "f810": 0,
+        "feature_id": 40,
+        "native_class": "moICE_c",
+        "owners_f4a8_f4b0_f4c0_f528_f530_f548": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "profile_id": 33,
+        "scope": 0,
+        "signed_normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "d1_id": null,
+        "depth_m": null,
+        "end_f158": 1754710080,
+        "f810": 1,
+        "feature_id": 47,
+        "native_class": "moICE_c",
+        "owners_f4a8_f4b0_f4c0_f528_f530_f548": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "profile_id": 41,
+        "scope": 1,
+        "signed_normal": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ],
+    "realized_atoms": [
+      [
+        101,
+        32,
+        1
+      ],
+      [
+        102,
+        40,
+        0
+      ],
+      [
+        103,
+        47,
+        0
+      ]
+    ],
+    "selected_index": 0,
+    "wrapper": {
+      "f100": 90,
+      "f104": 103,
+      "f108": 32,
+      "face_class": "moFaceRef_c"
+    }
+  },
+  "schema": "kit.sw2026.cold-two-stock-owner-graph.v1",
+  "tool_sha256": {
+    "re/tooling/sw2026/throughsource/twostockgraph/BuildTwoStockGraph.py": "d245ed4565dff661a1552f8cbe935b4044609376fab34018f128fba5ca1760a0",
+    "re/tooling/sw2026/throughsource/twostockgraph/LinkTwoStockGraph.py": "8072f66b5e9654ed0a11226a0f537d5e56aa40704d0609b3fdc29e78dfa61b17",
+    "re/tooling/sw2026/throughsource/twostockgraph/ProveTwoStockGraph.py": "5c5f0ecb0f06cab042c5af754938ac82b66229585d476d8d622c5c97fa5dfb3d",
+    "re/tooling/sw2026/throughsource/twostockshape/BuildTwoStockShape.py": "a1147d66e0edbaaec5aa0461699c6f6d9c3d18d0302efaf5213317384f741a83",
+    "re/tooling/sw2026/throughsource/twostockshape/ProofModels.py": "0e72d9b5161316671773ee366540eac5c1b308f84144d47c890b9ef38c1e9bbf",
+    "re/tooling/sw2026/throughsource/twostockshape/ShapeIntent.py": "7d0741ce00864d0bd8d424edc54a138a71721996e34f0a77746ff5deac082295"
+  },
+  "typed_refusals": {
+    "crossed-depth": "independent stocks share an actual driving depth owner",
+    "crossed-selection": "cut selection wrapper differs from the consumed boss atom",
+    "crossed-stock": "cut atom identity does not agree with its solid producer",
+    "explicit-body-name": "two stock owner graph requires implicit feature-derived body names",
+    "joined-second": "independent extrusion requires its actual new solid mode",
+    "negative-support": "two stock archive graph requires canonical positive Front and Right supports",
+    "premature-chooser": "pre-rebuild cut has an unproven result or chooser owner",
+    "reversed-stock": "two stock archive graph requires forward blind stock ends"
+  }
+}

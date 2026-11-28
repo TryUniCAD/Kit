@@ -1,0 +1,24 @@
+{
+  "heldout_credit": 0,
+  "method": "Exact original signed-install PE image pins, x64 unwind intervals and bounded stateless LLVM analysis; no application execution",
+  "native_runs": 0,
+  "new_hopper_or_rea_target": false,
+  "predecessor_packet_sha256": "91a9937757bb131474a01f003182566935fbbe33a0416bea19a2c0767321eebf",
+  "registered_classes": 5,
+  "registered_scalar_links": 14,
+  "result": {
+    "complete_receive_or_load_chain_preservation_qualified": false,
+    "current_schema_default_decoder_bound": true,
+    "native_direct_id_sort_or_relink_observed_in_bounded_decoder": false,
+    "remaining_gap": "Later MOD receive compatibility/normalization and complete application load must still be excluded or measured",
+    "scalar_chain_reference_decode_and_same_slot_fixup_bound": true
+  },
+  "schema": "kit.sw2026.parasolid-receive-chain-source-receipt.v1",
+  "shared_checkout_writes": false,
+  "source_functions": 24,
+  "source_inputs_read_in_this_followup": 0,
+  "source_record": "re/solidworks/records/ParasolidReceiveChainLinks2026.json",
+  "source_record_sha256": "52f870652cea8f73ee1cc9cefb3120dc5f2c3a80005c36675a050ea5574c5c46",
+  "task_id": "B04-SW2026-KERNEL-RECEIVE-CHAINS",
+  "vendor_bytes_or_listings_published": false
+}

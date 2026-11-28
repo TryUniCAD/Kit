@@ -1,0 +1,658 @@
+{
+  "acquisition": {
+    "functions": [
+      {
+        "entry": "0x4b2dc600",
+        "fragments": [
+          {
+            "bytes": 39,
+            "end_exclusive": "0x4b2dc627",
+            "file_offset": 1686016,
+            "name": "complete unwind fragment",
+            "sha256": "09c16624c0d0ad81a944ffe9f2fe1227f9376ab533033c5bab428f0e1502d99d",
+            "start": "0x4b2dc600"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "helper constructor"
+      },
+      {
+        "entry": "0x4b75a880",
+        "fragments": [
+          {
+            "bytes": 1779,
+            "end_exclusive": "0x4b75af73",
+            "file_offset": 6397056,
+            "name": "complete unwind fragment",
+            "sha256": "703588205d43d1bd90959a2f61f62424720f2815165a63b523a46513956055f3",
+            "start": "0x4b75a880"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "default edge role construction"
+      },
+      {
+        "entry": "0x4be9b1f0",
+        "fragments": [
+          {
+            "bytes": 102,
+            "end_exclusive": "0x4be9b256",
+            "file_offset": 14001648,
+            "name": "complete unwind fragment",
+            "sha256": "872cc9b5918d0e5749a263c6e61d65a8f1aa3bcc05d525c49a01bd8eba932700",
+            "start": "0x4be9b1f0"
+          },
+          {
+            "bytes": 208,
+            "end_exclusive": "0x4be9b326",
+            "file_offset": 14001750,
+            "name": "complete unwind fragment",
+            "sha256": "b0921ed1a87e6641acb1853fdfce1ac25d51ce6ed0ade71855fd3d60f6bb664c",
+            "start": "0x4be9b256"
+          },
+          {
+            "bytes": 24,
+            "end_exclusive": "0x4be9b33e",
+            "file_offset": 14001958,
+            "name": "complete unwind fragment",
+            "sha256": "ab2ad1ac287a6b7271a5f0fe48a9560a130d7457f82ff8677d40443a0067e72b",
+            "start": "0x4be9b326"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "actual face surface lookup"
+      },
+      {
+        "entry": "0x4c6c3300",
+        "fragments": [
+          {
+            "bytes": 7964,
+            "end_exclusive": "0x4c6c521c",
+            "file_offset": 22554368,
+            "name": "complete unwind fragment",
+            "sha256": "f62232ced75f790da2bb82690c81dcb0ed4938b8d90fb95c23bcaa67d879da40",
+            "start": "0x4c6c3300"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "surface materializer"
+      },
+      {
+        "entry": "0x4c6c0a40",
+        "fragments": [
+          {
+            "bytes": 199,
+            "end_exclusive": "0x4c6c0b07",
+            "file_offset": 22543936,
+            "name": "complete unwind fragment",
+            "sha256": "00e19013f8689e59195e1c367a09b626105a67b5466415a99f9a4161090124a3",
+            "start": "0x4c6c0a40"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "cap attribute constructor"
+      },
+      {
+        "entry": "0x4c6c28f0",
+        "fragments": [
+          {
+            "bytes": 224,
+            "end_exclusive": "0x4c6c29d0",
+            "file_offset": 22551792,
+            "name": "complete unwind fragment",
+            "sha256": "745dc61c02c729447623cc40c50f13ca619e1b280b3d0da417f45b333ab95225",
+            "start": "0x4c6c28f0"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "side attribute constructor"
+      },
+      {
+        "entry": "0x4c6cee50",
+        "fragments": [
+          {
+            "bytes": 90,
+            "end_exclusive": "0x4c6ceeaa",
+            "file_offset": 22602320,
+            "name": "complete unwind fragment",
+            "sha256": "94f657c7d54ec0e0bf43855c1af9d3033dc7eaf2668bc2d85ead82e9b743502a",
+            "start": "0x4c6cee50"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "embedded entity pointer retention"
+      },
+      {
+        "entry": "0x4bb35890",
+        "fragments": [
+          {
+            "bytes": 41,
+            "end_exclusive": "0x4bb358b9",
+            "file_offset": 10439824,
+            "name": "complete unwind fragment",
+            "sha256": "ea8a7d2d56bd1799900398bfbc447fa476054878329282bf572b4e7498d6d475",
+            "start": "0x4bb35890"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "live external file get"
+      },
+      {
+        "entry": "0x4bb34480",
+        "fragments": [
+          {
+            "bytes": 88,
+            "end_exclusive": "0x4bb344d8",
+            "file_offset": 10434688,
+            "name": "complete unwind fragment",
+            "sha256": "bc1ebfa3e44cc59d80cba1c3d5ea6e30bf1e84720fe952ce5c8f137b393c7bf8",
+            "start": "0x4bb34480"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "explicit file owner feature reference constructor"
+      },
+      {
+        "entry": "0x4bb5dff0",
+        "fragments": [
+          {
+            "bytes": 120,
+            "end_exclusive": "0x4bb5e068",
+            "file_offset": 10605552,
+            "name": "complete unwind fragment",
+            "sha256": "52edef451167fee0dad1ba178eaa44cae0a8919857bcf0d53e9ac2084277f2fa",
+            "start": "0x4bb5dff0"
+          }
+        ],
+        "module": "sldmodu.dll",
+        "name": "set copied feature reference"
+      },
+      {
+        "entry": "0x43b3a800",
+        "fragments": [
+          {
+            "bytes": 12,
+            "end_exclusive": "0x43b3a80c",
+            "file_offset": 4168704,
+            "name": "complete leaf",
+            "sha256": "eff95b0920760d210dc29d3d256ab9ed5a58b2f16dafcdff136e0c0608b6e194",
+            "start": "0x43b3a800"
+          }
+        ],
+        "module": "sldgcu.dll",
+        "name": "publish selected helper"
+      },
+      {
+        "entry": "0x43e75840",
+        "fragments": [
+          {
+            "bytes": 30,
+            "end_exclusive": "0x43e7585e",
+            "file_offset": 7556160,
+            "name": "complete unwind fragment",
+            "sha256": "0832847f1f360d74c064030a2b61e0928b0c2c8e6b5287a8802e842f35e7b972",
+            "start": "0x43e75840"
+          }
+        ],
+        "module": "sldgcu.dll",
+        "name": "backend helper setter bridge"
+      },
+      {
+        "entry": "0x43e868b0",
+        "fragments": [
+          {
+            "bytes": 31,
+            "end_exclusive": "0x43e868cf",
+            "file_offset": 7625904,
+            "name": "complete unwind fragment",
+            "sha256": "2a3bb0ac36501f5bb3008e7f0560eec77941b3ebe1bc591a6c5fdfeb8702c08a",
+            "start": "0x43e868b0"
+          }
+        ],
+        "module": "sldgcu.dll",
+        "name": "backend surface representation bridge"
+      },
+      {
+        "entry": "0x32f83a70",
+        "fragments": [
+          {
+            "bytes": 8,
+            "end_exclusive": "0x32f83a78",
+            "file_offset": 77424,
+            "name": "complete leaf",
+            "sha256": "2b953edc74b071a70de07192c6b88d08dbb4d82078ae2ad4ddb06d4cd0af0ab9",
+            "start": "0x32f83a70"
+          }
+        ],
+        "module": "sldgciParau.dll",
+        "name": "publish backend helper"
+      },
+      {
+        "entry": "0x32f95920",
+        "fragments": [
+          {
+            "bytes": 1184,
+            "end_exclusive": "0x32f95dc0",
+            "file_offset": 150816,
+            "name": "complete unwind fragment",
+            "sha256": "09e2de89f6b24d530e081ca5235e9364d5be7a8fed0f2157855fe64d31942683",
+            "start": "0x32f95920"
+          }
+        ],
+        "module": "sldgciParau.dll",
+        "name": "backend environment constructor"
+      },
+      {
+        "entry": "0x32fa2a00",
+        "fragments": [
+          {
+            "bytes": 46,
+            "end_exclusive": "0x32fa2a2e",
+            "file_offset": 204288,
+            "name": "complete unwind fragment",
+            "sha256": "b6815273552a2d9874a915f9063a07a956943c7d902ac2f6682de78077fd53a6",
+            "start": "0x32fa2a00"
+          }
+        ],
+        "module": "sldgciParau.dll",
+        "name": "new surface id or legacy pointer selection"
+      },
+      {
+        "entry": "0x32fa2780",
+        "fragments": [
+          {
+            "bytes": 513,
+            "end_exclusive": "0x32fa2981",
+            "file_offset": 203648,
+            "name": "complete unwind fragment",
+            "sha256": "03332276cdc3ea98f84828c5f67f83867a78ea1bd4b1a4d4973fed19ddefb910",
+            "start": "0x32fa2780"
+          }
+        ],
+        "module": "sldgciParau.dll",
+        "name": "surface id data owner and materializing virtual"
+      },
+      {
+        "entry": "0x49e7eae0",
+        "fragments": [
+          {
+            "bytes": 898,
+            "end_exclusive": "0x49e7ee62",
+            "file_offset": 16637664,
+            "name": "complete unwind fragment",
+            "sha256": "6ca1df533d67f6d1e4fe07ea0d0f52993144c674662bcff035a26a7240ab089b",
+            "start": "0x49e7eae0"
+          }
+        ],
+        "module": "slduiu.dll",
+        "name": "ui helper initialization owner"
+      },
+      {
+        "entry": "0x180120b90",
+        "fragments": [
+          {
+            "bytes": 2120,
+            "end_exclusive": "0x1801213d8",
+            "file_offset": 1179536,
+            "name": "complete unwind fragment",
+            "sha256": "39eb0e925334909eab4699c560751fad5eea1a765849b37818fa100b963edcc9",
+            "start": "0x180120b90"
+          }
+        ],
+        "module": "sldcoreu.dll",
+        "name": "core helper initialization owner"
+      }
+    ],
+    "images": [
+      {
+        "bytes": 46536280,
+        "name": "sldmodu.dll",
+        "preferred_base": "0x4b140000",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      {
+        "bytes": 10893912,
+        "name": "sldgcu.dll",
+        "preferred_base": "0x43740000",
+        "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+      },
+      {
+        "bytes": 1875032,
+        "name": "sldgciParau.dll",
+        "preferred_base": "0x32f70000",
+        "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+      },
+      {
+        "bytes": 36036696,
+        "name": "slduiu.dll",
+        "preferred_base": "0x48ea0000",
+        "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+      },
+      {
+        "bytes": 5416536,
+        "name": "sldcoreu.dll",
+        "preferred_base": "0x180000000",
+        "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3"
+      }
+    ],
+    "materializer_table_cell": {
+      "bytes": 8,
+      "end_exclusive": "0x4cdcb338",
+      "file_offset": 29924656,
+      "name": "slot for materializing from entity data",
+      "sha256": "c8bfb850939bb7b0854e0fca7e28655378bcc1d366feb8921f5540b95cec7869",
+      "start": "0x4cdcb330"
+    },
+    "materializer_virtual_slot": 8,
+    "native_inputs_read": 0,
+    "schema": "kit.sw2026.downstream-surface-lookup-owners.v1",
+    "source_build": "34.5.2.0604",
+    "surface_representations": [
+      {
+        "allocates_new": true,
+        "branch_entry": "0x4c6c3cb9",
+        "file_owner_rule": "first runtime pointer from attribute pointer field one",
+        "jump_cell": {
+          "bytes": 4,
+          "end_exclusive": "0x4c6c50a4",
+          "file_offset": 22561952,
+          "name": "materializer dispatch entry",
+          "sha256": "63d31ae625764b7e012276ca1360022fbd7345943857715ce88ec272e37d0fb2",
+          "start": "0x4c6c50a0"
+        },
+        "materialized_vtable": "0x4cf705a8",
+        "primary_id_kind": 40
+      },
+      {
+        "allocates_new": true,
+        "branch_entry": "0x4c6c47d2",
+        "file_owner_rule": "first runtime pointer from attribute pointer field one",
+        "jump_cell": {
+          "bytes": 4,
+          "end_exclusive": "0x4c6c512c",
+          "file_offset": 22562088,
+          "name": "materializer dispatch entry",
+          "sha256": "262a2c1050ce468848be707472eb7b187619d7ac23fe70168407e989c2dc8b3f",
+          "start": "0x4c6c5128"
+        },
+        "materialized_vtable": "0x4cf6ab10",
+        "primary_id_kind": 74
+      }
+    ],
+    "vendor_runs": 0,
+    "wire_scope": "surface lookups on the selected new-ID Parasolid path with their actual live file owner"
+  },
+  "clone": {
+    "complete_functions": [
+      {
+        "entry": "0x4c6cf810",
+        "fragments": [
+          {
+            "bytes": 195,
+            "end_exclusive": "0x4c6cf8d3",
+            "file_offset": 22604816,
+            "name": "complete unwind fragment",
+            "sha256": "a98b0f86358641ae89dd9fba0f2a7e8ba093c53a2b5333d6df7553541502c2e6",
+            "start": "0x4c6cf810"
+          }
+        ],
+        "name": "End face clone"
+      },
+      {
+        "entry": "0x4c6cfbe0",
+        "fragments": [
+          {
+            "bytes": 86,
+            "end_exclusive": "0x4c6cfc36",
+            "file_offset": 22605792,
+            "name": "complete unwind fragment",
+            "sha256": "be2b5eab72ba6eceb0fc47b5e8950ec32d7548d974401f25d623a2f5089650ea",
+            "start": "0x4c6cfbe0"
+          }
+        ],
+        "name": "Sketch-entity surface clone"
+      },
+      {
+        "entry": "0x4c6c0930",
+        "fragments": [
+          {
+            "bytes": 115,
+            "end_exclusive": "0x4c6c09a3",
+            "file_offset": 22543664,
+            "name": "complete unwind fragment",
+            "sha256": "f61b20ac5fdcba1915f4585100368ca1a18a6b117dea17b38a71526c3e67e10d",
+            "start": "0x4c6c0930"
+          }
+        ],
+        "name": "Copy end face"
+      },
+      {
+        "entry": "0x4c6c2800",
+        "fragments": [
+          {
+            "bytes": 109,
+            "end_exclusive": "0x4c6c286d",
+            "file_offset": 22551552,
+            "name": "complete unwind fragment",
+            "sha256": "d74955501e27ac1c1f2db53df8334c2dc5ec51dc33756f80954a5c27dd4ec91f",
+            "start": "0x4c6c2800"
+          }
+        ],
+        "name": "Copy sketch-entity surface"
+      },
+      {
+        "entry": "0x4bb5d230",
+        "fragments": [
+          {
+            "bytes": 110,
+            "end_exclusive": "0x4bb5d29e",
+            "file_offset": 10602032,
+            "name": "complete unwind fragment",
+            "sha256": "f0137e996210205518f01e3edcde31a41b652882519b2e83c94c6eeb830eb37d",
+            "start": "0x4bb5d230"
+          }
+        ],
+        "name": "Copy feature keeper"
+      },
+      {
+        "entry": "0x4bb343e0",
+        "fragments": [
+          {
+            "bytes": 158,
+            "end_exclusive": "0x4bb3447e",
+            "file_offset": 10434528,
+            "name": "complete unwind fragment",
+            "sha256": "632d1534bcd97c3c61cb3cd1185e436daa395fbd6a84a335681d6ef83bd99e6f",
+            "start": "0x4bb343e0"
+          }
+        ],
+        "name": "Copy feature reference"
+      }
+    ],
+    "dispatch": [
+      {
+        "cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4cf70830",
+          "file_offset": 31650344,
+          "name": "actual clone dispatch",
+          "sha256": "33a99536944bf9279b3a1825994f7db84b1f7c2f2c82aa7d698ace001554e140",
+          "start": "0x4cf70828"
+        },
+        "slot": "0x280",
+        "table": "0x4cf705a8",
+        "target": "0x4c6cf810"
+      },
+      {
+        "cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4cf6ad98",
+          "file_offset": 31627152,
+          "name": "actual clone dispatch",
+          "sha256": "4bd891f280e9407fbb5aca08ce8081913188ae6c12e3dea57fbb4332881620a5",
+          "start": "0x4cf6ad90"
+        },
+        "slot": "0x280",
+        "table": "0x4cf6ab10",
+        "target": "0x4c6cfbe0"
+      }
+    ],
+    "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "native_runs": 0,
+    "schema": "kit.sw2026.downstream-surface-clone-owners.v1",
+    "source_build": "34.5.2.0604",
+    "verified_scope": "fresh cloned side and cap payloads with separately copied feature keepers"
+  },
+  "external_copy": {
+    "assign_referenced_config": true,
+    "cloned_file_index": -1,
+    "cloned_save_time": 0,
+    "functions": [
+      {
+        "entry": "0x319fb0e0",
+        "export": "??0moExtObject_c@@QEAA@AEBV0@@Z",
+        "fragments": [
+          {
+            "bytes": 179,
+            "end_exclusive": "0x319fb193",
+            "file_offset": 42208,
+            "name": "complete unwind fragment",
+            "sha256": "9b695afbe8d98bfbc64bf53b6893dddb33500e180673498508eced73ad5793f0",
+            "start": "0x319fb0e0"
+          }
+        ],
+        "import_slot": "0x4cd35208"
+      },
+      {
+        "entry": "0x319f89c0",
+        "export": "?getConfigReference@moExtObjectInterface_c@@QEBAAEBVmoReferencedConfiguration_c@@XZ",
+        "fragments": [
+          {
+            "bytes": 5,
+            "end_exclusive": "0x319f89c5",
+            "file_offset": 32192,
+            "name": "complete leaf",
+            "sha256": "813b00f48d4cf0d99dea047ab4852415937c2c310855ec0ec2bda6184b705ba3",
+            "start": "0x319f89c0"
+          }
+        ],
+        "import_slot": "0x4cd35258"
+      },
+      {
+        "entry": "0x31a01620",
+        "export": "?setConfigReference@moExtObjectInterface_c@@QEAAXAEBVmoReferencedConfiguration_c@@@Z",
+        "fragments": [
+          {
+            "bytes": 47,
+            "end_exclusive": "0x31a0164f",
+            "file_offset": 68128,
+            "name": "complete unwind fragment",
+            "sha256": "9089903c3f7061e7e5bc6eb024630b0cec099ac0ffe0b37ffc80f18e2a666634",
+            "start": "0x31a01620"
+          }
+        ],
+        "import_slot": "0x4cd35250"
+      }
+    ],
+    "module": "sldarchiveu.dll",
+    "module_bytes": 231512,
+    "module_sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+    "share_actual_definition": true
+  },
+  "feature_reference_wire": {
+    "fresh_runtime_flag": 16,
+    "fresh_runtime_flag_persisted": false,
+    "functions": [
+      {
+        "bytes": 63,
+        "end_exclusive": "0x4bb343af",
+        "file_offset": 10434416,
+        "name": "feature-owned FR data constructor",
+        "sha256": "3a74b61026073712a34a414ca08b5e7fa5693139ad3d6a290a33f5fa249bc311",
+        "start": "0x4bb34370"
+      },
+      {
+        "bytes": 900,
+        "end_exclusive": "0x4bb35214",
+        "file_offset": 10437264,
+        "name": "feature FR store and load",
+        "sha256": "b702cd6b5495acd4b4c291f759cff84e1330a333d0a8f8b38941746dd8da89c7",
+        "start": "0x4bb34e90"
+      },
+      {
+        "bytes": 802,
+        "end_exclusive": "0x4bb34e82",
+        "file_offset": 10436448,
+        "name": "embedded FR data store and load",
+        "sha256": "ced5415c3962d6c81ef561fe83f61b9417f458c5eebcb108832b354186efd19d",
+        "start": "0x4bb34b60"
+      }
+    ],
+    "imports": [
+      {
+        "iat": "0x4cd35198",
+        "module": "sldarchiveu.dll",
+        "name": "?isAlive@moExtObject_c@@SAHPEAV1@@Z"
+      },
+      {
+        "iat": "0x4cd351d0",
+        "module": "sldarchiveu.dll",
+        "name": "??6@YAAEAVsu_CArchive@@AEAV0@AEAPEAVmoExtObject_c@@@Z"
+      },
+      {
+        "iat": "0x4cd3d880",
+        "module": "swccu.dll",
+        "name": "??6su_CArchive@@QEAAAEAV0@J@Z"
+      },
+      {
+        "iat": "0x4cd3dda8",
+        "module": "swccu.dll",
+        "name": "??6@YAAEAVsu_CArchive@@AEAV0@Vsu_CTime@@@Z"
+      }
+    ],
+    "native_module": {
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "schema": "kit.sw2026.downstream-feature-keeper-wire.v1",
+    "sdk_sha256": {
+      "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ComponentFields.py": "d6745d70a0e47a3d14b5b67780a13d9035df5cedaaeb7864ef7a74ded16e4d85",
+      "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/FeatureFields.py": "5f82dbd0de535014d4f3aa939d71cd1689442020c98a175710018e3987b37b57"
+    },
+    "vendor_runs": 0,
+    "windows": [
+      {
+        "bytes": 29,
+        "end_exclusive": "0x4bb343a9",
+        "file_offset": 10434444,
+        "name": "runtime flag constructor",
+        "sha256": "860688fe55c1688809f948355be861f90bdb2daa0ebd8a7a93aa44bb7928f9b8",
+        "start": "0x4bb3438c"
+      },
+      {
+        "bytes": 39,
+        "end_exclusive": "0x4bb34ef6",
+        "file_offset": 10437327,
+        "name": "live typed owner write and embedded payload",
+        "sha256": "f8766da9c0746b5237c7741ff99d1e26f85727b9d5dc53abe9e2e71a04c0e913",
+        "start": "0x4bb34ecf"
+      },
+      {
+        "bytes": 48,
+        "end_exclusive": "0x4bb34bc5",
+        "file_offset": 10436501,
+        "name": "feature ID and creation time, complete store branch",
+        "sha256": "5f1b4c356de95e984eca83c2073e322f89ba0c8141df4c57c63d94e5f2f675e9",
+        "start": "0x4bb34b95"
+      }
+    ],
+    "wire_order": [
+      "live external file owner",
+      "i32 feature id",
+      "su_CTime feature creation"
+    ]
+  },
+  "native_source_build": "34.5.2.0604",
+  "schema": "kit.sw2026.downstream-collected-surface-clones.v1"
+}

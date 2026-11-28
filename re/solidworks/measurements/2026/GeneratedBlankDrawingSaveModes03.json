@@ -1,0 +1,221 @@
+{
+  "schema": "kit.sw2026.drawing-save-mode-measurement.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "55cf50a377dfab21140d936d09df81de8e88ba1200c8622916b1081e1b5a8d1b",
+  "runner_sha256": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+  "native_result_sha256": "a558df8d495dc08fa1b478baef650a699f1fe849ec08fe684826764e3ead3bf9",
+  "host_transport_sha256": "d776d7e9263a10ce05f1b7f668587a202bbdba5d82e70c6a857adca5bf284d49",
+  "started_at": "2026-11-17T10:47:30.118720+00:00",
+  "finished_at": "2026-11-17T10:51:53.477065+00:00",
+  "controls_healthy": true,
+  "distinct_processes": 10,
+  "inputs_immutable": true,
+  "controls": [
+    {
+      "name": "ControlBefore",
+      "passed": true,
+      "edit_and_save": {
+        "record_sha256": "d791c1a636147953eb236ab94a90c8ae5e7b945abdb70b6ade7bacfaf79dce3b",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "fresh_reopen": {
+        "record_sha256": "f4a42fe02882d231be7503fac546662ab4ccd1ed3cf7b3dab1b7cfb48ff7df1c",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          3.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "name": "ControlAfter",
+      "passed": true,
+      "edit_and_save": {
+        "record_sha256": "de368d8f6297c0b10830b0e40a6ee24e526f9d812ecf14ecf7b61f1c8df3f665",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "fresh_reopen": {
+        "record_sha256": "7546d8e93ffab46ebde403d2905c4b71e7cf45a845b5efb4089e09a119601c35",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          3.0,
+          2.0
+        ]
+      }
+    }
+  ],
+  "modes": [
+    {
+      "name": "ReducedNativeRebuildSaveAs",
+      "mode": "RebuildSaveAs",
+      "source_kind": "native-stream-reduction",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 18196,
+      "save_target_sha256": "b2330548b95fef3a4963e514c4263d4908aadaa2c130932eac28d08ab3ce584a",
+      "staged_copy_sha256_after": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_and_save": {
+        "record_sha256": "f8b80708692099e1818b11fd29f76052e39979edd8f1ba103dbc5cdb8b84ba10",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "fresh_reopen": {
+        "record_sha256": "98ab9e7dec5d3fba63efb24ae2704cea6fff05f5d80df132dcb310ecb66f7f45",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "GeneratedRebuildSaveAs",
+      "mode": "RebuildSaveAs",
+      "source_kind": "generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "save_target_bytes": 0,
+      "save_target_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "staged_copy_sha256_after": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_and_save": {
+        "record_sha256": "130b863e36d4ad74e7089e65d4eecaa1df4dcba823dc0a89b13e4d4230854cf5",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          2.0,
+          3.0
+        ]
+      },
+      "fresh_reopen": null,
+      "passed": false
+    },
+    {
+      "name": "ReducedNativeEditSaveInPlace",
+      "mode": "EditSaveInPlace",
+      "source_kind": "native-stream-reduction",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 18942,
+      "save_target_sha256": "1f4899679210ba846878308da637bd703a6822d26f2a02ead6e3b3d33f23b9de",
+      "staged_copy_sha256_after": "1f4899679210ba846878308da637bd703a6822d26f2a02ead6e3b3d33f23b9de",
+      "open_and_save": {
+        "record_sha256": "a449e6a2e7c84318573906e61dc5e2766ef09e4344e4ba2fc96f97724b2decf4",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "fresh_reopen": {
+        "record_sha256": "792adfa3925145a9785b0136a9a8e52f1e2c8f96add425ab1ad79bf636a9e7e8",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          3.0,
+          2.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "GeneratedEditSaveInPlace",
+      "mode": "EditSaveInPlace",
+      "source_kind": "generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "save_target_bytes": 5937,
+      "save_target_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "staged_copy_sha256_after": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_and_save": {
+        "record_sha256": "a3259e21c51c9efff2370af0896bca5e0a884b36c66c37db171da997cb4bb101",
+        "tree_rows": 10,
+        "open_errors_warnings": [
+          0,
+          0
+        ],
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          2.0,
+          3.0
+        ]
+      },
+      "fresh_reopen": null,
+      "passed": false
+    }
+  ]
+}

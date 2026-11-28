@@ -1,0 +1,221 @@
+{
+  "analytic_geometry_receipt_sha256": "2fc2ffc7866f7c659da396eeca0e8fb356d70d6a9c4519cf5b36c7718c3357be",
+  "baseline_processes": 2,
+  "benign_orientation_processes": 4,
+  "checks": {
+    "actual_four_surface_feature_file_configuration_owners_checked": true,
+    "actual_line_marker_shared_point_checked": true,
+    "actual_native_coordinate_values_compared_to_independent_sdk_prism": true,
+    "default_public_child_brep_refusal_preserved": true,
+    "extra_model_file_open_stat_lstat_attempts": 0,
+    "five_complete_streams_before_after_identical": true,
+    "public_partial_drawing_unchanged": true,
+    "sdk_reconstructed_brep_valid": true,
+    "source_and_inputs_unchanged": true,
+    "stream_byte_comparisons": 300
+  },
+  "delivery_pr": 121,
+  "disclosed_drawing_cases": 2,
+  "finite_observer_change": "Final worker binds the exact helper module path and digest explicitly before the runtime guard; role logic and inputs unchanged",
+  "fresh_sdk_processes": 31,
+  "generated_native_files": 0,
+  "git_mutations": 0,
+  "independent_child_payloads": 1,
+  "independent_neutral_prism_controls": 3,
+  "input_manifest_sha256": "8948bab7a463b36d743a6a45ab09c16c1a88824596f5ca0903c5e8212ae475c5",
+  "limits": [
+    "Four-surface native role ordering is source-confirmed; the endpoint calculation is a bounded analytic correlation",
+    "No active child partition exists; reconstructed SDK edge identities are not recovered native kernel IDs",
+    "Only the side-side rail with two opposite simple cap boundaries is resolved; other rows remain retained",
+    "The current observed 1e100 parameter-range fence is not promoted as an independently proved serializer default",
+    "Inner component text canonicalization and fresh downstream numbering remain open",
+    "Native start/end order for this rectangular source is not measured; the result is an unordered endpoint set",
+    "Both source views share one actual child; three new geometry controls are independent SDK B-rep constructions, not native writer qualifications",
+    "Public strict drawing admission and all three unprojected families remain unchanged"
+  ],
+  "native_data_published": false,
+  "native_edge_id_resolution": false,
+  "native_endpoint_measurements": 0,
+  "native_kernel_identity": false,
+  "native_role_evidence_sha256": "3c382e29483cd4b4f603b8f019ecc419e3d3db3902e995ef6ee56d59cac8e350",
+  "native_runs": 0,
+  "negative_processes": 24,
+  "negative_variants": 12,
+  "new_heldout_credit": 0,
+  "original_full_source_admission": false,
+  "owner": "configuration_header",
+  "passed": true,
+  "positive_cases": [
+    {
+      "case": "H01SheetA",
+      "child_partition_present": false,
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "drawing_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "edge": {
+        "actual_body_final_feature_id": "sldprt:feature:19",
+        "actual_child_boss_id": 19,
+        "actual_child_profile_id": 18,
+        "component_key_retained": "generatedchildfile",
+        "downstream_id": 8,
+        "endpoint_set_model_m": [
+          [
+            0.02,
+            0.0,
+            0.0
+          ],
+          [
+            0.02,
+            0.0,
+            0.007
+          ]
+        ],
+        "inner_component_key_projection": false,
+        "native_kernel_identity": false,
+        "native_kernel_node_id": null,
+        "ordered_native_endpoints_qualified": false,
+        "public_default_brep_admission": false,
+        "reconstructed_area_mm2": 820.0,
+        "reconstructed_body_id": "sldprt:body:1",
+        "reconstructed_counts": {
+          "bodies": 1,
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8
+        },
+        "reconstructed_sdk_edge_id": "sldprt:body:1-prism-edge-9",
+        "reconstructed_volume_mm3": 1400.0,
+        "role_classes": [
+          "moFromSktEntSurfIdRep_c",
+          "moFromSktEntSurfIdRep_c",
+          "moEndFaceSurfIdRep_c",
+          "moEndFaceSurfIdRep_c"
+        ],
+        "shared_point_array_index": 1,
+        "shared_point_creation_id": 2,
+        "side_permanent_markers": [
+          2,
+          1
+        ],
+        "surface_selectors": [
+          2,
+          1,
+          1,
+          0
+        ]
+      },
+      "public_default_brep_refusal": {
+        "message": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "raw_stream_sha256": {
+        "configuration": "136b764841c884dbe45f14f05ca3b9f233eecbbae1aa7eca5e811773cb52b305",
+        "drawing_definition": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "header": "a6f46e14e5833f22e84783185a4bf5d26c370426e3fc2b3c28b677742fd444e1",
+        "manager": "13d6b35b80cffe080a42635eb45b5d0d384fb2582d3ee2abeb0cbd9ed0ab8fda",
+        "resolved": "d489af908f35237a806cfca07c0cbd1fb027a311f45ab084614270774aca5362"
+      },
+      "typed_unprojected_retained": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ],
+      "worker_report_sha256": "c504de621082e1f1261e6e6f653f6ce7a6badc408d1ed653ff038488e89ee839"
+    },
+    {
+      "case": "H02SheetB",
+      "child_partition_present": false,
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "drawing_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "edge": {
+        "actual_body_final_feature_id": "sldprt:feature:19",
+        "actual_child_boss_id": 19,
+        "actual_child_profile_id": 18,
+        "component_key_retained": "generatedchildfile",
+        "downstream_id": 9,
+        "endpoint_set_model_m": [
+          [
+            0.02,
+            0.01,
+            0.0
+          ],
+          [
+            0.02,
+            0.01,
+            0.007
+          ]
+        ],
+        "inner_component_key_projection": false,
+        "native_kernel_identity": false,
+        "native_kernel_node_id": null,
+        "ordered_native_endpoints_qualified": false,
+        "public_default_brep_admission": false,
+        "reconstructed_area_mm2": 820.0,
+        "reconstructed_body_id": "sldprt:body:1",
+        "reconstructed_counts": {
+          "bodies": 1,
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8
+        },
+        "reconstructed_sdk_edge_id": "sldprt:body:1-prism-edge-10",
+        "reconstructed_volume_mm3": 1400.0,
+        "role_classes": [
+          "moFromSktEntSurfIdRep_c",
+          "moFromSktEntSurfIdRep_c",
+          "moEndFaceSurfIdRep_c",
+          "moEndFaceSurfIdRep_c"
+        ],
+        "shared_point_array_index": 2,
+        "shared_point_creation_id": 3,
+        "side_permanent_markers": [
+          3,
+          2
+        ],
+        "surface_selectors": [
+          3,
+          2,
+          1,
+          0
+        ]
+      },
+      "public_default_brep_refusal": {
+        "message": "SLDPRT contains no readable Parasolid payload",
+        "type": "SldprtFormat"
+      },
+      "raw_stream_sha256": {
+        "configuration": "136b764841c884dbe45f14f05ca3b9f233eecbbae1aa7eca5e811773cb52b305",
+        "drawing_definition": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "header": "a6f46e14e5833f22e84783185a4bf5d26c370426e3fc2b3c28b677742fd444e1",
+        "manager": "13d6b35b80cffe080a42635eb45b5d0d384fb2582d3ee2abeb0cbd9ed0ab8fda",
+        "resolved": "d489af908f35237a806cfca07c0cbd1fb027a311f45ab084614270774aca5362"
+      },
+      "typed_unprojected_retained": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ],
+      "worker_report_sha256": "19b4e1856398179847ce7bc558e06915e0826ae5b2d33970e2b924c5fb60e069"
+    }
+  ],
+  "preserved_predecessor_result_sha256": "fbe70ec8e64bc189c31a001c9decb55dc874f7cb65ce0ab090222353d7bd5a18",
+  "raw_result_sha256": "0a7447e443fb683f6260e8f79606de173a6383bf620cffb19623ff087f7c1c03",
+  "repository_replay": {
+    "disclosed_source_root_is_explicit": true,
+    "fresh_sdk_processes": 31,
+    "input_manifest_sha256": "8948bab7a463b36d743a6a45ab09c16c1a88824596f5ca0903c5e8212ae475c5",
+    "receipt_written_after_observation_guard": true,
+    "result_sha256": "8b51ed24e0af03294589608385e56846f17a6aece8fe0748eac4183bf5d6cb8b",
+    "source_manifest_sha256": "5a57dfc517c001f1515f036dd28364fda54432cb0b8af4b017e8c085a5f3d1a1",
+    "tools_manifest_sha256": "67fdf0a1829bc434639a95f3b85bb53d651bfe3e09b0ddb52b87ec2512486fd9",
+    "worker_and_geometry_reports_byte_exact": true
+  },
+  "schema": "kit.sw2026.drawing-edge-rail-correlation.v1",
+  "sdk_source_writes": 0,
+  "source_file_count": 4678,
+  "source_manifest_sha256": "5a57dfc517c001f1515f036dd28364fda54432cb0b8af4b017e8c085a5f3d1a1",
+  "source_processes": 30,
+  "status": "disclosed_analytic_correlation_not_public_edge_projection",
+  "still_sealed_inputs_read": 0,
+  "task_id": "B04-SW2026-DRAWING-DETAIL-EDGE",
+  "tool_manifest_sha256": "93304b42b416011cfd79d0c707a2fa39b53fb1a0e4f538c487099ada2a768a0a"
+}

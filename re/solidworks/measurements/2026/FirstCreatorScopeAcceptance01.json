@@ -1,0 +1,394 @@
+{
+  "build": "34.5.2.0604",
+  "direct_scope_count_available": false,
+  "distinct_native_processes": 16,
+  "frozen_sdk_revision": "96a00dc717e2f30387903cde729879e2d6bb96fe",
+  "frozen_sdk_source_tree": "c56041deca7810851b85dca00e27a266eabf5cf2",
+  "healthy_controls": 4,
+  "heldout_inputs_read": 0,
+  "independent_dimension_and_geometry_checks": 360,
+  "native_com": "SldWorks.Application.34",
+  "native_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "native_selection_access": {
+    "After": {
+      "accessed": {
+        "array_count": 1,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "status": "observed",
+          "value": 1
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "direct": {
+        "array_count": null,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "raw_value": -1,
+          "reason": "native_count_sentinel",
+          "status": "unavailable"
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "feature_id": 25,
+      "immutable": true,
+      "input_sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452",
+      "record_sha256": "8d143e9da6d1a780e613c663f9320aa829645953f7aeeec33661f5a503c3d511",
+      "released": true,
+      "rollback_body_count": 2
+    },
+    "Before": {
+      "accessed": {
+        "array_count": 1,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "status": "observed",
+          "value": 1
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "direct": {
+        "array_count": null,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "raw_value": -1,
+          "reason": "native_count_sentinel",
+          "status": "unavailable"
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "feature_id": 25,
+      "immutable": true,
+      "input_sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452",
+      "record_sha256": "b085357eb3805039d5b276506fab78f1439e7aaa546cdf0329e526c016da67b0",
+      "released": true,
+      "rollback_body_count": 2
+    },
+    "Single/All": {
+      "accessed": {
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "status": "observed",
+          "value": 0
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": false
+        }
+      },
+      "direct": {
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "raw_value": -1,
+          "reason": "native_count_sentinel",
+          "status": "unavailable"
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": false
+        }
+      },
+      "feature_id": 21,
+      "immutable": true,
+      "input_sha256": "e23237e92c56ea1367ed5a1ff61f19f3c6366a8cc896d9db4b8a2ac9c5004d72",
+      "record_sha256": "46f7da7c2e3bce41a382b922968d34720b94b01441f85bc0fa6484776110c09b",
+      "released": true,
+      "rollback_body_count": 0
+    },
+    "Single/Selected": {
+      "accessed": {
+        "array_count": null,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "status": "observed",
+          "value": 0
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "direct": {
+        "array_count": null,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "raw_value": -1,
+          "reason": "native_count_sentinel",
+          "status": "unavailable"
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "feature_id": 21,
+      "immutable": true,
+      "input_sha256": "c2b0cbceff7004ccb876c026a4854cec1d2aba38ade14fe9f21d29fece4171cf",
+      "record_sha256": "af9525d2c7fde1128e44456752223ac4ae2dcf41a81e038bd92eb76101bd6003",
+      "released": true,
+      "rollback_body_count": 0
+    },
+    "Translated/All": {
+      "accessed": {
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "status": "observed",
+          "value": 0
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": false
+        }
+      },
+      "direct": {
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "raw_value": -1,
+          "reason": "native_count_sentinel",
+          "status": "unavailable"
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": false
+        }
+      },
+      "feature_id": 21,
+      "immutable": true,
+      "input_sha256": "f5c49edf53f256d2b176850aa371ecfe1c8aeffb6d2c5292af76ba376ccf2e69",
+      "record_sha256": "85636186c16b194f724f81f721b1ad31955fb78f401e91e1603464918ddbec53",
+      "released": true,
+      "rollback_body_count": 0
+    },
+    "Translated/Selected": {
+      "accessed": {
+        "array_count": null,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "status": "observed",
+          "value": 0
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "direct": {
+        "array_count": null,
+        "auto_select": {
+          "status": "observed",
+          "value": false
+        },
+        "body_count": {
+          "raw_value": -1,
+          "reason": "native_count_sentinel",
+          "status": "unavailable"
+        },
+        "feature_scope": {
+          "status": "observed",
+          "value": true
+        }
+      },
+      "feature_id": 21,
+      "immutable": true,
+      "input_sha256": "bf8e26f0ff8eac8bbad19e61a646af8ae695d8e0bbcf0b9d7012522dd6e295d5",
+      "record_sha256": "170b42169eb4c2e560e0b074782f913c1acc77d4c4ba169123ba098baf1b62da",
+      "released": true,
+      "rollback_body_count": 0
+    }
+  },
+  "original_source_transfer": false,
+  "packet_sha256": "c8addf29032d630b2513ceae9f5d00a7bd5e0f56f578c619079d16bfe30a690f",
+  "public_writer_qualified": false,
+  "raw_direct_observer_sha256": "8c75f9ed154166fef3dcb7421e62bacc72f8b46e189e60a8b2fff9f63fb52f61",
+  "raw_selection_observer_sha256": "03486c7becf2d14bfeb2bef88bc74d0c89904e26c91effb4f0bf60af8b515486",
+  "saved_typed_result_sha256": "3622eec5a260c54da804af2d191740c46aa709f145cdf7843e1ea3e9c81d0bfe",
+  "schema": "kit.sw2026.first-creator-scope-acceptance.v1",
+  "selection_tool_sha256": "670a57ac4bfef6a40abc4247584758ffeaea2cf37b3fc727753cd81f3e274f80",
+  "typed_saved_reports": {
+    "Single/All": {
+      "actual_sole_body_atom_id": 101,
+      "checks": {
+        "saved_centerline_route_retained": true,
+        "saved_has_no_prior_scope_wrapper": true,
+        "saved_live_depth_retained": true,
+        "saved_scope_word_retained": true,
+        "saved_signed_text_normal_retained": true
+      },
+      "file_unchanged": true,
+      "native_ids_match": true,
+      "passed": true,
+      "selected_wrapper_present": 0,
+      "sha256": "e23237e92c56ea1367ed5a1ff61f19f3c6366a8cc896d9db4b8a2ac9c5004d72",
+      "stored_existing_body_scope": 0,
+      "stored_label_xyz_m": [
+        [
+          3.0616169978683825e-19,
+          -0.015,
+          0.0
+        ],
+        [
+          0.025,
+          3.0616169978683835e-19,
+          0.0001
+        ]
+      ],
+      "typed_depth_m": 0.011625,
+      "typed_feature_id": 21,
+      "typed_marks": [
+        8,
+        2
+      ],
+      "typed_profile_id": 18
+    },
+    "Single/Selected": {
+      "actual_sole_body_atom_id": 101,
+      "checks": {
+        "saved_centerline_route_retained": true,
+        "saved_has_no_prior_scope_wrapper": true,
+        "saved_live_depth_retained": true,
+        "saved_scope_word_retained": true,
+        "saved_signed_text_normal_retained": true
+      },
+      "file_unchanged": true,
+      "native_ids_match": true,
+      "passed": true,
+      "selected_wrapper_present": 0,
+      "sha256": "c2b0cbceff7004ccb876c026a4854cec1d2aba38ade14fe9f21d29fece4171cf",
+      "stored_existing_body_scope": 1,
+      "stored_label_xyz_m": [
+        [
+          3.0616169978683825e-19,
+          -0.015,
+          0.0
+        ],
+        [
+          0.025,
+          3.0616169978683835e-19,
+          0.0001
+        ]
+      ],
+      "typed_depth_m": 0.011625,
+      "typed_feature_id": 21,
+      "typed_marks": [
+        8,
+        2
+      ],
+      "typed_profile_id": 18
+    },
+    "Translated/All": {
+      "actual_sole_body_atom_id": 101,
+      "checks": {
+        "saved_centerline_route_retained": true,
+        "saved_has_no_prior_scope_wrapper": true,
+        "saved_live_depth_retained": true,
+        "saved_scope_word_retained": true,
+        "saved_signed_text_normal_retained": true
+      },
+      "file_unchanged": true,
+      "native_ids_match": true,
+      "passed": true,
+      "selected_wrapper_present": 0,
+      "sha256": "f5c49edf53f256d2b176850aa371ecfe1c8aeffb6d2c5292af76ba376ccf2e69",
+      "stored_existing_body_scope": 0,
+      "stored_label_xyz_m": [
+        [
+          -0.0014250000000000007,
+          -0.02895,
+          0.000237
+        ],
+        [
+          0.030824999999999998,
+          -0.004560000000000001,
+          -0.000419
+        ]
+      ],
+      "typed_depth_m": 0.009875,
+      "typed_feature_id": 21,
+      "typed_marks": [
+        8,
+        2
+      ],
+      "typed_profile_id": 18
+    },
+    "Translated/Selected": {
+      "actual_sole_body_atom_id": 101,
+      "checks": {
+        "saved_centerline_route_retained": true,
+        "saved_has_no_prior_scope_wrapper": true,
+        "saved_live_depth_retained": true,
+        "saved_scope_word_retained": true,
+        "saved_signed_text_normal_retained": true
+      },
+      "file_unchanged": true,
+      "native_ids_match": true,
+      "passed": true,
+      "selected_wrapper_present": 0,
+      "sha256": "bf8e26f0ff8eac8bbad19e61a646af8ae695d8e0bbcf0b9d7012522dd6e295d5",
+      "stored_existing_body_scope": 1,
+      "stored_label_xyz_m": [
+        [
+          -0.0014250000000000007,
+          -0.02895,
+          0.000237
+        ],
+        [
+          0.030824999999999998,
+          -0.004560000000000001,
+          -0.000419
+        ]
+      ],
+      "typed_depth_m": 0.009875,
+      "typed_feature_id": 21,
+      "typed_marks": [
+        8,
+        2
+      ],
+      "typed_profile_id": 18
+    }
+  }
+}

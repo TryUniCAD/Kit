@@ -1,0 +1,5 @@
+# Read typed ownership for FreeCAD origin-box subelements
+
+`ReadBoxLineage` derives a frozen internal ownership record from the ordinary strict FreeCAD document. It binds the stored `Body.Shape.ElementMap2` to the actual Body and AdditiveBox `Shape` properties, checks the three source dimensions and proven placed prism boundary, and resolves each indexed face, edge and vertex to the existing neutral body. The original carrier and normal SDK wire format stay intact. The typed record is derived again after the existing JSON roundtrip. [Source ownership and verification](../../../re/solidworks/records/FreecadF14aReferenceInputs2026.md)
+
+Six independent SDK processes verified both disclosed F14a sources. Each supplied 26 actual body-to-child associations with no projection input reads. The matching-map attached profile, legacy source and in-memory owner contrasts refused. Existing SOLIDWORKS writer refusals leave the output untouched. This is an internal read-side projection. Source reference transfer and intact export remain unqualified. [Exact proof](../../../re/solidworks/measurements/2026/SdkFreecadF14aTypedOwner01.json)

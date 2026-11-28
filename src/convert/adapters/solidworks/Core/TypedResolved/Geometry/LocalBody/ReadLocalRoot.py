@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Archive.Partition.XmtReferences import XmtRefer
 
 # a local boundary requires one ordinary solid whose typed nodes are reachable
 def ReadLocalRoot(
-    NodesValue: Mapping[int, XmtNode],
+    NodesValue: Mapping[int, XmtNode], AllowStoredAttrs: bool
 ) -> tuple[XmtNode, dict[int, set[int]]]:
     BodyValue = RequireXmt(NodesValue, 1, 12)
     KindsValue: dict[int, set[int]] = {}
@@ -40,7 +40,17 @@ def ReadLocalRoot(
         IndexValue = Pending.pop()
         Visited.add(IndexValue)
         NodeValue = NodesValue[IndexValue]
-        Pending.update(set(XmtReferences(NodeValue)) - Visited)
+        References = tuple(XmtReferences(NodeValue))
+        if AllowStoredAttrs and NodeValue.KindValue == 80:
+            DefinitionNext = NodeValue.Integer("next")
+            if (
+                DefinitionNext not in NodesValue
+                and References.count(DefinitionNext) == 1
+            ):
+                References = tuple(
+                    Reference for Reference in References if Reference != DefinitionNext
+                )
+        Pending.update(set(References) - Visited)
     if Visited != set(NodesValue):
         raise ValueError("local body has detached nodes")
     return BodyValue, KindsValue

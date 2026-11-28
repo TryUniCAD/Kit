@@ -1,0 +1,5 @@
+# Construct the neutral boundary of an ordinary edge chamfer
+
+The research constructor takes a rectangular stock, the actual selected axial edge sides, a positive distance, an acute angle and its explicit distance side. It clips the modeled stock cross section and uses the shared prism builder to return one analytic boundary with a distinct bevel face. The process accepts neutral model values through stdin. [Boundary builder](../../../../../re/tooling/sw2026/edge_chamfer_source/BuildChamferBoundary.py)
+
+Twenty-two guarded processes cover four states of the disclosed native geometry, all twelve independently modeled stock edges and six malformed cases. The result preserves the expected face, edge and vertex counts, volume, surface area, centroid and bevel vertices, with zero runtime file access. The boundary is a geometric prerequisite for the separate feature archive and produces no SOLIDWORKS file. [Process evidence](../../../../../re/solidworks/measurements/2026/EdgeChamferModelBoundary01.json)

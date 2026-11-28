@@ -1,0 +1,527 @@
+{
+  "base": "d89dd5965880fda9b645336527b20fc02557d4e9",
+  "disclosed_native": {
+    "assemblies/A0_one.SLDASM": {
+      "archive_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "driver": null,
+      "external_access_attempts": 0,
+      "group_bytes": 84,
+      "group_sha256": "30d4f0d4dfb99d18b994a3b734b4594082f6da74afd6031031addbf58bd079c4",
+      "live_records_matched": 8,
+      "mate_map": [
+        172,
+        172
+      ],
+      "mates": [],
+      "mates_list_bytes": 6,
+      "mates_list_sha256": "98cd9d7146a2605b60a6fd9fb269265f2363574ca58ef3c1fdf39e486f410fb8",
+      "refusals": {},
+      "store_sha256": "7599e7cd7f3a03c47feb63359266e98d031b053310ba1ec61f3f521e495a45e5"
+    },
+    "assemblies/A1_two.SLDASM": {
+      "archive_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "driver": {
+        "changed_cache_kept_exchange_exact": true,
+        "display_cache_m": 0.06,
+        "driver_id": 27,
+        "driver_name": "D1",
+        "length_m": 0.06,
+        "length_span": [
+          6608,
+          6674
+        ]
+      },
+      "external_access_attempts": 0,
+      "group_bytes": 1025,
+      "group_sha256": "e3b2a77c0e411d45a8a327957677786cdb1f6050a2956c01691148cce2b3295b",
+      "live_records_matched": 8,
+      "mate_map": [
+        181,
+        250
+      ],
+      "mates": [
+        {
+          "alignment": 1,
+          "class": "moMateCoincident",
+          "distance_m": null,
+          "entities": 2,
+          "feature_ids": [
+            "3",
+            "3"
+          ],
+          "flip": null,
+          "hidden": false,
+          "id": 26,
+          "name": "Coincident1",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "L1_boss-1@Assem1",
+            "P0_plain-1@Assem1"
+          ]
+        },
+        {
+          "alignment": 1,
+          "class": "moMateDistanceDim_c",
+          "distance_m": 0.06,
+          "entities": 2,
+          "feature_ids": [
+            "4",
+            "4"
+          ],
+          "flip": 0,
+          "hidden": false,
+          "id": 28,
+          "name": "Distance1",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "L1_boss-1@Assem1",
+            "P0_plain-1@Assem1"
+          ]
+        },
+        {
+          "alignment": 1,
+          "class": "moMateCoincident",
+          "distance_m": null,
+          "entities": 2,
+          "feature_ids": [
+            "2",
+            "2"
+          ],
+          "flip": null,
+          "hidden": false,
+          "id": 29,
+          "name": "Coincident2",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "L1_boss-1@Assem1",
+            "P0_plain-1@Assem1"
+          ]
+        }
+      ],
+      "mates_list_bytes": 10411,
+      "mates_list_sha256": "1be858bb7a88b225639ee939785387e7ba4fdcfda3cf5d945dbcc670f240772a",
+      "refusals": {
+        "detached_datum": "planar exchange requires the live selected principal feature identity",
+        "misaligned_mode": "typed mate alignment or node update word is outside the qualified profile",
+        "missing_live_parameter": "planar mate graph expected concrete moLengthParameter_c",
+        "missing_occurrence_backlink": "resolved mate plane lost its occurrence identity",
+        "negative_world_separation": "planar exchange requires positive signed separation at the live distance",
+        "non_aligned_world_normal": "planar exchange requires aligned unit world planes",
+        "reordered_reference_pair": "the resolved plane wrapper has inconsistent ownership",
+        "stale_occurrence_update": "planar exchange wrapper configuration or occurrence update differs",
+        "unsupported_flip_mode": "typed distance mate mode is outside the ordinary plane profile",
+        "unsupported_parallel_cell": "planar exchange covers ordinary coincident and distance mate cells",
+        "wrong_wrapper_owner": "the resolved plane wrapper has inconsistent ownership"
+      },
+      "store_sha256": "c394be2d52f32423c3f4669357465073318c8700549765aa162278fb7c6fcbb5"
+    },
+    "assembly-synchronized/A12SyncedEmpty.SLDASM": {
+      "archive_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+      "driver": null,
+      "external_access_attempts": 0,
+      "group_bytes": 84,
+      "group_sha256": "30d4f0d4dfb99d18b994a3b734b4594082f6da74afd6031031addbf58bd079c4",
+      "live_records_matched": 8,
+      "mate_map": [
+        152,
+        152
+      ],
+      "mates": [],
+      "mates_list_bytes": 6,
+      "mates_list_sha256": "37f76ab9a476f8407c16daf7c74e969ae6bd0f1ee37729cf1fd9186817c90343",
+      "refusals": {},
+      "store_sha256": "8f278c4a67c61f5b5b7aeff1e528437892410b9f4250b5d38cea76f8d38f3034"
+    }
+  },
+  "file_sha256": {
+    "re/solidworks/WriterResearch/ExchangePack.py": "53f73b9bb594fb7a73b0257935c81ab69d8bed606a4057b1dca2f05d0554d7af",
+    "re/solidworks/measurements/2026/D01ModelExchange01.json": "320d19067f29337c7fe572d17bf6b32f1293b63023c3139223b6a6ec748add32",
+    "re/solidworks/measurements/2026/ExchangeMateEndpoints01.json": "a470d74fd13aecd9351ecd606b22cd2400ce8b571bcb711619c78c95fa1b34e2",
+    "re/solidworks/v2026/corpus/assemblies/Manifest.json": "e60ba221757cf1452d70d952eecc1eb41c75e2bc0711c0c6aac7c457f9cd15c8",
+    "re/solidworks/v2026/corpus/assembly-synchronized/Manifest.json": "86729463bf5734f53e209de81f09976cc95bee8c7d33395eb512ec0ed8b823b3",
+    "re/tooling/sw2026/SdkPlanarGroupProcess.py": "eef47599ae2b498f92962ef1232296078523128f4431e7090e205087e21e371f",
+    "re/tooling/sw2026/para/concentric/AssemblyModelExchange.py": "82887de954961428e631e911b81d72ef64e3ffd3dfc1eb8083c417c0233e9257",
+    "re/tooling/sw2026/para/concentric/ExchangeMateEndpoints.py": "09d592b2b65fa311be1d0d32e6ef372bd7128dbbf67948b077b5fd45f7362ef5",
+    "re/tooling/sw2026/para/concentric/NativePlanarExchange.py": "39caed75c7a6d03dea0e8e3a02d02f0965b43918a9ebdb2116b6bfe63cecd8b1",
+    "re/tooling/sw2026/para/concentric/PlanarExchange.py": "eb5ac1df9f290a3ea6a6f86b23a2f10f0aa65c1e0f752741809e444bbdd49c76",
+    "re/tooling/sw2026/para/concentric/ProvePlanarExchange.py": "934ae942f5cfa60598c7a3d828460fcecf8bae33ab0fdda6ae11d15d7f5b4e3a"
+  },
+  "guarded_host_processes": {
+    "native_observation": 3,
+    "neutral_archive_construction": 4,
+    "neutral_exchange_construction": 4
+  },
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_export_static": {
+    "application_build": "34.5.2.0604",
+    "functions": {
+      "distance_base_constructor": {
+        "end_exclusive": "0x4bc2d896",
+        "sha256": "c6a2a804727daf0a9e02bd5d486afc809a5b25d0dbb97ef66606c9909d3624e0",
+        "start": "0x4bc2d820"
+      },
+      "distance_value": {
+        "end_exclusive": "0x4bc568e1",
+        "sha256": "2b0707182b00772822b7b696ecb3a95e29d3a9193bd949c4d7e5c1642b27d467",
+        "start": "0x4bc568b0"
+      },
+      "moCompFeature_c::to_msgpack": {
+        "end_exclusive": "0x4b809e30",
+        "sha256": "0b572453891c0be4ebe8a865f20fd1d740a75af99c197a1a08239e116ff46b1d",
+        "start": "0x4b809c20"
+      },
+      "moDimHandle_c::getValue": {
+        "end_exclusive": "0x4c844dc2",
+        "sha256": "e327ff72feddb0609c15f14b6bdf7056add9eea087c856c2fb252e95c74f379f",
+        "start": "0x4c844d80"
+      },
+      "moDisplayDim::getValue": {
+        "end_exclusive": "0x4c888e92",
+        "sha256": "8337a1dc5b0bfeffd58b8855ecafdccdb1513ce27f22f7026c7798d2bd4b2ec6",
+        "start": "0x4c888d40"
+      },
+      "moMate::to_msgpack": {
+        "end_exclusive": "0x4bc80536",
+        "sha256": "9b84e98f890d2988e4f94221f10e64647352d8edf5457143842c48d9bfd35c6a",
+        "start": "0x4bc80360"
+      },
+      "moMateDim_c::Serialize": {
+        "end_exclusive": "0x4b669686",
+        "sha256": "37503719e91209aa49f9c4df82f05b2862e8b485ce79563f13f65914e4031af3",
+        "start": "0x4b669510"
+      },
+      "moMateDim_c::to_msgpack": {
+        "end_exclusive": "0x4bc8075c",
+        "sha256": "dc0d6ece8dee4cb5dc1edd011deaed8083c17b1983b8185876cadb97aacf2d2f",
+        "start": "0x4bc80650"
+      },
+      "moMateDistanceDim_c::Serialize": {
+        "end_exclusive": "0x4b669831",
+        "sha256": "a1d650f009ff7e707be7a22539d0e7e17e05ecdf6dd233ea94f633369383c22a",
+        "start": "0x4b669690"
+      },
+      "moMateDistanceDim_c::to_msgpack": {
+        "end_exclusive": "0x4bc8087c",
+        "sha256": "87d8d6c74809c63471f706079dd80978746ced0a5a7c03733e3234553dad9add",
+        "start": "0x4bc80760"
+      },
+      "moMateNGeoms_c::to_msgpack": {
+        "end_exclusive": "0x4bc80ff6",
+        "sha256": "66ca728ea705034f8777d57342914324a8030c7300ed966e48d804f953a512f0",
+        "start": "0x4bc80b00"
+      }
+    },
+    "keys": {
+      "Aligment": "0x4cfdeb10",
+      "Distance": "0x4cfdeb48",
+      "FlipDim": "0x4cfdeb40",
+      "NumberEntities": "0x4cfdeb20",
+      "featureID": "0x4ce96480"
+    },
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "tables": {
+      "moCompRefPlane_c": {
+        "complete_object_locator": "0x4d2eb278",
+        "slots": {
+          "0x30": {
+            "cell": "0x4cd8d250",
+            "target": "0x4b809c20"
+          }
+        }
+      },
+      "moDisplayDistanceDim_c": {
+        "complete_object_locator": "0x4d3738c0",
+        "slots": {
+          "0x868": {
+            "cell": "0x4d253ad8",
+            "target": "0x4c888d40"
+          }
+        }
+      },
+      "moMateCoincident": {
+        "complete_object_locator": "0x4d338348",
+        "slots": {
+          "0x30": {
+            "cell": "0x4cfa4710",
+            "target": "0x4bc80b00"
+          }
+        }
+      },
+      "moMateDistanceDim_c": {
+        "complete_object_locator": "0x4d339040",
+        "slots": {
+          "0x23c0": {
+            "cell": "0x4cfb20d8",
+            "target": "0x4bc568b0"
+          },
+          "0x30": {
+            "cell": "0x4cfafd48",
+            "target": "0x4bc80760"
+          }
+        }
+      }
+    }
+  },
+  "native_processes_started": 0,
+  "neutral_generated": {
+    "SdkPlanarGroup2Alpha": {
+      "assembly_input_sha256": "9d8035ddcc6a8c32ad14c73be86cdb76441a3b1d0c545696685c3c9ddf6e2e7d",
+      "assembly_with_exchange_sha256": "036d676fca972f7498f2a270ba6f30a265e8656068e567c4429369601af7c8b0",
+      "child_sha256": "88ab81e4b9a61a31704624682a2ddecd1d9d30f5ebef17b88b845602f573954f",
+      "complete_exchange_records": 8,
+      "driver": {
+        "changed_cache_kept_exchange_exact": true,
+        "display_cache_m": 0.0,
+        "driver_id": 20,
+        "driver_name": "D1",
+        "length_m": 0.04357,
+        "length_span": [
+          6768,
+          6834
+        ]
+      },
+      "exchange_sha256": "273e0e0f23dc8eb62df71b848cfcdfc78d9f14133f30cd4397909c405c11ee57",
+      "external_access_attempts": 0,
+      "live_child_endpoints": [
+        {
+          "axis": "y",
+          "feature_id": "15",
+          "stamp": 101,
+          "target": "SdkGroupPlate-1@SdkPlanarGroup2Alpha"
+        },
+        {
+          "axis": "y",
+          "feature_id": "15",
+          "stamp": 101,
+          "target": "SdkGroupPlate-2@SdkPlanarGroup2Alpha"
+        },
+        {
+          "axis": "x",
+          "feature_id": "16",
+          "stamp": 101,
+          "target": "SdkGroupPlate-1@SdkPlanarGroup2Alpha"
+        },
+        {
+          "axis": "x",
+          "feature_id": "16",
+          "stamp": 101,
+          "target": "SdkGroupPlate-2@SdkPlanarGroup2Alpha"
+        },
+        {
+          "axis": "z",
+          "feature_id": "14",
+          "stamp": 101,
+          "target": "SdkGroupPlate-2@SdkPlanarGroup2Alpha"
+        },
+        {
+          "axis": "z",
+          "feature_id": "14",
+          "stamp": 101,
+          "target": "SdkGroupPlate-1@SdkPlanarGroup2Alpha"
+        }
+      ],
+      "mates": [
+        {
+          "alignment": 1,
+          "class": "moMateCoincident",
+          "distance_m": null,
+          "entities": 2,
+          "feature_ids": [
+            "15",
+            "15"
+          ],
+          "flip": null,
+          "hidden": false,
+          "id": 19,
+          "name": "Coincident2",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "SdkGroupPlate-1@SdkPlanarGroup2Alpha",
+            "SdkGroupPlate-2@SdkPlanarGroup2Alpha"
+          ]
+        },
+        {
+          "alignment": 1,
+          "class": "moMateDistanceDim_c",
+          "distance_m": 0.04357,
+          "entities": 2,
+          "feature_ids": [
+            "16",
+            "16"
+          ],
+          "flip": 0,
+          "hidden": false,
+          "id": 21,
+          "name": "SpacingAlpha",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "SdkGroupPlate-1@SdkPlanarGroup2Alpha",
+            "SdkGroupPlate-2@SdkPlanarGroup2Alpha"
+          ]
+        },
+        {
+          "alignment": 1,
+          "class": "moMateCoincident",
+          "distance_m": null,
+          "entities": 2,
+          "feature_ids": [
+            "14",
+            "14"
+          ],
+          "flip": null,
+          "hidden": false,
+          "id": 22,
+          "name": "LevelAlpha",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "SdkGroupPlate-2@SdkPlanarGroup2Alpha",
+            "SdkGroupPlate-1@SdkPlanarGroup2Alpha"
+          ]
+        }
+      ],
+      "neutral_request_sha256": "696eaa1af38882b12c55d408b63cd3a47012f93bead5acedf33ef4e3855b70fb",
+      "refusals": {
+        "different_live_child_datum": "generated planar endpoint differs from its authored occurrence or datum",
+        "duplicate_exchange_owner": "assembly model exchange already has an owner"
+      },
+      "typed_archive_roundtrips_per_build": 22,
+      "unchanged_logical_streams": 12
+    },
+    "SdkPlanarGroup2Beta": {
+      "assembly_input_sha256": "c42e6990f8e11f317ada948050baed322bcdd1cd5da42f0c2da5fb629a1a9cc3",
+      "assembly_with_exchange_sha256": "f8768b00041fdbc854a5ffcc20317489c1fea04f935c44ced7c867cfd6e13918",
+      "child_sha256": "d134250de71bb14fee21df235c43957a13e697db1b64dd94f87acc540a6dccac",
+      "complete_exchange_records": 8,
+      "driver": {
+        "changed_cache_kept_exchange_exact": true,
+        "display_cache_m": 0.0,
+        "driver_id": 20,
+        "driver_name": "D1",
+        "length_m": 0.09817,
+        "length_span": [
+          6766,
+          6832
+        ]
+      },
+      "exchange_sha256": "a354f669840f1423ab831d3de8c3cdeee5a874b32b6bf840e647d4c2ea5f3e63",
+      "external_access_attempts": 0,
+      "live_child_endpoints": [
+        {
+          "axis": "y",
+          "feature_id": "15",
+          "stamp": 101,
+          "target": "SdkGroupPlate-2@SdkPlanarGroup2Beta"
+        },
+        {
+          "axis": "y",
+          "feature_id": "15",
+          "stamp": 101,
+          "target": "SdkGroupPlate-1@SdkPlanarGroup2Beta"
+        },
+        {
+          "axis": "x",
+          "feature_id": "16",
+          "stamp": 101,
+          "target": "SdkGroupPlate-1@SdkPlanarGroup2Beta"
+        },
+        {
+          "axis": "x",
+          "feature_id": "16",
+          "stamp": 101,
+          "target": "SdkGroupPlate-2@SdkPlanarGroup2Beta"
+        },
+        {
+          "axis": "z",
+          "feature_id": "14",
+          "stamp": 101,
+          "target": "SdkGroupPlate-1@SdkPlanarGroup2Beta"
+        },
+        {
+          "axis": "z",
+          "feature_id": "14",
+          "stamp": 101,
+          "target": "SdkGroupPlate-2@SdkPlanarGroup2Beta"
+        }
+      ],
+      "mates": [
+        {
+          "alignment": 1,
+          "class": "moMateCoincident",
+          "distance_m": null,
+          "entities": 2,
+          "feature_ids": [
+            "15",
+            "15"
+          ],
+          "flip": null,
+          "hidden": false,
+          "id": 19,
+          "name": "Coincident1",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "SdkGroupPlate-2@SdkPlanarGroup2Beta",
+            "SdkGroupPlate-1@SdkPlanarGroup2Beta"
+          ]
+        },
+        {
+          "alignment": 1,
+          "class": "moMateDistanceDim_c",
+          "distance_m": 0.09817,
+          "entities": 2,
+          "feature_ids": [
+            "16",
+            "16"
+          ],
+          "flip": 0,
+          "hidden": false,
+          "id": 21,
+          "name": "SpacingBeta",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "SdkGroupPlate-1@SdkPlanarGroup2Beta",
+            "SdkGroupPlate-2@SdkPlanarGroup2Beta"
+          ]
+        },
+        {
+          "alignment": 1,
+          "class": "moMateCoincident",
+          "distance_m": null,
+          "entities": 2,
+          "feature_ids": [
+            "14",
+            "14"
+          ],
+          "flip": null,
+          "hidden": false,
+          "id": 22,
+          "name": "LevelBeta",
+          "stamp": 101,
+          "suppressed": false,
+          "targets": [
+            "SdkGroupPlate-1@SdkPlanarGroup2Beta",
+            "SdkGroupPlate-2@SdkPlanarGroup2Beta"
+          ]
+        }
+      ],
+      "neutral_request_sha256": "5a98f22bfa2c565fb6273b563aea6f3d17baae6557fc71d3dbd0e795019ce7fe",
+      "refusals": {
+        "different_live_child_datum": "generated planar endpoint differs from its authored occurrence or datum",
+        "duplicate_exchange_owner": "assembly model exchange already has an owner"
+      },
+      "typed_archive_roundtrips_per_build": 22,
+      "unchanged_logical_streams": 12
+    }
+  },
+  "public_writer_qualified": false,
+  "saved_source_used_for_generation": false,
+  "schema": "kit.sw2026.ordinary-planar-mate-exchange.v1"
+}

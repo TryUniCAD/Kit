@@ -1,0 +1,76 @@
+{
+  "available_kf": {
+    "archive_version": 14000,
+    "child_basenames": {
+      "ABRAZADERA DE CUBIERTA DE TURBINA.SLDPRT": 2,
+      "CARRERA DE EMPUJE.SLDPRT": 1,
+      "CUBIERTA DE TURBINA 1.SLDPRT": 1,
+      "CUBIERTA.SLDPRT": 1,
+      "CUIETA DE ENTRADA DE GASES.SLDPRT": 1,
+      "PINZA DE COMPRESOR.SLDPRT": 2,
+      "PLATO DEL COMPRESOR.SLDPRT": 1,
+      "RUEDA DE TURBINA.SLDPRT": 1,
+      "SELLO DEL COMPRESOR.SLDPRT": 1,
+      "TAPA RECTANGULAR DE LA CUBIERTA DE LA TURBINA.SLDPRT": 1,
+      "TURBINA.SLDPRT": 1,
+      "hex bolt gradeb_iso.sldprt": 17
+    },
+    "child_count": 30,
+    "configuration": "Default",
+    "configuration_id": 0,
+    "creation_time": 1641581171,
+    "definition_id": 2,
+    "file_ref": 3,
+    "forced_nested_mapping_refusal": "nested occurrence RUEDA DE TURBINA-1 has 0 root mappings",
+    "last_modified_stamp": 293,
+    "path": "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/Turbo Assy KF.SLDASM",
+    "sha256": "c4b8f680d8bf3f20450c0c497991d251282b09f007290054cd963413b405c262",
+    "strict_control_documents": 11
+  },
+  "fixture_revisions_without_path": [
+    "81c3740dec3f705435bd56519a46d08e020cea3b",
+    "a145e762c2bb07d495a01c0e1a9962be54c9fe54",
+    "3b5caa3b599b2184f32260e8b383d15044946d5f"
+  ],
+  "manifest_has_exact_path": false,
+  "manifest_source_revision": "74a0bc353421c25f7a6c539897baadf593a05766",
+  "missing_owner": {
+    "active_occurrence_id": 333,
+    "child_basenames": {
+      "ABRAZADERA DE CUBIERTA DE TURBINA.SLDPRT": 2,
+      "CARRERA DE EMPUJE.SLDPRT": 1,
+      "CUBIERTA DE TURBINA 1.SLDPRT": 1,
+      "CUBIERTA.SLDPRT": 1,
+      "CUIETA DE ENTRADA DE GASES.SLDPRT": 1,
+      "PINZA DE COMPRESOR.SLDPRT": 2,
+      "PLATO DEL COMPRESOR.SLDPRT": 1,
+      "RUEDA DE TURBINA.SLDPRT": 1,
+      "SELLO DEL COMPRESOR.SLDPRT": 1,
+      "TAPA RECTANGULAR DE LA CUBIERTA DE LA TURBINA.SLDPRT": 1,
+      "TURBINA.SLDPRT": 1,
+      "formed hex screw_am.sldprt": 17,
+      "hex bolt gradeb_iso.sldprt": 4
+    },
+    "child_count": 34,
+    "configuration": "Predeterminado",
+    "configuration_id": 0,
+    "creation_time": 1547285018,
+    "definition_id": 334,
+    "feature_id": 1556,
+    "file_ref": 335,
+    "last_modified_stamp": 905,
+    "recorded_path": "D:\\Archivos de diseño\\Archivos_Motor_V8\\TURBO\\ENSAMBLAJE TURBO.SLDASM"
+  },
+  "native_equivalence_credit": 0,
+  "native_processes": 0,
+  "schema": "kit.solidworks.missing-example-turbo.v1",
+  "sdk_revision": "3b5caa3b599b2184f32260e8b383d15044946d5f",
+  "sdk_src_tree": "d80c5bafab1ee30e6bd364b04b0daeec64f3e27f",
+  "tool_sha256": "d5ea2d8fe317666fb61b5298f1506ce250221524c2d91d63d15038915886e613",
+  "tracked_parent": {
+    "archive_version": 11000,
+    "path": "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/ENSAMBLAJE DE MOTOR V8.SLDASM",
+    "sha256": "c1057dd8cf88808c017376e6f04bd50418bd9797f2ffb1d811a5836289b17a10",
+    "strict_refusal": "nested assembly mate source is unavailable: D:\\Archivos de diseño\\Archivos_Motor_V8\\TURBO\\ENSAMBLAJE TURBO.SLDASM"
+  }
+}

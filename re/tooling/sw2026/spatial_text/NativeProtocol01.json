@@ -1,0 +1,243 @@
+{
+  "cases": [
+    {
+      "configuration": "modeled default",
+      "constructor_source": {
+        "build_sha256": "eaf2bb15c2a641d4dc7401782d51b1b9368ed2acba0cfd013fc4a47c4a78a277",
+        "prepare_sha256": "abe3a46489d63cbde7aee802dcb913aa5fea640d31da2bd19a31a35d9a3e6fdd",
+        "request_sha256": "98d08ee20b6e7fad7f3aaa402e3cab1ed92f8e27a3d96516ec0a627f5397a741"
+      },
+      "edit": {
+        "field": "width_m",
+        "parameter": "D1@Sketch1",
+        "value_m": 0.043656,
+        "view_move_m": [
+          0.002731,
+          -0.001937
+        ]
+      },
+      "files": {
+        "child": {
+          "bytes": 8882,
+          "path": "Generated/TextDepthCornerHeightPositive/TextDepthCornerChild.SLDPRT",
+          "sha256": "6d77e80914a7493daeb69fb0733a929d18cc531e4c63585c7ad5530366b43178"
+        },
+        "drawing": {
+          "bytes": 7275,
+          "path": "Generated/TextDepthCornerHeightPositive/TextDepthCorner.SLDDRW",
+          "sha256": "9bc852072f36b6598f1430a8f042711c4d52108edcd492bed9ce6bf8929e1c0a"
+        }
+      },
+      "kind": "corner",
+      "name": "TextDepthCornerHeightPositive",
+      "part": {
+        "depth_m": 0.008731000000000001,
+        "height_m": 0.024719,
+        "width_m": 0.037483
+      },
+      "sheet": {
+        "height_m": 0.21589999999999998,
+        "name": "TextDepthCorner paper",
+        "scale_ratio": [
+          7.0,
+          5.0
+        ],
+        "width_m": 0.2794
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.037483,
+          "value_id": 19,
+          "xyz_m": [
+            0.0187415,
+            -0.0074157,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.024719,
+          "value_id": 20,
+          "xyz_m": [
+            0.048727900000000005,
+            0.0123595,
+            0.000237
+          ]
+        }
+      ],
+      "view": {
+        "name": "TextDepthCorner model view",
+        "orientation": "*Front",
+        "position_m": [
+          0.11317,
+          0.08729
+        ],
+        "scale": 0.821
+      }
+    },
+    {
+      "configuration": "modeled default",
+      "constructor_source": {
+        "build_sha256": "bd1444df51f7afac76e561f02c3edad7dc5c5c6f77a1b8257a00d3ccdb8f8feb",
+        "prepare_sha256": "0f019401ae2c09f3390be211ef9e95942300f1d84ca9adce3676b7c54e714a6f",
+        "request_sha256": "d8201daacf3911ce2ec93b847c74b02fa94ac0a1ef2dbc129e37af60fb099010"
+      },
+      "edit": {
+        "field": "height_m",
+        "parameter": "D2@Sketch1",
+        "value_m": 0.033106000000000003,
+        "view_move_m": [
+          0.002731,
+          -0.001937
+        ]
+      },
+      "files": {
+        "child": {
+          "bytes": 8994,
+          "path": "Generated/TextDepthCenteredHeightNegative/TextDepthCenteredChild.SLDPRT",
+          "sha256": "6de7454c1a845894eee48630c1f86f0803473f4d2a2c1ec6d363e830a0449043"
+        },
+        "drawing": {
+          "bytes": 7331,
+          "path": "Generated/TextDepthCenteredHeightNegative/TextDepthCentered.SLDDRW",
+          "sha256": "b4fee8b3571502c1f2bc15c5001c8cba9af28159ec820ebbeceaa9019e3ab5c7"
+        }
+      },
+      "kind": "center",
+      "name": "TextDepthCenteredHeightNegative",
+      "part": {
+        "depth_m": 0.006137000000000001,
+        "height_m": 0.028913,
+        "width_m": 0.045127
+      },
+      "sheet": {
+        "height_m": 0.21589999999999998,
+        "name": "TextDepthCentered paper",
+        "scale_ratio": [
+          7.0,
+          5.0
+        ],
+        "width_m": 0.2794
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.045127,
+          "value_id": 19,
+          "xyz_m": [
+            0.0,
+            -0.023130400000000002,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.028913,
+          "value_id": 20,
+          "xyz_m": [
+            0.036101600000000005,
+            0.0,
+            -0.000419
+          ]
+        }
+      ],
+      "view": {
+        "name": "TextDepthCentered model view",
+        "orientation": "*Top",
+        "position_m": [
+          0.12731,
+          0.09317
+        ],
+        "scale": 1.137
+      }
+    }
+  ],
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "coordinate_policy": {
+    "after_dimension_edit": "stored normal coordinate must match authored Z; planar coordinates retained as observations because dimension solving can move text",
+    "before_dimension_edit": "all three stored text coordinates must match the explicit request to six significant figures, with 1e-12 m tolerance for zero",
+    "com": "actual relation display annotation GetPosition is collected separately; no equivalence with the stored embedded text point is asserted"
+  },
+  "exit_on_failure": "retain the precise native or typed failed predicate and raw phase records; do not fit another Z or relax the source refusals",
+  "expected_outcomes": {
+    "annotation_api": "actual display-to-annotation binding and GetPosition coordinates are finite and complete; no stored-point equality is assumed",
+    "controls": "healthy exact pristine control before and after the entire cohort",
+    "driving_edit": "independent width or height edit rebuilds and persists, followed by declared view move",
+    "initial_child_save": "owned generated working copy saves cleanly before initial drawing observation",
+    "native_open_and_rebuild": "zero errors and warnings, one analytic child body, complete unchanged trees and actual relation ownership",
+    "stored_text": "full actual source point is retained; native Z persistence is a prospective strict hypothesis, never an inferred universal offset",
+    "typed_host_join": "ten complete Definition/child byte replays and actual origin/file/configuration/component joins after terminal native pass"
+  },
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "host_tools": {
+    "QualifySpatialTextLifecycle.py": {
+      "bytes": 14349,
+      "path": "HostTools/QualifySpatialTextLifecycle.py",
+      "sha256": "24bf49a58934b5dad6f7d8f08904319bb3316c999851b7dc2b5ae4807ce46467"
+    }
+  },
+  "native_acceptance": false,
+  "native_execution": false,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "0921dfc23ce26653139a09634cfebeec58932cb71fda508bc940aa1379637bdc",
+  "process_count": 10,
+  "public_drawing_writer_changed": false,
+  "root_process_result_sha256": "04c94d1124e2cc121c680b1e127eb762caf52f071f42874af5226128f456e067",
+  "schema": "kit.sw2026.spatial-text-native-protocol.v1",
+  "source_manifest_sha256": "69b7098e0e64d320364d218bf7cc1a8ba21eab7d2b16ca10878f04bce68ce182",
+  "source_original_admission": false,
+  "tools": {
+    "AuthorCurves.py": {
+      "bytes": 70349,
+      "path": "Tools/AuthorCurves.py",
+      "sha256": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2"
+    },
+    "AuthorDrawingSources.py": {
+      "bytes": 19779,
+      "path": "Tools/AuthorDrawingSources.py",
+      "sha256": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083"
+    },
+    "AuthorRectangleAnchors.py": {
+      "bytes": 20216,
+      "path": "Tools/AuthorRectangleAnchors.py",
+      "sha256": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6"
+    },
+    "InspectFresh.py": {
+      "bytes": 4240,
+      "path": "Tools/InspectFresh.py",
+      "sha256": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de"
+    },
+    "InspectSpatialTextLifecycle.py": {
+      "bytes": 17305,
+      "path": "Tools/InspectSpatialTextLifecycle.py",
+      "sha256": "f78208ec6ee27127d482a11648645f6c9a80dd94718beca6b9d65e43702a67e4"
+    },
+    "OracleIdentity.py": {
+      "bytes": 4284,
+      "path": "Tools/OracleIdentity.py",
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    "OriginNativeObserve.py": {
+      "bytes": 12227,
+      "path": "Tools/OriginNativeObserve.py",
+      "sha256": "5a4decd8efd207b8938ed7d1b8c955f1a8ebda8acebe53db64539dbb3a70c7ea"
+    },
+    "OriginNativePredict.py": {
+      "bytes": 3277,
+      "path": "Tools/OriginNativePredict.py",
+      "sha256": "e55bbfe9cc1ca77eef9ea87790be28f2321cb179e075eb940cae1b52b9576dff"
+    },
+    "SpatialTextNativeObserve.py": {
+      "bytes": 3610,
+      "path": "Tools/SpatialTextNativeObserve.py",
+      "sha256": "04857bb589843f77a48330bd4e24dc3a512a5bf171f39d9f73f84f91a19df3b4"
+    },
+    "Swapp.py": {
+      "bytes": 15690,
+      "path": "Tools/Swapp.py",
+      "sha256": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  }
+}

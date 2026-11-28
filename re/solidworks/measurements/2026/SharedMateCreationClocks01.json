@@ -1,0 +1,394 @@
+{
+  "changed_streams": [
+    "Contents/Config-0-MatesList",
+    "Contents/Config-0-ModelHeader",
+    "Header2"
+  ],
+  "construction_data_reads": 0,
+  "constructor_sha256": {
+    "Assembly/RecordMateMut.py": "eeedcc4f0eb4fe0a9a2a6549b2a4132ea803137ab72f2cde3e56fd7c00625559",
+    "AssemblyGroups/GroupMateIn.py": "e2ea437159cf454f811d6c3a30b7cc17522599c4ba45cdf8168d24fdec9b7b09",
+    "AssemblyGroups/MakeGroupMut.py": "2510658c03263c276d35e44d3f18758ca9908a8e4d2be04b96971103b3df011c",
+    "Header/MakeRootLog.py": "34fd3c066431705d1edf0c1d7e495fdd68e0c55dd72f1c02e8b3a08332bd78be"
+  },
+  "fixture": {
+    "additional_current_streams": [
+      "Contents/CMgrHdr2"
+    ],
+    "child": {
+      "bytes": 8643,
+      "sha256": "a97ee087a20dcfaf0e0e25e6bc8fa29bf421b447f113022ee98824eff77d4b78"
+    },
+    "current_unqualified_parent": {
+      "bytes": 10550,
+      "sha256": "859e23258552987168b1636e20499dc94ed490c1d8311aea8b2e818d851a94f3"
+    },
+    "events": {
+      "base": 133,
+      "headers": {
+        "Contents/Config-0-ModelHeader": {
+          "document_created": 1794700000,
+          "document_modified": 1794700000,
+          "mate_stamps": [
+            {
+              "id": 19,
+              "time": 1794700001
+            },
+            {
+              "id": 21,
+              "time": 1794700002
+            },
+            {
+              "id": 22,
+              "time": 1794700003
+            }
+          ]
+        },
+        "Header2": {
+          "document_created": 1794700000,
+          "document_modified": 1794700000,
+          "mate_stamps": [
+            {
+              "id": 19,
+              "time": 1794700001
+            },
+            {
+              "id": 21,
+              "time": 1794700002
+            },
+            {
+              "id": 22,
+              "time": 1794700003
+            }
+          ]
+        }
+      },
+      "mates": [
+        {
+          "id": 19,
+          "name": "Parallel1",
+          "subsecond_ticks": 0,
+          "time": 1794700001,
+          "words": [
+            1704969856,
+            31290514
+          ]
+        },
+        {
+          "id": 21,
+          "name": "Distance1",
+          "subsecond_ticks": 0,
+          "time": 1794700002,
+          "words": [
+            1714969856,
+            31290514
+          ]
+        },
+        {
+          "id": 22,
+          "name": "Coincident1",
+          "subsecond_ticks": 0,
+          "time": 1794700003,
+          "words": [
+            1724969856,
+            31290514
+          ]
+        }
+      ]
+    },
+    "parent": {
+      "bytes": 10351,
+      "sha256": "9d429e4688b655b09a7fa5374b8fc933fabc8ae7002812a6deecc892c68f2ac4"
+    }
+  },
+  "fresh_workers": 2,
+  "heldout_reads": 0,
+  "independent": {
+    "base": 133,
+    "headers": {
+      "Contents/Config-0-ModelHeader": {
+        "document_created": 1792346400,
+        "document_modified": 1792346975,
+        "mate_stamps": [
+          {
+            "id": 19,
+            "time": 1792346473
+          },
+          {
+            "id": 21,
+            "time": 1792346521
+          },
+          {
+            "id": 22,
+            "time": 1792346592
+          }
+        ]
+      },
+      "Header2": {
+        "document_created": 1792346400,
+        "document_modified": 1792346975,
+        "mate_stamps": [
+          {
+            "id": 19,
+            "time": 1792346473
+          },
+          {
+            "id": 21,
+            "time": 1792346521
+          },
+          {
+            "id": 22,
+            "time": 1792346592
+          }
+        ]
+      }
+    },
+    "mates": [
+      {
+        "id": 19,
+        "name": "LevelReference",
+        "subsecond_ticks": 0,
+        "time": 1792346473,
+        "words": [
+          -1449215360,
+          31285034
+        ]
+      },
+      {
+        "id": 21,
+        "name": "SlideTravel",
+        "subsecond_ticks": 0,
+        "time": 1792346521,
+        "words": [
+          -969215360,
+          31285034
+        ]
+      },
+      {
+        "id": 22,
+        "name": "CentreReference",
+        "subsecond_ticks": 0,
+        "time": 1792346592,
+        "words": [
+          -259215360,
+          31285034
+        ]
+      }
+    ]
+  },
+  "independent_changed": {
+    "base": 133,
+    "headers": {
+      "Contents/Config-0-ModelHeader": {
+        "document_created": 1792346400,
+        "document_modified": 1792346975,
+        "mate_stamps": [
+          {
+            "id": 19,
+            "time": 1792346473
+          },
+          {
+            "id": 21,
+            "time": 1792346969
+          },
+          {
+            "id": 22,
+            "time": 1792346592
+          }
+        ]
+      },
+      "Header2": {
+        "document_created": 1792346400,
+        "document_modified": 1792346975,
+        "mate_stamps": [
+          {
+            "id": 19,
+            "time": 1792346473
+          },
+          {
+            "id": 21,
+            "time": 1792346969
+          },
+          {
+            "id": 22,
+            "time": 1792346592
+          }
+        ]
+      }
+    },
+    "mates": [
+      {
+        "id": 19,
+        "name": "LevelReference",
+        "subsecond_ticks": 0,
+        "time": 1792346473,
+        "words": [
+          -1449215360,
+          31285034
+        ]
+      },
+      {
+        "id": 21,
+        "name": "SlideTravel",
+        "subsecond_ticks": 0,
+        "time": 1792346969,
+        "words": [
+          -784182656,
+          31285035
+        ]
+      },
+      {
+        "id": 22,
+        "name": "CentreReference",
+        "subsecond_ticks": 0,
+        "time": 1792346592,
+        "words": [
+          -259215360,
+          31285034
+        ]
+      }
+    ]
+  },
+  "native_launches": 0,
+  "native_source_events": {
+    "base": 168,
+    "headers": {
+      "Contents/Config-0-ModelHeader": {
+        "document_created": 1794961098,
+        "document_modified": 1794529626,
+        "mate_stamps": [
+          {
+            "id": 26,
+            "time": 1794961103
+          },
+          {
+            "id": 28,
+            "time": 1794961104
+          },
+          {
+            "id": 29,
+            "time": 1794961104
+          }
+        ]
+      },
+      "Header2": {
+        "document_created": 1794961098,
+        "document_modified": 1794529626,
+        "mate_stamps": [
+          {
+            "id": 26,
+            "time": 1794961103
+          },
+          {
+            "id": 28,
+            "time": 1794961104
+          },
+          {
+            "id": 29,
+            "time": 1794961104
+          }
+        ]
+      }
+    },
+    "mates": [
+      {
+        "id": 26,
+        "name": "Parallel1",
+        "subsecond_ticks": 9666252,
+        "time": 1794961103,
+        "words": [
+          1394520140,
+          31291122
+        ]
+      },
+      {
+        "id": 28,
+        "name": "Distance1",
+        "subsecond_ticks": 709990,
+        "time": 1794961104,
+        "words": [
+          1395563878,
+          31291122
+        ]
+      },
+      {
+        "id": 29,
+        "name": "Coincident1",
+        "subsecond_ticks": 1906428,
+        "time": 1794961104,
+        "words": [
+          1396760316,
+          31291122
+        ]
+      }
+    ]
+  },
+  "omitted_clock_default": {
+    "base": 133,
+    "headers": {
+      "Contents/Config-0-ModelHeader": {
+        "document_created": 1792346400,
+        "document_modified": 1792346975,
+        "mate_stamps": [
+          {
+            "id": 20,
+            "time": 1792346400
+          },
+          {
+            "id": 21,
+            "time": 1792346400
+          }
+        ]
+      },
+      "Header2": {
+        "document_created": 1792346400,
+        "document_modified": 1792346975,
+        "mate_stamps": [
+          {
+            "id": 20,
+            "time": 1792346400
+          },
+          {
+            "id": 21,
+            "time": 1792346400
+          }
+        ]
+      }
+    },
+    "mates": [
+      {
+        "id": 20,
+        "name": "SlideTravel",
+        "subsecond_ticks": 0,
+        "time": 1792346400,
+        "words": [
+          2115751936,
+          31285034
+        ]
+      },
+      {
+        "id": 21,
+        "name": "CentreReference",
+        "subsecond_ticks": 0,
+        "time": 1792346400,
+        "words": [
+          2115751936,
+          31285034
+        ]
+      }
+    ]
+  },
+  "public_admission_refused": true,
+  "public_writer_promoted": false,
+  "refusals": 5,
+  "reused_tool_sha256": {
+    "BuildHistoricalRotated.py": "2fa1e6955f85da36363aa382c39b50f3467558586b99642aff0ef19830a67bc1",
+    "MakeQueueRotated.py": "799aadd5f45a957fffc2363baeb4e485a8c2aba4d816f043d32a43e369930e54",
+    "ProjectRotatedModel.py": "b73dcc77331d8b56c50f490141bd68bf9e7cc3050cb11aef6fcbe74615bf568d",
+    "RotatedReadAudit.py": "8a3b3b39cc1506cb2d2179659b7e6897b74053b1f7ea83035bc9c9d12a6a032c",
+    "VerifyRotatedMates.py": "3586eaf10de11dc260535fdca016d9eed245b4d6ceb5c1ff7c5fef29c5dc4f2d"
+  },
+  "schema": "kit.sw2026.shared-mate-creation-events.v1",
+  "source_and_candidate_native_receipt": "dd062a6526c9fb74aad7e8425fa9c8f585ca9929c27d2ed1836271392ed02aff",
+  "task_method_sha256": "bcf13635143d72f0d9a6c6fef87e634686b09c33a72f1deaf4a9586665665cd7"
+}

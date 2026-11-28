@@ -54,14 +54,14 @@ def require(valid, message):
 
 
 def authored(values):
-    from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import (
-        MakePartDef,
+    from convert.adapters.solidworks.Archive.Definition.Construction.MakeOrdPartDef import (
+        MakeOrdPartDef,
     )
     from convert.adapters.solidworks.Archive.Definition.Construction.ModelDefSettings import (
         ModelDefInput,
     )
 
-    return MakePartDef(
+    return MakeOrdPartDef(
         ModelDefInput(
             values["standard"],
             tuple(values["bits"]),
@@ -75,11 +75,11 @@ def authored(values):
 
 
 def emitted(raw):
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import (
-        WriteModelDef,
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import (
+        WriteOrdDef,
     )
 
-    output = WriteModelDef(authored(json.loads(raw)))
+    output = WriteOrdDef(authored(json.loads(raw)))
     require(
         output.UsageValue.IsComplete and output.MapValue.CounterValue == 7,
         "fresh part definition did not derive the ordinary archive map",
@@ -106,13 +106,13 @@ def map_shape(snapshot):
 
 
 def readback(data):
-    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import (
-        WriteModelDef,
+    from convert.adapters.solidworks.Archive.Definition.ReadOrdinaryDef import ReadOrdinaryDef
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import (
+        WriteOrdDef,
     )
 
-    typed = ReadModelDef(data, 19000)
-    result = WriteModelDef(typed.GraphValue)
+    typed = ReadOrdinaryDef(data, 19000)
+    result = WriteOrdDef(typed.GraphValue)
     require(
         result.OutputValue == data
         and typed.UsageValue.IsComplete
@@ -208,9 +208,9 @@ def refusal(call, expected):
 
 
 def refusals():
-    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import (
-        WriteModelDef,
+    from convert.adapters.solidworks.Archive.Definition.ReadOrdinaryDef import ReadOrdinaryDef
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import (
+        WriteOrdDef,
     )
     from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
     from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -218,7 +218,7 @@ def refusals():
 
     fresh = authored(AUTHORED["ordinary"])
     stock = fresh.DocumentValue
-    data = WriteModelDef(fresh).OutputValue
+    data = WriteOrdDef(fresh).OutputValue
 
     def alternate(**changes):
         graph = replace(
@@ -227,10 +227,10 @@ def refusals():
                 stock.ClassValue, {**stock.FieldsValue, **changes}
             ),
         )
-        return WriteModelDef(graph)
+        return WriteOrdDef(graph)
 
     def wrong_class(name, schema):
-        return WriteModelDef(
+        return WriteOrdDef(
             replace(
                 fresh,
                 DocumentValue=ArchiveNode(
@@ -241,7 +241,7 @@ def refusals():
 
     return {
         "read_assembly": refusal(
-            lambda: ReadModelDef(pack("<5i", 26, 4, 25, 1, 1) + KAsmClsid, 19000),
+            lambda: ReadOrdinaryDef(pack("<5i", 26, 4, 25, 1, 1) + KAsmClsid, 19000),
             "ordinary part CLSID",
         ),
         "write_assembly": refusal(
@@ -251,14 +251,14 @@ def refusals():
             lambda: wrong_class("uiPartDoc_c", 2), "uiPartDoc_c schema 1"
         ),
         "read_old_version": refusal(
-            lambda: ReadModelDef(data, 18000), "requires archive version 19000"
+            lambda: ReadOrdinaryDef(data, 18000), "requires archive version 19000"
         ),
         "write_future_version": refusal(
-            lambda: WriteModelDef(replace(fresh, VersionValue=19001)),
+            lambda: WriteOrdDef(replace(fresh, VersionValue=19001)),
             "requires archive version 19000",
         ),
         "read_tail": refusal(
-            lambda: ReadModelDef(data + b"\x00", 19000), "unconsumed tail"
+            lambda: ReadOrdinaryDef(data + b"\x00", 19000), "unconsumed tail"
         ),
         "write_renderer_marker": refusal(
             lambda: alternate(has_pwmaterial=2), "alternate renderer marker"
@@ -293,8 +293,8 @@ def refusals():
 
 
 def emit_references(wide=False):
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import (
-        WriteModelDef,
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import (
+        WriteOrdDef,
     )
     from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
     from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -321,15 +321,15 @@ def emit_references(wide=False):
     model.DocumentValue.FieldsValue["f878"] = {
         "styles": [{"o": node} for node in nodes]
     }
-    return WriteModelDef(model).OutputValue
+    return WriteOrdDef(model).OutputValue
 
 
 def refuse_reference_widths(data):
-    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
+    from convert.adapters.solidworks.Archive.Definition.ReadOrdinaryDef import ReadOrdinaryDef
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import WriteOrdDef
     from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 
-    typed = ReadModelDef(data, 19000)
+    typed = ReadOrdinaryDef(data, 19000)
     styles = typed.GraphValue.DocumentValue.FieldsValue["f878"]["styles"]
     first, repeated, separate = (row["o"] for row in styles)
     require(
@@ -337,7 +337,7 @@ def refuse_reference_widths(data):
         and first.ClassValue is separate.ClassValue
         and first.IndexValue == 4 and separate.IndexValue == 5
         and typed.MapValue.CounterValue == 10
-        and WriteModelDef(typed.GraphValue).OutputValue == data,
+        and WriteOrdDef(typed.GraphValue).OutputValue == data,
         "authored reference control did not preserve its two mapped style owners",
     )
     require(
@@ -358,16 +358,16 @@ def refuse_reference_widths(data):
             "wide contrast did not retain its valid structural tag meaning",
         )
         output[kind] = refusal(
-            lambda: ReadModelDef(altered, 19000), "archive tag uses a noncanonical width"
+            lambda: ReadOrdinaryDef(altered, 19000), "archive tag uses a noncanonical width"
         )
     return output
 
 
 def replay_wide_reference(data):
-    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
+    from convert.adapters.solidworks.Archive.Definition.ReadOrdinaryDef import ReadOrdinaryDef
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import WriteOrdDef
 
-    typed = ReadModelDef(data, 19000)
+    typed = ReadOrdinaryDef(data, 19000)
     rows = typed.GraphValue.DocumentValue.FieldsValue["f878"]["styles"]
     owner = rows[-2]["o"]
     require(
@@ -378,7 +378,7 @@ def replay_wide_reference(data):
     offset = owner.EndOffset
     tag = data[offset:offset + 6]
     require(tag == pack("<HI", 0x7FFF, 0x7FFF), "wrong canonical wide tag bytes")
-    written = WriteModelDef(typed.GraphValue)
+    written = WriteOrdDef(typed.GraphValue)
     require(
         written.OutputValue == data
         and written.MapValue.CounterValue == typed.MapValue.CounterValue,
@@ -393,11 +393,11 @@ def replay_wide_reference(data):
 
 
 def refuse_repeated_class(data):
-    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
+    from convert.adapters.solidworks.Archive.Definition.ReadOrdinaryDef import ReadOrdinaryDef
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import WriteOrdDef
     from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 
-    typed = ReadModelDef(data, 19000)
+    typed = ReadOrdinaryDef(data, 19000)
     rows = typed.GraphValue.DocumentValue.FieldsValue["f878"]["styles"]
     first, repeated, separate = (row["o"] for row in rows)
     offset = separate.StartOffset
@@ -406,7 +406,7 @@ def refuse_repeated_class(data):
         first is repeated and first is not separate
         and first.ClassValue == separate.ClassValue and tag.KindValue == "ClassRef"
         and tag.IndexValue == 3 and end == offset + 2
-        and WriteModelDef(typed.GraphValue).OutputValue == data,
+        and WriteOrdDef(typed.GraphValue).OutputValue == data,
         "the canonical contrast requires an exact reference to its mapped class",
     )
     name = separate.ClassValue.NameValue.encode("ascii")
@@ -417,7 +417,7 @@ def refuse_repeated_class(data):
         "canonical_class_slot": tag.IndexValue,
         "canonical_replays": True,
         "diagnostic": refusal(
-            lambda: ReadModelDef(alternate, 19000),
+            lambda: ReadOrdinaryDef(alternate, 19000),
             "archive repeats a canonical class declaration",
         ),
     }
@@ -425,12 +425,12 @@ def refuse_repeated_class(data):
 
 def worker(mode):
     sys.path.insert(0, str(REPO / "src"))
-    from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import (
-        MakePartDef,
+    from convert.adapters.solidworks.Archive.Definition.Construction.MakeOrdPartDef import (
+        MakeOrdPartDef,
     )
-    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
-    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import (
-        WriteModelDef,
+    from convert.adapters.solidworks.Archive.Definition.ReadOrdinaryDef import ReadOrdinaryDef
+    from convert.adapters.solidworks.Archive.Definition.WriteOrdDef import (
+        WriteOrdDef,
     )
     from convert.adapters.solidworks.Container.Archive import ContainerMo
     from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -516,9 +516,9 @@ def unpack_words(mask):
     return list(unpack("<ii", pack("<Q", mask)))
 
 
-def prove():
+def prove(codec_base=BASE):
     head = check_output(("git", "rev-parse", "HEAD"), cwd=REPO, text=True).strip()
-    require(head == BASE, "use the exact selected Definition base")
+    require(head == codec_base, "use the exact selected Definition base")
     generated = {}
     requests = {
         name: json.dumps(value, sort_keys=True).encode()
@@ -585,8 +585,9 @@ def native_readback_receipt(label, data, revision, path):
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--worker")
+    parser.add_argument("--codec-base", default=BASE)
     args = parser.parse_args()
-    result = worker(args.worker) if args.worker else prove()
+    result = worker(args.worker) if args.worker else prove(args.codec_base)
     if isinstance(result, bytes):
         sys.stdout.buffer.write(result)
     else:

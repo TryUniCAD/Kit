@@ -1,0 +1,105 @@
+{
+  "input_cases": 4,
+  "intact_baked_archives": {
+    "Baked01": {
+      "active_configuration": "Default",
+      "feature_type": "imported",
+      "full_and_design_only": true,
+      "input_feature_kind": "imported",
+      "link_part": {
+        "atom_id": 101,
+        "feature_id": 18,
+        "local_node_count": 87,
+        "mark": 3,
+        "predecessor": 2
+      },
+      "linked_body": "sldprt:feature:18",
+      "oriented_faces": 6,
+      "target": "5b4100d6c7f9b2e172337ced9c6c1d882dcac505ee8577414e8258c6028c9e83",
+      "target_tolerances_m": {
+        "edges": {
+          "0x1.b7cdfd9d7bdbap-34": 12
+        },
+        "faces": {
+          "0x1.b7cdfd9d7bdbap-34": 6
+        },
+        "vertices": {
+          "0x1.b7cdfd9d7bdbap-34": 8
+        }
+      }
+    },
+    "Baked02": {
+      "active_configuration": "Default",
+      "feature_type": "imported",
+      "full_and_design_only": true,
+      "input_feature_kind": "imported",
+      "link_part": {
+        "atom_id": 101,
+        "feature_id": 18,
+        "local_node_count": 87,
+        "mark": 3,
+        "predecessor": 2
+      },
+      "linked_body": "sldprt:feature:18",
+      "oriented_faces": 6,
+      "target": "448f35575f79d58e3154eba0f54d2eb151a2c6c2b0b23d1feb1126c6fffa8efc",
+      "target_tolerances_m": {
+        "edges": {
+          "0x1.b7cdfd9d7bdbap-34": 12
+        },
+        "faces": {
+          "0x1.b7cdfd9d7bdbap-34": 6
+        },
+        "vertices": {
+          "0x1.b7cdfd9d7bdbap-34": 8
+        }
+      }
+    }
+  },
+  "new_native_launches": 0,
+  "public_archives": {
+    "ConcaveOwned": {
+      "bound_owner": {
+        "atom_body_tag": 0,
+        "atom_manager_id": 101,
+        "body_count": 1,
+        "body_transmit_index": 1,
+        "complete_brep_binding": true,
+        "configuration_stream": "Contents/Config-0",
+        "last_modifying_feature_id": 18,
+        "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+        "name_owner": "implicit_kernel_and_key",
+        "profile": "current_single_local_solid_names",
+        "qualified_encoding": "printable_ascii",
+        "status": "complete",
+        "storage_key": "Imported geometry"
+      },
+      "display_name": "Imported geometry",
+      "feature": "sldprt:feature:18",
+      "native_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "RectangularBare": {
+      "bound_owner": {
+        "atom_body_tag": 0,
+        "atom_manager_id": 101,
+        "body_count": 1,
+        "body_transmit_index": 1,
+        "complete_brep_binding": true,
+        "configuration_stream": "Contents/Config-0",
+        "last_modifying_feature_id": 18,
+        "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+        "name_owner": "local_storage_key",
+        "profile": "current_single_local_solid_names",
+        "qualified_encoding": "printable_ascii",
+        "status": "complete",
+        "storage_key": "Imported geometry"
+      },
+      "display_name": "Imported geometry",
+      "feature": "sldprt:feature:18",
+      "native_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+    }
+  },
+  "relaxed_controls": 2,
+  "schema": "kit.sw2026.local-import-design-names.v1",
+  "strict_reads": 8
+}

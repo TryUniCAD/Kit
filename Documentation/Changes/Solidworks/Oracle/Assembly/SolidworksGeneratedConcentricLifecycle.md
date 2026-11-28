@@ -1,0 +1,7 @@
+# Standalone generated concentric native observer
+
+A research-only observer and freezer now prepare the two disclosed generated concentric pairs for native lifecycle measurement. The wrapper preserves either fixed anchor, authored occurrence names and endpoint order, distinct parent/child configurations and the actual child depth parameter. It reuses existing native cylinder/reference evidence, feature diagnostics, process/dialog ownership and synchronized save helpers.
+
+Run the preparer on the exact scratch protocol, its two hash-bound authored neutral documents and a new output directory. Use the frozen recipe's verify, per-case phase and summary commands. Root runs native phases serially; each after control stays independent of preceding failures. Immutable cold inputs are opened read-only, then relocated natively before editing. No public registration or SDK writer behavior changes.
+
+Host verification and two disclosed native-record contract replays pass; twenty malformed observations plus missing/partial phases refuse. The native command refuses on the host before COM import. No native process or new acceptance is credited. Read-only SaveAs relocation and the generated native edit/save/reopen still require measurement. See the [scope and operational ledger](../../../../../re/solidworks/records/GeneratedConcentricObserver2026.md) and [host receipt](../../../../../re/solidworks/measurements/2026/GeneratedConcentricObserverContract01.json).

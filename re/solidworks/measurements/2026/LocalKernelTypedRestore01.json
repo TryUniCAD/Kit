@@ -1,0 +1,55 @@
+{
+  "acceptance": false,
+  "application_controls_healthy": true,
+  "archive_payload_control_opened": false,
+  "controls_healthy": false,
+  "distinct_exact_processes": 4,
+  "generated_candidates_opened": 0,
+  "job_sha256": "31495f5f758ee257920c44a6b46b20661f9729106efdfa597b5d3c801410a75a",
+  "method": "generated 2026 IModeler dispatch binding with actual IUnknown",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_receipt_sha256": "4030bb5d010a25238be5dc3d9ff98d2bf16a0168786822f7cf88d6f5f528a8c9",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "phases": [
+    {
+      "name": "ApplicationBefore",
+      "passed": true,
+      "record_sha256": "0e4a9776211df2d7236e8826bbbb372de390aaf286a2dddc8d42d238a7d25515",
+      "role": "native_application_control"
+    },
+    {
+      "error_stage": "typed IModeler.Restore(IUnknown)",
+      "hresult": "0x80004002",
+      "name": "Before",
+      "native_stream": {
+        "bytes": 4227,
+        "sha256": "a55b978ac30a9d4a3f6978411e19e72f2b14d6c52b5772e209d42cf7e3bacd14"
+      },
+      "passed": false,
+      "pre_restore_numeric_checks": 29,
+      "record_sha256": "a20a75d1f2641d720d1acacdf9311e9ba085c055962d19b7e9273e5d1278e513",
+      "role": "native_stream_control"
+    },
+    {
+      "error_stage": "typed IModeler.Restore(IUnknown)",
+      "hresult": "0x80004002",
+      "name": "After",
+      "native_stream": {
+        "bytes": 4227,
+        "sha256": "3765a45105348bd581d40cf7105609383d65d3e675f6dc3d5fe60a14d710909d"
+      },
+      "passed": false,
+      "pre_restore_numeric_checks": 29,
+      "record_sha256": "8c3dbc5910b8cf29e7cede7175ce24cebec4c174a9f21cf16fc259978c6bde00",
+      "role": "native_stream_control"
+    },
+    {
+      "name": "ApplicationAfter",
+      "passed": true,
+      "record_sha256": "af00463e75c011604cbfb5467bc920d6dc5dd5b33a3f387402748fad57f21ced",
+      "role": "native_application_control"
+    }
+  ],
+  "schema": "kit.sw2026.local-kernel-typed-restore.v1",
+  "tool_revision": "f290d95b0e6cf7ba92027a4cbfe09a8c1d8b88fa"
+}

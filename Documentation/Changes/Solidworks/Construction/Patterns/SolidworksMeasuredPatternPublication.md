@@ -1,0 +1,5 @@
+# Measured oblique linear pattern publication
+
+The normal SOLIDWORKS SDK writer publishes the measured fresh neutral plate, joined rectangular seed, finite Top and Right hinge, angled datum and signed linear pattern. The exact `solidworks_native_measurement` envelope contains the measured `written_at` and a `receipt` with the original `packet` and native `result` JSON. Supply the independently authored display intent as a typed `PatPresentInput` in `solidworks_pattern_presentation` when it differs from the canonical presentation.
+
+Kit independently regenerates the complete archive at the measured native locator before checking the output digest, native build and clean edit/reopen phases. The accepted classic and zlib-ng evidence pairs each bind their own complete files. A different encoded locator, content, epoch or unmeasured edit refuses before committing output. The strict reader recovers the active configuration, one solid, and live count and pitch. Republication of a parsed source requires its separate whole-source boundary. [Guarded publication evidence](../../../../../re/solidworks/records/AggregateMeasuredLinearPattern2026.md)

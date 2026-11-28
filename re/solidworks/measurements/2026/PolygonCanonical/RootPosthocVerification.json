@@ -1,0 +1,286 @@
+{
+  "authority": "independent-root-posthoc-json-arithmetic-and-image-integrity",
+  "recorded_at": "2026-11-16T01:13:53.327780+00:00",
+  "native_calls": false,
+  "product_modules_executed": false,
+  "tests_executed": false,
+  "source_sha256": {
+    "EditJob.json": "3c3dd57ddc6fde9bd8b295b4865f8a6121eb4d7818408b9504a5fc26b114ea4a",
+    "EditRun01/Record.json": "5512030e203ddcb352794099d57be457a9257f5d7ac344af1497a17002967a36",
+    "ViewRun01/Record.json": "f534f59128f4077b664b30b9f6fb28b68ebed65159d7c0d1aed008ece91eda43",
+    "PngConversion.json": "5a7d9bdfa4e49040c1739a15206857d1a25e4c5d420c986ebef32b8f16b3a839"
+  },
+  "formulas": {
+    "section_area": "abs(sum(x_i*y_next-x_next*y_i))/2",
+    "perimeter": "sum(hypot(x_next-x_i,y_next-y_i))",
+    "volume": "section_area*depth",
+    "surface_area": "2*section_area+perimeter*depth",
+    "centroid": "shoelace centroid, z=depth/2"
+  },
+  "phases": [
+    {
+      "name": "H3_scalene",
+      "phase": "baseline",
+      "expected": {
+        "volume": 9.931999999999999e-6,
+        "mass": 9.931999999999999e-6,
+        "area": 0.0031662763605581575,
+        "com": [0.006666666666666667, 0.007, 0.0065]
+      },
+      "errors": {
+        "volume_relative": 3.411328825027388e-16,
+        "mass_relative": 3.411328825027388e-16,
+        "area_relative": 1.369687353878837e-16,
+        "com_absolute_m": 1.734723475976807e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": []
+    },
+    {
+      "name": "H3_scalene",
+      "phase": "edit",
+      "expected": {
+        "volume": 1.2415e-5,
+        "mass": 1.2415e-5,
+        "area": 0.0035758454506976973,
+        "com": [0.006666666666666667, 0.007, 0.008125]
+      },
+      "errors": {
+        "volume_relative": 0.0,
+        "mass_relative": 0.0,
+        "area_relative": 1.2128065235861483e-16,
+        "com_absolute_m": 1.734723475976807e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": []
+    },
+    {
+      "name": "H3_scalene",
+      "phase": "reopened",
+      "expected": {
+        "volume": 1.2415e-5,
+        "mass": 1.2415e-5,
+        "area": 0.0035758454506976973,
+        "com": [0.006666666666666667, 0.007, 0.008125]
+      },
+      "errors": {
+        "volume_relative": 0.0,
+        "mass_relative": 0.0,
+        "area_relative": 1.2128065235861483e-16,
+        "com_absolute_m": 1.734723475976807e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": [
+        {
+          "index": 12,
+          "baseline": ["authored material", "MaterialFolder"],
+          "actual": ["Material <not specified>", "MaterialFolder"]
+        }
+      ]
+    },
+    {
+      "name": "H5_irregular",
+      "phase": "baseline",
+      "expected": {
+        "volume": 1.31635e-5,
+        "mass": 1.31635e-5,
+        "area": 0.0049321907476003795,
+        "com": [0.005411149516972434, 0.0033525658069662326, 0.0035]
+      },
+      "errors": {
+        "volume_relative": 0.0,
+        "mass_relative": 0.0,
+        "area_relative": 1.758572979786709e-16,
+        "com_absolute_m": 1.734723475976807e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": []
+    },
+    {
+      "name": "H5_irregular",
+      "phase": "edit",
+      "expected": {
+        "volume": 1.6454375e-5,
+        "mass": 1.6454375e-5,
+        "area": 0.0052249884345004745,
+        "com": [0.005411149516972434, 0.0033525658069662326, 0.004375]
+      },
+      "errors": {
+        "volume_relative": 0.0,
+        "mass_relative": 0.0,
+        "area_relative": 1.660026139505371e-16,
+        "com_absolute_m": 2.6020852139652106e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": []
+    },
+    {
+      "name": "H5_irregular",
+      "phase": "reopened",
+      "expected": {
+        "volume": 1.6454375e-5,
+        "mass": 1.6454375e-5,
+        "area": 0.0052249884345004745,
+        "com": [0.005411149516972434, 0.0033525658069662326, 0.004375]
+      },
+      "errors": {
+        "volume_relative": 0.0,
+        "mass_relative": 0.0,
+        "area_relative": 1.660026139505371e-16,
+        "com_absolute_m": 2.6020852139652106e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": [
+        {
+          "index": 12,
+          "baseline": ["authored material", "MaterialFolder"],
+          "actual": ["Material <not specified>", "MaterialFolder"]
+        }
+      ]
+    },
+    {
+      "name": "H7_irregular",
+      "phase": "baseline",
+      "expected": {
+        "volume": 5.37965e-5,
+        "mass": 5.37965e-5,
+        "area": 0.009896349327158962,
+        "com": [0.0014406699320587764, 0.006562595460051614, 0.0085]
+      },
+      "errors": {
+        "volume_relative": 1.2596104910234686e-16,
+        "mass_relative": 1.2596104910234686e-16,
+        "area_relative": 1.7528923228448833e-16,
+        "com_absolute_m": 1.734723475976807e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": []
+    },
+    {
+      "name": "H7_irregular",
+      "phase": "edit",
+      "expected": {
+        "volume": 6.7245625e-5,
+        "mass": 6.7245625e-5,
+        "area": 0.010788186658948703,
+        "com": [0.0014406699320587764, 0.006562595460051614, 0.010625]
+      },
+      "errors": {
+        "volume_relative": 4.0307535712750997e-16,
+        "mass_relative": 4.0307535712750997e-16,
+        "area_relative": 3.2159685975360276e-16,
+        "com_absolute_m": 2.6020852139652106e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": []
+    },
+    {
+      "name": "H7_irregular",
+      "phase": "reopened",
+      "expected": {
+        "volume": 6.7245625e-5,
+        "mass": 6.7245625e-5,
+        "area": 0.010788186658948703,
+        "com": [0.0014406699320587764, 0.006562595460051614, 0.010625]
+      },
+      "errors": {
+        "volume_relative": 4.0307535712750997e-16,
+        "mass_relative": 4.0307535712750997e-16,
+        "area_relative": 3.2159685975360276e-16,
+        "com_absolute_m": 2.6020852139652106e-18
+      },
+      "clean": true,
+      "feature_name_type_differences": [
+        {
+          "index": 12,
+          "baseline": ["authored material", "MaterialFolder"],
+          "actual": ["Material <not specified>", "MaterialFolder"]
+        }
+      ]
+    }
+  ],
+  "maxima": {
+    "volume_relative": 4.0307535712750997e-16,
+    "mass_relative": 4.0307535712750997e-16,
+    "area_relative": 3.2159685975360276e-16,
+    "com_absolute_m": 2.6020852139652106e-18
+  },
+  "standard_rotation_matrices": 90,
+  "maximum_standard_rotation_difference": 7.888609052210118e-31,
+  "images": [
+    {
+      "png": "ControlAfter.png",
+      "sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "solid visible with depth and side faces"
+    },
+    {
+      "png": "ControlAfter_initial.png",
+      "sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "solid visible with depth and side faces"
+    },
+    {
+      "png": "ControlBefore.png",
+      "sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "solid visible with depth and side faces"
+    },
+    {
+      "png": "ControlBefore_initial.png",
+      "sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "solid visible with depth and side faces"
+    },
+    {
+      "png": "H3_scalene.png",
+      "sha256": "794c214e0127fa735f66d021f617610762d9dc8422cd893a945dcd4a8cdc6f3a",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "solid visible with depth and side faces"
+    },
+    {
+      "png": "H3_scalene_initial.png",
+      "sha256": "989c7fa683817a4f6e224464c48f10ad24bdc2c95c8030fbf1d5d36b6868048c",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "initial polygon front view"
+    },
+    {
+      "png": "H5_irregular.png",
+      "sha256": "fd13699b282d06742b9dc4b4a8d5983d87595d3d5abcd5530ad0f00a20eb6ea3",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "solid visible with depth and side faces"
+    },
+    {
+      "png": "H5_irregular_initial.png",
+      "sha256": "402357b166b505dfa67fa20ad91e8909b9d308e4baf873138ed024c1a4420d61",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "initial polygon front view"
+    },
+    {
+      "png": "H7_irregular.png",
+      "sha256": "9e4cdfa6b2a7792d4ac61b760c27a5956c82c5cec3c403f37aed21bcdf243c02",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "solid visible with depth and side faces"
+    },
+    {
+      "png": "H7_irregular_initial.png",
+      "sha256": "1da36d16b76abf949b83494e9898022ca717174ae92293cf31696ce480efd3a6",
+      "root_previously_inspected": true,
+      "nonempty_document_visible": true,
+      "observation": "initial polygon front view"
+    }
+  ],
+  "full_feature_name_parity": false,
+  "initial_camera_parity": "unestablished",
+  "visual_scope": "root visually inspected all ten converted PNGs before this receipt; current BMP/PNG bytes match the conversion hashes",
+  "acceptance_scope": "three canonical-flag polygon extrusions, native geometry and one depth edit/save/fresh reopen only; production writer remains read-only"
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "kit.sw2026.through-all-observer-failure.v1",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "native_source_qualified": false,
+  "failure_preserved": true,
+  "packet02_sha256": "a4ea8279760fece8255b645cc20c2f41d855bb306506a38ebc8787764acf7df3",
+  "metadata_sha256": "ec1bdf5acf1a72a5b909bffd2402c400cfb085762b6b06485f477e0bbdbf4574",
+  "seal_progress_sha256": "67717b7ce2e836ac060bbb85926f85a3c54ce4758e0787bacf68045a18873e98",
+  "sealed_spec_sha256": "3afff19bff54e29c7ebf1542e398baecb549f7cf51eccb759fed6a2cadd48761",
+  "opaque_case_count": 4,
+  "source_phases": {
+    "before": {
+      "raw_sha256": "398438da3328ee39d75fc0ef8b2c43d58c8013f91e184042578e51dabf77ebb2",
+      "progress_sha256": "4c46f52ed49293fbd14b8bea2fe85b5e2178d8392c8ccee2cbf7deee02a8a2f7",
+      "passed": true,
+      "identity": {
+        "process_id": 10420,
+        "process_creation_filetime": 134394932792898719,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "healthy": true,
+      "body_count": 1,
+      "feature_rows": 19,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "whats_wrong": 0
+    },
+    "author": {
+      "raw_sha256": "4992f125b620e273ceb86feed4fbbf63e4406e813194f817e5f4a8348aff925d",
+      "progress_sha256": "b629b1267d6d83a88a707c5fc8cdc76780891e70c70047976698c7c84b2c6ea4",
+      "passed": false,
+      "identity": {
+        "process_id": 10284,
+        "process_creation_filetime": 134394933035912237,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "failure": {
+        "stage": "GetDraftWhileExtruding",
+        "type": "TypeError",
+        "error": "TypeError(\"'list' object is not callable\")",
+        "pending_capability": false
+      },
+      "last_successful_native_queries": [
+        {
+          "name": "GetDraftWhileExtruding",
+          "arguments": [
+            true
+          ],
+          "result": false
+        },
+        {
+          "name": "GetDraftWhileExtruding",
+          "arguments": [
+            false
+          ],
+          "result": false
+        }
+      ],
+      "classification": "observer instance-attribute/method collision before mass checks or native save"
+    },
+    "after": {
+      "raw_sha256": "6300e3b08b118324952ba89ff60740fd2bab48ebe21f9aa2f079439149ee5817",
+      "progress_sha256": "6cace60dfbde2b7fa4f731048b97bbd1e9d530c752ef9c6a2e3b9267dc5ef5e8",
+      "passed": true,
+      "identity": {
+        "process_id": 9740,
+        "process_creation_filetime": 134394933337774274,
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "healthy": true,
+      "body_count": 1,
+      "feature_rows": 19,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "whats_wrong": 0
+    }
+  },
+  "distinct_native_processes": 3,
+  "controls_healthy": true,
+  "root_cause": {
+    "base": "CurveAuthor.__init__ assigns self.dimensions = []",
+    "subclass": "ThroughAllAuthor.dimensions was a callable traversal name",
+    "failure": "the inherited instance list shadows the method, so definition() calls that list after two successful native draft queries",
+    "correction": "owned_dimensions with a checksum-bound pre-COM inherited namespace guard"
+  },
+  "retry": {
+    "packet03_sha256": "6ff86683ab5da1f99aab8b6efaccb978ce115a1d0d3013a73c315cb0c5d1362c",
+    "same_disclosed_input_sha256": "c2db7b30380e658db78ed425514281bae90b81ec6fa204e8d2531935968e2f1c",
+    "same_guest_sealed_spec_sha256": "3afff19bff54e29c7ebf1542e398baecb549f7cf51eccb759fed6a2cadd48761",
+    "prior_seal_public_record_sha256": "67717b7ce2e836ac060bbb85926f85a3c54ce4758e0787bacf68045a18873e98",
+    "guest_import_reads_json_designs": false,
+    "native_acceptance": false
+  },
+  "native_writer_outputs": 0,
+  "new_hidden_sources_read_by_host": 0,
+  "native_application_started_by_repair_agent": 0,
+  "geometry_or_tolerance_changes": false,
+  "old_packet_static_inputs_unchanged": true,
+  "transport_reports_independently_inspected": false
+}

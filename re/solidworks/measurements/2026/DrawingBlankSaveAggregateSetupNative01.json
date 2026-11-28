@@ -1,0 +1,91 @@
+{
+  "amd64_dbgeng_sha256": "5a2a515f6263c66b0323d8707abf4b64511a9a34f1f1d3fb1f3c4c17f0bf9cad",
+  "attempts": [
+    {
+      "attach_requested": false,
+      "attempt": 1,
+      "cleanup_confirmed": true,
+      "distinct_processes": 5,
+      "failure_stage": "set_detach_on_exit_before_attach",
+      "generated_attempted": false,
+      "hardware_breakpoint_armed": false,
+      "host_transport_sha256": "b1716705aef98a151b183d20c47c6c1a238bd51e475e6ade303902dbc06af6ae",
+      "hresult": "0x8000ffff",
+      "observer_tool_sha256": {
+        "DrawingSaveAggregateDbgEng.py": "645c5958e1e12165fe74d6ea19c6577855bb237ab0de16adb110bdd5ad588596",
+        "InspectBlankDrawingSaveAggregate.py": "70018c8a65a80bfef298bfd8b1d0807f5b70746bc801de678e5c34a9ac3a7d21"
+      },
+      "packet_sha256": "ff8286cd28a41b82901a9d3b22c6f01e3f9861c352d4158a2034bf1d1e1400f8",
+      "pristine_brackets_saved_and_reopened": true,
+      "raw_native_result_sha256": "bf0df465abda0adbc2f57196ee38309d8f11081585340169396aaee0e6caf8be",
+      "record_sha256": {
+        "ControlAfter": {
+          "fresh_reopen": "9e7d2ff0672453e377563b1a44aae2154307873366a8209bbd4da0437be97779",
+          "open_and_save": "c685800aa580a158b7ae47b569b241c34e3e93cdecda7fc93c6c1084a44d9cec"
+        },
+        "ControlBefore": {
+          "fresh_reopen": "bce9586facd899e8ab5155994636458ee22ba10006b105630fdda011f815f8e1",
+          "open_and_save": "5d678b8d5d7d73735bb16a83e6ab210a06d4cc1b25e3cb51a7ae4647df426be6"
+        },
+        "ReducedNative": {
+          "open_and_save": "51707a5566455ad88955f996d62aefc50eb787173fcfb8541b57bd3b5812ee4f"
+        }
+      },
+      "reduced_native_open_errors": 0,
+      "reduced_native_open_warnings": 0,
+      "reduced_native_saveas_called": false,
+      "transport_returncode": 3
+    },
+    {
+      "attach_requested": true,
+      "attempt": 2,
+      "cleanup_confirmed": true,
+      "detach_method": "DetachProcesses",
+      "distinct_processes": 5,
+      "failure_stage": "wait_initial_stop",
+      "generated_attempted": false,
+      "hardware_breakpoint_armed": false,
+      "host_transport_sha256": "b6be2e783012b96fc219648cba85395d72356fff885808aad89ccf17dc58a8e5",
+      "initial_owned_stop_verified": false,
+      "observer_tool_sha256": {
+        "DrawingSaveAggregateDbgEng.py": "4a7813dbb929b109bbaef058a54a60d1ccfce4f963431ce3442a3568f8e7e42b",
+        "InspectBlankDrawingSaveAggregate.py": "70018c8a65a80bfef298bfd8b1d0807f5b70746bc801de678e5c34a9ac3a7d21"
+      },
+      "owned_process_debugger_present_after_cleanup": false,
+      "packet_sha256": "cc75c40737a2ff136959848e3b8cdb000de856746f6905a9d2605aee068fb6fa",
+      "pristine_brackets_saved_and_reopened": true,
+      "process_options_verified": false,
+      "raw_native_result_sha256": "072ef1b24c0a14cfb2fbc5e4e6d652e97f0fbf84a1e35d5f0c40a0359dc8c41d",
+      "record_sha256": {
+        "ControlAfter": {
+          "fresh_reopen": "8752152fb350904fe271ca395327f18314d40de5cbc0d4f353330943594257d4",
+          "open_and_save": "850d68557e081ecad2d2ebb9e8f609d3552d0fa30599ee5f87f58a416dd5659e"
+        },
+        "ControlBefore": {
+          "fresh_reopen": "6dfbbb047fdb96c18a4ae851ba78420bc53084c5223f1c671be4c1d63c4ecaef",
+          "open_and_save": "8f2f12150dfa8211ddca16722337e76a66cb9226e39fe28244e8cc06d7590e33"
+        },
+        "ReducedNative": {
+          "open_and_save": "1e66d89b1b57288fce43fd29b0e93da4874bf72eb53d9043109d37863b86736b"
+        }
+      },
+      "reduced_native_open_errors": 0,
+      "reduced_native_open_warnings": 0,
+      "reduced_native_saveas_called": false,
+      "transport_returncode": 3
+    }
+  ],
+  "dbgeng_nupkg_sha256": "875678516f9ceed4a1c8b9b106d165106fcaa38723ad7c584c47b95b231600de",
+  "dbgeng_package_version": "20260319.1511.0",
+  "generated_runtime_branch": null,
+  "guest_cpu": "ARM64",
+  "hardware_execution_stop_tested": false,
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "oracle_and_debugger_host_pe_machine": "0x8664",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.blank-drawing-save-aggregate-setup-native-observation.v1",
+  "source_state_packet_sha256": "63d68733f3e7f28732f7b927c7d0044da38829ce5ba5eeb124cf7d4b1c189455",
+  "writer_output_count": 0
+}

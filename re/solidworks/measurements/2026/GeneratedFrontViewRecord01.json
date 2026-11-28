@@ -1,0 +1,352 @@
+{
+  "container_version": 4,
+  "disclosed_native_sources": [
+    {
+      "case": "D01FrontView",
+      "definition_exact_bytes": 37250,
+      "definition_next_map_index": 331,
+      "definition_oracle_comparisons": 36,
+      "definition_sha256": "c36e8b4eb1f3b54d6dae2d38d0d4b6d7e9fe1e58613a328a411146a9a2d75fbc",
+      "detail_bucket_count": 1,
+      "detail_edge_count": 4,
+      "factory_defaults_checked": 21,
+      "header_exact_bytes": 1721,
+      "header_next_map_index": 51,
+      "header_sha256": "452319b707f672655aa734dea8358eae79726a9a1d81196f0dacc1fb68a6bf98",
+      "named_display_state": true,
+      "native_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "view0x40_child_context_exact": true,
+      "view_field_count": 152,
+      "view_record_bytes": 4502,
+      "view_record_sha256": "fee29e5fa6b55c9201cb106de523a74fd278ab85920498bdfc1025f0c93d21d2",
+      "view_state": {
+        "f2b8": 19000,
+        "f300": 5,
+        "f301": 0,
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15,
+        "f7a0": 0,
+        "fe30_flags": 1,
+        "fe94": 0,
+        "ffa8": 1,
+        "ffac": 1,
+        "has_fb50": 1,
+        "nf68": 1
+      }
+    },
+    {
+      "case": "D02MovedFrontView",
+      "definition_exact_bytes": 37260,
+      "definition_next_map_index": 331,
+      "definition_oracle_comparisons": 36,
+      "definition_sha256": "d6cea894ece2a6aed9c4c665c039d59f88dba67ea507e48cf75af01542461b5b",
+      "detail_bucket_count": 1,
+      "detail_edge_count": 4,
+      "factory_defaults_checked": 21,
+      "header_exact_bytes": 1731,
+      "header_next_map_index": 51,
+      "header_sha256": "4957c05a9a1317fdbb4189e73ac2f1ac0b49ab3dd29d87f250b45b6fb4e522c6",
+      "named_display_state": true,
+      "native_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47",
+      "view0x40_child_context_exact": true,
+      "view_field_count": 152,
+      "view_record_bytes": 4502,
+      "view_record_sha256": "a9a983cb4c310dca695ec978a5bb3389b55728d1b621be13ff01e972f8eb4355",
+      "view_state": {
+        "f2b8": 19000,
+        "f300": 5,
+        "f301": 0,
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15,
+        "f7a0": 0,
+        "fe30_flags": 1,
+        "fe94": 0,
+        "ffa8": 1,
+        "ffac": 1,
+        "has_fb50": 1,
+        "nf68": 1
+      }
+    }
+  ],
+  "file_version": 19000,
+  "generated_authored_requests": [
+    {
+      "container_version": 4,
+      "definition_bytes": 28566,
+      "definition_next_map_index": 172,
+      "definition_sha256": "d5091b18122bed8b39d736ea96c8434f8072aa8c953a104363cd5f44875cec92",
+      "detailing_bucket_count": 0,
+      "file_version": 19000,
+      "header_bytes": 919,
+      "header_next_map_index": 22,
+      "header_sha256": "d772232d0883d76138e82f70536e08ccdd04b4132c7d88939027b07a46e1431d",
+      "independent_projection_checks": true,
+      "input_runtime_file_access_attempts": 0,
+      "named_display_state": false,
+      "native_acceptance": false,
+      "native_drawing_emitted": false,
+      "next_persistent_id": 16,
+      "repeat_exact": true,
+      "report_sha256": "be7d80d6933ef489792ad375afc71b33f7adeef0aa8184a575b76aadf468cb25",
+      "request_sha256": "3d2e5d5b2ccfa46cea27ffd67d5912137534997583605910a26341edf528defe",
+      "schema": "kit.sw2026.front-view-record.v1",
+      "sdk_view_projection": {
+        "configuration": "authored configuration",
+        "model_to_sheet": [
+          1.0,
+          0.0,
+          0.0,
+          0.07043,
+          0.0,
+          1.0,
+          0.0,
+          0.08571999999999999,
+          0.0,
+          0.0,
+          1.0,
+          -0.003,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "Primary Front 1",
+        "orientation": "*Front",
+        "outline_m": [
+          0.066112,
+          0.08140199999999999,
+          0.098748,
+          0.10603800000000001
+        ],
+        "position_m": [
+          0.08243,
+          0.09372
+        ],
+        "scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "view_field_count": 151,
+      "view_persistent_id": 11,
+      "view_record_bytes": 4153,
+      "view_record_sha256": "11b145780dee9d0d924f0b25f6f1f2a36a9c9b51bb66783adfdd93d4f24f38fa",
+      "view_state": {
+        "f2b8": 0,
+        "f300": 5,
+        "f301": 2,
+        "f610": 2200,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 13,
+        "f7a0": 0,
+        "fe30_flags": -1,
+        "fe94": 0,
+        "ffa8": 1,
+        "ffac": 1,
+        "has_fb50": 0,
+        "nf68": 0
+      }
+    },
+    {
+      "container_version": 4,
+      "definition_bytes": 28566,
+      "definition_next_map_index": 172,
+      "definition_sha256": "18c57d241507e98390b786e3c4abe83380ee09413c50d30844dbfa5097585f45",
+      "detailing_bucket_count": 0,
+      "file_version": 19000,
+      "header_bytes": 919,
+      "header_next_map_index": 22,
+      "header_sha256": "11daea374fbb58bbeefb4149a56ece84e9f782eba679634621491ee90144dac8",
+      "independent_projection_checks": true,
+      "input_runtime_file_access_attempts": 0,
+      "named_display_state": false,
+      "native_acceptance": false,
+      "native_drawing_emitted": false,
+      "next_persistent_id": 16,
+      "repeat_exact": true,
+      "report_sha256": "0de74e94078fafef7808d7c15007122227275212b3cb791080eafd42c7a54c63",
+      "request_sha256": "6900223a9e20ab655fb383fd558824e85e744a5e88ba39fc684e4eed928656ec",
+      "schema": "kit.sw2026.front-view-record.v1",
+      "sdk_view_projection": {
+        "configuration": "authored configuration",
+        "model_to_sheet": [
+          1.0,
+          0.0,
+          0.0,
+          0.12873,
+          0.0,
+          1.0,
+          0.0,
+          0.10278000000000001,
+          0.0,
+          0.0,
+          1.0,
+          -0.006,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "Primary Front 2",
+        "orientation": "*Front",
+        "outline_m": [
+          0.12441200000000001,
+          0.09846200000000001,
+          0.16404799999999997,
+          0.126098
+        ],
+        "position_m": [
+          0.14423,
+          0.11228
+        ],
+        "scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "view_field_count": 151,
+      "view_persistent_id": 11,
+      "view_record_bytes": 4153,
+      "view_record_sha256": "68529af17c3c9c46dde386a2dfcf958d7871e6bafd2c250e2c38eb8dc8f8c0a4",
+      "view_state": {
+        "f2b8": 0,
+        "f300": 5,
+        "f301": 2,
+        "f610": 2200,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 13,
+        "f7a0": 0,
+        "fe30_flags": -1,
+        "fe94": 0,
+        "ffa8": 1,
+        "ffac": 1,
+        "has_fb50": 0,
+        "nf68": 0
+      }
+    },
+    {
+      "container_version": 4,
+      "definition_bytes": 28760,
+      "definition_next_map_index": 172,
+      "definition_sha256": "f4df7cfded8d19bf89d452a0fd99934aceb24c0e60c1a0ab7ff77511900123dc",
+      "detailing_bucket_count": 0,
+      "file_version": 19000,
+      "header_bytes": 919,
+      "header_next_map_index": 22,
+      "header_sha256": "d772232d0883d76138e82f70536e08ccdd04b4132c7d88939027b07a46e1431d",
+      "independent_projection_checks": true,
+      "input_runtime_file_access_attempts": 0,
+      "named_display_state": false,
+      "native_acceptance": false,
+      "native_drawing_emitted": false,
+      "next_persistent_id": 16,
+      "repeat_exact": true,
+      "report_sha256": "6d42793ac78c33a9e7947285773fa967167cb3dc51b4c219e4cf62f9f9e913c7",
+      "request_sha256": "13a7760e26a2617be59e8b61caf620fbbea8421bab11c7b1a120a7192a499859",
+      "schema": "kit.sw2026.front-view-record.v1",
+      "sdk_view_projection": {
+        "configuration": "a long independently named generated part configuration",
+        "model_to_sheet": [
+          1.0,
+          0.0,
+          0.0,
+          0.07043,
+          0.0,
+          1.0,
+          0.0,
+          0.08571999999999999,
+          0.0,
+          0.0,
+          1.0,
+          -0.003,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "Primary Front 1 with a different authored name",
+        "orientation": "*Front",
+        "outline_m": [
+          0.066112,
+          0.08140199999999999,
+          0.098748,
+          0.10603800000000001
+        ],
+        "position_m": [
+          0.08243,
+          0.09372
+        ],
+        "scale": [
+          1.0,
+          1.0
+        ]
+      },
+      "view_field_count": 151,
+      "view_persistent_id": 11,
+      "view_record_bytes": 4281,
+      "view_record_sha256": "55825237a1b964d71307f19bcc25fea726968840380ecc818029f2f4e32a294a",
+      "view_state": {
+        "f2b8": 0,
+        "f300": 5,
+        "f301": 2,
+        "f610": 2200,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 13,
+        "f7a0": 0,
+        "fe30_flags": -1,
+        "fe94": 0,
+        "ffa8": 1,
+        "ffac": 1,
+        "has_fb50": 0,
+        "nf68": 0
+      }
+    }
+  ],
+  "heldout_payloads_or_observations_read": false,
+  "native_acceptance": false,
+  "native_drawing_emitted": false,
+  "oracle_build": "34.5.2.0604",
+  "rejected_requests": [
+    {
+      "case": "other-orientation",
+      "emitted_stdout": false,
+      "message": "ValueError: this construction covers the ordinary front orientation at explicit 1:1 view scale"
+    },
+    {
+      "case": "different-view-scale",
+      "emitted_stdout": false,
+      "message": "ValueError: this construction covers the ordinary front orientation at explicit 1:1 view scale"
+    },
+    {
+      "case": "unknown-view-state",
+      "emitted_stdout": false,
+      "message": "ValueError: ordinary front view fields differ: missing [], unsupported ['appearance']"
+    },
+    {
+      "case": "invalid-support-name",
+      "emitted_stdout": false,
+      "message": "ValueError: front views require nonempty names for the view and its supports"
+    }
+  ],
+  "schema": "kit.sw2026.generated-front-view-record-measurements.v1",
+  "source_hashes": {
+    "re/tooling/sw2026/DrawingFrontGraphProcess.py": "ade74e5f0e513d4a3c16ee6314c84fc6037072f529afe38308f1dd421d9f5ee0",
+    "re/tooling/sw2026/DrawingFrontRecordProcess.py": "4385eac95fe29b76c8f145c0ae2e226c49da1aa71ffdcc617812902bdec066ee",
+    "re/tooling/sw2026/builders/DrawingDocument.py": "743ef15f9f04fba95a4ceda748a24b13177d6c483f6b17902142c8672f308669",
+    "re/tooling/sw2026/builders/DrawingFrontProjection.py": "be87c9d480f2e59d526e936d3173fff1b3415d293235f864648e3837a482b0b7",
+    "re/tooling/sw2026/builders/DrawingFrontView.py": "0af4feae1036682928494cf1f444ab0582f0a837a00f71504b2b79c767055e65",
+    "re/tooling/sw2026/builders/DrawingViewLinks.py": "d2fd783af23c8b10eb634d629b9ad063c5920257fe0180c9939703cb5a530333",
+    "re/tooling/sw2026/builders/DrawingViewSupports.py": "ee82680cabae8c0142cb214a84815d157ebd82cbf18d0d31fa9d726aff91d087",
+    "re/tooling/sw2026/serial/CheckDrawingDefinitions.py": "7303fe1e7ee4fb7da343118a00c6b3bee90e4aa4917be9ff2bb3bf48c41954a4",
+    "re/tooling/sw2026/serial/defs/Drawing.py": "ae6cd6073d57f5fc5ef2037a22afe556ed9e7e760f65896efbe1e859ef443e69",
+    "src/convert/adapters/solidworks/Drawing/Definition/ReadConcept.py": "5b2a6b062cebd5d51259b757b86c7868ef6832698128cac5804b2fd68c7de0df"
+  },
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7"
+}

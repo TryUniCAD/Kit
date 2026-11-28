@@ -1,0 +1,269 @@
+{
+  "aggregate_base": "e9b36b5d7e588d7f386477d8f4538ede2b523593",
+  "guarded_independent_sdk_processes": 15,
+  "heldout_inputs_read": 0,
+  "native_runs_started": 0,
+  "original_measurement_sha256": "9eb6ee8e05d4cf357c4f0f0902604b6cf7f46d2e06c8fb6b05254d42c7a4cd5e",
+  "original_native_numeric_checks": 360,
+  "original_native_processes": 4,
+  "physical_native_locator_write_exercised": false,
+  "processes": {
+    "commit-failure": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "controlled second publication failure",
+        "type": "PermissionError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "direct": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "planar assembly publication requires a registry-owned stage",
+        "type": "ValueError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "forged-receipt": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "planar publication requires authenticated offline evidence",
+        "type": "ValueError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "legacy-perp": {
+      "after": {},
+      "before": {},
+      "error": "AdapterNotFoundError",
+      "generated_model_members": 2,
+      "generated_stream_counts": [
+        12,
+        10
+      ],
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "writer_native_flags": false
+    },
+    "legacy-perp-invalid": {
+      "after": {},
+      "before": {},
+      "error": "AdapterNotFoundError",
+      "generated_model_members": 0,
+      "generated_stream_counts": [],
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "writer_native_flags": false
+    },
+    "legacy2": {
+      "after": {},
+      "before": {},
+      "error": "ValueError",
+      "generated_model_members": 2,
+      "generated_stream_counts": [
+        12,
+        10
+      ],
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "writer_native_flags": false
+    },
+    "legacy3": {
+      "after": {},
+      "before": {},
+      "error": "AdapterNotFoundError",
+      "generated_model_members": 2,
+      "generated_stream_counts": [
+        12,
+        10
+      ],
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "writer_native_flags": false
+    },
+    "measured": {
+      "after": {
+        "PublicDatumPrism.SLDPRT": [
+          "file",
+          "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b"
+        ],
+        "PublicPlanarPair2.SLDASM": [
+          "file",
+          "d31950eb971645908a82c26ecb881880525a3c8aa9478bc971b065bc5bdcf2f4"
+        ]
+      },
+      "before": {},
+      "error": null,
+      "matching_member_streams": 22,
+      "native_processes_started": 0,
+      "passed": true,
+      "readback": {
+        "child_parameters_mm": [
+          37.1,
+          18.599999999999998,
+          9.299999999999999
+        ],
+        "deferred_child_omits_unbound_parameter": true,
+        "distance_driver": "D1",
+        "distance_mm": 42.0,
+        "mates": 2
+      },
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": true,
+      "writer_native_flags": false
+    },
+    "measured-explicit": {
+      "after": {
+        "PublicDatumPrism.SLDPRT": [
+          "file",
+          "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b"
+        ],
+        "PublicPlanarPair2.SLDASM": [
+          "file",
+          "d31950eb971645908a82c26ecb881880525a3c8aa9478bc971b065bc5bdcf2f4"
+        ]
+      },
+      "before": {},
+      "error": null,
+      "matching_member_streams": 22,
+      "native_processes_started": 0,
+      "passed": true,
+      "readback": {
+        "child_parameters_mm": [
+          37.1,
+          18.599999999999998,
+          9.299999999999999
+        ],
+        "deferred_child_omits_unbound_parameter": true,
+        "distance_driver": "D1",
+        "distance_mm": 42.0,
+        "mates": 2
+      },
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": true,
+      "writer_native_flags": false
+    },
+    "no-receipt": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "SOLIDWORKS planar publication requires an offline native measurement receipt",
+        "type": "ValueError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "race-protection": {
+      "after": {
+        "PublicDatumPrism.SLDPRT": [
+          "file",
+          "7ceea86047c61cbe786d602fe3e6c5a913fe2045d3af96e6a562ff76101e357e"
+        ]
+      },
+      "before": {},
+      "concurrent_companion_preserved": true,
+      "error": {
+        "type": "FileExistsError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "strict-deferred": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "planar bundle requires its measured location or explicit deferred delivery",
+        "type": "ValueError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "unmeasured-location": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "planar bundle requires its measured location or explicit deferred delivery",
+        "type": "ValueError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "wrong-member": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "planar assembly measurement does not match the exact member PublicDatumPrism.SLDPRT",
+        "type": "ValueError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    },
+    "wrong-native-locator": {
+      "after": {},
+      "before": {},
+      "error": {
+        "message": "planar assembly measurement has a different native locator",
+        "type": "ValueError"
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "whole_bundle_matches_native_input": false,
+      "writer_native_flags": false
+    }
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.authenticated-planar-aggregate-publication.v1",
+  "verification_source_sha256": {
+    "re/tooling/sw2026/MeasuredPlanarPublicationProcess.py": "9ad0a1b25fe8ca589150676d0df04fbb377d29d5b07ad2ebbbcc04be6f510bba",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/CanWriteAsm.py": "240af38c90d03c61a57d5807e6b5f428894ee496d8e4eb60bdef580069fa4f2e",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/CheckAsmOpts.py": "f26d405be6e80c7033518b1a82c7014d928487c841497d83a985a423748d3de4",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/EmitAsmMut.py": "6de80545edf61f76e2cab4e2b13805b0dadcd3187652c1040a40e19b8170fbc1",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Measured/CheckAsmPhases.py": "beed509dd731cda8a444b03c88ff71d08693cc56fffaca1dd4218341b019f5ba",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Measured/CheckPairRows.py": "3590886da7011c2047dabd42558bec18641afdc69c559cdb882e52f5cf0b1d00",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Measured/CheckPairScope.py": "8b9dcbd1395f7973f45cf2c773f9e662072263c5a15b72b28127048923ec6612",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Measured/IsPlanarSite.py": "750fcb2cd9c6ff1dd6eb45b54e2afa4947b30b05c56bd4e6efb23856b482f76b",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Measured/MatchPlanarMeas.py": "09082cc106be4f972e66e8a8d9a51627a30c939e56f630d2036422fa23e6d6cf",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Measured/ReadAsmPhase.py": "f93cd9cf33c224d139e46331d9bb660eddcecf8a667286f17558a8c5034ee33d",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Measured/ReadPlanarMeas.py": "c479a3aba5a8ead7f4115e4d6097a04bf6b64c9c3cad7a422dcd293a12ed0561",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/QualifyAsm.py": "e69b1166c59bdf921c75288e2ce2f81cd7a27a38467b8e0fcf41aa2601e73485",
+    "src/convert/adapters/solidworks/Core/TypedMates/Cold/BindPairDriver.py": "d75c312556d13dfd1de052055778ceed27900a7a2548a4eee9b8454c9a353887",
+    "src/convert/adapters/solidworks/Core/TypedMates/Cold/IsColdPair.py": "a4d4301e52abd5dd43cc446a0ac37e2813a0f8b7ff492b86a1dd51e069045e14",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMates.py": "368c45689d5bf82fc98bf99762d2df44129f2c120215cbbb98900bdea68b0aa5",
+    "src/convert/adapters/solidworks/Core/TypedMates/WithTypedMates.py": "b4aed611065a35918b5aa4c111f453087b1c988c060050f5f552cee0d47c5d33"
+  }
+}

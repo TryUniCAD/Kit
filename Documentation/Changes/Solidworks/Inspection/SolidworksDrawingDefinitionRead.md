@@ -1,0 +1,5 @@
+# SOLIDWORKS drawing Definition research read
+
+The research archive decoder now resolves the drawing CLSID, embedded model, active sheet and ordinary model-view reference graph in native SOLIDWORKS 2026 SP05.2 files. The disclosed-only process verifies source and native receipt digests, checks the decoded sheet and view values against the oracle, and requires complete typed byte round trips for `Contents/Definition` and `Header2`.
+
+Run `CheckDrawingDefinitions.py` with `PYTHONPATH=src` and the disclosed drawing source directory. Three locked sources passed six exact stream comparisons and 78 numeric checks. The current research scope covers one sheet with no sheet format and zero or one ordinary front view. Remaining drawing streams and production conversion require additional qualification. [Drawing Definition grammar](../../../../re/solidworks/records/DrawingDefinitionGrammar2026.md), [Exact stream measurements](../../../../re/solidworks/measurements/2026/DrawingDefinitionCheck01.json)

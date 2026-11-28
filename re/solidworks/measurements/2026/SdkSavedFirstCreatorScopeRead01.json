@@ -1,0 +1,501 @@
+{
+  "baseline_revision": "839d77474155c30a37978788ee2296d18036b328",
+  "cases": {
+    "L1 saved contrast": {
+      "complete_public_read_unchanged": true,
+      "document_sha256": "5cfa6f3538c40e9af36a75791d56283cbf5f58af43f0de185413e8e5faf667d1",
+      "metadata_only_unchanged": true,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "solid_count": 1,
+      "strict_json_path_exact": false,
+      "timeline": [
+        [
+          "sldprt:feature:34",
+          "join",
+          "ExtrusionFeature"
+        ]
+      ]
+    },
+    "Single/All": {
+      "actual_atom_id": 101,
+      "actual_contour_links": [
+        3,
+        2,
+        1,
+        4
+      ],
+      "actual_marks": [
+        8,
+        2
+      ],
+      "body_match_tag": 1479,
+      "configuration": "Default",
+      "inactive_stored_depth_mm": 8.370000000000001,
+      "live_depth_mm": 11.625,
+      "live_driver_bindings": {
+        "D1@Boss-Extrude1": {
+          "id": "sldprt:parameter:21:D1",
+          "mm": 11.625,
+          "owner": "sldprt:feature:21"
+        },
+        "D1@Sketch1": {
+          "id": "sldprt:parameter:18:D1",
+          "mm": 40.0,
+          "owner": "sldprt:feature:18"
+        },
+        "D2@Sketch1": {
+          "id": "sldprt:parameter:18:D2",
+          "mm": 20.0,
+          "owner": "sldprt:feature:18"
+        }
+      },
+      "metadata_only_unchanged": true,
+      "native_feature_id": 21,
+      "native_profile_id": 18,
+      "negative_contrasts": {},
+      "only_creator_and_dependent_semantic_digest_changed": false,
+      "operation": "join",
+      "payloads": {
+        "deltas": "29a1791c6808fc581d1c2ff570f94ee0074ff43331e932d9f804db4346d758c7",
+        "partition": "42d552647cf71a342cbc788b6bf8ccdeea47f585851ac1ce10fdf598738b3864"
+      },
+      "saved_geometry": {
+        "bounds_mm": [
+          [
+            -20.0,
+            20.0
+          ],
+          [
+            -10.0,
+            10.0
+          ],
+          [
+            0.0,
+            11.625
+          ]
+        ],
+        "centre_of_volume_mm": [
+          0.0,
+          0.0,
+          5.8125
+        ],
+        "coedge_count": 24,
+        "dimensions_mm": [
+          40.0,
+          20.0,
+          11.625
+        ],
+        "edge_count": 12,
+        "face_count": 6,
+        "inverted_carrier_count": 5,
+        "max_native_metric_delta_in_mm_units": 1.8189894035458565e-12,
+        "surface_area_mm2": 2995.0,
+        "vertex_count": 8,
+        "volume_mm3": 9300.0
+      },
+      "scope": null,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "e23237e92c56ea1367ed5a1ff61f19f3c6366a8cc896d9db4b8a2ac9c5004d72",
+      "strict_json_path_exact": true,
+      "strict_json_stream_exact": true
+    },
+    "Single/All/Cold": {
+      "complete_public_read_unchanged": true,
+      "document_sha256": "6508297e5f2969257ccbcab1ed6872a31652238a1a28dbae77cdf3a651ffc4e7",
+      "metadata_only_unchanged": true,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "7ec852a2142a4db16b818d6feef0b2b2308c2af04de1b28cb030d20045562c28",
+      "solid_count": 1,
+      "strict_json_path_exact": false,
+      "timeline": [
+        [
+          "sldprt:feature:21",
+          "create",
+          "ExtrusionFeature"
+        ]
+      ]
+    },
+    "Single/Selected": {
+      "actual_atom_id": 101,
+      "actual_contour_links": [
+        3,
+        2,
+        1,
+        4
+      ],
+      "actual_marks": [
+        8,
+        2
+      ],
+      "body_match_tag": 1479,
+      "configuration": "Default",
+      "inactive_stored_depth_mm": 8.370000000000001,
+      "live_depth_mm": 11.625,
+      "live_driver_bindings": {
+        "D1@Boss-Extrude1": {
+          "id": "sldprt:parameter:21:D1",
+          "mm": 11.625,
+          "owner": "sldprt:feature:21"
+        },
+        "D1@Sketch1": {
+          "id": "sldprt:parameter:18:D1",
+          "mm": 40.0,
+          "owner": "sldprt:feature:18"
+        },
+        "D2@Sketch1": {
+          "id": "sldprt:parameter:18:D2",
+          "mm": 20.0,
+          "owner": "sldprt:feature:18"
+        }
+      },
+      "metadata_only_unchanged": true,
+      "native_feature_id": 21,
+      "native_profile_id": 18,
+      "negative_contrasts": {
+        "aliased_inactive_depth": "end roles share live owners",
+        "detached_atom": "alternate body state",
+        "different_configuration": "does not own selected Config-0",
+        "different_header_part": "actual saved part and configuration",
+        "extra_chooser": "additional chooser input",
+        "ghost_body": "unresolved live or ghost body identities",
+        "inactive_configuration": "complete active configuration",
+        "reversed": "requires one ordinary forward blind profile",
+        "selected_wrapper": "alternate output or modifier state",
+        "wrong_chain": "contour differs from its live profile",
+        "wrong_rollback": "rollback marks differ"
+      },
+      "only_creator_and_dependent_semantic_digest_changed": true,
+      "operation": "create",
+      "payloads": {
+        "deltas": "29a1791c6808fc581d1c2ff570f94ee0074ff43331e932d9f804db4346d758c7",
+        "partition": "60a7ecc87ad47f084663b86bc5518d60cc6969f3a8a80bdf78e0291a5e8e1796"
+      },
+      "saved_geometry": {
+        "bounds_mm": [
+          [
+            -20.0,
+            20.0
+          ],
+          [
+            -10.0,
+            10.0
+          ],
+          [
+            0.0,
+            11.625
+          ]
+        ],
+        "centre_of_volume_mm": [
+          0.0,
+          0.0,
+          5.8125
+        ],
+        "coedge_count": 24,
+        "dimensions_mm": [
+          40.0,
+          20.0,
+          11.625
+        ],
+        "edge_count": 12,
+        "face_count": 6,
+        "inverted_carrier_count": 5,
+        "max_native_metric_delta_in_mm_units": 1.8189894035458565e-12,
+        "surface_area_mm2": 2995.0,
+        "vertex_count": 8,
+        "volume_mm3": 9300.0
+      },
+      "scope": "first_creator",
+      "sdk_runtime_input_reads": 0,
+      "sha256": "c2b0cbceff7004ccb876c026a4854cec1d2aba38ade14fe9f21d29fece4171cf",
+      "strict_json_path_exact": true,
+      "strict_json_stream_exact": true
+    },
+    "Single/Selected/Cold": {
+      "complete_public_read_unchanged": true,
+      "document_sha256": "c7283266a6728b14066fc4ade8aa27b5b461ce7bc58bb10c64ad428769a5757d",
+      "metadata_only_unchanged": true,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "a6bf929cccf7bf33642e41e8078faaed378dcba9d9b49e23667e092d5a47ad35",
+      "solid_count": 1,
+      "strict_json_path_exact": false,
+      "timeline": [
+        [
+          "sldprt:feature:21",
+          "create",
+          "ScopedExtrude"
+        ]
+      ]
+    },
+    "Translated/All": {
+      "actual_atom_id": 101,
+      "actual_contour_links": [
+        3,
+        2,
+        1,
+        4
+      ],
+      "actual_marks": [
+        8,
+        2
+      ],
+      "body_match_tag": 1479,
+      "configuration": "modeled default",
+      "inactive_stored_depth_mm": 12.5,
+      "live_depth_mm": 9.875,
+      "live_driver_bindings": {
+        "D1@Boss-Extrude1": {
+          "id": "sldprt:parameter:21:D1",
+          "mm": 9.875,
+          "owner": "sldprt:feature:21"
+        },
+        "D1@Sketch1": {
+          "id": "sldprt:parameter:18:D1",
+          "mm": 37.0,
+          "owner": "sldprt:feature:18"
+        },
+        "D2@Sketch1": {
+          "id": "sldprt:parameter:18:D2",
+          "mm": 28.999999999999996,
+          "owner": "sldprt:feature:18"
+        }
+      },
+      "metadata_only_unchanged": true,
+      "native_feature_id": 21,
+      "native_profile_id": 18,
+      "negative_contrasts": {},
+      "only_creator_and_dependent_semantic_digest_changed": false,
+      "operation": "join",
+      "payloads": {
+        "deltas": "29a1791c6808fc581d1c2ff570f94ee0074ff43331e932d9f804db4346d758c7",
+        "partition": "cacdb47f52eb1d73604eb56fc9f9a0529712bacbc3e59d06316d7763b6e8510c"
+      },
+      "saved_geometry": {
+        "bounds_mm": [
+          [
+            -14.375,
+            22.625
+          ],
+          [
+            -22.25,
+            6.75
+          ],
+          [
+            0.0,
+            9.875
+          ]
+        ],
+        "centre_of_volume_mm": [
+          4.125,
+          -7.750000000000002,
+          4.9375
+        ],
+        "coedge_count": 24,
+        "dimensions_mm": [
+          37.0,
+          29.0,
+          9.875
+        ],
+        "edge_count": 12,
+        "face_count": 6,
+        "inverted_carrier_count": 5,
+        "max_native_metric_delta_in_mm_units": 4.547473508864641e-13,
+        "surface_area_mm2": 3449.5,
+        "vertex_count": 8,
+        "volume_mm3": 10595.875
+      },
+      "scope": null,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "f5c49edf53f256d2b176850aa371ecfe1c8aeffb6d2c5292af76ba376ccf2e69",
+      "strict_json_path_exact": true,
+      "strict_json_stream_exact": true
+    },
+    "Translated/All/Cold": {
+      "complete_public_read_unchanged": true,
+      "document_sha256": "7da928a12db8451a5676eeb4ca3299cfee146972e5db5f762754d0344352eb6d",
+      "metadata_only_unchanged": true,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "30732c244752332a52a6767c8c49658c3571257489f15fb3bd8dc5fc6e0ee3c3",
+      "solid_count": 1,
+      "strict_json_path_exact": false,
+      "timeline": [
+        [
+          "sldprt:feature:21",
+          "create",
+          "ExtrusionFeature"
+        ]
+      ]
+    },
+    "Translated/Selected": {
+      "actual_atom_id": 101,
+      "actual_contour_links": [
+        3,
+        2,
+        1,
+        4
+      ],
+      "actual_marks": [
+        8,
+        2
+      ],
+      "body_match_tag": 1479,
+      "configuration": "modeled default",
+      "inactive_stored_depth_mm": 12.5,
+      "live_depth_mm": 9.875,
+      "live_driver_bindings": {
+        "D1@Boss-Extrude1": {
+          "id": "sldprt:parameter:21:D1",
+          "mm": 9.875,
+          "owner": "sldprt:feature:21"
+        },
+        "D1@Sketch1": {
+          "id": "sldprt:parameter:18:D1",
+          "mm": 37.0,
+          "owner": "sldprt:feature:18"
+        },
+        "D2@Sketch1": {
+          "id": "sldprt:parameter:18:D2",
+          "mm": 28.999999999999996,
+          "owner": "sldprt:feature:18"
+        }
+      },
+      "metadata_only_unchanged": true,
+      "native_feature_id": 21,
+      "native_profile_id": 18,
+      "negative_contrasts": {
+        "aliased_inactive_depth": "end roles share live owners",
+        "detached_atom": "alternate body state",
+        "different_configuration": "does not own selected Config-0",
+        "different_header_part": "actual saved part and configuration",
+        "extra_chooser": "additional chooser input",
+        "ghost_body": "unresolved live or ghost body identities",
+        "inactive_configuration": "complete active configuration",
+        "reversed": "requires one ordinary forward blind profile",
+        "selected_wrapper": "alternate output or modifier state",
+        "wrong_chain": "contour differs from its live profile",
+        "wrong_rollback": "rollback marks differ"
+      },
+      "only_creator_and_dependent_semantic_digest_changed": true,
+      "operation": "create",
+      "payloads": {
+        "deltas": "29a1791c6808fc581d1c2ff570f94ee0074ff43331e932d9f804db4346d758c7",
+        "partition": "017dbe10f0b950f6a3a40e287e046db23e3201a1837584ea65a73c0456f944dc"
+      },
+      "saved_geometry": {
+        "bounds_mm": [
+          [
+            -14.375,
+            22.625
+          ],
+          [
+            -22.25,
+            6.75
+          ],
+          [
+            0.0,
+            9.875
+          ]
+        ],
+        "centre_of_volume_mm": [
+          4.125,
+          -7.750000000000002,
+          4.9375
+        ],
+        "coedge_count": 24,
+        "dimensions_mm": [
+          37.0,
+          29.0,
+          9.875
+        ],
+        "edge_count": 12,
+        "face_count": 6,
+        "inverted_carrier_count": 5,
+        "max_native_metric_delta_in_mm_units": 4.547473508864641e-13,
+        "surface_area_mm2": 3449.5,
+        "vertex_count": 8,
+        "volume_mm3": 10595.875
+      },
+      "scope": "first_creator",
+      "sdk_runtime_input_reads": 0,
+      "sha256": "bf8e26f0ff8eac8bbad19e61a646af8ae695d8e0bbcf0b9d7012522dd6e295d5",
+      "strict_json_path_exact": true,
+      "strict_json_stream_exact": true
+    },
+    "Translated/Selected/Cold": {
+      "complete_public_read_unchanged": true,
+      "document_sha256": "bf758cc7ab6c0ebd9dd462899f5f0d7b2546a85d82a54b16ba04cc8603c09bb3",
+      "metadata_only_unchanged": true,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "78279f089f6c0f77aac714f2908f262c7dc8f2bd6aaaa98527d53fb9716a36dc",
+      "solid_count": 1,
+      "strict_json_path_exact": false,
+      "timeline": [
+        [
+          "sldprt:feature:21",
+          "create",
+          "ScopedExtrude"
+        ]
+      ]
+    },
+    "explicit multi-stock contrast": {
+      "complete_public_read_unchanged": true,
+      "document_sha256": "29f90cb74efc47b9d8230187fc1238d8cb834147b8ae53826e054cf9d9a3abf6",
+      "metadata_only_unchanged": true,
+      "sdk_runtime_input_reads": 0,
+      "sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+      "solid_count": 2,
+      "strict_json_path_exact": false,
+      "timeline": [
+        [
+          "sldprt:feature:32",
+          "create",
+          "ExtrusionFeature"
+        ],
+        [
+          "sldprt:feature:40",
+          "create",
+          "ExtrusionFeature"
+        ],
+        [
+          "sldprt:feature:47",
+          "cut",
+          "ExtrusionFeature"
+        ]
+      ]
+    }
+  },
+  "dependencies_sha256": {
+    "re/tooling/sw2026/nested_publication/MeasureColdCreatorScope.py": "3c0ee894ab6da4ebb89ed916e1d61a480acb6279d0528ebbf461b43bd7cccb46",
+    "re/tooling/sw2026/nested_publication/MeasureSavedCreatorScope.py": "ee799294291ac679682c016077da7fda9de4c1dddf8f21cbbfcba755b62dc1f5",
+    "re/tooling/sw2026/nested_publication/MeasureWarmNestedLeaf.py": "234bf42ea19712bc4f2ac978d98442aed4f52356f394cffd4ee1661a3aa94bfd",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "2491dab8a88cc68fd315907b6cf882f9b299263914f025fcc1cea229a37593eb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/BodyNameGraph.py": "4695877816e14bf52e0000c7dd6b0ae72d50aa8a41dd51d5357e2312f9f1dc63",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/ReadBodyCache.py": "2d6c108b2fd5ab5ea5423633b8f45341e2d5b95f2f73972120053e4dae828b1a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/ReadNamedBody.py": "220a654c641b1f82466b30d4709fdb499ba5cf13652cfd64aa715b0b4dce621a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/Revolves/ReadRevolveBody.py": "93e0f32e95f17a27befc21327aa9e7a513ddfd4c22b0f581e6c0edbf67e8a4d1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/WithBodyNames.py": "e18aed73a4aa0f5699260c08e082067c3913aee872352d9e6022c00d1397b7c1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/CheckEqConfig.py": "4ebcf733cea36113d11e3233b8aac762cc932ec4b025aaf18cc36a4cc40d1dd6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismEnd.py": "61b9bf8083f3e9eda188e948c6eada50a0a0f4f1af9c80b4b4a9124ce3f32ee1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismProf.py": "e75012611e111c0554a7408d2dff5c49ef95d2729337fd41802e4620acad10e1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/BindPrismCreate.py": "3305681a6d86529989cd7143930d6a069562e7ac67d3a88383357a6c4930aefe",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadPrismLoop.py": "7973f7e6331e65cca0fa91fc0f91f9ac9fb47d22954411aaa756bd9ec484e42b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/SavedScope/CheckSaveSketch.py": "438d32e5470247ecc7fd67beeb388a05404f20745cea54bdcc7d1c697221cf55",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/SavedScope/CheckSavedBoss.py": "efc60f09578cbe4908bc1e84cd9289fcb93c889de072a3b5a17c470c55089017",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/SavedScope/CheckSavedChain.py": "e1b8af1e6946d8810772643d7b8d425817595c183951526b7379cccbbf288d07",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/SavedScope/CheckSavedFaces.py": "c4d03051b302b3fd3d2ec2fb426b883a383c0e24a7371e479587260af249cc57",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/SavedScope/WithSavedScope.py": "a31096978239acf44fb9b297869db5261d9428a162406a5a732339f3568202f8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/CheckRevSelf.py": "f9772fa5c6fde988237fbcc017a4dff34215e72529696ec6dba7288281bdb59b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/ReadRevChoices.py": "48cc9ef94d90b1e57cf077c58dc1cf000c6125e818a137b63f7ce081fb7c9db4",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/SelectedCut/ReadRevFace.py": "f8e75e3f04dcf543d1de5d1945f685de6ba105d11f6ff26bd730899891d4805e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Thin/Saved/CheckThinMarks.py": "fce776f6d3eef66947b0723ed98897b235179b740fa6fd27513caea7452186d2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Thin/Saved/CheckThinState.py": "7a6adbcb1eedef947016727a958914fc0d45aea7eacce078d5c400ffcc143b51"
+  },
+  "fresh_sdk_processes": 20,
+  "full_source_transfer_qualified": false,
+  "heldout_inputs_read": 0,
+  "new_native_processes": 0,
+  "prior_native_authority_sha256": "90d4d1836492f49fd2d6c99a122664c5be918d128dcd1c604a589d2ea724fa21",
+  "prior_sdk_receipt_sha256": "0865fd5d0c9c9602f22b4494498f69a6962fa4b997564dc88677825c703dea65",
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.saved-first-creator-scope.v1"
+}

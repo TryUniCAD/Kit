@@ -12,6 +12,8 @@ KPartWriteInfo = ReplaceValue(
     capabilities=KPartWriteCaps
     | {
         Capability.KBrep,
+        Capability.KMaterials,
+        Capability.KNativePayloads,
         Capability.KProvenance,
         Capability.KRoundtripMeta,
         Capability.KSelections,
@@ -20,6 +22,8 @@ KPartWriteInfo = ReplaceValue(
     native_capabilities=KPartWriteCaps
     | {
         Capability.KBrep,
+        Capability.KMaterials,
+        Capability.KNativePayloads,
         Capability.KProvenance,
         Capability.KRoundtripMeta,
         Capability.KSelections,

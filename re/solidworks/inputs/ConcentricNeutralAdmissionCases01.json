@@ -1,0 +1,158 @@
+{
+  "negative": [
+    "missing_face",
+    "cap_face",
+    "native_index_face",
+    "same_occurrence",
+    "nested_path",
+    "both_fixed",
+    "none_fixed",
+    "wrong_radius",
+    "radius_metres",
+    "missing_lock",
+    "integer_lock",
+    "native_extensions",
+    "unknown_alignment",
+    "missing_radius",
+    "different_config",
+    "reflected_pose",
+    "off_axis_pose",
+    "wrong_axis_alignment",
+    "foreign_binding_document",
+    "stale_kernel_identity",
+    "empty_face_id",
+    "boolean_radius",
+    "unknown_profile",
+    "neutral_surface_tag",
+    "ring_radius",
+    "ring_parameter",
+    "edge_tolerance",
+    "body_transform",
+    "face_provenance",
+    "reordered_shell",
+    "extra_ring"
+  ],
+  "positive": [
+    {
+      "alignment": "aligned",
+      "fixed_index": 0,
+      "label": "AlphaDerived",
+      "profile": "derived_feature",
+      "reverse_selection": false,
+      "rotation_locked": false,
+      "shape": {
+        "center_mm": [
+          3.913,
+          -7.421
+        ],
+        "depth_mm": 22.819,
+        "radius_mm": 5.137
+      },
+      "shape_index": 0
+    },
+    {
+      "alignment": "aligned",
+      "fixed_index": 0,
+      "label": "AlphaAuthored",
+      "profile": "authored_brep",
+      "reverse_selection": false,
+      "rotation_locked": false,
+      "shape": {
+        "center_mm": [
+          3.913,
+          -7.421
+        ],
+        "depth_mm": 22.819,
+        "radius_mm": 5.137
+      },
+      "shape_index": 0
+    },
+    {
+      "alignment": "anti_aligned",
+      "fixed_index": 1,
+      "label": "BetaDerived",
+      "profile": "derived_feature",
+      "reverse_selection": true,
+      "rotation_locked": true,
+      "shape": {
+        "center_mm": [
+          -9.283,
+          6.917
+        ],
+        "depth_mm": 14.763,
+        "radius_mm": 8.471
+      },
+      "shape_index": 1
+    },
+    {
+      "alignment": "anti_aligned",
+      "fixed_index": 1,
+      "label": "BetaAuthored",
+      "profile": "authored_brep",
+      "reverse_selection": true,
+      "rotation_locked": true,
+      "shape": {
+        "center_mm": [
+          -9.283,
+          6.917
+        ],
+        "depth_mm": 14.763,
+        "radius_mm": 8.471
+      },
+      "shape_index": 1
+    },
+    {
+      "alignment": "aligned",
+      "fixed_index": 0,
+      "label": "AlphaLocked",
+      "profile": "derived_feature",
+      "reverse_selection": true,
+      "rotation_locked": true,
+      "shape": {
+        "center_mm": [
+          3.913,
+          -7.421
+        ],
+        "depth_mm": 22.819,
+        "radius_mm": 5.137
+      },
+      "shape_index": 0
+    },
+    {
+      "alignment": "anti_aligned",
+      "fixed_index": 1,
+      "label": "BetaFree",
+      "profile": "authored_brep",
+      "reverse_selection": false,
+      "rotation_locked": false,
+      "shape": {
+        "center_mm": [
+          -9.283,
+          6.917
+        ],
+        "depth_mm": 14.763,
+        "radius_mm": 8.471
+      },
+      "shape_index": 1
+    },
+    {
+      "alignment": "anti_aligned",
+      "authored_face_id": "caller/faces/1",
+      "fixed_index": 1,
+      "label": "BetaRekeyed",
+      "profile": "authored_brep",
+      "rekey_all": true,
+      "reverse_selection": true,
+      "rotation_locked": true,
+      "shape": {
+        "center_mm": [
+          -9.283,
+          6.917
+        ],
+        "depth_mm": 14.763,
+        "radius_mm": 8.471
+      },
+      "shape_index": 1
+    }
+  ]
+}

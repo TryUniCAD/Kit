@@ -1,0 +1,518 @@
+{
+  "all_positive_complete_containers_identical": true,
+  "cases": [
+    {
+      "all_streams_and_container_identical": true,
+      "independent_input_sha256": "7e68ba63714e8718640287df5b7d0a182baac41e027cd23feb44824011c35b09",
+      "independent_result_sha256": "eec2a850754679e3d59543a2a6f8e25ed0d5b1ae74fa4813480a78cf355f8003",
+      "input_sha256": "faeaff0b8a24daee2e83dc8f21462f0d0936bc2544bf42b791c3fd94826bcbb7",
+      "name": "PortableAlpha",
+      "result": {
+        "actual_self_file_identity": true,
+        "artifact_bytes": 5904,
+        "artifact_sha256": "d46ec820a888469e41bc0309c3dd56a83107a1e51f6d9586839a677be2aeaf44",
+        "complete_sdk_only_blank_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 131,
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "neutral_drawing_semantics": true,
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-blank-drawing-result.v1",
+        "source_sheet_id": "neutral:sheet:PortableAlpha",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 24055,
+            "sha256": "a9e576f923eddc25d8e0778e81db4fb4bcf665d50607e8b607523d76e8900018"
+          },
+          "Header2": {
+            "bytes": 751,
+            "sha256": "3ee3d76b15d3471e673656383749e6b6afe952c16de5ad97f07d1a2f5f5d7fc7"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 167,
+            "sha256": "ef6eaadc80e7fb09d1111cf2e8414c40e33a6b855fe21f71d0da5bf16329fa76"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1354,
+            "sha256": "3e28ce029083aa48727a567ed866a085fc0e7882ec64b7a4c2958e9e563840f9"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 443,
+            "sha256": "8643d40198ff121e87e9aa129b2a5cdf50bdbad4fcf9c1cd2ea7f19aefa99aee"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    },
+    {
+      "all_streams_and_container_identical": true,
+      "independent_input_sha256": "0f78793cfd6d85c3451a9842f9188224a5a5bb533a4f4255386c9504f72642e9",
+      "independent_result_sha256": "d8f5350766d5e881802273b84e05657bfaaef16793b1df676efb5072e44c8345",
+      "input_sha256": "4ed6225ce47e5b037708982b01ddf9d189c9c316177dcc551a16a780387564c6",
+      "name": "PortableBeta",
+      "result": {
+        "actual_self_file_identity": true,
+        "artifact_bytes": 6006,
+        "artifact_sha256": "61d96e787cb16e74919d61137142df57825bad556f1587c779ac7fca185d0eb2",
+        "complete_sdk_only_blank_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 131,
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "neutral_drawing_semantics": true,
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-blank-drawing-result.v1",
+        "source_sheet_id": "neutral:sheet:PortableBeta",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 24683,
+            "sha256": "e4f1239f90af7b9ade20fa489464881214a12914a3ac846fbd17dbc6f8ff3bfe"
+          },
+          "Header2": {
+            "bytes": 665,
+            "sha256": "b6d51a8f6fb6a78464f64b80f8d39e3dad63912578dc2e674670894c201d0b9b"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "301206bc3830b8dcb35a3bbd8d21bccd72327f57151ab9c91e2f7c0e81208985"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 139,
+            "sha256": "967e8ba234bab97591067a9859e888a50c07f7603835d77f740200bc2570ddee"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1352,
+            "sha256": "7d387063c2d3e61ce03b7bf4461769a32a5d88626c040bd01fa10791166ddd97"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 824,
+            "sha256": "a6e281a97a1f9700751453f000c485e1d7f5293158a0b0ff428e308ca3b706da"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    },
+    {
+      "all_streams_and_container_identical": true,
+      "independent_input_sha256": "876fa66f7e55c2f2ea8be017d809696dfef8a61d1359808742fcd7524a6a2b9c",
+      "independent_result_sha256": "46fe9fb2460d91d827631fca7ef537cca3ba6ba2ce4504a095b8ab6c72e4983e",
+      "input_sha256": "5dfbcb29f57ee3c62e4cd4ffee6ddaf0337daea5bb43308278423c14888e2d33",
+      "name": "PortableGamma",
+      "result": {
+        "actual_self_file_identity": true,
+        "artifact_bytes": 5932,
+        "artifact_sha256": "d854dca2911793541beff8316510d2095e27dc7b89be08c0cc17382e761eca34",
+        "complete_sdk_only_blank_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 131,
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "neutral_drawing_semantics": true,
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-blank-drawing-result.v1",
+        "source_sheet_id": "neutral:sheet:PortableGamma",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 24055,
+            "sha256": "35f10429cead1752b8fc939eda3192b767da338496de70df8b4b38b0f6be96fa"
+          },
+          "Header2": {
+            "bytes": 751,
+            "sha256": "8814f5e30cf22eab5dddd269f4387b85dd064d98917ec5e5e469712d57c248f4"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 167,
+            "sha256": "99c1e343f05b8208bf3cf512861b6d9942a5e2a3cc14b6b9ac8e43755afa21db"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1354,
+            "sha256": "4337c334f87d076662ed9cf6f505f7acfe5788add0e51dcee857a2d286f3629a"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 443,
+            "sha256": "91e5fd1927d6aea84911d7a164c0af0c1bacb8697d6bc06b00914552c404f30f"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    },
+    {
+      "all_streams_and_container_identical": true,
+      "independent_input_sha256": "fd163da3896677f47a75b09d9970631ee333a4096ba54b45927b8f948163d31a",
+      "independent_result_sha256": "82c1ffe9cbbcdc80ea4384135d872ee035384c50b5dd74be8411b560bc90560f",
+      "input_sha256": "953d0f97a4344f73b188ba1858662e5259da257bfe8d7fba97d8c669bae25e12",
+      "name": "PortableDelta",
+      "result": {
+        "actual_self_file_identity": true,
+        "artifact_bytes": 6041,
+        "artifact_sha256": "e1b2c9d1299aea6c6e47a92af0673c7ba8930718e39e22e73cc792645932bd69",
+        "complete_sdk_only_blank_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 131,
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "neutral_drawing_semantics": true,
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-blank-drawing-result.v1",
+        "source_sheet_id": "neutral:sheet:PortableDelta",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 25690,
+            "sha256": "6673e2f389cf681073e344e4cbe07502d76801e2b9ac0fa5a25decd292b1b60b"
+          },
+          "Header2": {
+            "bytes": 751,
+            "sha256": "5646008425fe352eb4a59e85c558bcf42552b515ad0ef2ee8da1994c53e93413"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 167,
+            "sha256": "99e3eed5c20a2c797579c907d7c09669acf975102a015c217a7d8de8c884d231"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1420,
+            "sha256": "e0f73e8e51b91b2b682a48e28273ca7eb6b5e344962b089b830036d27d0bab10"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 475,
+            "sha256": "c9adf8c057217f1c16ad0458c7f51a4e72795e502a3e0b3725acfd338a348649"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    }
+  ],
+  "complete_sdk_only_blank_factory": true,
+  "delivery_pr": 121,
+  "dependencies": 3048,
+  "dependency_manifest_sha256": "a66dd6b2acf3ef7b3f6b9e51a8b06e0b0b988e473813dd98bb3e1a43014e96a0",
+  "fresh_processes": 43,
+  "guarded_snapshot_replay_identical": true,
+  "heldout_inputs_read": 0,
+  "independent_research_processes": 4,
+  "limitations": [
+    "one unformatted ANSI A landscape sheet",
+    "no linked model or view",
+    "positive integral sheet scale terms 1 through 999999",
+    "measured current style/unit/archive-19000/SP05.2 profile",
+    "public writer disabled; new native and held-out acceptance remain separate"
+  ],
+  "native_acceptance": false,
+  "native_measurement_processes": 0,
+  "owned_code_paths": 28,
+  "owner": "configuration_header",
+  "process_proof_sha256": "447894d6fe35ae6cb46cced735a6323b6691a49477113034343ed957e98febaa",
+  "public_writer_enabled": false,
+  "references": [
+    "re/solidworks/records/SdkBlankDrawingFile2026.md",
+    "Documentation/Reference/Research/Solidworks/SdkBlankDrawingFile.md"
+  ],
+  "rejection_processes": 31,
+  "rejections": [
+    {
+      "diagnostic_sha256": "003bd5f2645f18985df54c99b1a7e24e1ae4b29fcc35e468d138572c037c192d",
+      "exit_code": 1,
+      "input_sha256": "636a71b686b460f6b39d4d59e3845b185d4442f6f82281d79c6751563459abdc",
+      "name": "Rejectactive",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "003bd5f2645f18985df54c99b1a7e24e1ae4b29fcc35e468d138572c037c192d",
+      "exit_code": 1,
+      "input_sha256": "4adeb533a505a3de834a8e039e4f52dd1609ca53346109c27083b6163740cb1f",
+      "name": "Rejectsheet_id",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "2c6698c7c6951e2d8a652398852d5ccb381e945d5f64aaee6a88ca6b792f6abf",
+      "exit_code": 1,
+      "input_sha256": "417b8b3d191580561e4d1b540e960bee01a4e257d39ad20b15145f8f07416418",
+      "name": "Rejectno_sheets",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "2c6698c7c6951e2d8a652398852d5ccb381e945d5f64aaee6a88ca6b792f6abf",
+      "exit_code": 1,
+      "input_sha256": "33b07de2b67ea8c799a1042b3e9035eb16c55ca63d8e0029c12f6d6692324393",
+      "name": "Rejectmany_sheets",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "003bd5f2645f18985df54c99b1a7e24e1ae4b29fcc35e468d138572c037c192d",
+      "exit_code": 1,
+      "input_sha256": "ff1624c109c04940038dff8db2dc69b3824991e5f60bd007e7994af0bf69a934",
+      "name": "Rejectpaper_width",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "003bd5f2645f18985df54c99b1a7e24e1ae4b29fcc35e468d138572c037c192d",
+      "exit_code": 1,
+      "input_sha256": "fb87b21d713c0a632d40e61417e928408fb925effcf7d31fec5c52c4fd15c5a2",
+      "name": "Rejectpaper_height",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "003bd5f2645f18985df54c99b1a7e24e1ae4b29fcc35e468d138572c037c192d",
+      "exit_code": 1,
+      "input_sha256": "1c4a9e45c6c9db0c4dade5988a46e7efe3ea7257f782870ace09bf5652e07a7d",
+      "name": "Rejectsheet_views",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "2c6698c7c6951e2d8a652398852d5ccb381e945d5f64aaee6a88ca6b792f6abf",
+      "exit_code": 1,
+      "input_sha256": "2638e525e06723d089771db576050f7efab9475c813ea11b9ed4a06804bdc8aa",
+      "name": "Rejectmodel_refs",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "1b6ac7f0b27f1abad52432abc9d3bf5ac42147f0e6274759f2411d30f51461cf",
+      "exit_code": 1,
+      "input_sha256": "d6f89a8138f9efcd6c1b38259b9d1fa11e7be57b0232af92db4026afa8a36e48",
+      "name": "Rejectunknown_content",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "fa0c2a25009dfece96e03f46700b5609065c102e71c54adea6085af4459d0def",
+      "exit_code": 1,
+      "input_sha256": "2ef7ec1fd3602a324ab49c5be52c3b445dee85fc2c123f5b706fabedc9b62bc0",
+      "name": "Rejectscale_fraction",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "879d24c7ea678875d5c8b06868a82120884d0f57e098643b6530c09e6dbc1373",
+      "exit_code": 1,
+      "input_sha256": "0132157c1c0d4defbe9ba32074ce1da9eeab90ab5db8d3ce762bdbb8b376f9fc",
+      "name": "Rejectscale_boolean",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "fa0c2a25009dfece96e03f46700b5609065c102e71c54adea6085af4459d0def",
+      "exit_code": 1,
+      "input_sha256": "a0f717a8db19057ffb6d7cd84e6d9ea1f1970eb9e1e26d05445eb39179f38b09",
+      "name": "Rejectscale_zero",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "fa0c2a25009dfece96e03f46700b5609065c102e71c54adea6085af4459d0def",
+      "exit_code": 1,
+      "input_sha256": "7297ba56ca01b6a48f2997ecf1eda46735301dbf24292da2664851e127f2fd93",
+      "name": "Rejectscale_range",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "5d1790c7e4d384841789c249f33e6b93bfcd2aaff5575555e8b861baba33c534",
+      "exit_code": 1,
+      "input_sha256": "8a27baf4f096b25ef31881fc3ec19d2b60327eace49e739691f97809cfc89bf2",
+      "name": "Rejectsheet_separator",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "e6eba19d40a29f5068a12bc69631d67d8aa20034a9a265ae457719d095b5fbda",
+      "exit_code": 1,
+      "input_sha256": "dd8c27489c6a85b160fc3fc15ded3ab1a8b84a8c0be66ec73ad95c26f22b9dca",
+      "name": "Rejectxml_control",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "496e842f1a506e66e618476e84a4ecddc0dc7d04a1d0638a35a4bf1fa60a68f7",
+      "exit_code": 1,
+      "input_sha256": "7ca08c898e739e79cfe7e75fe5953e89d30db1053f8dcbda6bc89da0fe480564",
+      "name": "Rejectblock_version",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "c054c8889187eaad1fd6d8068688f4c6ced5a1bf405fe3d30ae87dc559e37acd",
+      "exit_code": 1,
+      "input_sha256": "d2fc98aa412df46d5f1570cca5e4a744d66cfd9510d3a84d9962960bb4a2d589",
+      "name": "Rejectblock_invalid",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "df0f70874f500b68b7183801fbe847d8c5505ab3ef1e893cc9ed594aeb7793d1",
+      "exit_code": 1,
+      "input_sha256": "98f02a81a2b1e9657be40c959e7dd00fa26764db2da7621dbeba0071b0c02547",
+      "name": "Rejectepochs",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "2fcdbd9f3e432ded7616bf6e091a908cb706679351d3d578de9b815fefa5be1f",
+      "exit_code": 1,
+      "input_sha256": "3a49fdd08735e4a36664bcd11e8e15fa8587c581f2a55671527ce12725a52d30",
+      "name": "Rejectauto_link",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "c0883dde00764d9ccfa9c5621245a18ecf585184b883d84601e80e97fa6abd6c",
+      "exit_code": 1,
+      "input_sha256": "3cc9b4656d04190a9de3369d50329eb431446dcff6edfa55e2012589e24f47e7",
+      "name": "Rejectservice_pack",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "e7cc265eef595ad6e0b4a804b2c29a53515521ceabcf040b32f06aea97f7b98f",
+      "exit_code": 1,
+      "input_sha256": "09f02cb0378de2f4492e8686fa86175f27570a980010d18dd2fa1287ead716dd",
+      "name": "Rejectxml_name",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "184192d1b1471fe283b6925c189e624ffd508e0a8679328ee891a23934239828",
+      "exit_code": 1,
+      "input_sha256": "ba14cb2376a5a9f780dc9c4a7d4185fa1fc923e88c30a7fc2a2281a77587e7e4",
+      "name": "Rejecthistory_native",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "1c7068d6006ba133262400c98463773e417bcfe3a443c62229a05ff55012a7a4",
+      "exit_code": 1,
+      "input_sha256": "2322d91c4d65c409a3b26a2a542bf291aa44cbe564d12ddee093c2ae622b22aa",
+      "name": "Rejectcjk_provenance",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "148c18fe053e93f6f9a4f6a48116f215e97dc5e031fc484e032ea7604afdf2b6",
+      "exit_code": 1,
+      "input_sha256": "145adc3f9d1c1706ad0e5b282af391ed4b4a7fac02a0236da51d01555898ef69",
+      "name": "Rejecttime_order",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "137e6a865c113c62fdd2d4d87ac89c0a59d3f1b8c6020f0e099f55f17e61e53b",
+      "exit_code": 1,
+      "input_sha256": "4de1647dc2e33a992bdbe3f48d39516954cb4e8fc835c676d22843b0a4ccdaba",
+      "name": "Rejectpath_suffix",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "4f6bfd31a3cab3fc0a0c3d1bb434fb867836136bc88738b9e5904d2f561f4d25",
+      "exit_code": 1,
+      "input_sha256": "eabc4814ccc8e3a76e16d1a1b78a52f769133ea43d1703bf99a00b4ba2863dc3",
+      "name": "Rejectrelative_path",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "945e70ae314888fe170b8f8c639398be2f70cedc83ccad1416471a4d41d90991",
+      "exit_code": 1,
+      "input_sha256": "17612d92847341249b8a40779703c1d67eb8cf5abb955b9017cf96c2495eb16a",
+      "name": "Rejectsave_order",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "07797e5ac026fdb7ffd80d3556b709506d84e5848dba7bc24b25c6d9a01debfa",
+      "exit_code": 1,
+      "input_sha256": "c1bf3a1270b07587d12ddfcab4c1feb8f6de6e06ef0ae4b675625de2f2d5847c",
+      "name": "Rejectui_standard",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "065920b816a3743617a9f46c88c9a5ff3e14e5cafe3b98f446e61269489c3643",
+      "exit_code": 1,
+      "input_sha256": "de03873e96fcfb9dc8d5528c0821169cdb94d49e8500cae349552009b0e4dbee",
+      "name": "Rejectui_tessellation",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "22c62255c23c04dc5d0e3a664b919ca7eac30d6d59a7281bb73aa616451e320b",
+      "exit_code": 1,
+      "input_sha256": "c0f353143038a3a16573837cb533d2187c03f6d9cd20603b1f8989fd7b28548d",
+      "name": "Rejectui_display",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "a0c3928318b3553dd227b2430ea3d85771b264376afc2e05248674c1b890bf69",
+      "exit_code": 1,
+      "input_sha256": "caee3b81a5b525013b53131062cd80644ec419b85bac07a4b5be2a30e940a5fd",
+      "name": "Rejectui_journal",
+      "output_bytes": 0,
+      "rejected": true
+    }
+  ],
+  "runtime_input_file_access_attempts": 0,
+  "schema": "kit.sw2026.sdk-blank-drawing-offline-receipt.v1",
+  "sdk_positive_processes": 8,
+  "shared_metadata_manifest_sha256": "ef509d05d4be551a2bb15870d1f1ae6ddf1cb6c9258fcda3eb8e03b2256333b6",
+  "source_manifest_sha256": "4709d58576e9e5f3099ee55d5ccf852ffde3ebb06fb7de380eac5bd633cca4ef",
+  "source_unchanged": true,
+  "status": "offline_complete_sdk_blank_construction_only",
+  "task_id": "PR121-SDK-DRAW-BLANK-FILE",
+  "vendor_runtime_executed": false
+}

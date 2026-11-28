@@ -27,3 +27,6 @@ KDocTailFields: tuple[NativeField, ...] = (
         CountValue="nvar",
     ),
 )
+
+# the part classifier shares the native density trailer across its read scopes
+KPartDefTail = (*KDocTailFields, NativeField("Scalar", "f1688", "f64"))

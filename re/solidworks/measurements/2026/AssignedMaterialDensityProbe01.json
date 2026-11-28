@@ -1,0 +1,123 @@
+{
+  "build": "34.5.2.0604",
+  "diagnostic_points_to_selected_body_observer": true,
+  "diagnostic_save": {
+    "bytes": 55612,
+    "diagnostics": [
+      true,
+      0,
+      0
+    ],
+    "sha256": "04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583"
+  },
+  "fresh_native_processes": 4,
+  "healthy_controls": 2,
+  "heldout_credit": 0,
+  "native_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "native_observer_sha256": "f0e198a2b8a399ed2b513993d743299dafbd0f41aed81fba01be4d411e57fc30",
+  "native_result_sha256": "a23e44a29967ad84e2716f66363c2898025460bd5a9dddf266e575bdac3a88d2",
+  "packet_02_job_sha256": "292df06a2fd4f740c2070a32152568271eaf1c95be2675a9564e541f4c0b677f",
+  "phase_record_sha256": {
+    "After": "dc052758cf18b4f26c8068f76aae503c03d1f1da3436ca4a16f195e1652e13bc",
+    "Author": "264224258898a68a4a08529b75d39dd982c5f975930582edb04e7b2c24a4d760",
+    "Before": "031ccda6c379cea547242c334f01a97213fbc20e84b51a6345bb39bf16e66306",
+    "Reopen": "d2927463eedc76dc15c0687c91f5e30b34f4bf602e1b7ec098c2abfd04fb338f"
+  },
+  "previous_failed_source_result_sha256": "7ba51e40c30237afd87bbd61f5de1f3f676c525e53269c632f268f11d4e2addb",
+  "prior_combined_legacy_and_modern_predicate": false,
+  "schema": "kit.sw2026.assigned-material-selected-body-diagnostic.v1",
+  "source_lifecycle_qualified": false,
+  "states": {
+    "assigned": {
+      "explicit_body_material": {
+        "database": "",
+        "material": ""
+      },
+      "legacy_density_kg_m3": 1.0,
+      "legacy_mass_kg": 3.507949218750001e-06,
+      "legacy_override_mass": false,
+      "part_material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "selected_density_kg_m3": 2700.0,
+      "selected_mass_kg": 0.009471462890625003,
+      "selected_mass_over_volume_kg_m3": 2700.0,
+      "si_units": true,
+      "volume_m3": 3.507949218750001e-06
+    },
+    "read_only_rebuilt": {
+      "explicit_body_material": {
+        "database": "",
+        "material": ""
+      },
+      "legacy_density_kg_m3": 1.0,
+      "legacy_mass_kg": 3.507949218750001e-06,
+      "legacy_override_mass": false,
+      "part_material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "selected_density_kg_m3": 2700.0,
+      "selected_mass_kg": 0.009471462890625003,
+      "selected_mass_over_volume_kg_m3": 2700.0,
+      "si_units": true,
+      "volume_m3": 3.507949218750001e-06
+    },
+    "read_only_reopened": {
+      "explicit_body_material": {
+        "database": "",
+        "material": ""
+      },
+      "legacy_density_kg_m3": 1.0,
+      "legacy_mass_kg": 3.507949218750001e-06,
+      "legacy_override_mass": false,
+      "part_material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "selected_density_kg_m3": 2700.0,
+      "selected_mass_kg": 0.009471462890625003,
+      "selected_mass_over_volume_kg_m3": 2700.0,
+      "si_units": true,
+      "volume_m3": 3.507949218750001e-06
+    },
+    "saved": {
+      "explicit_body_material": {
+        "database": "",
+        "material": ""
+      },
+      "legacy_density_kg_m3": 1.0,
+      "legacy_mass_kg": 3.507949218750001e-06,
+      "legacy_override_mass": false,
+      "part_material": {
+        "database": "SOLIDWORKS DIN Materials",
+        "material": "3.0205 (EN-AW 1200)"
+      },
+      "selected_density_kg_m3": 2700.0,
+      "selected_mass_kg": 0.009471462890625003,
+      "selected_mass_over_volume_kg_m3": 2700.0,
+      "si_units": true,
+      "volume_m3": 3.507949218750001e-06
+    },
+    "unassigned": {
+      "explicit_body_material": {
+        "database": "",
+        "material": ""
+      },
+      "legacy_density_kg_m3": 1.0,
+      "legacy_mass_kg": 3.507949218750001e-06,
+      "legacy_override_mass": false,
+      "part_material": {
+        "database": "",
+        "material": ""
+      },
+      "selected_density_kg_m3": 1000.0,
+      "selected_mass_kg": 0.003507949218750001,
+      "selected_mass_over_volume_kg_m3": 1000.0,
+      "si_units": true,
+      "volume_m3": 3.507949218750001e-06
+    }
+  },
+  "writer_qualified": false
+}

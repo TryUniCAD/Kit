@@ -1,0 +1,126 @@
+{
+  "cases": {
+    "Slot01": {
+      "candidate_sha256": "47a67c2406cc1f78ab913360f444f4d228e8cf651aadd28524b84e8a3143a237",
+      "cold_rebuild_save_reopen": true,
+      "declared_projection_omissions": [
+        "source part and body labels",
+        "datum and system tree entries",
+        "configuration identifiers, states and properties beyond the active configuration name",
+        "material, appearance, document properties and application settings",
+        "source entity identifiers, attributes and provenance",
+        "source analytic carrier parameterization",
+        "source archive structures, native payloads and tessellation"
+      ],
+      "input_sha256": "27de26139590fe292ae420212af7515660fdb48d8f4f1830fae739cb3799b93a",
+      "model_generated_streams": 12,
+      "native_phase_records": [
+        "9a4fd02102b5462a1dc278be503affbed5bcca70dfff217fa7fb841c8274de54",
+        "0add451fb8590fc3da628efdd37b740f0d79dbde8ce67f123a43e91924164d0f",
+        "18d400cec9685da2a48c688a43b5139d38cdb372b2e46ad24e09fc2d883fcd51"
+      ],
+      "numeric_candidate_checks": 116,
+      "omitted_capabilities": [
+        "body_structure",
+        "configurations",
+        "native_payloads",
+        "parametric_history",
+        "provenance",
+        "roundtrip_metadata",
+        "support_planes"
+      ],
+      "omitted_metadata": [
+        "adapter",
+        "file_id",
+        "kit.wrapper_metadata_keys",
+        "native_class_names",
+        "native_feature_count",
+        "native_name_record_count",
+        "native_scalar_count",
+        "solidworks.part_text_properties",
+        "solidworks.typed_configuration_graph",
+        "solidworks.typed_configuration_manager",
+        "solidworks.typed_resolved_semantics",
+        "solidworks_source_bytes",
+        "solidworks_source_format_id",
+        "solidworks_source_semantic_sha256",
+        "solidworks_source_sha256",
+        "stream_names"
+      ],
+      "runtime_input_file_reads": 0,
+      "saved_candidate_sha256": "bc435afab13c303b2caef98f62bba5648f68154dc47ed0c64275f2d573e5ef2d",
+      "source_unchanged": true
+    },
+    "Slot02": {
+      "candidate_sha256": "fcd1d45d831e78e567b8aa172fbd6297f0f12eec9d7843e5150570bc616a2324",
+      "cold_rebuild_save_reopen": true,
+      "declared_projection_omissions": [
+        "source part and body labels",
+        "datum and system tree entries",
+        "configuration identifiers, states and properties beyond the active configuration name",
+        "material, appearance, document properties and application settings",
+        "source entity identifiers, attributes and provenance",
+        "source analytic carrier parameterization",
+        "source archive structures, native payloads and tessellation"
+      ],
+      "input_sha256": "db9a9dc8cdaec057421ad7934ab8a55680d6e50b1e966e61887c56a43bbe755d",
+      "model_generated_streams": 12,
+      "native_phase_records": [
+        "c4d9f95e9ef9a1a8a6e27a905d494879a2f3362c9104cb220bc506cc224932d0",
+        "3b660fec90ef28b0c10aa0a6c5f7c163d55935be676b1a79c5ddc0dacf6e7c34",
+        "914e7889b1da4957e9ed53cb32812f2e90c77242d439d50ac624db8a6d8fb428"
+      ],
+      "numeric_candidate_checks": 116,
+      "omitted_capabilities": [
+        "body_structure",
+        "configurations",
+        "native_payloads",
+        "parametric_history",
+        "provenance",
+        "roundtrip_metadata",
+        "support_planes"
+      ],
+      "omitted_metadata": [
+        "adapter",
+        "file_id",
+        "kit.wrapper_metadata_keys",
+        "native_class_names",
+        "native_feature_count",
+        "native_name_record_count",
+        "native_scalar_count",
+        "solidworks.part_text_properties",
+        "solidworks.typed_configuration_graph",
+        "solidworks.typed_configuration_manager",
+        "solidworks.typed_resolved_semantics",
+        "solidworks_source_bytes",
+        "solidworks_source_format_id",
+        "solidworks_source_semantic_sha256",
+        "solidworks_source_sha256",
+        "stream_names"
+      ],
+      "runtime_input_file_reads": 0,
+      "saved_candidate_sha256": "24509ef7ec44e28f9517af649b911ac3db3bbcb11c3588c0c804e20930a6e979",
+      "source_unchanged": true
+    }
+  },
+  "complete_heldout_geometry_lifecycles": 2,
+  "complete_original_source_conversions": 0,
+  "control_receipts": {
+    "after": "eb5c6f4fd5a6f212fc6a9502409fa3d17e0e1c267d6753739176f8044840c3f2",
+    "before": "bbd7628e58ba3a13044ee848f1686ebec10d9966c42d52a562bb32d9d919cb91"
+  },
+  "controls_healthy": true,
+  "distinct_accepted_processes": 8,
+  "faults": {},
+  "heldout_payloads_shared": 0,
+  "job_sha256": "c710087f07271d8b448fa4a0e338456a678f4d1f62fb909910fa08994dd4e654",
+  "native_source_author_revision": "b74c248bc20e11cf72d1905b2ef696c267a90a26",
+  "numeric_heldout_candidate_checks": 232,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "raw_native_result_sha256": "2eddd9242ad840fc4a424d4269ed7404634637f56ae94fe56ed917e7095626fe",
+  "schema": "kit.sw2026.sealed-import-geometry.v1",
+  "source_lock_receipt_sha256": "1a5a4993881c967682496c90924c262c7954fddd67dd9d1ee3e105186deed281",
+  "writer_revision": "a2a8125d136a43f750dafee4f0f4d93d04255301"
+}

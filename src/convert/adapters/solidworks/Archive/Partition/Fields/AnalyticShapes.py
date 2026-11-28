@@ -25,5 +25,9 @@ KAnalyticShapes = MappingProxyType(
             "CYLINDER",
             "node_id:d attributes_features:p1019 owner:p1007 next:p1006 previous:p1006 geometric_owner:p141 sense:c pvec:v axis:v radius:f x_axis:v",
         ),
+        54: MakeXmtShape(
+            "TORUS",
+            "node_id:d attributes_features:p1019 owner:p1007 next:p1006 previous:p1006 geometric_owner:p141 sense:c centre:v axis:v major_radius:f minor_radius:f x_axis:v",
+        ),
     }
 )

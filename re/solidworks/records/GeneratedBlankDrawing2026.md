@@ -1,0 +1,44 @@
+# Generated blank drawing candidate for SOLIDWORKS 2026
+
+The research constructor accepts a named, unformatted ANSI A landscape sheet, explicit units and styles, a sheet ratio and document provenance. It creates a drawing model with zero model views or references and drives the existing typed archive serializer. The fixture changes the sheet name and input scale independently of the disclosed native controls. [Authored input](../../tooling/sw2026/DrawingBlankSpec01.json) · [Candidate and control receipt](../measurements/2026/GeneratedBlankDrawingCandidate01.json)
+
+## Model and Definition owners
+
+| Field group | Classification and evidence |
+| --- | --- |
+| Model base and `f990` | Shared model construction. `sldmodu.dll` `0x4c00d8f0` creates the unit component and stores it at `0x4c00e85a`. The component points to the current generated `moDrawing_c`. |
+| `f9d8`, `fa48`, `fa50`, `f9d0` | The constructor initializes three allocated `suObList` objects at `0x4c00de68`, `0x4c00decc`, `0x4c00defa`. It creates the model's relation manager at `0x4c00e7a2`. The empty drawing has no stored relation entries. |
+| Root concept and drawing folders | Shared detail cabinet and logged folders plus `moBlockFolder_c` and `moMarkupCommentFolder_c` from the same `moFolder_c` base at `0x4beae110`. Native folder functions `0x4beb52b0`, `0x4beb53b0`, and `0x4c0162e0` show distinct insertion and allocation paths. The measured blank profile has six named presentation folders followed by the sheet. Four folders, the sheet and its children obtain real persistent IDs through the allocator. The block and review-markup folders retain `-1`; the document model owns ID zero. |
+| Drawing-specific shared model fields | No model visual-property object and no analysis unit table. The lightweight path checks the drawing predicate at `0x4c22ee5d` and bypasses face visualization properties. Document units, detail definitions, view objects and reference-plane display preferences use the ordinary constructor and presentation input. |
+| Sheet, active reference and drawing managers | Actual child identities and scales from the shared drawing builders. [Sheet support](DrawingEmptySheetObjects2026.md) · [Drawing managers](DrawingEmptyManagers2026.md) |
+| UI document dispatch and sheet sketch | Drawing CLSID selects `moDrawing_c` inside `uiModelDoc_c`. Its `fac0` owns `uoSketch` with the generated profile's actual persistent ID and the forward sheet scale. The `uiDrawingDoc_c` constructor sets `facc=2` at `slddrwu.dll` `0x3ded0789` and clears the drawing tail members at `0x3ded04f0` and `0x3ded0511`. Current drawing trailer stores marker `0xDAF` in `0x3debc450`. |
+| UI line styles and environment | The generated blank has no user-defined line styles, line fonts, environment rows or BOM entries. The UI definition retains an allocated line-font manager. `slduiu.dll` `0x49702994–0x497029a0` reads it and adds system styles during native load. Remaining native drawing presentation parity needs measurement. |
+| `Header2` and inline header | Both serialize the generated model's header. It owns the next persistent ID, authored creation/modification times, fresh update and body stamp seeds, and the drawing self file of native kind `4` with the unset configuration. The shared-file role derives extension, name, path and creation time from the drawing spec. The normal `moExtObject_c` constructor initializes `f58=0` at `sldarchiveu.dll` `0x319fb3d4`. |
+| `ModelStamps`, version history, biography | Typed creation/update/body values taken from the actual header. Shared version and biography writers take explicit authored revision and license provenance. A Kit creation records an authored, non-vendor save event. |
+
+The executable is `34.5.2.0604`. The static evidence uses image addresses in `sldmodu.dll` SHA-256 `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`, `slddrwu.dll` SHA-256 `61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47`, `slduiu.dll` SHA-256 `025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7` and `sldarchiveu.dll` SHA-256 `5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48`. [Shared model construction](ModelConstruction2026.md) · [Metadata construction](MetadataConstruction2026.md)
+
+The candidate supplies fresh constructor values for lifecycle state, including revision counters, display flags and neutral self-file flags. Disclosed vendor saves also contain environments, a BOM manager, named UI styles, previous-open state and native license provenance. Those differences stay visible for the save-stage investigation. The candidate covers the blank sheet graph. Model views, imported sheet formats, detailing state, custom styles, annotations and other paper profiles remain outside this experiment.
+
+## Independent construction and paired trial
+
+`DrawingRootProcess.py` takes JSON on stdin. After import and registry setup, the existing process audit rejects runtime file access and process launch. The builder writes `Contents/Definition`, `Header2`, `ModelStamps`, history and biography, plus `swXmlContents/KeyWords` and `docProps/ISolidWorksInformation.xml`. The container is generated by the shared structured-file writer. The process consumes its own Definition and Header2 again and checks IDs, owner references, stream bytes and the SDK sheet projection.
+
+Two differently authored inputs yielded 23,933 and 24,045 logical Definition bytes. Both consumed exactly with map next index 131 and zero runtime reads. The normal SDK inspection on staged `.SLDDRW` files projected the two authored names and scales of 2:3 and 7:5. Three process integration regressions verified the existing part and assembly constructors. [Construction and packet receipt](../measurements/2026/GeneratedBlankDrawingCandidate01.json) · [SDK route gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/DrawingUsesSuffixDetection.md)
+
+The private trial packet binds four input hashes and all staged oracle tool hashes. The unmodified D00 is used before and after the trial. A full repack verifies container framing. The reduced native diagnostic retains byte-identical payloads for the seven stream roles used by the generated candidate and omits the other 22. The generated file comes from the stdin process before the disclosure control is read. Its independently specified sheet state and expected native feature tree are recorded in the private packet. Native experiments require clean open and rebuild, a 3:2 scale edit, clean save, and fresh reopen with the expected state and ten live tree rows. Missing controls or reused process identities leave measurements uninterpretable. [ISheet property layout](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISheet~GetProperties2.html)
+
+```sh
+uv run --isolated --frozen --extra dev --python 3.11 python -B \
+  re/tooling/sw2026/PrepareBlankDrawing.py /private/disclosed-source-lock \
+  re/tooling/sw2026/DrawingBlankSpec01.json /private/unused-trial-dir \
+  --windows-path 'C:\Oracle\unused-trial-dir\Inputs\GeneratedBlank\KitBlankSheetProbe.SLDDRW'
+```
+
+The guest launches `Tools/InspectBlankDrawing.py` with the staged `Trial.json` and `--packet-sha256` from the preparer. The licensed Windows process is confined to the oracle. Only the disclosed D00 contributes to the native diagnostic.
+
+## Measured trial
+
+Nine distinct SOLIDWORKS `34.5.2.0604` processes verified the candidate and controls. The pristine bracketing controls, repacked control and reduced native diagnostic completed the edit, save and fresh reopen. The reduced diagnostic retained the exact seven input stream roles emitted by the constructor and its edited save produced 28 output streams. This measures joint omission of the other 22 roles for the disclosed blank sheet. [Native trial receipt](../measurements/2026/GeneratedBlankDrawingNative01.json)
+
+The generated drawing opened read-only with `[0,0]` errors and warnings and the independently specified ten-row tree. The named sheet, paper dimensions and 2:3 ratio matched after the forced rebuild. A 3:2 scale edit and rebuild succeeded in memory with zero `GetWhatsWrongCount` problems. `SaveAs3` returned `[false,1,0]` and left a zero-byte output file. The generated candidate therefore has no fresh reopen result. The save error maps to `swGenericSaveError`, which leaves the internal failure stage unresolved. All inputs remained immutable and the held-out source inputs remain sealed. [Typed input comparison and native save call path](DrawingSaveBoundary2026.md) · [Empty save-target gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/DrawingSaveErrorCanLeaveEmptyTarget.md) · [2026 file save errors](https://help.solidworks.com/2026/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swFileSaveError_e.html?id=2.10.1.378)

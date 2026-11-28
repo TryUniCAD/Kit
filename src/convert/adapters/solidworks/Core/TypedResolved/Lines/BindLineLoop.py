@@ -2,6 +2,16 @@ from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeProfile, NativeSketch
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.CheckDimGraph import (
+    CheckDimGraph,
+)
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineNativeDims import (
+    LineNativeDims,
+)
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.ReadLineDims import (
+    ReadLineDims,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsLineState
 from convert.adapters.solidworks.Core.TypedResolved.Lines.ReadLineLoop import (
     ReadLineLoop,
 )
@@ -19,9 +29,15 @@ def BindLineLoop(
     ):
         return None
     try:
-        LoopValue = ReadLineLoop(
-            RequireNative(NodeValue.FieldsValue.get("pd_f80"), "sgSketch"), LinkValue
+        SketchValue = RequireNative(NodeValue.FieldsValue.get("pd_f80"), "sgSketch")
+        DimsValue = (
+            None
+            if IsLineState(SketchValue.FieldsValue.get("dims"))
+            else ReadLineDims(SketchValue, LinkValue)
         )
+        LoopValue = ReadLineLoop(SketchValue, LinkValue, DimsValue)
+        if DimsValue is not None:
+            CheckDimGraph(LoopValue, DimsValue)
     except (ValueError, TypeError, KeyError):
         return None
     return ReplaceValue(
@@ -32,12 +48,12 @@ def BindLineLoop(
                 "line-loop",
                 tuple(
                     Coordinate
-                    for Point in LoopValue.PointsValue
+                    for Point in LoopValue.PointsValue.values()
                     for Coordinate in Point.PositionValue
                 ),
                 (),
             ),
         ),
-        dimensions=(),
+        dimensions=LineNativeDims(DimsValue),
         constraints=(),
     )

@@ -1,0 +1,104 @@
+{
+  "schema": "kit.sw2026.drawing-line-font-reader-custody.v1",
+  "task": "PR121 ordinary drawing line-font schema linkage",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "status": "independent43 worker prior pass on identical code; both originals fail closed at next model environment class",
+  "candidate_manifest_sha256": "f72c7c983b8e79bf73a0fe506c23cb7980cff0a457076a104691731d25e230d7",
+  "source_files": 4350,
+  "sdk_deltas": [
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py"
+  ],
+  "native_proof_sha256": "c14593c8a421560cfc2871da508a4ad1117b7b0195a7097b2456909728e93198",
+  "line_style_parent_manifest_sha256": "830a722139855deecd701fdd8ad33a0ea228128e2fc241c1def7552729349699",
+  "concrete_class_added": "uiLFConfig_c schema1",
+  "field_layouts_changed": [],
+  "proof_only_revision": {
+    "prior_candidate_manifest_sha256": "45c96d32b8c4dca644bece9aa6fab31da385e4d77e92669a80db2ddd68f01b34",
+    "corrected_candidate_manifest_sha256": "f72c7c983b8e79bf73a0fe506c23cb7980cff0a457076a104691731d25e230d7",
+    "source_paths_sizes_and_hashes_identical": true,
+    "verified_source_files": 4350,
+    "first_native_proof_sha256": "593cd5f38e76f43006d93b96f980802ff92f98cba6a257bd8628d2804e44b2a3",
+    "reason": "replace ordered positive shorthand with actual COMISS carry predicate and unmeasured unordered exception boundary",
+    "old_candidate_and_proof_retained_immutable": true
+  },
+  "actual_prior_rejections": {
+    "raw_sha256": "5a00651358a00a467873d9e0b87f320b3202163df8ce39123daafda353a0b6b9",
+    "both_failed": true,
+    "next_boundary": "uiLFConfig_c schema1",
+    "completed_edge_bodies": 8
+  },
+  "new_prior_replay": {
+    "status": "passed",
+    "passed": true,
+    "workers": 43,
+    "source_immutable": true,
+    "report_name": "SdkDrawingLineFontPrior01.json",
+    "raw_sha256": "7bbc0c15e7504aa2c223f07f362ae0c684fb66da01d5c6418a9a37d5f3ef3cab",
+    "source_manifest_sha256": "45c96d32b8c4dca644bece9aa6fab31da385e4d77e92669a80db2ddd68f01b34",
+    "corrected_manifest_source_identity_verified_separately": true
+  },
+  "new_original_probe": {
+    "status": "both fail closed at next schema",
+    "raw_sha256": "5e6f8634529bba2c14b57f49f82d6928c012f2d0ad1d21a28382ad5b6a7652f4",
+    "source_manifest_sha256": "f72c7c983b8e79bf73a0fe506c23cb7980cff0a457076a104691731d25e230d7",
+    "source_immutable": true,
+    "full_stream_parity": false,
+    "completed_edge_bodies": 8,
+    "next_boundary": "uiUserModelEnv_c schema1",
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37612,
+        "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class uiUserModelEnv_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37608,
+        "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class uiUserModelEnv_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      }
+    ]
+  },
+  "static_checks": {
+    "ast": true,
+    "black": "26.10.1 passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict passed",
+    "pyright": "1.1.414 strict passed; three inherited unrecognized options retained",
+    "steering": true,
+    "donor_scan": "no recorded payloads in1file"
+  },
+  "worker_product_execution": false,
+  "worker_test_suite_execution": false,
+  "native_execution": false,
+  "vm_access": false,
+  "repo_or_git_mutations": false,
+  "display_defaults_inferred": false,
+  "fresh_constructor_added": false,
+  "saved_defaults_added": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "public_strict_drawing_admission": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}

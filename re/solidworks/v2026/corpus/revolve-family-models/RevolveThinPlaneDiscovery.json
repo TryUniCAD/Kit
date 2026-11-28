@@ -1,0 +1,61 @@
+{
+  "cases": [
+    {
+      "angle_deg": 82.125,
+      "axial_m": [
+        -0.02133,
+        0.0284
+      ],
+      "axis_axial_m": [
+        -0.0615,
+        0.0853
+      ],
+      "axis_x_m": 0.00315,
+      "edit_angle_deg": 135.25,
+      "edit_wall_m": [
+        0.00271,
+        0
+      ],
+      "first_wall_sign": null,
+      "name": "ThinTopOppositeControl",
+      "plane": "top",
+      "profile_radius_m": 0.04356,
+      "reverse": false,
+      "wall_m": [
+        0.00152,
+        0
+      ],
+      "wall_mode": "opposite"
+    },
+    {
+      "angle_deg": 108.5,
+      "axial_m": [
+        -0.02471,
+        0.0368
+      ],
+      "axis_axial_m": [
+        -0.0914,
+        0.0685
+      ],
+      "axis_x_m": -0.00628,
+      "edit_angle_deg": 67.25,
+      "edit_wall_m": [
+        0.00367,
+        0
+      ],
+      "first_wall_sign": null,
+      "name": "ThinRightCenterControl",
+      "plane": "right",
+      "profile_radius_m": 0.06631,
+      "reverse": false,
+      "wall_m": [
+        0.00405,
+        0
+      ],
+      "wall_mode": "midplane"
+    }
+  ],
+  "family": "thin",
+  "schema": "kit.sw2026.revolve-family-models.v1",
+  "split": "discovery"
+}

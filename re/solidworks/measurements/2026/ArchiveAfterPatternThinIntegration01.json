@@ -1,0 +1,43 @@
+{
+  "assemblies": 8,
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "bdc19973c87abd6ecf84ccdc69f95c143a0d46ee"
+  },
+  "codec_revision": "5957f7c51419dcd0f3228fb679972b4716399ad0",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "complete_receipt_sha256": "e4f9cb0a855865e57d8043ed7038857af6117be4868a6d5eca111178a17c5e21",
+  "heldout_inputs_read": 0,
+  "integrated_thin_saved": {
+    "cold_candidate_hashes_unchanged": 6,
+    "exact_saved_config_and_resolved_streams": 24,
+    "integrated_receipt_sha256": "e3a6191852362ef5951e9204f79ba0b1d5fabcccf8fb02036fa3d3bcaf5a1c76",
+    "isolated_receipt_sha256": "9b9326d0cdd8809ec365c620787e182d8d831ada176342269cd6e1968d1b3bfb",
+    "only_differing_receipt_fields": {
+      "strict_default_document_sha256": 12,
+      "strict_semantic_document_sha256": 12
+    },
+    "qualified_saved_reads": 24,
+    "refused_native_graphs": 6
+  },
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "per_stream_results_equal": true,
+  "previous_exact_receipt_sha256": "f1dd00279740c95beb3741ece2dd2e475c925f8dcfba492910e647cae8bb990c",
+  "schema": "kit.sw2026.archive-corpus-pattern-thin-integration.v1",
+  "script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "schema": "kit.sw2026.derived-cold-revolve-names.v1",
+  "aggregate_base": "e82e4c64976400ac6d5611d523016d86fe065c6f",
+  "base_source_tree": "f74442311d45e71e86e0dfadf856f37daceb06d9",
+  "source_delta_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Geometry/BuildRevBodyGeom.py": "9ab3d983c45773fd7da448b76b7f27107d1cf5ed84c3dcb21331ad5bcfdc8c78",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/WithColdName.py": "524720b1c3e2b7f378ef66fd8c75a807c5514dd668500c4fe1689592be9bb35c"
+  },
+  "rule_owners_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/CheckColdBind.py": "84bab77f3437479d3590ecbe9a2cb87c67902dfad6122bb2399827bcca67a2e2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/PartGeometry.py": "ac9df0f185bfe2b7a9ea4446d627d08730b163862907583f9080ed3e0fbf2629",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismRoot.py": "0c5b6392eec1a84096fadbdbd31b16e56d52b078368e598319d834d4942c038c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismAtom.py": "a4d702774ce88ca4b9f736c0ccbdcc9b222946b51e1e4823428d0f33d0bccfee",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Geometry/ReadRevGeom.py": "59f8ba2e9ac65d0c9025213ddc39b87732493c1564974d488983b18203e37196",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/Revolves/ReadRevolveBody.py": "3acf07de11db7d744362a526ef2832eb7e7ed33431b9737d01754ba4ed33eaf6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/ReadBodyAtom.py": "37aa0ce0f59d41443b5420a1a7a0311a0cf0e4b7843eecf0e6ce07de22a16425"
+  },
+  "methods_sha256": {
+    "re/tooling/sw2026/revolve/PrincipalReader/CheckColdRevNames.py": "80ee7c6d51882c97fa5767c81c2b14f6b95cf54fd7c460834f90d35a172d0ab2",
+    "re/tooling/sw2026/revolve/PrincipalReader/AuditPrincipalReader.py": "2ebf98dca830553cab0d29885ac9c2176fa11ec2496cda4fca9fec2dbc9a36a8",
+    "re/tooling/sw2026/revolve/PrincipalReader/MakePrincipalCold.py": "b5df64e81104b1b1abe73d15ba3d0bdb0143ff34983cdc20cdd36c17d67bc851",
+    "re/tooling/sw2026/revolve/PrincipalWriter/BuildPrincipalRevolves.py": "d1ca3d67bf2b3babbdda0b024935bf3781e732b6332e90c0e5c1ee922a58ad7b",
+    "re/tooling/sw2026/revolve/Preparation/MakeRevolveRequest01.py": "e9c0b1b4f06b7e2ae01f1a096c7f0c21a3df7077f3a9a2e1662e4d140d0e11f5",
+    "tests/Convert/Solidworks/Research/AdapterBridge/Circles/MakeWriteCircle.py": "97a91b9f0cc1f33b2ec21f7f50d3043b8a049696d9a6bc2ebbbf8aa07a06c731"
+  },
+  "prior_evidence_sha256": {
+    "re/solidworks/records/NamedBodyOwnership2026.json": "f8694b4ed20d6910fdc5b9324384608c728de8a71540d147702de90355c3cd23",
+    "re/solidworks/records/NamedBodyColdReuse2026.json": "7333e678607188d33321e0a6ff06fb7a0624897a6ec71cfb3fcce334fe6009e2",
+    "re/solidworks/measurements/2026/NamedBodyColdReuseNative01.json": "137e4fe5f342ff057d7618e4501988058d3ab9d9f3bc1752d9c38bf9ed220670",
+    "re/solidworks/measurements/2026/ImplicitCylinderBodyNamesRead01.json": "dd38a63d89da82a403de352b34ec4ae8e776968f3f49977641008875fb539a20",
+    "re/solidworks/measurements/2026/PrincipalRevolveRead01.json": "27eaeb083448a48be0dfbce0abccf8fbb2c20effb3ebca4373ece99e891daac2",
+    "re/solidworks/measurements/2026/SdkPrincipalRevolvePreparation01.json": "09a553ca599b0fba65cf07c7c57e0d7994ecbbae96fd0ce22f5d53d21a03ac7e",
+    "re/solidworks/measurements/2026/SdkPrincipalRevolveNative01.json": "fef0d912ecf4409ea294af34c5b70bd9e16080ab2e8dccd79af992f6811e10d8",
+    "re/solidworks/v2026/PrincipalRevolveDiscoveryManifest01.json": "dfbcd01d5def3dd1dbe32ee504c223c6fcd0a823d52fb413cf4e2f6fbe1afb53"
+  },
+  "before_sha256": "797deb4558d1078ed01db40a7d21abe6a024e9c8f2b706df4b261f26ccc03201",
+  "after_sha256": "12343d69ad4dbd2ddab859f99ebb525fd807220e14ae149d858f5c88e72bdb9b",
+  "fresh_host_workers": 28,
+  "paired_results": {
+    "only_derived_name_provenance_and_seal_changed": 12,
+    "unchanged_reads_and_refusals": 28
+  },
+  "guard": {
+    "unexpected_runtime_access_attempts": 0,
+    "generation_layout_reads": 0,
+    "default_and_no_tessellation_layout_reads_on_cold_revolves": 0,
+    "allowlisted_reader_grammar": "src/convert/adapters/solidworks/Config/RootLayout.json",
+    "allowlisted_reader_grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29"
+  },
+  "cases": [
+    {
+      "case": "ColdRightLabel",
+      "archive_sha256": "aba4007ac96a6fa665e2ab5e77c49f5d6444c803947b2ce2eb958564e0afaeba",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 1,
+      "default_before": "Body 1",
+      "default_after": "Spindle Sleeve",
+      "archive_creator": {
+        "feature": "sldprt:feature:19",
+        "manager_atoms": 0,
+        "name": "Spindle Sleeve",
+        "output_atoms": 0,
+        "resolved_atoms": 0
+      },
+      "derived_creator_provenance": true
+    },
+    {
+      "case": "ColdSweepLabel",
+      "archive_sha256": "f9c05e3e470dca4383c33839358d4e6879d7a4c38bde91140c7692e69418a49f",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 1,
+      "default_before": "Body 1",
+      "default_after": "Pump Collar 7",
+      "archive_creator": {
+        "feature": "sldprt:feature:19",
+        "manager_atoms": 0,
+        "name": "Pump Collar 7",
+        "output_atoms": 0,
+        "resolved_atoms": 0
+      },
+      "derived_creator_provenance": true
+    },
+    {
+      "case": "ColdUnicodeLabel",
+      "archive_sha256": "25719a271bc5cbbf4ea9005410f1585c2e2235342675375c58558b8c21401415",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 1,
+      "default_before": "Body 1",
+      "default_after": "Body 1",
+      "archive_creator": {
+        "feature": "sldprt:feature:19",
+        "manager_atoms": 0,
+        "name": "Sleeve Ω",
+        "output_atoms": 0,
+        "resolved_atoms": 0
+      },
+      "derived_creator_provenance": false
+    },
+    {
+      "case": "ExistingColdCylinder",
+      "archive_sha256": "4276b27498996dcb080be4e793122353c2d2eba49187c66c44796e7113ad069a",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 0,
+      "default_before": "Boss-Extrude1",
+      "default_after": "Boss-Extrude1"
+    },
+    {
+      "case": "ExistingLocalImport",
+      "archive_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 3,
+      "default_before": "Imported geometry",
+      "default_after": "Imported geometry"
+    },
+    {
+      "case": "KitPrincipalRevolveFrontFull",
+      "archive_sha256": "0a4b996b35316aa12c43222113e6d033d3a9e5fc617109056315120a907287c5",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 1,
+      "default_before": "Body 1",
+      "default_after": "OrdinaryBossRevolve",
+      "archive_creator": {
+        "feature": "sldprt:feature:19",
+        "manager_atoms": 0,
+        "name": "OrdinaryBossRevolve",
+        "output_atoms": 0,
+        "resolved_atoms": 0
+      },
+      "derived_creator_provenance": true
+    },
+    {
+      "case": "KitPrincipalRevolveRightReverse",
+      "archive_sha256": "88d14ad016c4796c45872d8ac89724397510f2e319011ceb510dbab5add47185",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 1,
+      "default_before": "Body 1",
+      "default_after": "OrdinaryBossRevolve",
+      "archive_creator": {
+        "feature": "sldprt:feature:19",
+        "manager_atoms": 0,
+        "name": "OrdinaryBossRevolve",
+        "output_atoms": 0,
+        "resolved_atoms": 0
+      },
+      "derived_creator_provenance": true
+    },
+    {
+      "case": "KitPrincipalRevolveTopForward",
+      "archive_sha256": "7eb582248c1132496c1c481f9b5348ed286196132073d42173e48a900e18cc48",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 1,
+      "default_before": "Body 1",
+      "default_after": "OrdinaryBossRevolve",
+      "archive_creator": {
+        "feature": "sldprt:feature:19",
+        "manager_atoms": 0,
+        "name": "OrdinaryBossRevolve",
+        "output_atoms": 0,
+        "resolved_atoms": 0
+      },
+      "derived_creator_provenance": true
+    },
+    {
+      "case": "KitPrincipalRevolveTopReverse",
+      "archive_sha256": "12d178d8d39f8e21a428269a03d0e29fe2ae4c67c27eb1e302833b9d8402abd5",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 1,
+      "default_before": "Body 1",
+      "default_after": "OrdinaryBossRevolve",
+      "archive_creator": {
+        "feature": "sldprt:feature:19",
+        "manager_atoms": 0,
+        "name": "OrdinaryBossRevolve",
+        "output_atoms": 0,
+        "resolved_atoms": 0
+      },
+      "derived_creator_provenance": true
+    },
+    {
+      "case": "PrincipalRevolveFrontFull",
+      "archive_sha256": "04763616b53383aa354b130613a4ccd85e2b6fecc4b2a504c38893d6007e9705",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 3,
+      "default_before": "OrdinaryBossRevolve",
+      "default_after": "OrdinaryBossRevolve",
+      "preserved_native_payload_sha256": [
+        "a46bea419ea50af26894473dd71fc8ff7142280457691b8bf6f1271348ea3ef6",
+        "b22e3eab0bb2c0bdc1cc9db6084d26b122e9189b688a113198a9dd3f690245a9"
+      ]
+    },
+    {
+      "case": "PrincipalRevolveRightReverse",
+      "archive_sha256": "0c3ef35a0f8412895cf870359df037ae3450aad45abaa426767838894e18e681",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 3,
+      "default_before": "OrdinaryBossRevolve",
+      "default_after": "OrdinaryBossRevolve",
+      "preserved_native_payload_sha256": [
+        "35c5819847356761bcce150e8a0f6e8dfc4a676c2506403a727f484848836196",
+        "566a935144bc5b6ef8bcb7c36c03b9158f60288592c4d40afe66e66e8640f452"
+      ]
+    },
+    {
+      "case": "PrincipalRevolveTopForward",
+      "archive_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 3,
+      "default_before": "OrdinaryBossRevolve",
+      "default_after": "OrdinaryBossRevolve",
+      "preserved_native_payload_sha256": [
+        "0e356b7fdff70028362a627c200d1c14bd9af1c0128e0877eabac02e0165b82e",
+        "cf80d79d857a6d835dfcca41b67d296dbcc447c3863e359392b015aabf5ecd3f"
+      ]
+    },
+    {
+      "case": "PrincipalRevolveTopReverse",
+      "archive_sha256": "04f734b81c99be660bfb3bf9c4b98cd4bf50d456ea13cb3008584dd2892ba932",
+      "mode_count": 3,
+      "package_layout_reads_per_pass": 3,
+      "default_before": "OrdinaryBossRevolve",
+      "default_after": "OrdinaryBossRevolve",
+      "preserved_native_payload_sha256": [
+        "a59b6cf218cd7a8a41955fc2f62c286bdc96ffa31a1316ab0d7b4b10bd1d42af",
+        "566a935144bc5b6ef8bcb7c36c03b9158f60288592c4d40afe66e66e8640f452"
+      ]
+    },
+    {
+      "case": "RotatedTopSupport",
+      "archive_sha256": "a38cbe66acd7e293fefaf508bce145b4c0c1db43f1ba81eb12852921f48342c7",
+      "mode_count": 1,
+      "package_layout_reads_per_pass": 0,
+      "unchanged_refusal": "SOLIDWORKS principal plane reference frame disagrees"
+    }
+  ],
+  "current_heldout_inputs_or_outcomes_read": 0,
+  "new_native_processes": 0,
+  "new_native_or_writer_qualification": false
+}

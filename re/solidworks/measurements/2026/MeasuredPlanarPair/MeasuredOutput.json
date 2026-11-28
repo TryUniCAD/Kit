@@ -1,0 +1,183 @@
+{
+  "files": {
+    "PublicDatumPrism.SLDPRT": {
+      "bytes": 8714,
+      "sha256": "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1153,
+          "sha256": "1c769694f46e40dc95b6bc5d37ee75d90f5707f00a718f19695b213bd6bac58d"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 185,
+          "sha256": "c76a14e72b39f8af4d295a3422a6c561d89a0ce0beda779b2f4142e5a6c497f9"
+        },
+        "Contents/Config-0": {
+          "bytes": 22266,
+          "sha256": "4fa40a950bfec37929c1f627b325eaf00a89249173939392aed52b297be093c8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 791,
+          "sha256": "7fac897e42c9028e3d9dc9431d73cdd123923c13093649396e2b020d16b92648"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17289,
+          "sha256": "7fbf9264074be5796712fd9844b5fc4a67ac90bca9b1ac1b767ba6235050ea21"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 791,
+          "sha256": "68218dbff74211cbf54ebe9737e847e50d24e850c9b970b516bc3d6c660b9324"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "f8d7f0587369d541febf89720ab904f537dfc36ab0ab30bb4496f211b65165d7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1554,
+          "sha256": "1ad13ff74c9eb55dd7a54b4c40c9d5e5769fa20b1ac71651073d0987ce3a4692"
+        }
+      }
+    },
+    "PublicPlanarPair2.SLDASM": {
+      "bytes": 10392,
+      "sha256": "d31950eb971645908a82c26ecb881880525a3c8aa9478bc971b065bc5bdcf2f4",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2596,
+          "sha256": "f82933989a82b0130e7360e457627ca0f7982c33eaba567f23699c2fbf9be806"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 197,
+          "sha256": "981bc0179e68a156f24fe2e45d53b77092a1c40424748a7a8b2a73bb0704b3a0"
+        },
+        "Contents/Config-0": {
+          "bytes": 22767,
+          "sha256": "3942f4381ccf1ce2d7ddb23f546061c6ddadb4aad042f14f58d30c9dde3e1f78"
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 7737,
+          "sha256": "ec55a54d85579750b3aca49c8d9d6fb17fb11c3f03a7dddaa0d22c42d5e18c30"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1411,
+          "sha256": "592c0ebbc694c44fd3110c3d1ef547665cc851ed20cbe8e2a5ae12b65f2540bb"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 4839,
+          "sha256": "6a294afc8828fc9f82aad0cdfa6f6b1a49d8b48c7caed724129ed8d081ad222c"
+        },
+        "Contents/Definition": {
+          "bytes": 543,
+          "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+        },
+        "Header2": {
+          "bytes": 1411,
+          "sha256": "02fef364231aa23600ee1dd07f595bb1149a1e696fa851c83fbe9a4445fa7257"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "f8d7f0587369d541febf89720ab904f537dfc36ab0ab30bb4496f211b65165d7"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2391,
+          "sha256": "140fa009e4e0394766aeadd1c9d4ed1406cb22b340a64ea7ee4d066b9f4ae6d2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1174,
+          "sha256": "ceface96765dba5746de066ba56b1cd7a46e2d730e82be47378c2a6c61ba9fd8"
+        }
+      }
+    }
+  },
+  "measurement": {
+    "receipt": {
+      "controls_healthy": true,
+      "fixture_sha256": "33d6f617549610329ef93badc5ec163264de7a5a5440d9f4bb29c09a09ff5160",
+      "members": [
+        {
+          "bytes": 8714,
+          "name": "PublicDatumPrism.SLDPRT",
+          "sha256": "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b"
+        },
+        {
+          "bytes": 10392,
+          "name": "PublicPlanarPair2.SLDASM",
+          "sha256": "d31950eb971645908a82c26ecb881880525a3c8aa9478bc971b065bc5bdcf2f4"
+        }
+      ],
+      "namespace": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PlanarPublicRegistry01\\GeneratedInput",
+      "native_result_sha256": "e1bfbdd16ae433dddd7e454daed897cd3418b5af25e3f578c78bd6df37f6cf3c",
+      "oracle": {
+        "build": "34.5.2.0604",
+        "product": "SOLIDWORKS 2026 SP05.2",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "packet_sha256": "4363a20d3ff5c2d71eda6b3fea213bfe3f54294317848012eed93fd6f8191df1",
+      "passed": true,
+      "phases": [
+        {
+          "finished_at": 1795212418.4053586,
+          "mode": "before",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134396859705688198,
+          "process_id": 1888,
+          "record_sha256": "b4adb5485fb6decd2b1e39e4364416bd198edd6975ab6c21b818e1736e8a9b64",
+          "started_at": 1795212366.1489131
+        },
+        {
+          "finished_at": 1795212503.187804,
+          "mode": "generated",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134396860315627461,
+          "process_id": 984,
+          "record_sha256": "b1da9587005d5d172b6514d67ff25f721d1a48b314d6a81bad8bd9def6e621b2",
+          "started_at": 1795212427.1154845
+        },
+        {
+          "finished_at": 1795212577.3488343,
+          "mode": "reopen",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134396861327477771,
+          "process_id": 11036,
+          "record_sha256": "c40ad9940a5745bab7d1b1d71cde10f8a13f0e36d87cfd24ff31fcdd9d3369c6",
+          "started_at": 1795212528.3118725
+        },
+        {
+          "finished_at": 1795212668.0177722,
+          "mode": "after",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134396862217872639,
+          "process_id": 10300,
+          "record_sha256": "ce9ba79e99802c12d24e25f52a00894b45a15387a7598bd25d679037618deb12",
+          "started_at": 1795212617.1870537
+        }
+      ],
+      "root": "PublicPlanarPair2.SLDASM",
+      "schema": "kit.sw2026.planar-assembly-measurement.v1",
+      "written_at": 1794001000
+    },
+    "written_at": 1794001000
+  },
+  "native_recovery_sha256": "e1bfbdd16ae433dddd7e454daed897cd3418b5af25e3f578c78bd6df37f6cf3c",
+  "neutral_request_sha256": "bda3932b4896eb32315cd3ec26d4ebe2c4b5fb5fae1be47714db6fada7d30816"
+}

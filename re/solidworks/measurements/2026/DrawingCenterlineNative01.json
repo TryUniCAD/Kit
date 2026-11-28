@@ -1,0 +1,254 @@
+{
+  "cases": [
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "child_sha256": "c02bdea5f848f09127964da5bd2094d9d1055b87896cb4b9eb43c7fc085014e4",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "4cebdc9eb79d50e061e441e047957eace61372ba4c00ae512b7b8c50d2f9321f",
+      "phase": "constructed",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "child_sha256": "299b6e2ef64b7212fe4b22ccb9186e150244a74f727f8f9db3dfe13a0ce542fb",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "96c8bb39cfe898fdd6908bea4ac443858c9e952dfe1dfbd3a4467c0be84639c9",
+      "native_numeric_checks": 303,
+      "native_record_sha256": "fac2ac734bba0f20feb2aa893be17b859d9cf1c20a9f5e083c875481c0433897",
+      "phase": "open-save",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "child_sha256": "299b6e2ef64b7212fe4b22ccb9186e150244a74f727f8f9db3dfe13a0ce542fb",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "96c8bb39cfe898fdd6908bea4ac443858c9e952dfe1dfbd3a4467c0be84639c9",
+      "native_numeric_checks": 140,
+      "native_record_sha256": "47d60e23f7a3b0f61c698300fdbeed1a1cd9c5cbb451ae4fd620bccf79e29a5d",
+      "phase": "reopen",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "child_sha256": "62dac4097d080258080f55cf24c8151fd9fae15151bc1b068b7d6a94fd86bd11",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "4565708607f2b40e0c00d8bd8050b721f9b531f2a2757e43f79715483eb08f9b",
+      "native_numeric_checks": 342,
+      "native_record_sha256": "30f971b66d4138adf5fd57b9e322eca74693591e8f5a8517f58d78496fd7aa31",
+      "phase": "edit-move-save",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "child_sha256": "62dac4097d080258080f55cf24c8151fd9fae15151bc1b068b7d6a94fd86bd11",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "4565708607f2b40e0c00d8bd8050b721f9b531f2a2757e43f79715483eb08f9b",
+      "native_numeric_checks": 140,
+      "native_record_sha256": "826bb0994caf912b9d793c7471d6f4b89313a13586ab2ff9af0dd0b2ad19a6bf",
+      "phase": "reopen-edited",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "child_sha256": "8a29a576ad4bf9f6699cab9c86a4d71d482854eac7232c4534eb7cc7d8640f09",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "00941cca93735b06eb603a6ff62d1d8a2e1f93c0c6ea3621cd4f147e45aebdbe",
+      "phase": "constructed",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "child_sha256": "e58b9cac084adc6dc1b269e4382bf8cf7a839882dfe5cb4a1837019a758f708c",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "49d1ce775a74bb6e80f9a289a6941a1226b523d0cce5e679c70af69a849e2525",
+      "native_numeric_checks": 303,
+      "native_record_sha256": "935152853178f4c30d5dc05dcca5d8a122d3e69426f1254b2b340fe1013a7117",
+      "phase": "open-save",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "child_sha256": "e58b9cac084adc6dc1b269e4382bf8cf7a839882dfe5cb4a1837019a758f708c",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "49d1ce775a74bb6e80f9a289a6941a1226b523d0cce5e679c70af69a849e2525",
+      "native_numeric_checks": 140,
+      "native_record_sha256": "7f524ef159654b34748235f8740f36382a447c434894316a036201eaa0a1b3bb",
+      "phase": "reopen",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "child_sha256": "e61f16f1d2cae36d05c58347f165daadf1ac6d5f6a6baf7c6e3c4d6dee68a6ee",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "5254adca3df538d712a69867a25753aa615575671d0cd69505900e1be10329e6",
+      "native_numeric_checks": 342,
+      "native_record_sha256": "bed8339ff9eeca1d10fa85528c245f4442451b7842f4607111c4b51504aed30f",
+      "phase": "edit-move-save",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "child_sha256": "e61f16f1d2cae36d05c58347f165daadf1ac6d5f6a6baf7c6e3c4d6dee68a6ee",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "complete_style_state_preserved": true,
+      "drawing_sha256": "5254adca3df538d712a69867a25753aa615575671d0cd69505900e1be10329e6",
+      "native_numeric_checks": 140,
+      "native_record_sha256": "a9a537234d2309946b4cf143f7049f188cc4663b407f76e447c5152dabe92f63",
+      "phase": "reopen-edited",
+      "presentation_changes": [],
+      "stored_normal_coordinate_preserved": true
+    }
+  ],
+  "disclosed_presentation_persistence_passed": true,
+  "exact_presentation_joins": 10,
+  "full_original_source_admission": false,
+  "guarded_host_process_sha256": "1f454ea0e62f128e052af6e44e77d8d8e7a00db29a3c477cfa4d41b813676799",
+  "healthy_controls": 2,
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "locked_source_manifest_sha256": "e001a47895ab3a76f5d6bfc8fad38cbecb9aab2871fb601fcef19f9b0efb390d",
+  "native_processes": 10,
+  "numeric_checks": 1850,
+  "oracle": {
+    "application": "SOLIDWORKS 2026 SP05.2",
+    "build": "34.5.2.0604",
+    "controls": {
+      "ControlAfter": {
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "ControlBefore": {
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      }
+    },
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "packet_sha256": "ba0c52215d5eaa82f2eccc18490ac494cb2ded12dad6060f5bbb076f8a773b63",
+  "public_drawing_writer_qualified": false,
+  "raw_native_result_sha256": "08bfaf1f395b8835877785201e8d51238f95f4f52fd1181ab8e77779ee760ca3",
+  "requested_false_centreline_supported": false,
+  "root_transport_sha256": "5f922b63c887014dda9b3a8334222188e770ba7fd82a65f8d78b506b3acdd1ff",
+  "schema": "kit.sw2026.ansi-centreline-native-persistence.v1",
+  "transport_monitor_sha256": "965882d1cd398785b796a82903f676b9ce53afdbeb0f05455088f41419487553",
+  "typed_joins": 10,
+  "typed_result_sha256": "ecdcf457290cb328e99e256150461ddd51fbb939cde6e29bc8505ca777d2cf15"
+}

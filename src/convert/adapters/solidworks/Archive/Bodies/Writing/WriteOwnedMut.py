@@ -1,9 +1,9 @@
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
+from convert.adapters.solidworks.Archive.Bodies.RequirePartOwn import RequirePartOwn
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Archive.Bodies.RequirePartOwn import RequirePartOwn
 
 
 # direct native ownership must serialize the actual typed object without adding a map entry

@@ -1,0 +1,251 @@
+{
+  "active_license_inventory_unchanged": true,
+  "actual_oracle_version": "34.5.2.0604",
+  "candidate_numeric_checks": 72,
+  "cases": [
+    {
+      "effective_density_kg_per_m3": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "generated": {
+        "analysis_table_present": true,
+        "file_sha256": "6cd1a2c5fa7a3d88b0e8edbf5a5ecfb3b97955ea7deee7e67e0e56816d590615",
+        "native_mass_code": 1,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.00723,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      },
+      "native_record_sha256": [
+        "957ca5dbc48f9720a4f43cb9c402083a92fbd247b764b9cb7fe7aba48c1b7459",
+        "f81d83ab6311c17a6eb3d4c64380e5531efc533e25c7f5a1631bb03759211886"
+      ],
+      "numeric_native_checks": 18,
+      "role": "CustomMassA-g",
+      "saved_and_reopened": {
+        "analysis_table_present": true,
+        "file_sha256": "3eaf31c9e52720b573add20a817e33d317c42731d27f92616f068f1ff9f0dc95",
+        "native_mass_code": 1,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.009547,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      }
+    },
+    {
+      "effective_density_kg_per_m3": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "generated": {
+        "analysis_table_present": true,
+        "file_sha256": "1e0ee00ee204a65016f2af6188ab7ab2b2070bea8bb017b3620b3da4187d43ea",
+        "native_mass_code": 2,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.00723,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      },
+      "native_record_sha256": [
+        "953c4d150bc9f77a0f22a4eafe9b7442fc036c2f193bf2525e24b69347adba07",
+        "cf53f7ecae992bf19d271c6b766bcac1fce41d6b34b7ff11fa3f5c1c7f412236"
+      ],
+      "numeric_native_checks": 18,
+      "role": "CustomMassA-kg",
+      "saved_and_reopened": {
+        "analysis_table_present": true,
+        "file_sha256": "f0a1c102c483906abfb846a35b3e1a1f5cb544c2210260425b1aaaa82ab0ea50",
+        "native_mass_code": 2,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.009547,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      }
+    },
+    {
+      "effective_density_kg_per_m3": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "generated": {
+        "analysis_table_present": true,
+        "file_sha256": "00c0e0eddefd3b25b05fd940f15b9d1ca6b014d46800bbb6b8597c72035aba17",
+        "native_mass_code": 1,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.009654,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      },
+      "native_record_sha256": [
+        "2b3246103998d5c8825d8bd9164984686d9e1cec471d35b9db4554823f9dde13",
+        "f76e25d781fe497e85dc21cc2d4b8ec781197bb6f4e8a8d452844bb35ba3d6ef"
+      ],
+      "numeric_native_checks": 18,
+      "role": "CustomMassB-g",
+      "saved_and_reopened": {
+        "analysis_table_present": true,
+        "file_sha256": "bd4a4642881a07bc8fb51ace67ad2bef81241c61921e186fb1b41b6000b4731c",
+        "native_mass_code": 1,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.012745,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      }
+    },
+    {
+      "effective_density_kg_per_m3": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "generated": {
+        "analysis_table_present": true,
+        "file_sha256": "6573b4dbd5ce329325b2b7fbbac4cb163fc4c11540e9d7fb10bfb51b192aab6d",
+        "native_mass_code": 2,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.009654,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      },
+      "native_record_sha256": [
+        "e819f6167416d8ffdaf07c6e376eaa1197292283aa3354a35530d4b006d1fafc",
+        "89abbf246cda5014553b388c3d56c864fbaca2072721fe5adaa7f1f5bd9e5f8b"
+      ],
+      "numeric_native_checks": 18,
+      "role": "CustomMassB-kg",
+      "saved_and_reopened": {
+        "analysis_table_present": true,
+        "file_sha256": "6d00b1b72f3e13efb36a72ed90849746016a3b7662168e640958dc9370190720",
+        "native_mass_code": 2,
+        "native_system_code": 3,
+        "nested_density_length_verified": true,
+        "normal_read_driving_depth_m": 0.012745,
+        "normal_read_topology": [
+          8,
+          12,
+          6,
+          1,
+          1
+        ],
+        "typed_stream_reemission": {
+          "CMgr": true,
+          "Config-0": true,
+          "Definition": true,
+          "ResolvedFeatures": true
+        }
+      }
+    }
+  ],
+  "complete_corpus_acceptance": false,
+  "exact_typed_stream_reemissions": 32,
+  "guarded_generation_result_sha256": "95cb153f8de704a0c2ef5f09f9d2a5e134c83d48950e8482d13c9c08d1db767e",
+  "healthy_controls": 2,
+  "heldout_inputs_read": 0,
+  "native_candidate_phases": 8,
+  "native_observer_sha256": "f4bbdef412e1ffdec414ffc5c2849a17c8acd40993741f4e07da82c5bdb4a235",
+  "native_processes": 10,
+  "normal_read_snapshots": 8,
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "raw_evidence_sha256": {
+    "host_transport": "2b50dea55e6f6f7028296f1ea5caceba920233f6fbfa2e4a0fc755b771d586bc",
+    "native_packet": "186690ccbee8fabe752bd4175eca6832f742667fd72850972b38f0b7634951a4",
+    "native_result": "d74fb47aba25bb038f3afbfe5f11b30fedc74c32f97ac2da51e94161cbf48e2c",
+    "typed_result": "7e03ad9e8a824877aa42f89c58a8b2e889572f67f372fabc96888e571668903a"
+  },
+  "schema": "kit.sw2026.generated-custom-mass-native-receipt.v1",
+  "scoped_lifecycle_passed": true,
+  "task": "B04-SW2026-UNITS",
+  "typed_qualifier": {
+    "path": "re/tooling/sw2026/units/QualifyGeneratedCustomMassUnits.py",
+    "sha256": "22e49ae4782847ad11b9ff48c571f2bfaf056f62e0fe38b45cf2fe8f09c61dc1"
+  }
+}

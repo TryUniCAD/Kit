@@ -1,0 +1,163 @@
+{
+  "assemblies": 8,
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "392993e1c5f530d854c132482b268d1554d8c5c7"
+  },
+  "codec_revision": "3997ec09515f6247504a14045914ba5faa04f39b",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "complete_receipt_sha256": "20b9db0d9227aa9448a1d6fe2784c2a1912d7a2576e3053af261f00832df7a0c",
+  "counts_by_stream": {
+    "Contents/CMgr": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CMgrHdr2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-MatesList": {
+      "attempts": 8,
+      "exact_without_raw": 8,
+      "exact_without_tail": 8,
+      "proven_typed_exact": 8,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ModelHeader": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ResolvedFeatures": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CusProps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Definition": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/eModelLic": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Header2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ModelStamps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "SwDocContentMgr/SwDocContentMgrInfo": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ThirdPtyStore/VisualStates": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_DL_VERSION_19000/DLUpdateStamp": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/Biography": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/History": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    }
+  },
+  "heldout_inputs_read": 0,
+  "missing_schema_incidence": {},
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "provisional_schema_incidence": {},
+  "python": "3.14.7",
+  "schema": "kit.sw2026.linked-archive-audit-summary.v1",
+  "script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "sorted_case_rows_sha256": "79f438850e156465271cf4e0c4efdf10f7c527dbb5d46ece0854d8710bf2789b",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  }
+}

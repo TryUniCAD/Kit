@@ -1,0 +1,587 @@
+{
+  "format_profile": {
+    "ordinary_non_database_archive": true,
+    "version": 19000
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 103,
+      "end_exclusive": "0x4c6ea5c7",
+      "module": "sldmodu.dll",
+      "name": "moDimText_c default runtime factory",
+      "sha256": "db2bcb45fb9b31073f77343202f0f31ef314c6c6fa7ab17722762ce49ff0e73b",
+      "start": "0x4c6ea560",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 103,
+          "end_exclusive": "0x4c6ea5c7",
+          "sha256": "db2bcb45fb9b31073f77343202f0f31ef314c6c6fa7ab17722762ce49ff0e73b",
+          "start": "0x4c6ea560",
+          "unwind_rva": "0x252e324"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 474,
+      "end_exclusive": "0x4c85240a",
+      "module": "sldmodu.dll",
+      "name": "moDimText_c explicit point constructor",
+      "sha256": "da99c6b2237bbe11e5a3b47c9c0a4f4e2b22bfa01b45398a478da473af0beea6",
+      "start": "0x4c852230",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 474,
+          "end_exclusive": "0x4c85240a",
+          "sha256": "da99c6b2237bbe11e5a3b47c9c0a4f4e2b22bfa01b45398a478da473af0beea6",
+          "start": "0x4c852230",
+          "unwind_rva": "0x25629e4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 6609,
+      "end_exclusive": "0x4c6ec2d1",
+      "module": "sldmodu.dll",
+      "name": "moDimText_c actual Serialize",
+      "sha256": "f2617a20dc8429cad810f87fc1811e9d3836270bca118bc36b317b956ba5c4e5",
+      "start": "0x4c6ea900",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 6609,
+          "end_exclusive": "0x4c6ec2d1",
+          "sha256": "f2617a20dc8429cad810f87fc1811e9d3836270bca118bc36b317b956ba5c4e5",
+          "start": "0x4c6ea900",
+          "unwind_rva": "0x252e344"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 19722,
+      "end_exclusive": "0x4c8310da",
+      "module": "sldmodu.dll",
+      "name": "moDisplayDim_c actual common Serialize",
+      "sha256": "1590b966dad82241f29d36dd8d02182b006a423eedc91f7dd9014d1ef9986fd2",
+      "start": "0x4c82c3d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 19722,
+          "end_exclusive": "0x4c8310da",
+          "sha256": "1590b966dad82241f29d36dd8d02182b006a423eedc91f7dd9014d1ef9986fd2",
+          "start": "0x4c82c3d0",
+          "unwind_rva": "0x255d8ec"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1299,
+      "end_exclusive": "0x4c8315f3",
+      "module": "sldmodu.dll",
+      "name": "moDisplayDistanceDim_c actual Serialize",
+      "sha256": "dbcf8c2232d9a4b8a8c7a711f648e3f80b002bb49e5f2c36e93d451aff16b6ad",
+      "start": "0x4c8310e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1299,
+          "end_exclusive": "0x4c8315f3",
+          "sha256": "dbcf8c2232d9a4b8a8c7a711f648e3f80b002bb49e5f2c36e93d451aff16b6ad",
+          "start": "0x4c8310e0",
+          "unwind_rva": "0x255de80"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 583,
+      "end_exclusive": "0x4c8a4837",
+      "module": "sldmodu.dll",
+      "name": "moDisplayDistanceDim_c constructor",
+      "sha256": "ac4b0274346dd89b8c9f10fa357807d17bcf34c6b2c5d90f9fd999e156a82ab7",
+      "start": "0x4c8a45f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 583,
+          "end_exclusive": "0x4c8a4837",
+          "sha256": "ac4b0274346dd89b8c9f10fa357807d17bcf34c6b2c5d90f9fd999e156a82ab7",
+          "start": "0x4c8a45f0",
+          "unwind_rva": "0x256b938"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 238,
+      "end_exclusive": "0x4c8727ae",
+      "module": "sldmodu.dll",
+      "name": "moDisplayDim_c::SetTextPos",
+      "sha256": "783937bbec566fbe2cb66c4650c56828996f4b311c95f811e2c94256ccbc957c",
+      "start": "0x4c8726c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 238,
+          "end_exclusive": "0x4c8727ae",
+          "sha256": "783937bbec566fbe2cb66c4650c56828996f4b311c95f811e2c94256ccbc957c",
+          "start": "0x4c8726c0",
+          "unwind_rva": "0x25671e4"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 5,
+      "end_exclusive": "0x4b288c55",
+      "module": "sldmodu.dll",
+      "name": "moDimText_c::getPosition folded accessor",
+      "sha256": "15339e5f42f2ebe914e6de52f3913b787c35a77e36a6082f8a587b0a27328abf",
+      "start": "0x4b288c50",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 11,
+      "end_exclusive": "0x4c85897b",
+      "module": "sldmodu.dll",
+      "name": "moDimText_c::setPosition",
+      "sha256": "b0eb2a5c9a0ddb42efeb40cd0429321e028e2db49a6abbcbfabe1343774eace8",
+      "start": "0x4c858970",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 12,
+      "end_exclusive": "0x4c899c6c",
+      "module": "sldmodu.dll",
+      "name": "moDisplayDim_c::textPos",
+      "sha256": "21e36a8dcf3ed7adf2a59541bd5868002c5125cedb3c0241f23802621e522d17",
+      "start": "0x4c899c60",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x4b27cbe3",
+      "module": "sldmodu.dll",
+      "name": "distance virtual ordinal predicates return false",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x4b27cbe0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 20,
+      "end_exclusive": "0x31dd4e74",
+      "module": "sldmgu.dll",
+      "name": "mgPoint_c copy construction and assignment folded body",
+      "sha256": "efb99bf619d8962095374d7091f901b25794f5d6fb8c6fc299c656ece99547f9",
+      "start": "0x31dd4e60",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x31dd4c23",
+      "module": "sldmgu.dll",
+      "name": "mgPoint_c destructor folded body",
+      "sha256": "b6cbececf1b07e74f37d57710c68c31f0b92cb08d51093252b321b07542e177b",
+      "start": "0x31dd4c20",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 101,
+      "end_exclusive": "0x31e02f55",
+      "module": "sldmgu.dll",
+      "name": "mgPoint_c::restore three dimensional",
+      "sha256": "014288eed411fbc735eba8936bb0948305ee464ccde207565949f0e0b24b0147",
+      "start": "0x31e02ef0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 101,
+          "end_exclusive": "0x31e02f55",
+          "sha256": "014288eed411fbc735eba8936bb0948305ee464ccde207565949f0e0b24b0147",
+          "start": "0x31e02ef0",
+          "unwind_rva": "0x194180"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 370,
+      "end_exclusive": "0x31e03ba2",
+      "module": "sldmgu.dll",
+      "name": "mgPoint_c::save three dimensional",
+      "sha256": "46aadd60ca943ca47ff412cdc3845e3f69940b6cea4d189eeb9698084890ab71",
+      "start": "0x31e03a30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 370,
+          "end_exclusive": "0x31e03ba2",
+          "sha256": "46aadd60ca943ca47ff412cdc3845e3f69940b6cea4d189eeb9698084890ab71",
+          "start": "0x31e03a30",
+          "unwind_rva": "0x19554c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 707,
+      "end_exclusive": "0x4c9c6c33",
+      "module": "sldmodu.dll",
+      "name": "moDrSheet constructor",
+      "sha256": "e0d4eb7183e8d47ae11565cb87207c33d14f42aa6499caca88e09eddd239a024",
+      "start": "0x4c9c6970",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 707,
+          "end_exclusive": "0x4c9c6c33",
+          "sha256": "e0d4eb7183e8d47ae11565cb87207c33d14f42aa6499caca88e09eddd239a024",
+          "start": "0x4c9c6970",
+          "unwind_rva": "0x2591b4c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 6992,
+      "end_exclusive": "0x4c958c70",
+      "module": "sldmodu.dll",
+      "name": "moDrSheet actual Serialize",
+      "sha256": "e7721710576d43653b4839815644edef489fc33f974b6571ec1170af7bde0b60",
+      "start": "0x4c957120",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 6992,
+          "end_exclusive": "0x4c958c70",
+          "sha256": "e7721710576d43653b4839815644edef489fc33f974b6571ec1170af7bde0b60",
+          "start": "0x4c957120",
+          "unwind_rva": "0x258428c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 441,
+      "end_exclusive": "0x4c9cf0a9",
+      "module": "sldmodu.dll",
+      "name": "moDrSheet::getPropertyViewName",
+      "sha256": "e9cd833d016eaa63f18f4035002dac842425a0dfeefe1e53a063e2f9cf58fc0a",
+      "start": "0x4c9ceef0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 441,
+          "end_exclusive": "0x4c9cf0a9",
+          "sha256": "e9cd833d016eaa63f18f4035002dac842425a0dfeefe1e53a063e2f9cf58fc0a",
+          "start": "0x4c9ceef0",
+          "unwind_rva": "0x2591cd4"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 14,
+      "end_exclusive": "0x4b34bb0e",
+      "module": "sldmodu.dll",
+      "name": "moDrSheet::setPropertyViewName",
+      "sha256": "b4d5ea7c3d3153f492a683c270581424afe70a1e68f9ea042fc5f3f515d9da6c",
+      "start": "0x4b34bb00",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd3a588",
+      "module": "sldmgu.dll",
+      "name": "??0mgPoint_c@@QEAA@AEBV0@@Z"
+    },
+    {
+      "iat": "0x4cd3a590",
+      "module": "sldmgu.dll",
+      "name": "??4mgPoint_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    {
+      "iat": "0x4cd3a598",
+      "module": "sldmgu.dll",
+      "name": "??1mgPoint_c@@QEAA@XZ"
+    },
+    {
+      "iat": "0x4cd3a968",
+      "module": "sldmgu.dll",
+      "name": "?save@mgPoint_c@@QEBAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "iat": "0x4cd3a970",
+      "module": "sldmgu.dll",
+      "name": "?restore@mgPoint_c@@QEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "iat": "0x4cd3d870",
+      "module": "swccu.dll",
+      "name": "?IsStoring@su_CArchive@@QEBAHXZ"
+    },
+    {
+      "iat": "0x4cd3d990",
+      "module": "swccu.dll",
+      "name": "?Serialize@su_CObject@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "iat": "0x4cd3da28",
+      "module": "swccu.dll",
+      "name": "??6@YAAEAVsu_CArchive@@AEAV0@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    {
+      "iat": "0x4cd3da30",
+      "module": "swccu.dll",
+      "name": "??5@YAAEAVsu_CArchive@@AEAV0@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    {
+      "iat": "0x4cd34ea8",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1501"
+    }
+  ],
+  "instruction_decoder": "Apple LLVM 21.0.0, exact unchanged original PE images",
+  "instruction_windows": [
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 10,
+      "end_exclusive": "0x4c85226a",
+      "module": "sldmodu.dll",
+      "name": "moDimText constructor concrete table assignment",
+      "sha256": "9ea34846738ac92ba5b8da07f604e66e85dda8acd869ba286d0ebed7c4a42317",
+      "start": "0x4c852260"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 16,
+      "end_exclusive": "0x4c82c499",
+      "module": "sldmodu.dll",
+      "name": "common display Serialize embedded text dispatch",
+      "sha256": "e94a9cda778331e76ced647a45bea54538495d9ec12df1b84f1311f8a42cc7ef",
+      "start": "0x4c82c489"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 13,
+      "end_exclusive": "0x4c6eab41",
+      "module": "sldmodu.dll",
+      "name": "dim text ordinary position store",
+      "sha256": "bb62e8625f7b6e84f6a691e4165ff1c61a4f74d81a21842720a66357c6811261",
+      "start": "0x4c6eab34"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 29,
+      "end_exclusive": "0x4c6ebb34",
+      "module": "sldmodu.dll",
+      "name": "dim text position load before all legacy type branches",
+      "sha256": "730ee080e84723c890fb215340e4dd7ab3bde3c4657c2aee3490f9707676c4fc",
+      "start": "0x4c6ebb17"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 11,
+      "end_exclusive": "0x4c83110f",
+      "module": "sldmodu.dll",
+      "name": "display distance Serialize base call",
+      "sha256": "e0ef4c6365f19d73ab9b6084d90ba616bff80b67f809ddcb245af10eab10bc39",
+      "start": "0x4c831104"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 168,
+      "end_exclusive": "0x4c872786",
+      "module": "sldmodu.dll",
+      "name": "SetTextPos complete position assignment and ordinal selection",
+      "sha256": "6af83dbe56edb84c1a97c9d802cf3360c57a4be5af8e1b1c9b1b4c18c121d48d",
+      "start": "0x4c8726de"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 16,
+      "end_exclusive": "0x4c9574c1",
+      "module": "sldmodu.dll",
+      "name": "sheet property-view caption store",
+      "sha256": "d689552fff9400a5fe26916e62d10831cfaaeddd468c88aedb1b123389e43fef",
+      "start": "0x4c9574b1"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 39,
+      "end_exclusive": "0x4c957e7e",
+      "module": "sldmodu.dll",
+      "name": "sheet property-view caption load and version gate",
+      "sha256": "1c22ff1230b0800be8bab6844ab06f568a1dbb13282ba97714cf0b61164d0742",
+      "start": "0x4c957e57"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 103,
+      "end_exclusive": "0x4c958281",
+      "module": "sldmodu.dll",
+      "name": "sheet property-check scalar store and versioned read",
+      "sha256": "a74a38c1bfc292864fefc3b98b3272360d9d16dbfa6099bec5d4f387196d5934",
+      "start": "0x4c95821a"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 17,
+      "end_exclusive": "0x4c9c6aaf",
+      "module": "sldmodu.dll",
+      "name": "sheet fresh runtime override and persisted property-check seeds",
+      "sha256": "27cdcae1a7a1c5cf11d04bd9ab9c6905b396a2a34d552378d1515776c6331675",
+      "start": "0x4c9c6a9e"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 21,
+      "end_exclusive": "0x4c9cefec",
+      "module": "sldmodu.dll",
+      "name": "effective property view selected-sheet identity test",
+      "sha256": "7daccd7d337beb1e48c80b5c2ca60826dc54fa57beab27aab1fc6245c7d5b1ca",
+      "start": "0x4c9cefd7"
+    },
+    {
+      "bound": "independently decoded whole-instruction window",
+      "bytes": 103,
+      "end_exclusive": "0x4c9cf089",
+      "module": "sldmodu.dll",
+      "name": "effective property view resource-selection guards and raw result",
+      "sha256": "470081b64bba5e1237a918e74a35a67a0c5f86635d67a3137c256ce0fde10075",
+      "start": "0x4c9cf022"
+    }
+  ],
+  "method_sha256": "c271b58830490b78cbb2284059bdc59ec537d8287bcaa7191da4b352bdefab91",
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 2363992,
+      "exception_directory_bytes": 79032,
+      "exception_directory_rva": "0x22b000",
+      "machine": "0x8664",
+      "name": "sldmgu.dll",
+      "preferred_base": "0x31dd0000",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+    }
+  ],
+  "native_acceptance": false,
+  "proprietary_listings_in_delivery": false,
+  "rea": {
+    "cleanup_pending": true,
+    "foreign_run_id": "a2f20739-b5bb-4081-8bb1-6dbda3f61bc1",
+    "foreign_state_mutated": false,
+    "open": false,
+    "task_owned_sessions_opened": 0
+  },
+  "rejected_navigation_hint": {
+    "hint_not_used_as_schema_proof": true,
+    "moDimText_c_serialize_hint": "0x4c7294a0",
+    "path": "re/data/Serialization/SerializeMap.json",
+    "reason": "the address lies inside current getSignificantViewerData instructions and is not the concrete moDimText_c table target"
+  },
+  "schema": "kit.sw2026.drawing-text-presentation-native.v1",
+  "static_helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad",
+  "vtables": [
+    {
+      "class": "moDimText_c",
+      "complete_object_locator": "0x4d372de0",
+      "slots": [
+        {
+          "cell_sha256": "4306ab0a1fb1c7baf7fbf20818e1fdc543c141aab63b1000d98e8e4b6a765d7b",
+          "offset": "0x0",
+          "target": "0x4c6ea860"
+        },
+        {
+          "cell_sha256": "8afda5f2c54226931049935302eb7dc9d177991b80672b2b68c48ac07c81984a",
+          "offset": "0x28",
+          "target": "0x4c6ea900"
+        }
+      ],
+      "type_descriptor": "0x4db10238",
+      "type_name": ".?AVmoDimText_c@@",
+      "vtable": "0x4d246938"
+    },
+    {
+      "class": "moDisplayDistanceDim_c",
+      "complete_object_locator": "0x4d3738c0",
+      "slots": [
+        {
+          "cell_sha256": "c8a8c2e3151450c8f9fcbe7d8d7ea72f23197cd792c64aaf8aad5bdc75aec6bf",
+          "offset": "0x0",
+          "target": "0x4c825530"
+        },
+        {
+          "cell_sha256": "4165bc1cf95b24cb53a21b644e7b29a090163335ee1e0c136ba37d931514b323",
+          "offset": "0x28",
+          "target": "0x4c8310e0"
+        },
+        {
+          "cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+          "offset": "0x8a8",
+          "target": "0x4b27cbe0"
+        },
+        {
+          "cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+          "offset": "0x900",
+          "target": "0x4b27cbe0"
+        },
+        {
+          "cell_sha256": "38627774469741281185fab57db0040df8018439352129a343a9ebb7dd851a7e",
+          "offset": "0xae0",
+          "target": "0x4bc4cde0"
+        }
+      ],
+      "type_descriptor": "0x4db10d00",
+      "type_name": ".?AVmoDisplayDistanceDim_c@@",
+      "vtable": "0x4d253270"
+    },
+    {
+      "class": "moDrSheet",
+      "complete_object_locator": "0x4d377698",
+      "slots": [
+        {
+          "cell_sha256": "9182b375736332e1c770bb3a877cdae14f6b972525949755628fa87dbd25b744",
+          "offset": "0x0",
+          "target": "0x4c944960"
+        },
+        {
+          "cell_sha256": "7c9c8845c95b0903589fa4a5267e8eb0bd7b1db9eb296245415d4d92a68a7cbc",
+          "offset": "0x28",
+          "target": "0x4c957120"
+        }
+      ],
+      "type_descriptor": "0x4db10880",
+      "type_name": ".?AVmoDrSheet@@",
+      "vtable": "0x4d2774b8"
+    }
+  ],
+  "worker_execution": {
+    "native_target": false,
+    "product": false,
+    "schema_or_codec": false,
+    "tests": false
+  }
+}

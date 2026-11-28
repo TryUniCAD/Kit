@@ -1,0 +1,95 @@
+{
+  "schema": "kit.sw2026.rectangle-anchor-pre-writer-lock.v1",
+  "source_commit": "1b8ae36b3f6e0fd6426c6d18b112b2f107ca754a",
+  "disclosed_receipt_sha256": "0f7836d44b0e0b32d470b28924306ba782bdedd9abbc092ae4cd8570844b25f0",
+  "plan_sha256": "3949f30655573ae44b2c99514f3d673b0a3e7b21077fa51b789f7eef03e6d315",
+  "tool_sha256": {
+    "SealRectangleAnchorSources.py": "a99b2d4b723875b0a6576fc814e67159ae480147968a961285bd977f3465d0c5",
+    "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_file_version": "34.5.2.0604",
+  "terminal_guest_sha256": "3fb0b5c76a273ab7b3e935fb7e14929b0c32fe115d93a035b6376062d72bca28",
+  "host_supervisor_sha256": "daf9fddeb8d18c40e9da6726d50cb9d9c43ca1e25ccf5365c5152435f17d9a52",
+  "supervisor_sample_matches_terminal": true,
+  "sealed_specifications_sha256": "8ffc2142fe91cd8e1861d9cd343f378097aa3026f1ade76bc97958a69e4daf45",
+  "cases": {
+    "H01": {
+      "family": "corner",
+      "native_artifact_manifest_sha256": "6e5f9db7cd6256894f9f66996ffdfabf141e727481117f454adba33b450f9387",
+      "source_record_sha256": "c2f3c6b9d5d67d9c2245894d6b9a3e3b880a8213d20a1ec1139a5c3e0c5bf67c",
+      "reopen_record_sha256": "3528a17ca50c7c8abe86cb426bdda9eb6f898153984abd97888dd9edc59e96d8"
+    },
+    "H02": {
+      "family": "center",
+      "native_artifact_manifest_sha256": "f52f136349d3a5248fce3817c4696620651b2c3598462c9ed6a2b1abeaa53ca8",
+      "source_record_sha256": "dcb143c58cc7d6d1deda9dd114d8c7d960e94dd1e84c4368c086d972824fbeb4",
+      "reopen_record_sha256": "294905a4c48b4a0e91f98ddb15e2a54b6ca0331e106269fe0f55d1ba578ea31b"
+    }
+  },
+  "phases": [
+    {
+      "phase": "ControlBefore",
+      "passed": true,
+      "record_sha256": "0f04b32764b767e5ecc0728a6a79960cef350fa0da149238165f50d44e1ae801",
+      "identity": {
+        "process_id": 9652,
+        "creation_filetime": 134394211750805111
+      }
+    },
+    {
+      "phase": "H01Author",
+      "passed": true,
+      "record_sha256": "c2f3c6b9d5d67d9c2245894d6b9a3e3b880a8213d20a1ec1139a5c3e0c5bf67c",
+      "identity": {
+        "process_id": 9828,
+        "creation_filetime": 134394212046494577
+      }
+    },
+    {
+      "phase": "H01Reopen",
+      "passed": true,
+      "record_sha256": "3528a17ca50c7c8abe86cb426bdda9eb6f898153984abd97888dd9edc59e96d8",
+      "identity": {
+        "process_id": 5524,
+        "creation_filetime": 134394212677604253
+      }
+    },
+    {
+      "phase": "H02Author",
+      "passed": true,
+      "record_sha256": "dcb143c58cc7d6d1deda9dd114d8c7d960e94dd1e84c4368c086d972824fbeb4",
+      "identity": {
+        "process_id": 9168,
+        "creation_filetime": 134394213129112444
+      }
+    },
+    {
+      "phase": "H02Reopen",
+      "passed": true,
+      "record_sha256": "294905a4c48b4a0e91f98ddb15e2a54b6ca0331e106269fe0f55d1ba578ea31b",
+      "identity": {
+        "process_id": 3264,
+        "creation_filetime": 134394213831856982
+      }
+    },
+    {
+      "phase": "ControlAfter",
+      "passed": true,
+      "record_sha256": "6388d740bfccaf1055c825281dcf1eb38f380358e128db0dfdee75f8c7dd16cc",
+      "identity": {
+        "process_id": 7072,
+        "creation_filetime": 134394214379677829
+      }
+    }
+  ],
+  "controls_healthy": true,
+  "distinct_processes": 6,
+  "host_heldout_payloads_read": 0,
+  "writer_output_count": 0,
+  "native_acceptance": false
+}

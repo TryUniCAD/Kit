@@ -201,7 +201,7 @@ def authored_container(build):
 
 def worker(source, authored):
     sys.path.insert(0, str(source))
-    from convert.adapters.solidworks.Archive.History.ReadHistGraph import ReadHistGraph
+    from convert.adapters.solidworks.Archive.History.ReadHistMut import ReadHistMut
     from convert.adapters.solidworks.Archive.History.WriteHistGraph import WriteHistGraph
     from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
     from convert.adapters.solidworks.Container.Archive import ContainerMo
@@ -224,7 +224,7 @@ def worker(source, authored):
     result = {}
     for role in ROOTS:
         stream = archive.require(PREFIX + role)
-        original = ReadHistGraph(stream, VERSION)
+        original = ReadHistMut(stream, VERSION)
         prior, original_owners = map_shape(original, len(stream), role, ArchiveNode)
         emitted, fresh = WriteHistGraph(original.RootValue, VERSION)
         after, new_owners = map_shape(fresh, len(emitted), role, ArchiveNode)

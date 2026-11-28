@@ -1,0 +1,287 @@
+{
+  "adjacent_source_packet": {
+    "host_checks_passed": 6,
+    "host_checks_sha256": "0924ed88648abd56f89a577df14d3dc84309fe5a1243b6ec3dc59a1d9fa1d349",
+    "manifest_sha256": "c9004c8c4473ebe442d5bc9ab35edbb246a1a271abc9a31f2859196c03aa9f75",
+    "native_processes_executed": 0,
+    "protocol_sha256": "3be9a340e01c8dca0fd2acd1defc02afeb3028f46da30f28c76d57db8a2f369e",
+    "recipe_sha256": "6787103576ca1e62b2c62dac2689a717c80e3a99be8a4a4e49ed9dbe700bc889",
+    "sealed_input_access_during_preparation": 0
+  },
+  "controls_healthy": true,
+  "diagnostic_completed": true,
+  "distinct_native_processes": 3,
+  "matrix_result_sha256": "c32bc585d8d1e7d329657ec25bd6b24f97fc831b7eba667cdcad328f69ce1cab",
+  "members": [
+    {
+      "evaluated_count": 0,
+      "id": "Baseline",
+      "immediate_count": 0,
+      "input": {
+        "binding": "registered_invoketypes",
+        "factor": "exact previous call",
+        "id": "Baseline",
+        "index": 0,
+        "solve": false,
+        "text": "\"source_width\" = 31.7 mm"
+      },
+      "publication_observed": false,
+      "raw_rows": [],
+      "return": -1,
+      "status_after_add2": -1
+    },
+    {
+      "evaluated_count": 1,
+      "id": "AdjacentUnit",
+      "immediate_count": 1,
+      "input": {
+        "binding": "registered_invoketypes",
+        "factor": "unit adjacency only",
+        "id": "AdjacentUnit",
+        "index": 0,
+        "solve": false,
+        "text": "\"source_width\" = 31.7mm"
+      },
+      "publication_observed": true,
+      "raw_rows": [
+        {
+          "disabled": false,
+          "global_variable": true,
+          "index": 0,
+          "raw_value": 31.7,
+          "raw_value_unit_domain": "unqualified native value; source geometry and dimensions are measured independently in SI",
+          "status_after_text": 0,
+          "status_after_value": 0,
+          "text": "\"source_width\" = 31.7mm"
+        }
+      ],
+      "return": 0,
+      "status_after_add2": 0
+    },
+    {
+      "evaluated_count": 0,
+      "id": "ImmediateSolve",
+      "immediate_count": 0,
+      "input": {
+        "binding": "registered_invoketypes",
+        "factor": "Solve only",
+        "id": "ImmediateSolve",
+        "index": 0,
+        "solve": true,
+        "text": "\"source_width\" = 31.7 mm"
+      },
+      "publication_observed": false,
+      "raw_rows": [],
+      "return": -1,
+      "status_after_add2": -1
+    },
+    {
+      "evaluated_count": 0,
+      "id": "Append",
+      "immediate_count": 0,
+      "input": {
+        "binding": "registered_invoketypes",
+        "factor": "append index only",
+        "id": "Append",
+        "index": -1,
+        "solve": false,
+        "text": "\"source_width\" = 31.7 mm"
+      },
+      "publication_observed": false,
+      "raw_rows": [],
+      "return": -1,
+      "status_after_add2": -1
+    },
+    {
+      "evaluated_count": 1,
+      "id": "NoUnit",
+      "immediate_count": 1,
+      "input": {
+        "binding": "registered_invoketypes",
+        "factor": "unit suffix removed only",
+        "id": "NoUnit",
+        "index": 0,
+        "solve": false,
+        "text": "\"source_width\" = 31.7"
+      },
+      "publication_observed": true,
+      "raw_rows": [
+        {
+          "disabled": false,
+          "global_variable": true,
+          "index": 0,
+          "raw_value": 31.7,
+          "raw_value_unit_domain": "unqualified native value; source geometry and dimensions are measured independently in SI",
+          "status_after_text": 0,
+          "status_after_value": 0,
+          "text": "\"source_width\" = 31.7"
+        }
+      ],
+      "return": 0,
+      "status_after_add2": 0
+    },
+    {
+      "evaluated_count": 0,
+      "id": "SimpleName",
+      "immediate_count": 0,
+      "input": {
+        "binding": "registered_invoketypes",
+        "factor": "global name only",
+        "id": "SimpleName",
+        "index": 0,
+        "solve": false,
+        "text": "\"B\" = 31.7 mm"
+      },
+      "publication_observed": false,
+      "raw_rows": [],
+      "return": -1,
+      "status_after_add2": -1
+    },
+    {
+      "evaluated_count": 0,
+      "id": "GeneratedMethod",
+      "immediate_count": 0,
+      "input": {
+        "binding": "generated_method",
+        "factor": "actual generated interface method only",
+        "id": "GeneratedMethod",
+        "index": 0,
+        "solve": false,
+        "text": "\"source_width\" = 31.7 mm"
+      },
+      "publication_observed": false,
+      "raw_rows": [],
+      "return": -1,
+      "status_after_add2": -1
+    },
+    {
+      "evaluated_count": 1,
+      "id": "PublishedLiteral",
+      "immediate_count": 1,
+      "input": {
+        "binding": "registered_invoketypes",
+        "factor": "independent official global-assignment control; multiple input differences",
+        "id": "PublishedLiteral",
+        "index": 0,
+        "solve": false,
+        "text": "\"B\" = 2"
+      },
+      "publication_observed": true,
+      "raw_rows": [
+        {
+          "disabled": false,
+          "global_variable": true,
+          "index": 0,
+          "raw_value": 2.0,
+          "raw_value_unit_domain": "unqualified native value; source geometry and dimensions are measured independently in SI",
+          "status_after_text": 0,
+          "status_after_value": 0,
+          "text": "\"B\" = 2"
+        }
+      ],
+      "return": 0,
+      "status_after_add2": 0
+    }
+  ],
+  "native_files_saved": 0,
+  "native_writer_qualified": false,
+  "numeric_checks": 414,
+  "phase_sha256": {
+    "ControlAfter": "c7991ebb2388516dc051063ee163f9c3490d71df6824a52cfb85dd4ba3999351",
+    "ControlBefore": "462d91959304f4dad1db15e39526c19793d2a660a8c853f3f5b5af929dce3914",
+    "Matrix": "c32bc585d8d1e7d329657ec25bd6b24f97fc831b7eba667cdcad328f69ce1cab"
+  },
+  "processes": {
+    "ControlAfter": {
+      "numeric_checks": 7,
+      "open_status": [
+        0,
+        0
+      ],
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395911987509423,
+        "process_id": 3780,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true
+    },
+    "ControlBefore": {
+      "numeric_checks": 7,
+      "open_status": [
+        0,
+        0
+      ],
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395904546810243,
+        "process_id": 604,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true
+    },
+    "Matrix": {
+      "numeric_checks": 400,
+      "open_status": null,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395904788925579,
+        "process_id": 6292,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true
+    }
+  },
+  "schema": "kit.sw2026.global-unit-adjacency-native-finding.v1",
+  "source_lock_produced": false,
+  "summary_sha256": "d1216d51d75580e1a6fd03acaf214ff25f06642938c8547527e915ec2fd2880c",
+  "writer_output_count": 0
+}

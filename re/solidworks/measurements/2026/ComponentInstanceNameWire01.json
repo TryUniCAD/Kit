@@ -1,0 +1,835 @@
+{
+  "acceptance": false,
+  "audit_sha256": "a09c465262050e5c7245e5d2b461a6b9c7724ac59eb5049c7e8b944b3ed5f825",
+  "heldout_inputs_read": 0,
+  "host_native_calls": 0,
+  "host_preference_changes": 0,
+  "manifest_sha256": "ebde63364b8f3f951c25b42525ee9d6296bfa43e39013cc9bb3eac8de35bda84",
+  "native": {
+    "aggregate_sha256": "9ce16e3107f58a0262a26447ec1d882ed86449ac245151c49ee70335e757f251",
+    "author_numeric_checks": 30,
+    "author_passed": true,
+    "author_result_sha256": "db589f84fda7cb47c70278bd79195317b7d74282f4bd458c1f536c395e67c570",
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "fresh_geometry_rebuild_checks": "not reached after exact name refusal",
+    "fresh_open_status": [
+      0,
+      0
+    ],
+    "fresh_reopen_passed": false,
+    "fresh_reopen_preference": true,
+    "ids": [
+      24,
+      25
+    ],
+    "live_reopen_names": [
+      "IndependentNameCylinder-1",
+      "IndependentNameCylinder-2"
+    ],
+    "native_acceptance": false,
+    "original_preference_restored": true,
+    "reopen_recorder_sha256": "666431530b0115a66a18fc850a33b7060f6caddb0fbb7a5593848fc0301bada8",
+    "reopen_result_sha256": "d8ab1c772c2146b36d126c01b8dbaaead961c4894471cd5b713b3e0c73a3423b",
+    "synchronized_saved_pair": {
+      "child": {
+        "sha256": "3a39ac65c61cad230c36b27d53f7179813e68afabff2090e1ca98bdd08b2d16f",
+        "status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "parent": {
+        "sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c",
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "native_calls": 0,
+  "retained_hopper_sessions": 0,
+  "rows": [
+    {
+      "archive_version": 19000,
+      "bytes": 62759,
+      "container_version": 4,
+      "label": "NativeCustomBaseSaved",
+      "name_hits": {
+        "AuthoredAxisA-1": {
+          "Contents/CMgr": {
+            "stream_sha256": "07bcd1baf620f72d02f88609de5a576c6082b26c2911d3d0e88f5e5112d4d6be",
+            "utf16le_offsets": [
+              1928
+            ]
+          },
+          "Contents/Config-0": {
+            "stream_sha256": "3dbf8bd3c1ecba446f4c6413d7d9d850565c3507b149606566d047c1c1b4605f",
+            "utf16le_offsets": [
+              115,
+              604
+            ]
+          },
+          "Contents/Config-0-MatesList": {
+            "stream_sha256": "b0e7e9921ee95491770c78e0fdc5e25fe4046f799abd354b3d9f1b5307d7b035",
+            "utf16le_offsets": [
+              472
+            ]
+          },
+          "Contents/Config-0-ModelHeader": {
+            "stream_sha256": "b8427cb00d18c5def39a25260ee5b35cf7ad9c5f1992322bca556da9900f75f4",
+            "utf16le_offsets": [
+              1744
+            ]
+          },
+          "Contents/DisplayLists": {
+            "stream_sha256": "e40ce4ef925ea814c0d02a6658b34affceb7420a548bc6cc592db6b2aba836aa",
+            "utf16le_offsets": [
+              5781
+            ]
+          },
+          "FaceTessellations/Directory": {
+            "stream_sha256": "c2480c4add80fa156d6d2508bf3b7a6f90e4f3387e651cf9606def661e3486e6",
+            "utf16le_offsets": [
+              20
+            ]
+          },
+          "Header2": {
+            "stream_sha256": "b8427cb00d18c5def39a25260ee5b35cf7ad9c5f1992322bca556da9900f75f4",
+            "utf16le_offsets": [
+              1744
+            ]
+          },
+          "ThirdPtyStore/VisualStates": {
+            "stream_sha256": "97b3ede73aeced8213e3edaa8d911686e08bb6f07fafd755d4e21c493d080c0a",
+            "utf16le_offsets": [
+              713
+            ]
+          }
+        },
+        "AuthoredAxisB-2": {
+          "Contents/CMgr": {
+            "stream_sha256": "07bcd1baf620f72d02f88609de5a576c6082b26c2911d3d0e88f5e5112d4d6be",
+            "utf16le_offsets": [
+              1519
+            ]
+          },
+          "Contents/Config-0": {
+            "stream_sha256": "3dbf8bd3c1ecba446f4c6413d7d9d850565c3507b149606566d047c1c1b4605f",
+            "utf16le_offsets": [
+              704,
+              1134
+            ]
+          },
+          "Contents/Config-0-MatesList": {
+            "stream_sha256": "b0e7e9921ee95491770c78e0fdc5e25fe4046f799abd354b3d9f1b5307d7b035",
+            "utf16le_offsets": [
+              1283
+            ]
+          },
+          "Contents/Config-0-ModelHeader": {
+            "stream_sha256": "b8427cb00d18c5def39a25260ee5b35cf7ad9c5f1992322bca556da9900f75f4",
+            "utf16le_offsets": [
+              1848
+            ]
+          },
+          "Contents/DisplayLists": {
+            "stream_sha256": "e40ce4ef925ea814c0d02a6658b34affceb7420a548bc6cc592db6b2aba836aa",
+            "utf16le_offsets": [
+              8782
+            ]
+          },
+          "FaceTessellations/Directory": {
+            "stream_sha256": "c2480c4add80fa156d6d2508bf3b7a6f90e4f3387e651cf9606def661e3486e6",
+            "utf16le_offsets": [
+              146
+            ]
+          },
+          "Header2": {
+            "stream_sha256": "b8427cb00d18c5def39a25260ee5b35cf7ad9c5f1992322bca556da9900f75f4",
+            "utf16le_offsets": [
+              1848
+            ]
+          },
+          "ThirdPtyStore/VisualStates": {
+            "stream_sha256": "97b3ede73aeced8213e3edaa8d911686e08bb6f07fafd755d4e21c493d080c0a",
+            "utf16le_offsets": [
+              304
+            ]
+          }
+        }
+      },
+      "references": [
+        {
+          "external": {
+            "created": 1795107047,
+            "f58_u8_hex": "00",
+            "f58_wire_width_bytes": 1,
+            "fields": {
+              "f48": 2,
+              "f4c": 0,
+              "f50": 0,
+              "f54": 0,
+              "f58": 0,
+              "f60": 1795107081,
+              "f70": 1795107081,
+              "f78": 0
+            },
+            "kind": 2,
+            "name": "IndependentNameCylinder",
+            "object_identity": 0,
+            "override_sync_bit": false,
+            "path_leaf": "IndependentNameCylinder.SLDPRT",
+            "path_sha256": "5310cec3f5ef462531fec9eb6ab3450a87b84c51f8ce84f572dba91c2f304959"
+          },
+          "f500": "",
+          "f508": "",
+          "feature_flags": 0,
+          "id": 24,
+          "name": "AuthoredAxisA-1",
+          "reference_fields": {
+            "f08": 24,
+            "f0c": 0,
+            "f1e0": 18.0,
+            "f1f4": 0,
+            "f1f8": "",
+            "f20": "",
+            "f208": 0,
+            "f28": 1073741824,
+            "f28c": 0,
+            "f298": 0,
+            "f29c": 101,
+            "f2a0": 632639465,
+            "f2a4": 31291462,
+            "f2a8": 0,
+            "f2ac": 370108,
+            "f2b0": 19000,
+            "f2b4": 2026306,
+            "f2b8": 19000,
+            "f2bc": 2026306,
+            "f2c": 0,
+            "f2ec": 0,
+            "f300": 5,
+            "f301": 0,
+            "f30c": -1,
+            "f318": 0,
+            "f344": 1,
+            "f388": 0,
+            "f3dc": -1,
+            "f3e0": 134,
+            "f3e8": 1795107063,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 4,
+            "f408": 1,
+            "f408#wire": 1,
+            "f418": 0,
+            "f41c": 0,
+            "f450": 0,
+            "f454": 0,
+            "f458": 0,
+            "f49c": 0,
+            "f4a0": 0,
+            "f4a4": -1,
+            "f4b0": -1,
+            "f4b4": 15,
+            "f4c0": 0,
+            "f4d8": 0,
+            "f4dc": 0,
+            "f4f0": 0,
+            "f500": "",
+            "f508": "",
+            "f524": 0,
+            "f530": 0,
+            "f550": 0,
+            "f55c": 101,
+            "f98": 2,
+            "fa8": 0,
+            "has_discarded_xform": 0,
+            "has_f1e8": 0,
+            "has_f360": 1,
+            "has_f370": 1,
+            "has_f378": 0,
+            "has_list68": 0,
+            "hidden": 0
+          },
+          "runtime_f540_in_wire_fields": false
+        },
+        {
+          "external": {
+            "created": 1795107047,
+            "f58_u8_hex": "00",
+            "f58_wire_width_bytes": 1,
+            "fields": {
+              "f48": 2,
+              "f4c": 0,
+              "f50": 0,
+              "f54": 0,
+              "f58": 0,
+              "f60": 1795107081,
+              "f70": 1795107081,
+              "f78": 0
+            },
+            "kind": 2,
+            "name": "IndependentNameCylinder",
+            "object_identity": 0,
+            "override_sync_bit": false,
+            "path_leaf": "IndependentNameCylinder.SLDPRT",
+            "path_sha256": "5310cec3f5ef462531fec9eb6ab3450a87b84c51f8ce84f572dba91c2f304959"
+          },
+          "f500": "",
+          "f508": "",
+          "feature_flags": 0,
+          "id": 25,
+          "name": "AuthoredAxisB-2",
+          "reference_fields": {
+            "f08": 25,
+            "f0c": 0,
+            "f1e0": 0.0,
+            "f1f4": 0,
+            "f1f8": "",
+            "f20": "",
+            "f208": 0,
+            "f28": 1073741824,
+            "f28c": 0,
+            "f298": 0,
+            "f29c": 101,
+            "f2a0": 632639465,
+            "f2a4": 31291462,
+            "f2a8": 0,
+            "f2ac": 370108,
+            "f2b0": 19000,
+            "f2b4": 2026306,
+            "f2b8": 19000,
+            "f2bc": 2026306,
+            "f2c": 0,
+            "f2ec": 0,
+            "f300": 5,
+            "f301": 0,
+            "f30c": -1,
+            "f318": 0,
+            "f344": 1,
+            "f388": 0,
+            "f3dc": -1,
+            "f3e0": 134,
+            "f3e8": 1795107063,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0,
+            "f408#wire": 0,
+            "f418": 0,
+            "f41c": 0,
+            "f450": 0,
+            "f454": 0,
+            "f458": 0,
+            "f49c": 0,
+            "f4a0": 0,
+            "f4a4": -1,
+            "f4b0": -1,
+            "f4b4": 16,
+            "f4c0": 0,
+            "f4d8": 0,
+            "f4dc": 0,
+            "f4f0": 0,
+            "f500": "",
+            "f508": "",
+            "f524": 0,
+            "f530": 0,
+            "f550": 0,
+            "f55c": 101,
+            "f98": 2,
+            "fa8": 0,
+            "has_discarded_xform": 0,
+            "has_f1e8": 0,
+            "has_f360": 1,
+            "has_f370": 1,
+            "has_f378": 0,
+            "has_list68": 0,
+            "hidden": 0
+          },
+          "runtime_f540_in_wire_fields": false
+        }
+      ],
+      "sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c",
+      "source_unchanged": true
+    },
+    {
+      "archive_version": 19000,
+      "bytes": 46774,
+      "container_version": 4,
+      "label": "NativeD01Default",
+      "name_hits": {},
+      "references": [
+        {
+          "external": {
+            "created": 1795044299,
+            "f58_u8_hex": "00",
+            "f58_wire_width_bytes": 1,
+            "fields": {
+              "f48": 2,
+              "f4c": 0,
+              "f50": 0,
+              "f54": 0,
+              "f58": 0,
+              "f60": 1795044325,
+              "f70": 1795044325,
+              "f78": 0
+            },
+            "kind": 2,
+            "name": "ConcentricD01Child",
+            "object_identity": 0,
+            "override_sync_bit": false,
+            "path_leaf": "ConcentricD01Child.SLDPRT",
+            "path_sha256": "9596f1bb0f4f1305f4051b52a938778f835515536be844c33aff59adf15bc75d"
+          },
+          "f500": "",
+          "f508": "",
+          "feature_flags": 0,
+          "id": 24,
+          "name": "ConcentricD01Child-1",
+          "reference_fields": {
+            "f08": 24,
+            "f0c": 0,
+            "f1e0": 18.0,
+            "f1f4": 0,
+            "f1f8": "",
+            "f20": "",
+            "f208": 0,
+            "f28": 1073741824,
+            "f28c": 0,
+            "f298": 0,
+            "f29c": 101,
+            "f2a0": 260312375,
+            "f2a4": 31291316,
+            "f2a8": 0,
+            "f2ac": 370108,
+            "f2b0": 19000,
+            "f2b4": 2026306,
+            "f2b8": 19000,
+            "f2bc": 2026306,
+            "f2c": 0,
+            "f2ec": 0,
+            "f300": 5,
+            "f301": 0,
+            "f30c": -1,
+            "f318": 0,
+            "f344": 1,
+            "f388": 0,
+            "f3dc": -1,
+            "f3e0": 134,
+            "f3e8": 1795044315,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 4,
+            "f408": 1,
+            "f408#wire": 1,
+            "f418": 0,
+            "f41c": 0,
+            "f450": 0,
+            "f454": 0,
+            "f458": 0,
+            "f49c": 0,
+            "f4a0": 0,
+            "f4a4": -1,
+            "f4b0": -1,
+            "f4b4": 15,
+            "f4c0": 0,
+            "f4d8": 0,
+            "f4dc": 0,
+            "f4f0": 0,
+            "f500": "",
+            "f508": "",
+            "f524": 0,
+            "f530": 0,
+            "f550": 0,
+            "f55c": 101,
+            "f98": 2,
+            "fa8": 0,
+            "has_discarded_xform": 0,
+            "has_f1e8": 0,
+            "has_f360": 1,
+            "has_f370": 1,
+            "has_f378": 0,
+            "has_list68": 0,
+            "hidden": 0
+          },
+          "runtime_f540_in_wire_fields": false
+        },
+        {
+          "external": {
+            "created": 1795044299,
+            "f58_u8_hex": "00",
+            "f58_wire_width_bytes": 1,
+            "fields": {
+              "f48": 2,
+              "f4c": 0,
+              "f50": 0,
+              "f54": 0,
+              "f58": 0,
+              "f60": 1795044325,
+              "f70": 1795044325,
+              "f78": 0
+            },
+            "kind": 2,
+            "name": "ConcentricD01Child",
+            "object_identity": 0,
+            "override_sync_bit": false,
+            "path_leaf": "ConcentricD01Child.SLDPRT",
+            "path_sha256": "9596f1bb0f4f1305f4051b52a938778f835515536be844c33aff59adf15bc75d"
+          },
+          "f500": "",
+          "f508": "",
+          "feature_flags": 0,
+          "id": 25,
+          "name": "ConcentricD01Child-2",
+          "reference_fields": {
+            "f08": 25,
+            "f0c": 0,
+            "f1e0": 0.0,
+            "f1f4": 0,
+            "f1f8": "",
+            "f20": "",
+            "f208": 0,
+            "f28": 1073741824,
+            "f28c": 0,
+            "f298": 0,
+            "f29c": 101,
+            "f2a0": 260312375,
+            "f2a4": 31291316,
+            "f2a8": 0,
+            "f2ac": 370108,
+            "f2b0": 19000,
+            "f2b4": 2026306,
+            "f2b8": 19000,
+            "f2bc": 2026306,
+            "f2c": 0,
+            "f2ec": 0,
+            "f300": 5,
+            "f301": 0,
+            "f30c": -1,
+            "f318": 0,
+            "f344": 1,
+            "f388": 0,
+            "f3dc": -1,
+            "f3e0": 134,
+            "f3e8": 1795044315,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0,
+            "f408#wire": 0,
+            "f418": 0,
+            "f41c": 0,
+            "f450": 0,
+            "f454": 0,
+            "f458": 0,
+            "f49c": 0,
+            "f4a0": 0,
+            "f4a4": -1,
+            "f4b0": -1,
+            "f4b4": 16,
+            "f4c0": 0,
+            "f4d8": 0,
+            "f4dc": 0,
+            "f4f0": 0,
+            "f500": "",
+            "f508": "",
+            "f524": 0,
+            "f530": 0,
+            "f550": 0,
+            "f55c": 101,
+            "f98": 2,
+            "fa8": 0,
+            "has_discarded_xform": 0,
+            "has_f1e8": 0,
+            "has_f360": 1,
+            "has_f370": 1,
+            "has_f378": 0,
+            "has_list68": 0,
+            "hidden": 0
+          },
+          "runtime_f540_in_wire_fields": false
+        }
+      ],
+      "sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "source_unchanged": true
+    },
+    {
+      "archive_version": 19000,
+      "bytes": 10820,
+      "container_version": 4,
+      "label": "GeneratedOriginal",
+      "name_hits": {
+        "Cylinder-1": {
+          "Contents/CMgr": {
+            "stream_sha256": "24471181171e036806ef9d74fdf04b942fe17d110118b9a23d6d4246d58d074d",
+            "utf16le_offsets": [
+              2178
+            ]
+          },
+          "Contents/Config-0": {
+            "stream_sha256": "d7c8e57d5d00f0d76980e07b833fa7dba4b635bbbba82bf39dab9e28f36b1577",
+            "utf16le_offsets": [
+              161,
+              1012
+            ]
+          },
+          "Contents/Config-0-MatesList": {
+            "stream_sha256": "d9d82fb5e40df8599d4dc27fc5b3ce9e89c6cc975bad22a4569419d7a334b15b",
+            "utf16le_offsets": [
+              486
+            ]
+          }
+        },
+        "Cylinder-2": {
+          "Contents/CMgr": {
+            "stream_sha256": "24471181171e036806ef9d74fdf04b942fe17d110118b9a23d6d4246d58d074d",
+            "utf16le_offsets": [
+              1815
+            ]
+          },
+          "Contents/Config-0": {
+            "stream_sha256": "d7c8e57d5d00f0d76980e07b833fa7dba4b635bbbba82bf39dab9e28f36b1577",
+            "utf16le_offsets": [
+              1102,
+              1594
+            ]
+          },
+          "Contents/Config-0-MatesList": {
+            "stream_sha256": "d9d82fb5e40df8599d4dc27fc5b3ce9e89c6cc975bad22a4569419d7a334b15b",
+            "utf16le_offsets": [
+              1391
+            ]
+          }
+        }
+      },
+      "references": [
+        {
+          "external": {
+            "created": 1815300301,
+            "f58_u8_hex": "00",
+            "f58_wire_width_bytes": 1,
+            "fields": {
+              "f48": 2,
+              "f4c": 0,
+              "f50": 0,
+              "f54": 0,
+              "f58": 0,
+              "f60": 1815300301,
+              "f70": 1815300301,
+              "f78": 0
+            },
+            "kind": 2,
+            "name": "NeutralCylinderAlphaDerived",
+            "object_identity": 0,
+            "override_sync_bit": false,
+            "path_leaf": "NeutralCylinderAlphaDerived.SLDPRT",
+            "path_sha256": "974a8be0c5827a1819b4c94696dbd65665482e52516a51118a01ced8ed631dd3"
+          },
+          "f500": "",
+          "f508": "",
+          "feature_flags": 0,
+          "id": 17,
+          "name": "Cylinder-1",
+          "reference_fields": {
+            "f08": 17,
+            "f0c": 0,
+            "f1e0": 0.0,
+            "f1f4": 0,
+            "f1f8": "",
+            "f20": "",
+            "f208": 0,
+            "f28": 1073741824,
+            "f28c": 0,
+            "f298": 0,
+            "f29c": 101,
+            "f2a0": 0,
+            "f2a4": 0,
+            "f2a8": 0,
+            "f2ac": 370108,
+            "f2b0": 19000,
+            "f2b4": 2026306,
+            "f2b8": 0,
+            "f2bc": 0,
+            "f2c": 0,
+            "f2ec": 0,
+            "f300": 5,
+            "f301": 2,
+            "f30c": -1,
+            "f318": 0,
+            "f344": 1,
+            "f388": 0,
+            "f3dc": -1,
+            "f3e0": 104,
+            "f3e8": 1815300301,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 1,
+            "f408#wire": 1,
+            "f418": 0,
+            "f41c": 0,
+            "f450": 0,
+            "f454": 0,
+            "f458": 0,
+            "f49c": 0,
+            "f4a0": 0,
+            "f4a4": -1,
+            "f4b0": -1,
+            "f4b4": 15,
+            "f4c0": 0,
+            "f4d8": 0,
+            "f4dc": 0,
+            "f4f0": 0,
+            "f500": "",
+            "f508": "",
+            "f524": 0,
+            "f530": 0,
+            "f550": 0,
+            "f55c": 101,
+            "f98": 2,
+            "fa8": 0,
+            "has_discarded_xform": 0,
+            "has_f1e8": 0,
+            "has_f360": 1,
+            "has_f370": 1,
+            "has_f378": 0,
+            "has_list68": 0,
+            "hidden": 0
+          },
+          "runtime_f540_in_wire_fields": false
+        },
+        {
+          "external": {
+            "created": 1815300301,
+            "f58_u8_hex": "00",
+            "f58_wire_width_bytes": 1,
+            "fields": {
+              "f48": 2,
+              "f4c": 0,
+              "f50": 0,
+              "f54": 0,
+              "f58": 0,
+              "f60": 1815300301,
+              "f70": 1815300301,
+              "f78": 0
+            },
+            "kind": 2,
+            "name": "NeutralCylinderAlphaDerived",
+            "object_identity": 0,
+            "override_sync_bit": false,
+            "path_leaf": "NeutralCylinderAlphaDerived.SLDPRT",
+            "path_sha256": "974a8be0c5827a1819b4c94696dbd65665482e52516a51118a01ced8ed631dd3"
+          },
+          "f500": "",
+          "f508": "",
+          "feature_flags": 0,
+          "id": 18,
+          "name": "Cylinder-2",
+          "reference_fields": {
+            "f08": 18,
+            "f0c": 0,
+            "f1e0": 0.0,
+            "f1f4": 0,
+            "f1f8": "",
+            "f20": "",
+            "f208": 0,
+            "f28": 1073741824,
+            "f28c": 0,
+            "f298": 0,
+            "f29c": 101,
+            "f2a0": 0,
+            "f2a4": 0,
+            "f2a8": 0,
+            "f2ac": 370108,
+            "f2b0": 19000,
+            "f2b4": 2026306,
+            "f2b8": 0,
+            "f2bc": 0,
+            "f2c": 0,
+            "f2ec": 0,
+            "f300": 5,
+            "f301": 2,
+            "f30c": -1,
+            "f318": 0,
+            "f344": 1,
+            "f388": 0,
+            "f3dc": -1,
+            "f3e0": 104,
+            "f3e8": 1815300301,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0,
+            "f408#wire": 0,
+            "f418": 0,
+            "f41c": 0,
+            "f450": 0,
+            "f454": 0,
+            "f458": 0,
+            "f49c": 0,
+            "f4a0": 0,
+            "f4a4": -1,
+            "f4b0": -1,
+            "f4b4": 16,
+            "f4c0": 0,
+            "f4d8": 0,
+            "f4dc": 0,
+            "f4f0": 0,
+            "f500": "",
+            "f508": "",
+            "f524": 0,
+            "f530": 0,
+            "f550": 0,
+            "f55c": 101,
+            "f98": 2,
+            "fa8": 0,
+            "has_discarded_xform": 0,
+            "has_f1e8": 0,
+            "has_f360": 1,
+            "has_f370": 1,
+            "has_f378": 0,
+            "has_list68": 0,
+            "hidden": 0
+          },
+          "runtime_f540_in_wire_fields": false
+        }
+      ],
+      "sha256": "e07d04635daf7a8b9ee5790dc34e7876c555b12690d36b9ff0cc6138a7222a59",
+      "source_unchanged": true
+    }
+  ],
+  "schema": "kit.sw2026.component-instance-name-wire-receipt.v1",
+  "scope": "read-only linked wire owners plus existing disclosed native observations; no constructor or public admission change",
+  "source_manifest_sha256": "e01b029f5511de4049c145cbb536c1dd1fcb6a9113ae1e1e5a5dcfe15cc37625",
+  "source_snapshot_files": 4760,
+  "source_verification": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 16,
+    "data_windows": 0,
+    "imports": 0,
+    "instruction_windows": 0,
+    "modules": 2,
+    "native_execution": false,
+    "record_sha256": "29a6a1c8ff0845a4b05e819936985d00e086f2ffb3338a4db91afccecde1bdf6",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 3
+  },
+  "tool_sha256": "789c0bbef53f9eb16974ae5a6b53b12f5ca725f8ec6a34acc3043df9d5607e75",
+  "unjoined_exploratory_legacy_helper_excluded": true,
+  "writer_outputs": 0
+}

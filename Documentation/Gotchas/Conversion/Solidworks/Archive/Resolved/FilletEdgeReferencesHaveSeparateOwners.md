@@ -1,0 +1,5 @@
+# Saved fillet edge choices have different reference owners
+
+On SOLIDWORKS 2026 SP05.2 schema-one constant-radius edge fillets, the selected `f848` wrapper and the `f868` radius item's edge wrapper are distinct objects. They share the same typed edge reference with the `f820` keeper. The two other edge references belong separately to the `f9b8` face association and the `fbf0` radius map. Those references contain matching stock surface keys but have their own identities and saved state. [Exact archive evidence](../../../../../../re/solidworks/records/EdgeFilletArchive2026.md)
+
+When replaying the saved archive, preserve both the live alias and the two independent output edge references. Produce the stock dependency from the checked creator keys and linked body atom. The fillet's common parent list was empty in all four measured saves. Native rollback independently confirmed the selected edge and its two adjacent stock faces. The stored support sequence does not by itself identify those two faces or establish a generative selection rule.

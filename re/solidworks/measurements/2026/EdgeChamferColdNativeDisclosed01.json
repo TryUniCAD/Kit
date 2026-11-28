@@ -1,0 +1,66 @@
+{
+  "construction_revision": "e117feb05923400ff9178e47c69050180e9b738c",
+  "distinct_processes": 6,
+  "generated_inputs": [
+    "0a7be4aaff60f6293d0be6b09ea0d39041bdaa316e5f641bb616b598acba31f0",
+    "13c6042c1fd9f7af68e73a803b2e275f163d1d4f4f86e829d144aa9bb51a4351"
+  ],
+  "healthy_controls": true,
+  "heldout_credit": 0,
+  "lifecycle_slots": 2,
+  "native_build": "34.5.2.0604",
+  "native_result_sha256": "454f8687d8ae35134a7c374855e105181c21d40365a614ae76f443fff6b831ea",
+  "numeric_checks": 154,
+  "observable_phases": [
+    {
+      "record_sha256": "923b94a75d86d435091c8510eef17a3cfcb41444c5785fcae4803f97029a816b",
+      "role": "before",
+      "slot": null
+    },
+    {
+      "body_count": 1,
+      "driver_edited": true,
+      "numeric_checks": 50,
+      "record_sha256": "f55a585e2fbbccaec3c48b957c98c2d08d9bee39ab862d7c9348d4e9ba8a5093",
+      "role": "edit",
+      "saved_sha256": "34a100c1e10e80ee15d3f775dbe8d167cbe13aab988cef814a4131f5381caf51",
+      "slot": 0
+    },
+    {
+      "body_count": 1,
+      "driver_edited": false,
+      "numeric_checks": 27,
+      "record_sha256": "4228b0a70af3ee898e54e3b89e211c99945fe662968506f69d026d9d6f59959b",
+      "role": "reopen",
+      "saved_sha256": "34a100c1e10e80ee15d3f775dbe8d167cbe13aab988cef814a4131f5381caf51",
+      "slot": 0
+    },
+    {
+      "body_count": 1,
+      "driver_edited": true,
+      "numeric_checks": 50,
+      "record_sha256": "aa70d5fb859aa7a56de55a2c59494fe2cea0b8614f645151e7cb884fde935e9b",
+      "role": "edit",
+      "saved_sha256": "4732d4ccb9d44e4909fb9ea9b96008b93d5d3fb26b417da30b017b964bc94dbb",
+      "slot": 1
+    },
+    {
+      "body_count": 1,
+      "driver_edited": false,
+      "numeric_checks": 27,
+      "record_sha256": "eaf167001cd005cf8b6fe4986d10b4797b3b05536a737ec014c1050e1979110c",
+      "role": "reopen",
+      "saved_sha256": "4732d4ccb9d44e4909fb9ea9b96008b93d5d3fb26b417da30b017b964bc94dbb",
+      "slot": 1
+    },
+    {
+      "record_sha256": "55bc738e2c459ae67a5d3d32fbb0310cbb5221bd152a957a92bfc86c62fef9a9",
+      "role": "after",
+      "slot": null
+    }
+  ],
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "schema": "kit.sw2026.generated-cold-chamfer-disclosed.v1",
+  "trial_sha256": "378922a6556db618fd7c94e4430f3ba31781df56970b12072a8ff4ea3043bef9"
+}

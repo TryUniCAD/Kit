@@ -1,0 +1,439 @@
+{
+  "baseline": "4cd5aee928b67bc9d3b9c55a33587d2aea338f56",
+  "changed_sources_sha256": {
+    "re/tooling/sw2026/para/concentric/ProveConcentricParentNotes.py": "35615f8c33431a4953d2d1b4d0b4536739385128835869e42f6059fd5f798807",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/AssemblySysIn.py": "9cbdf23bba612b2ea67283f025cc9816b6fb8e3cd22dedc06c32e35c5a5f4733",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmSysMut.py": "292f36c279a1453ad454dde02aa1561a856ad4fce0695b63897cef93333b9596",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmKeyNodes.py": "ac65b043b76795fd8b87839a75a8be39936f76980256181f2575946569b9ba2d",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Xml/AsmXmlRoles.py": "8f474790283e8c57e8b04574c4c7c332359affb01b4b1babbefe08f5c65c3b1d"
+  },
+  "disclosed_inputs_unchanged": true,
+  "disclosed_sources": [
+    {
+      "annotation_keyword_rows": [
+        [
+          2,
+          "Annotations",
+          "Annotations"
+        ],
+        [
+          17,
+          "Notes",
+          "Notes"
+        ],
+        [
+          18,
+          "Notes1___EndTag___",
+          "Notes"
+        ]
+      ],
+      "case": "D01Source",
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "feature_rows": 25,
+      "head_markers": [
+        1,
+        0
+      ],
+      "note_intent": {
+        "EndCreated": {
+          "FractionTicks": 8441349,
+          "SecondsValue": 1795044311
+        },
+        "EndName": "Notes1___EndTag___",
+        "HeadCreated": {
+          "FractionTicks": 8441349,
+          "SecondsValue": 1795044311
+        },
+        "HeadName": "Notes"
+      },
+      "parent_sdk_model_sha256": "867df44e63b48ab905eac9dbdb2374b48e0a6b95aeebd3ecfbff9e90a6d5bcd8",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "partner_ids": [
+        18,
+        17
+      ]
+    },
+    {
+      "annotation_keyword_rows": [
+        [
+          2,
+          "Annotations",
+          "Annotations"
+        ],
+        [
+          17,
+          "Notes",
+          "Notes"
+        ],
+        [
+          18,
+          "Notes1___EndTag___",
+          "Notes"
+        ]
+      ],
+      "case": "D01Edited",
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "feature_rows": 25,
+      "head_markers": [
+        1,
+        0
+      ],
+      "note_intent": {
+        "EndCreated": {
+          "FractionTicks": 8441349,
+          "SecondsValue": 1795044311
+        },
+        "EndName": "Notes1___EndTag___",
+        "HeadCreated": {
+          "FractionTicks": 8441349,
+          "SecondsValue": 1795044311
+        },
+        "HeadName": "Notes"
+      },
+      "parent_sdk_model_sha256": "efa966d28abbce6585bc438342f5f396a24be3befbb01bb3dd5d58800724814c",
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "partner_ids": [
+        18,
+        17
+      ]
+    },
+    {
+      "annotation_keyword_rows": [
+        [
+          11,
+          "Annotations",
+          "Annotations"
+        ],
+        [
+          24,
+          "Notes",
+          "Notes"
+        ],
+        [
+          25,
+          "Notes1___EndTag___",
+          "Notes"
+        ]
+      ],
+      "case": "RadialSaved",
+      "child_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "feature_rows": 25,
+      "head_markers": [
+        1,
+        0
+      ],
+      "note_intent": {
+        "EndCreated": {
+          "FractionTicks": 3042188,
+          "SecondsValue": 1795122889
+        },
+        "EndName": "Notes1___EndTag___",
+        "HeadCreated": {
+          "FractionTicks": 3042188,
+          "SecondsValue": 1795122889
+        },
+        "HeadName": "Notes"
+      },
+      "parent_sdk_model_sha256": "5825e375b5d16153e5214ca22e2031a1ef2e5e572b05d74093903cb9d4ff78e8",
+      "parent_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "partner_ids": [
+        25,
+        24
+      ]
+    },
+    {
+      "annotation_keyword_rows": [
+        [
+          11,
+          "Annotations",
+          "Annotations"
+        ]
+      ],
+      "case": "RadialFrozen",
+      "child_sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd",
+      "feature_rows": 18,
+      "head_markers": [],
+      "note_intent": null,
+      "parent_sdk_model_sha256": "64786998e604b43d40a97179e3969943c2c222b36d929559672415c6d3110ef6",
+      "parent_sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74",
+      "partner_ids": []
+    }
+  ],
+  "emission": {
+    "binary_mate_and_linked_streams": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.031369999999999995
+        ],
+        [
+          0.0,
+          -0.03137000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "1f57dc2b626d97a737b8b1dddd1eebd415e30530c018425c1db9cfcec598bab2",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        148,
+        201
+      ],
+      "mate_bytes": 3562,
+      "mate_sha256": "e8ba5acdaeb54f5d72e30435e0bd2bce0f8830b5b383928a5e6ba129db70f3ba",
+      "occurrence_names": [
+        "D01SignedChild-1",
+        "D01SignedChild-2"
+      ],
+      "occurrences": [
+        23,
+        24
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.031270000000000006,
+          0.2558
+        ]
+      ]
+    },
+    "changed_streams": [
+      "Contents/CMgr",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Header2",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "child_sha256": "1f57dc2b626d97a737b8b1dddd1eebd415e30530c018425c1db9cfcec598bab2",
+    "empty_system_parent_sha256": "976a38d062e23093f2ad90e63ed781cfffd156ad3391d516295ecd9ce2b29da1",
+    "guarded_repeats": 2,
+    "light_only_parent_sha256": "94281a87134de185727a914108993acbc8db97401c19e5a18ce1fda9677a32ae",
+    "normal_read": {
+      "annotation_keyword_rows": [
+        [
+          11,
+          "Annotations",
+          "Annotations"
+        ],
+        [
+          21,
+          "Notes",
+          "Notes"
+        ],
+        [
+          22,
+          "Notes1___EndTag___",
+          "Notes"
+        ]
+      ],
+      "feature_rows": 24,
+      "head_markers": [
+        1,
+        0
+      ],
+      "light_keyword_rows": [
+        [
+          17,
+          "Ambient",
+          "Ambient"
+        ],
+        [
+          18,
+          "Directional1",
+          "Directional"
+        ],
+        [
+          19,
+          "Directional2",
+          "Directional"
+        ],
+        [
+          20,
+          "Directional3",
+          "Directional"
+        ]
+      ],
+      "note_intent": {
+        "EndCreated": {
+          "FractionTicks": 2,
+          "SecondsValue": 1816312045
+        },
+        "EndName": "Notes1___EndTag___",
+        "HeadCreated": {
+          "FractionTicks": 1,
+          "SecondsValue": 1816312045
+        },
+        "HeadName": "Notes"
+      },
+      "parent_sdk_model_sha256": "6d094f5a47f1b24658653c292b76f79be678e6046ddf58986aab7df191ba8a67",
+      "partner_ids": [
+        22,
+        21
+      ]
+    },
+    "note_only_without_lights": true,
+    "parent_sha256": "f0384f8120977e0538e506349d75e214ca8694484adff4cb3aa1bcc2060aca8e",
+    "resolved_stream_bytes": {
+      "absent": 4839,
+      "longer_head": 5303,
+      "notes": 5265
+    },
+    "runtime_file_process_network_attempts": 0,
+    "writer_note_intent": {
+      "EndCreated": {
+        "FractionTicks": 2,
+        "SecondsValue": 1816312045
+      },
+      "EndName": "Notes1___EndTag___",
+      "HeadCreated": {
+        "FractionTicks": 1,
+        "SecondsValue": 1816312045
+      },
+      "HeadName": "Notes"
+    },
+    "writer_refusals": {
+      "flat_note_duplicate": "assembly keyword notes must belong only to the cabinet",
+      "flat_note_foreign": "assembly keyword notes must belong only to the cabinet",
+      "foreign_cabinet_owner": "assembly keys require the actual resolved annotation cabinet",
+      "foreign_note_owner": "assembly keyword notes must belong only to the cabinet",
+      "light_caption_collision": "assembly note captions must be distinct system names",
+      "same_id_as_light": "assembly keyword rows contain duplicate feature identities",
+      "system_caption_collision": "assembly note captions must be distinct system names",
+      "unpaired_note": "source notes lack actual reciprocal head and end identity",
+      "untyped_pair": "assembly notes require typed empty pair input",
+      "wrong_end_tag": "notes partner requires the mapped ordinary end tag vocabulary"
+    }
+  },
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "neutral_document_sha256": "8aa4d720cdc7b62eb25fd43a2e0a8ca822a8e012053070ea2c893fe3d12fe90b",
+  "passed": true,
+  "previous_flat": [
+    {
+      "alignment": 1,
+      "fixture": "ConcentricFeatureNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralAlphaDerived.SLDASM": "c13378f6876be09b2d102b52d84c1cb3661ea4711485598f13b484f6b1afab7a",
+        "NeutralCylinderAlphaDerived.SLDPRT": "615e14358679180c4c07dceca47b1683dc57b909528b5b73075ba66b016038a6"
+      },
+      "input_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+      "locked": false,
+      "ordered_occurrences": [
+        "Cylinder-1",
+        "Cylinder-2"
+      ],
+      "same_receipt_and_archive_bytes": true
+    },
+    {
+      "alignment": 2,
+      "fixture": "ConcentricBrepNeutral01.json",
+      "full_archive_sha256": {
+        "ConcentricNeutralBetaAuthored.SLDASM": "301e9ffedf9f3860f730c4ba67b302346db7a395810162952e088144fa09fe5f",
+        "NeutralCylinderBetaAuthored.SLDPRT": "1d7ba96b077cd192724f10e780fbabba5136e3b8549b7e8457a730c1955c8398"
+      },
+      "input_sha256": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63",
+      "locked": true,
+      "ordered_occurrences": [
+        "Cylinder-2",
+        "Cylinder-1"
+      ],
+      "same_receipt_and_archive_bytes": true
+    }
+  ],
+  "previous_nested": [
+    {
+      "full_document_sha256": {
+        "frame": "b28fb14b68601deb25cd405c4385d07269f8e68291935be57541435e4febba28",
+        "module": "11713d093fff9eb94db251276b49e3aefaca8cac2e5eda981bdb6926d69db0cd",
+        "plate": "8ac2cb78071168d4a462e18a1d2d514006823fb0b8b0d9e8c5c3d61c88c707f7"
+      },
+      "identical_default_bytes": true,
+      "input_sha256": "deaf07d8169e7c5178e49bba88d80742ef460dff828789e9b44631c512886452",
+      "linked_reemissions": 34,
+      "mixed": false
+    },
+    {
+      "full_document_sha256": {
+        "frame": "dbd31983f4e6d796de9b8b3e388f3ca323764015eeb0884e65d28035055deccc",
+        "gauge": "0eff946292bc5f665ebb26f1375de602ff92284abc84f12e7fe567bd4a51d3c6",
+        "module": "007a02f3a8a309175a8c329276c15074daf2b3556e363522fb2ecc4ad8053d05",
+        "plate": "8ac2cb78071168d4a462e18a1d2d514006823fb0b8b0d9e8c5c3d61c88c707f7"
+      },
+      "identical_default_bytes": true,
+      "input_sha256": "cd20a99f3d555f176647094c93f737f9fcbc04ae4ba2e84e191da1293daf7818",
+      "linked_reemissions": 44,
+      "mixed": true
+    }
+  ],
+  "schema": "kit.sw2026.disclosed-parent-note-projection.v1",
+  "source_closures": {
+    "after": {
+      "paths": 6102,
+      "sha256": "86239acd7dc13af413b6ba1532b6eed01edad5978b0c08bf8fe9d8d5544b82b8"
+    },
+    "before": {
+      "paths": 6101,
+      "sha256": "bb17a5552dfa89e84c3fa52470d064024661c4ff1190c7718239cb7c7cc17f07"
+    }
+  },
+  "source_refusals": {
+    "source_annotation_state": "annotation cabinet has unrepresented contents or presentation",
+    "source_hidden_note": "hidden notes are outside the ordinary disclosed empty pair",
+    "source_keyword_without_public_owner": "annotation keywords must index each actual cabinet identity once with its exact typed role",
+    "source_nonempty_note_payload": "source note pair has unrepresented contents or folder state",
+    "source_owner_count": "system owner feature count disagrees with its entries",
+    "source_owner_list_tail": "annotation cabinet contains unsupported list or item state",
+    "source_wrong_head_marker": "source notes lack actual reciprocal head and end identity",
+    "source_wrong_partner": "source notes lack actual reciprocal head and end identity"
+  },
+  "whole_source_guards": {
+    "whole_source": "assembly root contains unprojected model content"
+  }
+}

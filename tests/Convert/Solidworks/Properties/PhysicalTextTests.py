@@ -42,6 +42,8 @@ def TestConfigText() -> None:
         assert StateValue["configuration"] == ["modeled default", True, 0]
         assert StateValue["body"] == ["sldprt:body:1", 1, 1, 1]
         assert StateValue["geometry_equal"] is True
+        assert StateValue["typed_body_binding"] is False
+        assert StateValue["feature_count"] == 27
         assert StateValue["write_refusals"] == dict.fromkeys(
             ("strict_convert", "direct_write"),
             f"SOLIDWORKS part text properties are unavailable for writing ({CauseValue})",

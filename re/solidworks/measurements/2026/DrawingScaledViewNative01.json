@@ -1,0 +1,557 @@
+{
+  "schema": "kit.sw2026.scaled-drawing-native-measurement.v1",
+  "scope": "four disclosed unformatted ANSI A drawings, each with one explicit-scale named view of a generated rectangular part",
+  "oracle": {
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "automation": "SldWorks.Application.34"
+  },
+  "execution": {
+    "host_driver": "prlctl exec --current-user",
+    "guest": "Windows 11",
+    "transport_exit": 0,
+    "native_processes": 12
+  },
+  "packet_commit": "9d1333866d9340f4d16f71ebf31053c90713e5fd",
+  "layout_reader_commit": "cb4e9a983bb2f5bb6da5aa6bf0bd78df72d52311",
+  "packet_sha256": "840ad02aa58b0af4ae98205ae7403ec190498073e312a37a6a5ced1b97127b22",
+  "guest_tools_sha256": "c90f1082d88eeba0e6564e3477c0e2b5a7f2ac8b99cd8a4cb24121cd52a90496",
+  "observer_sha256": "182487e2d8d9e630a00234969903ceff298eb96fac3471fef09bf443d92697b8",
+  "packet_manifest_sha256": "3f1cd4b595e9e2d65fce2c50d4573bee88d35c85bc3a32fdad805af2f2decb77",
+  "immutable_packet_artifacts_checked": 39,
+  "source_proof_sha256": {
+    "Cases/GeneratedFront/Construction.json": "971ce861974d51f9dc23e735a304cffa0c3823bb66d204b3003add1c15209abc",
+    "Cases/GeneratedFront/NeutralRequest.json": "a29c2d5ef98f9c7fb8afd7d7238bb2bcaa6b5b0edc5bace44906e44f856d0265",
+    "Cases/GeneratedFront/Prediction.json": "c25436610356607fad6bcf5df26389a2b5120fbc2b8a5c81ae73cdc5e3bfccef",
+    "Cases/GeneratedIsometric/Construction.json": "29653359ebfdc9c1736c7929e8a12aa6d1d66fe8294b3039372f59e25cdfd224",
+    "Cases/GeneratedIsometric/NeutralRequest.json": "e71271ef50673ff93795ca24c1cd38f0ec7bbf44ad11f714115054e94adf7d38",
+    "Cases/GeneratedIsometric/Prediction.json": "fe7eaba1ac0626e1dd665cfe194128221a6c1fe64fa0b2fd78a975b2d742a8c9",
+    "Cases/GeneratedRight/Construction.json": "d2a40fcc77d8663803013e62281587835c253c345de5928b8df51a7fdde74dd3",
+    "Cases/GeneratedRight/NeutralRequest.json": "b2adf9ae7042e6a0b968e545563b11ce6f96b14537dc513fc3134ce825fbaa69",
+    "Cases/GeneratedRight/Prediction.json": "cc49d97c844eef663e7d7c6b4857ea53d0ed0c1daa135739726b2ae7bfc8d3d9",
+    "Cases/GeneratedTop/Construction.json": "de0baf7fe6ad4f5037b534f8460e54e147487fd09552b642b5ff708443bab63b",
+    "Cases/GeneratedTop/NeutralRequest.json": "72c0c74d76cc2d3b91a5497ba05dda200bb89ee5ab42b3289f7f6e6265ef9f9e",
+    "Cases/GeneratedTop/Prediction.json": "0faad89390d6ca6e83ab99054a7bc0e1c9430a693a9c8045b166efaf6b622787",
+    "GeneratorSourceSnapshot.json": "c1e8e5788d32e9fbdfdae83b1ec95410835b2ee05c47a2a278dfc2ad88ae1de4",
+    "NeutralJob.json": "433aaec10fae204f7a222366d43c5fc0452eb61c56b748414eb0548f35fe402b",
+    "PreparationChecks.json": "103895453988f556e5fe015d3290059f8d98511f0f6ec9793e8c1057be1a6df0",
+    "ProjectionFields01.json": "c18522a47dbc2848d6cc48b62b8172f49e8b8f5acd5314f4f9684839817a1b33",
+    "SourceLock.json": "99c3e345182c20853445bd7240a881d6fce22d397961779445961d61718a3298"
+  },
+  "host_supervisor_report_sha256": "cb638e2c18709c0e085eb6814a7127c4941b82d3d01f81a261286656e6dfa9f4",
+  "raw_native_report_sha256": "674daf809255fdc3261aee698006fcc1af5f7b0644c25d9b4b2f4f1082622d07",
+  "host_last_poll_terminal_hash_missing": [
+    "ControlAfter/FreshReopen/Record.json"
+  ],
+  "all_final_phase_hashes_verified": true,
+  "guarded_builds": 8,
+  "runtime_writer_input_access_attempts": 0,
+  "generated_file_count": 8,
+  "native_numeric_checks": 1194,
+  "input_files_immutable": true,
+  "disclosed_scaled_profile_passed": true,
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "production_conversions": 0,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "drawing_sha256": "0cd65761cefe2f1f7c016686f376021955cbb9d07651b437d164a384dcaa79af",
+      "part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "open_edit_save": {
+        "record_sha256": "ed49266bfa9a343752ed835e2cf53053484ae2fdf04996d84d8f5682580e6d9d",
+        "process_id": 5916,
+        "process_creation_filetime": 134394179814422841,
+        "checks_passed": 121,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "fresh_reopen": {
+        "record_sha256": "db9d239358e6762d5b81b31de85ac731c36cada4c4b8f81af3e94ea89e98c57f",
+        "process_id": 3440,
+        "process_creation_filetime": 134394180114151039,
+        "checks_passed": 78,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "114d76e9ee3e308f6af1df28841582edf348def9361d7745949b72e8c00310a3",
+      "derivative_bytes": 22730,
+      "exact_feature_tree": true
+    },
+    {
+      "lane": "GeneratedFront",
+      "drawing_sha256": "72a5a319a39bf8e836332544a15fc273d0a8e24fb2e966b20bc9812050b22250",
+      "part_sha256": "2c537294e39f6c59595ab3137681ffb40fffca9693c056fa55394cb1b2ada48f",
+      "open_edit_save": {
+        "record_sha256": "3988fe5327bdaf8db3fb9407797b27357cfe6d1c2f9cf7b8c73d9c2dfda1b1c3",
+        "process_id": 6364,
+        "process_creation_filetime": 134394180355770568,
+        "checks_passed": 121,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "fresh_reopen": {
+        "record_sha256": "43956245f25561ee09b6b6960eacad7bbd683f9c08a206005ba2df59c42646d2",
+        "process_id": 8016,
+        "process_creation_filetime": 134394180638770141,
+        "checks_passed": 78,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "757f54f3e4a393baf013bd56f74609f16cdb9c4d0fb52d2d9c1c521504a6d76b",
+      "derivative_bytes": 20178,
+      "exact_feature_tree": true,
+      "view": {
+        "orientation": "*Front",
+        "scale": 0.45,
+        "configuration": "authored configuration",
+        "initial_position_m": [
+          0.07123,
+          0.06587
+        ],
+        "persisted_position_m": [
+          0.073961,
+          0.064131
+        ],
+        "persisted_outline_m": [
+          0.0657505,
+          0.05713549999999999,
+          0.0821715,
+          0.0711265
+        ],
+        "persisted_model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0717335,
+          0.06050849999999999,
+          -0.0012150000000000002,
+          0.45,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_solid_count": 1,
+        "child_volume_m3": 1.1116979999999998e-06,
+        "child_area_m2": 0.0007271000000000001,
+        "child_center_m": [
+          0.0049499999999999995,
+          0.008050000000000002,
+          0.0027
+        ],
+        "resolved_child_hash_preserved": true
+      },
+      "sdk_derivative_layout": {
+        "strict": false,
+        "sheet_count": 1,
+        "view_count": 1,
+        "model_reference_count": 1,
+        "sheet": "Projection Layout1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.073961,
+          0.064131
+        ],
+        "scale_ratio": [
+          0.45,
+          1.0
+        ]
+      }
+    },
+    {
+      "lane": "GeneratedTop",
+      "drawing_sha256": "194dd96dceed6da611a41c91d7ba955cecc8017538801114d3e3f7e8d10c3810",
+      "part_sha256": "f2b95e3fab4df680c66fd5b63b2af56091bd3a5deb8bef158b1e878e6e03aa21",
+      "open_edit_save": {
+        "record_sha256": "7d1f26e6417ef07d7cdb837d27418c80314752f44937e6c8af9a5294a7b7a67e",
+        "process_id": 7100,
+        "process_creation_filetime": 134394180900729968,
+        "checks_passed": 121,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "fresh_reopen": {
+        "record_sha256": "250b131c2f96f9bcd6138ee4d00660e423489333bb7835098eb05b3c225b577f",
+        "process_id": 8024,
+        "process_creation_filetime": 134394181177700026,
+        "checks_passed": 78,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "da33b37870f9d9b342e678f505eec24bc944e6610a928b4691115a1fe38367e6",
+      "derivative_bytes": 20211,
+      "exact_feature_tree": true,
+      "view": {
+        "orientation": "*Top",
+        "scale": 1.35,
+        "configuration": "authored configuration",
+        "initial_position_m": [
+          0.11147,
+          0.09183
+        ],
+        "persisted_position_m": [
+          0.114201,
+          0.09009099999999999
+        ],
+        "persisted_outline_m": [
+          0.0905105,
+          0.07963049999999995,
+          0.13789149999999997,
+          0.10055150000000003
+        ],
+        "persisted_model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.0891585,
+          0.09623350000000001,
+          -0.005264999999999978,
+          1.35,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_solid_count": 1,
+        "child_volume_m3": 3.499678e-06,
+        "child_area_m2": 0.00153538,
+        "child_center_m": [
+          0.01855,
+          0.0039000000000000007,
+          0.00455
+        ],
+        "resolved_child_hash_preserved": true
+      },
+      "sdk_derivative_layout": {
+        "strict": false,
+        "sheet_count": 1,
+        "view_count": 1,
+        "model_reference_count": 1,
+        "sheet": "Projection Layout1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.114201,
+          0.09009099999999999
+        ],
+        "scale_ratio": [
+          1.35,
+          1.0
+        ]
+      }
+    },
+    {
+      "lane": "GeneratedRight",
+      "drawing_sha256": "f862de2d2fd5b6150bd2db5798401b11ab2976f25303b73adc58212561f861d8",
+      "part_sha256": "22b31078d04452e45493c78214016826c39839fa2829048b44a74387a62c984a",
+      "open_edit_save": {
+        "record_sha256": "fa658262a4a0d8057ec2b222c7efe85ae6497be83a1f3482616e15da45df1791",
+        "process_id": 5084,
+        "process_creation_filetime": 134394181448622036,
+        "checks_passed": 121,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "fresh_reopen": {
+        "record_sha256": "b038c9fe74e487d485b216ee9206620163b0ed46d5019808c35b8b96b640c708",
+        "process_id": 144,
+        "process_creation_filetime": 134394181722509685,
+        "checks_passed": 78,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "332e3434e3ddb31234d658649c2437ccb3315e27696ab88b7893326febaa975a",
+      "derivative_bytes": 19906,
+      "exact_feature_tree": true,
+      "view": {
+        "orientation": "*Right",
+        "scale": 0.7,
+        "configuration": "authored configuration",
+        "initial_position_m": [
+          0.15231,
+          0.11807
+        ],
+        "persisted_position_m": [
+          0.155041,
+          0.11633099999999999
+        ],
+        "persisted_outline_m": [
+          0.148168,
+          0.10564299999999999,
+          0.16191400000000003,
+          0.127019
+        ],
+        "persisted_model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.157596,
+          0.112271,
+          -0.0030799999999999916,
+          0.7,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_solid_count": 1,
+        "child_volume_m3": 2.8697760000000002e-06,
+        "child_area_m2": 0.0013673200000000002,
+        "child_center_m": [
+          0.004400000000000001,
+          0.0058000000000000005,
+          0.00365
+        ],
+        "resolved_child_hash_preserved": true
+      },
+      "sdk_derivative_layout": {
+        "strict": false,
+        "sheet_count": 1,
+        "view_count": 1,
+        "model_reference_count": 1,
+        "sheet": "Projection Layout1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.155041,
+          0.11633099999999999
+        ],
+        "scale_ratio": [
+          0.7,
+          1.0
+        ]
+      }
+    },
+    {
+      "lane": "GeneratedIsometric",
+      "drawing_sha256": "367e174a63297d64ed0cd014457ddea0bb4495afcd687657b1b9cb490b60282d",
+      "part_sha256": "9ae406526c12985d08a3213b3d619353a67845af8f2ea521ac2e114aa5438bf8",
+      "open_edit_save": {
+        "record_sha256": "b30056beaf9dce8b892d247aa4cbf4d4a770a9ac6bae5229f34c096731b81d7b",
+        "process_id": 9652,
+        "process_creation_filetime": 134394181979162824,
+        "checks_passed": 121,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "fresh_reopen": {
+        "record_sha256": "43721a94578368a564581458c223886c6e83625602f9235761382034c07caa1a",
+        "process_id": 7580,
+        "process_creation_filetime": 134394182259474750,
+        "checks_passed": 78,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "dbb7a8aa0f619c25bf3471ecd32b2b864122bae93e30898dd6855348aaca568d",
+      "derivative_bytes": 24145,
+      "exact_feature_tree": true,
+      "view": {
+        "orientation": "*Isometric",
+        "scale": 0.9,
+        "configuration": "authored configuration",
+        "initial_position_m": [
+          0.19913,
+          0.14529
+        ],
+        "persisted_position_m": [
+          0.201861,
+          0.143551
+        ],
+        "persisted_outline_m": [
+          0.18363774514796657,
+          0.12286470284709029,
+          0.22008425485203345,
+          0.16423729715290972
+        ],
+        "persisted_model_to_view": [
+          0.7071067811865464,
+          -0.4082040559113551,
+          0.5773815451999837,
+          2.7755575615628914e-17,
+          0.8165408118857499,
+          0.5772877120855426,
+          -0.7071067811865488,
+          -0.4082040559113538,
+          0.5773815451999819,
+          0.19419242695803193,
+          0.14051817997545327,
+          -0.02057653129656961,
+          0.9,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_solid_count": 1,
+        "child_volume_m3": 8.452572000000001e-06,
+        "child_area_m2": 0.0027286999999999997,
+        "child_center_m": [
+          0.01785,
+          0.01595,
+          0.0058
+        ],
+        "resolved_child_hash_preserved": true
+      },
+      "sdk_derivative_layout": {
+        "strict": false,
+        "sheet_count": 1,
+        "view_count": 1,
+        "model_reference_count": 1,
+        "sheet": "Projection Layout1",
+        "orientation": "*Isometric",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.201861,
+          0.143551
+        ],
+        "scale_ratio": [
+          0.9,
+          1.0
+        ]
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "drawing_sha256": "0cd65761cefe2f1f7c016686f376021955cbb9d07651b437d164a384dcaa79af",
+      "part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "open_edit_save": {
+        "record_sha256": "26e81692057705eb1322e2f6644e935814d80c5bb39abf4b5929fd4c761011b4",
+        "process_id": 552,
+        "process_creation_filetime": 134394182512848431,
+        "checks_passed": 121,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "fresh_reopen": {
+        "record_sha256": "2f92c2b4fd1ef5e0f81f30f51c532cc6f067816d33445b698eeaca2e6a073799",
+        "process_id": 5996,
+        "process_creation_filetime": 134394182798211312,
+        "checks_passed": 78,
+        "feature_rows": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "native_diagnostics": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "dialogs": 0,
+        "input_immutable": true
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative_sha256": "db82d8ec4211000a295c017170e827d2545da60a320107e3bdc9ea44ad498da5",
+      "derivative_bytes": 22696,
+      "exact_feature_tree": true
+    }
+  ]
+}

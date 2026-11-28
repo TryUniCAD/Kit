@@ -1,0 +1,102 @@
+{
+  "schema": "kit.sw2026.generated-child-save-record-inspection.v1",
+  "scope": "generated front-plane rectangular blind boss open and forced rebuild with both save records",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "generator": {
+    "head": "5a1264ccabb2acac555a4a62e941d4f0329f7ff6",
+    "source": "isolated local integration process",
+    "test": "tests/Convert/Solidworks/Research/Composition/PartFileTests.py",
+    "sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+    "bytes": 8122,
+    "receipt_sha256": "100b7444b1d449467eccb35e4c1937d8ceb449fb503b396e5eccb4961815b498",
+    "oracle_tool_sha256": {
+      "InspectFresh.py": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    }
+  },
+  "job_sha256": "4082e9d58eedb88cf66ab24eed9eec9e6b18b655e545a2fff8b772d6f19c0b0d",
+  "inspector_sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+  "private_inspection_sha256": "28f10c9270cd8e2d00d0abb0a499fc073e8003c530513753b37e2ca1f2555abf",
+  "private_transport_sha256": "65e5d3afc6277fb4325139eca3abcc24ac7f2a0a57e10a16df0bf625a5aaef85",
+  "stream_sizes": {
+    "Header2": 777,
+    "_MO_VERSION_19000/Biography": 23,
+    "_MO_VERSION_19000/History": 163,
+    "Contents/Config-0-ModelHeader": 777,
+    "swXmlContents/KeyWords": 1515,
+    "Contents/Config-0": 21144,
+    "Contents/CMgr": 1159,
+    "Contents/Definition": 477,
+    "Contents/Config-0-ResolvedFeatures": 14064,
+    "Contents/CMgrHdr2": 197
+  },
+  "active_configuration_header": {
+    "class": "dmConfigMgrHeader_c",
+    "saved_at": 1794700051,
+    "active_configurations": [
+      {
+        "class": "dmConfigHeader_c",
+        "name": "authored configuration",
+        "id": 0
+      }
+    ],
+    "update_stamps_agree": true,
+    "sort_order_agrees": true
+  },
+  "self_file_slot": [
+    3
+  ],
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "controls_healthy": true,
+  "distinct_oracle_processes": 3,
+  "oracle_started_at": 1794892998.76822,
+  "oracle_finished_at": 1794893080.8110685,
+  "same_license_processes": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "solidworks_processes_after": [],
+  "open": {
+    "errors": 0,
+    "warnings": 0,
+    "rebuild_errors_or_warnings": 0,
+    "body_count": 1
+  },
+  "geometry_expected": {
+    "volume": 1.4000000000000001e-06,
+    "area": 0.0008200000000000001,
+    "com": [
+      0.01,
+      0.005,
+      0.0035
+    ]
+  },
+  "geometry_observed": {
+    "volume": 1.4000000000000001e-06,
+    "area": 0.00082,
+    "com": [
+      0.01,
+      0.005,
+      0.0035
+    ]
+  },
+  "geometry_comparison_relative_tolerance": 5e-07,
+  "geometry_comparison_absolute_tolerance": 1e-15,
+  "feature_count": 20,
+  "heldout_acceptance": false,
+  "dimension_edit_verified": false,
+  "save_reopen_verified": false,
+  "accepted_production_parts": 0
+}

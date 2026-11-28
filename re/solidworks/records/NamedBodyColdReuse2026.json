@@ -1,0 +1,151 @@
+{
+  "body_bytes_emitted": false,
+  "construction_scope": "fresh_single_forward_blind_front_rectangular_boss_with_authored_ascii_body_name_and_no_transmitted_body",
+  "counter_rule": "new atom id = last allocated manager counter + 1; counter becomes allocated id",
+  "feature_wire_owner_rule": {
+    "f12c": "actual generated base feature f08",
+    "f130": "actual generated last modifier f08"
+  },
+  "generation_inputs": "actual neutral document plus explicit settings path and epoch",
+  "heldout_inputs_read": 0,
+  "host_tool_manifest_sha256": "52e7a2204e64ea14ad42b2e733da4f1ed5252bcd5215bbece499f8847b979dd1",
+  "live_kernel_tags_invented": false,
+  "named_h_sources_sealed": true,
+  "native_acceptance": false,
+  "native_packet_sha256": "bdccbaf78c2276b192549f9514a1aeaf302403c1b3d6f58beb7cbbf748df8810",
+  "only_changed_logical_streams": [
+    "Contents/Config-0",
+    "Contents/Config-0-ResolvedFeatures"
+  ],
+  "open_limits": [
+    "native propagation and load/edit/save/reopen pending",
+    "default strict no-cache reader does not admit populated atom managers",
+    "newly saved kernel naming states need separate reader qualification",
+    "no public writer registration or H acceptance"
+  ],
+  "output_alias_rule": "the same actual atom is in manager atoms and sole boss f528; boss f498 contains its f140",
+  "schema": "kit.sw2026.cold-named-body-construction.v1",
+  "sdk_source_manifest_sha256": "cc8c4550aa01afebd5bca64de7b6f94ff429e92e97fa51aa1cc91abc240fe1a7",
+  "source": {
+    "image_base": "0x4b140000",
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "pe_helper_sha256": "ffa6f015b152d2aa0ce869afc94665e5f01f5089d23298fa19681ff2ac7dc7b9",
+    "ranges": [
+      {
+        "bytes": 436,
+        "end_exclusive": "0x4bcee024",
+        "file_offset": 12243568,
+        "owner": "atom_constructor",
+        "sha256": "c14db58f3b7acd07a7154a57c2aa5a995b4938569ae99a9828ac72764159a76a",
+        "start": "0x4bcede70"
+      },
+      {
+        "bytes": 1841,
+        "end_exclusive": "0x4bcf02e1",
+        "file_offset": 12251056,
+        "owner": "atom_serializer",
+        "sha256": "e3cb61c2a22a231a8d9b05b36e6dd1ec52a4ecf2de76c4ac012d605c2a888974",
+        "start": "0x4bcefbb0"
+      },
+      {
+        "bytes": 597,
+        "end_exclusive": "0x4bcf9b15",
+        "file_offset": 12291264,
+        "owner": "feature_id_reconcile",
+        "sha256": "2c37d55a01e5095e04ab1feaa4dd55901239ae03283ac32b5c987347615ff7ee",
+        "start": "0x4bcf98c0"
+      },
+      {
+        "bytes": 7,
+        "end_exclusive": "0x4b293567",
+        "file_offset": 1386848,
+        "owner": "set_name_derived",
+        "sha256": "799994ee76d7ef4505f9eafed113449c3d844fd82a06ea2eed006605c9fccb0c",
+        "start": "0x4b293560"
+      },
+      {
+        "bytes": 7,
+        "end_exclusive": "0x4b292077",
+        "file_offset": 1381488,
+        "owner": "set_display_mode",
+        "sha256": "0e96150157ce8029972e1f7b7ee1796a1623c8c6088cb87c70fd77fcc8d51c60",
+        "start": "0x4b292070"
+      },
+      {
+        "bytes": 135,
+        "end_exclusive": "0x4bcf0d27",
+        "file_offset": 12255392,
+        "owner": "new_atom",
+        "sha256": "80e2bd8381dde98ff2f4c42b50cf79cc05619b68e58cf705314688e150efda9d",
+        "start": "0x4bcf0ca0"
+      },
+      {
+        "bytes": 33,
+        "end_exclusive": "0x4b706181",
+        "file_offset": 6051168,
+        "owner": "output_count",
+        "sha256": "568bc4f4e88c9179ef8ed0ab344179b7ac83f2d648f73b80715b78fb57028d36",
+        "start": "0x4b706160"
+      },
+      {
+        "bytes": 98,
+        "end_exclusive": "0x4b7179a2",
+        "file_offset": 6122816,
+        "owner": "set_one_output",
+        "sha256": "312e548dc75bc3257e9092b097a082b435d283e42f36317abd50731adee242eb",
+        "start": "0x4b717940"
+      },
+      {
+        "bytes": 1216,
+        "end_exclusive": "0x4b717930",
+        "file_offset": 6121584,
+        "owner": "set_multiple_outputs",
+        "sha256": "1cf2a56efa6300b8c07baccc4a5238be0d4926f6b996e2f3c395b227c6ed8bc3",
+        "start": "0x4b717470"
+      },
+      {
+        "bytes": 162,
+        "end_exclusive": "0x4bcf9d92",
+        "file_offset": 12292336,
+        "owner": "replace_and_destroy_body",
+        "sha256": "abe0b85e55f5df870354a7bdaf54d381a9b049af83cf9e7fc1ec4006b042f805",
+        "start": "0x4bcf9cf0"
+      },
+      {
+        "bytes": 12,
+        "end_exclusive": "0x4bcf923c",
+        "file_offset": 12289584,
+        "owner": "id_counter_boundary_only",
+        "sha256": "259828f99447842e802f0e1af7673678da0b0c3e13c863bb56a2a9379d3bb08a",
+        "start": "0x4bcf9230"
+      },
+      {
+        "bytes": 8,
+        "end_exclusive": "0x4b2c6d18",
+        "file_offset": 1597712,
+        "owner": "folded_owner_setter",
+        "sha256": "f3f924147b4c0188275057411487ffcdbbea3b0d29344dd6401bdc6c313fe14d",
+        "start": "0x4b2c6d10"
+      },
+      {
+        "bytes": 378,
+        "end_exclusive": "0x4bcefb7d",
+        "file_offset": 12250627,
+        "owner": "manager_load_window",
+        "sha256": "74e105e7adbf36d39f72781c6c7e6fb85a57e5bbfd302f7cb8f511c7a6a47dfe",
+        "start": "0x4bcefa03"
+      },
+      {
+        "bytes": 400,
+        "end_exclusive": "0x4bb23c20",
+        "file_offset": 10366608,
+        "owner": "feature_load_id_repair_window",
+        "sha256": "41911345d079323c18db7417d9f4f55697c95fb9e6f3d0b7a96c175f7877a03b",
+        "start": "0x4bb23a90"
+      }
+    ],
+    "schema": "kit.sw2026.named-body-cold-reuse-pins.v2"
+  },
+  "source_only_processes": 6,
+  "source_only_result_sha256": "c3ccd0cb183299cfbc2fb7609dc72ff0f8877baaac807808f85cf49cd18ed361"
+}

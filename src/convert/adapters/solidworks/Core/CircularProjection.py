@@ -63,6 +63,7 @@ def IsCircleRead(Document: CadDocument, Model: NativeModel, Stream: str) -> bool
         SketchValue.rectangle is None
         and SketchValue.native_stream == Operation.native_stream == Stream
         and Operation.kind == "join"
+        and Operation.extrusion_end in (None, ExtrudeEnd.BLIND)
         and any(
             not Entity.construction and isinstance(Entity.geometry, CircleGeometry)
             for Entity in Document.sketches[0].entities

@@ -1,0 +1,472 @@
+{
+  "schema": "kit-sw2026-end-source-specs/1",
+  "units": {
+    "length": "mm",
+    "angle": "degree",
+    "api_length": "m",
+    "api_angle": "radian"
+  },
+  "oracle": {
+    "progid": "SldWorks.Application.34",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "split_policy": {
+    "discovery": 12,
+    "heldout": 4,
+    "controls": 2,
+    "heldout_fraction": 0.25,
+    "heldout_native_stream_access": "forbidden during rule derivation and writer implementation",
+    "writer_start": "only after a complete owner-produced lock; subset execution never locks the family",
+    "source_provenance": "independently selected neutral geometry and feature parameters"
+  },
+  "scope": [
+    "forward blind",
+    "reversed blind",
+    "mid-plane",
+    "two-direction blind"
+  ],
+  "api_documentation": {
+    "extrusion_method": "https://help.solidworks.com/2024/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.ifeaturemanager~featureextrusion3.html",
+    "end_conditions": "https://help.solidworks.com/2026/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swEndConditions_e.html",
+    "runtime_authority": "registered type library major 34 and exact executable identity; every author and verification phase records the read-back feature definition"
+  },
+  "controls": [
+    {
+      "name": "ControlRectangle",
+      "split": "control",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.713,
+      "expected_bodies": 1,
+      "creation": "rectangle-control",
+      "dimension_kind": "radial",
+      "edit": {
+        "target": "depth",
+        "factor": 1.07
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -7.391,
+          11.173
+        ],
+        "width_mm": 29.137,
+        "height_mm": 17.719
+      }
+    },
+    {
+      "name": "ControlCircle",
+      "split": "control",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.713,
+      "expected_bodies": 1,
+      "creation": "point-circle-control",
+      "dimension_kind": "diameter",
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.11
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          3.917,
+          -5.139
+        ],
+        "radius_mm": 11.173
+      }
+    }
+  ],
+  "cases": [
+    {
+      "name": "D01Forward",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "blind",
+      "depth_mm": 2.317,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 1.13
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D02Forward",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "blind",
+      "depth_mm": 19.729,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 0.83
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D03Forward",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "blind",
+      "depth_mm": 57.113,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D04Reverse",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": true,
+      "end_condition": "blind",
+      "depth_mm": 2.317,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 1.13
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D05Reverse",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": true,
+      "end_condition": "blind",
+      "depth_mm": 19.729,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 0.83
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D06Reverse",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": true,
+      "end_condition": "blind",
+      "depth_mm": 57.113,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D07MidPlane",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "mid_plane",
+      "depth_mm": 2.317,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 1.13
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D08MidPlane",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "mid_plane",
+      "depth_mm": 19.729,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 0.83
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D09MidPlane",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "mid_plane",
+      "depth_mm": 57.113,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      }
+    },
+    {
+      "name": "D10TwoDirections",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "two_directions",
+      "depth_mm": 2.317,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "reverse-depth",
+        "factor": 1.13
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      },
+      "reverse_depth_mm": 3.619
+    },
+    {
+      "name": "D11TwoDirections",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": true,
+      "end_condition": "two_directions",
+      "depth_mm": 19.729,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "reverse-depth",
+        "factor": 0.83
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      },
+      "reverse_depth_mm": 7.127
+    },
+    {
+      "name": "D12TwoDirections",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "two_directions",
+      "depth_mm": 57.113,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "export_siblings": true,
+      "edit": {
+        "target": "reverse-depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [
+          -4.193,
+          6.827
+        ],
+        "width_mm": 31.719,
+        "height_mm": 17.381
+      },
+      "reverse_depth_mm": 11.971
+    },
+    {
+      "name": "H01Forward",
+      "split": "heldout",
+      "plane": "right",
+      "reverse": false,
+      "end_condition": "blind",
+      "depth_mm": 13.193,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 0.89
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          3.719,
+          -5.983
+        ],
+        "radius_mm": 6.817
+      }
+    },
+    {
+      "name": "H02Reverse",
+      "split": "heldout",
+      "plane": "top",
+      "reverse": true,
+      "end_condition": "blind",
+      "depth_mm": 27.617,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 1.21
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          -7.137,
+          2.617
+        ],
+        "radius_mm": 9.137
+      }
+    },
+    {
+      "name": "H03MidPlane",
+      "split": "heldout",
+      "plane": "right",
+      "reverse": false,
+      "end_condition": "mid_plane",
+      "depth_mm": 33.971,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "export_siblings": true,
+      "edit": {
+        "target": "depth",
+        "factor": 0.91
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          4.971,
+          -9.313
+        ],
+        "radius_mm": 7.919
+      }
+    },
+    {
+      "name": "H04TwoDirections",
+      "split": "heldout",
+      "plane": "top",
+      "reverse": true,
+      "end_condition": "two_directions",
+      "depth_mm": 21.389,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "export_siblings": true,
+      "edit": {
+        "target": "reverse-depth",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          -6.193,
+          8.723
+        ],
+        "radius_mm": 11.231
+      },
+      "reverse_depth_mm": 8.917
+    }
+  ]
+}

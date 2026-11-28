@@ -9,12 +9,15 @@ from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.registry.NativeHistory import CheckHistory
+from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from interchange import CadDocument
 
 
 # this mixin gives stream and filesystem destinations one writing policy
 class JsonWriter:
+
+    KTypedDrawings = True
 
     # the typed materials contract needs a shared interpretation so independent codecs retain consistent data contracts
     @property
@@ -32,7 +35,8 @@ class JsonWriter:
         CheckInchWrite(DocValue)
         CheckEquations(DocValue)
         CheckSupports(DocValue)
-        CheckNative(DocValue)
+        CheckHistory(DocValue)
+        CheckReadOnly(DocValue)
         Settings = Options or WriteOptions()
         if Settings.validate:
             DocValue.assert_valid()

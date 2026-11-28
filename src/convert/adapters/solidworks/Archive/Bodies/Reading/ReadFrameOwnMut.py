@@ -10,7 +10,9 @@ from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 def ReadFrameOwnMut(FrameValue: ReadFrame) -> ArchiveNode:
     ReaderValue = FrameValue.ReaderValue
     Cursor = ReaderValue.Cursor
-    TagValue, Offset = ReadTag(Cursor.BytesValue, Cursor.OffsetValue)
+    TagValue, Offset = ReadTag(
+        Cursor.BytesValue, Cursor.OffsetValue, LimitValue=Cursor.LimitValue
+    )
     if TagValue.KindValue != "ObjectRef" or TagValue.IndexValue is None:
         raise BodyUnsupported("SOLIDWORKS component owner requires an existing object")
     OwnerValue = FindObject(ReaderValue.MapValue, TagValue.IndexValue)

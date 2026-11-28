@@ -1,0 +1,110 @@
+{
+  "schema": "kit.sw2026.revolve-family-source-lock.v1",
+  "family": "cut",
+  "split": "discovery",
+  "source_revision": "fd18c4b0bc1e8a4a375b8ce96445d87252ed0bc1",
+  "source_tree": "2f3e868d96bc4de45202690fbbf9b1a36d687bf0",
+  "job_sha256": "f9e57a18eefa6e1a9b90c82af3ddbcebde119e4c2e9452021292edd6656e3d40",
+  "spec_sha256": "d23ef5c4bee05f2a019d1d5d7c53a2c0ef7940d28526bee92339edd12b17006b",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "tool_sha256": {
+    "AuthorRevolveFamilies.py": "5303aa3adcb2621ab8abe17a1a5e61180be8c9869a682ee2afbaff1c939c91f6",
+    "RevolveFamilyModel.py": "feb79fe618ac3205ae15ea6d211e59f75279f76aec2d0dea984a48242d2cfa44",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "registered_swconst": {
+    "swEndCondBlind": 0,
+    "swRevolveTypeOneDirection": 0,
+    "swThinWallOneDirection": 0,
+    "swThinWallOppDirection": 1,
+    "swThinWallMidPlane": 2,
+    "swThinWallTwoDirection": 3,
+    "swSelSKETCHES": 9,
+    "swSelSKETCHSEGS": 10,
+    "swSelEXTSKETCHSEGS": 24,
+    "swSelSOLIDBODIES": 76,
+    "swAngularDimension": 3,
+    "swLinearDimension": 2,
+    "swHorLinearDimension": 11,
+    "swVertLinearDimension": 12,
+    "swDimensionDriving": 2,
+    "swSetValue_InThisConfiguration": 1,
+    "swSolidBody": 0,
+    "swObjectSame": 1
+  },
+  "started_at": 1795228749.3176975,
+  "sources": [
+    {
+      "case": "RevCutInner",
+      "native_sha256": null,
+      "native_bytes": null,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "f6d12db9229293c7ae048b5516c1e970f39ea1dc2784c280bddefe2edf7c646f",
+          "passed": false,
+          "open_status": null,
+          "checks": 6,
+          "checks_passed": 6
+        }
+      ],
+      "passed": false
+    },
+    {
+      "case": "RevCutOuter",
+      "native_sha256": null,
+      "native_bytes": null,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "c78e0b9a08ec785dda20d7ed4c6ff176ead2be7dcc9535b8c91a10a73e1b11a8",
+          "passed": false,
+          "open_status": null,
+          "checks": 6,
+          "checks_passed": 6
+        }
+      ],
+      "passed": false
+    },
+    {
+      "case": "RevCutAll",
+      "native_sha256": null,
+      "native_bytes": null,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "6c7d73e3e78f82a5c53067e586c474705287afa040ed684554271a42e04d72cf",
+          "passed": false,
+          "open_status": null,
+          "checks": 6,
+          "checks_passed": 6
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "e453550979b50afa033c67ee293d0c5290d555acb39acde4520296bbf401ad1e",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "adb5904a5b8288740b667437f43573755aceb11e68e8f70d45fc150fc579dd85",
+    "passed": true
+  },
+  "finished_at": 1795228872.704245,
+  "fresh_processes": 5,
+  "distinct_processes": 5,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "wall_side_consistent": true,
+  "passed": false
+}

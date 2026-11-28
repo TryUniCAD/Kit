@@ -1,0 +1,45 @@
+from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.MakePlanarGroup import (
+    MakePlanarGroup,
+)
+from convert.adapters.solidworks.Archive.Construction.AssemblySets.OrderedAsm import (
+    OrderedAsm,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.MakeRectDimPart import (
+    MakeRectDimPart,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.Children.SketchLabelIn import (
+    KSketchLabels,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.Mates.CheckWriteMates import (
+    CheckWriteMates,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.PlanAsmWrite import (
+    PlanAsmWrite,
+)
+from interchange.document.Models.DocumentModel import CadDocument
+
+
+# complete assembly output must reuse the original generated child objects and common ordered mate constructors without any replay source
+def PrepareAssembly(
+    Document: CadDocument,
+    NativePath: str,
+    WrittenAt: int,
+    *,
+    SketchLabels: KSketchLabels | None = None,
+    PublicProfile: bool = False,
+    SequentialProjection: bool = False,
+) -> OrderedAsm:
+    PlanValue = PlanAsmWrite(Document, NativePath, WrittenAt, SketchLabels=SketchLabels)
+    if PublicProfile:
+        CheckWriteMates(PlanValue.Occurrences, PlanValue.MatesValue)
+    ChildValue = MakeRectDimPart(
+        PlanValue.ChildDocument, PlanValue.ChildRecipe, PlanValue.ChildDimensions
+    )
+    return MakePlanarGroup(
+        ChildValue,
+        PlanValue.RootRecipe,
+        PlanValue.Occurrences,
+        PlanValue.MatesValue,
+        PlanValue.FixedIndex,
+        SequentialProjection=SequentialProjection,
+    )

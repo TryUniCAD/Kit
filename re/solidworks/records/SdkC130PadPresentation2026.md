@@ -1,0 +1,24 @@
+# Literal document presentation for a named FreeCAD Pad
+
+Task `B04-SW2026-FCSTD/C130-PRESENTATION`, owner `/root/release_path`, PR #121. The verified exit is source-bound text preparation and strict readback for the established C130 equation-and-axis construction. It depends on the [typed C130 geometry and axes](SdkC130EquationAxes2026.md) and the [ordinary native literal property owner](SdkPartTextProperties2026.md). Whole-source publication remains open. This comparison gives zero new SOLIDWORKS native or benchmark conversion credit. [Guarded receipt](../measurements/2026/SdkC130PadPresentation01.json)
+
+The exact disclosed C130, C123 and C017 saves contain `Label=N10a` and three different literal comments. Their UTF-8 lengths are 65, 64 and 64 bytes. The saves have no GUI-document member and the author rows are empty. The neutral property planner verifies the complete retained archive binding and independently reconstructed metadata and joins the actual single Body, active Pad and profile Sketch. It obtains title and comments from the document property owner. Source dates, license, UUID, schema, release and the checked Show Hidden value remain independent literal custom properties. The existing encoder generates the ordinary native summary and custom XML. The authored title does not replace the requested SLDPRT locator or its time.
+
+Two fresh guarded processes per source compare the actual `Document.xml` text independently with the strict neutral text and the typed native property streams. The full neutral documents give the same source text recipe after JSON serialization and reopening. The two later saves are release contrasts of the same design. They demonstrate the document projection only. The C130 run combines the text with its owned width equation, dormant 10 mm driver, named body and three axes. It emits 10,832 bytes, SHA-256 `274e756af72fe345f5b338a59c56e6a7a77b4f6eceac14d49cb80253ec9221a3`, using the same `C:\KitSdkCandidates\C130-P01.SLDPRT` logical locator and save epoch `1790000000` as the [earlier exact construction](../measurements/2026/SdkC130EquationAxes01.json). All ten earlier logical streams remain byte-identical. Only `docProps/core.xml` and `docProps/custom.xml` are added. Independent source comparison, preparation and strict readback make no file accesses after intake and Python setup.
+
+The earlier property path reopened Config-0 with the ordinary grammar and refused at `moRelation_c` schema 1. On the same two streams and complete physical configuration it yielded no typed text. With the already verified equation-aware graph, both public read modes recover the exact ordinary native title, comments and eight document properties through neutral JSON. Full readback still binds all six axis selections and the 16,000 mm³ solid. The public reader retains geometry and all four drivers when a synthetic malformed custom-property stream withholds both property scopes. An altered neutral title, missing retained document binding and foreign body creator all refuse source projection. Six separate guarded F14a and F14c control processes reproduced the previously native-tested box files. [Independent box control](FreecadOriginBoxAxes2026.md)
+
+Separate base and current reads of the tracked native circle control reproduced the exact whole neutral JSON in both modes. The ordinary part kept one active configuration and three independent literal property scopes. [Native circle property evidence](PartTextPropertyRead2026.md)
+
+Literal title, comments and identity fields are established SDK transfer results. The active sketch's FreeCAD hidden display has a separate owner. `Refine=false` in C130 and `Refine=true` in the later saves produce identical OCCT shape payloads on this single-face profile. The three saves use `AllowMultiFace=true` and have no multi-face discriminator. Neither policy has an established editable native equivalent for these sources. A downstream authored reference needs evidence beyond the existing [26 indexed boundary associations](C130PadReferenceAncestry2026.md). Both ordinary public write routes still refuse the intact C130 source before output.
+
+## Reproduce the guarded comparison
+
+Use the disclosed original-path inventory. The repository's pinned Git-asset research workflow cannot take those external originals directly. This runner verifies the inventory and only the three selected hashes, compares saved values in memory, and reports text digests in the receipt.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/freecad_census/owned_pad/ProveC130Text.py \
+  --inventory /path/to/PublicFcstdWriterCensus01/VerifiedInputs01.json
+```
+
+Add `--candidate /absolute/unused/C130-P01.SLDPRT` to stage the generated candidate outside the checkout after both guarded processes agree. The combined candidate still needs its own measured native open, independent edits, save and fresh reopen before publication can qualify.

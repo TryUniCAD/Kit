@@ -1,0 +1,237 @@
+{
+  "cases": {
+    "resolved_selection": {
+      "atom_map": [
+        [
+          58,
+          103,
+          47,
+          0
+        ],
+        [
+          59,
+          102,
+          40,
+          0
+        ],
+        [
+          60,
+          101,
+          32,
+          1
+        ]
+      ],
+      "contained_bytes": 75510,
+      "container_stream_hashes": {
+        "Contents/3DExperienceExchange2": "e5724f26e64136e753b45e58f07f03f83f1fc87eef7c45565294753240e4d3e5",
+        "Contents/3DExperienceExchange_ConfigHeader": "0507873dcf3587598ccac9f96e141b4f26c4aefe6da084d19a04e1892f57c1ce",
+        "Contents/CMgr": "42a37c575d524ecb7d1902d13cd5a30d364604799bfef664975f841a87d95417",
+        "Contents/CMgrHdr2": "b8683a731bb3a80ade8359c689f50b9a655e85e1184f58542e9d125af4583cdc",
+        "Contents/CnfgObjs": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+        "Contents/Config-0": "53d191804bdfd16747386d0d1b2d081d0ae811c29e890d41bd6aa3cf99937180",
+        "Contents/Config-0-LWDATA": "9830ee52f63e3e58dae7cf2be59468d474104458cb5e3024f85e9b8a895dc827",
+        "Contents/Config-0-ModelHeader": "1fb951a5a304898df0b64400478fdf287ad95179af1eb367c1d5a4c4d3ebfc0c",
+        "Contents/Config-0-Partition": "db270aca8d3fdb8d30734b7175477b7db6c6d49212079714463657e9fd5ac1d6",
+        "Contents/Config-0-ResolvedFeatures": "9e3a00f6d773dc6902a6ebdf334690d3bd42278051d3eca1c0ef0b4a8af53e92",
+        "Contents/CusProps": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+        "Contents/Definition": "4dacff327675d656e0d3a725b7b1183972ef095b314db552a862c1c0759e2be0",
+        "Contents/DisplayLists": "d198ce8320137da9518fc8f722dede090665db92cf90bc53c4d2b6f38d43f437",
+        "Contents/OleItems": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "Contents/PMISemanticDataDB": "45aa7026940f2ae849ed623c85aaeda8b2f70b7d9be3999feaf06d068dc52236",
+        "Contents/eModelLic": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "Header2": "1fb951a5a304898df0b64400478fdf287ad95179af1eb367c1d5a4c4d3ebfc0c",
+        "ModelStamps": "1ae6a1b07d4cf37e11827ccd71a372516179074effc1af6e5fb097bcb5c2a006",
+        "OleItemInformation/OLE_Item_Data": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "Preview": "0a51be33b5207f588a9558a3e33c63cc2349c4021130cfc6ab8c1f9cdc86a63d",
+        "PreviewPNG": "42130040a5c05e246bd6d0f7f5ebf28079ad16528c2bfea4ef2b33577f296e75",
+        "SwDocContentMgr/SwDocContentMgrInfo": "6955c3a46ff9b711e5e8c5169e59c98f0e0a6368d29d78005ef8e5bcc3efdde6",
+        "ThirdPty/Animator": "a3e7d85217ea5fb06af535def6d43d2c9ef0a6f18cab665cb0b8c054c3a2d737",
+        "ThirdPty/CMMotionLoadMapU": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+        "ThirdPty/CM_MOTION_LOAD_1": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ThirdPty/SWA_Schedules": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ThirdPtyStore/VisualStates": "a73632266764337f40a1b27f93fa58ce80bb94119eea39ca3e7b9d1179293aa3",
+        "[Content_Types].xml": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+        "_DL_VERSION_19000/DLUpdateStamp": "c7a6ad92c144d5742afde0bf43203692bdbd8c09dfe9bce366d59653950d9966",
+        "_MO_VERSION_19000/Biography": "a1e5a1364f629935cb4ab674c5806efddb5bdae18d0f28a98ff39c4634258275",
+        "_MO_VERSION_19000/History": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+        "_rels/.rels": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+        "docProps/Config-0-Properties.xml": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+        "docProps/ISolidWorksInformation.xml": "834dde5d0355a80b9080a25e1f1b0fbc534df21d5d3f7e494385728c5dbbdaef",
+        "docProps/OpenTime.xml": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+        "docProps/app.xml": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+        "docProps/core.xml": "4ce3203420b31092ceb556031b451ce71f2c15a33b74d19b3fec255d1c80a163",
+        "docProps/custom.xml": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+        "swXmlContents/Features": "e8182330e4b046bbfc83987c2ab13c0a2b3e540eac1522ba68591b4692fbfda0",
+        "swXmlContents/KeyWords": "8e780fd4c5b62bdcd560b6d0160ccb1b3790849a7245fef54fa64111cb610ed1"
+      },
+      "f544": 1,
+      "has_f548": 1,
+      "initial_consumed_map_slot": 60,
+      "initial_cut_result_map_slot": 58,
+      "initial_unconsumed_map_slot": 59,
+      "linked_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2323,
+          "sha256": "42a37c575d524ecb7d1902d13cd5a30d364604799bfef664975f841a87d95417"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "b8683a731bb3a80ade8359c689f50b9a655e85e1184f58542e9d125af4583cdc"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25378,
+          "sha256": "53d191804bdfd16747386d0d1b2d081d0ae811c29e890d41bd6aa3cf99937180"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2755,
+          "sha256": "1fb951a5a304898df0b64400478fdf287ad95179af1eb367c1d5a4c4d3ebfc0c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 20625,
+          "sha256": "9e3a00f6d773dc6902a6ebdf334690d3bd42278051d3eca1c0ef0b4a8af53e92"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2755,
+          "sha256": "1fb951a5a304898df0b64400478fdf287ad95179af1eb367c1d5a4c4d3ebfc0c"
+        }
+      },
+      "operation_f810": [
+        -1,
+        0,
+        1
+      ],
+      "selected_wrappers": [
+        {
+          "class": "moCompSolidBody_c",
+          "end_offset": 19749,
+          "index": 364,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 19451
+        }
+      ],
+      "source_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3"
+    },
+    "unrestricted": {
+      "atom_map": [
+        [
+          58,
+          103,
+          47,
+          0
+        ],
+        [
+          59,
+          102,
+          40,
+          0
+        ],
+        [
+          60,
+          101,
+          32,
+          1
+        ]
+      ],
+      "contained_bytes": 75140,
+      "container_stream_hashes": {
+        "Contents/3DExperienceExchange2": "943b11014d66a475bc2afc0ebad10444b93d6223ecd169f6cd09b1d1bd9ab68d",
+        "Contents/3DExperienceExchange_ConfigHeader": "dfcf09a35406d98059d321b3d258bbe40732b7cbae35453589095f017000c797",
+        "Contents/CMgr": "fa373a3abd4ad85aa7a27b6a6dec8439690d2334155fc308c2f2feb51d8fcf59",
+        "Contents/CMgrHdr2": "e10b3e778a7398c2ea9c0c77e09be27735f6802c9ae5c3f248159d9f8e604e62",
+        "Contents/CnfgObjs": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+        "Contents/Config-0": "09b7a077e3a057805ab9511f1c6b66be3a9bc75203fdf6d7c88d3280cd9214bf",
+        "Contents/Config-0-LWDATA": "9830ee52f63e3e58dae7cf2be59468d474104458cb5e3024f85e9b8a895dc827",
+        "Contents/Config-0-ModelHeader": "ee4c558b3bd20f6f3aa565cb957a80f8e2ba30d6aec91769b2725811321b030e",
+        "Contents/Config-0-Partition": "e05b74630c377c6a50372aed356baebd4d7f4d9f2899e402dee8e48fa2ab3508",
+        "Contents/Config-0-ResolvedFeatures": "992f2db7d3bdcd63702a06f592370710ef4cc7d2f1e314e226ff56964a634c44",
+        "Contents/CusProps": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+        "Contents/Definition": "4dacff327675d656e0d3a725b7b1183972ef095b314db552a862c1c0759e2be0",
+        "Contents/DisplayLists": "b7d132ff1ae8fad44ce65cbc5b1006c77d7c64297e33f4eacfd61080fc1a82f2",
+        "Contents/OleItems": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "Contents/PMISemanticDataDB": "3e1d75e85b77a68a9ddc882021c7859313d48b8cb7be3b3ff3648cc8d3359c84",
+        "Contents/eModelLic": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "Header2": "ee4c558b3bd20f6f3aa565cb957a80f8e2ba30d6aec91769b2725811321b030e",
+        "ModelStamps": "027cdaa9054c51604d4b95f62020a582fa0c04997ec9202a3bbf35f2abb2b86f",
+        "OleItemInformation/OLE_Item_Data": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+        "Preview": "0a51be33b5207f588a9558a3e33c63cc2349c4021130cfc6ab8c1f9cdc86a63d",
+        "PreviewPNG": "42130040a5c05e246bd6d0f7f5ebf28079ad16528c2bfea4ef2b33577f296e75",
+        "SwDocContentMgr/SwDocContentMgrInfo": "9461fe953bb189c27e2bd0c342e377816aa8b718fb84ecc2c977a5c1b3cf0416",
+        "ThirdPty/Animator": "f6e74aab3ad9a32001c48ff7f8b74442efc2a870ac6b3d1bcbe5eb73b2c20a06",
+        "ThirdPty/CMMotionLoadMapU": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+        "ThirdPty/CM_MOTION_LOAD_1": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ThirdPty/SWA_Schedules": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ThirdPtyStore/VisualStates": "87151a856aed274209ab78863306fb58148870cd27a1533e837859da99a2f6c0",
+        "[Content_Types].xml": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+        "_DL_VERSION_19000/DLUpdateStamp": "c7a6ad92c144d5742afde0bf43203692bdbd8c09dfe9bce366d59653950d9966",
+        "_MO_VERSION_19000/Biography": "2e7532c7ea74f6915a0b7b9ea4559451c4b32a8ef4d6d5aaac37b1b8643f2442",
+        "_MO_VERSION_19000/History": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+        "_rels/.rels": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+        "docProps/Config-0-Properties.xml": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+        "docProps/ISolidWorksInformation.xml": "8ab50b55f431de322fa7714157023fe306211263bcf2347f545ad0fb0e40c9ec",
+        "docProps/OpenTime.xml": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+        "docProps/app.xml": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+        "docProps/core.xml": "c6e596ecafdbccf6dc8a9459aee1231b9bffbc2bbfa29c6965219d7a1072149f",
+        "docProps/custom.xml": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+        "swXmlContents/Features": "668b22f1cf11b70633f3a0cb3c4ca02ff2e8ae75b5e996462dcf0f2e2a1ee73d",
+        "swXmlContents/KeyWords": "3262ff4253a16594778ff38bf6e50285e7b00490593b53bc19299f126516f807"
+      },
+      "f544": 0,
+      "has_f548": 0,
+      "initial_consumed_map_slot": 60,
+      "initial_cut_result_map_slot": 58,
+      "initial_unconsumed_map_slot": 59,
+      "linked_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2323,
+          "sha256": "fa373a3abd4ad85aa7a27b6a6dec8439690d2334155fc308c2f2feb51d8fcf59"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "e10b3e778a7398c2ea9c0c77e09be27735f6802c9ae5c3f248159d9f8e604e62"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25378,
+          "sha256": "09b7a077e3a057805ab9511f1c6b66be3a9bc75203fdf6d7c88d3280cd9214bf"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2755,
+          "sha256": "ee4c558b3bd20f6f3aa565cb957a80f8e2ba30d6aec91769b2725811321b030e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 20625,
+          "sha256": "992f2db7d3bdcd63702a06f592370710ef4cc7d2f1e314e226ff56964a634c44"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2755,
+          "sha256": "ee4c558b3bd20f6f3aa565cb957a80f8e2ba30d6aec91769b2725811321b030e"
+        }
+      },
+      "operation_f810": [
+        -1,
+        0,
+        1
+      ],
+      "selected_wrappers": [],
+      "source_sha256": "f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22"
+    }
+  },
+  "heldout_coverage": 0,
+  "native_files_written": 0,
+  "production_coverage": 0,
+  "schema": "kit.sw2026.disclosed-through-all-saved-scope-contrast.v1",
+  "sealed_payloads_read": 0
+}

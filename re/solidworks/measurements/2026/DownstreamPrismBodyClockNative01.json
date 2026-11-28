@@ -1,0 +1,192 @@
+{
+  "clock_alignment_cleared_warning": false,
+  "clock_comparisons": [
+    {
+      "active_body_atom": 101,
+      "atom_table_ids": [
+        101
+      ],
+      "case": "Prism1MatchingClock",
+      "header_body_counter": 102,
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "kernel_body_stamp": 102,
+      "marks": [
+        4,
+        1,
+        3
+      ],
+      "partition_nodes": 177,
+      "partition_sha256": "fee87afc08b96156249f7937fbe920bd50ab3e6c291e6be6e6420ebfeef8287b",
+      "pre_rebuild_bodies": 0,
+      "rebuilt": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "sha256": "3c6e2216c9ecaff27c8a5897b87653cffa5681df71940c9b7104d27a9eaddd03"
+    },
+    {
+      "active_body_atom": 101,
+      "atom_table_ids": [
+        101
+      ],
+      "case": "Prism1SplitClock",
+      "header_body_counter": 103,
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "kernel_body_stamp": 102,
+      "marks": [
+        4,
+        1,
+        3
+      ],
+      "partition_nodes": 177,
+      "partition_sha256": "fee87afc08b96156249f7937fbe920bd50ab3e6c291e6be6e6420ebfeef8287b",
+      "pre_rebuild_bodies": 0,
+      "rebuilt": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "sha256": "927ce8b9dd6cfe8630be86c794df588bae9818c3951e882458d4fc553dd7a92e"
+    },
+    {
+      "active_body_atom": 101,
+      "atom_table_ids": [
+        101
+      ],
+      "case": "Prism2MatchingClock",
+      "header_body_counter": 102,
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "kernel_body_stamp": 102,
+      "marks": [
+        4,
+        1,
+        3
+      ],
+      "partition_nodes": 177,
+      "partition_sha256": "c09431aad9bb1169095bb1a2f8bbf856a438b9d1c78800deed85ea0a721b5857",
+      "pre_rebuild_bodies": 0,
+      "rebuilt": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "sha256": "28f04257fec77e4b4f1a74138bc7193db4c5eee46a720f24d8c84f992b511bb0"
+    },
+    {
+      "active_body_atom": 101,
+      "atom_table_ids": [
+        101
+      ],
+      "case": "Prism2SplitClock",
+      "header_body_counter": 103,
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "kernel_body_stamp": 102,
+      "marks": [
+        4,
+        1,
+        3
+      ],
+      "partition_nodes": 177,
+      "partition_sha256": "c09431aad9bb1169095bb1a2f8bbf856a438b9d1c78800deed85ea0a721b5857",
+      "pre_rebuild_bodies": 0,
+      "rebuilt": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "sha256": "2b15d12341a4733e95835b1a07910cdd13e29e6976bc5cbe36759ad4e7734e89"
+    }
+  ],
+  "delivery_pr": 121,
+  "healthy_controls": 4,
+  "heldout_inputs_read": 0,
+  "native_runs": 10,
+  "oracle_build": "34.5.2.0604",
+  "raw_receipts_sha256": {
+    "clock": "1e9f6beb566c2a319c97929f422f9c450b3d4945048ed7327bbc38c24474a4cc",
+    "same_shape_save": "827d689ed3d23060316b30ab47c421eb775faae3e76b6e6708f0475ff8db6559"
+  },
+  "same_geometry_native_save": {
+    "generated": {
+      "active_body_atom": 101,
+      "atom_table_ids": [
+        101
+      ],
+      "header_body_counter": 103,
+      "kernel_body_stamp": 102,
+      "marks": [
+        4,
+        1,
+        3
+      ],
+      "partition_nodes": 177,
+      "partition_sha256": "005a1d2ec29b0b9bb3d6eebbb0baf7054e1a42b07692631304b5c0f9bf3ca746",
+      "sha256": "ad58dadd614a8826c211d52bc7ebd93341f96fd46738341fe772e015d9d77dda"
+    },
+    "native_saved": {
+      "active_body_atom": 102,
+      "atom_table_ids": [
+        102,
+        101
+      ],
+      "header_body_counter": 107,
+      "kernel_body_stamp": 107,
+      "marks": [
+        8,
+        1,
+        3
+      ],
+      "partition_nodes": 177,
+      "partition_sha256": "b3ab585f676f4ccb8b0747075328637f186cc8d2f388ec99b85e49d1531c815a",
+      "sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae"
+    },
+    "original_open": {
+      "errors": 0,
+      "opened": true,
+      "warnings": 32
+    },
+    "saved_copy_open": {
+      "errors": 0,
+      "opened": true,
+      "warnings": 0
+    }
+  },
+  "schema": "kit.sw2026.prism-body-clock-diagnostic.v1"
+}

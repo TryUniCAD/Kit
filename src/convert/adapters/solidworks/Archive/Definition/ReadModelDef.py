@@ -21,26 +21,35 @@ from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadSca
 
 # the root must consume the complete stream before its typed settings may be used
 def ReadModelDef(
-    DataValue: bytes, VersionValue: int, *, Assembly: bool = False
+    DataValue: bytes,
+    VersionValue: int,
+    *,
+    OrdinaryOnly: bool = False,
+    Assembly: bool = False,
 ) -> ModelDefRead:
-    ContextValue = ModelDefContext(VersionValue, Assembly=Assembly)
+    ContextValue = ModelDefContext(
+        VersionValue, OrdinaryOnly=OrdinaryOnly, Assembly=Assembly
+    )
     CursorValue = BinaryReader(DataValue)
     ReaderValue = GraphReader(
         CursorValue,
         ArchiveMaps(1),
         PartialValue(ReadBodyMut, ContextValue),
-        RequireCanonicalTags=True,
+        RequireCanonicalTags=Assembly or OrdinaryOnly,
     )
     Prefix: dict[str, object] = {
         RuleValue.NameValue: ReadScalarMut(CursorValue, RuleValue.TypeValue)
         for RuleValue in KDefPrefixFields
     }
-    ClassValue = ReadDefClass(CursorValue.TakeBytes(16), Assembly=Assembly)
+    ClassValue = ReadDefClass(
+        CursorValue.TakeBytes(16), OrdinaryOnly=OrdinaryOnly, Assembly=Assembly
+    )
     DocumentValue = ArchiveNode(ClassValue, Prefix)
     ReadBodyMut(ContextValue, ReaderValue, DocumentValue)
     if CursorValue.GetRemaining() != 0:
         raise BodyUnsupported("SOLIDWORKS model Definition has an unconsumed tail")
-    CheckDefScope(DocumentValue.FieldsValue, Assembly=Assembly)
+    if Assembly or OrdinaryOnly:
+        CheckDefScope(DocumentValue.FieldsValue, Assembly=Assembly)
     ContextValue.UsageValue.IsComplete = True
     return ModelDefRead(
         ModelDefGraph(DocumentValue, VersionValue),

@@ -41,50 +41,76 @@ class ObjectExchange:
 
 # the same ordered properties are visible through both native feature owners
 def SelectionRecord(Folder: SystemFolder) -> OrderedMap:
+    return SelectionFields(Folder.Name, Folder.TreeId, Folder.Feature.UpdateStamp)
+
+
+def SelectionFields(Name: str, TreeId: int, Stamp: int) -> OrderedMap:
     return OrderedMap(
         (
             ("NumSelectionSets", 0),
             ("class", KSelection),
             ("class", KSelection),
-            ("description", Folder.Name),
+            ("description", Name),
             ("hidden", 0),
             ("hidden", False),
-            ("id", Folder.TreeId),
-            ("name", Folder.Name),
+            ("id", TreeId),
+            ("name", Name),
             ("suppressed", 0),
             ("suppressed", False),
-            ("updatestamp", Folder.Feature.UpdateStamp),
-            ("updatestamp", Folder.Feature.UpdateStamp),
+            ("updatestamp", Stamp),
+            ("updatestamp", Stamp),
         )
     )
 
 
 # exchange matrices transpose the native datum basis and retain signed zero
-def ExchangeTransform(Frame: PrincipalFrame) -> OrderedMap:
-    Basis = KIdentity if Frame.Basis is None else Frame.Basis
+def ExchangeTransform(
+    Basis: tuple[float, ...], Offset: tuple[float, float, float]
+) -> OrderedMap:
     Matrix = tuple(Basis[Row + 3 * Column] for Row in range(3) for Column in range(3))
-    return OrderedMap((("class", "mgXform_c"), ("elems", (*Matrix, *KOrigin, 1.0))))
+    return OrderedMap((("class", "mgXform_c"), ("elems", (*Matrix, *Offset, 1.0))))
 
 
 # ordinary exchange datums describe the same origin and normals as the resolved graph
 def DatumRecord(Plane: PrincipalPlane, Frame: PrincipalFrame) -> OrderedMap:
+    Basis = KIdentity if Frame.Basis is None else Frame.Basis
+    return DatumFields(
+        Plane.Name,
+        Plane.TreeId,
+        Plane.Feature.UpdateStamp,
+        Frame.Normal,
+        KOrigin,
+        Basis,
+        KOrigin,
+    )
+
+
+def DatumFields(
+    Name: str,
+    TreeId: int,
+    Stamp: int,
+    Normal: tuple[float, float, float],
+    Origin: tuple[float, float, float],
+    Basis: tuple[float, ...],
+    Offset: tuple[float, float, float],
+) -> OrderedMap:
     return OrderedMap(
         (
             ("class", KPlaneClass),
             ("class", KPlaneClass),
-            ("description", Plane.Name),
+            ("description", Name),
             ("hidden", 0),
             ("hidden", True),
-            ("id", Plane.TreeId),
-            ("name", Plane.Name),
-            ("normal", Frame.Normal),
-            ("point", KOrigin),
+            ("id", TreeId),
+            ("name", Name),
+            ("normal", Normal),
+            ("point", Origin),
             ("subtype", "swRefPlaneSWStandard"),
             ("suppressed", 0),
             ("suppressed", False),
-            ("transform", ExchangeTransform(Frame)),
-            ("updatestamp", Plane.Feature.UpdateStamp),
-            ("updatestamp", Plane.Feature.UpdateStamp),
+            ("transform", ExchangeTransform(Basis, Offset)),
+            ("updatestamp", Stamp),
+            ("updatestamp", Stamp),
         )
     )
 
@@ -116,17 +142,18 @@ def ExchangeToc(Keys: ObjectExchange) -> OrderedMap:
 
 
 # fresh ordinary standalone documents have the measured desktop exchange flags
-KDocument = OrderedMap(
-    (
-        ("ModelDocFrozen", False),
-        ("RenameTitleAsPP", True),
-        ("SaveAsNewCalled", False),
-        ("class", "uiPartDoc_c"),
-        ("platformflag", 2),
-        ("repairDTForDefaultConfigflag", False),
-        ("useEnglishDescriptionForWeldmentCutList", False),
+def ExchangeDocument(ClassName: str) -> OrderedMap:
+    return OrderedMap(
+        (
+            ("ModelDocFrozen", False),
+            ("RenameTitleAsPP", True),
+            ("SaveAsNewCalled", False),
+            ("class", ClassName),
+            ("platformflag", 2),
+            ("repairDTForDefaultConfigflag", False),
+            ("useEnglishDescriptionForWeldmentCutList", False),
+        )
     )
-)
 
 
 # build the records using matching resolved feature names and saved update clocks
@@ -162,7 +189,7 @@ def ExchangeRecords(
             )
         ),
         (KIndexKey, ExchangeToc(Keys)),
-        (str(Keys.Document).encode("ascii"), KDocument),
+        (str(Keys.Document).encode("ascii"), ExchangeDocument("uiPartDoc_c")),
     )
     return tuple((Key, PackExchange(Value)) for Key, Value in Records)
 

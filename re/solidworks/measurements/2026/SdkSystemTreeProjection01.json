@@ -1,0 +1,304 @@
+{
+  "code_manifest_sha256": "d8cdf3a19916dd564c14976bac6c103e958c3d27058c5390ef9b1309b25d5a2e",
+  "code_sources": [
+    {
+      "bytes": 5205,
+      "path": "re/tooling/sw2026/CollectSystemTreeEvidence.py",
+      "sha256": "8d37e58db2760cf92b434a7dc9ec8837f776321d747ff5869af2f852555a5555"
+    },
+    {
+      "bytes": 7234,
+      "path": "re/tooling/sw2026/InspectSystemTreeProjection.py",
+      "sha256": "de4e34835f1b309d5516d5af9dd20b6edd0fb8118985df4018c9d93389b3663a"
+    },
+    {
+      "bytes": 621,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/BindTreeRoot.py",
+      "sha256": "27b38b763c8dab1ee8a590f06114f0b1c3605412087c48d7eb68d9f312916813"
+    },
+    {
+      "bytes": 2270,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckExtras.py",
+      "sha256": "9d135cc96e11c1d75d88429548ba63fabcfa33ada2b9c2f695baba85b61daa29"
+    },
+    {
+      "bytes": 1031,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckMember.py",
+      "sha256": "f66d2f44be23e7fc2c46b75fa9dae97eadd3916955c8828cc801cc037c7d9640"
+    },
+    {
+      "bytes": 2718,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ConfigHelpers.py",
+      "sha256": "a1baecc36151c5ba74b0b1bdf2cf4f8f404eec90757563c33337a2c044eee7de"
+    },
+    {
+      "bytes": 1768,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/DefaultRows.py",
+      "sha256": "ed505c78d5b75915c87332d8c5bf4a9d0f566450622ed7f4740ded798d55aaa3"
+    },
+    {
+      "bytes": 1616,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/NativeRow.py",
+      "sha256": "bda0087fd28bef14be7607b56372a3bc436d8a7532bebfebda6eb8928d4363fe"
+    },
+    {
+      "bytes": 2096,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/OwnedRows.py",
+      "sha256": "b5a29555e661154ded4f58706159d5442ddf1b074b250da541e0597cdd45f3c9"
+    },
+    {
+      "bytes": 3153,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectTree.py",
+      "sha256": "b58e29c011703b160398c31b155f752321e089e6bdea83bb8bdb9a5061e5c7d9"
+    },
+    {
+      "bytes": 1801,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ReadChildren.py",
+      "sha256": "9438e63e5048d022d0f46bbd85b496c818a7e66910e42e3672659a31939d6a5b"
+    },
+    {
+      "bytes": 1975,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/RootOrder.py",
+      "sha256": "55ebb2d8480221970b8fc0e6082fe74f5abda29ce56334301d78dd7975acc702"
+    },
+    {
+      "bytes": 1474,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/SystemState.py",
+      "sha256": "b0bcfebda27d11e2632a0ac8b66a908b0c8c5f6af549f6583095174390228719"
+    },
+    {
+      "bytes": 402,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/TreeProjection.py",
+      "sha256": "68ca09b53ecd24a2b5ceb3df2094d8c91c67a4fd428c2015560b54859d2b0cd3"
+    },
+    {
+      "bytes": 3942,
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/ProjectTyped.py",
+      "sha256": "3f3d53af637eabbb92af9712803da133480d51a33f756d790d73dcef654133b8"
+    },
+    {
+      "bytes": 1200,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/AddUnknownRow.py",
+      "sha256": "4e0ca232d44c18ba99c609e06da8205110cdf524905b3058090e92451d09dce2"
+    },
+    {
+      "bytes": 1745,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/AssertTreeRead.py",
+      "sha256": "c641f691d0f9d97c7aea6929281d58e1c659f1f0e459cb4611cc269592e804d8"
+    },
+    {
+      "bytes": 1666,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/AuthoredOrderTests.py",
+      "sha256": "4c3cc5d377032b1058c3d4182bb1e27bae99d6baa3fec371050e1d6c3e44450b"
+    },
+    {
+      "bytes": 1799,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/AuthoredTreeTests.py",
+      "sha256": "f95134720cb8b038050c3f6f8f818b7bbf0204b9784db8840c1326a5ea8556f2"
+    },
+    {
+      "bytes": 910,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/LegacyTreeTests.py",
+      "sha256": "f3b826fd1d3add3ee650f4a5ae442b76c96d3b964af583d2793560138fc4b482"
+    },
+    {
+      "bytes": 808,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/MakeTreeInput.py",
+      "sha256": "e5ac79506e4a40b2ab8ddf242853b2732680ae0ff38f1762ab68912a50364b79"
+    },
+    {
+      "bytes": 896,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/RunTreeBuild.py",
+      "sha256": "7341e2b8745995f8db3a22ea28b0171fabd0d8fbc0091ea587fc53b844708976"
+    },
+    {
+      "bytes": 1130,
+      "path": "tests/Convert/Solidworks/Research/Resolved/Presentation/TreeGraphTests.py",
+      "sha256": "62e21aee3273abb947ebc337fea059eb3cf0476b9b7ffc96bb9ea77f4c755d23"
+    }
+  ],
+  "delivery_pr": 121,
+  "dependency_files": 5399,
+  "dependency_manifest_sha256": "cb376dfab000a88fdb78af018ee3b88e38db997b68f25654d099db8318c334a0",
+  "disclosed_reader_input_mutations": [
+    {
+      "case": "owned_custom_field",
+      "passed": true,
+      "reader_control_sha256": "a2d12f5a659273ce17f7fae1c326fa77bdf8ce57ef007bab61d75317c245be9a",
+      "rows": 27,
+      "source_kind": "mutated disclosed reader control; no generated-native or vendor-acceptance claim"
+    },
+    {
+      "case": "owned_custom_kind",
+      "passed": true,
+      "reader_control_sha256": "6a0c8d8b362e44f5fe1a366bbeb90460068f817b3ccd95b1337aa1ee8bef6cf7",
+      "rows": 27,
+      "source_kind": "mutated disclosed reader control; no generated-native or vendor-acceptance claim"
+    },
+    {
+      "case": "helper_custom_caption",
+      "passed": true,
+      "reader_control_sha256": "9b25be7bdc282e68b1c434e303fe2c9c014abf86035200395ea7cffda4deb42d",
+      "rows": 27,
+      "source_kind": "mutated disclosed reader control; no generated-native or vendor-acceptance claim"
+    }
+  ],
+  "existing_native_receipt": "re/solidworks/measurements/2026/SdkBlindPartNative01.json",
+  "existing_native_receipt_sha256": "ab532e732f179fac4064f06d5baf34946c977947e74e2ca21de478cbaa388fbc",
+  "frozen_replay_sha256": "92ecb6125de3ec4556a3d3fbb006356345e06347f9ff92ca8ead156823423f93",
+  "heldout_inputs_read": 0,
+  "integration_cases": [
+    {
+      "case": "existing_typed_read",
+      "child_process_launches": 4,
+      "elapsed_seconds": 2.5362839170265943,
+      "passed": true
+    },
+    {
+      "case": "independent_default_prisms",
+      "child_process_launches": 4,
+      "elapsed_seconds": 2.0739587089046836,
+      "passed": true
+    },
+    {
+      "case": "unowned_helper_like_rows",
+      "child_process_launches": 4,
+      "elapsed_seconds": 1.978237209143117,
+      "passed": true
+    },
+    {
+      "case": "authored_folder_order",
+      "child_process_launches": 2,
+      "elapsed_seconds": 0.9642466250807047,
+      "passed": true
+    },
+    {
+      "case": "older_18000_control",
+      "child_process_launches": 1,
+      "passed": true
+    }
+  ],
+  "integration_child_process_launches": 15,
+  "older_control": {
+    "archive_version": 18000,
+    "native_tree_added": false,
+    "public_timeline_rows": 39,
+    "typed_profile_status": "unsupported"
+  },
+  "owner": "configuration_header",
+  "paired_public_read": {
+    "cases": [
+      {
+        "configuration_helpers": [],
+        "driving_depth_mm": 12.750000000000002,
+        "exact_tree_field_comparisons": 75,
+        "implicit_roles": [
+          "notes.head",
+          "notes.end",
+          "light.ambient",
+          "light.directional.1",
+          "light.directional.2",
+          "light.directional.3"
+        ],
+        "parametric_rows": 19,
+        "persisted_child_ids": [],
+        "persisted_scalar_and_partner_checks": 0,
+        "presentation_rows": 25,
+        "public_document_sha256": "dcb3e6cfc8a2f55cf030c26943591d8dc63bc9b7a3e74427053f7f3dfe0ede20",
+        "role": "before",
+        "source_sha256": "750261e28691593f0163c172498ea3c5760a5c29fa231d4a5a9f8f309aaebe9d"
+      },
+      {
+        "configuration_helpers": [
+          {
+            "class": "moSheetMetalMaster_c",
+            "owner_field": "f1018",
+            "stored_node_id": -1
+          },
+          {
+            "class": "moPrtExplViewManager_c",
+            "owner_field": "f13f8",
+            "stored_node_id": 31
+          }
+        ],
+        "driving_depth_mm": 16.625,
+        "exact_tree_field_comparisons": 75,
+        "implicit_roles": [],
+        "parametric_rows": 19,
+        "persisted_child_ids": [
+          29,
+          30,
+          25,
+          26,
+          27,
+          28
+        ],
+        "persisted_scalar_and_partner_checks": 293,
+        "presentation_rows": 25,
+        "public_document_sha256": "b6a36814e5320b0048301ea31a34d712c42f86b9f41c0ebec70f3701ba409f9c",
+        "role": "saved",
+        "source_sha256": "16b7cfa11d4d76612b84c53abc4f0ea6229bbdb0800dc38fc355ed1796f54dd0"
+      }
+    ],
+    "full_native_tree_qualified": false,
+    "heldout_inputs_read": 0,
+    "modeling_identity_kind_order_links_equal": true,
+    "native_processes_started": 0,
+    "native_receipt_sha256": "ab532e732f179fac4064f06d5baf34946c977947e74e2ca21de478cbaa388fbc",
+    "observer_sha256": "de4e34835f1b309d5516d5af9dd20b6edd0fb8118985df4018c9d93389b3663a",
+    "passed": true,
+    "public_reader_processes": 2,
+    "public_writer_qualified": false,
+    "schema": "kit.sw2026.sdk-system-tree-projection.v1",
+    "scope": "Exact observed name/type/parent order on the disclosed generated and saved ordinary part; no runtime status or arbitrary application-default policy qualification",
+    "source_immutable": true
+  },
+  "passed": true,
+  "policy_and_static": {
+    "black": "passed",
+    "donor_scan": "passed",
+    "donor_src_files": 3975,
+    "pyright": "passed",
+    "ruff": "passed",
+    "steering": "passed",
+    "strict_mypy": "passed"
+  },
+  "production_corpus_count": 0,
+  "qualification": {
+    "arbitrary_session_default_policy": false,
+    "authored_caption_parity": false,
+    "custom_tree_layouts": false,
+    "full_native_tree": false,
+    "heldout_acceptance": false,
+    "implicit_defaults_have_native_ids": false,
+    "modeling_identity_kind_order_and_links_stable": true,
+    "modeling_rows_per_input": 19,
+    "native_runtime_status_flags": false,
+    "observed_presentation_fields": [
+      "name",
+      "type",
+      "parent",
+      "order"
+    ],
+    "paired_presentation_field_comparisons": 150,
+    "persisted_child_ids_are_source_values": true,
+    "persisted_scalar_and_partner_checks": 293,
+    "public_writer": false,
+    "tree_rows_per_input": 25
+  },
+  "replay_driver_sha256": "cb05cc0f30b508ced3673bed43cb8b17cb2987037fd8ff6075bfebbff10cfc91",
+  "schema": "kit.sw2026.sdk-system-tree-projection-acceptance.v1",
+  "source_evidence": "re/solidworks/records/SystemTreeProjection2026.json",
+  "source_evidence_sha256": "9ff71fc3fa0b65094b9172f2d8c82f0c513306f7de387a549d9164c99a5b86ac",
+  "source_inputs_immutable": true,
+  "task_id": "B04-SW2026-TREEPROJ",
+  "tools": {
+    "black": "26.10.1",
+    "mypy": "2.4.1",
+    "pyright": "1.1.414",
+    "python": "3.13.15",
+    "ruff": "0.17.4"
+  },
+  "unit_tests_executed": 0,
+  "vendor_processes_started": 0
+}

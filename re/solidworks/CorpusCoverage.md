@@ -1,18 +1,1114 @@
 # FCStd to SOLIDWORKS corpus coverage
 
-Status: **no SOLIDWORKS output**. Kit reads SOLIDWORKS files and writes none. FCStd to SLDPRT or
-SLDASM conversion raises `AdapterNotFoundError` for all 165 repository FCStd files. The writer
-measured below re-emitted one recorded vendor stream per family, so it was removed from production.
-See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
+Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
+The generative writer publishes the measured scopes listed in the
+[SOLIDWORKS adapter guide](../../Documentation/Reference/Adapters/Solidworks.md#writing).
+Published scopes include exact selected-stock cuts, one width-driven
+boss, measured fixed-centre circle and signed principal offset-plane
+bosses, measured principal, end-mode and thin revolves, and measured
+standalone geometry-only imports. The linked native-authored
+experiments qualify those bounded constructions independently of the
+FCStd benchmark.
+The historical FCStd audit below used the retired stream-replay writer.
+[Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
+[Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
+[Periodic import](../../Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
+[Rectangular import](../../Documentation/Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
+· [Strict imported solid round trips](records/SdkColdImportRoundTrip2026.md)
+[Selected two-stock writer](../../Documentation/Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksSelectedTwoStockWriter.md)
+[Partial boss revolve writer](../../Documentation/Changes/Solidworks/Construction/Parts/SolidworksPrincipalRevolveWriterRegistration.md)
+[Recorded payload removal](../../Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md)
 
 The figures below are the last audit of that removed writer. They record which source histories it
 accepted and which oracle checks it passed. They are research evidence for a generative serializer,
 not current capability.
 
+## Generative 2026 research
+
+The published decimal placement cohort adds 69 distinct version-19000
+parts with exact typed replay of fifteen document members, both Parasolid
+partitions and KeyWords in each file. The sources carry both signed
+directions on each principal plane. These 1,242 archive comparisons add
+zero FreeCAD benchmark conversions or independent native writer cases.
+[Archive evidence](records/DecimalPlacementArchive2026.md)
+
+Two disclosed intact FreeCAD baked boxes now generate the exact prior
+native-tested local-body archives in memory. The source gate checks the
+actual imported feature and linked shape, rejects the live parametric
+box and identifies the four untransferred source capabilities. The
+registry and independent held-out evaluation remain open. These
+disclosed probes add zero benchmark conversions.
+[Intact baked source evidence](records/IntactBakedImport2026.md)
+
+The original independent chamfer and full-ellipse pairs pass cold
+open, clean rebuild, driving edits and fresh reopen. The chamfer
+pair passes 230 paired comparisons. The ellipse pair passes 128.
+Each batch retains its original pre-writer locks and both bracket
+controls. These native-authored studies add zero benchmark conversions.
+[Chamfer evidence](measurements/2026/EdgeChamferSealedNative03.json)
+· [Ellipse evidence](measurements/2026/EllipseColdSealedNative01.json)
+
+The native equal-distance and two-distance chamfers passed both
+pre-writer locked cases. Both generated parts rebuilt, accepted
+their independent driver edits, and reopened with the full feature tree.
+The six-process writer evaluation passed 141 paired numerical comparisons
+against native sources. These native-authored cases add zero benchmark
+conversions.
+[Distance source lock](measurements/2026/ChamferDistancePairHeldoutSource01.json)
+· [Generated evaluation](measurements/2026/ChamferDistancePairHeldoutNative01.json)
+
+Two pre-writer locked Standard sweep parts passed both independent D1
+edits and both fresh reopens. Twelve measured processes included both
+healthy controls and 168 paired numeric comparisons. Six guarded SDK
+processes also reproduced the two separately disclosed native-tested
+archives from typed portable sweep documents. These cases use native
+SOLIDWORKS originals. [Held-out lifecycle](measurements/2026/OrdinarySweepColdNativeHeldout01.json)
+[Typed document parity](measurements/2026/SdkPortableSweepDoc01.json)
+
+Four disclosed [principal-plane boss revolves](measurements/2026/SdkPrincipalRevolveNative01.json)
+match their native source shapes and reported feature trees through
+open, live D1 edit, save and fresh reopen. Both controls pass
+across ten distinct processes. The guarded SDK preparation uses
+authored neutral documents and no runtime input reads. These
+native discovery cases add zero FCStd conversions.
+
+Two [independently locked Top and Right boss revolves](measurements/2026/SdkPrincipalRevolveHeldoutNative01.json)
+also pass with the 25-row recursive trees, the selected axis and
+live D1. The 36 paired mass-property values match at the measured
+precision and the 80 observed streams replay exactly. The two
+source shapes are authored native controls for the principal-frame
+writer rule. The FCStd conversion count remains unchanged.
+
+The [ordinary end-mode source trials](records/RevolveEndSources2026.md)
+measure actual Mid Plane and Two Directions owners on the pinned native
+2026 build and lock four independent authored inputs before writing those
+modes. They provide no new generated writer or FCStd cases.
+
+The [planar assembly root projection](records/SdkPlanarRootSourceProjection2026.md)
+composes both disclosed source root/mate graphs in guarded research builds.
+The independent model/file names and visual state store still block complete
+original-source writing. Neither assembly counts toward the FCStd benchmark.
+
+The default planar assembly trial opens the generated parent and child,
+applies a mate dimension edit,
+saves both files and opens them again in a fresh process. Four native
+processes pass 360 checks and both controls are healthy. Fresh macOS
+and Windows SDK processes preserve the mates and three child dimensions
+and replay 13 saved streams exactly. The disclosed neutral pair adds
+zero FCStd corpus cases. [Planar registry native trial](records/SdkPlanarRegistryReadbackRecovery2026.md)
+
+The [generated concentric persistence trial](measurements/2026/ConcentricPersistenceNative01.json)
+passes clean open, live depth editing, paired save and fresh reopen under the ordinary application
+preference. Both controls pass across four distinct processes and the generated parent retains
+two solids with their live mate. This disclosed neutral assembly adds zero FCStd corpus cases.
+
+The [disclosed radial concentric assembly](measurements/2026/ConcentricRadialAssemblyNative01.json)
+meets the same native lifecycle with the true driving radius and four lights. Both controls pass.
+The two initial and two native-saved files reproduce all 16 measured linked streams exactly.
+The held-out source bridge remains open and the FCStd conversion counts remain zero.
+
+A later [radial visibility contrast](measurements/2026/ConcentricRadialDisplayNative01.json)
+keeps the generated child and the two destination locators fixed. Both
+new mixed display states survive native rebuild, a driving depth edit,
+paired save and fresh reopen. All five fresh processes pass. This adds
+zero original FCStd corpus cases.
+
+The [single-store trials](measurements/2026/ConcentricRadialDisplayStoresNative01.json)
+show the generated parent retains both named states through the same
+lifecycle with its binary VisualStates stream alone. Native save
+populates the initial XML. The isolated XML change opens cleanly and
+exposes only the default state with both controls healthy.
+
+The [signed wrapper trial](measurements/2026/ConcentricSignedWrapperNative01.json)
+passes two complete disclosed native assembly lifecycles, including the
+tilted anti-aligned mate with rotation locked. The saved archive retains the
+ordered signed axes and rim ranges. These add zero FCStd benchmark cases.
+
+The [shared concentric assembly preparation](measurements/2026/AggregateConcentricPreparation01.json)
+builds the parent and child of both previous native-tested pairs from neutral
+geometry, occurrences, selected faces and authored scene settings. All 47
+streams match. Strict child reads retain both D1 owners. Public concentric
+publication and held-out generated acceptance remain open.
+
+The [aggregate offset-plane verification](records/AggregateOffsetDatumDelivery2026.md)
+reproduces the two original held-out parts and the disclosed Front, reversed
+Top and Right cases through the normal SDK routes. The Windows replay retains
+the original guest-local custody. The signed datum and both attached feature
+drivers survive strict reads. These cases add zero original FCStd benchmark
+entries.
+
+The [cold offset-plane round trip](measurements/2026/SdkOffsetColdReadback01.json)
+republishes the three disclosed Front, reversed Top and Right artifacts from
+full and design-only reads, including neutral JSON round trips. The six
+isolated workers verify all 72 complete outputs and 144 pre-write refusals
+with zero writer input reads. This replay adds zero original FCStd benchmark
+entries.
+
+The [generated attached Top-plane box trial](measurements/2026/AttachedTopBoxGeneratedNative01.json)
+derives three editable SOLIDWORKS parts from the disclosed F14c inputs
+under three FreeCAD releases. Eight native processes pass all 1,089 candidate
+comparisons through independent edits, native saves and fresh reopens.
+The initial files read strictly back to their signed geometry in Kit.
+The [locked native-source evaluation](measurements/2026/AttachedTopBoxHeldoutNative01.json)
+passes two independent signed boxes and both controls in six fresh processes.
+Both articles retain three independently editable dimensions, the signed
+solid and the feature history through save and reopen. Public registration
+for the locked cases and original FCStd benchmark membership remain open.
+The native holdouts and disclosed trials add zero benchmark conversion credits. The
+[shared FreeCAD projection and constructor](measurements/2026/FreecadAttachedBoxSharedBuild01.json)
+reproduce six exact containers and 72 stream digests with zero runtime input
+reads. At that checkpoint the public SDK rejected all three full FreeCAD
+inputs before writing. The [intact 0.21.2 owner proof](measurements/2026/OriginalFcstdAttachedBoxOwners01.json)
+joins all three source shape payloads and full boundary incidence to the
+strict target and independently verifies the three editable drivers.
+The original archive payload and binding, provenance and round-trip
+metadata remain unsupported transfers. This disclosed source has
+unverified historical roster membership.
+
+The [intact attached-box planner](measurements/2026/IntactFreecadAttachedPlan01.json)
+rederives the full 0.21.2 F14c neutral model and its source binding in
+memory before generating the same measured 12-stream part. It preserves
+the intact source beside the clean model and rejects altered parameters,
+crossed shape owners and the origin-fixed F14a control. At that checkpoint
+explicit and inferred public writes rejected the source. This adds zero
+benchmark conversions.
+
+The [origin datum audit](records/FreecadAttachedOriginAxes2026.md) retains
+three actual source axis owners in the typed plan and confirms that none
+occurs in the earlier measured native part. The normal SDK and CLI rejected
+that projection. Source archive attribution and selectable geometry have
+separate evidence. The recorded roster and conversion counts stay open.
+
+The [three-axis research candidate](records/AttachedBoxAxisCandidate2026.md)
+emits the actual named and signed datum roots beside the editable box.
+The [controlled native lifecycle](measurements/2026/AttachedBoxAxesNative01.json)
+passes all four SOLIDWORKS 2026 SP05.2 processes. The original box and
+three independently edited states save and reopen with all three axes
+selectable and linked to their native support planes. The
+[strict SDK readback](measurements/2026/AttachedBoxAxesSdkRead01.json)
+preserves the same analytical solid, native history and six plane
+selections through neutral JSON. The [public writer](measurements/2026/AttachedBoxAxesSdkPublication01.json)
+regenerates all 12 streams from the intact source with zero runtime
+input reads in six SDK and adapter entry points. Four [Windows file publications](measurements/2026/AttachedBoxAxesWindowsPublication01.json)
+produce the same 10,707 bytes through explicit and inferred SDK and
+CLI routes. The disclosed F14c case has unverified historical roster
+membership and adds zero held-out or corpus conversion credits.
+
+The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
+loads two model-generated, independently measured solid payloads with
+healthy controls. This verifies kernel geometry for those disclosed
+shapes. All four [completed imported part probes](measurements/2026/GeneratedLocalBodyPartCompleted01.json)
+also pass native cold open, rebuild, save and fresh reopen with their actual
+owned solids. These disclosed inputs contribute zero original FCStd
+benchmark conversions.
+
+The [cylinder exchange extension](measurements/2026/GeneratedLocalCylinderExchangeNative01.json)
+loads two generated periodic bodies and retains their geometry through
+native rebuild. Both cases pass 76 checks with eight healthy controls.
+The [completed cylinder parts](measurements/2026/GeneratedLocalCylinderPartNative01.json)
+pass native open, rebuild, save and fresh read-only reopen with 304
+candidate measurements and six healthy controls. This adds zero
+original FCStd benchmark conversions.
+
+The [sealed periodic source lock](measurements/2026/SealedPeriodicImportedSourceLock01.json)
+keeps two independently authored oblique cylinder parts private in
+Windows before implementation of the typed neutral B-rep constructor.
+All eight periodic source observations and both controls pass in six
+fresh processes. These originals contribute zero generated outputs.
+
+The [neutral cylinder constructor](measurements/2026/SdkBareCylinderComposition01.json)
+reproduces both disclosed native-tested archives and two planar
+controls from typed boundaries. The signed oblique radius contrast
+passes strict geometry readback and changes the LocalBodies length.
+Eight unrepresented boundary cases refuse. The sealed originals
+remain in guest custody at this construction checkpoint.
+
+Both [sealed cylinder geometry candidates](measurements/2026/SealedPeriodicCylinderLocalNative01.json)
+pass the paired open, rebuild, save and fresh reopen with all 456
+numeric checks and two healthy controls across eight processes. The
+receipt lists omitted source document domains. A separate
+[normal writer native trial](measurements/2026/SdkPublicPeriodicNative01.json)
+passes 152 candidate checks with two healthy controls. These results
+add zero FCStd benchmark conversions.
+
+The [normal rectangular import trial](measurements/2026/SdkPublicRectangularNative01.json)
+passes 116 candidate checks across clean native open, rebuild, save and
+fresh reopen, with two healthy controls. Its disclosed neutral input
+adds zero FCStd benchmark conversions.
+
+The [paired default rectangular trial](measurements/2026/SdkSealedBareRectangleNative01.json)
+uses the two previously evaluated pre-writer locks. Both geometry-only
+outputs pass clean native save and fresh reopen and both strict SDK
+readbacks. The recheck preserves the earlier comparison receipt and
+binds the eight distinct native processes. These cases add zero original
+FCStd benchmark conversions.
+
+The [locked revolve comparison](measurements/2026/SdkLockedRevolveNativeComparison01.json)
+matches the original and the model-only SDK candidate in all three
+observed stages with healthy controls. It reuses a previously released
+intent and leaves whole-source admission and independent coverage open.
+It adds zero FCStd benchmark conversions.
+
+The [locked through-all candidate](measurements/2026/SdkLockedThroughAllNativeComparison01.json)
+passes native stock-depth editing, save and fresh reopen. Its source
+comparison reports a mismatch in the stock extrusion's secondary depth.
+This case receives zero held-out and FCStd benchmark credit.
+
+The [second locked through-all candidate](measurements/2026/SdkLockedThroughAllScopedParity01.json)
+matches all six scoped source snapshots with two healthy controls.
+The explicitly selected stock retains its native driver and solid
+through the edit, save and fresh reopen. Complete source transfer and
+continuous automatic scope remain open. The case adds zero FCStd
+benchmark conversions.
+
+The [disclosed two-stock scope trial](measurements/2026/ThroughAllMultiStockScopeObserved01.json)
+found the same single native stock owner after the automatic creation
+request and after an edit moved the other solid into the tool. The edited
+solid remained intact in both lifecycles. The explicit authoring arm
+failed at creation and the trial contributes zero benchmark conversions.
+
+The [two-stock writer source lock](v2026/heldout/TwoStockWriterSourceLock01.json)
+pins two independent 2026-authored source parts ahead of writer
+implementation. Both controls and both source edit lifecycles passed.
+The generated-output total remains zero for this lock.
+
+The [neutral owner graph](measurements/2026/TwoStockColdOwnerGraph01.json)
+constructs the two provisional stock records, both editable depth owners
+and the explicit cut selection. All ten model-derived streams survive
+in-memory container readback.
+
+One [disclosed generated two-stock part](measurements/2026/TwoStockColdNative01.json)
+passed native rebuild, the unrelated depth edit, save and fresh reopen.
+Both native controls passed. Complete strict SDK readback and the two
+locked inputs were pending at this experiment. This adds zero benchmark
+conversions.
+
+The [cache-free reader proof](measurements/2026/TwoStockColdRebuild01.json)
+rebuilds both analytic solids from the generated archive's actual
+owners. Initial and edited geometry matches the disclosed native
+measures. The reader also resolves an independently generated
+second-stock selection.
+
+The [saved two-stock SDK trial](measurements/2026/TwoStockSavedSdkRead01.json)
+reads both editable depths and the selected cut from the original
+disclosed source and three derivatives saved by SOLIDWORKS.
+The native controls and separate edits to each depth passed.
+This contributes zero original FCStd benchmark conversions.
+
+The [combined strict SDK proof](measurements/2026/TwoStockCombinedSdkRead01.json)
+confirms both solid owners and the selected cut through the normal reader
+for the cache-free generated archive and all three native-saved derivatives.
+Twenty-three guarded processes recorded zero external accesses.
+
+The [independent two-stock comparison](measurements/2026/TwoStockWriterHoldoutNative02.json)
+qualifies both original locks for the scoped model-only preparer. Both
+full 29-row native trees, the selected cut, editable depths and 144
+numeric checks passed through clean rebuild, save and fresh reopen.
+The identical writer reran with the source authoring tool's pinned datum
+labels after a [first projection mismatch](measurements/2026/TwoStockWriterHoldoutNative01.json).
+The [public SDK receipt](measurements/2026/TwoStockQualifiedWriterIntegration01.json)
+reproduces both native-tested artifacts from their locked neutral
+requests. The original FCStd conversion counts remain zero.
+
+The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
+passes native mid-plane and two-direction source parity, driving edits,
+save and reopen across 14 processes. Strict SDK readback reaches 20
+exact linked streams. Both generated mid-plane saves stop on the
+exact centre comparison. The [supplemental centre check](measurements/2026/SdkEndConditionCentreReadback01.json)
+binds both portable values to the same native point and passes all
+twelve reads and 24 linked streams. The [normal writer registration](measurements/2026/SdkCircleEndRegistration01.json)
+reproduces both native-measured generated hashes through path and stream
+writes and preserves the two previously admitted blind outputs. The
+[default strict reader](measurements/2026/SdkColdCircleEndReadback01.json)
+reconstructs both freshly generated solids from their actual typed
+drivers and signed stations without a geometry cache. These are native
+SOLIDWORKS sources outside the FCStd corpus.
+
+Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
+also pass geometry projection, generation and the full native lifecycle.
+The receipt records the omitted source domains. [Supplemental SDK readback](measurements/2026/SealedImportedLocalGeometryReadback01.json)
+checks their original, generated and saved bodies and reproduces 30 linked
+streams. These SOLIDWORKS inputs contribute zero FCStd benchmark conversions.
+
+Three [disclosed note-pair projections](measurements/2026/ImportedPartNotesNative01.json)
+keep the original ordered 24-row cold feature trees across native open
+and fresh reopen. Native saves preserve both note owners and chronology,
+the supplied scene and the generated property owners. Both controls
+pass across eleven native processes. These disclose presentation coverage
+for the scoped local import and add zero FCStd benchmark cases.
+
+The [locked annotation comparison](measurements/2026/SealedImportedAnnotationManagers01.json)
+extends the same two sealed native imports. Both preserve the original
+ordered native cold tree and the saved empty notes and exploded-view
+owners through all 232 candidate checks. These are native source cases
+outside the FCStd benchmark.
+
+The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
+preserve a live sketch-dimension dependency across edits, saves and fresh reopens.
+The original and edited guest-only inputs are locked before writer implementation.
+The FCStd counterpart still needs source dependency binding and generated acceptance.
+
+The [generated local equation reference trial](measurements/2026/WidthDepthLocalReferenceNative01.json)
+opens one disclosed part with a solid and an enabled width-to-depth equation.
+The rebuild after editing the width fails. The native held-outs stay sealed.
+
+The [later same-locator equation trial](measurements/2026/WidthDepthSameLocatorNative01.json)
+passes both generated arms with healthy controls. The reference arm's
+linked depth updates after a width edit and persists through native
+save and fresh reopen. The disclosed native trial adds zero FCStd cases.
+
+One [pre-writer-locked native equation case](measurements/2026/WidthDepthLockedEvaluationNative01.json)
+also passes the generated edit, native save and fresh reopen. Both
+controls pass across four distinct processes. This qualifies the
+scoped neutral-to-native local equation and adds zero FCStd cases.
+
+The [normal SDK reader proof](measurements/2026/SdkLocalWidthDepthRead01.json)
+preserves the resolved width-to-depth dependency and typed provenance in
+four disclosed files, including the native-edited generated part. It
+refuses typed dependency publication for either crossed or missing
+owners. The generated cache-free file uses a geometry-free read for this
+proof. This adds zero FCStd corpus cases.
+
+A [strict read extension](measurements/2026/SdkColdWidthDepthGeometry01.json)
+matches the cache-free generated equation part and its plain control
+in topology, volume, area and centre of mass. Two saved controls retain
+their native payloads and nine faults refuse strict reconstruction.
+
+The [normal equation writer](measurements/2026/SdkPublicWidthDepthWriter01.json)
+reproduces the exact [native-tested ordinary recipe](measurements/2026/SdkWidthDepthPreparationNative01.json)
+for an explicitly anchored neutral rectangle. The independent driving
+edit, save and reopen pass with both controls. These disclosed checks
+add zero FCStd benchmark conversions.
+
+Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
+matched their pre-registration locked native sources through rebuild, scale
+edit, save and fresh reopen. The guarded builds use independently authored
+neutral drawing inputs and generate all seven streams. These are drawing
+layout acceptance cases outside the FCStd part and assembly benchmark.
+
+The [internal SDK plain note](measurements/2026/SdkPlainDrawingNoteConstruction01.json)
+reproduces two disclosed note containers and fourteen logical streams across
+four guarded workers. Its first exact container passed the disclosed note text
+and position lifecycle. Five further generated cases exercise the
+[document display controls](measurements/2026/DrawingPlainNoteDisplayFlags01.json).
+They retain the actual note data and ordered tree while the viewport still
+omits the note. The [native edit diagnostic](measurements/2026/DrawingPlainNoteMemoryChanges01.json)
+measures temporary redraw pixels followed by an identical blank image after rebuilding.
+A separate [nine-process omission comparison](measurements/2026/DrawingNoteViewportCache01.json)
+retains identical presentation when all three saved graphics streams are omitted
+from the disclosed native drawing. Original source admission and held-out note acceptance remain
+open. These drawing samples add zero generated FCStd conversions.
+
+The independent research composer generates fresh native containers and streams
+from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs.
+Its research results remain separate from public SDK and FCStd acceptance.
+
+The [native single-solid body reader](measurements/2026/SdkNamedBodyRead01.json)
+preserves the actual name and B-rep design-body link in four disclosed native
+saves. All 22 process checks pass. These are reader inputs and add zero generated
+FCStd conversions.
+
+The [property-section drawing comparison](measurements/2026/DrawingBlankPropertySectionsNative01.json)
+generates the native text-section and name-dictionary framing from neutral
+sheet values. Two guarded builds agree with zero runtime input reads. The
+corrected complete blank opens, rebuilds and accepts a scale edit, then
+returns SaveAs error 1. Four reference lanes save and reopen in the
+nine-process batch. This experiment adds zero production conversions.
+
+The [appearance repair measurement](measurements/2026/FreshPartModelAppearance.json)
+first opened the generated H3 part with its sketch and extrusion suppressed and
+zero bodies. The
+[configuration progress measurement](measurements/2026/FreshPartConfigurationProgress.json)
+now opens and regenerates a fresh generated H3 part into one solid without
+intervention, with zero errors or warnings between healthy original controls.
+The locked input hashes remain unchanged. The subsequent
+[three-case native batch](records/PolygonNativeMeasurements2026.md) passes
+baseline geometry, live depth edits, save and fresh-process reopening for the
+triangle, pentagon and heptagon, with healthy controls and zero errors or
+warnings. This is the measured polygon subset only. No native assembly,
+broader feature coverage or FCStd conversion is counted.
+
+The later [canonical-flag measurements](measurements/2026/PolygonCanonical/README.md)
+measure the three changed material-flag outputs directly, without transferring the
+older files' acceptance. All three input hashes match the generated files from
+CI artifact `14186359068` at `8d786b341ed291ee7e47fc1964ce7bc64014df04`.
+Geometry, selected views, a depth edit, save and fresh reopening pass between
+healthy controls. All 72 independent scalar comparisons pass, and all 90
+standard-view arrays match the controls.
+Full feature-name preservation fails: each reopened copy renames its material folder.
+Initial-camera parity remains unestablished.
+These are three measured polygon research outputs and zero completed FCStd conversions.
+
+Two [generated free-circle sketches](measurements/2026/CircleSketchInspection01.json)
+passed four native load/rebuild/save/fresh-reopen phases and 48 numeric/frame checks.
+Two [free-center radial sketches](measurements/2026/RadialSketchInspection01.json)
+and two [fixed-center radial sketches](measurements/2026/FixedCircleInspection01.json)
+each passed six native phases and 104 numeric/frame checks, including driving radial edits.
+The fixed-center inputs were fully constrained and retained the exact native center relation.
+Two [generated blind circle bosses](measurements/2026/CircleBossInspection01.json)
+then passed six native phases and 200 numeric checks, including one solid body,
+volume, area, center of mass, radial/depth edits, saves and fresh reopens.
+Two further [Right/Top principal-frame bosses](measurements/2026/CirclePrincipalInspection01.json)
+passed six native phases and another 200 numeric checks, including independent radial/depth edits,
+saves and fresh reopens. Their positive generation records passed all sixteen archive comparisons;
+the same remote job separately failed its saved-reader gate and is not counted as green.
+Every native batch had healthy original controls; all numeric comparisons matched to six significant figures.
+These are bounded generated research rungs, not completed family acceptance or FCStd conversions.
+Vendor-saved copies are derivatives and do not increase the generated-output count.
+The six original Front-plane vendor-saved derivatives passed [54 archive comparisons and
+108 numeric/frame checks](measurements/2026/SavedCircleReaderProcesses3d782d.json); these
+reader inputs add zero generated-output cases. A [new inspection of the unchanged four bosses](measurements/2026/CircleInitialInspection01.json)
+then passes all twelve phases with one body and active named sketch/boss features before any explicit rebuild,
+plus all 400 rebuilt geometry/frame/mass/edit comparisons between healthy controls. This adds no generated cases.
+Initial viewport/camera and complete presentation remain unestablished for the circle bosses.
+
+Two [disjoint circle-set sketches](measurements/2026/CircleSetInspection01.json)
+passed four controlled native phases and all 72 numeric/frame checks, with two/four requested circles,
+an active sketch, zero requested bodies, rebuild, save and fresh reopen. Their [remote generation](measurements/2026/CircleSetProcessesF00d6e.json)
+passed sixteen byte comparisons; equal-length names, the same plane and an unchanged two-circle prefix
+isolate the resolved-stream growth from 6,795 to 7,607 bytes while Config-0 stays at 21,138.
+These two generated research inputs still add zero completed FCStd conversions and no held-out family acceptance.
+
+Two [ordinary signed open-arc sketches](measurements/2026/OpenArcInspection01.json)
+passed four controlled native phases and all 64 numeric/frame checks, including both endpoints,
+positive/negative native rotation, rebuild, save and fresh reopen. Their
+[remote generation](measurements/2026/OpenArcProcesses61622d.json) passed sixteen complete byte comparisons
+with strict process/read guards. Controls were healthy and inputs immutable. These are two bounded free-sketch
+research outputs, with zero requested bodies and zero new completed FCStd conversions or held-out family acceptance.
+
+Two [mixed line/arc capsule sketches](measurements/2026/MixedCurveInspection01.json)
+then passed four phases, all 124 numeric/frame checks and actual shared native identities at all four joins.
+Their [process receipt](measurements/2026/MixedCurveProcesses26c200.json) retains sixteen complete comparisons,
+strict read guards and nineteen unchanged prior neutral outputs across the shared composer change.
+These free sketches add no completed FCStd conversion or held-out acceptance; body/depth behavior needs its own measurement.
+
+Two [capsule blind bosses](measurements/2026/CapsuleBossInspection01.json) subsequently passed six phases,
+including an initial body before explicit rebuild, analytic mass targets, depth edits, saves and edited fresh reopens.
+All 304 original numeric checks pass with maximum relative error `5.680912614542858e-16`; the receipt retains two
+one-unit rounding ties that differ under six-digit text formatting. Both controls passed and inputs remained immutable.
+Their [generation receipt](measurements/2026/CapsuleBossProcesses7915de.json) retains sixteen complete archive comparisons
+and strict process/read guards. No radius/length driving dimension, tangent constraint, full presentation, held-out acceptance
+or completed FCStd conversion is counted.
+
+The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
+records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
+Those source files are not generated Kit outputs and add zero writer-coverage cases.
+The six held-out native payloads remain sealed during derivation and implementation.
+
+The separate [end-condition source lock](measurements/2026/EndConditionSourceLock02.json) adds sixteen vendor-authored
+source cases, 38 fresh phases and 437 passing numeric checks between healthy controls. It locks twelve discovery and
+four held-out inputs for forward/reversed blind, mid-plane and two-direction bosses. All eighteen original native hashes
+and 32 sibling hashes were verified. Fourteen discovery/control inputs were [privacy-prepared](measurements/2026/EndConditionPreparation02.json)
+for independent reader comparison in remote CI, which remains pending. All ten held-out native payloads across both
+source families remain sealed; this adds zero generated outputs, held-out writer results or FCStd conversions.
+
+Three [new generated end-condition bosses](measurements/2026/EndBossInspection01.json) now pass reversed blind, mid-plane and
+two-direction native body/edit checks. An unchanged prior circle baseline is included separately and adds zero new outputs.
+All twelve candidate phases and 432 original numeric checks pass between healthy controls, including initial bodies,
+independent radial/first-depth/second-depth edits, save and edited fresh reopen. Maximum nonzero relative error is
+`6.917216933756428e-16`; zero targets are exact and two decimal rounding-boundary disagreements remain explicit.
+Their [generation receipt](measurements/2026/EndBossProcesses4b51.json) records 24 complete archive comparisons and
+23 byte-identical prior tagged neutral outputs. No full presentation, held-out family result or completed FCStd conversion
+is counted, and all ten held-out native payloads remain sealed.
+
+The later [ordinary-folder held-out rung](measurements/2026/TreeParityInspection01.json)
+passes two new generated circle bosses against their independent native sources:
+twelve paired phases, 840 numeric checks, 440 exact pose comparisons and 22
+ordered-tree comparisons. Every tree has the same 25 named/typed/parented nodes;
+all forty scenes have one visible body. Radius/depth edits, native saves and
+edited fresh reopening pass between healthy controls, with fourteen distinct
+process creation identities, unchanged input hashes, idle postflight and unchanged
+licensing process IDs. These are bounded English tree/pose research outputs,
+not completed FCStd conversions or complete format acceptance. The public
+adapter remains read-only and the requested production corpus count remains zero.
+
+The [six vendor-saved derivatives](measurements/2026/TreeSavedReadbackProcessesEfe1.json)
+also pass 54 archive comparisons, 108 semantic values and 102 exact pose
+values. The readback confirms the actual markup class and model-to-sketch
+transform in the saved files. These derivatives add no writer outputs. The
+[field direction record](records/ProfileTransformDirection2026.md) identifies
+an opposite-direction seed in the frozen research emitter. The current
+research emitter computes the inverse placement. Two new Top and Right
+sources were [locked](v2026/heldout/FrameSourceLock.json) before the correction.
+The [remote predictions](measurements/2026/FrameHeldoutProcesses34a.json)
+pass 16 full archive comparisons and 26 transformed values. The
+[paired native result](measurements/2026/FrameParityInspection01.json)
+passes 12 phases, 840 numeric checks, 572 exact profile transform values and
+22 ordered feature trees. All 50 paired mass-property values agree to six
+significant figures. These two generated circle bosses add no completed
+FCStd conversions or native assemblies. The public adapter is read-only.
+
+The [synchronized assembly source lock](v2026/heldout/AssemblySyncSourceLock.json)
+now qualifies five native empty, single and repeated-component inputs,
+including two held-out parents with intact child hashes. The independent
+[completion record](measurements/2026/AssemblySyncSourceCompletion03.json)
+passes ten phases, 900 numeric comparisons and zero reopen warnings between
+healthy controls. These five files are oracle-authored sources and are
+excluded from generated coverage.
+
+The [concentric source lock and linked archive trial](measurements/2026/ConcentricMateSourceArchive01.json)
+passes twenty-five native processes for three disclosed and two
+guest-private source cases. Both actual persistent cylindrical faces
+resolve to their owning inherited occurrences. The six disclosed
+states re-emit eighteen complete linked streams and preserve their
+measured alignment and rotation-lock choices. The source locks add
+zero generated conversions.
+
+Two [generated empty research assemblies](measurements/2026/EmptyAssemblyNative01.json)
+now match the native discovery control through open, rebuild, save and fresh
+reopen, with all ten candidate observations and four controls passing.
+The generated research count is two empty assemblies. Neither has components
+or mates, neither is a held-out conversion, and neither adds an accepted
+FCStd assembly to the production count of 0/5.
+
+A third [generated empty assembly with a self file record](measurements/2026/AssemblySelfReferenceNative01.json)
+also passed open, rebuild, save, fresh reopen and the native tree comparison.
+The [first generated populated assembly](measurements/2026/GeneratedSingleOccurrenceNative01.json)
+then opened, resolved its generated child, rebuilt and saved with zero errors and warnings.
+Both generated and freshly reopened phases rebuilt with the same 23-node feature tree and one-body geometry,
+passing all 42 numeric checks. The saved derivative returned warning 32 on fresh open between healthy controls.
+In a [paired save comparison](measurements/2026/GeneratedOccurrenceSaveComparison02.json), the same
+generated inputs reopened without warning or rebuild requirements after saving the rebuilt child and
+parent in order. The parent-only lane reproduced warning 32. Both lanes matched the same 23-node tree
+and one-body geometry, with 84 numeric checks and four healthy controls. This adds one generated
+single-occurrence research case. The production counts remain 0/165 parts and 0/5 assemblies.
+
+The [generated repeated-occurrence measurement](measurements/2026/GeneratedRepeatedOccurrencesNative03.json)
+adds an assembly with three resolved placements of the same generated child. It passed clean open,
+rebuild, synchronized save and fresh reopen with 106 numeric checks and two healthy controls.
+The two observations preserve a 25-node tree and three placed bodies. The synchronized assembly
+held-outs remain sealed, and no production conversions are counted.
+
+The [generated ordinary revolve measurement](measurements/2026/GeneratedRevolveSketchLog02.json)
+adds full-turn, forward partial and reverse partial parts. Each opened and rebuilt with zero errors
+and warnings, produced one solid with the expected mass properties, and passed a driving angle edit.
+All 75 numeric checks and both controls passed. The generated files use the sketch's actual log state
+for axis-reference creation time. The [edited-save and fresh-reopen result](measurements/2026/GeneratedRevolveEditedReopen04.json)
+adds 111 numeric checks across eight distinct SOLIDWORKS processes. With the native empty-material caption,
+all three candidates preserved their edited angle, signed geometry and exact 20-node tree on fresh reopen.
+Both controls passed. This cohort used disclosed designs and the production totals are unchanged.
+
+The [paired revolve comparison](measurements/2026/GeneratedRevolveCanonicalComparison05.json)
+uses canonical English folder roles in three new generated files. Every candidate exposed
+one body on open. All three matched their independently authored 19-node trees, driving edit,
+model-space geometry and sketch frame, including clean fresh reopen of each edited derivative.
+Both controls passed. The [prediction freeze](v2026/heldout/OrdinaryRevolvePredictionFreeze01.json)
+pins the generator, fixtures, oracle and both comparison tools before held-out disclosure.
+
+Both [ordinary boss revolve held-outs](measurements/2026/GeneratedRevolveHeldout06.json)
+passed locked native comparisons for their tree, signed geometry, sketch frame and driving-angle
+edits. The two saved derivatives reopened cleanly between healthy controls, across six distinct
+processes. The [prediction record](v2026/heldout/OrdinaryRevolveHeldoutPredictions01.json)
+retains the original freeze and documents the model-space verification correction before revealing
+the reference results. This qualifies the research profile for a single ordinary boss on a
+principal plane. The public writer and production corpus totals are unchanged.
+
+The [drawing Definition receipt](measurements/2026/DrawingDefinitionCheck01.json)
+records six byte-exact archive comparisons and 78 native semantic observations for three disclosed
+SOLIDWORKS 2026 drawings from the [drawing source lock](v2026/heldout/DrawingSourceLock01.json).
+The [SDK drawing layout receipt](measurements/2026/DrawingSdkLayoutCheck01.json) verifies a
+partial reader in the public adapter for those three native drawings. It supports the sheet and
+single external part view layout. The [raw Definition proof](measurements/2026/DrawingRawGrammar01.json)
+re-emits both original streams byte for byte. The [empty appearance-manager receipt](measurements/2026/DrawingEmptyAppearanceReader01.json)
+advances both original reads to the root guard. The [typed detailing index proof](measurements/2026/DrawingDetailingIndexRead01.json)
+keeps the actual edge-reference graph and marks its portable edge projection open. Both originals
+retain their [typed view rendering state](measurements/2026/DrawingViewRenderingRead01.json)
+and reach the sheet annotation check. Strict drawing reads and production writing await further qualification.
+The [drawing concept prefix check](measurements/2026/DrawingConceptPrefixCheck01.json)
+round-trips the ordered sheet and complete view records before the resolved model tail. The
+research reader extracts model orientation, scale and the view transform and compares them
+with the native observations in both view-bearing cases. The [SDK view receipt](measurements/2026/DrawingSdkViewRead01.json)
+verifies the same Definition properties and reference ownership through the public opt-in adapter.
+
+The [scaled drawing inspection](measurements/2026/DrawingScaledViewSdkRead01.json)
+covers disclosed Front, Top, Right and Isometric views at four non-unit
+scales. It passes complete Definition and Header2 byte identity and 36
+geometric probes through the public opt-in SDK reader. All four layouts
+survive neutral JSON serialization. Native source authoring and fresh
+reopen pass across ten processes.
+
+The [scaled view construction](measurements/2026/DrawingScaledViewBuild01.json)
+produces four distinct drawing and part pairs from independently supplied
+neutral requests. Two builds per case are identical and record zero
+runtime input-file access attempts. The prior unit-scale Front pair
+retains its original file hashes. In the [native generated comparison](measurements/2026/DrawingScaledViewNative01.json),
+the four new pairs and both pristine brackets pass twelve processes and
+1,194 numeric checks. All four generated drawings save and freshly
+reopen with the moved view, scale, orientation, child link, configuration,
+measured geometry and exact sixteen-row tree. The SDK reads the four
+saved layouts. Held-out drawing qualification remains open.
+
+The [combined blank drawing diagnostic](measurements/2026/DrawingCacheCombinedOmission01.json)
+shows that SOLIDWORKS regenerates four omitted display and preview streams
+after editing and saving the disclosed empty sheet. Both controls, the
+repacked control and the four-stream omission passed clean reopen over
+eight processes. This comparison measures the native reduction controls.
+
+The [first generated blank drawing](measurements/2026/GeneratedBlankDrawingNative01.json)
+opened and rebuilt cleanly. It retained the ten expected feature rows and
+accepted a sheet scale edit. Native SaveAs returned error 1 and produced an
+empty target. The reduced native control with the same seven stream roles
+saved and reopened cleanly.
+
+The [matched-path cosmetic-thread comparison](measurements/2026/GeneratedBlankDrawingThreadFlagNative02.json)
+retained identical native save failures for both generated inputs. All
+three controls passed over eight fresh processes.
+The [save-mode comparison](measurements/2026/GeneratedBlankDrawingSaveModes03.json)
+reproduced error 1 before a scale edit and in a writable in-place save.
+The reduced native control saved and reopened in both modes.
+The [target-state repeat](measurements/2026/DrawingBlankSaveEventStateNative01.json)
+distinguished the zero-byte generated target from the absent target after a
+calibrated event 7 veto. Both share the same error and event sequence.
+All three matched controls passed.
+The [matched software trace](measurements/2026/DrawingBlankSaveAggregateSoftwareMatchedNative01.json)
+measures a zero event aggregate in the reduced-native and generated blank
+drawings. The generated drawing still produces only event 7 and a zero-byte
+target. Both pristine checks and the traced reduced control save and reopen
+cleanly. The failing downstream save action remains open.
+The [document return trace](measurements/2026/DrawingBlankSaveDocumentReturnNative01.json)
+observes the same document save call return 1 for the reduced-native
+drawing and 0 for the generated drawing. The internal storage and
+serialization branch remains under measurement.
+The [storage gate trace](measurements/2026/DrawingBlankSaveStorageGateNative01.json)
+observes a valid root in both lanes before the generated failure.
+Native drawing writing remains unqualified.
+The [property-prefix correction](measurements/2026/DrawingBlankPropertyPrefixNative01.json)
+changes only the retained property's XML lexical binding. The generated
+blank sheet passes native scale edit from 2:3 to 3:2, SaveAs and fresh reopen
+with its original ten feature rows. All four control lanes pass in ten
+native processes. The SDK reads the saved scale and dimensions from the
+generated derivative's native layout. This evidence covers a disclosed
+empty sheet. Held-out drawing and production writer qualification remain open.
+
+The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.json)
+passed fourteen native phases. The reduced native document saved with its
+viewport, line tables, environment and BOM state omitted together.
+
+The [disclosed front-view detailing map trial](measurements/2026/DrawingFrontDetailingMapOmission01.json)
+preserved the view edit, linked part and feature tree in sixteen passing
+native phases. The two omission derivatives kept the map empty through
+save and fresh reopen. Generated populated drawing acceptance remains open.
+
+The [generated front drawing and part trial](measurements/2026/GeneratedFrontDrawingNative01.json)
+passed clean native open, rebuild and the measured view movement while
+retaining the exact sixteen-row drawing tree and expected child geometry.
+Native SaveAs returned error 1 and left an empty target. Both pristine
+controls and the reduced native drawing with the same seven stream roles
+passed through save and fresh reopen across the seven-process batch.
+The reduced derivative also regenerated the omitted detailing map.
+
+The [corrected linked drawing trial](measurements/2026/DrawingFrontPropertyPrefixNative01.json)
+passes actual view movement, native save and fresh reopen with its generated
+child. All eight phases pass, including the pristine brackets and
+same-role reduced control. The sixteen-row drawing tree, child link,
+configuration and geometry survive save. The SDK reads the edited view
+position and model reference in the native derivative. This comparison
+covers one disclosed unit-scale front view on an unformatted sheet.
+
+The [original held-out front-view trial](measurements/2026/DrawingOriginalHeldoutNative01.json)
+qualifies two native drawing and ordinary rectangle pairs for the measured
+layout and linked edit profile. The two generated pairs match their original
+sources across 1,900 registered comparisons, including ordered feature
+trees, edited view state, linked child geometry, save and fresh reopen.
+Both controls pass across twelve distinct native processes. This research
+measurement adds no qualified production conversion.
+
+The [original SDK drawing comparison](records/SdkOriginalDrawingNativeComparison2026.md)
+matches geometry for both source pairs through native view movement, save
+and fresh reopen across twelve processes and 1,704 comparisons. Both cases
+retain 13 differing drawing feature names and a linked child with a distinct
+notes folder class and feature row count. These two pairs do not pass
+source-semantic acceptance.
+
+The [raw Definition grammar proof](records/DrawingRawGrammarBoundary2026.md)
+reads and writes every byte of the two original Definition streams through the
+typed graph. Both maps and object identities survive. That proof records an
+initial UI state rejection for the present PW material owner. The later
+[typed detailing verification](records/DrawingDetailingIndexRead2026.md)
+reaches the view rendering check. The [rendering-state verification](records/DrawingViewRendering2026.md)
+exposes an annotation guard triggered by a view-owned profile display. The
+[typed profile display check](measurements/2026/DrawingProfileDisplayRead01.json)
+then completes both internal named Definition round trips with identical bytes,
+map slots and actual aliases. Portable display, colour and edge links and full
+drawing conversion remain open.
+
+The [signed linked text-depth trial](measurements/2026/DrawingSpatialTextNative01.json)
+passes two disclosed native edit, view move, save and reopen lifecycles
+in ten processes with both controls healthy. The corrected archive
+observer passes ten exact joins across Definition and the three child
+streams. The observed positive and negative stored depths survive the
+edits. Full drawing source and public writer acceptance stay open.
+
+The [fresh ANSI detail graph](measurements/2026/DrawingAnsiStyleConstruction01.json)
+passes 26 guarded codec workers and ten typed comparisons. It preserves
+the known constructor state through the native standard default
+operation. The disclosed original graphs retain separate source fonts,
+nested units and other unqualified fields. Native acceptance of the
+fresh ANSI operation remains open.
+
+The [paired ISO and ANSI native trial](measurements/2026/DrawingAnsiPairNative01.json)
+passes both controls, 3,700 numeric comparisons and the native
+edit/save/reopen lifecycles of both shapes under both standards. All
+twenty snapshots preserve the actual links and re-emit the complete
+linked archive streams. The full style check fails on 184 ISO and 185
+ANSI first-save differences. Original-source and held-out qualification
+remain open.
+
+The [document-style initialization experiment](measurements/2026/DrawingDetailInitialization01.json)
+derives the dimension formats, Swift settings and positive exclusion
+lists from neutral inputs and exact native rules. All 32 host workers
+pass. Each of the four comparisons keeps every resolved field and alias
+while advancing the linked map by eight actual dual-unit objects.
+The new native persistence and full style checks remain open.
+
+The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
+passed both native save modes under the original and Kit containers.
+The paired controls retain the same seven streams and compressed bytes.
+The twelve-process trial used no generated or held-out drawing inputs.
+
+The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
+verifies two generated Front Plane rectangles with independent driving width and height edits.
+Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
+analytical results and independently authored native reference parts. Both controls passed across
+22 processes. The generated and reference trees have 20 and 19 nodes respectively.
+The production coverage counts are unchanged.
+
+The [original corner held-out](measurements/2026/RectangleCornerHeldoutNative01.json)
+and [original centered held-out](measurements/2026/RectangleCenterHeldoutNative01.json)
+retain all 25 source feature rows and full native constraints through
+independent width and height edits, clean saves and fresh reopen. Both
+first candidates pass. The centered model keeps both construction diagonals
+in its saved files. These are research cases from independently authored
+neutral specifications.
+
+The [SDK origin-anchored experiment](records/SdkRectangleCornerNative2026.md)
+passes all three independent width, height and depth edits from the same
+generated part. The corner remains at the model origin in every native state.
+Both controls and all eight processes pass. The resulting synthetic shape
+establishes the editable geometry needed for the scoped FreeCAD primitive.
+
+The [disclosed FreeCAD origin box](records/SdkFreecadOriginBox2026.md) enters
+the shared constructors through the actual strictly decoded neutral source.
+The [shared SDK proof](measurements/2026/SdkFreecadBoxSharedBuild01.json)
+reproduces both native-tested files in six guarded builds, including
+two with the source cache and stored payloads removed. The named box
+retains its actual body and three editable driver names through 162
+native checks. Original benchmark membership remains unverified, so
+this adds zero corpus passes. The [strict cache-free readback](records/SdkNoCachePrismRead2026.md)
+recovers one solid with eight vertices, twelve edges and six faces, and
+retains all three drivers, seven relations and thirteen text properties.
+
+The [custom mass-unit lifecycle](measurements/2026/SdkCustomMassUnitsNative01.json)
+passes four generated parts through native depth edit, save and fresh
+reopen. Both mass choices remain independent of the correct effective
+body mass and geometry. Eight normal SDK reads retain the modeled
+solid and driving depth. This setting qualification adds zero original
+FCStd corpus passes.
+
+The [public document unit read](measurements/2026/PublicDocumentUnitsRead01.json)
+preserves the scoped custom mass choice and native precision in fourteen
+disclosed states. Three preset states and six unqualified custom records
+omit the optional metadata while their strict model reads pass.
+
+The [release-specific FreeCAD box proof](measurements/2026/SdkFreecadBoxReleaseConstruction01.json)
+audits twelve schema-four inputs. Three disclosed origin-box forms
+build with exact driver and text recovery, and nine attached or
+multi-feature variants reject. Four targeted mutations also reject.
+The two newer-release [native lifecycles](measurements/2026/SdkFreecadBoxReleaseNative01.json)
+pass all driving edits, clean saves and fresh reopens with the actual
+kilogram setting, body name and literal text. Four strict readbacks
+pass forty complete stream comparisons. Historical-original membership
+remains unverified.
+
+The two [original SDK circle parts](records/SdkOriginalCircleNative2026.md)
+pass native source parity for translated Front-plane diameter and reversed
+Top-plane radius. All 14 controlled phases and 400 recorded numerical checks
+pass, including edits to the radial size and depth and a clean fresh reopen.
+All sixteen normal SDK reads preserve both driving owners. These sources
+are native SOLIDWORKS and add zero FCStd conversions.
+
+The [current SDK replay](measurements/2026/OriginalCircleSdkRoundTrip01.json)
+reproduces those two original candidates and both locked mid-plane and
+two-direction candidates. The 36 exact publications cover the authored
+models and both strict neutral readback modes with zero writer input reads.
+The matched native lifecycles use SOLIDWORKS-authored originals and add
+zero FCStd conversions.
+
+The [normal part text reader](records/PartTextPropertyRead2026.md) recovers
+the current compatible summary, file and configuration text with the actual
+configuration owner on five files. The advanced property manager case keeps
+its model read and reports its unsupported property scope. The six CMgr
+streams re-emit exactly.
+Complete source property and semantic mapping remains open.
+
+The [dimensioned assembly trials](measurements/2026/GeneratedDimensionedAssembliesNative04.json)
+verified independent width, height and depth edits in generated single- and repeated-occurrence
+bundles. All six trials matched their independent native geometry and exact recursive part and
+assembly trees through clean native open, rebuild, synchronized save and fresh reopen.
+Both controls passed in a 26-process batch. The subsequent
+[held-out comparison](measurements/2026/GeneratedDimensionedAssembliesHeldout05.json)
+passed all 210 gates across another six width, height and depth trials in three- and
+four-occurrence assemblies. Their parent and child files were generated before
+the native comparison archives and outcomes were opened. The observer matched
+both feature trees, configurations, component transforms, named dimensions and
+mass properties through rebuild, synchronized save and fresh reopen. Both
+controls passed across 26 distinct process births. This evidence qualifies the
+research profile with one repeated rectangular child and no mates. Production
+conversion coverage remains zero.
+
+The [disclosed planar-mate readback](measurements/2026/AssemblyPlanarMateArchive01.json)
+reconstructed 51 streams across three parent and child pairs, including three
+populated mate lists. A subsequent [chain proof](records/PlanarMateReferenceChains2026.md)
+qualified every executed serializer in the three lists. The
+[generated endpoints](measurements/2026/GeneratedPlanarMateEndpoint01.json)
+retained their actual parent, occurrence and child datum identities through
+the typed archive, with placement-dependent lengths.
+
+The [complete coincident assembly construction](records/AssemblyCoincidentConstruction2026.md)
+emits the full mate list together with its fixed anchor, Config-0
+reference counter and paired header logs. Both authored assemblies
+round-trip the required archive graph. The [first controlled native trial](measurements/2026/GeneratedCoincidentMateNative01.json)
+opens one generated pair with coplanar placements, verifies the exact datum
+references and fixed anchor, then edits a driving depth and matches geometry
+after synchronized save and fresh reopen. Both controls passed over four
+processes. The [displaced pair](measurements/2026/GeneratedCoincidentMateActiveSolve01.json)
+closes a 4.73 mm plane offset during open and preserves the solved placement
+through rebuild, with three clean processes. Persistence from the displaced
+start, held-out mate acceptance and production qualification remain open.
+The [typed readback](measurements/2026/PlanarMateProjection01.json) matches the
+two ordered plane IDs and explicit alignment across six generated and native
+research inputs. The public assembly read still depends on the saved
+selection strings for these mates.
+The [SDK planar mate projection](records/PlanarMateSdkProjection2026.md)
+implements the typed join shared by the research command and its fresh
+generated process regression. The public route awaits production loaders
+for the linked assembly and part archive maps.
+The [parallel mate construction](measurements/2026/GeneratedParallelMateBundle01.json)
+round-trips six streams in a distinct generated parent and child with zero
+runtime input reads. The [native parallel trial](measurements/2026/GeneratedParallelMateNative01.json)
+passes open and rebuild with two solid bodies and exact Front Plane
+references separated by 22.61 mm. Both controls pass. Editing, save
+and held-out qualification remain open.
+The [driving distance mate construction](measurements/2026/GeneratedDistanceMateBundle01.json)
+adds a separate guarded generated pair with six exact stream round trips
+and zero runtime file reads. Its authored distance differs from its start
+separation. The [typed projection](measurements/2026/PlanarMateProjection02.json)
+reads the actual parameter from the generated graph. Native qualification
+remains open.
+
+The [exact-path distance replay](records/GeneratedDistanceMateNativeOpen2026.md)
+resolves both children with clean native open and rebuild. The moving
+Right Plane changes from a 43.875 mm gap to 71.375 mm, with both controls
+passing. The full trial retains its failed verdict from an invalid expectation
+of named sketch parameters. A [separate regenerated disclosed trial](records/GeneratedDistanceMateEdit2026.md)
+edits the driving length to 88.125 mm, saves both files and verifies the
+edited plane gap and geometry after fresh reopen. Typed readback resolves
+the same reference identities and edited length. Held-out qualification
+remains open.
+
+The [shared SDK header graph](records/SharedSdkHeaderGraph2026.md) re-emits
+31 standalone streams exactly across 17 disclosed files. The research
+generators use the same codec for both header streams and reproduce four
+earlier assembly bundles. The production corpus count is unchanged.
+The [configuration handoff](records/ConfigHeaderHandoff2026.md) retains
+those exact SDK header nodes across twelve linked archive reads and
+stores, including the generated planar mate process regression.
+
+The [disclosed nested audit](records/DisclosedNestedAssemblyArchiveAudit2026.md)
+checks 42 streams in seven saved definitions and binds both healthy native
+reopens. Direct directories, expanded occurrence counts, recursive stamps
+and child-local bounds follow distinct measured owners. The
+[pre-writer source lock](v2026/heldout/NestedAssemblySourceLock01.json)
+qualifies both sealed author/reopen source sets in eight fresh processes.
+Generated nested conversion coverage requires its own measured
+acceptance through the public adapter.
+The [recursive composer](records/GeneratedNestedAssembly2026.md) now
+generates one part, one nested module and the root from the neutral
+definition graph. Its 28 stream comparisons and SDK history read
+pass. The four-definition repeated case also generates
+deterministically. The [first controlled native nested trial](records/GeneratedNestedAssemblyNative2026.md)
+passes open, rebuild, a live leaf-depth edit, synchronized saves and
+fresh reopen across four distinct processes with healthy brackets.
+The [typed saved-state comparison](records/GeneratedNestedAssemblySavedState2026.md)
+passes 36 stream round trips and preserves the actual edited depth,
+child stamps and local bounds. The [repeated native trial](records/GeneratedRepeatedNestedAssembly2026.md)
+also passes across four controlled processes with seven expanded
+paths and five solids. Editing the shared leaf changes all four of
+its placements, and all four files save and reopen successfully.
+Its typed audit passes 48 stream comparisons. The later
+[blind evaluation](records/SealedNestedAssemblyEvaluation2026.md)
+passes both pre-writer locked ordinary rigid nested assembly cases
+across eight controlled native processes. It checks live depth edits,
+rebuild, synchronized save, geometry and fresh reopen. The family
+qualification adds zero completed FCStd conversions to the production audit.
+
+The [explicit SDK planar group constructor](records/SdkPlanarGroupConstruction2026.md)
+generates six disclosed groups of two, three and five direct occurrences of one
+dimensioned part. Its 1,740 exact typed stream comparisons and eight atomic
+rejections pass. Existing flat and recursive bundles retain exact bytes.
+The [disclosed native group](records/SdkExplicitPlanarGroupNative2026.md)
+passes 440 numerical checks across four processes through a live driving edit,
+synchronized save and fresh reopen. The public reader retains all twelve
+endpoint links and 26 scoped archive streams serialize byte-for-byte.
+
+Both [original planar mate groups](records/SdkOriginalPlanarMateNative2026.md)
+qualify this internal SDK profile. A20 has two direct occurrences with
+coincident and distance mates. A21 has three with parallel and distance.
+All ten native phases and 992 numerical checks pass, including each
+generated distance edit, synchronized save and fresh reopen. The 26 scoped
+native-saved stream comparisons pass. These internal cases add zero
+qualified FCStd conversions.
+
+The [portable registry assembly trial](records/SdkPortableAssemblyRegistryNative2026.md)
+generates a three-occurrence parent and a shared dimensioned child through an
+explicit writer registry. Four native processes pass 440 comparisons and
+retain all six endpoints and three child drivers through a driving edit,
+synchronized save and fresh reopen. The 26 scoped archive streams round-trip
+exactly. This disclosed trial adds zero qualified FCStd conversions.
+
+The [normal assembly writer](records/SdkAssemblyPublicRegistration2026.md)
+reproduces both exact files from that registry trial and supports two or
+three direct occurrences of one dimensioned rectangular child with ordinary
+principal-plane mates. Its process checks cover preserved part output,
+native Windows path selection, controlled publication failure and a
+concurrently created companion. Original FCStd qualification remains open.
+
+The [generated perpendicular mate trial](records/SdkPerpendicularMateNative2026.md)
+passes native open, rebuild, pose and child depth edits, synchronized save
+and fresh reopen with healthy controls. Its saved links and drivers pass
+the normal SDK reader. This is a disclosed SOLIDWORKS self-lifecycle.
+
+The [paired perpendicular assessment](measurements/2026/SdkPerpendicularHeldoutNative01.json)
+passes both pre-writer locked SOLIDWORKS assemblies and their child parts.
+All 484 native numeric checks, twelve source-to-generated comparisons and six
+normal SDK source and saved-file audits pass. Four controls bracket the runs.
+Both candidates come from the frozen neutral-only internal writer. These
+SOLIDWORKS cases add zero FCStd corpus conversions.
+
+The [public perpendicular registry evaluation](measurements/2026/SdkPerpendicularRegistryHeldout01.json)
+runs those two source pairs against normal registry output. Both pass 484 checks
+in total, twelve paired native comparisons and six strict SDK readbacks.
+The qualified public writer covers this perpendicular profile.
+The FCStd qualification counts stay at 0/165 parts and 0/5 assemblies.
+
+The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
+public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
+identities with successful Document.xml discovery. The inventory includes 56
+documents with pads, 38 with pockets, 25 with chamfers, 23 with holes and 20 with
+revolutions. The original benchmark membership remains unverified. The private
+inventory digest is `db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c`.
+
+The [strict neutral read census](measurements/2026/NeutralCorpusRead01.json)
+reads the 162 validated FCStd byte inputs in the SDK with B-rep and
+tessellation disabled. It finds two documents with assembly graphs,
+132 with native feature definitions, 69 with typed extrusion definitions,
+and 27 with typed chamfer definitions. These counts overlap within
+documents. An independent path-input pass matches the counts and resolves
+one external document link that the byte-input pass reports as unresolved.
+Benchmark membership, semantic equivalence and SOLIDWORKS output are
+separate checks. This census writes zero native files.
+
+The [public writer census](measurements/2026/PublicFcstdWriterCensus01.json) independently tests all 171 original paths for these 162 identities with strict geometry and their source path context. All reads succeed and every public write refuses before creating an output. A second complete replay reproduces all semantic results. The original 165-part and five-assembly roster remains unresolved.
+
+The [source-owned corner probe](records/FcstdCornerPlan2026.md) selects three
+exact N10a release saves from that census. Their actual authored joins, origin
+and live width-to-depth equation reach the shared typed graph. The intact model
+still refuses publication. The source retains an inactive 10 mm Pad length. The ordinary
+generated dormant D2 inherits the 20 mm active depth. The source-owner and
+native qualification gaps remain open, with zero new corpus conversions.
+
+[Input mode behavior](../../Documentation/Gotchas/Conversion/Freecad/ByteInputsLackExternalReferenceOrigin.md)
+
+The [blind-pocket discovery](measurements/2026/GeneratedBlindPocketNative02.json)
+passed native open and rebuild for the generated all-bodies cut with one
+solid, its driving depth and radius, and analytic geometry at six significant
+figures. Its empty feature-scope sibling reported warning 32 and cut error 71.
+Both controls passed across four processes. The subsequent
+[native edit comparison](measurements/2026/GeneratedBlindPocketEdited04.json)
+verified an 8.31 mm driving depth after fresh reopen with the canonical
+material caption, all 28 tree rows and correct geometry. Independent
+held-out qualification remains open.
+
+The [complete SDK polygon held-outs](measurements/2026/SdkOriginalPolygonNative01.json)
+pass for the original three-line, five-line and seven-line SOLIDWORKS
+sources. Each generated part matches the native source tree and measured
+geometry, retains an editable blind depth and opens cleanly after the
+native edit and save. Eleven fresh processes and 546 checks pass with
+healthy controls. These three cases qualify the scoped SDK construction.
+The FCStd production count remains 0 of 165 parts and 0 of 5 assemblies.
+
+Both [locked rigid nested hierarchies](measurements/2026/SdkSealedNeutralNestedNative01.json)
+passed the neutral SDK writer and their controlled native edits and reopens.
+Both [public output routes](measurements/2026/SdkPublicNestedWriting01.json)
+reproduce four separately measured nested bundles byte for byte. These
+are SOLIDWORKS and directly authored neutral fixtures. The requested
+FCStd conversion counts remain unchanged.
+
 ## Last audit of the removed writer
 
-The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11
-recursive result was:
+The 2026-08-11 audit ran recursively from the repository root with this historical command.
+The audit tool and recorded-payload writer were later removed. [Original audit record](https://github.com/TryUniCAD/Kit/blob/2ac05f439476115605ee911cf6eef6fc4221129e/re/solidworks/CorpusCoverage.md#L18-L36)
+
+```powershell
+uv run python tools/audit/AuditFcstdSolidworks.py . --require-vendor-loadable
+```
+
+Discovery counted distinct resolved file paths. Separate files could have identical bytes.
+The summary counted every discovered result in `files`, including parts and assemblies.
+The assembly record identifies five assembly paths in the same run. The recorded total
+of 165 FCStd paths therefore comprises 160 part paths and five assembly paths.
+[Historical discovery](https://github.com/TryUniCAD/Kit/blob/48ff095c940efb439c5aea674484bff1522412b6/tools/audit/FcstdDiscovery.py)
+· [historical summary](https://github.com/TryUniCAD/Kit/blob/2ac05f439476115605ee911cf6eef6fc4221129e/tools/audit/FcstdSummary.py)
+· [same-run assembly record](records/AssemblyClosure.md#recursive-corpus-boundary)
+
+The requested benchmark of 165 part inputs plus five assembly inputs remains
+unverified. The original per-file report and source hashes are unavailable. The
+Git trees at `2ac05f439` and `48ff095c9` have zero tracked FCStd paths. The assembly
+section below retains the five documented historical path names. An exact match
+requires the original file hash, including for the old Windows AssemblyExample.
+[Audit inventory counting](../../Documentation/Gotchas/Conversion/Freecad/AuditCountsResolvedPaths.md)
+
+The original audit ran from the repository root. It recorded two assembly
+paths under the ignored `.rescratch/` directory and three under the ignored
+`examples/Random/` directory. A later example relocation updated the
+three written path names to `re/solidworks/examples/Random/`. The audit
+invocation printed its per-file rows to stdout. Its optional JSON recorded
+generated output sizes and no source hashes. The retained target-side
+inventory describes native outputs.
+[Original assembly paths](https://github.com/TryUniCAD/Kit/blob/2ac05f439476115605ee911cf6eef6fc4221129e/re/solidworks/CorpusCoverage.md#L18-L36)
+· [Historical target inventory](https://github.com/TryUniCAD/Kit/blob/48ff095c940efb439c5aea674484bff1522412b6/re/data/Inventories/CorpusCensusPerFile.json)
+
+A fresh host inventory recovered 171 resolved paths across CADMPEG (57), FreeCAD
+1.1.4 resources (45), GA3D BasicBot (68), and LulzBot TAZ6 (1). Its 162 SHA-256
+identities and Document.xml object type counts match the retained inventory.
+The [disclosed source inventory](measurements/2026/DisclosedFcstdSourceInventory01.json)
+records every input hash and anonymized path alias. These four collections have
+unverified historical membership. This inventory adds zero generated conversions.
+
+The requested `re/` path was checked in the Windows VM's repository share and
+across 70 local Git worktrees, including ignored files and archive candidates.
+The VM checkout and the active worktree contain zero FCStd files. Three older
+worktrees contain 63 FCStd paths with 53 distinct hashes. All 53 identities are
+already in the 162-identity inventory. The historical ignored
+`re/solidworks/examples/Random/` directory is absent from the inspected roots.
+The [path audit](measurements/2026/ReFcstdRosterAudit01.json) retains the checked
+scope and the exact overlap. The requested 165-part and five-assembly roster
+still needs authoritative source files or an original inventory.
+
+The [FCStd availability receipt](measurements/2026/FcstdCorpusAvailability01.json)
+also checks the physical Mac checkout's `re/` paths and outer archive metadata.
+It identifies nine modern tracked verification controls and two older
+AdditiveBox blobs in Git. None establishes membership in the historical
+roster. All five documented assembly paths are absent from the inspected
+Mac checkout.
+
+The upstream FreeCAD 1.1.3 and 1.1.4 stock assembly examples resolve to
+one identical content hash. This matches the disclosed comparator,
+providing a pinned reference for that stock design while the original
+installed file and its per-path audit record remain unavailable.
+[Version comparison](measurements/2026/FreecadAssemblyExampleBlobs01.json)
+
+The original recursive result was:
 
 | measurement              | count |
 | ------------------------ | ----: |

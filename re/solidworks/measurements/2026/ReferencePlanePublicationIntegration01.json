@@ -1,0 +1,63 @@
+{
+  "schema": "kit.sw2026.integrated-offset-plane-publication-discovery.v1",
+  "source_closure_files": 3991,
+  "source_closure_sha256": "cd1cb412b35955679ab1c6dd3bc1bea36b92471f55666d4d8f3105e6f461ffea",
+  "construction_process_proof_sha256": "841be9907bfa704015e2743164eea2fe146cae139bedd9ab0930ed0e2e05ad03",
+  "part_builder_sha256": "085929f11d6b2b250b43a1925d97a2e3bc4d26f11e6720cb41aeaae955dd71ce",
+  "recipes_before_native_access_sha256": "72c97a01c8391f9433f0498f6f8fa8fa3961e9ca7527b11245659fd9ebecd30b",
+  "cases": [
+    {
+      "case_id": "D01",
+      "native_sha256": "9a565b31ab2fcb750f993ab3e7249316f1437712aed879445f2a3986b72d922e",
+      "bytes": 8634,
+      "roundtrips_per_build": 11,
+      "deterministic": true,
+      "runtime_input_read_attempts": 0
+    },
+    {
+      "case_id": "D02",
+      "native_sha256": "fc3ba73557b5c3268c29683a7a1e87b31ac675979555e5514525ad958edde55f",
+      "bytes": 8628,
+      "roundtrips_per_build": 11,
+      "deterministic": true,
+      "runtime_input_read_attempts": 0
+    },
+    {
+      "case_id": "D03",
+      "native_sha256": "732d0d93db968c2f26242dbb92dcfa75d3a9748938d35ef7d602caacb1977a85",
+      "bytes": 8679,
+      "roundtrips_per_build": 11,
+      "deterministic": true,
+      "runtime_input_read_attempts": 0
+    },
+    {
+      "case_id": "D04",
+      "native_sha256": "8cd21b6d7d1be689f120cce89ee2a968dbf55ca016cc9354b3dcd242f795a297",
+      "bytes": 8689,
+      "roundtrips_per_build": 11,
+      "deterministic": true,
+      "runtime_input_read_attempts": 0
+    }
+  ],
+  "guarded_generation_processes": 8,
+  "unchanged_unanchored_and_corner_profiles": {
+    "Corner": {
+      "byte_identical": true,
+      "guarded_receipt_sha256": "aeff2e38090ce1cba0eb0e063bff2adc456abd302e9644084a311860ede6550e"
+    },
+    "Plain": {
+      "byte_identical": true,
+      "guarded_receipt_sha256": "ecf1b24d4224c118bc0428738626e50109ccd8d11b86a7f3c36f18248d6fdc75"
+    }
+  },
+  "private_candidate_payloads_match": true,
+  "ordered_live_feature_plan": [
+    "Origin",
+    "OffsetPlane",
+    "PlaneSketch",
+    "PlaneBoss"
+  ],
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "native_acceptance": false
+}

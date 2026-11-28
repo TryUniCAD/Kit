@@ -1,0 +1,64 @@
+{
+  "candidate_sha256": "8f0daa61b2ce8a4f18ab5257b2393b74b7913960a61ef96fd0d9060243f42bf2",
+  "candidate_viewport_byte_equal_to_native_source": false,
+  "candidate_viewport_byte_equal_to_previous_generated": true,
+  "distinct_processes": 4,
+  "exact_definition_reemit": true,
+  "guarded_runtime_reads": 0,
+  "healthy_controls": true,
+  "heldout_source_reads": 0,
+  "host_receipt_sha256": "2fee4981d76e24119f15450c16190c85a475737db132428e1fb5e31e38149147",
+  "job_sha256": "7905776ea0b0c86dec167d2f35042136ed0eec6093170c249b747ae39f9f9e35",
+  "matched_text_height_m": 0.003175,
+  "native_result_sha256": "a96583a46002067cf9d9b153e9388f4d7c2cd6a997bd5117bb7a41425facb6d8",
+  "note_extent_candidate": [
+    0.06709646017699115,
+    0.08860497787610619,
+    -6.187252535660668e-16,
+    0.10303998893805312,
+    0.0926650442477876,
+    -6.470765455084474e-16
+  ],
+  "note_extent_source": [
+    0.06707199875524707,
+    0.0884616814159292,
+    -6.328008361539309e-16,
+    0.10312538813577803,
+    0.09260294911504424,
+    -6.617191539351591e-16
+  ],
+  "oracle_build": "34.5.2.0604",
+  "prior_style_one_result_sha256": "5a5b8840e2b84ff7d91d5db89371d8055e0e49505ee387ff5946fea97efa7ef3",
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.disclosed-ansi-note-presentation.v1",
+  "source_and_candidate_display_baseline_delta_m": 6.954860873520374e-05,
+  "source_and_candidate_live_note_fields_equal": true,
+  "source_and_candidate_sheet_and_tree_equal": true,
+  "view_constructor_source_sha256": "65d827ee07dd151ef3160b925b1594810427117eb84b5ed3a235de168c7b3791",
+  "viewports": {
+    "ControlAfter": {
+      "bytes": 2073654,
+      "height": 720,
+      "sha256": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+      "width": 960
+    },
+    "ControlBefore": {
+      "bytes": 2073654,
+      "height": 720,
+      "sha256": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+      "width": 960
+    },
+    "NativeSource": {
+      "bytes": 2073654,
+      "height": 720,
+      "sha256": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+      "width": 960
+    },
+    "SdkCandidate": {
+      "bytes": 2073654,
+      "height": 720,
+      "sha256": "8214a40bf79054ed85dec1f0f1d8797bb8a56c13ceba442a5f236cd9d2dad967",
+      "width": 960
+    }
+  }
+}

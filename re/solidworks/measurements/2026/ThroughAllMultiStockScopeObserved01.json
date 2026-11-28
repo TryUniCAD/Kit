@@ -1,0 +1,859 @@
+{
+  "analytic_body_predictions": {
+    "edited_cut": {
+      "MovingStock": {
+        "area_m2": 0.0014619669003093632,
+        "box_m": [
+          0,
+          0.004,
+          0.002,
+          0.029,
+          0.012,
+          0.016
+        ],
+        "com_m": [
+          0.013174046289571745,
+          0.008481390290254917,
+          0.009000000000000001
+        ],
+        "volume_m3": 2.6976903750232777e-06
+      },
+      "SteadyStock": {
+        "area_m2": 0.0008681693915921742,
+        "box_m": [
+          0.012,
+          -0.012,
+          0,
+          0.03,
+          -0.004,
+          0.012
+        ],
+        "com_m": [
+          0.020999999999999994,
+          -0.008886027482188884,
+          0.006
+        ],
+        "volume_m3": 1.2563060357342375e-06
+      }
+    },
+    "edited_fixed": {
+      "MovingStock": {
+        "area_m2": 0.0015,
+        "box_m": [
+          0,
+          0.004,
+          0.002,
+          0.029,
+          0.012,
+          0.016
+        ],
+        "com_m": [
+          0.0145,
+          0.008,
+          0.009000000000000001
+        ],
+        "volume_m3": 3.2480000000000005e-06
+      },
+      "SteadyStock": {
+        "area_m2": 0.0008681693915921742,
+        "box_m": [
+          0.012,
+          -0.012,
+          0,
+          0.03,
+          -0.004,
+          0.012
+        ],
+        "com_m": [
+          0.020999999999999994,
+          -0.008886027482188884,
+          0.006
+        ],
+        "volume_m3": 1.2563060357342375e-06
+      }
+    },
+    "initial": {
+      "MovingStock": {
+        "area_m2": 0.0006640000000000001,
+        "box_m": [
+          0,
+          0.004,
+          0.002,
+          0.01,
+          0.012,
+          0.016
+        ],
+        "com_m": [
+          0.005,
+          0.008,
+          0.009000000000000001
+        ],
+        "volume_m3": 1.12e-06
+      },
+      "SteadyStock": {
+        "area_m2": 0.0008681693915921742,
+        "box_m": [
+          0.012,
+          -0.012,
+          0,
+          0.03,
+          -0.004,
+          0.012
+        ],
+        "com_m": [
+          0.020999999999999994,
+          -0.008886027482188884,
+          0.006
+        ],
+        "volume_m3": 1.2563060357342375e-06
+      }
+    },
+    "stock": {
+      "MovingStock": {
+        "area_m2": 0.0006640000000000001,
+        "box_m": [
+          0,
+          0.004,
+          0.002,
+          0.01,
+          0.012,
+          0.016
+        ],
+        "com_m": [
+          0.005,
+          0.008,
+          0.009000000000000001
+        ],
+        "volume_m3": 1.12e-06
+      },
+      "SteadyStock": {
+        "area_m2": 0.000912,
+        "box_m": [
+          0.012,
+          -0.012,
+          0,
+          0.03,
+          -0.004,
+          0.012
+        ],
+        "com_m": [
+          0.020999999999999998,
+          -0.008,
+          0.006
+        ],
+        "volume_m3": 1.728e-06
+      }
+    }
+  },
+  "automatic_geometry": {
+    "author": {
+      "after_edit": {
+        "analytic_case": "edited_fixed",
+        "bodies": {
+          "MovingStock": {
+            "area_m2": 0.0014999999999999998,
+            "box_m": [
+              0.0,
+              0.004,
+              0.002,
+              0.029,
+              0.012,
+              0.016
+            ],
+            "com_m": [
+              0.014500000000000004,
+              0.008,
+              0.009
+            ],
+            "cut_face": false,
+            "face_owners": [
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock"
+            ],
+            "volume_m3": 3.2479999999999992e-06
+          },
+          "SteadyStock": {
+            "area_m2": 0.0008681693915921741,
+            "box_m": [
+              0.012,
+              -0.012,
+              0.0,
+              0.03,
+              -0.004,
+              0.012
+            ],
+            "com_m": [
+              0.020999999999999998,
+              -0.008886027482188884,
+              0.005999999999999999
+            ],
+            "cut_face": true,
+            "face_owners": [
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "ThroughFeature"
+            ],
+            "volume_m3": 1.2563060357342373e-06
+          }
+        },
+        "cut_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "drivers": {
+          "MovingStock": {
+            "owner": "D1@MovingStock@ThroughMultiStock.Part",
+            "value_m": 0.029
+          },
+          "SteadyStock": {
+            "owner": "D1@SteadyStock@ThroughMultiStock.Part",
+            "value_m": 0.012
+          }
+        },
+        "moving_stock_cut": false
+      },
+      "after_save": {
+        "analytic_case": "initial",
+        "bodies": {
+          "MovingStock": {
+            "area_m2": 0.0006640000000000001,
+            "box_m": [
+              0.0,
+              0.004,
+              0.002,
+              0.01,
+              0.012,
+              0.016
+            ],
+            "com_m": [
+              0.005,
+              0.008,
+              0.009000000000000001
+            ],
+            "cut_face": false,
+            "face_owners": [
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock"
+            ],
+            "volume_m3": 1.12e-06
+          },
+          "SteadyStock": {
+            "area_m2": 0.0008681693915921741,
+            "box_m": [
+              0.012,
+              -0.012,
+              0.0,
+              0.03,
+              -0.004,
+              0.012
+            ],
+            "com_m": [
+              0.020999999999999998,
+              -0.008886027482188886,
+              0.006000000000000001
+            ],
+            "cut_face": true,
+            "face_owners": [
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "ThroughFeature"
+            ],
+            "volume_m3": 1.256306035734237e-06
+          }
+        },
+        "cut_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "drivers": {
+          "MovingStock": {
+            "owner": "D1@MovingStock@ThroughMultiStock.Part",
+            "value_m": 0.01
+          },
+          "SteadyStock": {
+            "owner": "D1@SteadyStock@ThroughMultiStock.Part",
+            "value_m": 0.012
+          }
+        },
+        "moving_stock_cut": false
+      }
+    },
+    "author_numeric_checks": 127,
+    "author_save": [
+      true,
+      0,
+      0
+    ],
+    "cold_open": [
+      true,
+      0,
+      0
+    ],
+    "reopen": {
+      "after_edit": {
+        "analytic_case": "edited_fixed",
+        "bodies": {
+          "MovingStock": {
+            "area_m2": 0.0014999999999999998,
+            "box_m": [
+              0.0,
+              0.004,
+              0.002,
+              0.029,
+              0.012,
+              0.016
+            ],
+            "com_m": [
+              0.014500000000000004,
+              0.008,
+              0.009
+            ],
+            "cut_face": false,
+            "face_owners": [
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock"
+            ],
+            "volume_m3": 3.2479999999999992e-06
+          },
+          "SteadyStock": {
+            "area_m2": 0.0008681693915921741,
+            "box_m": [
+              0.012,
+              -0.012,
+              0.0,
+              0.03,
+              -0.004,
+              0.012
+            ],
+            "com_m": [
+              0.020999999999999998,
+              -0.008886027482188886,
+              0.006000000000000001
+            ],
+            "cut_face": true,
+            "face_owners": [
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "ThroughFeature"
+            ],
+            "volume_m3": 1.256306035734237e-06
+          }
+        },
+        "cut_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "drivers": {
+          "MovingStock": {
+            "owner": "D1@MovingStock@ThroughMultiStock.Part",
+            "value_m": 0.029
+          },
+          "SteadyStock": {
+            "owner": "D1@SteadyStock@ThroughMultiStock.Part",
+            "value_m": 0.012
+          }
+        },
+        "moving_stock_cut": false
+      },
+      "before_edit": {
+        "analytic_case": "initial",
+        "bodies": {
+          "MovingStock": {
+            "area_m2": 0.0006640000000000001,
+            "box_m": [
+              0.0,
+              0.004,
+              0.002,
+              0.01,
+              0.012,
+              0.016
+            ],
+            "com_m": [
+              0.005,
+              0.008,
+              0.009000000000000001
+            ],
+            "cut_face": false,
+            "face_owners": [
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock"
+            ],
+            "volume_m3": 1.12e-06
+          },
+          "SteadyStock": {
+            "area_m2": 0.0008681693915921741,
+            "box_m": [
+              0.012,
+              -0.012,
+              0.0,
+              0.03,
+              -0.004,
+              0.012
+            ],
+            "com_m": [
+              0.020999999999999998,
+              -0.008886027482188886,
+              0.006000000000000001
+            ],
+            "cut_face": true,
+            "face_owners": [
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "ThroughFeature"
+            ],
+            "volume_m3": 1.256306035734237e-06
+          }
+        },
+        "cut_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "drivers": {
+          "MovingStock": {
+            "owner": "D1@MovingStock@ThroughMultiStock.Part",
+            "value_m": 0.01
+          },
+          "SteadyStock": {
+            "owner": "D1@SteadyStock@ThroughMultiStock.Part",
+            "value_m": 0.012
+          }
+        },
+        "moving_stock_cut": false
+      },
+      "cold": {
+        "analytic_case": "initial",
+        "bodies": {
+          "MovingStock": {
+            "area_m2": 0.0006640000000000001,
+            "box_m": [
+              0.0,
+              0.004,
+              0.002,
+              0.01,
+              0.012,
+              0.016
+            ],
+            "com_m": [
+              0.005,
+              0.008,
+              0.009000000000000001
+            ],
+            "cut_face": false,
+            "face_owners": [
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock",
+              "MovingStock"
+            ],
+            "volume_m3": 1.12e-06
+          },
+          "SteadyStock": {
+            "area_m2": 0.0008681693915921741,
+            "box_m": [
+              0.012,
+              -0.012,
+              0.0,
+              0.03,
+              -0.004,
+              0.012
+            ],
+            "com_m": [
+              0.020999999999999998,
+              -0.008886027482188886,
+              0.006000000000000001
+            ],
+            "cut_face": true,
+            "face_owners": [
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "SteadyStock",
+              "ThroughFeature"
+            ],
+            "volume_m3": 1.256306035734237e-06
+          }
+        },
+        "cut_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "drivers": {
+          "MovingStock": {
+            "owner": "D1@MovingStock@ThroughMultiStock.Part",
+            "value_m": 0.01
+          },
+          "SteadyStock": {
+            "owner": "D1@SteadyStock@ThroughMultiStock.Part",
+            "value_m": 0.012
+          }
+        },
+        "moving_stock_cut": false
+      }
+    },
+    "reopen_numeric_checks": 79,
+    "source_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+    "source_unchanged": true
+  },
+  "automatic_scope_observers": {
+    "edited": {
+      "access_selections": true,
+      "numeric_checks": 53,
+      "opened_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+      "process_creation_filetime": 134396606688314315,
+      "selection_access_released": true
+    },
+    "initial": {
+      "access_selections": true,
+      "numeric_checks": 26,
+      "opened_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+      "process_creation_filetime": 134396606211943829,
+      "selection_access_released": true
+    }
+  },
+  "design": {
+    "moving_edited_x_max_m": 0.029,
+    "moving_initial_m": [
+      [
+        0,
+        0.004,
+        0.002
+      ],
+      [
+        0.01,
+        0.012,
+        0.016
+      ]
+    ],
+    "stationary_m": [
+      [
+        0.012,
+        -0.012,
+        0
+      ],
+      [
+        0.03,
+        -0.004,
+        0.012
+      ]
+    ],
+    "tool_center_m": [
+      0.021,
+      0
+    ],
+    "tool_radius_m": 0.008
+  },
+  "explicit_refusal": {
+    "completed_numeric_checks": 22,
+    "controller_diagnostics": [],
+    "cut_request": {
+      "arguments": [
+        true,
+        false,
+        true,
+        1,
+        0,
+        0.012,
+        0.006,
+        false,
+        false,
+        false,
+        false,
+        0.0,
+        0.0,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        0,
+        0.0,
+        false,
+        false
+      ],
+      "body_mark": 1,
+      "preselected_producer": "SteadyStock",
+      "profile_mark": 0,
+      "selected_body_name": "SteadyStock"
+    },
+    "first_failure": {
+      "error": "ValueError('native FeatureCut4 refused the requested scope')",
+      "pending_capability": false,
+      "stage": "FeatureCut4",
+      "type": "ValueError"
+    },
+    "native_identity": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134396603675292099,
+      "process_id": 6192,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    }
+  },
+  "native_com": "SldWorks.Application.34",
+  "native_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "native_result": {
+    "api_sha256": "4053623cfeff6e0cd9bf6188dbfa433b29bc33ee4c07ba40d345fbe1f1b6e5cf",
+    "distinct_processes": 7,
+    "freeze_sha256": "76e4f9205867ce93230b7d35a52fbf7ddf4686ea19a8e75ef91ed7973e4d0397",
+    "healthy_bracket": true,
+    "heldout_coverage": 0,
+    "outcomes": {
+      "Auto": {
+        "author_edited_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "cold_rebuilt_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "cold_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "created_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "explicit_cold_scope_confirmed": null,
+        "fresh_reopen_accessed": "moving stock remained intact",
+        "fresh_reopen_direct": "moving stock remained intact",
+        "geometry_passed": true,
+        "moving_stock_reopen": {
+          "area_m2": 0.0014999999999999998,
+          "box_m": [
+            0.0,
+            0.004,
+            0.002,
+            0.029,
+            0.012,
+            0.016
+          ],
+          "com_m": [
+            0.014500000000000004,
+            0.008,
+            0.009
+          ],
+          "cut_face": false,
+          "face_owners": [
+            "MovingStock",
+            "MovingStock",
+            "MovingStock",
+            "MovingStock",
+            "MovingStock",
+            "MovingStock"
+          ],
+          "volume_m3": 3.2479999999999992e-06
+        },
+        "reopen_edited_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "same_process": "moving stock remained intact",
+        "saved_scope": {
+          "auto_select": false,
+          "context": "direct",
+          "feature_scope": true,
+          "owner_status": "observed_direct_unavailability",
+          "reported_count": -1,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        "saved_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+        "separate_scope_observations": {
+          "Edited": {
+            "accessed_scope": {
+              "auto_select": false,
+              "context": "access_selections",
+              "feature_scope": true,
+              "owner_status": "available",
+              "reported_count": 1,
+              "returned_array_count": 1,
+              "scope_owners": [
+                "SteadyStock"
+              ]
+            },
+            "matching_flags": true,
+            "matching_model": true,
+            "owner_conflict": false,
+            "passed": true,
+            "pre_access_scope": {
+              "auto_select": false,
+              "context": "direct",
+              "feature_scope": true,
+              "owner_status": "observed_direct_unavailability",
+              "reported_count": -1,
+              "returned_array_count": null,
+              "scope_owners": null
+            }
+          },
+          "Initial": {
+            "accessed_scope": {
+              "auto_select": false,
+              "context": "access_selections",
+              "feature_scope": true,
+              "owner_status": "available",
+              "reported_count": 1,
+              "returned_array_count": 1,
+              "scope_owners": [
+                "SteadyStock"
+              ]
+            },
+            "matching_flags": true,
+            "matching_model": true,
+            "owner_conflict": false,
+            "passed": true,
+            "pre_access_scope": {
+              "auto_select": false,
+              "context": "direct",
+              "feature_scope": true,
+              "owner_status": "observed_direct_unavailability",
+              "reported_count": -1,
+              "returned_array_count": null,
+              "scope_owners": null
+            }
+          }
+        }
+      }
+    },
+    "passed": false,
+    "phase_receipts": {
+      "After": "106ffef1be6fa82c13684192169a4cecefb68dca07c8c2d6e6f73e4ec796a79c",
+      "AutoAuthor": "2d74f91106e41eaa0b2226f742d5ff4c528932f5af29aa924431ab12aa753c61",
+      "AutoReopen": "9115d08183782903c8513bc15437882f8581533d72ad4cdc2c36fd8fee478cd6",
+      "AutoScopeEdited": "012b35e95cc02a0ead6bd1a7513cc743035811ba97caff952cf23ddaa6cf5a42",
+      "AutoScopeInitial": "c2b9942f6526a0b0ae3ee951180bb75d23341dd3789c8ebcc7ec6207fdbc3990",
+      "Before": "5d7f2131bee7a59785e3841b52e5a549d66830989443cb7b914b41666aeacda5",
+      "ExplicitAuthor": "a39ed5aa89bf734dacbf99912219f51540f61f3b4d2d51dea66c7d883720dcc6"
+    },
+    "phase_status": {
+      "After": true,
+      "AutoAuthor": true,
+      "AutoReopen": true,
+      "AutoScopeEdited": true,
+      "AutoScopeInitial": true,
+      "Before": true,
+      "ExplicitAuthor": false
+    },
+    "production_coverage": 0,
+    "schema": "kit.sw2026.disclosed-through-all-multistock.v3",
+    "sealed_payloads_read": 0,
+    "serial": true
+  },
+  "native_summary_sha256": "b0e0eddd721f8beb756cf081100671631815c1fe740804369bb108c817207f77",
+  "oracle_version": "34.5.2.0604",
+  "schema": "kit.sw2026.disclosed-through-all-multistock-observation.v1",
+  "tool_revision": "ebe8c621fed35a9169b57708a1eddd3d51407350",
+  "tool_sha256": "88ae9365d9225eed77f0b43b02a1c3589e3286fffd9d4178d399b33b716619c1"
+}

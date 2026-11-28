@@ -5,18 +5,28 @@ from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsup
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 
-# native runtime normalization must remain independent of the persisted source word
+# runtime normalization must remain explicit while the independent wire word stays available
 def NormalizeWord(
     ContextValue: BodyContext, RuleValue: NativeField, Value: object
 ) -> int:
+    NumberValue = CastValue(int, Value)
     if RuleValue.ModeValue == "Zero":
         return 0
-    if RuleValue.ModeValue == "AtomState":
-        NumberValue = CastValue(int, Value)
-        Conditions = ContextValue.FlagsValue.get("conditions", 0)
-        return 0 if NumberValue > 1 and not (Conditions & 0x80) else NumberValue
     if RuleValue.ModeValue == "AtLeast":
-        return max(CastValue(int, Value), RuleValue.MaskValue)
+        return max(NumberValue, RuleValue.MaskValue)
+    if RuleValue.ModeValue == "AtomState":
+        return (
+            0
+            if not (ContextValue.FlagsValue.get("conditions", 0) & 0x80)
+            and NumberValue > 1
+            else NumberValue
+        )
     if RuleValue.ModeValue == "Identity":
-        return CastValue(int, Value)
-    raise BodyUnsupported("unsupported native normalization rule")
+        return NumberValue
+    if RuleValue.ModeValue == "Equals":
+        return int(NumberValue == RuleValue.MaskValue)
+    if RuleValue.ModeValue == "Positive":
+        return int(NumberValue > 0)
+    raise BodyUnsupported(
+        f"unsupported native normalization rule {RuleValue.ModeValue}"
+    )

@@ -1,0 +1,134 @@
+{
+  "base_revision": "e393f3080141976513fe0f397d7766b97879a63c",
+  "cases": {
+    "ColdRaisedPatternA": {
+      "configuration": "Default",
+      "count": 3,
+      "faces": 21,
+      "historic_host_digest_matches": true,
+      "logical_streams": 10,
+      "native_transfers": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "pitch_m": 0.018,
+      "publication_routes": 4,
+      "refusals": [
+        "overlapping",
+        "overhanging",
+        "retained_geometry",
+        "configuration",
+        "unnamed_stream",
+        "unmodeled_option",
+        "wrong_locator"
+      ],
+      "reversed": false,
+      "runtime_input_file_reads": 0,
+      "same_locator_file_sha256": "70bcee3782ccd8c903d332e25265e7aaec0f76c84ab9171edfbb15ec9190060e",
+      "staging_events": {
+        "open": 6,
+        "os.link": 2,
+        "os.mkdir": 6,
+        "os.remove": 2,
+        "os.rmdir": 5,
+        "os.scandir": 6,
+        "tempfile.mkdtemp": 4
+      },
+      "stream_bytes": 10460,
+      "stream_sha256": "0010ceadf1bca13c4de487ed30cfc7822bc19d193ad6f26733a2de48873dbc9f",
+      "strict_path_and_stream": true
+    },
+    "ColdRaisedPatternB": {
+      "configuration": "Modelled",
+      "count": 4,
+      "faces": 26,
+      "historic_host_digest_matches": true,
+      "logical_streams": 10,
+      "native_transfers": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "pitch_m": 0.019,
+      "publication_routes": 4,
+      "refusals": [
+        "overlapping",
+        "overhanging",
+        "retained_geometry",
+        "configuration",
+        "unnamed_stream",
+        "unmodeled_option",
+        "wrong_locator"
+      ],
+      "reversed": true,
+      "runtime_input_file_reads": 0,
+      "same_locator_file_sha256": "a80ce43185752c3c5c2d9e2b56ded532b226e5b36d5a20e7fc57811b7d7a7cba",
+      "staging_events": {
+        "open": 6,
+        "os.link": 2,
+        "os.mkdir": 6,
+        "os.remove": 2,
+        "os.rmdir": 5,
+        "os.scandir": 6,
+        "tempfile.mkdtemp": 4
+      },
+      "stream_bytes": 10448,
+      "stream_sha256": "4f9969f02674f396045489e54977e79582c8d38f9420b1fd34b0b73c5be545b2",
+      "strict_path_and_stream": true
+    }
+  },
+  "disclosed_neutral_manifest_sha256": "5784abcd6ccc6e93feb88463333b5668bf4fd12f18fa2bde5efbfcc1ccabcdef",
+  "guarded_worker_processes": 2,
+  "historical_host_defaults_sha256": "ef52c12bc4a22a0de666b043ad586871a0bdfa03e877ac62e591b40dfbaa2df7",
+  "historical_host_digest_required": true,
+  "legacy": {
+    "base_and_candidate_exact": {
+      "blind": {
+        "artifact_sha256": "617dde134a24b32b0c01a7f355dbdaccbff4cbd0877d54fb96c9337cb8e7b809",
+        "report_sha256": "5e3518e0366688c912132336a154cebe3ac13af4f6aa515b89337753fc5fde5d"
+      },
+      "circle": {
+        "artifact_sha256": "e52cb50ce1f3e55f0feaa34c84dfd8001046e1cb67dd5601a24e69bff73e34a8",
+        "report_sha256": "f2ce5c866c296576fbe5d1e40669e919a9f790317496d72a96c0417deb9612e5"
+      },
+      "equation": {
+        "artifact_sha256": "0f7dccdb8a4b9dbf30e093368c5e31984493d5c016f881f7956de5354700c2fe",
+        "report_sha256": "964acd27a9bbc8a5223f2b7339129bb303c58fde94ada6336511587103eb66f3"
+      },
+      "import": {
+        "artifact_sha256": "1e59acf382cba510a873770454977b397fecb9ee52e746d748d73cfb66b3f2ee",
+        "report_sha256": "c0120748ca9f345b640e7f74b1a89e23325bb763fd4b4026e4f5ef12f5d996e5"
+      },
+      "two_stock": {
+        "artifact_sha256": "1e4c1b102b65e907435fbd3b38a8addcc67d3e3680275a9031f39e6bb2312c77",
+        "report_sha256": "4a0751c95b9a016da08db31c90b0a90725413bb4436d9c1611872926c5fa470f"
+      }
+    },
+    "existing_probe_sha256": "bbc5d80c02cd2b6e16cc019b2895a4680d418e0578584c2089efc478c1707eaf",
+    "isolated_processes": 10
+  },
+  "native_processes_started": 0,
+  "new_native_acceptance": 0,
+  "output_guard_sha256": "98fb1eb74b9c291dc3bfc3183fc24c6932b0a8ea0b18d15a1bc163fbd535d0aa",
+  "proof_sha256": "7ede04650367806515634a91a8fb1dd573f4ef6c5dd4da213bd927573b850bb4",
+  "protected_inputs_read": 0,
+  "schema": "kit.sw2026.public-oblique-pattern-write.v2",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/IsPatPart.py": "1ad3efa510cdc0294d2c3e949a08987b8f33a46a27c81e883605772a8a4783c2",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/PatCandidate.py": "0187d9ed5828d66497809f9124d03bda31c611dee8c7cff4770c72b830f3035d",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/PrepPatPart.py": "a4eba04dad60cb9e71e8417a240413d905893311ab7011fea2956f9e5ea7ee2c",
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "08f9b8a313d36bd94fb86b7772df9a182b19c907283f94fd6377b706d1aa1c43",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "0d52a66ebd0c4ec834191195dd7fee2be8be0cdc862b74d4eea7f786dc445289",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePat.py": "2602341909b52d8be050a028b86b143d3c94d3f82412e92c8789150b538fce0b",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "dfcb6734e288af137b433e49a06fb9833d41271630505fb7d0c46c0677df2728"
+  }
+}

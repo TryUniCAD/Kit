@@ -1,0 +1,121 @@
+{
+  "schema": "kit.sw2026.ordinary-blind-cut-source-lock.v1",
+  "source_revision": "bd7366dce5fd355728e0d09456bd28d74ceb54a3",
+  "job_sha256": "471d0ae81e73731bbda5ba56cd3c7b6f36964662818a298af4c5e8a851f3f893",
+  "specs_sha256": "e44080d1156ee4b198143330ee7ae56f6339ffacffe8cca4aeeff5f970c0329a",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "tool_sha256": {
+    "AuthorBlindCutSources.py": "f5518633eafe8fc06e6190667e7908df0f42ea8b9a0a1f7614b4dbfc204b2910",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectFresh.py": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+    "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "started_at": 1794895431.0944865,
+  "cases": [
+    {
+      "name": "BlindCutShallow",
+      "split": "discovery",
+      "native_sha256": "b0b6aa24c320b2c13ca986daf91a6fca916a54a02a9a21746ce2ced8523e54d2",
+      "native_bytes": 61987,
+      "phase_record_sha256": [
+        "e318d179e95cf543ef38ec925a0c5dcb7e48dcb6fe876705a948cd60213f53d0",
+        "50afb657f5384fdddb42c9ff94cc0036de5c54dd9aaaaf33a881dec622adf3bb"
+      ],
+      "driving_depth_edit_passed": true,
+      "passed": true
+    },
+    {
+      "name": "BlindCutMiddle",
+      "split": "discovery",
+      "native_sha256": "04b911f1dc34fdb2b77b68881aaa439d5b2cced41321115ea662d3a0de1fd01b",
+      "native_bytes": 62458,
+      "phase_record_sha256": [
+        "9131f8fc72f02a3cfb086d6293df0fae148621fce583a7003a1fcfdc536abb38",
+        "9ff074b5b2795aa3c505aa8d414de56b927d5b751a553c46d6bb39366375d6f8"
+      ],
+      "driving_depth_edit_passed": true,
+      "passed": true
+    },
+    {
+      "name": "BlindCutDeep",
+      "split": "discovery",
+      "native_sha256": "d5a8b5c1667c1012157a214657993e659d34f2074914bc864397ac229b9e5909",
+      "native_bytes": 61856,
+      "phase_record_sha256": [
+        "82db70440161b3fcfe8b650f7952211764ecbd0e0abde6a332ff14e399b60d1a",
+        "d8cd173bb2239d40f4394da33c17a77abb99055d05cc280c1bacc12487150b2f"
+      ],
+      "driving_depth_edit_passed": true,
+      "passed": true
+    },
+    {
+      "name": "BlindCutHeldoutFirst",
+      "split": "heldout",
+      "native_sha256": "6a06ca6c630de8af22fb5df867c7fd01cac4764d6de97c441193f79f692e0b9d",
+      "native_bytes": 61603,
+      "phase_record_sha256": [
+        "d5c6cf77a08843e6ad321fcf90d1fb8e1ae0af4a1a6df8b5db7b375c0b260032",
+        "d8ce177b0b867076b6289d3c1297e9521250d303b669ff0511a11e99a3114b08"
+      ],
+      "passed": true
+    },
+    {
+      "name": "BlindCutHeldoutSecond",
+      "split": "heldout",
+      "native_sha256": "fee48310c907b210155f750e060352afa94f47471c6770eb2775c79ed40bdf7c",
+      "native_bytes": 60081,
+      "phase_record_sha256": [
+        "d523d1513f1f35cfd47bf5e03b05b5decff22fe5daaec54b2bdb76982f3670bb",
+        "088a9f46f2392bf81d426612a5467cb2563cf642ab5578d7c7a1dcbe5cb98c31"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "writer_output_count": 0,
+  "heldout_results_sealed": true,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "control_before_healthy": true,
+  "control_after_healthy": true,
+  "controls_unchanged": true,
+  "control_record_sha256": {
+    "control-after.json": "bafe403b62389307c60c3b1bacb159102af76ed72e6bfdb960f73c3340192661",
+    "control-before.json": "26f0592d067a6407421c5c755d33c394eaf430cf84a44a284019ae1a1b684c18"
+  },
+  "distinct_processes": 12,
+  "tools_unchanged": true,
+  "inputs_unchanged": true,
+  "finished_at": 1794895804.4452603,
+  "oracle_file_version": "34.5.2.0604",
+  "private_source_lock_sha256": "3ea45429524bed6dc08e69407cc7acf7194f744208d98dc1f58ea9611f0383a0",
+  "private_transport_sha256": "b32d435d25249a11bf392f8718bf6b3ee20995c106e5c6fc903465bd58eee86c",
+  "solidworks_processes_after": [],
+  "same_license_processes": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "disclosed_linked_readback": {
+    "report_sha256": "b8e09ea19efbe94fa5adaefaa2cb685d6833a606660d7f0c23dffcd6fd311cda",
+    "files": 3,
+    "complete_stream_comparisons": 45,
+    "strict_streams": 42,
+    "strict_limit_stream": "ThirdPtyStore/VisualStates",
+    "used_provisional_schemas": [
+      "moCompHolder_c",
+      "moDisplayedEntityTracker_c.Serialize"
+    ]
+  }
+}

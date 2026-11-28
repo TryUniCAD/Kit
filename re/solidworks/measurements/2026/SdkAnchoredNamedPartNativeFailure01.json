@@ -1,0 +1,399 @@
+{
+  "candidate_default_open_errors": 0,
+  "candidate_default_open_warnings": 0,
+  "candidate_default_opens": 2,
+  "controls_healthy": true,
+  "correction": "exact_parent_lists_include_the_actual_declared_model_origin",
+  "delivery_pr": 121,
+  "dimension_edits": 0,
+  "frozen_inputs_unchanged": true,
+  "heldout_inputs_read": 0,
+  "independent_prior_dependency_report_sha256": "a230f247f6d5db4c423303ef52d4cbe1ee0450cbd40eb92ebcfb9770ce3919c6",
+  "named_candidate_opens": 0,
+  "native_fresh_reopens": 0,
+  "native_processes": 4,
+  "native_report_sha256": "e402c2967320c0309e8d02b0eb90a290e3220c17c429e633b43429b35b185895",
+  "native_saves": 0,
+  "native_trial_passed": false,
+  "native_trial_sha256": "e7c0cdf57d3bfbc7b8c2bd18a7e78e4e2de1cd0c3127c4d99c6395de254b74cb",
+  "observer_only_retry_trial_sha256": "542de0e34ace2fb574d112302fb57c71302781fcbb81fb39f1ef9be2812af9fc",
+  "offline_checks_added_to_original_native_result": false,
+  "offline_replay_numeric_checks": 128,
+  "offline_replay_report_sha256": "7a10c49f8dd84c4ca06191d2f6c93bd10f683ba9c29ea25f142296a13f8c3753",
+  "original_source_qualification": false,
+  "phases": {
+    "CenterWidePlain": {
+      "api_calls": 1071,
+      "api_errors": 0,
+      "controller_diagnostics_empty": true,
+      "dialogs_empty": true,
+      "failure_kind": "post_observation_dependency_assertion",
+      "failure_message": "anchored native configuration or actual profile dependencies differ",
+      "immutable_bytes": true,
+      "last_api_stage": "ClearSelection2",
+      "last_api_stage_is_not_the_failing_assertion_owner": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394959463221582,
+        "process_id": 9032,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": false,
+      "progress_windows_empty": true,
+      "record_sha256": "cdac15835fbf68c5fb319dece3dbdcb816e0d31cea58cc57f00598be12bd1b4a",
+      "recorded_numeric_checks": 0,
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SpanCenterWide@AnchorSketch@SdkAnchorNameCenterWide01.Part",
+              "name": "SpanCenterWide",
+              "reference": "SpanCenterWide@AnchorSketch",
+              "role": "width",
+              "value_m": 0.04517
+            },
+            {
+              "driving": true,
+              "full_name": "RiseCenterWide@AnchorSketch@SdkAnchorNameCenterWide01.Part",
+              "name": "RiseCenterWide",
+              "reference": "RiseCenterWide@AnchorSketch",
+              "role": "height",
+              "value_m": 0.02231
+            },
+            {
+              "driving": true,
+              "full_name": "DepthCenterWide@AnchorBoss@SdkAnchorNameCenterWide01.Part",
+              "name": "DepthCenterWide",
+              "reference": "DepthCenterWide@AnchorBoss",
+              "role": "depth",
+              "value_m": 0.00923
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "AnchorSketch",
+            "Front Plane",
+            "Origin"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "constraint_status": 3,
+          "construction_segments": 2,
+          "mass": {
+            "area": 0.0032611662000000003,
+            "com": [
+              -8.405250142266476e-19,
+              0.0,
+              0.004615
+            ],
+            "mass": 9.301465121000001e-06,
+            "volume": 9.301465121000001e-06
+          },
+          "native_body_name": "AnchorBoss",
+          "native_body_type": 0,
+          "nonconstruction_segments": 4,
+          "sketch_parents": [
+            "Front Plane",
+            "Origin"
+          ],
+          "sketch_relation_count": 9,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SpanCenterWide@AnchorSketch@SdkAnchorNameCenterWide01.Part",
+              "name": "SpanCenterWide",
+              "reference": "SpanCenterWide@AnchorSketch",
+              "role": "width",
+              "value_m": 0.04517
+            },
+            {
+              "driving": true,
+              "full_name": "RiseCenterWide@AnchorSketch@SdkAnchorNameCenterWide01.Part",
+              "name": "RiseCenterWide",
+              "reference": "RiseCenterWide@AnchorSketch",
+              "role": "height",
+              "value_m": 0.02231
+            },
+            {
+              "driving": true,
+              "full_name": "DepthCenterWide@AnchorBoss@SdkAnchorNameCenterWide01.Part",
+              "name": "DepthCenterWide",
+              "reference": "DepthCenterWide@AnchorBoss",
+              "role": "depth",
+              "value_m": 0.00923
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "AnchorSketch",
+            "Front Plane",
+            "Origin"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "constraint_status": 3,
+          "construction_segments": 2,
+          "mass": {
+            "area": 0.0032611662000000003,
+            "com": [
+              -8.405250142266476e-19,
+              0.0,
+              0.004615
+            ],
+            "mass": 9.301465121000001e-06,
+            "volume": 9.301465121000001e-06
+          },
+          "native_body_name": "AnchorBoss",
+          "native_body_type": 0,
+          "nonconstruction_segments": 4,
+          "sketch_parents": [
+            "Front Plane",
+            "Origin"
+          ],
+          "sketch_relation_count": 9,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "whats_wrong": 0
+        }
+      }
+    },
+    "ControlAfter": {
+      "bodies": 1,
+      "mass": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06,
+        "volume": 8.000000000000001e-06
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394959921212623,
+        "process_id": 7632,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "rebuilt": true,
+      "record_sha256": "74f3c620f283d5105e78245ddeb88a1603e6870e4b6cabc005884da9cfc4cca4",
+      "whats_wrong": 0
+    },
+    "ControlBefore": {
+      "bodies": 1,
+      "mass": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06,
+        "volume": 8.000000000000001e-06
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394958821817127,
+        "process_id": 4064,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "rebuilt": true,
+      "record_sha256": "57553d3d835e5180054321071d24510dbac6cedbbff8387f21216dc2ce8213ca",
+      "whats_wrong": 0
+    },
+    "CornerAsciiPlain": {
+      "api_calls": 907,
+      "api_errors": 0,
+      "controller_diagnostics_empty": true,
+      "dialogs_empty": true,
+      "failure_kind": "post_observation_dependency_assertion",
+      "failure_message": "anchored native configuration or actual profile dependencies differ",
+      "immutable_bytes": true,
+      "last_api_stage": "ClearSelection2",
+      "last_api_stage_is_not_the_failing_assertion_owner": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394959060321002,
+        "process_id": 9896,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": false,
+      "progress_windows_empty": true,
+      "record_sha256": "7baace8c2e369b28f842fa116d1ae7191e9505529f4bd1622d5a98af3feff67a",
+      "recorded_numeric_checks": 0,
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SpanCornerAscii@AnchorSketch@SdkAnchorNameCornerAscii01.Part",
+              "name": "SpanCornerAscii",
+              "reference": "SpanCornerAscii@AnchorSketch",
+              "role": "width",
+              "value_m": 0.033409999999999995
+            },
+            {
+              "driving": true,
+              "full_name": "RiseCornerAscii@AnchorSketch@SdkAnchorNameCornerAscii01.Part",
+              "name": "RiseCornerAscii",
+              "reference": "RiseCornerAscii@AnchorSketch",
+              "role": "height",
+              "value_m": 0.021670000000000002
+            },
+            {
+              "driving": true,
+              "full_name": "DepthCornerAscii@AnchorBoss@SdkAnchorNameCornerAscii01.Part",
+              "name": "DepthCornerAscii",
+              "reference": "DepthCornerAscii@AnchorBoss",
+              "role": "depth",
+              "value_m": 0.00713
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "AnchorSketch",
+            "Front Plane",
+            "Origin"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "constraint_status": 3,
+          "construction_segments": 0,
+          "mass": {
+            "area": 0.0022334302,
+            "com": [
+              0.016704999999999998,
+              0.010835000000000001,
+              0.0035649999999999996
+            ],
+            "mass": 5.162082211e-06,
+            "volume": 5.162082211e-06
+          },
+          "native_body_name": "AnchorBoss",
+          "native_body_type": 0,
+          "nonconstruction_segments": 4,
+          "sketch_parents": [
+            "Front Plane",
+            "Origin"
+          ],
+          "sketch_relation_count": 7,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SpanCornerAscii@AnchorSketch@SdkAnchorNameCornerAscii01.Part",
+              "name": "SpanCornerAscii",
+              "reference": "SpanCornerAscii@AnchorSketch",
+              "role": "width",
+              "value_m": 0.033409999999999995
+            },
+            {
+              "driving": true,
+              "full_name": "RiseCornerAscii@AnchorSketch@SdkAnchorNameCornerAscii01.Part",
+              "name": "RiseCornerAscii",
+              "reference": "RiseCornerAscii@AnchorSketch",
+              "role": "height",
+              "value_m": 0.021670000000000002
+            },
+            {
+              "driving": true,
+              "full_name": "DepthCornerAscii@AnchorBoss@SdkAnchorNameCornerAscii01.Part",
+              "name": "DepthCornerAscii",
+              "reference": "DepthCornerAscii@AnchorBoss",
+              "role": "depth",
+              "value_m": 0.00713
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "AnchorSketch",
+            "Front Plane",
+            "Origin"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "constraint_status": 3,
+          "construction_segments": 0,
+          "mass": {
+            "area": 0.0022334302,
+            "com": [
+              0.016704999999999998,
+              0.010835000000000001,
+              0.0035649999999999996
+            ],
+            "mass": 5.162082210999999e-06,
+            "volume": 5.162082210999999e-06
+          },
+          "native_body_name": "AnchorBoss",
+          "native_body_type": 0,
+          "nonconstruction_segments": 4,
+          "sketch_parents": [
+            "Front Plane",
+            "Origin"
+          ],
+          "sketch_relation_count": 7,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "whats_wrong": 0
+        }
+      }
+    }
+  },
+  "prior_dependency_states": 15,
+  "public_writer_registration_changed": false,
+  "recorded_numeric_checks": 0,
+  "schema": "kit.sw2026.sdk-anchored-named-native-observer-failure.v1",
+  "source_and_generated_bytes_changed": false,
+  "task_id": "B04-SW2026-ANCHORED-NAMED-PART",
+  "verdict": "retained_observer_failure_complete_named_lifecycle_unqualified"
+}

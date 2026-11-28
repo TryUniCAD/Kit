@@ -1,0 +1,96 @@
+{
+  "authored_geometry_only": true,
+  "build_lock_sha256": "903afcdac71e53e518beec7548a0fb214e4c580199841baecc38db7b4113fee8",
+  "cases": {
+    "CylinderSlot01": {
+      "generated_sha256": "a7eb6d4c26846674bfdd27226ee9d9aef46b157347dd7489fd317928a2226db4",
+      "native_lifecycle_passed": true,
+      "saved_sha256": "372d82c24c819048a28de7b9cbe3ffc4f3198465405de92369a5c94dcb98b988",
+      "source_sha256": "38565e3c6d69fac22bb8ac6e9ca4a3b1dbc4c53345bd23f8e6c29d5ce72b67dc"
+    },
+    "CylinderSlot02": {
+      "generated_sha256": "b178ee3cd1e7b4bdd1caa7ab5cf1b3382901ae55a922efb780420f536cb330ef",
+      "native_lifecycle_passed": true,
+      "saved_sha256": "c9f2ce2201fb2f3c91e214ad3b1d0edb0dd1fe1cf90347b03f78a310e0c392bd",
+      "source_sha256": "e3e02af056389073ef3b37f20440c752a36076eb7de5cf922ef2014235048d16"
+    }
+  },
+  "construction_sha256": "ccbe76220f8be81739305f8fc8a3de9fbd45d86f549b42880d6df52c9b0094e0",
+  "controls_healthy": true,
+  "custody_unchanged": true,
+  "distinct_native_processes": 8,
+  "generated_hashes_frozen_before_original_access": true,
+  "geometry_lifecycles_passed": 2,
+  "guarded_build_processes": 4,
+  "job_sha256": "211894fe70c4bb356a15bafb50bf07bda7a57ed8e46b4d4f2d92b43a0f18fc58",
+  "native_calls_during_construction": 0,
+  "native_numeric_checks": 456,
+  "neutral_seam_gauge": "least-aligned positive cartesian vector projected into the signed-axis normal plane",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "original_files_opened_during_build": 0,
+  "original_source_transfer_qualified": false,
+  "passed": true,
+  "phase_receipts": [
+    {
+      "passed": true,
+      "phase": "ControlBefore",
+      "record_sha256": "38474cb671a61e0a93a09073e5f5f65637661f0f6f7125131e49f0a2348a28bf"
+    },
+    {
+      "passed": true,
+      "phase": "CylinderSlot01Original",
+      "record_sha256": "28ae04cbbacea1cbf8026642d939237b3bae07eea46b32179add12582624d576"
+    },
+    {
+      "passed": true,
+      "phase": "CylinderSlot01Candidate",
+      "record_sha256": "c5f50aae009ced2b88b9e55abd50ac41e5b3aa5a2accffc1402c4c8f149c3da0"
+    },
+    {
+      "passed": true,
+      "phase": "CylinderSlot01Reopen",
+      "record_sha256": "397e87fccc113a173988be8603f77a2b5203dd7d6be82ab647c1415f07f33c54"
+    },
+    {
+      "passed": true,
+      "phase": "CylinderSlot02Original",
+      "record_sha256": "94f42025b8f4bd4769ca883a0d35b9f96fe21442345d3d533320c1ef6af73e0b"
+    },
+    {
+      "passed": true,
+      "phase": "CylinderSlot02Candidate",
+      "record_sha256": "4c64898bbb4d7f65fea205c8fde0823872325184eed629f4518f0c231866d4f6"
+    },
+    {
+      "passed": true,
+      "phase": "CylinderSlot02Reopen",
+      "record_sha256": "73b76f482f646705c19dd138b4d37a4ef4cc6fb3995b7fd342893671551f5a1c"
+    },
+    {
+      "passed": true,
+      "phase": "ControlAfter",
+      "record_sha256": "1661eec48e684563915474bbc78299fa68a59babdd655f591adfd8070b6c9a35"
+    }
+  ],
+  "predictor_sha256": "332855d795f3a0d026c626ba8aea3423769279f59964f6a1168bd10c288e98b3",
+  "private_generated_outputs_shared": 0,
+  "private_native_inputs_shared": 0,
+  "protocol_revision": "125a9af15e1063811e14ef32038c13dfbe700f18",
+  "public_writer_qualified": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.sealed-periodic-import-evaluation.v1",
+  "source_domains_omitted": [
+    "original document and body labels",
+    "original native feature identity and system tree",
+    "original seam parameterization",
+    "original provenance and native payload",
+    "original annotations and presentation scene",
+    "original document properties and material",
+    "original native configuration metadata",
+    "original units display settings and save bookkeeping"
+  ],
+  "source_lock_sha256": "8f63cec25adb2adc5257b2e7be361a11d9ef1c39f4149ec9bb7ff67010ea24ab",
+  "source_transport_sha256": "ee905a2264c80dc4d3c78643caf465c8696fe448e0324c104737a767bc2a9f63",
+  "writer_revision": "492f4f40bfdbecb5c3cdc7a964c96f851be523d7"
+}

@@ -1,0 +1,38 @@
+# Explicit spatial sketch-label intent in planar assemblies
+
+Two independently authored neutral rectangles now exercise exact XYZ text points and independently selected centreline routing in a research-only assembly constructor. Both retain their actual value-to-parameter, handle-to-sketch, and handle-to-value identities. The measured scope is the canonical origin Front-plane rectangle with the existing positive blind boss and ordinary planar parent. Native assembly persistence and public source conversion remain open. [Host receipt](../measurements/2026/SdkPlanarSketchLabelIntent01.json) · [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+
+## Owned neutral input and wire composition
+
+Each of the two complete input rows identifies the actual `sketch_id` and `parameter_id`, supplies the finite three-coordinate `text_point_m` in metres and sets `route_centerline` explicitly. The selector resolves by the parameter identity of the retained sketch. Request row order carries no role. The shared projection enforces the canonical origin frame, four axis-aligned edge roles, real driving constraints and one blind boss. [Research constructor](../../tooling/sw2026/planar_registry/SketchLabelIntent.py)
+
+The constructor passes the requested XY to `MakeRectDimsMut` before placement. The shared `ReadRectPlace` computes the along fraction, signed outward distance, edge and outward vectors, duplicate witness endpoints and length from the actual selected edge. It refuses text whose projection falls outside that edge or whose outward distance is nonpositive. After verifying the actual `dims.f118` display, `val_g2` value, `f28` parameter and indexed `f850` handle aliases, the constructor applies the existing typed whole-point operation to `moDisplayDistanceDim_c.f6a0.f38`. The independently authored boolean determines its `f1014` word, zero or `0x800`. These operations occur on the newly constructed graph before the first serialization. [Shared dimension builder](../../../src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectDimsMut.py) · [Witness derivation](../../../src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/ReadRectPlace.py) · [Whole-point wire authority](DrawingSpatialTextConstruction2026.md)
+
+The actual shared allocator retains the separate value and display identities. `FinishBlindMut` emits the complete child and `MakePlanarGroup` consumes that same child object to construct the parent. No placement, standard or routing value comes from a saved file. The existing stored text point already contains three binary64 coordinates, so this path requires no archive schema expansion. [Handle identity](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Construction/SketchHandlesReferenceValueGroups.md) · [Two identity counters](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/SketchDimensionsHaveTwoIdentityCounters.md)
+
+## Guarded comparison
+
+| Authored rectangle in mm | D1 XYZ in m | D2 XYZ in m |
+| --- | --- | --- |
+| 47.3 × 28.9 × 11.7 | `(-0.00637, -0.023174, 0.000371)` | `(0.033987, 0.004283, -0.000613)` |
+| 31.7 × 42.3 × 8.31 | `(0.007883, -0.031059, -0.000457)` | `(0.028571, -0.006127, 0.000829)` |
+
+For each design, two independent guarded processes produce each of seven variants. The ordinary and explicit-default outputs match byte for byte in both containers. XY-only, XYZ, width route, height route and both routes make five distinct child artifacts. Each changes only `Contents/Config-0-ResolvedFeatures`. All twelve parent streams and complete parent bytes match within each design. Signed Z and routing preserve identical XY witnesses. The width-route variant sends both parameters in reverse order and still selects D1. The decoded witness predictions use the neutral endpoints and an independent dot-product calculation. XYZ and routing compare exactly. Witness arithmetic compares within `1e-14`.
+
+All 28 positive processes reparse the parent and child container streams and retain the same scoped driver, display and value IDs, selected point pairs, and graph indices for each design. All 56 linked child Config and ResolvedFeatures round trips reproduce exact bytes. Eight other fresh processes refuse a crossed sketch, repeated driver, foreign parent driver, implicit boolean, short point, boolean coordinate, outside-edge label and translated Front support. Every worker reports zero runtime file reads and zero CAD imports. [Proof supervisor](../../tooling/sw2026/planar_registry/ProveSketchLabelIntent.py)
+
+The base is `03e2e5ed376229565c6d381b132dd1c946d89218`, SDK tree `f6830bfd53fc99747c91ca4a3cd7eead3915d6ee`. The raw guarded result SHA-256 is `8f4844bbc9aa3213034a01b7ad63aa7d18376f5550c509141a1d6404a87ba541`; the [compact receipt](../measurements/2026/SdkPlanarSketchLabelIntent01.json) is `dccc37451d8bede6794bc0cb1c927fa1c8b190025d66277bc532b2892f17b34b`. Use the exact base and the two research sources, then choose a new host receipt path.
+
+```sh
+SKETCH_LABEL_PROOF="$(mktemp -d)/Result.json"
+python3.14 -I -B re/tooling/sw2026/planar_registry/ProveSketchLabelIntent.py prove \
+  --output "$SKETCH_LABEL_PROOF"
+```
+
+## Source transfer entry points and limits
+
+The [A20/A21 audit](SdkPlanarPriorSourceAdmission2026.md) measured the owned field and the public default discrepancy. Both actual sources have the D2 5 mm planar shift, 0.1 mm stored text Z and both route bits set. The existing closed projector can form a clean neutral assembly, but the raw source document is still rejected at `CheckAsmRoot` before presentation admission. The current proof consumes new authored numeric inputs. Its source-read, prior-cohort regression and new held-out credit counts are zero.
+
+For read-side transfer, start from `ReadLineDims` and the validated `ReadDimView` alias. `LineValueRule` binds the actual neutral `parameter_id` to the dimension relation. Preserve the text XYZ and route there as explicit sketch presentation with the actual owner and frame. `LineNativeDims` currently retains only the driver and layout-owner indices. The native annotation API position is a separate value. [Typed display alias](../../../src/convert/adapters/solidworks/Core/TypedResolved/LineDimensions/ReadDimView.py) · [Neutral relation binding](../../../src/convert/adapters/solidworks/Core/TypedResolved/LineDimensions/LineValueRule.py) · [Driver projection](../../../src/convert/adapters/solidworks/Core/TypedResolved/LineDimensions/LineNativeDims.py) · [Independent annotation position](../../../Documentation/Gotchas/Conversion/Solidworks/Drawings/Qualification/AnnotationPositionHasIndependentDepth.md)
+
+For write-side transfer, share the closed label validation between `CheckAsmShape` and `PlanAsmWrite`. Carry the typed owned input through the child preparation graph to the rectangle display builder and preserve the existing no-input defaults. Current `ReadRectDisplay` computes its positions from bounds and sets the shared route false. Qualification of changed XYZ or mixed routing in the native assembly still requires a matched fresh edit/save/reopen batch. The two earlier [native drawing-linked signed-Z results](DrawingSpatialTextLifecycleProtocol2026.md#measured-lifecycle) support the stored XYZ owner. Whole-source assembly transfer also needs the native root and Mates owner projection recorded in the earlier audit. [Registry selection](../../../src/convert/adapters/solidworks/Core/AssemblyWriting/CheckAsmShape.py) · [Assembly plan](../../../src/convert/adapters/solidworks/Core/AssemblyPreparation/PlanAsmWrite.py) · [Default display policy](../../../src/convert/adapters/solidworks/Core/AssemblyPreparation/Children/ReadRectDisplay.py)

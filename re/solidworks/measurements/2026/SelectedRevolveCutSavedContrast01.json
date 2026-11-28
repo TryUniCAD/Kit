@@ -1,0 +1,777 @@
+{
+  "cases": [
+    {
+      "capture_sha256": "9a1fab4e8d62532dbcc2a49b48e0228f47e134c1bbc29dd5c81f04aa90bb6075",
+      "case": "RevCutInner",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25378,
+          "map_counter": 111,
+          "sha256": "5e2bd0d84d6952da96ad3521f1f898218f1f0247ec4fa69abd6676001f8120f3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25227,
+          "map_counter": 430,
+          "sha256": "0ffa30556ac0f5d7e33ac783bbd0a70d4cc824c1de88de77cd8209552536facc"
+        }
+      },
+      "measurements": {
+        "analytic_comparison": {
+          "angle_radians": [
+            6.283185307179586,
+            6.283185307179586,
+            1.265363707695889
+          ],
+          "axis": "z",
+          "chooser_bounds": [
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.10483999809233115
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.1768445045795882
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.10483999809233115
+            }
+          ],
+          "observed": [
+            {
+              "area_m2": 0.05370356103275342,
+              "centre_m": [
+                0.004709999999999998,
+                0.004120000000000005,
+                1.4576508876954735e-18
+              ],
+              "face_count": 4,
+              "volume_m3": 0.0003456865420022361
+            },
+            {
+              "area_m2": 0.02189424000714686,
+              "centre_m": [
+                0.00376786947791885,
+                0.004180957719319327,
+                0.000690798679508094
+              ],
+              "face_count": 9,
+              "volume_m3": 0.000126676098073555
+            }
+          ],
+          "predicted": [
+            {
+              "area_m2": 0.05370356103275342,
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "face_count": 4,
+              "volume_m3": 0.00034568654200223606
+            },
+            {
+              "area_m2": 0.021894240007146862,
+              "centre_m": [
+                0.003767869477918849,
+                0.004180957719319341,
+                0.000690798679508093
+              ],
+              "face_count": 9,
+              "volume_m3": 0.000126676098073555
+            }
+          ]
+        },
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          101
+        ],
+        "result_atoms": [
+          103
+        ],
+        "wrappers": [
+          {
+            "atom": 101,
+            "f100": 58,
+            "f104": 103,
+            "f108": -1,
+            "face": [
+              5,
+              512,
+              3553
+            ],
+            "producer": [
+              31,
+              31,
+              31
+            ]
+          }
+        ]
+      },
+      "phase": "original",
+      "sha256": "86980d9160606e79d0ad6ad8a553184c3d4f54fdeaabd701b012b76d51a2bea5"
+    },
+    {
+      "capture_sha256": "9a1fab4e8d62532dbcc2a49b48e0228f47e134c1bbc29dd5c81f04aa90bb6075",
+      "case": "RevCutInner",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25390,
+          "map_counter": 111,
+          "sha256": "f25ad4d6c28353e3eb292cf4f824925cfacf5ea965cab9472082851261e06499"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25383,
+          "map_counter": 430,
+          "sha256": "8680e94924b88085bb438149c89a215549aee617a11793d066857b34c67468c6"
+        }
+      },
+      "measurements": {
+        "analytic_comparison": {
+          "angle_radians": [
+            6.283185307179586,
+            6.283185307179586,
+            1.8893189152838616
+          ],
+          "axis": "z",
+          "chooser_bounds": [
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.10483999809233115
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.1768445045795882
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.10483999809233115
+            }
+          ],
+          "observed": [
+            {
+              "area_m2": 0.05370356103275342,
+              "centre_m": [
+                0.004709999999999998,
+                0.004120000000000005,
+                1.4576508876954735e-18
+              ],
+              "face_count": 4,
+              "volume_m3": 0.0003456865420022361
+            },
+            {
+              "area_m2": 0.02195017883941754,
+              "centre_m": [
+                0.0037475271868094265,
+                0.004213374753556542,
+                0.0013308261828786773
+              ],
+              "face_count": 9,
+              "volume_m3": 0.00012347635972985834
+            }
+          ],
+          "predicted": [
+            {
+              "area_m2": 0.05370356103275342,
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "face_count": 4,
+              "volume_m3": 0.00034568654200223606
+            },
+            {
+              "area_m2": 0.021950178839417536,
+              "centre_m": [
+                0.003747527186809424,
+                0.004213374753556555,
+                0.0013308261828786762
+              ],
+              "face_count": 9,
+              "volume_m3": 0.00012347635972985834
+            }
+          ]
+        },
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          101
+        ],
+        "result_atoms": [
+          103
+        ],
+        "wrappers": [
+          {
+            "atom": 101,
+            "f100": 58,
+            "f104": 103,
+            "f108": -1,
+            "face": [
+              5,
+              512,
+              1992
+            ],
+            "producer": [
+              31,
+              31,
+              31
+            ]
+          }
+        ]
+      },
+      "phase": "edited",
+      "sha256": "293af307b660f6d6f388699589ec2f36484e749f93ed3152846c63e73375d660"
+    },
+    {
+      "capture_sha256": "9a1fab4e8d62532dbcc2a49b48e0228f47e134c1bbc29dd5c81f04aa90bb6075",
+      "case": "RevCutOuter",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25378,
+          "map_counter": 111,
+          "sha256": "422f0986a33d24f43b82a38b426aa415d942f7980e2e9777fae6c9513278b964"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25227,
+          "map_counter": 430,
+          "sha256": "1a160a4f3828b7a2684fe40176a7bb9ef35494f5d4e3f9671a0dedc49e842572"
+        }
+      },
+      "measurements": {
+        "analytic_comparison": {
+          "angle_radians": [
+            6.283185307179586,
+            6.283185307179586,
+            1.265363707695889
+          ],
+          "axis": "z",
+          "chooser_bounds": [
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.10483999809233115
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.1768445045795882
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.1768445045795882
+            }
+          ],
+          "observed": [
+            {
+              "area_m2": 0.02135820562002451,
+              "centre_m": [
+                0.004710000000000001,
+                0.004119999999999984,
+                9.443636455720104e-19
+              ],
+              "face_count": 4,
+              "volume_m3": 0.0001331650779314014
+            },
+            {
+              "area_m2": 0.05450382194533887,
+              "centre_m": [
+                0.004056315145256125,
+                0.004143777695369968,
+                0.00047930156585311513
+              ],
+              "face_count": 9,
+              "volume_m3": 0.00033891460236239917
+            }
+          ],
+          "predicted": [
+            {
+              "area_m2": 0.02135820562002451,
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "face_count": 4,
+              "volume_m3": 0.0001331650779314014
+            },
+            {
+              "area_m2": 0.05450382194533888,
+              "centre_m": [
+                0.004056315145256127,
+                0.004143777695369964,
+                0.0004793015658531134
+              ],
+              "face_count": 9,
+              "volume_m3": 0.0003389146023623991
+            }
+          ]
+        },
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          102
+        ],
+        "result_atoms": [
+          103
+        ],
+        "wrappers": [
+          {
+            "atom": 102,
+            "f100": 58,
+            "f104": 103,
+            "f108": -1,
+            "face": [
+              5,
+              512,
+              3878
+            ],
+            "producer": [
+              37,
+              37,
+              37
+            ]
+          }
+        ]
+      },
+      "phase": "original",
+      "sha256": "10c3546185260f5bc443c73176fb6e6ea939d534c65680e7592de4a4e003a232"
+    },
+    {
+      "capture_sha256": "9a1fab4e8d62532dbcc2a49b48e0228f47e134c1bbc29dd5c81f04aa90bb6075",
+      "case": "RevCutOuter",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25390,
+          "map_counter": 111,
+          "sha256": "70c398753f30e48978f04a9c719d5a615fe6481e507ec4b4ece62d68de89ad95"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25383,
+          "map_counter": 430,
+          "sha256": "7820510435e588d00bf168df83c15b6ecfdc440eede44e13fb152241b73b9a26"
+        }
+      },
+      "measurements": {
+        "analytic_comparison": {
+          "angle_radians": [
+            6.283185307179586,
+            6.283185307179586,
+            1.8893189152838616
+          ],
+          "axis": "z",
+          "chooser_bounds": [
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.10483999809233115
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.1768445045795882
+            },
+            {
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "diagonal_m": 0.1768445045795882
+            }
+          ],
+          "observed": [
+            {
+              "area_m2": 0.02135820562002451,
+              "centre_m": [
+                0.004710000000000001,
+                0.004119999999999984,
+                9.443636455720104e-19
+              ],
+              "face_count": 4,
+              "volume_m3": 0.0001331650779314014
+            },
+            {
+              "area_m2": 0.05477676541051033,
+              "centre_m": [
+                0.004052591662457511,
+                0.004155855840323999,
+                0.0009090087703818107
+              ],
+              "face_count": 9,
+              "volume_m3": 0.0003355753355744796
+            }
+          ],
+          "predicted": [
+            {
+              "area_m2": 0.02135820562002451,
+              "centre_m": [
+                0.00471,
+                0.004119999999999999,
+                0.0
+              ],
+              "face_count": 4,
+              "volume_m3": 0.0001331650779314014
+            },
+            {
+              "area_m2": 0.054776765410510325,
+              "centre_m": [
+                0.004052591662457512,
+                0.004155855840323996,
+                0.000909008770381809
+              ],
+              "face_count": 9,
+              "volume_m3": 0.0003355753355744795
+            }
+          ]
+        },
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          102
+        ],
+        "result_atoms": [
+          103
+        ],
+        "wrappers": [
+          {
+            "atom": 102,
+            "f100": 58,
+            "f104": 103,
+            "f108": -1,
+            "face": [
+              5,
+              512,
+              2317
+            ],
+            "producer": [
+              37,
+              37,
+              37
+            ]
+          }
+        ]
+      },
+      "phase": "edited",
+      "sha256": "568b91404134ff8f7ae339dbe0b73f47a35d7e5ee9e4f5b13d5c7be82e2585b7"
+    },
+    {
+      "capture_sha256": "f3caaecc7fce3f4f2feb50cd09e24b2b2b9ef78779e493d10ac71b950854186b",
+      "case": "ScopePairA",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25466,
+          "map_counter": 112,
+          "sha256": "92d3c7344d4ddbdbc9e1386079dbd3960568813f27aa3e90e73a8e1c104e2bc6"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25674,
+          "map_counter": 460,
+          "sha256": "8ce0ff0aba2d43361b0c6b65c92fc1ed6199ecfad52bc70f659cea87dad66ea9"
+        }
+      },
+      "measurements": {
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          101,
+          102
+        ],
+        "result_atoms": [
+          103,
+          104
+        ],
+        "wrappers": [
+          {
+            "atom": 101,
+            "f100": 58,
+            "f104": 103,
+            "f108": 31,
+            "face": [
+              5,
+              512,
+              3926
+            ],
+            "producer": [
+              31,
+              31,
+              31
+            ]
+          },
+          {
+            "atom": 102,
+            "f100": 58,
+            "f104": 104,
+            "f108": 37,
+            "face": [
+              5,
+              512,
+              4251
+            ],
+            "producer": [
+              37,
+              37,
+              37
+            ]
+          }
+        ]
+      },
+      "phase": "original",
+      "sha256": "797520b4695d7ef9d6b390fd30a925c5795a9f492201a0b5863b18193977f9b1"
+    },
+    {
+      "capture_sha256": "f3caaecc7fce3f4f2feb50cd09e24b2b2b9ef78779e493d10ac71b950854186b",
+      "case": "ScopePairA",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25476,
+          "map_counter": 112,
+          "sha256": "08ac87f0b07b8024ba8dab6637abfa5177d9f1af5720f548a217a933e3e1282c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25832,
+          "map_counter": 460,
+          "sha256": "0acdbcf52d36017a966fbcba15de45fabaabe8c9d8956dec028ebe3b0d0cff39"
+        }
+      },
+      "measurements": {
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          101,
+          102
+        ],
+        "result_atoms": [
+          103,
+          104
+        ],
+        "wrappers": [
+          {
+            "atom": 101,
+            "f100": 58,
+            "f104": 103,
+            "f108": 31,
+            "face": [
+              5,
+              512,
+              2494
+            ],
+            "producer": [
+              31,
+              31,
+              31
+            ]
+          },
+          {
+            "atom": 102,
+            "f100": 58,
+            "f104": 104,
+            "f108": 37,
+            "face": [
+              5,
+              512,
+              2819
+            ],
+            "producer": [
+              37,
+              37,
+              37
+            ]
+          }
+        ]
+      },
+      "phase": "edited",
+      "sha256": "a03c1468b4962025a7a6f0b3dc531177a596fad8d365df53cf779cf0f3d90f25"
+    },
+    {
+      "capture_sha256": "f3caaecc7fce3f4f2feb50cd09e24b2b2b9ef78779e493d10ac71b950854186b",
+      "case": "ScopePairB",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25466,
+          "map_counter": 112,
+          "sha256": "6a1308237cebd7a621b4e0d17b8790fb7df703e8c1fd0ee71a63cded4f16cccf"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25890,
+          "map_counter": 460,
+          "sha256": "f6b2a32ea59f9731b233e8d897b1edb95c290bc5f137f079f97d354349ffd192"
+        }
+      },
+      "measurements": {
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          101,
+          102
+        ],
+        "result_atoms": [
+          103,
+          104
+        ],
+        "wrappers": [
+          {
+            "atom": 101,
+            "f100": 58,
+            "f104": 103,
+            "f108": 31,
+            "face": [
+              5,
+              512,
+              3926
+            ],
+            "producer": [
+              31,
+              31,
+              31
+            ]
+          },
+          {
+            "atom": 102,
+            "f100": 0,
+            "f104": 0,
+            "f108": 37,
+            "face": [
+              5,
+              512,
+              4251
+            ],
+            "producer": [
+              37,
+              37,
+              37
+            ]
+          }
+        ]
+      },
+      "phase": "original",
+      "sha256": "de0a62060b102336ab71664f274c92a5af689a070c858e20e7f8ded4da272a6a"
+    },
+    {
+      "capture_sha256": "f3caaecc7fce3f4f2feb50cd09e24b2b2b9ef78779e493d10ac71b950854186b",
+      "case": "ScopePairB",
+      "linked_replay": {
+        "Contents/Config-0": {
+          "bytes": 25476,
+          "map_counter": 112,
+          "sha256": "516150eaa0599a33bcf878f328bcb245066b25390d14d2bbc047f060ed57a100"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 26048,
+          "map_counter": 460,
+          "sha256": "6fbee20ab251f3f615165ae24284cd8744db98871a76c6ae807cbf0f898731a2"
+        }
+      },
+      "measurements": {
+        "boss_ids": [
+          31,
+          37
+        ],
+        "consumed_atoms": [
+          101,
+          102
+        ],
+        "result_atoms": [
+          103,
+          104
+        ],
+        "wrappers": [
+          {
+            "atom": 101,
+            "f100": 58,
+            "f104": 103,
+            "f108": 31,
+            "face": [
+              5,
+              512,
+              2500
+            ],
+            "producer": [
+              31,
+              31,
+              31
+            ]
+          },
+          {
+            "atom": 102,
+            "f100": 0,
+            "f104": 0,
+            "f108": 37,
+            "face": [
+              5,
+              512,
+              2825
+            ],
+            "producer": [
+              37,
+              37,
+              37
+            ]
+          }
+        ]
+      },
+      "phase": "edited",
+      "sha256": "e5d9b03ecdbec2cbfee2cdb8ff21d62db68cc864c8e675fbf151dee332f5bcbe"
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "schema": "kit.sw2026.disclosed-revolve-cut-storage-contrast.v1",
+  "tool_sha256": "305f566385a6daaccad2195f748102579f0793b9219f6e96ec63bf3480e8b08d",
+  "writer_output_count": 0
+}

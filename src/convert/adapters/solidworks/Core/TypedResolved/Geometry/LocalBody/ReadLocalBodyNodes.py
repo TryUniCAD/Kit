@@ -12,7 +12,9 @@ KLocalNodeKinds = frozenset(
 
 
 # local topology must come from complete serialized records with their actual indices
-def ReadLocalNodes(DataValue: bytes) -> tuple[dict[int, XmtNode], dict[int, int]]:
+def ReadLocalNodes(
+    DataValue: bytes, *, AllowPeriodic: bool = False
+) -> tuple[dict[int, XmtNode], dict[int, int]]:
     HeaderValue = ReadLocalHead(DataValue)
     if HeaderValue is None:
         raise ValueError("local body transmit profile is unqualified")
@@ -24,7 +26,11 @@ def ReadLocalNodes(DataValue: bytes) -> tuple[dict[int, XmtNode], dict[int, int]
         KindValue = CursorValue.ReadKind()
         if KindValue == 1:
             break
-        if KindValue not in KLocalNodeKinds or len(NodesValue) >= 4096:
+        if (
+            KindValue not in KLocalNodeKinds
+            and not (AllowPeriodic and KindValue in (31, 51))
+            or len(NodesValue) >= 4096
+        ):
             raise ValueError("local body has an unqualified node inventory")
         NodeValue = ReadXmtNodeMut(CursorValue, KindValue)
         IndexValue = NodeValue.IndexValue

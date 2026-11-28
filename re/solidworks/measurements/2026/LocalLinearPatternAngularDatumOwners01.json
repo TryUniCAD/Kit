@@ -1,0 +1,1072 @@
+{
+  "authored_predictions": [
+    {
+      "analytic_geometry": {
+        "angle_rad": 0.49960049838337683,
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.4790749047028064,
+            0.8777740231312368,
+            0.0
+          ],
+          [
+            0.8777740231312368,
+            -0.4790749047028064,
+            0.0
+          ]
+        ],
+        "dimension_basis": [
+          [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "dimension_inverse_shift_m": [
+          0.004578159558066196,
+          -0.008388228008547884,
+          0.008687500000000003
+        ],
+        "label_direction": [
+          0.5041353616080468,
+          -0.8636246506303094,
+          0.0
+        ],
+        "label_radius_m": 0.008590845781916746,
+        "name_corner_m": [
+          0.00961413507193901,
+          0.017615278817950556,
+          0.019199375000000005
+        ],
+        "ordered_borders_m": [
+          0.001824375,
+          -0.019199375000000005,
+          0.020068125000000006,
+          -0.0009556250000000003
+        ],
+        "ray_separation_m": 0.0004944208265612667,
+        "root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "witness_points_m": [
+          [
+            0.004578159558066196,
+            0.009388228008547883,
+            0.008687500000000003
+          ],
+          [
+            0.005057234462769002,
+            0.00926600203167912,
+            0.008687500000000003
+          ],
+          [
+            0.004578159558066196,
+            0.008388228008547884,
+            0.008687500000000003
+          ]
+        ]
+      },
+      "archive_written": false,
+      "case": "AcuteA",
+      "guarded_runtime_reads": 0,
+      "independent_witness_center_m": [
+        0.004578159558066195,
+        0.008388228008547884,
+        0.0086875
+      ],
+      "neutral_request_sha256": "229fe972d30e6c40f821c6c3d8e081a67bed1842fdd3141a71f6fece52803eba",
+      "ordered_endpoints_m": [
+        [
+          0.0,
+          0.0,
+          0.018243750000000003
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0008687499999999997
+        ]
+      ],
+      "refusals": {
+        "crossed_endpoints": "an actual directed through-origin negative-Z hinge is required",
+        "missing_nonzero_angle": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "reversed_constraint": "the analytic pattern datum covers an acute unreversed Right plane constraint"
+      }
+    },
+    {
+      "analytic_geometry": {
+        "angle_rad": 1.1017390903214206,
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.8919948565893142,
+            0.45204554617671966,
+            0.0
+          ],
+          [
+            0.45204554617671966,
+            -0.8919948565893142,
+            0.0
+          ]
+        ],
+        "dimension_basis": [
+          [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "dimension_inverse_shift_m": [
+          0.012816851095617707,
+          -0.0064953294416267415,
+          0.0130625
+        ],
+        "label_direction": [
+          0.9088189740986399,
+          -0.4171906905939966,
+          0.0
+        ],
+        "label_radius_m": 0.013526811286048074,
+        "name_corner_m": [
+          0.026915387300797188,
+          0.013640191827416156,
+          0.028868124999999998
+        ],
+        "ordered_borders_m": [
+          0.002743125,
+          -0.028868124999999998,
+          0.030174375,
+          -0.001436875
+        ],
+        "ray_separation_m": 0.0010468566796111869,
+        "root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "witness_points_m": [
+          [
+            0.012816851095617707,
+            0.0074953294416267415,
+            0.0130625
+          ],
+          [
+            0.01370884595220702,
+            0.0069473749878034615,
+            0.0130625
+          ],
+          [
+            0.012816851095617707,
+            0.0064953294416267415,
+            0.0130625
+          ]
+        ]
+      },
+      "archive_written": false,
+      "case": "AcuteB",
+      "guarded_runtime_reads": 0,
+      "independent_witness_center_m": [
+        0.01281685109561771,
+        0.0064953294416267415,
+        0.0130625
+      ],
+      "neutral_request_sha256": "6d295425035271da0cbe4d58731a68c93e4394adbdc9ec741f5dcbbd83b8ac40",
+      "ordered_endpoints_m": [
+        [
+          0.0,
+          0.0,
+          0.027431249999999997
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0013062500000000001
+        ]
+      ],
+      "refusals": {
+        "crossed_endpoints": "an actual directed through-origin negative-Z hinge is required",
+        "missing_nonzero_angle": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "reversed_constraint": "the analytic pattern datum covers an acute unreversed Right plane constraint"
+      }
+    }
+  ],
+  "disclosed_cases": {
+    "DatumHeightShort.SLDPRT": {
+      "annotation_catalog": {
+        "feb0": 201,
+        "feb4": 199,
+        "fec0": [
+          {
+            "v": 199
+          }
+        ],
+        "views": [
+          {
+            "id": 200,
+            "name": "*Top"
+          },
+          {
+            "id": 201,
+            "name": "*Back"
+          }
+        ]
+      },
+      "config_bytes": 25918,
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "feature": {
+        "constraint_slots": [
+          "moRefPlaneAngleGeom_c",
+          "moRefPlaneCoincidentGeom_c",
+          "moRefPlaneCoincidentGeom_c"
+        ],
+        "id": 45,
+        "mode": 22,
+        "name": "EnvelopeDirection",
+        "selected_endpoints_m": [
+          [
+            0.0,
+            0.0,
+            0.009056250000000002
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0004312500000000002
+          ]
+        ],
+        "signed_selector": -3
+      },
+      "geometry_errors": {
+        "basis_n": 1.1102230246251565e-16,
+        "basis_u": 0.0,
+        "basis_v": 1.1102230246251565e-16,
+        "border": 0.0,
+        "dimension_shift": 4.336808689942018e-19,
+        "label_direction": 2.220446049250313e-16,
+        "label_radius": 4.336808689942018e-19,
+        "name_corner": 1.734723475976807e-18,
+        "normal": 1.1102230246251565e-16,
+        "ray_separation": 4.336808689942018e-19,
+        "root": 0.0,
+        "witness_f80": 4.336808689942018e-19,
+        "witness_fa0": 8.673617379884035e-19,
+        "witness_fc0": 4.336808689942018e-19
+      },
+      "geometry_prediction": {
+        "angle_rad": 0.7853981633974483,
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.7071067811865475,
+            0.7071067811865476,
+            0.0
+          ],
+          [
+            0.7071067811865476,
+            -0.7071067811865475,
+            0.0
+          ]
+        ],
+        "dimension_basis": [
+          [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "dimension_inverse_shift_m": [
+          0.0033543377932536856,
+          -0.003354337793253686,
+          0.004312500000000001
+        ],
+        "label_direction": [
+          0.7740715846299298,
+          -0.6330980823446788,
+          0.0
+        ],
+        "label_radius_m": 0.0038389916642002724,
+        "name_corner_m": [
+          0.00704410936583274,
+          0.0070441093658327415,
+          0.009530625000000003
+        ],
+        "ordered_borders_m": [
+          0.0009056250000000004,
+          -0.009530625000000003,
+          0.009961875000000004,
+          -0.0004743750000000002
+        ],
+        "ray_separation_m": 0.0007653668647301796,
+        "root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "witness_points_m": [
+          [
+            0.0033543377932536856,
+            0.0043543377932536865,
+            0.004312500000000001
+          ],
+          [
+            0.004061444574440233,
+            0.004061444574440234,
+            0.004312500000000001
+          ],
+          [
+            0.0033543377932536856,
+            0.003354337793253686,
+            0.004312500000000001
+          ]
+        ]
+      },
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "absent_third_geometry": "planar mate graph expected concrete moRefPlaneCoincidentGeom_c",
+        "camera_id_as_annotation_id": "angle display view ID does not bind the actual *Back annotation view",
+        "crossed_constraint_row": "angle datum requires its default pick locations and a present unselected third geometry",
+        "different_live_driver": "angular display value, driver or registered identity differs"
+      },
+      "resolved_bytes": 33618,
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b"
+    },
+    "DatumHeightTall.SLDPRT": {
+      "annotation_catalog": {
+        "feb0": 201,
+        "feb4": 199,
+        "fec0": [
+          {
+            "v": 199
+          }
+        ],
+        "views": [
+          {
+            "id": 200,
+            "name": "*Top"
+          },
+          {
+            "id": 201,
+            "name": "*Back"
+          }
+        ]
+      },
+      "config_bytes": 25918,
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "feature": {
+        "constraint_slots": [
+          "moRefPlaneAngleGeom_c",
+          "moRefPlaneCoincidentGeom_c",
+          "moRefPlaneCoincidentGeom_c"
+        ],
+        "id": 45,
+        "mode": 22,
+        "name": "EnvelopeDirection",
+        "selected_endpoints_m": [
+          [
+            0.0,
+            0.0,
+            0.021393750000000003
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0010187500000000006
+          ]
+        ],
+        "signed_selector": -3
+      },
+      "geometry_errors": {
+        "basis_n": 1.1102230246251565e-16,
+        "basis_u": 0.0,
+        "basis_v": 1.1102230246251565e-16,
+        "border": 0.0,
+        "dimension_shift": 1.734723475976807e-18,
+        "label_direction": 1.1102230246251565e-16,
+        "label_radius": 0.0,
+        "name_corner": 3.469446951953614e-18,
+        "normal": 1.1102230246251565e-16,
+        "ray_separation": 0.0,
+        "root": 0.0,
+        "witness_f80": 1.734723475976807e-18,
+        "witness_fa0": 1.734723475976807e-18,
+        "witness_fc0": 1.734723475976807e-18
+      },
+      "geometry_prediction": {
+        "angle_rad": 0.7853981633974483,
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.7071067811865475,
+            0.7071067811865476,
+            0.0
+          ],
+          [
+            0.7071067811865476,
+            -0.7071067811865475,
+            0.0
+          ]
+        ],
+        "dimension_basis": [
+          [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "dimension_inverse_shift_m": [
+          0.007924015366671748,
+          -0.00792401536667175,
+          0.010187500000000002
+        ],
+        "label_direction": [
+          0.7329160612904114,
+          -0.6803190774206982,
+          0.0
+        ],
+        "label_radius_m": 0.010289489250691251,
+        "name_corner_m": [
+          0.01664043227001067,
+          0.016640432270010674,
+          0.022514375000000003
+        ],
+        "ordered_borders_m": [
+          0.0021393750000000007,
+          -0.022514375000000003,
+          0.023533125000000002,
+          -0.001120625
+        ],
+        "ray_separation_m": 0.0007653668647301788,
+        "root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "witness_points_m": [
+          [
+            0.007924015366671748,
+            0.008924015366671749,
+            0.010187500000000002
+          ],
+          [
+            0.008631122147858295,
+            0.008631122147858297,
+            0.010187500000000002
+          ],
+          [
+            0.007924015366671748,
+            0.00792401536667175,
+            0.010187500000000002
+          ]
+        ]
+      },
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "absent_third_geometry": "planar mate graph expected concrete moRefPlaneCoincidentGeom_c",
+        "camera_id_as_annotation_id": "angle display view ID does not bind the actual *Back annotation view",
+        "crossed_constraint_row": "angle datum requires its default pick locations and a present unselected third geometry",
+        "different_live_driver": "angular display value, driver or registered identity differs"
+      },
+      "resolved_bytes": 33618,
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb"
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "annotation_catalog": {
+        "feb0": 201,
+        "feb4": 199,
+        "fec0": [
+          {
+            "v": 199
+          }
+        ],
+        "views": [
+          {
+            "id": 200,
+            "name": "*Top"
+          },
+          {
+            "id": 201,
+            "name": "*Back"
+          }
+        ]
+      },
+      "config_bytes": 25918,
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "feature": {
+        "constraint_slots": [
+          "moRefPlaneAngleGeom_c",
+          "moRefPlaneCoincidentGeom_c",
+          "moRefPlaneCoincidentGeom_c"
+        ],
+        "id": 45,
+        "mode": 22,
+        "name": "EnvelopeDirection",
+        "selected_endpoints_m": [
+          [
+            0.0,
+            0.0,
+            0.0128625
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0006125000000000002
+          ]
+        ],
+        "signed_selector": -3
+      },
+      "geometry_errors": {
+        "basis_n": 1.1102230246251565e-16,
+        "basis_u": 0.0,
+        "basis_v": 1.1102230246251565e-16,
+        "border": 0.0,
+        "dimension_shift": 8.673617379884035e-19,
+        "label_direction": 3.510833468576701e-16,
+        "label_radius": 0.0,
+        "name_corner": 1.734723475976807e-18,
+        "normal": 1.1102230246251565e-16,
+        "ray_separation": 0.0,
+        "root": 0.0,
+        "witness_f80": 8.673617379884035e-19,
+        "witness_fa0": 8.673617379884035e-19,
+        "witness_fc0": 8.673617379884035e-19
+      },
+      "geometry_prediction": {
+        "angle_rad": 0.7853981633974483,
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.7071067811865475,
+            0.7071067811865476,
+            0.0
+          ],
+          [
+            0.7071067811865476,
+            -0.7071067811865475,
+            0.0
+          ]
+        ],
+        "dimension_basis": [
+          [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "dimension_inverse_shift_m": [
+          0.004764131938244364,
+          -0.004764131938244365,
+          0.006125
+        ],
+        "label_direction": [
+          0.752024821399879,
+          -0.6591347874285501,
+          0.0
+        ],
+        "label_radius_m": 0.0058262019832314785,
+        "name_corner_m": [
+          0.010004677070313165,
+          0.010004677070313167,
+          0.013536250000000001
+        ],
+        "ordered_borders_m": [
+          0.0012862500000000003,
+          -0.013536250000000001,
+          0.014148750000000002,
+          -0.0006737500000000001
+        ],
+        "ray_separation_m": 0.0007653668647301796,
+        "root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "witness_points_m": [
+          [
+            0.004764131938244364,
+            0.005764131938244365,
+            0.006125
+          ],
+          [
+            0.005471238719430911,
+            0.005471238719430912,
+            0.006125
+          ],
+          [
+            0.004764131938244364,
+            0.004764131938244365,
+            0.006125
+          ]
+        ]
+      },
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "absent_third_geometry": "planar mate graph expected concrete moRefPlaneCoincidentGeom_c",
+        "camera_id_as_annotation_id": "angle display view ID does not bind the actual *Back annotation view",
+        "crossed_constraint_row": "angle datum requires its default pick locations and a present unselected third geometry",
+        "different_live_driver": "angular display value, driver or registered identity differs"
+      },
+      "resolved_bytes": 33618,
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f"
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "annotation_catalog": {
+        "feb0": 201,
+        "feb4": 199,
+        "fec0": [
+          {
+            "v": 199
+          }
+        ],
+        "views": [
+          {
+            "id": 200,
+            "name": "*Top"
+          },
+          {
+            "id": 201,
+            "name": "*Back"
+          }
+        ]
+      },
+      "config_bytes": 25942,
+      "driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "feature": {
+        "constraint_slots": [
+          "moRefPlaneAngleGeom_c",
+          "moRefPlaneCoincidentGeom_c",
+          "moRefPlaneCoincidentGeom_c"
+        ],
+        "id": 45,
+        "mode": 22,
+        "name": "EnvelopeDirection",
+        "selected_endpoints_m": [
+          [
+            0.0,
+            0.0,
+            0.0128625
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0006125000000000002
+          ]
+        ],
+        "signed_selector": -3
+      },
+      "geometry_errors": {
+        "basis_n": 1.1102230246251565e-16,
+        "basis_u": 0.0,
+        "basis_v": 1.1102230246251565e-16,
+        "border": 0.0,
+        "dimension_shift": 8.673617379884035e-19,
+        "label_direction": 3.510833468576701e-16,
+        "label_radius": 0.0,
+        "name_corner": 1.734723475976807e-18,
+        "normal": 1.1102230246251565e-16,
+        "ray_separation": 0.0,
+        "root": 0.0,
+        "witness_f80": 8.673617379884035e-19,
+        "witness_fa0": 8.673617379884035e-19,
+        "witness_fc0": 8.673617379884035e-19
+      },
+      "geometry_prediction": {
+        "angle_rad": 0.7853981633974483,
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.7071067811865475,
+            0.7071067811865476,
+            0.0
+          ],
+          [
+            0.7071067811865476,
+            -0.7071067811865475,
+            0.0
+          ]
+        ],
+        "dimension_basis": [
+          [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          [
+            -0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "dimension_inverse_shift_m": [
+          0.004764131938244364,
+          -0.004764131938244365,
+          0.006125
+        ],
+        "label_direction": [
+          0.752024821399879,
+          -0.6591347874285501,
+          0.0
+        ],
+        "label_radius_m": 0.0058262019832314785,
+        "name_corner_m": [
+          0.010004677070313165,
+          0.010004677070313167,
+          0.013536250000000001
+        ],
+        "ordered_borders_m": [
+          0.0012862500000000003,
+          -0.013536250000000001,
+          0.014148750000000002,
+          -0.0006737500000000001
+        ],
+        "ray_separation_m": 0.0007653668647301796,
+        "root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "witness_points_m": [
+          [
+            0.004764131938244364,
+            0.005764131938244365,
+            0.006125
+          ],
+          [
+            0.005471238719430911,
+            0.005471238719430912,
+            0.006125
+          ],
+          [
+            0.004764131938244364,
+            0.004764131938244365,
+            0.006125
+          ]
+        ]
+      },
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "absent_third_geometry": "planar mate graph expected concrete moRefPlaneCoincidentGeom_c",
+        "camera_id_as_annotation_id": "angle display view ID does not bind the actual *Back annotation view",
+        "crossed_constraint_row": "angle datum requires its default pick locations and a present unselected third geometry",
+        "different_live_driver": "angular display value, driver or registered identity differs"
+      },
+      "resolved_bytes": 33860,
+      "root_count": 24,
+      "selected_ids": {
+        "hinge": 41,
+        "right": 4
+      },
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168"
+    }
+  },
+  "generated_archives": 0,
+  "guarded_prediction_processes": 4,
+  "heldout_inputs_read": 0,
+  "native_calls": 0,
+  "principal_annotation_contrasts": {
+    "D01X.SLDPRT": {
+      "feb0": 201,
+      "feb4": 199,
+      "fec0": [
+        {
+          "v": 199
+        }
+      ],
+      "sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+      "views": [
+        {
+          "id": 200,
+          "name": "*Top"
+        },
+        {
+          "id": 201,
+          "name": "*Front"
+        }
+      ]
+    },
+    "D02Y.SLDPRT": {
+      "feb0": 202,
+      "feb4": 199,
+      "fec0": [
+        {
+          "v": 199
+        }
+      ],
+      "sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+      "views": [
+        {
+          "id": 200,
+          "name": "*Top"
+        },
+        {
+          "id": 201,
+          "name": "*Left"
+        },
+        {
+          "id": 202,
+          "name": "*Front"
+        }
+      ]
+    }
+  },
+  "remaining_writer_gate": "derive and preserve model-owned annotation view publication and complete angular display placement state",
+  "schema": "kit.sw2026.research-only.constrained-angle-owner.v1",
+  "source_hinge_evidence_sha256": "7c0f8111ce899b34bbac361f0e2c4394cc8b366a0e98311666d943b9d125c6d2",
+  "static_ownership": {
+    "module": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "native_midpoint_seed": {
+      "address": "0x4cd9a3c0",
+      "value": 0.5
+    },
+    "native_witness_radius_m": {
+      "address": "0x4cddcd28",
+      "value": 0.001
+    },
+    "slots": {
+      "adornment_update": [
+        "0x4ced1c20",
+        "0x240",
+        "0x4b8ef0c0"
+      ],
+      "adornment_value": [
+        "0x4ced1c20",
+        "0xc0",
+        "0x4b8f5990"
+      ],
+      "angular_label_update": [
+        "0x4d247828",
+        "0x9c0",
+        "0x4c866bd0"
+      ],
+      "constrained_init": [
+        "0x4ced1c20",
+        "0xa0",
+        "0x4b8ed160"
+      ],
+      "label_radius_getter": [
+        "0x4d247828",
+        "0x5f0",
+        "0x4b349250"
+      ],
+      "previous_label_update": [
+        "0x4d247828",
+        "0x9c8",
+        "0x4c866db0"
+      ]
+    },
+    "spans": {
+      "angle_wire_rebind": {
+        "range": [
+          "0x4b8e2930",
+          "0x4b8e29cd"
+        ],
+        "sha256": "e3220c09ebe796dbe8c6b79aa810eeaf956cef3cbb58bedda0dcc6e8b8c723d9"
+      },
+      "append_annotation_view": {
+        "range": [
+          "0x4c015440",
+          "0x4c015454"
+        ],
+        "sha256": "8354493aa33e7f1852f21bb54ab1415c16a4cec1983e32482f8865212ca75be1"
+      },
+      "authoring_angle_normal": {
+        "range": [
+          "0x4b8ee700",
+          "0x4b8eebde"
+        ],
+        "sha256": "49cbdd7653238a89f1e47da4ddac310658eb752856c9ffd2e94c5148528ebd3b"
+      },
+      "base_default_pick": {
+        "range": [
+          "0x4c2d7920",
+          "0x4c2d798a"
+        ],
+        "sha256": "d4ab19f75ec6267897af4a9e88435504673c54bc471dfe6c058679f900bec08b"
+      },
+      "find_registered_model_view": {
+        "range": [
+          "0x4c026e90",
+          "0x4c0270a0"
+        ],
+        "sha256": "e04d0c047f13c1fa1e4d2f5ff33f98d5ec9e805070ea9cd5500e29a503cec0e3"
+      },
+      "label_radius_getter": {
+        "range": [
+          "0x4b349250",
+          "0x4b349259"
+        ],
+        "sha256": "c27ef44139594d06138ccc8a976d550cd6bff034ec500b8247a24ece6504a7e5"
+      },
+      "ordinary_angle_adornment": {
+        "range": [
+          "0x4b8f4fa0",
+          "0x4b8f5986"
+        ],
+        "sha256": "a6edd279997adff6f12087cbaf5d0d209ad830959159741ea3d49ff940d20813"
+      },
+      "read_actual_annotation_view": {
+        "range": [
+          "0x4ba69760",
+          "0x4ba697a6"
+        ],
+        "sha256": "9b72f0eb0245c4b649825cecb02f83e4f5ee8ade302856a82df66b339116f4ea"
+      },
+      "record_annotation_membership": {
+        "range": [
+          "0x4ba678e0",
+          "0x4ba67a1f"
+        ],
+        "sha256": "b37086e1c70e09ba205580706004c6fbd3e1f93262371321010b5a0aeda7e35a"
+      }
+    }
+  },
+  "tools": {
+    "CheckPatternAngleOwners.py": "b148da977c283b104f8bdd7091cb63baf952d176d91ac9691b0a88e954159bec",
+    "PatternAngleGeometry.py": "a62f674d895c28fba00408ccff6cea089ea83d3ce1d816fe943d01958b42403b",
+    "PatternAngleModelProcess.py": "3ac18a530f932dc792ca1c89dd8666c4a4d95e06bb001db09e40d42fca6ed73c",
+    "PatternAngleWire.py": "7ac09e40f5678a24aa80460d80c39693338475d2ebc3e740839e31250f0fda43",
+    "ProvePatternAngleOwners.py": "11380bd7cca074e78ffdac42672db3d4396c0667bedc30f32ea708414a16238c"
+  }
+}

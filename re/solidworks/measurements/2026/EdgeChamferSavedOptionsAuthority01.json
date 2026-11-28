@@ -1,0 +1,179 @@
+{
+  "build": "34.5.2.0604",
+  "cad_documents_read": 0,
+  "fresh_array_branch": "present typed array of zero words, skip retained overrides and capture six after success",
+  "images": {
+    "sldgciParau.dll": {
+      "image_bytes": 1875032,
+      "preferred_base": "0x32f70000",
+      "roles": [
+        {
+          "bytes": 16,
+          "end_exclusive": "0x3305fa59",
+          "file_offset": 978505,
+          "name": "array_pointer_capture",
+          "sha256": "9912c1672ab99d222fda2f7e67d957df196968c19a808499110186602db33cd0",
+          "start": "0x3305fa49"
+        },
+        {
+          "bytes": 65,
+          "end_exclusive": "0x33060aba",
+          "file_offset": 982649,
+          "name": "empty_and_saved_option_branches",
+          "sha256": "13921264bfc4cf1b6cf3e078ce7d1f59d56522d0827503cc7eb71f8dc20ebb23",
+          "start": "0x33060a79"
+        },
+        {
+          "bytes": 32,
+          "end_exclusive": "0x33060f79",
+          "file_offset": 983897,
+          "name": "success_only_option_capture",
+          "sha256": "df33e1fa634807bfdedd16a7d660fd1a08299c007420470743bc15207dd45152",
+          "start": "0x33060f59"
+        },
+        {
+          "bytes": 251,
+          "end_exclusive": "0x330781cb",
+          "file_offset": 1078480,
+          "name": "six_slots_from_computed_options",
+          "sha256": "dbcc7430a09dc6a09fd338f707a135eaf22b51106b5819671d67e3ade692afc6",
+          "start": "0x330780d0"
+        }
+      ],
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce",
+      "typed_imports": {
+        "0x330b64b8": {
+          "export": "?SetAtGrow@su_CDWordArray",
+          "module": "swccu.dll"
+        }
+      }
+    },
+    "sldgcu.dll": {
+      "image_bytes": 10893912,
+      "preferred_base": "0x43740000",
+      "roles": [
+        {
+          "bytes": 224,
+          "end_exclusive": "0x43ca0820",
+          "file_offset": 5634880,
+          "name": "ordinary_export",
+          "sha256": "4f18c98d807c26af10cfef959e1cfa07793034b67feb9d12ea68c381d2e6aa45",
+          "start": "0x43ca0740"
+        },
+        {
+          "bytes": 21,
+          "end_exclusive": "0x43e7f2c8",
+          "file_offset": 7595699,
+          "name": "kernel_array_argument",
+          "sha256": "f63fe0f64f0a1248c78916ff3bd9998a7560a65da633e951e2d609dd0b703bb1",
+          "start": "0x43e7f2b3"
+        },
+        {
+          "bytes": 6,
+          "end_exclusive": "0x43e7f39e",
+          "file_offset": 7595928,
+          "name": "kernel_import_call",
+          "sha256": "ad3267f1e2de7e6332b34202c08a24f826dc03efb091d4baf0a131aa19c8e79d",
+          "start": "0x43e7f398"
+        }
+      ],
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594",
+      "typed_imports": {
+        "0x43f5c908": {
+          "export": "?gci_ramChamferEdge",
+          "module": "sldgciParau.dll"
+        }
+      }
+    },
+    "sldmopartu.dll": {
+      "image_bytes": 6836824,
+      "preferred_base": "0x180000000",
+      "roles": [
+        {
+          "bytes": 8,
+          "end_exclusive": "0x1801f99c8",
+          "file_offset": 2067904,
+          "name": "options_accessor",
+          "sha256": "a97f133ffdc2add56b6e3dbe03a87ede2a3e1ecaadbb1433cba28c5e8734429a",
+          "start": "0x1801f99c0"
+        },
+        {
+          "bytes": 13,
+          "end_exclusive": "0x18023e2f9",
+          "file_offset": 2348780,
+          "name": "runtime_class_initializer",
+          "sha256": "8195c982771906a05b1db809a65600a7a1612a4d7de42abe06de4e0984bbf51d",
+          "start": "0x18023e2ec"
+        },
+        {
+          "bytes": 13,
+          "end_exclusive": "0x18023e464",
+          "file_offset": 2349143,
+          "name": "edge_initializer",
+          "sha256": "ab60e9bfde9d5190fd5d424205fdb6ac5faea2b03b30309d1736f016ec6feccb",
+          "start": "0x18023e457"
+        },
+        {
+          "bytes": 13,
+          "end_exclusive": "0x18023e734",
+          "file_offset": 2349863,
+          "name": "vertex_initializer",
+          "sha256": "b62d9b6e39b2648c3f2237dc813682918aa967a980ec235806ad0ad0eece385c",
+          "start": "0x18023e727"
+        },
+        {
+          "bytes": 16,
+          "end_exclusive": "0x18023ece2",
+          "file_offset": 2351314,
+          "name": "ordinary_archive_load",
+          "sha256": "cc352a68b55d218cafa4a74f578ad26c187c9ca491562f8345e225dc80b9c4db",
+          "start": "0x18023ecd2"
+        },
+        {
+          "bytes": 20,
+          "end_exclusive": "0x18023f142",
+          "file_offset": 2352430,
+          "name": "ordinary_archive_store",
+          "sha256": "ca7101351dd0c1c8c24ecf1d8b93e1b6046073cb5d60a724428a0c7e51f3d9ce",
+          "start": "0x18023f12e"
+        },
+        {
+          "bytes": 211,
+          "end_exclusive": "0x180242bad",
+          "file_offset": 2367194,
+          "name": "first_kernel_array_operand",
+          "sha256": "69372f98ab5ebeb64e4157af38fe954202cb992bbe124456e69c013d5ad2ca8d",
+          "start": "0x180242ada"
+        },
+        {
+          "bytes": 150,
+          "end_exclusive": "0x180244354",
+          "file_offset": 2373310,
+          "name": "second_kernel_array_operand",
+          "sha256": "2361a34c076d46474bb3eddc6568951b5e0db2cddcc9d6eeaac5c72d31b1862d",
+          "start": "0x1802442be"
+        }
+      ],
+      "sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+      "typed_imports": {
+        "0x1803e9098": {
+          "export": "?ramChamferEdge",
+          "module": "sldgcu.dll"
+        },
+        "0x1803ec788": {
+          "export": "??0su_CDWordArray",
+          "module": "swccu.dll"
+        }
+      }
+    }
+  },
+  "native_processes": 0,
+  "rea_evidence": {
+    "edge_initializer": "ev_9fa3f7e73224c66d4768f0254db25131e28dc972a808e4420c6a28d0a24d4d71",
+    "kernel_options_routing": "ev_3000e5dcea6c9f7af2aeb5a4571043f6d69715027cad8278e80abd926bdefc75",
+    "options_accessor": "ev_b3d8a433660b38bdac1be6e8759bf5a36c8dbc3d14101af833fc8b746ee53604",
+    "ordinary_export": "ev_69f4393215bf18c580bc4787ae648e2cb5092b0803811aa54eef174b872c729d",
+    "six_slots_from_computed_options": "ev_443a3a656188f56de6ced8913378ab58b44bd361cf41ae24fe602052369278cb"
+  },
+  "schema": "kit.sw2026.chamfer-saved-options-source.v1"
+}

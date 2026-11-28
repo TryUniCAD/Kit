@@ -1,0 +1,309 @@
+{
+  "arms": {
+    "plain": {
+      "edit": {
+        "numeric_checks": 66,
+        "process": 134397234431345400,
+        "record_sha256": "b478b643da0ae102b9ecb9889fd368444f8fd2317cbfd4d70f5b06bd1f851056",
+        "saved": {
+          "bytes": 53352,
+          "sha256": "551ca2c32505a556a1765c8a6b4f28b58be52fde33c165f69746265b9afec03f"
+        },
+        "source_sha256": "1756b52ef33702f6e24114d8a884cf2e59082cbf65899742ad414c739b4ac8d7"
+      },
+      "reopen": {
+        "numeric_checks": 44,
+        "process": 134397234813399135,
+        "record_sha256": "4d36cbd18f43ef61fc57e731bf7d4f10ba4b2cdd9b334784055a707b04c27bb5",
+        "saved": null,
+        "source_sha256": "551ca2c32505a556a1765c8a6b4f28b58be52fde33c165f69746265b9afec03f"
+      },
+      "replayed_saved": {
+        "both_streams_and_linked_maps_equal": true,
+        "bytes": 53352,
+        "config": {
+          "bytes": 26077,
+          "map_next_slot": 122,
+          "sha256": "cb9f94f0b66d97a9d0426ccb83ad7c811b1841aac31ea6ebf8fd80f97590fd9e"
+        },
+        "principal_displays": {
+          "Right Plane": {
+            "borders_m": [
+              0.013406250000000001,
+              -0.013406250000000001,
+              0.05204375,
+              -0.05204375
+            ],
+            "display_root_m": [
+              0.0,
+              0.0473125,
+              0.0121875
+            ],
+            "name_location_m": [
+              0.0,
+              0.09935625000000001,
+              0.025593750000000002
+            ]
+          },
+          "Top Plane": {
+            "borders_m": [
+              0.08655625,
+              -0.08655625,
+              0.013406250000000001,
+              -0.013406250000000001
+            ],
+            "display_root_m": [
+              0.07868750000000001,
+              0.0,
+              0.0121875
+            ],
+            "name_location_m": [
+              -0.007868749999999994,
+              0.0,
+              -0.001218750000000001
+            ]
+          }
+        },
+        "resolved": {
+          "bytes": 15645,
+          "map_next_slot": 284,
+          "sha256": "d59947c19f5a59818e86ce40f165e75fe6bbaa5191eba35f71cbd904ed0ff757"
+        },
+        "sha256": "551ca2c32505a556a1765c8a6b4f28b58be52fde33c165f69746265b9afec03f"
+      }
+    },
+    "sized": {
+      "edit": {
+        "numeric_checks": 66,
+        "process": 134397235119662665,
+        "record_sha256": "1d6a5dadcd086354adae24790ffc2b675154b8b79eb220e7b7bd7e7fc67b39cc",
+        "saved": {
+          "bytes": 53569,
+          "sha256": "7f2aae75fa72edb1be57d70defbcb614e829a8d4aa061f0602731ee8d9cbbc9e"
+        },
+        "source_sha256": "6eb9a485951f0e837f0c3ad6f84b5a2a24ce25210ad9fbc3990921638acc6052"
+      },
+      "reopen": {
+        "numeric_checks": 44,
+        "process": 134397235516737840,
+        "record_sha256": "8401feb22331bcf40a7f6790e30a38957a123b0b29f6a1509757dbd15146e78f",
+        "saved": null,
+        "source_sha256": "7f2aae75fa72edb1be57d70defbcb614e829a8d4aa061f0602731ee8d9cbbc9e"
+      },
+      "replayed_saved": {
+        "both_streams_and_linked_maps_equal": true,
+        "bytes": 53569,
+        "config": {
+          "bytes": 26077,
+          "map_next_slot": 122,
+          "sha256": "78c3063c07b57fc5dfa3e23126bf4c395aefde501816f9960d2470e345190348"
+        },
+        "principal_displays": {
+          "Right Plane": {
+            "borders_m": [
+              0.013406250000000001,
+              -0.013406250000000001,
+              0.05204375,
+              -0.05204375
+            ],
+            "display_root_m": [
+              0.0,
+              0.0473125,
+              0.0121875
+            ],
+            "name_location_m": [
+              0.0,
+              0.09935625000000001,
+              0.025593750000000002
+            ]
+          },
+          "Top Plane": {
+            "borders_m": [
+              0.08655625,
+              -0.08655625,
+              0.013406250000000001,
+              -0.013406250000000001
+            ],
+            "display_root_m": [
+              0.07868750000000001,
+              0.0,
+              0.0121875
+            ],
+            "name_location_m": [
+              -0.007868749999999994,
+              0.0,
+              -0.001218750000000001
+            ]
+          }
+        },
+        "resolved": {
+          "bytes": 15645,
+          "map_next_slot": 284,
+          "sha256": "e763e9629753bbfcfdb7a81059660443c1f6ae0dac7d207e43f53d26cf0aa58b"
+        },
+        "sha256": "7f2aae75fa72edb1be57d70defbcb614e829a8d4aa061f0602731ee8d9cbbc9e"
+      }
+    }
+  },
+  "audit_sha256": "88874c09795eefd34a4d1accaf501a50e53a6fca03a22b6b1c98be13751c4c19",
+  "controls": {
+    "after": {
+      "passed": true,
+      "record_sha256": "fa43dd47f2e7821bc6caee1d7c6def36a521c7fe36a603e1748779201c7a94c4"
+    },
+    "before": {
+      "passed": true,
+      "record_sha256": "8ce5d3ad6c67ead04ae5d24895dcf9d111fc96f0e357d9c8ce4bb32eee073121"
+    }
+  },
+  "dependent_axis_measured": false,
+  "exact_display_pairs": 10,
+  "held_out_credit": 0,
+  "host_native_launches": 0,
+  "individual_native_display_observations": 20,
+  "load_vs_first_getter_update_order_measured": false,
+  "max_numeric_corner_error_m": 2.797157557069881e-17,
+  "native_checks": 220,
+  "native_processes": 6,
+  "native_result_sha256": "041ba50b5f4508e1c4b9b5c92f82bc670b4c5079137ebc4dc7d31bf50272898f",
+  "part_tree_rows": 25,
+  "same_observable_display_from_first_query": true,
+  "schema": "kit.sw2026.principal-datum-display-contrast.native-evidence.v1",
+  "shared_diagonals": {
+    "edit": {
+      "edited": {
+        "Right Plane": [
+          [
+            0.0,
+            -0.004731249999999999,
+            -0.001218750000000001
+          ],
+          [
+            0.0,
+            0.09935625000000001,
+            0.025593750000000002
+          ]
+        ],
+        "Top Plane": [
+          [
+            -0.007868749999999994,
+            0.0,
+            -0.001218750000000001
+          ],
+          [
+            0.16524375000000002,
+            0.0,
+            0.025593750000000002
+          ]
+        ]
+      },
+      "first_open": {
+        "Right Plane": [
+          [
+            0.0,
+            -0.004731249999999999,
+            -0.0009312499999999998
+          ],
+          [
+            0.0,
+            0.09935625000000001,
+            0.019556249999999997
+          ]
+        ],
+        "Top Plane": [
+          [
+            -0.007868749999999994,
+            0.0,
+            -0.0009312499999999998
+          ],
+          [
+            0.16524375000000002,
+            0.0,
+            0.019556249999999997
+          ]
+        ]
+      },
+      "rebuilt": {
+        "Right Plane": [
+          [
+            0.0,
+            -0.004731249999999999,
+            -0.0009312499999999998
+          ],
+          [
+            0.0,
+            0.09935625000000001,
+            0.019556249999999997
+          ]
+        ],
+        "Top Plane": [
+          [
+            -0.007868749999999994,
+            0.0,
+            -0.0009312499999999998
+          ],
+          [
+            0.16524375000000002,
+            0.0,
+            0.019556249999999997
+          ]
+        ]
+      }
+    },
+    "reopen": {
+      "first_open": {
+        "Right Plane": [
+          [
+            0.0,
+            -0.004731249999999999,
+            -0.001218750000000001
+          ],
+          [
+            0.0,
+            0.09935625000000001,
+            0.025593750000000002
+          ]
+        ],
+        "Top Plane": [
+          [
+            -0.007868749999999994,
+            0.0,
+            -0.001218750000000001
+          ],
+          [
+            0.16524375000000002,
+            0.0,
+            0.025593750000000002
+          ]
+        ]
+      },
+      "rebuilt": {
+        "Right Plane": [
+          [
+            0.0,
+            -0.004731249999999999,
+            -0.001218750000000001
+          ],
+          [
+            0.0,
+            0.09935625000000001,
+            0.025593750000000002
+          ]
+        ],
+        "Top Plane": [
+          [
+            -0.007868749999999994,
+            0.0,
+            -0.001218750000000001
+          ],
+          [
+            0.16524375000000002,
+            0.0,
+            0.025593750000000002
+          ]
+        ]
+      }
+    }
+  },
+  "trial_sha256": "823829cf644ed55b08278bbfec785a99330e098bee119f8bcfd120b8428449dd"
+}

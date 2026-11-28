@@ -1,0 +1,43 @@
+{
+  "schema": "kit.sw2026.sdk-revolve-construction.v1",
+  "base_revision": "80094b57f8ea2e8d2312e613f8cd2875107a500e",
+  "owner": "pr121 ordinary revolve construction lane",
+  "delivery": "private source overlay for parent integration",
+  "scope": "ordinary full or partial one-direction blind rectangular Front boss with actual local construction axis and D1 radians",
+  "input": "real neutral CadDocument plus explicit PartBuildInput",
+  "runtime_saved_data_reads": 0,
+  "partition_streams_emitted": 0,
+  "public_registration_enabled": false,
+  "heldout_inputs_read": 0,
+  "construction_source_manifest_sha256": "ead445cfd87f174fcc3e62e48883aa3e6e7a823c0dd3fba8c8b5ec98677993c5",
+  "construction_tools_manifest_sha256": "095f5ffd21f2626c7326a732a8e4c8b187a26ea2bc6740d25b26c38233628550",
+  "process_proof_sha256": "8091389ba2089e04550ff9e95206c7a85ebc7e4b0d7b7cea353e3f0b1c5163b3",
+  "native_packet_sha256": "d16de9429e638f9dea4ad5e3027c98da13bfd019565746af676c37a7dd852a45",
+  "fresh_python_processes": 30,
+  "expected_native_processes": 10,
+  "native_packet_executed": false,
+  "predicted_tree_rows": 25,
+  "generated_resolved_roots": 19,
+  "field_rules": "SdkRevolveConstruction2026.md",
+  "constructor_evidence": "SdkRevolveConstructorFacts2026.json",
+  "confidence": {
+    "typed_stream_construction": "confirmed by local process proof",
+    "exact_build_constructor_and_getter_rules": "source-grounded and disclosed prior native evidence",
+    "new_native_application_acceptance": "not measured",
+    "original_heldout_acceptance": "not measured"
+  },
+  "exit_condition": [
+    "clean control-bracketed native load and rebuild",
+    "exact complete tree and actual selected-axis ownership",
+    "analytic body geometry",
+    "driving angular edit save and fresh reopen",
+    "later independently frozen original-source qualification"
+  ],
+  "open_boundaries": [
+    "native trial pending",
+    "default strict geometry read requires stored Parasolid payload",
+    "full source semantics and heldout acceptance pending",
+    "unsupported feature end support and axis families remain closed",
+    "appearance explicit body naming and measured solver status not qualified"
+  ]
+}

@@ -1,0 +1,1178 @@
+{
+  "all_instruction_window_boundaries_rechecked": true,
+  "confidence": "exact-build static rules; selected saved effects independently observed in completed disclosed corner phases; fresh normalization candidate not measured",
+  "decoder": "Apple LLVM 21.0.0 llvm-objdump on unchanged original PE bytes",
+  "exclusion_vocabulary": {
+    "imports": [
+      {
+        "iat": "0x3cb1d1b8",
+        "module": "swccu.dll",
+        "name": "?Add@su_CStringArray@@QEAAHPEB_W@Z"
+      },
+      {
+        "iat": "0x3cb1d1f0",
+        "module": "swccu.dll",
+        "name": "?Add@su_CStringArray@@QEAAHAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+      },
+      {
+        "iat": "0x3cb1a9a8",
+        "module": "mfc140u.dll",
+        "name": "ordinal:8161"
+      }
+    ],
+    "literals": [
+      {
+        "bytes": 4,
+        "sha256": "d0fcc72cceea2b4fd43c489987fe8258b2af2dc3158e311e1c286446a46c0231",
+        "va": "0x3cc6c0a8",
+        "value": "m"
+      },
+      {
+        "bytes": 6,
+        "sha256": "d15aad19775cd587a4e46824c27d5bc4b078dac400edc7d33a4090158f1a4745",
+        "va": "0x3cc6c0ac",
+        "value": "mm"
+      },
+      {
+        "bytes": 6,
+        "sha256": "87e9c1dae760b7437055d76fde24642403c0ac810ab102554d7031a7774ab3a0",
+        "va": "0x3cc6c0b4",
+        "value": "cm"
+      },
+      {
+        "bytes": 6,
+        "sha256": "31cf94e0d8d9dc6dbd0c22775cb9a34bf4ead5e014fdaf836444b4fea69ee616",
+        "va": "0x3cc6c0bc",
+        "value": "km"
+      },
+      {
+        "bytes": 6,
+        "sha256": "956a602fd2b5b7dd00f750b3a6147073fbfc9095b542a8152345d2c372bddeea",
+        "va": "0x3cc6c0c4",
+        "value": "um"
+      },
+      {
+        "bytes": 6,
+        "sha256": "617bbdc242fd30e565a7d9662fee5c3e602e83d64447eff6e6ad0275684e973b",
+        "va": "0x3cc6c0cc",
+        "value": "nm"
+      },
+      {
+        "bytes": 4,
+        "sha256": "52e9e3add38bf08350e260942004423cf95fce71609ae1a46b260442db2608bb",
+        "va": "0x3cc6c0d4",
+        "value": "s"
+      },
+      {
+        "bytes": 6,
+        "sha256": "2069da3f297f3c804d0423f6dc91ad996366956c61e0646f347a6a28f2d2010d",
+        "va": "0x3cc6c0d8",
+        "value": "Hz"
+      },
+      {
+        "bytes": 6,
+        "sha256": "358d3a32aca107fe2c52f5feeb0b4d623eeec5bf240356bc9b456a10c1a9f769",
+        "va": "0x3cc6c0e0",
+        "value": "Pa"
+      }
+    ],
+    "localized_string": {
+      "bytes": 4,
+      "file_offset": 2799784,
+      "language": 1033,
+      "sha256": "d6f87cf6226b7ea67d01373fe0b88c8f03382d79643e59748db19639e7dcd2e9",
+      "string_id": 32702,
+      "value": "µm"
+    },
+    "module_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "resource_block": {
+      "bytes": 698,
+      "file_offset": 2799184,
+      "sha256": "ed4cf001f3a732e7816d919f0b678e7d5bc33e0764360be45511f16620a45bcc"
+    },
+    "resource_evidence_id": "ev_7ba15aa4e0caa4fa740e4ce8f23a313101fe8cf32a87cec2780d85ee9a3c363e",
+    "resource_module_sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111"
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 138,
+      "end_exclusive": "0x3c7e6bfa",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "BaseSetLength"
+      ],
+      "sha256": "aaea48138f3ada90078c7aaac7ec713a21fadbe29d88a08919689b021ec1f76b",
+      "start": "0x3c7e6b70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 138,
+          "end_exclusive": "0x3c7e6bfa",
+          "sha256": "aaea48138f3ada90078c7aaac7ec713a21fadbe29d88a08919689b021ec1f76b",
+          "start": "0x3c7e6b70",
+          "unwind_rva": "0x5d66ec"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 133,
+      "end_exclusive": "0x3c7e3d15",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "BaseSetAngle"
+      ],
+      "sha256": "fe4155148fe04f8713df7779e4a44ea279778ef1b7450a620236d8d9ba4e00a5",
+      "start": "0x3c7e3c90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 133,
+          "end_exclusive": "0x3c7e3d15",
+          "sha256": "fe4155148fe04f8713df7779e4a44ea279778ef1b7450a620236d8d9ba4e00a5",
+          "start": "0x3c7e3c90",
+          "unwind_rva": "0x5d66c4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 277,
+      "end_exclusive": "0x3c916065",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "GetDual"
+      ],
+      "sha256": "4734ce857762c5247b318ba4251a2b1d813e8a34c4ab668181a811c72d4f67ca",
+      "start": "0x3c915f50",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 277,
+          "end_exclusive": "0x3c916065",
+          "sha256": "4734ce857762c5247b318ba4251a2b1d813e8a34c4ab668181a811c72d4f67ca",
+          "start": "0x3c915f50",
+          "unwind_rva": "0x5fbd50"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 602,
+      "end_exclusive": "0x3c83fcba",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "SwiftSetPrecisions"
+      ],
+      "sha256": "4165d8b9dd1fd1d6e27d46f54d96c19ffbee0335d109b1a64cab6408d45ae6dd",
+      "start": "0x3c83fa60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 602,
+          "end_exclusive": "0x3c83fcba",
+          "sha256": "4165d8b9dd1fd1d6e27d46f54d96c19ffbee0335d109b1a64cab6408d45ae6dd",
+          "start": "0x3c83fa60",
+          "unwind_rva": "0x5e0884"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 387,
+      "end_exclusive": "0x3c83fa53",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "SwiftFlags"
+      ],
+      "sha256": "fc8d40ed3dab7b6457c657445b070188e905ac8883a09f3aabbacde1b6704fc0",
+      "start": "0x3c83f8d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 387,
+          "end_exclusive": "0x3c83fa53",
+          "sha256": "fc8d40ed3dab7b6457c657445b070188e905ac8883a09f3aabbacde1b6704fc0",
+          "start": "0x3c83f8d0",
+          "unwind_rva": "0x5c2efc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 213,
+      "end_exclusive": "0x3c7db2f5",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "ExclusionInit"
+      ],
+      "sha256": "4dab2ed025fbe673dc0451e6c678e5b2998db67d651784f76ed1e776da6d6056",
+      "start": "0x3c7db220",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 213,
+          "end_exclusive": "0x3c7db2f5",
+          "sha256": "4dab2ed025fbe673dc0451e6c678e5b2998db67d651784f76ed1e776da6d6056",
+          "start": "0x3c7db220",
+          "unwind_rva": "0x5d5acc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 16616,
+      "end_exclusive": "0x3c85bb28",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "DetailSerialize"
+      ],
+      "sha256": "232dd7e45de22ef186be2e532f71eae26dc3cb5a14244962c7589463df145807",
+      "start": "0x3c857a40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 16616,
+          "end_exclusive": "0x3c85bb28",
+          "sha256": "232dd7e45de22ef186be2e532f71eae26dc3cb5a14244962c7589463df145807",
+          "start": "0x3c857a40",
+          "unwind_rva": "0x5e3dbc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1726,
+      "end_exclusive": "0x3c85c29e",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "DimensionSerialize"
+      ],
+      "sha256": "cacc6c71e837c8c8f13672b146d7df903e9874239994c3fc0591ac6418a36349",
+      "start": "0x3c85bbe0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1726,
+          "end_exclusive": "0x3c85c29e",
+          "sha256": "cacc6c71e837c8c8f13672b146d7df903e9874239994c3fc0591ac6418a36349",
+          "start": "0x3c85bbe0",
+          "unwind_rva": "0x5e3a78"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1288,
+      "end_exclusive": "0x3c856eb8",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "BaseSerialize"
+      ],
+      "sha256": "b1629b9e6fcf99deb0314ef4adfa01c00b7bba328b66539dd212d88f804a7459",
+      "start": "0x3c8569b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1288,
+          "end_exclusive": "0x3c856eb8",
+          "sha256": "b1629b9e6fcf99deb0314ef4adfa01c00b7bba328b66539dd212d88f804a7459",
+          "start": "0x3c8569b0",
+          "unwind_rva": "0x5d23d4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 481,
+      "end_exclusive": "0x3c7df871",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "BaseDimensionSetUnits"
+      ],
+      "sha256": "c0569257d8cd090fe25fc7dabb5735ef7817c204c5e92c75fe9e94848fbb65e6",
+      "start": "0x3c7df690",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 481,
+          "end_exclusive": "0x3c7df871",
+          "sha256": "c0569257d8cd090fe25fc7dabb5735ef7817c204c5e92c75fe9e94848fbb65e6",
+          "start": "0x3c7df690",
+          "unwind_rva": "0x5c2efc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 720,
+      "end_exclusive": "0x3c7e2470",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "DimGetUnits"
+      ],
+      "sha256": "9a4172c4da00a48b1b79f9a5997c76c5d915cc458124a0bdb8ceb732c86acc3c",
+      "start": "0x3c7e21a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 720,
+          "end_exclusive": "0x3c7e2470",
+          "sha256": "9a4172c4da00a48b1b79f9a5997c76c5d915cc458124a0bdb8ceb732c86acc3c",
+          "start": "0x3c7e21a0",
+          "unwind_rva": "0x5c3138"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 720,
+      "end_exclusive": "0x3c7e3980",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "DimSetAltDimPlaces"
+      ],
+      "sha256": "0f486d20d2259153a36c66d655fc46764315b45944fbe0d39573e967be9ff075",
+      "start": "0x3c7e36b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 257,
+          "end_exclusive": "0x3c7e37b1",
+          "sha256": "943c43bb0d5c8fe7121d13abf8e690398a17f4dbe691e1ea043a81d6ae9cc5a5",
+          "start": "0x3c7e36b0",
+          "unwind_rva": "0x5c314c"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 411,
+          "end_exclusive": "0x3c7e394c",
+          "sha256": "89c9aff4f4550f2d776277c912e8aa977775c850f068942148acb5803314da2a",
+          "start": "0x3c7e37b1",
+          "unwind_rva": "0x5d69dc"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 52,
+          "end_exclusive": "0x3c7e3980",
+          "sha256": "fcccb5d4105683a7c89f67de98b0202f90e95649c8fca5d98d662fdbd12daa71",
+          "start": "0x3c7e394c",
+          "unwind_rva": "0x5d69f0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 64,
+      "end_exclusive": "0x3c83f6b0",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "SwiftDefaultWrapper"
+      ],
+      "sha256": "2b850a92a88bb9ae318582577c8551970533291f29e9645cf400d2c832ccdad9",
+      "start": "0x3c83f670",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 64,
+          "end_exclusive": "0x3c83f6b0",
+          "sha256": "2b850a92a88bb9ae318582577c8551970533291f29e9645cf400d2c832ccdad9",
+          "start": "0x3c83f670",
+          "unwind_rva": "0x5c3064"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 27,
+      "end_exclusive": "0x3c83f6cb",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "SwiftInitialize"
+      ],
+      "sha256": "4a62702d978738cf9e430c2911d677e367b25fa905364324ff086878fe74848c",
+      "start": "0x3c83f6b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 27,
+          "end_exclusive": "0x3c83f6cb",
+          "sha256": "4a62702d978738cf9e430c2911d677e367b25fa905364324ff086878fe74848c",
+          "start": "0x3c83f6b0",
+          "unwind_rva": "0x5c3074"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 105,
+      "end_exclusive": "0x3c7e3c89",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "BaseAnglePrecision"
+      ],
+      "sha256": "44228358a341d3fbabec86ee978b8704e13ad64283d6858a3a063008140e3014",
+      "start": "0x3c7e3c20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 105,
+          "end_exclusive": "0x3c7e3c89",
+          "sha256": "44228358a341d3fbabec86ee978b8704e13ad64283d6858a3a063008140e3014",
+          "start": "0x3c7e3c20",
+          "unwind_rva": "0x5c3064"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 6455,
+      "end_exclusive": "0x4c233ac7",
+      "module": "sldmodu.dll",
+      "roles": [
+        "ModelSwiftAccess"
+      ],
+      "sha256": "7c7713cbe270a1049a97cddbd7eddbadee87a339d6db2de99150a859c20bb6e0",
+      "start": "0x4c232190",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 6455,
+          "end_exclusive": "0x4c233ac7",
+          "sha256": "7c7713cbe270a1049a97cddbd7eddbadee87a339d6db2de99150a859c20bb6e0",
+          "start": "0x4c232190",
+          "unwind_rva": "0x2482344"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 7903,
+      "end_exclusive": "0x4c23cbef",
+      "module": "sldmodu.dll",
+      "roles": [
+        "ModelUnitSync",
+        "DrawingUnitPass"
+      ],
+      "sha256": "0256e77f59d2c13b91b575468f59cc3bc569ac127a871b8647eb648fc1e159e0",
+      "start": "0x4c23ad10",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 7903,
+          "end_exclusive": "0x4c23cbef",
+          "sha256": "0256e77f59d2c13b91b575468f59cc3bc569ac127a871b8647eb648fc1e159e0",
+          "start": "0x4c23ad10",
+          "unwind_rva": "0x2482604"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 166,
+      "end_exclusive": "0x3c914ce6",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "LengthCopy"
+      ],
+      "sha256": "67a6004fec23bdfd11245f8592eed188213ed2d89794bae2ce38100844198f58",
+      "start": "0x3c914c40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 166,
+          "end_exclusive": "0x3c914ce6",
+          "sha256": "67a6004fec23bdfd11245f8592eed188213ed2d89794bae2ce38100844198f58",
+          "start": "0x3c914c40",
+          "unwind_rva": "0x5c2efc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 190,
+      "end_exclusive": "0x3c90685e",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "LengthConstructor"
+      ],
+      "sha256": "8417c5f76f3eff6d425200aec287645bf7f5b3bcb4077ec93de5191930f45ae9",
+      "start": "0x3c9067a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 190,
+          "end_exclusive": "0x3c90685e",
+          "sha256": "8417c5f76f3eff6d425200aec287645bf7f5b3bcb4077ec93de5191930f45ae9",
+          "start": "0x3c9067a0",
+          "unwind_rva": "0x5fbb4c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 175,
+      "end_exclusive": "0x3c90679f",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "LengthDefaultConstructor"
+      ],
+      "sha256": "b6880f25e93e2dd7b7032eef8c02b84e8d45795507f617249e1ed86de4388bd3",
+      "start": "0x3c9066f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 175,
+          "end_exclusive": "0x3c90679f",
+          "sha256": "b6880f25e93e2dd7b7032eef8c02b84e8d45795507f617249e1ed86de4388bd3",
+          "start": "0x3c9066f0",
+          "unwind_rva": "0x5fbb1c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 151,
+      "end_exclusive": "0x3c905be7",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "AngleConstructor"
+      ],
+      "sha256": "c7097778e9c0bd5626204d03a14525083405bd9eb76585ac9f663b99d7f7bcfa",
+      "start": "0x3c905b50",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 151,
+          "end_exclusive": "0x3c905be7",
+          "sha256": "c7097778e9c0bd5626204d03a14525083405bd9eb76585ac9f663b99d7f7bcfa",
+          "start": "0x3c905b50",
+          "unwind_rva": "0x5fbda8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1564,
+      "end_exclusive": "0x4c2340ec",
+      "module": "sldmodu.dll",
+      "roles": [
+        "PartPass2"
+      ],
+      "sha256": "78343b151cd24191c360d90efa943a622ec85ca87c9f4e2dea0c4ad71cc5ffe8",
+      "start": "0x4c233ad0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1564,
+          "end_exclusive": "0x4c2340ec",
+          "sha256": "78343b151cd24191c360d90efa943a622ec85ca87c9f4e2dea0c4ad71cc5ffe8",
+          "start": "0x4c233ad0",
+          "unwind_rva": "0x24838c0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1065,
+      "end_exclusive": "0x4c23d019",
+      "module": "sldmodu.dll",
+      "roles": [
+        "PartUnitPass"
+      ],
+      "sha256": "8125301a2f9e848464a70b4bae5e639d2bdf06b8da7dbeca877a9a74b75c4b33",
+      "start": "0x4c23cbf0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1065,
+          "end_exclusive": "0x4c23d019",
+          "sha256": "8125301a2f9e848464a70b4bae5e639d2bdf06b8da7dbeca877a9a74b75c4b33",
+          "start": "0x4c23cbf0",
+          "unwind_rva": "0x2483734"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1495,
+      "end_exclusive": "0x4c96eb77",
+      "module": "sldmodu.dll",
+      "roles": [
+        "DrawingPass2"
+      ],
+      "sha256": "98517fd0e217fd9703b71fe07bb7b7404b646f1af5abd23aa01a7a9e2eb4a6a7",
+      "start": "0x4c96e5a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1495,
+          "end_exclusive": "0x4c96eb77",
+          "sha256": "98517fd0e217fd9703b71fe07bb7b7404b646f1af5abd23aa01a7a9e2eb4a6a7",
+          "start": "0x4c96e5a0",
+          "unwind_rva": "0x25879b0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 464,
+      "end_exclusive": "0x3c9152e0",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "UserUnitsCopy"
+      ],
+      "sha256": "dcc69a5d4b4305a7384933745554321065a9f615058b4532caa77504798471aa",
+      "start": "0x3c915110",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 464,
+          "end_exclusive": "0x3c9152e0",
+          "sha256": "dcc69a5d4b4305a7384933745554321065a9f615058b4532caa77504798471aa",
+          "start": "0x3c915110",
+          "unwind_rva": "0x5c3064"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 72,
+      "end_exclusive": "0x3c914a48",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "AngleUnitsCopy"
+      ],
+      "sha256": "712563b4231aa630418b471f68669cedb39eba28f2dcbf0e69c8cf6cc3a2b6f2",
+      "start": "0x3c914a00",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 72,
+          "end_exclusive": "0x3c914a48",
+          "sha256": "712563b4231aa630418b471f68669cedb39eba28f2dcbf0e69c8cf6cc3a2b6f2",
+          "start": "0x3c914a00",
+          "unwind_rva": "0x5c2efc"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x3c776b67",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "BaseGetPrimaryPrecision"
+      ],
+      "sha256": "1f0f198e5bcd0f5ca2fad1aad795861a51bbff07576ba42fb28a2a28ca873926",
+      "start": "0x3c776b60",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x3c7d90b7",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "BaseGetDualPrecision"
+      ],
+      "sha256": "383eb2f05c2c47ea282d677f4288504de6e0bda1e96028fea9c9ee5b539ee25f",
+      "start": "0x3c7d90b0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 4,
+      "end_exclusive": "0x3c757f14",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "IsInitialized"
+      ],
+      "sha256": "74032ad0e931f3c4730df99da43479f9f5315cc898c7c8614278631cb2c16a62",
+      "start": "0x3c757f10",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 12,
+      "end_exclusive": "0x3c798f4c",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "MaxPrecisionOperand"
+      ],
+      "sha256": "73f89f1795caa08851f655657ca5e4e204692ebef965802e565e0a67be96b78d",
+      "start": "0x3c798f40",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 68,
+      "end_exclusive": "0x4c01f6c4",
+      "module": "sldmodu.dll",
+      "roles": [
+        "GetDocumentLength"
+      ],
+      "sha256": "6373394d3db2fcacb4c28169fa908b073f7970a5b4a369b48482532136a5e377",
+      "start": "0x4c01f680",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 68,
+          "end_exclusive": "0x4c01f6c4",
+          "sha256": "6373394d3db2fcacb4c28169fa908b073f7970a5b4a369b48482532136a5e377",
+          "start": "0x4c01f680",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 42,
+      "end_exclusive": "0x4c01f23a",
+      "module": "sldmodu.dll",
+      "roles": [
+        "GetDocumentAngle"
+      ],
+      "sha256": "2a31d35cf70702250c49850ca403f75bc254d73940d5da28e5620b9bf2e78ad5",
+      "start": "0x4c01f210",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 42,
+          "end_exclusive": "0x4c01f23a",
+          "sha256": "2a31d35cf70702250c49850ca403f75bc254d73940d5da28e5620b9bf2e78ad5",
+          "start": "0x4c01f210",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4c01ffa8",
+      "module": "sldmodu.dll",
+      "roles": [
+        "GetDetailDefs"
+      ],
+      "sha256": "77fc22e5067361260c6864c2cc63f37c548f51379c962e813632159c9e590d8b",
+      "start": "0x4c01ffa0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b69e2e8",
+      "module": "sldmodu.dll",
+      "roles": [
+        "GetUserUnitTable"
+      ],
+      "sha256": "01cd199b05d8e71be9c3d2ec91f483e2063fa7f21d692f812d8fd2a48f77e72a",
+      "start": "0x4b69e2e0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2221,
+      "end_exclusive": "0x3c7d1b1d",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "DetailConstructor"
+      ],
+      "rva": "0xb1270",
+      "sha256": "f17937706cdb8f7001b8494e1f6bee83e12120370099147540f7aa3d4edf1319",
+      "start": "0x3c7d1270",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2221,
+          "end_exclusive": "0x3c7d1b1d",
+          "sha256": "f17937706cdb8f7001b8494e1f6bee83e12120370099147540f7aa3d4edf1319",
+          "start": "0x3c7d1270",
+          "unwind_rva": "0x5d5698"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 27,
+      "end_exclusive": "0x3c7db8db",
+      "module": "sldmfcu.dll",
+      "roles": [
+        "0x3c7db8c0"
+      ],
+      "rva": "0xbb8c0",
+      "sha256": "75ac76728686a6d9be2e24b2ffd316c02a79f4214761dda7bf3544233e2d1d13",
+      "start": "0x3c7db8c0",
+      "unwind_fragments": []
+    }
+  ],
+  "heldout_inputs_used": false,
+  "instruction_windows": [
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 189,
+      "end_exclusive": "0x4c23241f",
+      "module": "sldmodu.dll",
+      "purpose": "Swift initial-state guard and actual document precision",
+      "sha256": "a2fb17fc80b3de9ddfa7ee6b5a453f1995ad992246dbdf6d35925f05e60198e9",
+      "start": "0x4c232362"
+    },
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 319,
+      "end_exclusive": "0x4c23b2cd",
+      "module": "sldmodu.dll",
+      "purpose": "Eight actual primary length clones",
+      "sha256": "82950732eaa86e8b1f84998f5a78105e883c650d8c96f18038d3fd1b167ed6a0",
+      "start": "0x4c23b18e"
+    },
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 620,
+      "end_exclusive": "0x4c23b539",
+      "module": "sldmodu.dll",
+      "purpose": "Current-version per-style primary and dual precision",
+      "sha256": "2e998d87f6cd3c3b49f10751f0eb9518eac43a48f4272d6502f5dbfd870a1569",
+      "start": "0x4c23b2cd"
+    },
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 201,
+      "end_exclusive": "0x4c23b637",
+      "module": "sldmodu.dll",
+      "purpose": "Angle and chamfer overrides; base angle retains document precision",
+      "sha256": "680644f64ee79411422ce8e5403f104cc1f3f4e61993d02a800c1c93c84eddcc",
+      "start": "0x4c23b56e"
+    },
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 12,
+      "end_exclusive": "0x3c7d1a59",
+      "module": "sldmfcu.dll",
+      "purpose": "Constructor exclusion initialization",
+      "sha256": "1a0b1e0a588b31642977e27bc325d1a4043170123f4f5ea9b40d2373b9bafa90",
+      "start": "0x3c7d1a4d"
+    },
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 163,
+      "end_exclusive": "0x3c85a245",
+      "module": "sldmfcu.dll",
+      "purpose": "Current empty exclusion list retains constructed rows",
+      "sha256": "78443b8c8d282961d20411150e4108eeb86e988b636a20c54cfdced48fd23d3f",
+      "start": "0x3c85a1a2"
+    },
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 12,
+      "end_exclusive": "0x3c857ae3",
+      "module": "sldmfcu.dll",
+      "purpose": "Direct detail f20 store",
+      "sha256": "e9ae6996c18fecb458b1a2330f3f24c335a9d99426b2e08b7c3026ee16eb467e",
+      "start": "0x3c857ad7"
+    },
+    {
+      "bound": "checked instruction-boundary window in complete function",
+      "bytes": 13,
+      "end_exclusive": "0x3c857fe8",
+      "module": "sldmfcu.dll",
+      "purpose": "Direct detail f20 load",
+      "sha256": "68530ece15f21ea1b7452dcd056459732b65c897d557f25d5c8c30d80458c9f6",
+      "start": "0x3c857fdb"
+    }
+  ],
+  "model_imports": [
+    {
+      "iat": "0x4cd31ec8",
+      "module": "SLDMFCU.dll",
+      "name": "?iCreateDefaultUserUnits@moUnitsTable_c@@QEAAXXZ"
+    },
+    {
+      "iat": "0x4cd31f48",
+      "module": "SLDMFCU.dll",
+      "name": "?setTolPlaces@moDimDefs_c@@QEAAXHW4OptionsDimType_e@@@Z"
+    },
+    {
+      "iat": "0x4cd31f80",
+      "module": "SLDMFCU.dll",
+      "name": "?setLengthUnits@moBaseDimDef_c@@QEAAXPEAVmoLengthUserUnits_c@@@Z"
+    },
+    {
+      "iat": "0x4cd31f88",
+      "module": "SLDMFCU.dll",
+      "name": "?setAngleUnits@moBaseDimDef_c@@QEAAXPEAVmoAngleUserUnits_c@@@Z"
+    },
+    {
+      "iat": "0x4cd31f98",
+      "module": "SLDMFCU.dll",
+      "name": "?isInitialized@moSwiftGtsOptions_c@@QEAAHXZ"
+    },
+    {
+      "iat": "0x4cd31fa0",
+      "module": "SLDMFCU.dll",
+      "name": "?initialize@moSwiftGtsOptions_c@@QEAAXHH@Z"
+    },
+    {
+      "iat": "0x4cd32508",
+      "module": "SLDMFCU.dll",
+      "name": "?getDualUnit@moLengthUserUnits_c@@QEAAPEAV1@XZ"
+    },
+    {
+      "iat": "0x4cd33b80",
+      "module": "SLDMFCU.dll",
+      "name": "?getUserUnits@moUnitsTable_c@@QEBAPEAVmoUserUnits_c@@PEAUCRuntimeClass@@@Z"
+    },
+    {
+      "iat": "0x4cd33b88",
+      "module": "SLDMFCU.dll",
+      "name": "?GetThisClass@moAngleUserUnits_c@@SAPEAUCRuntimeClass@@XZ"
+    },
+    {
+      "iat": "0x4cd33b90",
+      "module": "SLDMFCU.dll",
+      "name": "?GetThisClass@moLengthUserUnits_c@@SAPEAUCRuntimeClass@@XZ"
+    },
+    {
+      "iat": "0x4cd33cf0",
+      "module": "SLDMFCU.dll",
+      "name": "??0moArchiveHelper_c@@QEAA@PEAVsu_CArchive@@@Z"
+    },
+    {
+      "iat": "0x4cd33cf8",
+      "module": "SLDMFCU.dll",
+      "name": "?getCurrentFileVerion@moVersionManager_c@@CAKXZ"
+    },
+    {
+      "iat": "0x4cd33d00",
+      "module": "SLDMFCU.dll",
+      "name": "?get@moVersionManager_c@@SAAEAV1@XZ"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 8274520,
+      "exception_directory_bytes": 222504,
+      "exception_directory_rva": "0x7e6000",
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    },
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    }
+  ],
+  "native_calls_executed": false,
+  "native_calls_observed": false,
+  "runtime_global_preferences_read": false,
+  "schema": "drawing-detail-normalization-native-evidence-v1",
+  "swift_metric_precision_minimums": {
+    "authored_matches": true,
+    "minimums": {
+      "f100": 2,
+      "f108": 1,
+      "f118": 2,
+      "f128": 2,
+      "f138": 1,
+      "f148": 1,
+      "f158": 2,
+      "f168": 2,
+      "f178": 1,
+      "f188": 1,
+      "f198": 1,
+      "f1a8": 1,
+      "f1b8": 1,
+      "f1c8": 1,
+      "f1d8": 1,
+      "f1e8": 1,
+      "f1f8": 1,
+      "f208": 1,
+      "f210": 2,
+      "f218": 1,
+      "f220": 2,
+      "f228": 1,
+      "f230": 1,
+      "f238": 1,
+      "f240": 1,
+      "f248": 1,
+      "f258": 1,
+      "f268": 1,
+      "f278": 1,
+      "f288": 1,
+      "f298": 1,
+      "f2a8": 1,
+      "f2c8": 2,
+      "f2d8": 2,
+      "f2e0": 2,
+      "f2f0": 1,
+      "f30": 2,
+      "f300": 1,
+      "f308": 1,
+      "f318": 1,
+      "f328": 1,
+      "f330": 1,
+      "f340": 1,
+      "f350": 1,
+      "f358": 1,
+      "f368": 1,
+      "f378": 1,
+      "f380": 1,
+      "f388": 1,
+      "f390": 1,
+      "f398": 1,
+      "f40": 1,
+      "f50": 1,
+      "f60": 1,
+      "f70": 1,
+      "fa0": 1,
+      "fb0": 1,
+      "fc0": 1,
+      "fd0": 1,
+      "fe0": 1,
+      "ff0": 2
+    },
+    "scope": "static instruction-to-field correspondence; no schema or constructor execution"
+  },
+  "vendor_code_or_listings_in_report": false,
+  "vtable_bindings": [
+    {
+      "address": "0x4d0c70e0",
+      "module": "sldmodu.dll",
+      "role": "model",
+      "rtti_locator": "0x4d34bbf8",
+      "slots": [
+        {
+          "offset": "0x1008",
+          "sha256": "6aed03aaf268349b99ea9dd872ef2648316e84cd7b9f43f6cfe6f31b96986626",
+          "target": "0x4b69e2e0"
+        },
+        {
+          "offset": "0x11b8",
+          "sha256": "c6c8c0ad0012140269dcd72dedea000c0b4cc7578a8f6b54395f815221555283",
+          "target": "0x4c232190"
+        },
+        {
+          "offset": "0x1750",
+          "sha256": "6ba913a0683a7f4b22a917b822dc5f570ece60743c3c08c96ccbccca2be61b62",
+          "target": "0x4c23ad10"
+        }
+      ],
+      "type_descriptor": "0x4db0e848",
+      "type_name": ".?AVmoModel_c@@"
+    },
+    {
+      "address": "0x4d1252d8",
+      "module": "sldmodu.dll",
+      "role": "part",
+      "rtti_locator": "0x4d352fc0",
+      "slots": [
+        {
+          "offset": "0x1008",
+          "sha256": "6aed03aaf268349b99ea9dd872ef2648316e84cd7b9f43f6cfe6f31b96986626",
+          "target": "0x4b69e2e0"
+        },
+        {
+          "offset": "0x11b8",
+          "sha256": "df91ec0f21d740699ca37846b48d110086d0093c97bce0c28e1112074421a10e",
+          "target": "0x4c233ad0"
+        },
+        {
+          "offset": "0x1750",
+          "sha256": "be97c22201ea1f9e09143ba0c317b77d1117d57e42ba29b6158f8576aae8051c",
+          "target": "0x4c23cbf0"
+        }
+      ],
+      "type_descriptor": "0x4db11cf0",
+      "type_name": ".?AVmoPart_c@@"
+    },
+    {
+      "address": "0x4d26af68",
+      "module": "sldmodu.dll",
+      "role": "drawing",
+      "rtti_locator": "0x4d376d00",
+      "slots": [
+        {
+          "offset": "0x1008",
+          "sha256": "6aed03aaf268349b99ea9dd872ef2648316e84cd7b9f43f6cfe6f31b96986626",
+          "target": "0x4b69e2e0"
+        },
+        {
+          "offset": "0x11b8",
+          "sha256": "c50db3f38be554e5c41555e843250ba0d82ecaca91894381d85e35d27eb60f2e",
+          "target": "0x4c96e5a0"
+        },
+        {
+          "offset": "0x1750",
+          "sha256": "6ba913a0683a7f4b22a917b822dc5f570ece60743c3c08c96ccbccca2be61b62",
+          "target": "0x4c23ad10"
+        }
+      ],
+      "type_descriptor": "0x4db0ee00",
+      "type_name": ".?AVmoDrawing_c@@"
+    },
+    {
+      "address": "0x3cc8b9d0",
+      "module": "sldmfcu.dll",
+      "role": "length",
+      "rtti_locator": "0x3ccd9cd8",
+      "slots": [
+        {
+          "offset": "0xb0",
+          "sha256": "259ac92d24b2de0b40906218a5d36c94e2c6d710a3fb2487a989e466beb158e8",
+          "target": "0x3c753ef0"
+        },
+        {
+          "offset": "0xc0",
+          "sha256": "e2970fcb773d5ce86548dd28519b5c6f5538c1de904fd61e89f754f15c1e510b",
+          "target": "0x3c914c40"
+        },
+        {
+          "offset": "0xc8",
+          "sha256": "5c3d768c826dabc08c7eb2b5080ae190283ce2647d3215e0f60a12d3e71f9b94",
+          "target": "0x3c758190"
+        }
+      ],
+      "type_descriptor": "0x3ce8a388",
+      "type_name": ".?AVmoLengthUserUnits_c@@"
+    },
+    {
+      "address": "0x3cb23718",
+      "module": "sldmfcu.dll",
+      "role": "angle",
+      "rtti_locator": "0x3ccc5700",
+      "slots": [
+        {
+          "offset": "0xc0",
+          "sha256": "6f7e5678ec583469980db0e32101291b296ded4cec6dbc8fbd3805a99940f38a",
+          "target": "0x3c914a00"
+        },
+        {
+          "offset": "0x190",
+          "sha256": "633d724afdc3b27dfc96f3d809196f003f07d478c492d293f90307c00a896291",
+          "target": "0x3c74fa60"
+        }
+      ],
+      "type_descriptor": "0x3ce8a038",
+      "type_name": ".?AVmoAngleUserUnits_c@@"
+    }
+  ]
+}

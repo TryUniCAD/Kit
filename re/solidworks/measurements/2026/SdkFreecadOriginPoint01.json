@@ -1,0 +1,485 @@
+{
+  "base": "ed3243fa745d6ffd8379126db483179a547eb4cd",
+  "base_src_tree": "ab7d5f9a2aff0a4967368cc94d522a28d11f4bc1",
+  "corpus_credit": 0,
+  "exact_build_static_receipt": {
+    "axis_vtable": "0x4d1571b0",
+    "classes": {
+      "moRefPointData_c": {
+        "descriptor": "0x4daf6af8",
+        "instance_bytes": 16,
+        "schema": 1,
+        "serializer": "0x4c2fc010",
+        "serializer_slot": "0x28",
+        "versionable": true,
+        "vtable": "0x4d177bf0"
+      },
+      "moRefPoint_c": {
+        "descriptor": "0x4daf46f0",
+        "instance_bytes": 1840,
+        "schema": 1,
+        "serializer": "0x4c2fc170",
+        "serializer_slot": "0x28",
+        "versionable": true,
+        "vtable": "0x4d175328"
+      },
+      "moTwoAxisRefPointData_c": {
+        "descriptor": "0x4daf6b88",
+        "instance_bytes": 32,
+        "schema": 1,
+        "serializer": "0x4c2fc4b0",
+        "serializer_slot": "0x28",
+        "versionable": true,
+        "vtable": "0x4d177f20"
+      }
+    },
+    "common_point_and_axis_dispatch": {
+      "0x3e8": "0x4bb2a650",
+      "0x3f8": "0x4c03e170",
+      "0x4b8": "0x4c17a7b0",
+      "0x4c0": "0x4c17b570"
+    },
+    "fixed_data_update_virtual_slot": "0xa8",
+    "geometry_accessor": "0x4c2ce9b0",
+    "geometry_accessor_virtual_slot": "0x20c8",
+    "imports": {
+      "0x4cd328a0": {
+        "module": "SLDMFCU.dll",
+        "name": "?isOKForDBSerialize@moArchiveHelper_c@@QEAA_NXZ"
+      },
+      "0x4cd3a590": {
+        "module": "sldmgu.dll",
+        "name": "??4mgPoint_c@@QEAAAEBV0@AEBV0@@Z"
+      },
+      "0x4cd3a940": {
+        "module": "sldmgu.dll",
+        "name": "??5@YAAEAVsu_CArchive@@AEAV0@AEAVmgPoint_c@@@Z"
+      },
+      "0x4cd3a948": {
+        "module": "sldmgu.dll",
+        "name": "??6@YAAEAVsu_CArchive@@AEAV0@AEAVmgPoint_c@@@Z"
+      },
+      "0x4cd3d870": {
+        "module": "swccu.dll",
+        "name": "?IsStoring@su_CArchive@@QEBAHXZ"
+      },
+      "0x4cd3d878": {
+        "module": "swccu.dll",
+        "name": "?IsDBStream@su_CArchive@@QEBAHXZ"
+      },
+      "0x4cd3d890": {
+        "module": "swccu.dll",
+        "name": "?ReadObject@su_CArchive@@QEAAPEAVCObject@@PEBUCRuntimeClass@@@Z"
+      },
+      "0x4cd3d898": {
+        "module": "swccu.dll",
+        "name": "?WriteObject@su_CArchive@@QEAAXPEBVCObject@@PEBUCRuntimeClass@@@Z"
+      },
+      "0x4cd3d990": {
+        "module": "swccu.dll",
+        "name": "?Serialize@su_CObject@@UEAAXAEAVsu_CArchive@@@Z"
+      }
+    },
+    "pe_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "preferred_base": "0x4b140000",
+    "ranges": [
+      {
+        "bytes": 257,
+        "end_exclusive": "0x4c2f7cb1",
+        "file_offset": 18575280,
+        "name": "fixed_root_constructor",
+        "sha256": "7d28e83374eec65da0e181fa32a3888f2543c5190082f2ea0a7f855376a56738",
+        "start": "0x4c2f7bb0"
+      },
+      {
+        "bytes": 56,
+        "end_exclusive": "0x4c2fcd28",
+        "file_offset": 18596080,
+        "name": "data_constructor",
+        "sha256": "72c34ed1a6ee8022ede044bd06edd265ec6ac6bc3eaa984cbbe5a1c62529b097",
+        "start": "0x4c2fccf0"
+      },
+      {
+        "bytes": 99,
+        "end_exclusive": "0x4c2ce633",
+        "file_offset": 18405840,
+        "name": "base_reference_geometry_constructor",
+        "sha256": "a7d66df67c419ea941f7a82734b12c4c052ccdaae156386b6b07e43de8db9630",
+        "start": "0x4c2ce5d0"
+      },
+      {
+        "bytes": 690,
+        "end_exclusive": "0x4b6ff172",
+        "file_offset": 6021824,
+        "name": "owner_obtaining_atom_feature_constructor",
+        "sha256": "13720513c2bfc857d0ef3a0626935d5f7ca994dc81a0c54165ba374f8dc81d87",
+        "start": "0x4b6feec0"
+      },
+      {
+        "bytes": 585,
+        "end_exclusive": "0x4c2fc3b9",
+        "file_offset": 18593136,
+        "name": "fixed_root_serialize",
+        "sha256": "a9fb93693e3bd69348f3c4825fbbe0868a14a9effceaa46d5461988f813fd3fb",
+        "start": "0x4c2fc170"
+      },
+      {
+        "bytes": 191,
+        "end_exclusive": "0x4c276bbf",
+        "file_offset": 18046720,
+        "name": "base_reference_geometry_serialize",
+        "sha256": "4031c7bd6534373b515d93a6d5744ff5c1dbc143cffc450c74edcf692cc3064d",
+        "start": "0x4c276b00"
+      },
+      {
+        "bytes": 350,
+        "end_exclusive": "0x4c2fc16e",
+        "file_offset": 18592784,
+        "name": "base_point_data_serialize",
+        "sha256": "7b16934a5b71f2ac1709f5f1aca2d3615f810b8aa57d5d3f08b0dbf0d6572362",
+        "start": "0x4c2fc010"
+      },
+      {
+        "bytes": 129,
+        "end_exclusive": "0x4c2fc531",
+        "file_offset": 18593968,
+        "name": "coincident_reference_axis_pair_serialize",
+        "sha256": "001293717b2427910b1f3ff7fa48ceece2af8f19aa0780191bd84c882b175081",
+        "start": "0x4c2fc4b0"
+      },
+      {
+        "bytes": 92,
+        "end_exclusive": "0x4c2fc00c",
+        "file_offset": 18592688,
+        "name": "lightweight_coordinate_data_serialize",
+        "sha256": "8244393f1e92ed160dedd46c1a414f262da6379042ad27b14119345677bac76c",
+        "start": "0x4c2fbfb0"
+      },
+      {
+        "bytes": 36,
+        "end_exclusive": "0x4c2f8ed4",
+        "file_offset": 18580144,
+        "name": "geometry_getter",
+        "sha256": "c8a417873951e2fff995d6eaef78e89036e8b118cbe523558b2e82325f159cd6",
+        "start": "0x4c2f8eb0"
+      },
+      {
+        "bytes": 251,
+        "end_exclusive": "0x4c2f928b",
+        "file_offset": 18580880,
+        "name": "get_updated_points",
+        "sha256": "ae20b047849d7dcad5942db10c1e0c88cdd7b91ed6b44b6d9a8659d4cc5dd057",
+        "start": "0x4c2f9190"
+      },
+      {
+        "bytes": 220,
+        "end_exclusive": "0x4c2f946c",
+        "file_offset": 18581392,
+        "name": "geometry_data_update",
+        "sha256": "7175e57e458de6cad18e4c6b310384d368f6aa41f68619e5f71b156269f262d0",
+        "start": "0x4c2f9390"
+      },
+      {
+        "bytes": 3121,
+        "end_exclusive": "0x4c03d191",
+        "file_offset": 15710560,
+        "name": "db_tail",
+        "sha256": "0e2642939f07e57a48be7043b5099b73998f1b38af3087fd81d08ee9fcbf7c91",
+        "start": "0x4c03c560"
+      },
+      {
+        "bytes": 8,
+        "end_exclusive": "0x4c2ce9b8",
+        "file_offset": 18406832,
+        "name": "point_coordinate_accessor_leaf",
+        "sha256": "9d2252c7ceefac2d2aa42fa8ebfcaa30fef05f8e0a097d40663604d8a10b4413",
+        "start": "0x4c2ce9b0"
+      },
+      {
+        "bytes": 14,
+        "end_exclusive": "0x4c2cf0ce",
+        "file_offset": 18408640,
+        "name": "point_coordinate_setter_leaf",
+        "sha256": "9702d55feeb0aaaf3130480b8cf2f17b3d905d914a16234fcb054b4e2a179e0f",
+        "start": "0x4c2cf0c0"
+      },
+      {
+        "bytes": 3,
+        "end_exclusive": "0x4b27cbe3",
+        "file_offset": 1294304,
+        "name": "fixed_data_has_no_projected_update",
+        "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+        "start": "0x4b27cbe0"
+      }
+    ],
+    "serialize_catalogue_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "static_prepared_without_version_19000_vendor_record": true
+  },
+  "fresh_workers": 4,
+  "heldout_cases": 0,
+  "native_processes": 0,
+  "native_sldprt_point_candidate": false,
+  "new_native_acceptance": 0,
+  "prior_axes_receipt_sha256": "48449d9b7bd317457b0f195f3d5c10c5909874a988c0e50e700b0f607de46008",
+  "prior_origin_plan_sha256": "feb0a35f8975ee7d9a74e2eb416068e1337f7071cd2ec1c4bfdb524e5943ac61",
+  "reports": {
+    "recipe-1.0.2-F14a": {
+      "actual_owner": null,
+      "model_and_source_unchanged": true,
+      "neutral_json_datums_exact": true,
+      "no_publication": {
+        "empty_directory": true,
+        "missing_from_adapter_capabilities": [],
+        "refusals": {
+          "direct_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_stream": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "inferred_path": {
+            "diagnostic": "no writer supports the destination",
+            "type": "AdapterNotFoundError"
+          }
+        },
+        "source_capabilities": [
+          "body_structure",
+          "brep",
+          "configurations",
+          "native_payloads",
+          "parameters",
+          "parametric_history",
+          "provenance",
+          "roundtrip_metadata",
+          "support_planes"
+        ],
+        "stream_unchanged": true
+      },
+      "research_record": {
+        "added_slots": [
+          [
+            270,
+            false,
+            "moRefPoint_c",
+            1
+          ],
+          [
+            271,
+            true,
+            "moRefPoint_c",
+            1
+          ],
+          [
+            272,
+            true,
+            "moNodeName_c",
+            1
+          ],
+          [
+            273,
+            false,
+            "moRefPointData_c",
+            1
+          ],
+          [
+            274,
+            true,
+            "moRefPointData_c",
+            1
+          ]
+        ],
+        "bytes": 363,
+        "feature_id": 30,
+        "map_after": 275,
+        "map_before": 270,
+        "name": "Displaced datum",
+        "refusals": {
+          "alternate_inherited_mode": "fixed reference point has another actual graph owner or mode",
+          "appended": "fixed reference point bytes have a different graph boundary",
+          "duplicate_persistent_id": "fixed reference point has another actual graph owner or mode",
+          "missing_data": "fixed reference point has another actual graph owner or mode",
+          "nonfinite": "fixed reference point requires a named finite coordinate",
+          "truncated": {
+            "diagnostic": "SOLIDWORKS body moRefPoint_c field f708 at 361: archive tag has no complete unsigned short",
+            "type": "ValueError"
+          },
+          "unbound_owner": "fixed point requires its actual part owner"
+        },
+        "sha256": "e673a0003a86dbb2fe1f47829ac2ed47e1af2cc873cadf3c2a55af7d29924e4f",
+        "typed_replay": true,
+        "xyz_m": {
+          "x": -0.0125,
+          "y": 0.028,
+          "z": 0.00775
+        }
+      },
+      "runtime_file_reads": 0,
+      "source_negatives": {},
+      "source_sha256": "2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df",
+      "stock_axes": [
+        "X-axis",
+        "Y-axis",
+        "Z-axis"
+      ],
+      "stock_body": "Body",
+      "stock_drivers": [
+        "AdditiveBox.Length",
+        "AdditiveBox.Width",
+        "AdditiveBox.Height"
+      ],
+      "stock_geometry_roles": 26,
+      "stock_with_axes_sha256": "1667a585d3a81efac54b316d8998a87f46c2743dc1451353abd96ba2253e4a2c"
+    },
+    "recipe-1.1.4-F14a": {
+      "actual_owner": {
+        "coordinates_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "group_id": "4913",
+        "model_visibility": true,
+        "name": "Origin001",
+        "point_id": "4920",
+        "record_name": "Origin001",
+        "role": "Origin",
+        "stored_gui_document": false
+      },
+      "model_and_source_unchanged": true,
+      "neutral_json_datums_exact": true,
+      "no_publication": {
+        "empty_directory": true,
+        "missing_from_adapter_capabilities": [],
+        "refusals": {
+          "direct_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_path": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "explicit_stream": {
+            "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+            "type": "ValueError"
+          },
+          "inferred_path": {
+            "diagnostic": "no writer supports the destination",
+            "type": "AdapterNotFoundError"
+          }
+        },
+        "source_capabilities": [
+          "body_structure",
+          "brep",
+          "configurations",
+          "native_payloads",
+          "parameters",
+          "parametric_history",
+          "provenance",
+          "roundtrip_metadata",
+          "support_planes"
+        ],
+        "stream_unchanged": true
+      },
+      "research_record": {
+        "added_slots": [
+          [
+            270,
+            false,
+            "moRefPoint_c",
+            1
+          ],
+          [
+            271,
+            true,
+            "moRefPoint_c",
+            1
+          ],
+          [
+            272,
+            true,
+            "moNodeName_c",
+            1
+          ],
+          [
+            273,
+            false,
+            "moRefPointData_c",
+            1
+          ],
+          [
+            274,
+            true,
+            "moRefPointData_c",
+            1
+          ]
+        ],
+        "bytes": 351,
+        "feature_id": 30,
+        "map_after": 275,
+        "map_before": 270,
+        "name": "Origin001",
+        "refusals": {
+          "alternate_inherited_mode": "fixed reference point has another actual graph owner or mode",
+          "appended": "fixed reference point bytes have a different graph boundary",
+          "duplicate_persistent_id": "fixed reference point has another actual graph owner or mode",
+          "missing_data": "fixed reference point has another actual graph owner or mode",
+          "nonfinite": "fixed reference point requires a named finite coordinate",
+          "truncated": {
+            "diagnostic": "SOLIDWORKS body moRefPoint_c field f708 at 349: archive tag has no complete unsigned short",
+            "type": "ValueError"
+          },
+          "unbound_owner": "fixed point requires its actual part owner"
+        },
+        "sha256": "2987340ed12837fffb3be5bec6e70b66dca6de71d24fe0700c29eed83d0e467c",
+        "typed_replay": true,
+        "xyz_m": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "runtime_file_reads": 0,
+      "source_negatives": {
+        "nonprincipal_location": "FreeCAD origin point requires its fixed visible principal placement",
+        "unbound_label": "FreeCAD origin datum owners disagree with the source archive",
+        "wrong_model_visibility": "FreeCAD origin point requires its fixed visible principal placement",
+        "wrong_native_kind": "FreeCAD origin datum has an unrepresented owner or property"
+      },
+      "source_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8",
+      "stock_axes": [
+        "X-axis",
+        "Y-axis",
+        "Z-axis"
+      ],
+      "stock_body": "Body",
+      "stock_drivers": [
+        "AdditiveBox.Length",
+        "AdditiveBox.Width",
+        "AdditiveBox.Height"
+      ],
+      "stock_geometry_roles": 26,
+      "stock_with_axes_sha256": "e8afd4b6baec7c8238fd66e396876e3309d91f1583f8b9ae338d80a0af9ed174"
+    }
+  },
+  "schema": "kit.sw2026.freecad-origin-point.v1",
+  "sdk_source_sha256": {
+    "Core/Preparation/FreecadBox/PlanOriginBox.py": "15dc016a42caf2ade0ef29a8383d682ed69d8ee52fa58c6a92bac082cedccd67",
+    "Core/Preparation/FreecadBox/PrepOrigAxes.py": "537871a537b1902c204a13ca440f016d5cfcbad38b634fff79668e1cd7144e8d",
+    "Core/Preparation/FreecadBox/Source/BoxDatums.py": "ff9d9201168adc32baa8573561ee5c20b49e23e65980d0323213548de0a49b14",
+    "Core/Preparation/FreecadBox/Source/ReadBoxDatums.py": "3c1ad028239a1fe28be7b6619a9842e72d2fc45a4b04f5a3a4754f71ec31c077"
+  },
+  "source_manifest_sha256": "e2053d84764ed9b65fc4bfe62f98b08c4d33bb57f096f3a4e9265e802e9288fa",
+  "tool_source_sha256": {
+    "FixedPointRecord.py": "44c3ce5f7aa43fdc0c69e4a4764495d3fda8e37478d0579af36b486901e69142",
+    "PinPointLibrary.py": "4b880e58bfb71ab696b70e608a9f9b941f358ce6ac4ccf4b22f4ed691c0e0a95",
+    "ProveOriginAxes.py": "2069c572e01db71de17125f8dd57de5ccd970bf76c9df421f440a49cf920a41c",
+    "ProveOriginPoint.py": "a6937c0bc56ffddcbf422c8e9232459ded902f14eebbbad1c4b3de432348375d"
+  }
+}

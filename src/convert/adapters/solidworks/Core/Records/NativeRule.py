@@ -11,3 +11,5 @@ class NativeRule:
     value: float | None
     native_offset: int | None
     native_code: int | None
+    reference_points: tuple[str, ...] = ()
+    native_length: int = 8

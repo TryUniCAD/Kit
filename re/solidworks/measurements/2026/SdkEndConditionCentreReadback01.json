@@ -1,0 +1,680 @@
+{
+  "exact_streams": 24,
+  "existing_successful_states_reproduced": 10,
+  "fresh_sdk_processes": 12,
+  "method_sha256": "705bcb486412571f103027ec6713e3bfd0cca405a6ab1288cf5efecd4d96b9fb",
+  "native_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c",
+  "packet_sha256": "8f38fd02f84cd554342005cd2dd0457de879cd443e96d2721af05d770cbb0bdd",
+  "passed": true,
+  "prior_exact_streams": 20,
+  "prior_passed": false,
+  "prior_readback_sha256": "35fa6556f82f7312cceeb8ba689416ce8d36de7be185de795c54a1e1a67973a5",
+  "prior_successful_reads": 10,
+  "public_writer_qualified": false,
+  "readbacks": [
+    {
+      "case": "H03MidPlaneReference",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 196,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            4.971,
+            -9.313
+          ],
+          "marker_metres_hex": [
+            "0x1.45c78a6dacabcp-8",
+            "-0x1.312b1b36bd2b7p-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 6063,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 183,
+        "profile_native_id": 26,
+        "public_circle_mm": [
+          4.971,
+          -9.313
+        ],
+        "public_fixed_point_mm": [
+          4.971,
+          -9.313
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 189,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 201,
+        "raw_shared_metres_hex": [
+          "0x1.45c78a6dacabcp-8",
+          "-0x1.312b1b36bd2b7p-7"
+        ],
+        "sketch_map": 185
+      },
+      "end_condition": "mid_plane",
+      "file_sha256": "5edfc5ccd7163fdcec4132e053a7dc0ee42603833af9028d8d8cc89cd4f373df",
+      "owned_depths": {
+        "D1": 33.971
+      },
+      "passed": true,
+      "phase": "input",
+      "pid": 28615,
+      "radial_mm": 15.837999999999997,
+      "radial_mode": "diameter",
+      "reverse": false,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H03MidPlaneReference",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 196,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            4.971,
+            -9.313
+          ],
+          "marker_metres_hex": [
+            "0x1.45c78a6dacabcp-8",
+            "-0x1.312b1b36bd2b7p-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 6063,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 183,
+        "profile_native_id": 26,
+        "public_circle_mm": [
+          4.971,
+          -9.313
+        ],
+        "public_fixed_point_mm": [
+          4.971,
+          -9.313
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 189,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 201,
+        "raw_shared_metres_hex": [
+          "0x1.45c78a6dacabcp-8",
+          "-0x1.312b1b36bd2b7p-7"
+        ],
+        "sketch_map": 185
+      },
+      "end_condition": "mid_plane",
+      "file_sha256": "bcbd5ea0ccb2ef440f508f0f82004b4b54cd8bf0e07b135753b1454aed7a62b2",
+      "owned_depths": {
+        "D1": 33.971
+      },
+      "passed": true,
+      "phase": "first-save",
+      "pid": 28617,
+      "radial_mm": 15.837999999999997,
+      "radial_mode": "diameter",
+      "reverse": false,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H03MidPlaneReference",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 196,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            4.971,
+            -9.313
+          ],
+          "marker_metres_hex": [
+            "0x1.45c78a6dacabcp-8",
+            "-0x1.312b1b36bd2b7p-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 6063,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 183,
+        "profile_native_id": 26,
+        "public_circle_mm": [
+          4.971,
+          -9.313
+        ],
+        "public_fixed_point_mm": [
+          4.971,
+          -9.313
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 189,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 201,
+        "raw_shared_metres_hex": [
+          "0x1.45c78a6dacabcp-8",
+          "-0x1.312b1b36bd2b7p-7"
+        ],
+        "sketch_map": 185
+      },
+      "end_condition": "mid_plane",
+      "file_sha256": "d723064b16c0bf6e48f23cab6f6fa63a516da92be7e38e939cc17fef1c70b6f3",
+      "owned_depths": {
+        "D1": 30.913609999999995
+      },
+      "passed": true,
+      "phase": "edited-fresh-reopen-save",
+      "pid": 28618,
+      "radial_mm": 18.007806,
+      "radial_mode": "diameter",
+      "reverse": false,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H03MidPlaneGenerated",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 160,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            4.971000000000001,
+            -9.313
+          ],
+          "route": "typed-centre"
+        },
+        "profile_map": 147,
+        "profile_native_id": 18,
+        "public_circle_mm": [
+          4.971000000000001,
+          -9.313
+        ],
+        "public_fixed_point_mm": [
+          4.971000000000001,
+          -9.313
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 153,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 165,
+        "raw_shared_metres_hex": [
+          "0x1.45c78a6dacabdp-8",
+          "-0x1.312b1b36bd2b7p-7"
+        ],
+        "sketch_map": 149
+      },
+      "end_condition": "mid_plane",
+      "file_sha256": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+      "owned_depths": {
+        "D1": 33.971
+      },
+      "passed": true,
+      "phase": "input",
+      "pid": 28624,
+      "radial_mm": 15.837999999999997,
+      "radial_mode": "diameter",
+      "reverse": false,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H03MidPlaneGenerated",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 200,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": false,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            4.971,
+            -9.313
+          ],
+          "marker_metres_hex": [
+            "0x1.45c78a6dacabdp-8",
+            "-0x1.312b1b36bd2b7p-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 5779,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 187,
+        "profile_native_id": 18,
+        "public_circle_mm": [
+          4.971000000000001,
+          -9.313
+        ],
+        "public_fixed_point_mm": [
+          4.971,
+          -9.313
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 193,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 205,
+        "raw_shared_metres_hex": [
+          "0x1.45c78a6dacabdp-8",
+          "-0x1.312b1b36bd2b7p-7"
+        ],
+        "sketch_map": 189
+      },
+      "end_condition": "mid_plane",
+      "file_sha256": "0e8a031a3068466d5fad67b8670c35606ae6cbd851dfd2011c2b56bfa785a6c5",
+      "owned_depths": {
+        "D1": 33.971
+      },
+      "passed": true,
+      "phase": "first-save",
+      "pid": 28625,
+      "radial_mm": 15.837999999999997,
+      "radial_mode": "diameter",
+      "reverse": false,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H03MidPlaneGenerated",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 200,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": false,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            4.971,
+            -9.313
+          ],
+          "marker_metres_hex": [
+            "0x1.45c78a6dacabdp-8",
+            "-0x1.312b1b36bd2b7p-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 5779,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 187,
+        "profile_native_id": 18,
+        "public_circle_mm": [
+          4.971000000000001,
+          -9.313
+        ],
+        "public_fixed_point_mm": [
+          4.971,
+          -9.313
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 193,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 205,
+        "raw_shared_metres_hex": [
+          "0x1.45c78a6dacabdp-8",
+          "-0x1.312b1b36bd2b7p-7"
+        ],
+        "sketch_map": 189
+      },
+      "end_condition": "mid_plane",
+      "file_sha256": "616c9b11f0f0bb62f348369e134b8a7b9ae5f45cfd9fb86470f0d80166785ffc",
+      "owned_depths": {
+        "D1": 30.913609999999995
+      },
+      "passed": true,
+      "phase": "edited-fresh-reopen-save",
+      "pid": 28627,
+      "radial_mm": 18.007806,
+      "radial_mode": "diameter",
+      "reverse": false,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H04TwoDirectionsReference",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 196,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            -6.193,
+            8.723
+          ],
+          "marker_metres_hex": [
+            "-0x1.95dd4c76d117bp-8",
+            "0x1.1dd5d3dc8b86cp-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 6063,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 183,
+        "profile_native_id": 26,
+        "public_circle_mm": [
+          -6.193,
+          8.723
+        ],
+        "public_fixed_point_mm": [
+          -6.193,
+          8.723
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 189,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 201,
+        "raw_shared_metres_hex": [
+          "-0x1.95dd4c76d117bp-8",
+          "0x1.1dd5d3dc8b86cp-7"
+        ],
+        "sketch_map": 185
+      },
+      "end_condition": "two_lengths",
+      "file_sha256": "0dd4ffe69b16248dda5ebd7e468563a45c4a8e5b80a8fe0bff5e12da02c584d0",
+      "owned_depths": {
+        "D1": 21.389,
+        "D2": 8.917
+      },
+      "passed": true,
+      "phase": "input",
+      "pid": 28628,
+      "radial_mm": 22.462,
+      "radial_mode": "diameter",
+      "reverse": true,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H04TwoDirectionsReference",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 196,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            -6.193,
+            8.723
+          ],
+          "marker_metres_hex": [
+            "-0x1.95dd4c76d117bp-8",
+            "0x1.1dd5d3dc8b86cp-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 6063,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 183,
+        "profile_native_id": 26,
+        "public_circle_mm": [
+          -6.193,
+          8.723
+        ],
+        "public_fixed_point_mm": [
+          -6.193,
+          8.723
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 189,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 201,
+        "raw_shared_metres_hex": [
+          "-0x1.95dd4c76d117bp-8",
+          "0x1.1dd5d3dc8b86cp-7"
+        ],
+        "sketch_map": 185
+      },
+      "end_condition": "two_lengths",
+      "file_sha256": "559cf7932de58054cb355cef60631d6a8a8ba5735975bf75da3b3be98637d1df",
+      "owned_depths": {
+        "D1": 21.389,
+        "D2": 8.917
+      },
+      "passed": true,
+      "phase": "first-save",
+      "pid": 28629,
+      "radial_mm": 22.462,
+      "radial_mode": "diameter",
+      "reverse": true,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H04TwoDirectionsReference",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 196,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            -6.193,
+            8.723
+          ],
+          "marker_metres_hex": [
+            "-0x1.95dd4c76d117bp-8",
+            "0x1.1dd5d3dc8b86cp-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 6063,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 183,
+        "profile_native_id": 26,
+        "public_circle_mm": [
+          -6.193,
+          8.723
+        ],
+        "public_fixed_point_mm": [
+          -6.193,
+          8.723
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 189,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 201,
+        "raw_shared_metres_hex": [
+          "-0x1.95dd4c76d117bp-8",
+          "0x1.1dd5d3dc8b86cp-7"
+        ],
+        "sketch_map": 185
+      },
+      "end_condition": "two_lengths",
+      "file_sha256": "34dc5e58ad6f32abbcc5849c2d68137e7e21d9b8c6f5ef3b1d83e8a4a3a30dec",
+      "owned_depths": {
+        "D1": 17.603146999999996,
+        "D2": 10.432889999999999
+      },
+      "passed": true,
+      "phase": "edited-fresh-reopen-save",
+      "pid": 28632,
+      "radial_mm": 25.539294,
+      "radial_mode": "diameter",
+      "reverse": true,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H04TwoDirectionsGenerated",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 160,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            -6.193,
+            8.723
+          ],
+          "route": "typed-centre"
+        },
+        "profile_map": 147,
+        "profile_native_id": 18,
+        "public_circle_mm": [
+          -6.193,
+          8.723
+        ],
+        "public_fixed_point_mm": [
+          -6.193,
+          8.723
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 153,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 165,
+        "raw_shared_metres_hex": [
+          "-0x1.95dd4c76d117bp-8",
+          "0x1.1dd5d3dc8b86cp-7"
+        ],
+        "sketch_map": 149
+      },
+      "end_condition": "two_lengths",
+      "file_sha256": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+      "owned_depths": {
+        "D1": 21.389,
+        "D2": 8.917
+      },
+      "passed": true,
+      "phase": "input",
+      "pid": 28633,
+      "radial_mm": 22.462,
+      "radial_mode": "diameter",
+      "reverse": true,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H04TwoDirectionsGenerated",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 200,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            -6.193,
+            8.723
+          ],
+          "marker_metres_hex": [
+            "-0x1.95dd4c76d117bp-8",
+            "0x1.1dd5d3dc8b86cp-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 5779,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 187,
+        "profile_native_id": 18,
+        "public_circle_mm": [
+          -6.193,
+          8.723
+        ],
+        "public_fixed_point_mm": [
+          -6.193,
+          8.723
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 193,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 205,
+        "raw_shared_metres_hex": [
+          "-0x1.95dd4c76d117bp-8",
+          "0x1.1dd5d3dc8b86cp-7"
+        ],
+        "sketch_map": 189
+      },
+      "end_condition": "two_lengths",
+      "file_sha256": "d5b7d8971883166b52c5903866eab4988596ccbdf051a6c2f5ce87bbc9e5706a",
+      "owned_depths": {
+        "D1": 21.389,
+        "D2": 8.917
+      },
+      "passed": true,
+      "phase": "first-save",
+      "pid": 28634,
+      "radial_mm": 22.462,
+      "radial_mode": "diameter",
+      "reverse": true,
+      "typed_streams_exact": 2
+    },
+    {
+      "case": "H04TwoDirectionsGenerated",
+      "centre_proof": {
+        "centre_index": 0,
+        "centre_mark": 2,
+        "fixed_handle_map": 200,
+        "fixed_logical_type": 17,
+        "original_exact_predicate": true,
+        "passed": true,
+        "point_projection": {
+          "expected_mm": [
+            -6.193,
+            8.723
+          ],
+          "marker_metres_hex": [
+            "-0x1.95dd4c76d117bp-8",
+            "0x1.1dd5d3dc8b86cp-7"
+          ],
+          "marker_object_index": 2,
+          "marker_offset": 5779,
+          "route": "saved-point-marker"
+        },
+        "profile_map": 187,
+        "profile_native_id": 18,
+        "public_circle_mm": [
+          -6.193,
+          8.723
+        ],
+        "public_fixed_point_mm": [
+          -6.193,
+          8.723
+        ],
+        "radial_arc_index": 0,
+        "radial_dimension_map": 193,
+        "radial_dimension_type": 15,
+        "radial_display_handle_map": 205,
+        "raw_shared_metres_hex": [
+          "-0x1.95dd4c76d117bp-8",
+          "0x1.1dd5d3dc8b86cp-7"
+        ],
+        "sketch_map": 189
+      },
+      "end_condition": "two_lengths",
+      "file_sha256": "5aa46c24f9f8411b6b17149a4d2b0cdd1efee7785e16978664105f74b13b400f",
+      "owned_depths": {
+        "D1": 17.603146999999996,
+        "D2": 10.432889999999999
+      },
+      "passed": true,
+      "phase": "edited-fresh-reopen-save",
+      "pid": 28639,
+      "radial_mm": 25.539294,
+      "radial_mode": "diameter",
+      "reverse": true,
+      "typed_streams_exact": 2
+    }
+  ],
+  "schema": "kit.sw2026.end-condition-centre-supplement.v1",
+  "sdk_source_files": 5017,
+  "sdk_source_sha256": "c1499c173a495b0186e3acf733fcfb02b7bdb94fc46a6a902768fedec44d0e72",
+  "tool_sha256": "1d50be1ecdd109036ecf56377c73d4882294154dac809eab2efaf413a669a5f5",
+  "unverified": [
+    "full document metadata and assigned material",
+    "appearance, drawings and assemblies",
+    "public writer registration",
+    "unrelated solver, feature and geometry families"
+  ]
+}

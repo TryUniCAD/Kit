@@ -14,8 +14,8 @@ def WriteGhostMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
         raise BodyUnsupported("SOLIDWORKS ghost count requires archive version 19000")
     Scope = FrameValue.ScopeValue
     Count = len(ReadBodyRows(Scope, RuleValue.CountValue))
-    if Count != 0:
-        raise BodyUnsupported("unqualified populated SOLIDWORKS ghost rows")
+    if Count >= 1 << 28:
+        raise ValueError("native ghost count exceeds its 28 bit field")
     Flags = ReadScopeValue(Scope, RuleValue.OtherName)
     if type(Flags) is not int or not -8 <= Flags <= 7:
         raise ValueError("native ghost flags require a signed four bit integer")

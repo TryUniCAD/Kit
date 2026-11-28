@@ -1,0 +1,1448 @@
+{
+  "cacheless_faults_refused": {
+    "detached-face": {
+      "refused": "through-all presentation owner does not alias its archive map",
+      "rule_file_reads": 0,
+      "sha256": "478335fcf4f49141c1528c225757d75d82c2c4a27b0027b40ae0993368e165eb",
+      "unexpected_runtime_reads": 0
+    },
+    "wrong-clock": {
+      "refused": "selected revolve cut face has a different feature creation owner",
+      "rule_file_reads": 0,
+      "sha256": "478335fcf4f49141c1528c225757d75d82c2c4a27b0027b40ae0993368e165eb",
+      "unexpected_runtime_reads": 0
+    },
+    "wrong-mirror": {
+      "refused": "selected revolve cut chooser lost its actual mirrored surface ownership",
+      "rule_file_reads": 0,
+      "sha256": "478335fcf4f49141c1528c225757d75d82c2c4a27b0027b40ae0993368e165eb",
+      "unexpected_runtime_reads": 0
+    },
+    "wrong-result": {
+      "refused": "selected revolve wrapper does not alias its consumed and result bodies",
+      "rule_file_reads": 0,
+      "sha256": "478335fcf4f49141c1528c225757d75d82c2c4a27b0027b40ae0993368e165eb",
+      "unexpected_runtime_reads": 0
+    }
+  },
+  "cases": {
+    "KitScopeRightDisclosure": {
+      "edited": {
+        "sha256": "899a0dbf19a82c44759c479cd234a00b4ebdddf56cea71012164c377cf803bce",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 101,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:101",
+              "faces": 4,
+              "native_area_m2": 0.020451768174869555,
+              "native_centroid_m": [
+                1.3673745543780098e-34,
+                -0.01100000000000001,
+                0.004700000000000002
+              ],
+              "native_volume_m3": 8.31265416139859e-05,
+              "producer_id": 31
+            },
+            {
+              "atom_id": 103,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.0537573269962706,
+              "native_centroid_m": [
+                0.0011152543591470606,
+                -0.011678399017721183,
+                0.006231499987751589
+              ],
+              "native_volume_m3": 0.00036044500442278715,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -89.0,
+                  4.7
+                ],
+                [
+                  0.0,
+                  64.0,
+                  4.7
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 12080,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 12015,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -89.0,
+                  4.7
+                ],
+                [
+                  0.0,
+                  64.0,
+                  4.7
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 18186,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 18143,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -89.0,
+                  4.7
+                ],
+                [
+                  0.0,
+                  64.0,
+                  4.7
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24650,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24607,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 1.2588187230009102,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25414,
+              "map_counter": 111,
+              "sha256": "ea151dcc32808b1085fa2cb2527072e3e3fe67baf6713ca5eceed908bd8a2ca0"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25675,
+              "map_counter": 430,
+              "sha256": "51da52b6ec378f8d4f259df05372e5b11014b291b0e808b78dc790d719199c95"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 102,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 37,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22891,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22639,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 101
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "OuterRevolveStock"
+            ]
+          },
+          "sha256": "899a0dbf19a82c44759c479cd234a00b4ebdddf56cea71012164c377cf803bce",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            103,
+            58
+          ],
+          "consumed_atoms": [
+            102
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      },
+      "original": {
+        "sha256": "ba8eabd8835ed2f1dc635debd837d7673bf4c0373b3c3407a601f6fdaab33bd5",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 101,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:101",
+              "faces": 4,
+              "native_area_m2": 0.020451768174869555,
+              "native_centroid_m": [
+                1.3673745543780098e-34,
+                -0.01100000000000001,
+                0.004700000000000002
+              ],
+              "native_volume_m3": 8.31265416139859e-05,
+              "producer_id": 31
+            },
+            {
+              "atom_id": 103,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.0554038618859558,
+              "native_centroid_m": [
+                0.003082433737656843,
+                -0.01243465977818516,
+                0.005694113902332662
+              ],
+              "native_volume_m3": 0.000340882961467353,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -89.0,
+                  4.7
+                ],
+                [
+                  0.0,
+                  64.0,
+                  4.7
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 11848,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 11783,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -89.0,
+                  4.7
+                ],
+                [
+                  0.0,
+                  64.0,
+                  4.7
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 17954,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 17911,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -89.0,
+                  4.7
+                ],
+                [
+                  0.0,
+                  64.0,
+                  4.7
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24418,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24375,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 2.5176374460018205,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25378,
+              "map_counter": 111,
+              "sha256": "f3a6cf1d38e0d713ed52761d09e0f3253590f14cb1606d195be68d0bee616c94"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25443,
+              "map_counter": 430,
+              "sha256": "0c96523648df2cf58dae5f78f86beea9bcf4d843e86f0e97317a7262eacde659"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 102,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 37,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22659,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22407,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 101
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "OuterRevolveStock"
+            ]
+          },
+          "sha256": "ba8eabd8835ed2f1dc635debd837d7673bf4c0373b3c3407a601f6fdaab33bd5",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            103,
+            58
+          ],
+          "consumed_atoms": [
+            102
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      }
+    },
+    "KitScopeRightReverse": {
+      "edited": {
+        "sha256": "c6e5c0ab4796ae4b7cd12bf47a281e1f1d888dc6db6be24b7890adaf1512a80d",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 102,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:102",
+              "faces": 4,
+              "native_area_m2": 0.09052627408299257,
+              "native_centroid_m": [
+                4.513902652624449e-34,
+                0.005249999999999989,
+                -0.009849999999999998
+              ],
+              "native_volume_m3": 0.0008947992266741733,
+              "producer_id": 37
+            },
+            {
+              "atom_id": 103,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.029627554507538952,
+              "native_centroid_m": [
+                -0.002252173331615947,
+                0.0051981218644955775,
+                -0.008432416865590795
+              ],
+              "native_volume_m3": 0.00017539512132694132,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -109.0,
+                  -9.85
+                ],
+                [
+                  0.0,
+                  105.0,
+                  -9.85
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 12062,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 11997,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -109.0,
+                  -9.85
+                ],
+                [
+                  0.0,
+                  105.0,
+                  -9.85
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 18168,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 18125,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -109.0,
+                  -9.85
+                ],
+                [
+                  0.0,
+                  105.0,
+                  -9.85
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24632,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24589,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 2.0180369476184437,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25408,
+              "map_counter": 111,
+              "sha256": "5b8650b3bf67b12f8ca7bf566d7929423310b41b3d0a001f548b7112418752f6"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25657,
+              "map_counter": 430,
+              "sha256": "4dd2ca4740385beb1b310a413665082600b8d650e0177450600b0e88e691ac8d"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 101,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 31,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22873,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22621,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 102
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "InnerRevolveStock"
+            ]
+          },
+          "sha256": "c6e5c0ab4796ae4b7cd12bf47a281e1f1d888dc6db6be24b7890adaf1512a80d",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            103,
+            58
+          ],
+          "consumed_atoms": [
+            101
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      },
+      "original": {
+        "sha256": "6d5c799a925869ab93ebbc056aa0e4696039c063306e7f55bd5cdf79391fdca1",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 102,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:102",
+              "faces": 4,
+              "native_area_m2": 0.09052627408299257,
+              "native_centroid_m": [
+                4.513902652624449e-34,
+                0.005249999999999989,
+                -0.009849999999999998
+              ],
+              "native_volume_m3": 0.0008947992266741733,
+              "producer_id": 37
+            },
+            {
+              "atom_id": 103,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.029833248003642083,
+              "native_centroid_m": [
+                -0.0005026343372629213,
+                0.005229646434970992,
+                -0.008752783889238495
+              ],
+              "native_volume_m3": 0.00019032478958295454,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -109.0,
+                  -9.85
+                ],
+                [
+                  0.0,
+                  105.0,
+                  -9.85
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 11848,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 11783,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -109.0,
+                  -9.85
+                ],
+                [
+                  0.0,
+                  105.0,
+                  -9.85
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 17954,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 17911,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  0.0,
+                  -109.0,
+                  -9.85
+                ],
+                [
+                  0.0,
+                  105.0,
+                  -9.85
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24418,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24375,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 0.8591383242942088,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25378,
+              "map_counter": 111,
+              "sha256": "532fb2fb799ca326321104fac8e82d8e5fb2bf07500b74180e29e8e865334c8f"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25443,
+              "map_counter": 430,
+              "sha256": "065df8e635c568f8d1838ba84bba7678a2c9f2db0ca1093ca9158491302e8b26"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 101,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 31,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22659,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22407,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 102
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "InnerRevolveStock"
+            ]
+          },
+          "sha256": "6d5c799a925869ab93ebbc056aa0e4696039c063306e7f55bd5cdf79391fdca1",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            103,
+            58
+          ],
+          "consumed_atoms": [
+            101
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      }
+    },
+    "KitScopeTopDisclosure": {
+      "edited": {
+        "sha256": "3fe04e3d545d37fac1abcf132d8c99957de06a559bcc7995afec36cf3aeee159",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 102,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:102",
+              "faces": 4,
+              "native_area_m2": 0.07261477259507448,
+              "native_centroid_m": [
+                0.011200000000000002,
+                3.5862783245831044e-34,
+                -0.006000000000000001
+              ],
+              "native_volume_m3": 0.0006838367560921974,
+              "producer_id": 37
+            },
+            {
+              "atom_id": 103,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.028226870812480882,
+              "native_centroid_m": [
+                0.010157663190375974,
+                0.001530876649395598,
+                -0.006098486369293773
+              ],
+              "native_volume_m3": 0.00013562925691979906,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  11.2,
+                  0.0,
+                  79.0
+                ],
+                [
+                  11.2,
+                  0.0,
+                  -102.0
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 12068,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 12003,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  11.2,
+                  0.0,
+                  79.0
+                ],
+                [
+                  11.2,
+                  0.0,
+                  -102.0
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 18174,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 18131,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  11.2,
+                  0.0,
+                  79.0
+                ],
+                [
+                  11.2,
+                  0.0,
+                  -102.0
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24638,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24595,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 1.9460421159736774,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25412,
+              "map_counter": 111,
+              "sha256": "6459277801da91bab66e6090eb404e3a5bb5a4431f1402652473a99f82834cb0"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25663,
+              "map_counter": 430,
+              "sha256": "fa17cf4882e4e719864504fd95ab5a4b2d82d555e77f1dee45252ff0f69d6140"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 101,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 31,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22879,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22627,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 102
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "InnerRevolveStock"
+            ]
+          },
+          "sha256": "3fe04e3d545d37fac1abcf132d8c99957de06a559bcc7995afec36cf3aeee159",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            103,
+            58
+          ],
+          "consumed_atoms": [
+            101
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      },
+      "original": {
+        "sha256": "0a0cb93788ff82d18eeb8ebd15581925253e4caff1834054a51edb53bf0001dc",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 102,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:102",
+              "faces": 4,
+              "native_area_m2": 0.07261477259507448,
+              "native_centroid_m": [
+                0.011200000000000002,
+                3.5862783245831044e-34,
+                -0.006000000000000001
+              ],
+              "native_volume_m3": 0.0006838367560921974,
+              "producer_id": 37
+            },
+            {
+              "atom_id": 103,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.028250956356158406,
+              "native_centroid_m": [
+                0.01011619027870467,
+                0.0009546666597119649,
+                -0.00607128174004973
+              ],
+              "native_volume_m3": 0.00013907348966568466,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  11.2,
+                  0.0,
+                  79.0
+                ],
+                [
+                  11.2,
+                  0.0,
+                  -102.0
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 11848,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 11783,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  11.2,
+                  0.0,
+                  79.0
+                ],
+                [
+                  11.2,
+                  0.0,
+                  -102.0
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 17954,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 17911,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  11.2,
+                  0.0,
+                  79.0
+                ],
+                [
+                  11.2,
+                  0.0,
+                  -102.0
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24418,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24375,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 1.4442599560253078,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25380,
+              "map_counter": 111,
+              "sha256": "989e7e16ed33801231d69ce26bdb746e7c5ae5aae3b1d9b59b0ab26ec380533d"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25443,
+              "map_counter": 430,
+              "sha256": "11554e29b182d3de5790db13da6f0e9907c891d1151e0a09d45350d783239eb5"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 101,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 31,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22659,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22407,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 102
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "InnerRevolveStock"
+            ]
+          },
+          "sha256": "0a0cb93788ff82d18eeb8ebd15581925253e4caff1834054a51edb53bf0001dc",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            103,
+            58
+          ],
+          "consumed_atoms": [
+            101
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      }
+    },
+    "KitScopeTopReverse": {
+      "edited": {
+        "sha256": "771785976b0160da3c9f977fe10d482dfd53ea9e96a7ca9fc0694bfb223c2375",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 101,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:101",
+              "faces": 4,
+              "native_area_m2": 0.022986876366683832,
+              "native_centroid_m": [
+                -0.007400000000000001,
+                1.0389398222865027e-34,
+                -0.002375000000000003
+              ],
+              "native_volume_m3": 0.00011389427119165032,
+              "producer_id": 31
+            },
+            {
+              "atom_id": 103,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.07086739396579197,
+              "native_centroid_m": [
+                -0.008301775142689208,
+                -0.0004003180545402628,
+                -0.0022913434895417742
+              ],
+              "native_volume_m3": 0.00046675964895056036,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  -7.4,
+                  0.0,
+                  91.1
+                ],
+                [
+                  -7.4,
+                  0.0,
+                  -98.3
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 12050,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 11985,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  -7.4,
+                  0.0,
+                  91.1
+                ],
+                [
+                  -7.4,
+                  0.0,
+                  -98.3
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 18156,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 18113,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  -7.4,
+                  0.0,
+                  91.1
+                ],
+                [
+                  -7.4,
+                  0.0,
+                  -98.3
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24620,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24577,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 0.8355763793922852,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25406,
+              "map_counter": 111,
+              "sha256": "252a0828d2c7554b1403b397ef1544689cec70ce825b9e83f18e19d676dd535f"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25573,
+              "map_counter": 430,
+              "sha256": "38d29e9b88e9a7c9819f37c384ef4803839ba056058cf3076f6694aa14e69add"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 102,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 37,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22861,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22609,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 101
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "OuterRevolveStock"
+            ]
+          },
+          "sha256": "771785976b0160da3c9f977fe10d482dfd53ea9e96a7ca9fc0694bfb223c2375",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            0,
+            0
+          ],
+          "consumed_atoms": [
+            102
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      },
+      "original": {
+        "sha256": "478335fcf4f49141c1528c225757d75d82c2c4a27b0027b40ae0993368e165eb",
+        "strict_projection": {
+          "bodies": [
+            {
+              "atom_id": 101,
+              "body_index": 6,
+              "design_id": "sldprt:body:atom:101",
+              "faces": 4,
+              "native_area_m2": 0.022986876366683832,
+              "native_centroid_m": [
+                -0.007400000000000001,
+                1.0389398222865027e-34,
+                -0.002375000000000003
+              ],
+              "native_volume_m3": 0.00011389427119165032,
+              "producer_id": 31
+            },
+            {
+              "atom_id": 103,
+              "body_index": 2,
+              "design_id": "sldprt:body:atom:103",
+              "faces": 9,
+              "native_area_m2": 0.07231983701582496,
+              "native_centroid_m": [
+                -0.008340310048336127,
+                -0.002129451326078375,
+                -0.0021329883983451604
+              ],
+              "native_volume_m3": 0.0004460381669284175,
+              "producer_id": 44
+            }
+          ],
+          "drivers": [
+            {
+              "axis_endpoints_mm": [
+                [
+                  -7.4,
+                  0.0,
+                  91.1
+                ],
+                [
+                  -7.4,
+                  0.0,
+                  -98.3
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 11848,
+                "field_span": false,
+                "object_index": 278,
+                "offset": 11783,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  -7.4,
+                  0.0,
+                  91.1
+                ],
+                [
+                  -7.4,
+                  0.0,
+                  -98.3
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 17954,
+                "field_span": false,
+                "object_index": 343,
+                "offset": 17911,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 6.283185307179586,
+              "selection_mark": 1
+            },
+            {
+              "axis_endpoints_mm": [
+                [
+                  -7.4,
+                  0.0,
+                  91.1
+                ],
+                [
+                  -7.4,
+                  0.0,
+                  -98.3
+                ]
+              ],
+              "axis_mark": 1,
+              "owner": {
+                "class": "moAngleParameter_c",
+                "end": 24418,
+                "field_span": false,
+                "object_index": 427,
+                "offset": 24375,
+                "slot": "f8d8.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "radians": 2.309943265014495,
+              "selection_mark": 1
+            }
+          ],
+          "exact_streams": {
+            "Contents/Config-0": {
+              "bytes": 25380,
+              "map_counter": 111,
+              "sha256": "9ef5cfc40cbf8b27ff0ccc653f8230a0d51034ce2322c0dd58c6d93385c07a3d"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 25371,
+              "map_counter": 430,
+              "sha256": "fc52f10ea87f51e0204b34a0d32f5d2af4888e63e01f6db32f16269210bdc6cd"
+            }
+          },
+          "history_only_legacy": true,
+          "owners": {
+            "consumed_atom_id": 102,
+            "consumer_feature_id": 44,
+            "public_writer_qualified": false,
+            "result_atom_id": 103,
+            "selected_producer_id": 37,
+            "selector_owner": {
+              "class": "moCompSolidBody_c",
+              "end": 22659,
+              "field_span": false,
+              "object_index": 379,
+              "offset": 22407,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            "status": "projected_saved_selection",
+            "stock_feature_ids": [
+              31,
+              37
+            ],
+            "untouched_atom_id": 101
+          },
+          "rule_file_reads": 2,
+          "scope": {
+            "array_present": true,
+            "auto_select": false,
+            "count": 1,
+            "feature_scope": true,
+            "stock_owners": [
+              "OuterRevolveStock"
+            ]
+          },
+          "sha256": "478335fcf4f49141c1528c225757d75d82c2c4a27b0027b40ae0993368e165eb",
+          "unexpected_runtime_reads": 0
+        },
+        "wrapper": {
+          "cache_words": [
+            -1,
+            0,
+            0
+          ],
+          "consumed_atoms": [
+            102
+          ],
+          "face_class": "moFaceRef_c"
+        }
+      }
+    }
+  },
+  "exact_linked_streams": 16,
+  "heldout_credit": 0,
+  "native_controlled_processes": 14,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "public_writer": false,
+  "schema": "kit.sw2026.disclosed-revolve-face-cache.v1",
+  "source_lock_sha256": "e1bfa582944a409d8525cf9485bf40ed9ef99fa787c5c9678e4aa0011126b80f",
+  "strict_reads": 8
+}

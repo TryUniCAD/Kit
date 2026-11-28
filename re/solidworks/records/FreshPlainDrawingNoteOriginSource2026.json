@@ -1,0 +1,176 @@
+{
+  "build": "34.5.2.0604",
+  "data_windows": [],
+  "functions": [
+    {
+      "bytes": 38,
+      "end_exclusive": "0x4b71b756",
+      "module": "sldmodu.dll",
+      "name": "Absolute point constructor",
+      "sha256": "124035f440b283c0833eb511408a7f30ea193d6c10ed4cc708d924dab1d8c664",
+      "start": "0x4b71b730",
+      "unwind_fragments": [
+        {
+          "bytes": 38,
+          "end_exclusive": "0x4b71b756",
+          "module": "sldmodu.dll",
+          "name": "Absolute point constructor",
+          "sha256": "124035f440b283c0833eb511408a7f30ea193d6c10ed4cc708d924dab1d8c664",
+          "start": "0x4b71b730",
+          "unwind_rva": "0x22f06ac"
+        }
+      ]
+    },
+    {
+      "bytes": 256,
+      "end_exclusive": "0x4b71ba80",
+      "module": "sldmodu.dll",
+      "name": "Actual attachment point base constructor",
+      "sha256": "f86af62c782295d8d93f39b9c9046d734715a676e8c59940acd4b373bb0664ae",
+      "start": "0x4b71b980",
+      "unwind_fragments": [
+        {
+          "bytes": 256,
+          "end_exclusive": "0x4b71ba80",
+          "module": "sldmodu.dll",
+          "name": "Actual attachment point base constructor",
+          "sha256": "f86af62c782295d8d93f39b9c9046d734715a676e8c59940acd4b373bb0664ae",
+          "start": "0x4b71b980",
+          "unwind_rva": "0x22f05b8"
+        }
+      ]
+    },
+    {
+      "bytes": 158,
+      "end_exclusive": "0x4b71b86e",
+      "module": "sldmodu.dll",
+      "name": "Null-source display attachment data constructor",
+      "sha256": "e02f9a4e472797566be4744d9c19beaa64ce95ee86965e1f2edb70705b4982c8",
+      "start": "0x4b71b7d0",
+      "unwind_fragments": [
+        {
+          "bytes": 158,
+          "end_exclusive": "0x4b71b86e",
+          "module": "sldmodu.dll",
+          "name": "Null-source display attachment data constructor",
+          "sha256": "e02f9a4e472797566be4744d9c19beaa64ce95ee86965e1f2edb70705b4982c8",
+          "start": "0x4b71b7d0",
+          "unwind_rva": "0x22f04e0"
+        }
+      ]
+    },
+    {
+      "bytes": 434,
+      "end_exclusive": "0x4beeb5c2",
+      "module": "sldmodu.dll",
+      "name": "Ordinary text code-unit run",
+      "sha256": "05f045ffdee971d611ccfcac73aa4ac6040c727393a893b059ee76f14dde1262",
+      "start": "0x4beeb410",
+      "unwind_fragments": [
+        {
+          "bytes": 434,
+          "end_exclusive": "0x4beeb5c2",
+          "module": "sldmodu.dll",
+          "name": "Ordinary text code-unit run",
+          "sha256": "05f045ffdee971d611ccfcac73aa4ac6040c727393a893b059ee76f14dde1262",
+          "start": "0x4beeb410",
+          "unwind_rva": "0x240f43c"
+        }
+      ]
+    },
+    {
+      "bytes": 198,
+      "end_exclusive": "0x4bef0c16",
+      "module": "sldmodu.dll",
+      "name": "Generic text token append",
+      "sha256": "a48ab556643f973a753a69ce4d68104ccaec037d8ce76636768407d2d791114c",
+      "start": "0x4bef0b50",
+      "unwind_fragments": [
+        {
+          "bytes": 198,
+          "end_exclusive": "0x4bef0c16",
+          "module": "sldmodu.dll",
+          "name": "Generic text token append",
+          "sha256": "a48ab556643f973a753a69ce4d68104ccaec037d8ce76636768407d2d791114c",
+          "start": "0x4bef0b50",
+          "unwind_rva": "0x2245b80"
+        }
+      ]
+    },
+    {
+      "bytes": 11920,
+      "end_exclusive": "0x4bef4c00",
+      "module": "sldmodu.dll",
+      "name": "Generic text string parser",
+      "sha256": "e90a3bff0a203d3adadeaef3a3832aec412f8104bbee5ca72a41c5e52871cdd5",
+      "start": "0x4bef1d70",
+      "unwind_fragments": [
+        {
+          "bytes": 11920,
+          "end_exclusive": "0x4bef4c00",
+          "module": "sldmodu.dll",
+          "name": "Generic text string parser",
+          "sha256": "e90a3bff0a203d3adadeaef3a3832aec412f8104bbee5ca72a41c5e52871cdd5",
+          "start": "0x4bef1d70",
+          "unwind_rva": "0x240e584"
+        }
+      ]
+    }
+  ],
+  "imports": [],
+  "instruction_windows": [
+    {
+      "bytes": 13,
+      "end_exclusive": "0x4b71ba67",
+      "module": "sldmodu.dll",
+      "name": "Supplied anchor copied only to base f08",
+      "sha256": "0754efe5328c908b975965bd3e98a563cbe012e27b051769d2c3ed4c4b0df4b9",
+      "start": "0x4b71ba5a"
+    },
+    {
+      "bytes": 41,
+      "end_exclusive": "0x4b71b829",
+      "module": "sldmodu.dll",
+      "name": "Null attachment-data source keeps two point constructor states and clears the remaining fields",
+      "sha256": "857901cc086317e946b13e982780f8e0ec12114ef9292e710369c051730e7c5c",
+      "start": "0x4b71b800"
+    },
+    {
+      "bytes": 22,
+      "end_exclusive": "0x4beeb876",
+      "module": "sldmodu.dll",
+      "name": "Each arriving UTF-16 word sets both run coordinates from one index",
+      "sha256": "3a55d7f30fd8e2789db121e13da13486f831400e010feed78d660a346addac77",
+      "start": "0x4beeb860"
+    },
+    {
+      "bytes": 16,
+      "end_exclusive": "0x4beeb96d",
+      "module": "sldmodu.dll",
+      "name": "Advance exactly one index and two UTF-16 bytes",
+      "sha256": "71882b3dd0db569c8f328379ef02f58a597a13c07904a1888b37b7505e347202",
+      "start": "0x4beeb95d"
+    }
+  ],
+  "modules": [
+    {
+      "image_base": "0x4b140000",
+      "name": "sldmodu.dll",
+      "rea_evidence_id": "ev_039080813e4811f6d7a52ae823dbdf1176dd0afe9d09200735f51c1fda4481ea",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "native_execution": false,
+  "proof_rules": [
+    "The attachment constructor supplied with an explicit origin assigns that point to f08 and initializes f28, f58 and f70 through the fresh zero point constructor.",
+    "The nonnull absolute point owns the local note attachment array; the parallel local display cache uses the default null-source geometry.",
+    "The disclosed no-leader source relations bind display direction to the normalized difference of text and absolute points. The candidate chooses the chart origin independently.",
+    "Each ordinary UTF-16 code unit gets two equal zero-based positions. The generated line begins at zero and ends at the last character index.",
+    "Fresh glyph and enclosing line metric values remain constructor state with the independently derived dirty flag."
+  ],
+  "proprietary_bytes_or_listings": false,
+  "public_acceptance": false,
+  "schema": "kit.sw2026.fresh-plain-note-origin-construction-source.v1",
+  "static_only": true,
+  "vtable_cells": []
+}

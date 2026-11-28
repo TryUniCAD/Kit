@@ -1,0 +1,330 @@
+{
+  "base": "4f7ce7b398c7e2493f8fa4351190e30e41a7bc45",
+  "baseline_axis_receipt_sha256": "8098b0872d6b0823020c329fa419d8729eff2668f190f7e86bc5f38be727159a",
+  "cases": {
+    "C017-P01": {
+      "custom": {
+        "FreeCAD CreationDate": {
+          "sha256": "86801e8e91be769394e44fd5f6a1447d53c1b6e0570edfed390f3b246bb93e70",
+          "utf8_bytes": 25
+        },
+        "FreeCAD LastModifiedDate": {
+          "sha256": "8179449ec3b980249caa9193f0c3202cccdc40c238d1e5cf167aa666febdce69",
+          "utf8_bytes": 25
+        },
+        "FreeCAD License": {
+          "sha256": "6e237c55b0583cb7bba05562316c54b0a105aba04775017e2253237b9a64613c",
+          "utf8_bytes": 7
+        },
+        "FreeCAD LicenseURL": {
+          "sha256": "f96234b795f3267ecee09753d466723b5727d379f621fae0d32bcd46e9129c89",
+          "utf8_bytes": 50
+        },
+        "FreeCAD Show Hidden": {
+          "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "utf8_bytes": 5
+        },
+        "FreeCAD Source Schema": {
+          "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+          "utf8_bytes": 1
+        },
+        "FreeCAD Source Version": {
+          "sha256": "78d78898d37d6ae875bbcf1917ad2dee5564a44ea2c261d6b89d9a089f99b314",
+          "utf8_bytes": 26
+        },
+        "FreeCAD Uid": {
+          "sha256": "2348395d8c6325d72c17a5183d5c070a2fb19def840302984970103d1f02813a",
+          "utf8_bytes": 36
+        }
+      },
+      "generated": null,
+      "intact_neutral_json_reprojection": true,
+      "matches_exact_saved_text": true,
+      "refusals": {
+        "conflicting_body_authority": "lost its actual creating feature",
+        "conflicting_document_title": "disagrees with its actual saved owner",
+        "missing_binding": "requires the intact document binding"
+      },
+      "runtime_input_file_reads": 0,
+      "source_only_policies": {
+        "AllowMultiFace": true,
+        "Refine": true
+      },
+      "source_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
+      "summary": {
+        "comments": {
+          "sha256": "da3598e8dbb2e11720288c858d5038d07d1f08fa8b9dc9e04c0b346acf78e1de",
+          "utf8_bytes": 64
+        },
+        "title": {
+          "sha256": "3fdaa14e359753324e363125114ea221ac57ca309485d57bc462c88ad5cf9477",
+          "utf8_bytes": 4
+        }
+      },
+      "typed_text_streams": {
+        "docProps/core.xml": {
+          "bytes": 489,
+          "sha256": "2f39c12147c7fd7c50a639c4c5781be30faa0e0bb95de5e4743cf5f28533a8a4"
+        },
+        "docProps/custom.xml": {
+          "bytes": 3145,
+          "sha256": "e29848d57fc12642aac52763e3d3b71a1c4198045b85221f2bbde8e5599303fe"
+        }
+      }
+    },
+    "C123-P01": {
+      "custom": {
+        "FreeCAD CreationDate": {
+          "sha256": "874831b57ce29deb1a211d3a6652607898c93253fa6b15dd4df2a7a86a7aa512",
+          "utf8_bytes": 20
+        },
+        "FreeCAD LastModifiedDate": {
+          "sha256": "874831b57ce29deb1a211d3a6652607898c93253fa6b15dd4df2a7a86a7aa512",
+          "utf8_bytes": 20
+        },
+        "FreeCAD License": {
+          "sha256": "6e237c55b0583cb7bba05562316c54b0a105aba04775017e2253237b9a64613c",
+          "utf8_bytes": 7
+        },
+        "FreeCAD LicenseURL": {
+          "sha256": "f96234b795f3267ecee09753d466723b5727d379f621fae0d32bcd46e9129c89",
+          "utf8_bytes": 50
+        },
+        "FreeCAD Show Hidden": {
+          "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "utf8_bytes": 5
+        },
+        "FreeCAD Source Schema": {
+          "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+          "utf8_bytes": 1
+        },
+        "FreeCAD Source Version": {
+          "sha256": "3372f2be8bb0a356b29271ff0f6cf817c642d75dbac74f8617ff084c7872b165",
+          "utf8_bytes": 15
+        },
+        "FreeCAD Uid": {
+          "sha256": "c101329c0452703ebadeaacdc7b756e42f8c5de15dd5268b6e47f24d3bd72789",
+          "utf8_bytes": 36
+        }
+      },
+      "generated": null,
+      "intact_neutral_json_reprojection": true,
+      "matches_exact_saved_text": true,
+      "refusals": {
+        "conflicting_body_authority": "lost its actual creating feature",
+        "conflicting_document_title": "disagrees with its actual saved owner",
+        "missing_binding": "requires the intact document binding"
+      },
+      "runtime_input_file_reads": 0,
+      "source_only_policies": {
+        "AllowMultiFace": true,
+        "Refine": true
+      },
+      "source_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
+      "summary": {
+        "comments": {
+          "sha256": "ad21a69c35db59380c82dbd7780c33ce1cc69ed360ff79e12e84966a1405b071",
+          "utf8_bytes": 64
+        },
+        "title": {
+          "sha256": "3fdaa14e359753324e363125114ea221ac57ca309485d57bc462c88ad5cf9477",
+          "utf8_bytes": 4
+        }
+      },
+      "typed_text_streams": {
+        "docProps/core.xml": {
+          "bytes": 489,
+          "sha256": "d7279755a66668c0012adcbc69c96d97fe9492d410b2781fe7924cae1f96b880"
+        },
+        "docProps/custom.xml": {
+          "bytes": 3103,
+          "sha256": "6529d0669d6083e6b99e03bc14d46843e7f2efdc0c42c5f6aa53079fdb9b682b"
+        }
+      }
+    },
+    "C130-P01": {
+      "custom": {
+        "FreeCAD CreationDate": {
+          "sha256": "13f726217ea3defa3a77ad99c761237f168c4009a0b8ffa703df6bc7d591afb4",
+          "utf8_bytes": 20
+        },
+        "FreeCAD LastModifiedDate": {
+          "sha256": "13f726217ea3defa3a77ad99c761237f168c4009a0b8ffa703df6bc7d591afb4",
+          "utf8_bytes": 20
+        },
+        "FreeCAD License": {
+          "sha256": "6e237c55b0583cb7bba05562316c54b0a105aba04775017e2253237b9a64613c",
+          "utf8_bytes": 7
+        },
+        "FreeCAD LicenseURL": {
+          "sha256": "f96234b795f3267ecee09753d466723b5727d379f621fae0d32bcd46e9129c89",
+          "utf8_bytes": 50
+        },
+        "FreeCAD Show Hidden": {
+          "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "utf8_bytes": 5
+        },
+        "FreeCAD Source Schema": {
+          "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+          "utf8_bytes": 1
+        },
+        "FreeCAD Source Version": {
+          "sha256": "0843278047ca26262cceb2757ccdde002cd35974758ca2063f4307c4e1912a55",
+          "utf8_bytes": 16
+        },
+        "FreeCAD Uid": {
+          "sha256": "fb40b6b03130a7096760ae24a6302b7acd25899f6e476a5a4f7b76f3132b6552",
+          "utf8_bytes": 36
+        }
+      },
+      "generated": {
+        "added_text_streams": [
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ],
+        "archive": {
+          "bytes": 10832,
+          "sha256": "274e756af72fe345f5b338a59c56e6a7a77b4f6eceac14d49cb80253ec9221a3",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "1d96043a33d243fdd5141aed9afc88d912175d0d2d0c130afd29ba40194876d7"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+            },
+            "Contents/Config-0": {
+              "bytes": 28891,
+              "sha256": "c5df1c462b80c5dcd547988cac60f52c0a46328f51a04a8ab25da1dd7932b8e1"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 969,
+              "sha256": "bb649c68674e0de3dc86a8e747aa4cb15aea975ac42343d2557ff979fe520e58"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 15635,
+              "sha256": "1111a00c3a5f13ae8be0d295b82cf4c5c0c8680210fa435bbe7d4ce205053ba2"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 969,
+              "sha256": "06358d4f2f69c2fd0820ed5231fad5b6b9ce17be6ff48231647454d1186c19dd"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+            },
+            "docProps/core.xml": {
+              "bytes": 490,
+              "sha256": "17ba9655d3312474692aa78cd215bc79a92fea9ffd22021d5ef3409ea61cc165"
+            },
+            "docProps/custom.xml": {
+              "bytes": 3105,
+              "sha256": "9b03165932563a5c39b02bbb885a3938be3a533c71c8f3fff742afbfa91abcd6"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1621,
+              "sha256": "77ea9992daf9b091d757c78786b9dcb7e0410766c6bdb91536a2c8b06717ade5"
+            }
+          }
+        },
+        "axis_picks": 6,
+        "bad_text": {
+          "diagnostic": "solidworks.part_text_properties_unavailable",
+          "geometry_and_four_drivers_retained": true
+        },
+        "baseline": "a320ec8d8ec09844934b7e3c625d4722527542603cfc1ec82feb6f6fcd44bd4a",
+        "geometry": {
+          "area_mm2": 4000.0,
+          "bounds_mm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              40.0,
+              20.0,
+              20.0
+            ]
+          ],
+          "counts": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "volume_mm3": 16000.0
+        },
+        "intact_source_refusals": {
+          "adapter": "does not support the destination",
+          "registry": "does not support the destination"
+        },
+        "old_streams_exact": 10,
+        "target_document_sha256": {
+          "design_only": "737393e31d6037f0af7c091a4456373e36f348b609d91c7db9cd5c71cbdb6a33",
+          "full": "345fce602ea646dac407cf96e776787260a4479dca32f67c8f9ccc64756c255f"
+        },
+        "unlinked_property_refusal": "unsupported SOLIDWORKS body class moRelation_c schema 1"
+      },
+      "intact_neutral_json_reprojection": true,
+      "matches_exact_saved_text": true,
+      "refusals": {
+        "conflicting_body_authority": "lost its actual creating feature",
+        "conflicting_document_title": "disagrees with its actual saved owner",
+        "missing_binding": "requires the intact document binding"
+      },
+      "runtime_input_file_reads": 0,
+      "source_only_policies": {
+        "AllowMultiFace": true,
+        "Refine": false
+      },
+      "source_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+      "summary": {
+        "comments": {
+          "sha256": "39782576c04646a1bb237f91e2d6114e5d3fd11d31399b75d9f340eb1eb211e0",
+          "utf8_bytes": 65
+        },
+        "title": {
+          "sha256": "3fdaa14e359753324e363125114ea221ac57ca309485d57bc462c88ad5cf9477",
+          "utf8_bytes": 4
+        }
+      },
+      "typed_text_streams": {
+        "docProps/core.xml": {
+          "bytes": 490,
+          "sha256": "17ba9655d3312474692aa78cd215bc79a92fea9ffd22021d5ef3409ea61cc165"
+        },
+        "docProps/custom.xml": {
+          "bytes": 3105,
+          "sha256": "9b03165932563a5c39b02bbb885a3938be3a533c71c8f3fff742afbfa91abcd6"
+        }
+      }
+    }
+  },
+  "changed_code_sha256": {
+    "re/tooling/sw2026/freecad_census/owned_pad/ProveC130Text.py": "7b67dc25cc3ddca11e840c2924ad1395c8d4366c1e0f50f5cc8d0a185a90e030",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Source/MakeFcDocText.py": "d92f17805e80504b2c20bdcd5532353c5798960bcba9d6d1e8cd6175a47e6942",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Source/ReadBoxText.py": "9d9efd785f39e8d68f5bf85a1a16c9e3e2a230bb33df5c5295f752f2e9f899ed",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadPad/CheckPadOwners.py": "85c20f6138dd1ff5ca1ae7bbbeba64e70957967441a61da207a880c7f248a83d",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadPad/ReadPadDoc.py": "987f50f32f2290147af64a1424ab08705c7a6897b0aa97c5806cd01393f40f8b",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadPad/ReadPadText.py": "fecb529f1036ecfc5796b079fcd1e6d85dc3d374a4f2949b65fd615dcdea8aa1",
+    "src/convert/adapters/solidworks/Core/Properties/WithPartProps.py": "2cb8bc5452e67d869c97affe4ae8da8a55b8b2d8e657bc15bd273d3b7096f356",
+    "src/convert/adapters/solidworks/Core/Reading/ReadAdapter.py": "444b8803adde9656c25f63f6d382f324ebcfbad1ce06a73fb3c17ad8ba757848"
+  },
+  "corpus_credit": 0,
+  "fresh_workers": 6,
+  "native_processes": 0,
+  "schema": "kit.sw2026.freecad-pad-presentation.v1",
+  "source_manifest_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
+  "whole_source_qualified": false
+}

@@ -1,0 +1,16 @@
+{
+  "acceptance": false,
+  "cad_execution": false,
+  "complete_functions": 31,
+  "data_windows": 4,
+  "imports": 10,
+  "instruction_windows": 27,
+  "modules": 1,
+  "native_execution": false,
+  "record_sha256": "bbf22591127a1ca4cabc999bb81baca9ef5506061b9c4c1ef8e3f89b23bcc864",
+  "schema_or_codec_execution": false,
+  "tests": false,
+  "verified": true,
+  "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+  "vtable_cells": 6
+}

@@ -1,0 +1,154 @@
+{
+  "archive_points_observed": 0,
+  "cohort": "disclosed",
+  "controls": {
+    "after": {
+      "passed": true,
+      "record_sha256": "c994439c149cedc481ba20fbba944cab59e0b0a4989dbc13844adebe023e3964"
+    },
+    "before": {
+      "passed": true,
+      "record_sha256": "ea18492512eaeed7cca5023a5ee87b63b41f9cf40c6084c431406d28ef7fdddc"
+    }
+  },
+  "direction_datum": {
+    "api": "InsertRefPlane",
+    "arguments": [
+      16,
+      0.7853981633974483,
+      4,
+      0.0,
+      0,
+      0.0
+    ],
+    "initial_dot_measured": 0.0,
+    "initial_planned_normal": [
+      0.7071067811865475,
+      0.7071067811865475,
+      0
+    ],
+    "measured_normal": [
+      0.7071067811865476,
+      -0.7071067811865476,
+      0.0
+    ],
+    "measured_origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "measured_transform": [
+      0.0,
+      0.0,
+      -1.0,
+      0.7071067811865476,
+      0.7071067811865476,
+      0.0,
+      0.7071067811865476,
+      -0.7071067811865476,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "selection": [
+      {
+        "expected_feature": "Right Plane",
+        "mark": 0,
+        "native_selected_type": 4
+      },
+      {
+        "expected_feature": "EnvelopeHinge",
+        "mark": 1,
+        "native_selected_type": 5
+      }
+    ]
+  },
+  "distinct_native_processes": 3,
+  "failed_author_sha256": "cde5e3665938f1c30ece0a75f8d8370d7e1764ec0484f12f2cc6fa5f3e6f27f6",
+  "first_failure": {
+    "error": "EvidenceFailure('authored oblique datum normal is outside its prospectively frozen two signs')",
+    "pending_capability": false,
+    "stage": "ArrayData",
+    "type": "EvidenceFailure"
+  },
+  "heldout_sources_accessed": 0,
+  "hinge": {
+    "api": "InsertAxis2",
+    "arguments": [
+      true
+    ],
+    "endpoints_m": [
+      [
+        0.0,
+        0.0,
+        0.0128625
+      ],
+      [
+        0.0,
+        0.0,
+        -0.0006125000000000002
+      ]
+    ],
+    "measured_directed_unit": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "selection": [
+      {
+        "expected_feature": "Right Plane",
+        "mark": 0,
+        "native_selected_type": 4
+      },
+      {
+        "expected_feature": "Top Plane",
+        "mark": 0,
+        "native_selected_type": 4
+      }
+    ],
+    "through_origin_checks": [
+      {
+        "actual": 1.0,
+        "expected": 1.0,
+        "name": "through origin hinge undirected alignment",
+        "passed": true
+      },
+      {
+        "actual": 0.0,
+        "expected": 0.0,
+        "name": "through origin hinge line through origin",
+        "passed": true
+      },
+      {
+        "actual": 0.0,
+        "expected": 0.0,
+        "name": "through origin hinge line through origin",
+        "passed": true
+      },
+      {
+        "actual": 0.0,
+        "expected": 0.0,
+        "name": "through origin hinge line through origin",
+        "passed": true
+      }
+    ]
+  },
+  "native_build": "34.5.2.0604",
+  "native_lifecycle_passed": false,
+  "native_result_sha256": "1332fa7d2293740ea844e2fd934085c3099849136a54e682444355576d5756b5",
+  "native_saves": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "f38a850c96bf8c9b4c890453b4b8e5e26beb7ca19290d0f756d4c5390ee77d8b",
+  "pattern_created": false,
+  "schema": "kit.sw2026.linear-pattern-envelope-setup-observation.v1",
+  "source_revision": "c3bf4919cf0f5e55defa83651724a8baf3a912f0",
+  "spec_sha256": "a55fd0df1898f3132f1c1eba173f7ff5b8a8e1d12159e5ae9d9e91af43586287",
+  "task_id": "B04-SW2026-LOCAL-LINEAR-PATTERN",
+  "trial": "LinearPatternEnvelope01",
+  "writer_output_count": 0
+}

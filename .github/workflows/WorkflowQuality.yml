@@ -96,6 +96,13 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Fetch measured generative writer source
+        run: >-
+          git fetch --no-tags --depth=1 origin
+          f5953529e2114b5648cfe1e5341a83b1c2f0d9d6
+          d5019da136433cf3b07dd8c53ee4a708950ad353
+          6fc97ccebb41696c5dbc03e538ba132064af241d
+
       - name: Set up uv
         uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
@@ -129,6 +136,8 @@ jobs:
 
       - name: Exercise this native compatibility shard
         id: tests
+        env:
+          SwResearchOutput: ${{ runner.temp }}/solidworks-construction
         run: >-
           uv run --no-sync --python 3.11 python -m pytest -p no:cacheprovider
           --durations=20
@@ -141,6 +150,19 @@ jobs:
         with:
           name: NativeCompatibility-${{ matrix.group }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/NativeCompatibility
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Retain generated research candidates
+        if: >-
+          ${{ !cancelled() &&
+          (steps.tests.outcome == 'success' || steps.tests.outcome == 'failure') }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: solidworks-construction-${{ github.sha }}-${{ matrix.group }}
+          path: |
+            ${{ runner.temp }}/solidworks-construction
+            ${{ runner.temp }}/NativeCompatibility/Selected.txt
           if-no-files-found: error
           retention-days: 14
 

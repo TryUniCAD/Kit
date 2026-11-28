@@ -1,0 +1,126 @@
+{
+  "character_setter": {
+    "code_page": 3,
+    "code_page_symbol": "CP_THREAD_ACP",
+    "flags": 0,
+    "output_buffer_bytes": 256,
+    "utf8_guaranteed": false
+  },
+  "executable_manifest": {
+    "manifest_resources": [
+      {
+        "active_code_page_entries": [],
+        "bytes": 1927,
+        "resource_path": [
+          24,
+          1,
+          1033
+        ],
+        "sha256": "1f7a46bdad68d8a811ac461373b78f89be3a07a9f1a40872b050d3764cb49285",
+        "valid_xml": true
+      }
+    ],
+    "module": "sldworks.exe",
+    "module_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "heldout_inputs_read": 0,
+  "kernel_schema": {
+    "CHAR_VALUES": {
+      "codec_unqualified_outside_ascii": true,
+      "encoding": "c",
+      "kind": 84
+    },
+    "UNICODE_VALUES": {
+      "encoding": "w",
+      "kind": 98,
+      "unit_bits": 16
+    },
+    "tysa_uname_type_id": null
+  },
+  "metadata_verification_passed": true,
+  "named_h_sources_sealed": true,
+  "native_packet_sha256": "9e8d5bdebea994c735a7aa378146767ccfaf518ba0b3c7001913013ed7ff01a9",
+  "native_unicode_results_available": false,
+  "next_observation": "bind exact archive f18, body-owned explicit character/unicode and implicit unicode values to the actual COM label with complete topology and typed byte round trips",
+  "planned_processes": 8,
+  "references": [
+    "https://raw.githubusercontent.com/microsoft/win32metadata/main/generation/WinSDK/RecompiledIdlHeaders/um/WinNls.h",
+    "https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte"
+  ],
+  "schema": "kit.sw2026.unicode-body-name-source-method.v1",
+  "sdk_changed": false,
+  "selection_rule": "actual body TYSA_NAME character attribute first; TYSA_UNAME unicode field zero only if character attribute absent",
+  "sldgci_unicode_source": {
+    "module_sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce",
+    "ranges": [
+      {
+        "end_exclusive": "0x33039022",
+        "listing_sha256": "306a1bcb6d450f9dd115830c18f7bc2a776bf60c33ab4e9b472bc1ab95edad4e",
+        "owner": "gci_get_unicode_attribute",
+        "sha256": "eaad0e67ec97bff73eafcd89c8e56b10fbc770d9f6ea2a84c91001592379de24",
+        "start": "0x33038f90"
+      },
+      {
+        "end_exclusive": "0x32f83f1e",
+        "listing_sha256": "45b30f1058c2c102141226bc23e90d98b274646e5c9ba42f3a81272a1222a683",
+        "owner": "gci_set_implicit_name",
+        "sha256": "d62eb27df5affc480aa8a4f48f050cffbc7195c5d5cd88848d3d371f017cc387",
+        "start": "0x32f83c40"
+      },
+      {
+        "end_exclusive": "0x32f81e27",
+        "listing_sha256": "e983b1f3a14e5cbb5d5a1c15618259cf8f271fe0892c1927348c40511cf1c862",
+        "owner": "gci_get_implicit_name",
+        "sha256": "2938c51107ca9b31128f145d20ee98c0adc3f0efb3d16788d8275bfeed25d6ef",
+        "start": "0x32f81da0"
+      }
+    ]
+  },
+  "sldgcu_source": {
+    "module_sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594",
+    "ranges": [
+      {
+        "end_exclusive": "0x43890b46",
+        "listing_sha256": "e83c74ff719df3ee45d2ac7db1e21f5fa8296906db19f47ef1f21232fbb50e4f",
+        "owner": "get_name",
+        "sha256": "d413c4252d70cf1261d8f412f8c1e39e7049e1b043ab3b04c1a412cea21931bb",
+        "start": "0x43890a30"
+      },
+      {
+        "end_exclusive": "0x438a4482",
+        "listing_sha256": "dfce5334788105e82798cc43da216e642aae0ac9de2d2ec40fce08776f2bae43",
+        "owner": "set_name",
+        "sha256": "18da9acd71b2d65a5cb33ed928a837a1dd3026752fb8dabdcc9a31dadee647c3",
+        "start": "0x438a43b0"
+      }
+    ]
+  },
+  "sldgcu_unicode_source": {
+    "module_sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594",
+    "ranges": [
+      {
+        "end_exclusive": "0x43a1aced",
+        "listing_sha256": "e6f60dd17b618d99265a246cd8686a9d85b5e831a712eb3309700cd9d2172887",
+        "owner": "get_unicode_attribute",
+        "sha256": "de3a6c751988b8bec373105b7ceefabd3d16a401d71e2408daa8083b35115314",
+        "start": "0x43a1acc0"
+      },
+      {
+        "end_exclusive": "0x438a45ab",
+        "listing_sha256": "20ecbd1b2f0b91bb2db1fa959a6b6dba9ecb17670f933e24dbf42f6453225d78",
+        "owner": "set_implicit_name",
+        "sha256": "71df35a810ae6ce3c5072d8d488e879c65d8fad60b01fafc9abba3026a6ee50a",
+        "start": "0x438a4560"
+      },
+      {
+        "end_exclusive": "0x4389364d",
+        "listing_sha256": "fd7ab9417f9477c33187a587d0ce35e4109d24c8a94b9b54a340d2666ab8b178",
+        "owner": "get_implicit_name",
+        "sha256": "9c8923d441f21f4bcb09965f55b30dc4f36b0af90777570155bcb5df53e7513a",
+        "start": "0x43893620"
+      }
+    ]
+  },
+  "verification_processes_started": 0,
+  "writer_output_count": 0
+}

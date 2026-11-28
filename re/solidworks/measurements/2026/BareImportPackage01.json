@@ -1,0 +1,537 @@
+{
+  "compared_parts": {
+    "ConcaveBare": {
+      "authored_ambient": {
+        "graph": {
+          "atom_id": 101,
+          "feature": "Imported geometry",
+          "feature_id": 18,
+          "kernel_nodes": 125
+        },
+        "part": {
+          "bytes": 10459,
+          "sha256": "21867dbe53b94bbfadfc343ed47f8ca3b0af1fb30114f3a921f730c84f087429"
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 2291,
+            "sha256": "6d3500c0fc16dc0c54577deeddbbca79c0df11103ab26fe05e7de95b995b4d93"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22698,
+            "sha256": "8618c1113fe7bcb3cee02229ba374cbedac7ea0114a56ad2b74482f8d8b0cc21"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 783,
+            "sha256": "e11934e55a39997ed76c72e1cec3adad2187c393bd0b5f9fafde0a53ef690f7b"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5479,
+            "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 783,
+            "sha256": "34362bc1b1a4bab23b12deb69a5805d36e63274e865de4d7c3093d2b54b8cf17"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1305,
+            "sha256": "31efa63c01a25ce1b4272d62b47b78e5b0eb0ae8375e0b9f5d09ea4350f183a2"
+          }
+        }
+      },
+      "empty_environment": {
+        "graph": {
+          "atom_id": 101,
+          "feature": "Imported geometry",
+          "feature_id": 18,
+          "kernel_nodes": 125
+        },
+        "part": {
+          "bytes": 10364,
+          "sha256": "98e63ae10bf88ceabfb35cf418b322c42987204de1dabdcbe9235ecbf4ebbb54"
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 2291,
+            "sha256": "6d3500c0fc16dc0c54577deeddbbca79c0df11103ab26fe05e7de95b995b4d93"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22379,
+            "sha256": "6d58fb661bd84436abfaca81a674b3d01c33f82a9bfec01aa51b6b3488a8c899"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 783,
+            "sha256": "086964c8814b1dd1f7a7caf7bcee0eeb709b10e845891f0125064a0c9895b177"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5479,
+            "sha256": "c8556fd91819a7b010c00ba05f15fcfee469c6f93b39b150691b61dfab83c113"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 783,
+            "sha256": "182ea98f1255b10e82eab7a5948480ddb88bdb00482def7eeb09abf267a249c8"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1305,
+            "sha256": "31efa63c01a25ce1b4272d62b47b78e5b0eb0ae8375e0b9f5d09ea4350f183a2"
+          }
+        }
+      },
+      "prior_native_open_status": {
+        "authored_ambient": 0,
+        "empty_environment": 32
+      },
+      "same_path_empty_environment": {
+        "graph": {
+          "atom_id": 101,
+          "feature": "Imported geometry",
+          "feature_id": 18,
+          "kernel_nodes": 125
+        },
+        "part": {
+          "bytes": 10363,
+          "sha256": "70d862fa1590b82d4c5a0c395887c923cc563e72737a9cb45e1a376303f86c63"
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 2291,
+            "sha256": "6d3500c0fc16dc0c54577deeddbbca79c0df11103ab26fe05e7de95b995b4d93"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22379,
+            "sha256": "6d58fb661bd84436abfaca81a674b3d01c33f82a9bfec01aa51b6b3488a8c899"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 783,
+            "sha256": "c5f8834066612b06e5a977f0bb4e0a2e4d9d29c2187eed6ba9ce41c751f0f143"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5479,
+            "sha256": "c8556fd91819a7b010c00ba05f15fcfee469c6f93b39b150691b61dfab83c113"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 783,
+            "sha256": "41011c52b0805e0756a4f2a03fc2b31d91e35fbb5de20cef01ae35d5c05cf08b"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1305,
+            "sha256": "31efa63c01a25ce1b4272d62b47b78e5b0eb0ae8375e0b9f5d09ea4350f183a2"
+          }
+        }
+      },
+      "same_path_light_differences": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ]
+    },
+    "RectangularBare": {
+      "authored_ambient": {
+        "graph": {
+          "atom_id": 101,
+          "feature": "Imported geometry",
+          "feature_id": 18,
+          "kernel_nodes": 87
+        },
+        "part": {
+          "bytes": 9914,
+          "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 1726,
+            "sha256": "31a52229b347abdfbd649901ee99360310e70b0d89170595fe612bfc11551250"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22706,
+            "sha256": "9b1d79fe0e012e6722c8e8d9faf51c29e17cc11fd57512530a60abe23df071d6"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 807,
+            "sha256": "84212628d391b8c5891fb9b72fccd7b259421c3037c88bedec526af301a03fec"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5479,
+            "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 807,
+            "sha256": "865fcaa29422512b4604251af0eacd4f9aa30d001378a27a3b81b8e14c335d24"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1309,
+            "sha256": "6b9d298647fccf2baa908f65d5cc86ad36e14a17b9bbea12554042f1bb27d425"
+          }
+        }
+      },
+      "empty_environment": {
+        "graph": {
+          "atom_id": 101,
+          "feature": "Imported geometry",
+          "feature_id": 18,
+          "kernel_nodes": 87
+        },
+        "part": {
+          "bytes": 9816,
+          "sha256": "f348205f2b115f76cb0ec27316ab511ef7943e8b16cb0be2d20c754bf512cf4c"
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 1726,
+            "sha256": "31a52229b347abdfbd649901ee99360310e70b0d89170595fe612bfc11551250"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22387,
+            "sha256": "7d8faae02f7a763c656d0254e044898a2545248cbef2283b84ae501183294ef5"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 807,
+            "sha256": "3359eac84321dfab7084e6471b4d6fd486ae4bb3989c6e79db52f23c3abf6f00"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5479,
+            "sha256": "c8556fd91819a7b010c00ba05f15fcfee469c6f93b39b150691b61dfab83c113"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 807,
+            "sha256": "c0187ab92f831f1d571d3ac5550b6448ed17541dbe572c80c86ffc43797bdfbb"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1309,
+            "sha256": "6b9d298647fccf2baa908f65d5cc86ad36e14a17b9bbea12554042f1bb27d425"
+          }
+        }
+      },
+      "prior_native_open_status": {
+        "authored_ambient": 0,
+        "empty_environment": 32
+      },
+      "same_path_empty_environment": {
+        "graph": {
+          "atom_id": 101,
+          "feature": "Imported geometry",
+          "feature_id": 18,
+          "kernel_nodes": 87
+        },
+        "part": {
+          "bytes": 9815,
+          "sha256": "290bb4ddc0134c40f7dd0dccb897db7f8c2dbd2536e73f8dc3a94d9d56761375"
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 1726,
+            "sha256": "31a52229b347abdfbd649901ee99360310e70b0d89170595fe612bfc11551250"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22387,
+            "sha256": "7d8faae02f7a763c656d0254e044898a2545248cbef2283b84ae501183294ef5"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 807,
+            "sha256": "97dbf5ddb691bd367ab806634f03d9034d9b5fe3402015e2d4667c498160da0f"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5479,
+            "sha256": "c8556fd91819a7b010c00ba05f15fcfee469c6f93b39b150691b61dfab83c113"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 807,
+            "sha256": "7d6988223d3c5713b559d15c7904fc74963f14465b96aaa53e973ff3f1ce8f72"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1309,
+            "sha256": "6b9d298647fccf2baa908f65d5cc86ad36e14a17b9bbea12554042f1bb27d425"
+          }
+        }
+      },
+      "same_path_light_differences": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ]
+    }
+  },
+  "comparison_command": "PYTHONPATH=src:.:re/tooling/sw2026:re/tooling/sw2026/serial:re/tooling/sw2026/imported_body_source python3.14 -B re/tooling/sw2026/imported_body_source/VerifyBareImportPackage.py",
+  "comparison_denied_io_events": 0,
+  "guest_launches": 0,
+  "heldout_reads": 0,
+  "host_comparison_revision": "dcfa8476bc1323ce0d6ee32b86b1b1b446ddf6a5",
+  "identical_guarded_comparison_processes": 2,
+  "input_saved_parts": 0,
+  "literal_text_part": {
+    "graph": {
+      "atom_id": 101,
+      "feature": "Local prism \u0394",
+      "feature_id": 18,
+      "kernel_nodes": 87
+    },
+    "part": {
+      "bytes": 11199,
+      "sha256": "c77c0fb96954fa4ea5c315a8f47fdc4c32df3147906315feacc35b16e35817d9"
+    },
+    "streams": {
+      "Config-0-FeatureBodies/LocalBodies": {
+        "bytes": 1718,
+        "sha256": "75fcdae6772317807edea6f1c8f7405d046ec0b984e2ae06ba23a1966acb591c"
+      },
+      "Contents/CMgr": {
+        "bytes": 1133,
+        "sha256": "3519f45eb52dafda92bb51f8acd89c2e1a74150aa0e2d3fb7a68d7cd39743f26"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 145,
+        "sha256": "d19ff68e339cfd64b43fc02be72bb2e3e9d957759ab9b6c943dfda7c2558c9af"
+      },
+      "Contents/Config-0": {
+        "bytes": 22373,
+        "sha256": "658fdccceba6a42c174225fc1bccc608ef28185b3d855c2546ccf293c4c6251d"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 761,
+        "sha256": "8381b96ebd694a91e7a8db1ba7e33c1af6eb013704fab5eda322d48b6c3a6a2e"
+      },
+      "Contents/Config-0-Partition": {
+        "bytes": 606,
+        "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 5463,
+        "sha256": "88d5f1ac9b71af4313c2e27a575a3930714005ef26bc9d5d1aee7a2b3c9dac89"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 761,
+        "sha256": "681bdbf57a4a16a17ea3523c1726f978446a25c5e7593c7e3e2bd2d2b8e6804e"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+      },
+      "docProps/Config-0-Properties.xml": {
+        "bytes": 888,
+        "sha256": "92eaef5c7582b294a652f5c76bf149c134c98fc3d454e900eab2218fd3fa13bf"
+      },
+      "docProps/core.xml": {
+        "bytes": 404,
+        "sha256": "18ac8c6c807ae9787516ee6169e2d9b7536c02311dc17790974b3e5a0a3dd896"
+      },
+      "docProps/custom.xml": {
+        "bytes": 1082,
+        "sha256": "45d652627c9f788120252f3e37cab43783cf554b6819b7265d4d83fe285544f5"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1302,
+        "sha256": "4a658b12c70033a2ded892104cbeb7f951c92ef3c226fcd095391ab9e126263f"
+      }
+    }
+  },
+  "matched_complete_candidate_files": 7,
+  "matched_complete_candidate_streams": 87,
+  "owning_code_and_prior_evidence_sha256": {
+    "re/solidworks/measurements/2026/GeneratedLocalBodyPartCompleted01.json": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+    "re/solidworks/measurements/2026/GeneratedLocalImportWithoutLight01.json": "e1fac1d83fefaa2ee138345e000ddb74a7aa887a2c4d27c049cf55d4c8aa7c82",
+    "re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py": "c3ee3c787a67baaeff3110d594258e1a93d407d0470016ccebdb044cbd7cde54",
+    "re/tooling/sw2026/imported_body_source/VerifyBareImportPackage.py": "471f0f54dff046f4e3bf3b1112a8cd0e7b23eace5f6f6883a658a539873fa532",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/CheckPartInput.py": "9f043f67b17afa472efc1cb8cdf71a1d440586a1cd1fa7d0f16144fb9fd7b31a",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartArchive.py": "7b12018f140ae0a0f75407e4101cdadd798da22e7a69022d52dd9a05cdb27fec",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/BindAmbientMut.py": "11d33c78adab851edad0b682e914fd48778a7f48972382b071db24d70d7be99e",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/BindImportMut.py": "b2c537585b8e3b79a6c658b71f8c9adf0910efbbfa880fcc3c2d2f0e146f4b8e",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/CheckBareImport.py": "b0ad692882cdf262fd39acc10c2728f58c5e887b04bb8ee673341481c1624046",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/FinishImportMut.py": "163e2d39b8351ed9511cc271c96f7eebcf0dea374755b29ffacdff0a9658f56e",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/ImportCandidate.py": "83516234245cc42d987c460d0d9d1b89db5c65b3e5d2c4c38e18810c3c2a3f54",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/LogImportMut.py": "87a10046ea0adbc4922b02e72476bdfd7605115a6547be2f750e3337a61a3fdc",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeBareImport.py": "6ee0645498cd6b99098c60b5769d3741fbaeb0910f34c2b4ea99d6234a64b2b2",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeImportKeys.py": "420de75d3036844d3f39c6d4bfc769feff759a9e2e4ce6877cd42bec46aefbb6",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartBaseMut.py": "b7f5cc05432560b290f1a4088f2f342c871028b3cacd596b20106cfbb3ee8ff7",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartHeaders.py": "0fdd244c2cb2f1a8c1b2b7df3411b172be8174dde29146029114691e5c6dff76",
+    "src/convert/adapters/solidworks/Archive/Construction/System/Members/MakeLightMut.py": "8c085fca4d5a16b5f5a6faeaec3aedc06a1760d0139a1274a506097658ebdc01",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/MakeImportHist.py": "ef61eddadef3d9086f234f55ae3b43532649b8408d758c3bf598b28e5fecab6f",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalPrism/MakeLocalPrism.py": "0763a5a90f75fbf3f885acb721463f6b3475cebb709c8cd43db9f35132626960",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalWrite/EncodeLocalBody.py": "4cbd2c9fcaa7b3484fe91005c4029fa6b6284d735b5e6497eb2606ed6851af0d",
+    "src/convert/adapters/solidworks/Container/Format.py": "5956758724bba575686e49a39b2f7c34aa53d65249d7b4f01baaa13ed8f1f1bd"
+  },
+  "prior_authored_ambient_path": "C:\\KitImportedProbe03\\Candidates",
+  "prior_empty_environment_path": "C:\\KitImportedProbe04\\Candidates",
+  "public_writer_changes": 0,
+  "refusals": {
+    "boss_setting": "bare local import has no boss presentation owner",
+    "competing_active_metadata": "bare local import configuration differs from its neutral owner",
+    "crossed_light_owner": "native part features require distinct authored names",
+    "directional_light": "bare local import admits only a typed authored ambient light",
+    "duplicate_feature_name": "native part features require distinct authored names",
+    "invalid_config_id": "bare local import configuration differs from its neutral owner",
+    "nonneutral_units": "bare local import requires a neutral millimetre B-rep",
+    "property_formula": "ordinary text properties require literal unlinked values",
+    "unmatched_config": "bare local import configuration differs from its neutral owner",
+    "unowned_metadata": "bare local import has unowned neutral document fields",
+    "untyped_property_bag": "bare local import text needs three typed literal property bags",
+    "wrong_extension": "native self path extension differs from its actual model kind"
+  },
+  "research_baseline_revision": "35f3d11f21b597a7c6343529950162dcaea0a691",
+  "schema": "kit.sw2026.bare-import-package.v1",
+  "standalone_command": "PYTHONPATH=src:. python3.14 -B re/tooling/sw2026/imported_body_source/VerifyBareImportPackage.py --package-only",
+  "standalone_package": {
+    "part": {
+      "bytes": 9563,
+      "sha256": "9954c9fef663415a638167346b28ca04b999c7112ed033d7f1199da8f19af49a"
+    },
+    "research_builder_imports": 0,
+    "runtime_input_reads": 0,
+    "streams": 12
+  }
+}

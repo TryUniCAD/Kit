@@ -1,5 +1,6 @@
 from dataclasses import replace as ReplaceValue
 from io import BytesIO as ByteBuffer
+from pathlib import Path as FilePath
 from re import escape as EscapeRegex
 
 from pytest import raises as ExpectError
@@ -7,14 +8,18 @@ from pytest import raises as ExpectError
 from convert import open_document as OpenDocument
 from convert import write_document as WriteDocument
 from tests.Convert.Commands.WrapDocument import WrapDocument
+from tests.Convert.Solidworks.Properties.ChangeTextPart import ChangeTextPart
 from tests.Convert.Solidworks.Properties.RunPartText import KPartCorpus
 from tests.Convert.Solidworks.Properties.WriteTextTests import KPartCause
 
 
 # an otherwise valid assembly write must account for its actual linked native part status
-def TestLinkedText() -> None:
+def TestLinkedText(TmpPath: FilePath) -> None:
+    OriginalPath = KPartCorpus / "ladder/L1_boss.SLDPRT"
+    SourcePath = TmpPath / OriginalPath.name
+    _ = SourcePath.write_bytes(OriginalPath.read_bytes())
     PartValue = OpenDocument(
-        KPartCorpus / "ladder/L1_boss.SLDPRT",
+        ChangeTextPart(SourcePath, "unknown-advanced-policy"),
         source_format="solidworks.sldprt",
         include_tessellation=False,
     )

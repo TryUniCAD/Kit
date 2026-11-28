@@ -1,0 +1,635 @@
+{
+  "author_revision": "9d003927b1800de099cdeeaf314f7aa42b3c0745",
+  "controls_healthy": true,
+  "exact_linked_streams": 21,
+  "heldout_payloads_read": 0,
+  "native_distinct_processes": 8,
+  "native_job_sha256": "88e4d4526f9c3b6bbe18640c1b5aa199773358b741edd84bfe3212854d7dadc5",
+  "native_phases": [
+    {
+      "name": "ControlBefore",
+      "passed": true,
+      "record_sha256": "3d5b8fc48a992d3e929125db1a515ab6f4d58d5fbc50e986253d51eb2b6760ae"
+    },
+    {
+      "name": "OtherShapeAuthor",
+      "passed": true,
+      "record_sha256": "67ddd286f2a66078bb3723ac312dd73792590308c1c4959bff82be5ed279a3f3"
+    },
+    {
+      "name": "OtherShapeReopen",
+      "passed": true,
+      "record_sha256": "c408701f65383bf73243520043be44966a42753a899027f8023b223bf3f46cd4"
+    },
+    {
+      "name": "RenamedFeatureAuthor",
+      "passed": true,
+      "record_sha256": "860017f6c637b8b5fea285ae0c1fc4d5d3216f75d2aac1fb99555a2d6248ef57"
+    },
+    {
+      "name": "RenamedFeatureReopen",
+      "passed": true,
+      "record_sha256": "11f6a50f7aa71eebeef0b486a8a0fa183dc6609ce220a53dc006d0e461cb668c"
+    },
+    {
+      "name": "RenamedBodyAuthor",
+      "passed": true,
+      "record_sha256": "ba5ca3bd395170f9468cbca7cd7738485f1878c9a89248c85c66437c4999dd8d"
+    },
+    {
+      "name": "RenamedBodyReopen",
+      "passed": true,
+      "record_sha256": "00042edca854aaaab6055cfc1ecc1d9c563e098719f8c2c37b7f9c841864d3c1"
+    },
+    {
+      "name": "ControlAfter",
+      "passed": true,
+      "record_sha256": "590606f7d45d61c6cdfa36469b1fd7770031ec7d3249294a6a832260a7d297eb"
+    }
+  ],
+  "native_receipt_sha256": "09abc580d0db060ae292d2083007779b1ba1b9521083107981e6899cdb455464",
+  "native_writer_outputs": 0,
+  "offline_operator_sha256": "97709e1dbdb04f637aab33631ce0b72f153126d5c32501aaf5a2a65809b8cb03",
+  "offline_processes": 2,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.imported-body-contrast.v1",
+  "variants": {
+    "OtherShape": {
+      "atom_body_name": null,
+      "body_name": "Imported1",
+      "feature_id": 26,
+      "feature_name": "Imported1",
+      "file_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+      "kernel_compatibility_name": null,
+      "linked_streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 3050,
+          "sha256": "ab94ef04cf30cd60d74e1ee549ffc698427043767c985ab594b574fcf47e7902"
+        },
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "cd16b315f9ca9f902341773557690d85e14127312889fe2a02721cb3f732a05b"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "a7b43fdc3f696124d253a307649d06ed2d64af1ad4d2f9a8702d739f60e2c666"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2219,
+          "sha256": "808e9e66ab91d27d0c389c1154eceb38828474ff6d601ef37d15b15931084427"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 604,
+          "sha256": "1108f686bd39fab80db0fdf4e9960a83f7dd18edcf88a59f55af47c42b090ea1"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6080,
+          "sha256": "a5b2fdc4e6a77e79692e84463c36d760f9d68d4b41dc2d5215ab3c973efe0d7d"
+        },
+        "Header2": {
+          "bytes": 2219,
+          "sha256": "808e9e66ab91d27d0c389c1154eceb38828474ff6d601ef37d15b15931084427"
+        }
+      },
+      "native_geometry": {
+        "body_count": 1,
+        "mass_si": {
+          "area": 0.0028380000000000002,
+          "com": [
+            -0.018,
+            0.021,
+            0.0025000000000000005
+          ],
+          "mass": 8.190000000000003e-06,
+          "volume": 8.190000000000003e-06
+        },
+        "topology": {
+          "analytic_bounds_m": [
+            [
+              -0.023,
+              0.0015000000000000013,
+              -0.008
+            ],
+            [
+              -0.012999999999999998,
+              0.0405,
+              0.013000000000000001
+            ]
+          ],
+          "edges": 12,
+          "face_edge_incidence": [
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                5,
+                7
+              ]
+            ],
+            [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ]
+          ],
+          "faces": 6,
+          "vertices": 8
+        }
+      },
+      "raw_kernel": {
+        "bytes": 6298,
+        "nodes": 172,
+        "sha256": "aefb607ba5ccb316153d4986708229fc9886e5ad0b4885767201bc1bff4db337"
+      },
+      "storage_key": "Imported1",
+      "suffix_text": [
+        "",
+        "Imported1"
+      ],
+      "suffix_words": [
+        1,
+        0
+      ]
+    },
+    "RenamedBody": {
+      "atom_body_name": "Casting \u03a972",
+      "body_name": "Casting \u03a972",
+      "feature_id": 26,
+      "feature_name": "Transfer \u039417",
+      "file_sha256": "2814fd13c29c840f2079485d47856333e756860fd0abee927703fc47a7cb7f43",
+      "kernel_compatibility_name": "Casting O72",
+      "linked_streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 3123,
+          "sha256": "5478824cc10daeb4c20b59cd96cb0a33e65b0d583522df0ede665d55ca29342e"
+        },
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "638f2163219a8910cfa75feb911de1b9e7ec0af5ba596c42ff9ca3d22c82e5ee"
+        },
+        "Contents/Config-0": {
+          "bytes": 25216,
+          "sha256": "55a5fbf2f711b04a36b921fa4bd8557d99ca88d89449531df75ebd831e1f84a5"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2257,
+          "sha256": "6d34b53059d48e6d197b9fdd07b8cfdb7f2e1cdf2f92d982837cadc3282a6145"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 604,
+          "sha256": "7b89aed90874f75ce1ea7d456c91973fbf83c8da545995e5610114eb7448a9d7"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6092,
+          "sha256": "fccae163f632567db3a06c36c0384fe16b5ebbb1348ef2977092566002e63f13"
+        },
+        "Header2": {
+          "bytes": 2257,
+          "sha256": "6d34b53059d48e6d197b9fdd07b8cfdb7f2e1cdf2f92d982837cadc3282a6145"
+        }
+      },
+      "native_geometry": {
+        "body_count": 1,
+        "mass_si": {
+          "area": 0.0022220000000000005,
+          "com": [
+            0.007,
+            -0.011,
+            0.0105
+          ],
+          "mass": 6.669000000000002e-06,
+          "volume": 6.669000000000002e-06
+        },
+        "topology": {
+          "analytic_bounds_m": [
+            [
+              -0.0024999999999999996,
+              -0.0245,
+              0.004
+            ],
+            [
+              0.0165,
+              0.0025000000000000005,
+              0.017
+            ]
+          ],
+          "edges": 12,
+          "face_edge_incidence": [
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                5,
+                7
+              ]
+            ],
+            [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ]
+          ],
+          "faces": 6,
+          "vertices": 8
+        }
+      },
+      "raw_kernel": {
+        "bytes": 6413,
+        "nodes": 176,
+        "sha256": "e3438d36fc27b5e32bd5d818abf77b90363e7592eb51c11406758d6f224ff2dc"
+      },
+      "storage_key": "Transfer \u039417",
+      "suffix_text": [
+        "",
+        "Transfer \u039417"
+      ],
+      "suffix_words": [
+        1,
+        0
+      ]
+    },
+    "RenamedFeature": {
+      "atom_body_name": null,
+      "body_name": "Transfer \u039417",
+      "feature_id": 26,
+      "feature_name": "Transfer \u039417",
+      "file_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8",
+      "kernel_compatibility_name": null,
+      "linked_streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 3061,
+          "sha256": "f8fdac5d3c85a6aa9116e4ce46abae2f2fe6a4c24c7be928e1e02fc029998cbd"
+        },
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "f924e611b0628d48a1b6dc8ad034dd91a27a1e662d34cbe8cfa8b43f6653ea4f"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "dbbd4968cf911ed37598a82c5d419f445e88c25ebcce496a7a2e99282b9e33e1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2257,
+          "sha256": "85b95981de86c72b53b9c98956db8bdfe3552bc72c29c08d42269af8c826e4ce"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 604,
+          "sha256": "7b89aed90874f75ce1ea7d456c91973fbf83c8da545995e5610114eb7448a9d7"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6092,
+          "sha256": "04c011a279ad330e8f566ab7a34069544773832d00ff73b05b268678db0daf3b"
+        },
+        "Header2": {
+          "bytes": 2257,
+          "sha256": "85b95981de86c72b53b9c98956db8bdfe3552bc72c29c08d42269af8c826e4ce"
+        }
+      },
+      "native_geometry": {
+        "body_count": 1,
+        "mass_si": {
+          "area": 0.0022220000000000005,
+          "com": [
+            0.007,
+            -0.011,
+            0.0105
+          ],
+          "mass": 6.669000000000002e-06,
+          "volume": 6.669000000000002e-06
+        },
+        "topology": {
+          "analytic_bounds_m": [
+            [
+              -0.0024999999999999996,
+              -0.0245,
+              0.004
+            ],
+            [
+              0.0165,
+              0.0025000000000000005,
+              0.017
+            ]
+          ],
+          "edges": 12,
+          "face_edge_incidence": [
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                5,
+                7
+              ]
+            ],
+            [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ]
+          ],
+          "faces": 6,
+          "vertices": 8
+        }
+      },
+      "raw_kernel": {
+        "bytes": 6304,
+        "nodes": 172,
+        "sha256": "d167c322f0cb0579484067f1e5c27fbf87595463075aad0aaf9ca86332d9bacd"
+      },
+      "storage_key": "Transfer \u039417",
+      "suffix_text": [
+        "",
+        "Transfer \u039417"
+      ],
+      "suffix_words": [
+        1,
+        0
+      ]
+    }
+  }
+}

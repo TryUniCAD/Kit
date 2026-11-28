@@ -1,0 +1,210 @@
+{
+  "assemblies": 8,
+  "case_rows_identical_to_prior": true,
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/materials/ReplayAssignedStreams.py": "553b8c5c72324361e9633670247d847f9f6ddce6",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "82005e40e88c3daa7a457475f99566acd2a85dbd"
+  },
+  "codec_revision": "cc70fb9cbf057927f928922890b387475b22e3f5",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "complete_present_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 88
+  },
+  "complete_receipt_sha256": "fee64f551b1e33e4f460aa3009cec80b50406066a3568e4f1b3fb1491734d0cc",
+  "counts_by_stream": {
+    "Contents/CMgr": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CMgrHdr2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-MatesList": {
+      "attempts": 8,
+      "exact_without_raw": 8,
+      "exact_without_tail": 8,
+      "proven_typed_exact": 8,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ModelHeader": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Config-#-ResolvedFeatures": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/CusProps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/Definition": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Contents/eModelLic": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "Header2": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ModelStamps": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "SwDocContentMgr/SwDocContentMgrInfo": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "ThirdPtyStore/VisualStates": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_DL_VERSION_19000/DLUpdateStamp": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/Biography": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    },
+    "_MO_VERSION_19000/History": {
+      "attempts": 88,
+      "exact_without_raw": 88,
+      "exact_without_tail": 88,
+      "proven_typed_exact": 88,
+      "raw_operations": 0,
+      "unavailable": 0
+    }
+  },
+  "expanded_bracket": {
+    "assemblies": 8,
+    "complete_files": {
+      "exact_without_raw": 98,
+      "exact_without_tail": 98,
+      "proven_typed_exact": 98
+    },
+    "complete_present_files": {
+      "exact_without_raw": 100,
+      "exact_without_tail": 100,
+      "proven_typed_exact": 100
+    },
+    "complete_receipt_sha256": "b737b6eb63e6e81ff2e2b0e6c1cc61c03f61405acbe30b4ff044638b6119c536",
+    "heldout_inputs_read": 0,
+    "missing_schema_incidence": {},
+    "native_processes_started": 0,
+    "native_writer_outputs": 0,
+    "parts": 92,
+    "provisional_schema_incidence": {},
+    "source_files": 100,
+    "source_group_receipt_sha256": "bb2d7be521e0cdaacff0c8e208b39842f71e8802f0f42fbc2e15431d365de6cc",
+    "source_revision": "197a3283267e95167ac716efbe57d3449bab1b15",
+    "specialized_replay_streams_exact": 4,
+    "stream_counts": {
+      "attempts": 1496,
+      "exact_without_raw": 1494,
+      "exact_without_tail": 1494,
+      "proven_typed_exact": 1494
+    },
+    "unavailable_streams": {
+      "re/solidworks/v2026/corpus/saved-sweep/SavedSweepWide01/SweepArcWide.SLDPRT": [
+        "Contents/Definition"
+      ],
+      "re/solidworks/v2026/corpus/saved-sweep/SavedSweepWide01/SweepArcWideSectionEdit.SLDPRT": [
+        "Contents/Definition"
+      ]
+    }
+  },
+  "heldout_inputs_read": 0,
+  "missing_schema_incidence": {},
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "prior_summary_sha256": "18776de5a096a71e7eefaf93fc40e1d55903a45169096245a7bb66beac549d7e",
+  "provisional_schema_incidence": {},
+  "python": "3.14.7",
+  "schema": "kit.sw2026.linked-archive-audit-summary.v1",
+  "script_sha256": "8058447781b43b3525d62e61493bb11ac544e64cf6e8447f2605bb30b979685e",
+  "sorted_case_rows_sha256": "79f438850e156465271cf4e0c4efdf10f7c527dbb5d46ece0854d8710bf2789b",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1328
+  },
+  "unavailable_streams": {}
+}

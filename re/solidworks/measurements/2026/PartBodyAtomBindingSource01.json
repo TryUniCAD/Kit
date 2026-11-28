@@ -1,0 +1,153 @@
+{
+  "acceptance": false,
+  "cad_execution": false,
+  "complete_functions": 12,
+  "data_windows": 3,
+  "delivery_pr": 121,
+  "hidden_inputs_read": 0,
+  "imports": 7,
+  "instruction_windows": 8,
+  "modules": 3,
+  "native_execution": false,
+  "owner": "flag_ownership",
+  "record_sha256": "2467f24f54fe807a62001e58614539f0307cd23601327000ffd38ac360dc5270",
+  "root_native_context": {
+    "cases": [
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Base",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "0eb2ba3de868ec8e63a899cac8212842519a6c33716d4d84a0df6911efff1757",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Size",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "9accb3e49b60bcbe124f6c2dc5a4c5ba3597a08952cdae436ccb35580ce21cd6",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Bits",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "1ec49d27076988e83f9c29f9db3e71c291bf1e11aae7fec748ddb28c20b22c07",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Both",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "e2cd31c4999f02601d9ffa7ea37b050612befc399a32279f5882a55348e32909",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Base",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "c38fe5a2cf2cc2967ce30175072c36841bf61a88e86fe926aa398ad13b07b271",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Size",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "15a70c91590221cbe58dda439bcfa22530fcfce491b0763e260a1def697e0d72",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Bits",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "375c9704e25933cb5a5a8ebc6c00e68c9925a6273bcec47991860099d970611c",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Both",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "f02bb1880bd96baff4d92eb11425266122bb25b9ca064e9be7e469416f7c4170",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      }
+    ],
+    "clean_initial_opens": false,
+    "controls": [
+      {
+        "bodies": 1,
+        "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true
+      },
+      {
+        "bodies": 1,
+        "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true
+      }
+    ],
+    "file": "PrismSavedState02/Result01.json",
+    "heldout_inputs_read": 0,
+    "lifecycle_passed": true,
+    "sha256": "127ca6622e9f58e5b8be91a01ba597b25cb1f7d4716b4541fdaff988818b9642"
+  },
+  "schema": "kit.sw2026.part-body-atom-binding-static-receipt.v1",
+  "schema_or_codec_execution": false,
+  "shared_edits": false,
+  "task": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD / ID and feature-output selection",
+  "tests": false,
+  "vendor_bytes_or_listings": false,
+  "verified": true,
+  "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+  "vtable_cells": 9,
+  "worker_native_measurement": false
+}

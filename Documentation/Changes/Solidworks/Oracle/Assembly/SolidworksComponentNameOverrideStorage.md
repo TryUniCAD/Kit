@@ -1,0 +1,7 @@
+# Component-name override persistence research
+
+PR #121 records the exact SOLIDWORKS 2026 configuration-header override-ID ownership separately from ordinary `CMgrHdr2` CArchive fields. The source map binds the separate UnQLite stream, MessagePack key, native save/load gates, actual manager set and the mode-dependent reference-name synchronization boundary.
+
+Use [the record](../../../../../re/solidworks/records/ComponentNameOverrideStorage2026.md), [numeric replay inputs](../../../../../re/solidworks/records/ComponentNameOverrideStorage2026.json) and [source receipt](../../../../../re/solidworks/measurements/2026/ComponentNameOverrideStorageSource01.json). The existing source verifier checks 18 complete functions, eight instruction windows, nine data windows, six imports and two concrete virtual cells against three pinned originals. All eight instruction-window boundaries independently match disassembly.
+
+The new [metadata collector](../../../../../re/tooling/sw2026/CaptureComponentNameApi01.py) supplies the zero-CAD registered-library prerequisite for a separately authored custom-name control. Its syntax and undefined-name checks pass; guest metadata and native control execution remain pending. No writer, flag patch, public admission or held-out acceptance is added. [Separate-owner gotcha](../../../../Gotchas/Conversion/Solidworks/Oracle/Assembly/Opening/ComponentNamesNeedTheirSeparateOverrideOwner.md)

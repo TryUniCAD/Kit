@@ -1,0 +1,109 @@
+{
+  "arms": {
+    "producer": {
+      "current_sdk_saved_read": {
+        "body_wrapper": {
+          "f100": 0,
+          "f104": 0,
+          "f108": 19,
+          "f18": 101
+        },
+        "decoded_body_count": 1,
+        "decoded_solid_count": 1,
+        "diagnostic_codes": [
+          "sldprt.native_record_unresolved"
+        ],
+        "face_representative_absent": true
+      },
+      "document_owners": [
+        "RevolveCutSelector",
+        "RevolveCutSelector",
+        "RevolveCutSelector-edited"
+      ],
+      "native_cold_body_counts": [
+        2,
+        2
+      ],
+      "native_lifecycle_matches": true,
+      "saved_native_sha256": "f5e81382542563e09d20ebd65b69bffc90705fa837e12cb9d4e0fcfeceb82629",
+      "stock_drivers": {
+        "InnerRevolveStock": {
+          "driver_name": "D1",
+          "feature_name": "InnerRevolveStock",
+          "parents": [
+            "InnerStockSketch",
+            "Front Plane"
+          ],
+          "radians": 6.283185307179586
+        },
+        "OuterRevolveStock": {
+          "driver_name": "D1",
+          "feature_name": "OuterRevolveStock",
+          "parents": [
+            "OuterStockSketch",
+            "Front Plane"
+          ],
+          "radians": 6.283185307179586
+        }
+      },
+      "tree_rows": 29
+    },
+    "sentinel": {
+      "current_sdk_saved_read": {
+        "body_wrapper": {
+          "f100": 0,
+          "f104": 0,
+          "f108": -1,
+          "f18": 101
+        },
+        "decoded_body_count": 1,
+        "decoded_solid_count": 1,
+        "diagnostic_codes": [
+          "sldprt.native_record_unresolved"
+        ],
+        "face_representative_absent": true
+      },
+      "document_owners": [
+        "RevolveCutSelector",
+        "RevolveCutSelector",
+        "RevolveCutSelector-edited"
+      ],
+      "native_cold_body_counts": [
+        2,
+        2
+      ],
+      "native_lifecycle_matches": true,
+      "saved_native_sha256": "0bf24def7c94903c6d40009b88d8b6a034f9e957e48d7466abdcd4d1acb03266",
+      "stock_drivers": {
+        "InnerRevolveStock": {
+          "driver_name": "D1",
+          "feature_name": "InnerRevolveStock",
+          "parents": [
+            "InnerStockSketch",
+            "Front Plane"
+          ],
+          "radians": 6.283185307179586
+        },
+        "OuterRevolveStock": {
+          "driver_name": "D1",
+          "feature_name": "OuterRevolveStock",
+          "parents": [
+            "OuterStockSketch",
+            "Front Plane"
+          ],
+          "radians": 6.283185307179586
+        }
+      },
+      "tree_rows": 29
+    }
+  },
+  "new_heldout_credit": 0,
+  "new_oracle_processes": 0,
+  "original_lifecycle_passed": false,
+  "original_result_sha256": "ae342e6f39afcacf48db0936c67c715bae7bc0199abdeb3dd8afd4aaf172b4e8",
+  "paired_native_lifecycles_confirmed": true,
+  "public_writer": false,
+  "schema": "kit.sw2026.selected-revolve-cut-saved-owner-contrast.v1",
+  "source_revision": "71715759c796673a59a3d3f0832c2ff0c6767eca",
+  "trial_sha256": "03673e04df2f3d8c8a98f1a3ad6784deba549fad0e353c0797f6de8d8708c61d"
+}

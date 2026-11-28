@@ -1,4 +1,5 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
+from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
@@ -11,3 +12,13 @@ def PartScopeOwner(ContextValue: BodyContext, NodeValue: ArchiveNode) -> Archive
     ):
         return PartRoot
     return NodeValue
+
+
+# broad archives need the same enclosing part guard at the actual unit owner field
+def HasPartOwner(
+    ContextValue: BodyContext, NodeValue: ArchiveNode, RuleValue: NativeField
+) -> bool:
+    return RuleValue.ModeValue == "FrameOwner" or (
+        RuleValue.NameValue == "owner"
+        and PartScopeOwner(ContextValue, NodeValue) is not NodeValue
+    )

@@ -1,0 +1,5 @@
+# Retained FCStd rectangle source owners
+
+Adds a readonly source-owner projector and process auditor for the two exact retained four-line, one-Pad sources. It preserves the complete original source document, binds the real named-constraint and sheet-cell dependency owners, returns actual width/height/depth parameter records, and checks generated analytic geometry against the source boundary. It refuses stale or ambiguous owners and keeps every native generation gap explicit.
+
+Eleven fresh SDK processes pass, including independent repeated reads and seven malformed cases. No native output, CAD runtime or public admission is involved. Use the source auditor with the hash-bound original census and an unused external output root. The [source ledger](../../../../../re/solidworks/records/FcstdRectangleSourceOwners2026.md) records exact scope, names, datums, all remaining owners and the [numeric evidence](../../../../../re/solidworks/measurements/2026/FcstdRectangleSourceOwners01.json). The [dependency gotcha](../../../../Gotchas/Conversion/Freecad/Expressions/NamedConstraintTextNeedsActualOwnerIds.md) explains why cached values cannot replace named relations.

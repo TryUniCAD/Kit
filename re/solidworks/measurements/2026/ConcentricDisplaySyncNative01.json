@@ -1,0 +1,115 @@
+{
+  "controls_healthy": true,
+  "fresh_native_processes": 5,
+  "gate_sha256": "a07eaf384c0859b67e767572e4e5cb8c380afab9eda947966636aff1b02de845",
+  "held_out_assembly_writer_credits": 0,
+  "native_authored_parent_sha256": "1b5f9a87c6db9b6c22c9fd445338cd1d478045e1e3fbccbd2c8ac17ccb7f7ceb",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_phase_receipts": {
+    "Author": {
+      "numeric_checks": 42,
+      "open_status": [
+        0,
+        0
+      ],
+      "record_sha256": "f4c4f172e71b947aad4b5eaecc95a90f66d93c6a4b3189e811b0a7fd7e96888f"
+    },
+    "ControlAfter": {
+      "numeric_checks": 14,
+      "open_status": [
+        0,
+        0
+      ],
+      "record_sha256": "914fbf3e32bdf9ac60f98daa93aa9570d37f8f027c6a9996222f1176ca27015b"
+    },
+    "ControlBefore": {
+      "numeric_checks": 14,
+      "open_status": [
+        0,
+        0
+      ],
+      "record_sha256": "09643cf77b802b20713b3375cb5d0ce4cea7fd3e733e22935ae618ca7fb5736d"
+    },
+    "Stale": {
+      "numeric_checks": 14,
+      "open_status": [
+        0,
+        32
+      ],
+      "record_sha256": "7461918c3fd1e44165ea35f92df151a9cb0a10ca89a7e011bf52cf27d08bc7c8"
+    },
+    "Synchronized": {
+      "numeric_checks": 14,
+      "open_status": [
+        0,
+        0
+      ],
+      "record_sha256": "515c6741dd03c08cf304c08f9759cc000a57b419adfe68a03260050311fa5d5b"
+    }
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "paired_cold_opens": {
+    "Stale": {
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "geometry_and_ownership_checks": 14,
+      "named_and_live_visibility_match": true,
+      "native_default_and_mixed_visibility": {
+        "Display State-1": [
+          1,
+          1
+        ],
+        "VisibilityFirstOnly": [
+          1,
+          0
+        ],
+        "VisibilitySecondOnly": [
+          0,
+          1
+        ]
+      },
+      "open_error": 0,
+      "open_warning": 32,
+      "parent_needs_rebuild_before": 1,
+      "parent_sha256": "1b5f9a87c6db9b6c22c9fd445338cd1d478045e1e3fbccbd2c8ac17ccb7f7ceb",
+      "persisted_child_stamp": 134
+    },
+    "Synchronized": {
+      "child_sha256": "8dd479a4f05a1baf8d0a4166e1f4247e82f3f125933173e0de964dc64e74ab22",
+      "geometry_and_ownership_checks": 14,
+      "named_and_live_visibility_match": true,
+      "native_default_and_mixed_visibility": {
+        "Display State-1": [
+          1,
+          1
+        ],
+        "VisibilityFirstOnly": [
+          1,
+          0
+        ],
+        "VisibilitySecondOnly": [
+          0,
+          1
+        ]
+      },
+      "open_error": 0,
+      "open_warning": 0,
+      "parent_needs_rebuild_before": 0,
+      "parent_sha256": "1b5f9a87c6db9b6c22c9fd445338cd1d478045e1e3fbccbd2c8ac17ccb7f7ceb",
+      "persisted_child_stamp": 162
+    }
+  },
+  "parent_reference_stamps": [
+    162,
+    162
+  ],
+  "raw_result_sha256": "07798048801518b463cbfc92e731f1d3bdfa9a6b5072f8f4c1ed54c1d687dcb2",
+  "schema": "kit.sw2026.concentric-display-child-sync-native.v1",
+  "stream_precedence_measured": false,
+  "tool_revision": "f0d8c7948da37aef4d20ce548808b7d6b1a746fa",
+  "trial_sha256": "37674e49c9a640366353c29c93ad08749aa029aa67dccc2ea879908ef4f434cd",
+  "unchanged_display_streams": {
+    "ThirdPtyStore/VisualStates": "0ffadf4a1b705a69a8bdc94086015732794a13e6eb4b990f5388f6432ed7782f",
+    "swXmlContents/COMPINSTANCETREE": "4ea8545f264f31c83550be542f2d7b0bcf9fedaf63e4e8afabb1b535cfe8dc94"
+  },
+  "warning_cleared_only_after_synchronizing_child": true
+}

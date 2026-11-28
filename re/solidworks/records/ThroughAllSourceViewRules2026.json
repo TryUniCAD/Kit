@@ -1,0 +1,159 @@
+{
+  "bounded_ranges": [
+    {
+      "code_sha256": "5f97072a435f56a63ce9394e819a479062d70967dc65cbe31e6ec3424ceee834",
+      "end_exclusive": "0x49787278",
+      "instruction_predicates_verified": [
+        "0xae8(%rcx)",
+        "retq"
+      ],
+      "module": "slduiu.dll",
+      "role": "document_orientation_getter",
+      "semantic_export_prefix": "?getDefaultViewXform@uiModelDoc_c@@",
+      "start": "0x49787270"
+    },
+    {
+      "code_sha256": "5949a3a775520de7dc9bff803cbb63cd78ab6d87927dfa8d7c4acdcc2bca439f",
+      "end_exclusive": "0x48ee7f8e",
+      "instruction_predicates_verified": [
+        "0xae8(%rcx)",
+        "0x4a4718d8"
+      ],
+      "module": "slduiu.dll",
+      "role": "document_orientation_setter",
+      "semantic_export_prefix": "?iSetDefaultViewXform@uiModelDoc_c@@",
+      "start": "0x48ee7f80"
+    },
+    {
+      "code_sha256": "920291e145b4de5d1d5649a719f622e739b700527c1142a5979403a72b1a23e6",
+      "end_exclusive": "0x497871a8",
+      "instruction_predicates_verified": [
+        "0xaf0(%rcx)",
+        "retq"
+      ],
+      "module": "slduiu.dll",
+      "role": "document_pan_zoom_getter",
+      "semantic_export_prefix": null,
+      "start": "0x497871a0"
+    },
+    {
+      "code_sha256": "5f1688c25be1fb61cdc6897d2b6816971f5db014222a59482cbdfaa8e1eb23e1",
+      "end_exclusive": "0x31e03d9a",
+      "instruction_predicates_verified": [
+        "0x31f205a0",
+        "0x31e039b0",
+        "0x58(%rbx)",
+        "0x70(%rbx)",
+        "0x78(%rbx)"
+      ],
+      "module": "sldmgu.dll",
+      "role": "transform_save",
+      "semantic_export_prefix": "?save@mgXform_c@@",
+      "start": "0x31e03ce0"
+    },
+    {
+      "code_sha256": "5bc107870e8e4ea71777c5ce13c49f229f337af22a583550324cd521478cd31f",
+      "end_exclusive": "0x31e03a12",
+      "instruction_predicates_verified": [],
+      "module": "sldmgu.dll",
+      "role": "matrix_save",
+      "semantic_export_prefix": "?save@mgMatrix_c@@",
+      "start": "0x31e039b0"
+    }
+  ],
+  "existing_evidence": [
+    "re/solidworks/records/DefaultViewTransform2026.md",
+    "re/solidworks/measurements/2026/ViewProbeCorrelationA062.json",
+    "re/solidworks/measurements/2026/ViewHeldoutInspection01.json",
+    "re/solidworks/measurements/2026/ViewLoaderCallers01.json"
+  ],
+  "full_native_functions": {
+    "active_pan_zoom_setter": {
+      "code_sha256": "d1fde943af40d6db2c17c7b5de008149e25009b81915fcaad7f08cf885191ccf",
+      "end_rva_exclusive": "0x989a5c",
+      "end_va_exclusive": "0x49829a5c",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setPanZoomXform@uiModelView_c@@QEAAXAEBVmgXform_c@@@Z"
+      ],
+      "start_rva": "0x9899c0",
+      "start_va": "0x498299c0",
+      "unwind_rva": "0x1bd9ed8"
+    },
+    "editable_initial_view_update": {
+      "code_sha256": "bd175dde49fd73dc9b788660b70a4eee9506d4554ac7a978e24142ab1e9c597b",
+      "end_rva_exclusive": "0x514fdb",
+      "end_va_exclusive": "0x493b4fdb",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?OnInitialUpdate@uiModelView_c@@MEAAXXZ"
+      ],
+      "start_rva": "0x514790",
+      "start_va": "0x493b4790",
+      "unwind_rva": "0x1b47910"
+    },
+    "splitter_view_restore": {
+      "code_sha256": "cf3999162c9ad9d9870cf327477625b0f5f4ed44dc6cad354fd739353fa73eac",
+      "end_rva_exclusive": "0x936bb4",
+      "end_va_exclusive": "0x497d6bb4",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setDocViewingXforms@uiSplitterInfo_c@@QEAAXPEAVuiModelDoc_c@@PEAVuiModelView_c@@@Z"
+      ],
+      "start_rva": "0x9368b0",
+      "start_va": "0x497d68b0",
+      "unwind_rva": "0x1bd4248"
+    },
+    "ui_model_serialize": {
+      "code_sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e",
+      "end_rva_exclusive": "0x864a43",
+      "end_va_exclusive": "0x49704a43",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?Serialize@uiModelDoc_c@@UEAAXAEAVsu_CArchive@@@Z"
+      ],
+      "start_rva": "0x8611e0",
+      "start_va": "0x497011e0",
+      "unwind_rva": "0x1bbc7d4"
+    }
+  },
+  "heldout_payload_reads": 0,
+  "modules": [
+    {
+      "image_base": "0x48ea0000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "image_base": "0x31dd0000",
+      "machine": "0x8664",
+      "name": "sldmgu.dll",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+    }
+  ],
+  "native_launches": 0,
+  "orientation_assignment_import": {
+    "cell": "0x4a4718d8",
+    "module": "sldmgu.dll",
+    "symbol": "??4mgXform_c@@QEAAAEBV0@AEBV0@@Z"
+  },
+  "persistent_analysis_target_opened": false,
+  "rules": {
+    "native_save_caveat": "save invokes iValidateRepairXForm before selecting legacy/msgpack storage and masks bit0 from stored flags; this component admits only validated rigid transforms with flags0, not the generic repair universe",
+    "orientation": "separate document owner +0xae8; explicit orthonormal right-handed matrix in stored order, zero translation and unit scale in this profile",
+    "pan_zoom": "separate document owner +0xaf0; no matrix, explicit finite translation triple and positive scale, zero flags",
+    "read_boundary": "canonical representation only; no source matrix-presence normalization, source affine translation, reflection, shear or unknown transform fields",
+    "window_state": "per-user splitters and window words are independently owned and remain unrepresented, not discarded or defaulted by source admission",
+    "wire": "ordinary legacy archive branch; presence byte, optional nine binary64 matrix entries, three binary64 translation entries, binary64 scale, flags, then optional perspective body; no perspective in admitted profile"
+  },
+  "schema": "kit.sw2026.throughall-view-native-rules.v1",
+  "static_only": true,
+  "tools": {
+    "collector_sha256": "f3754e7ec21eb24b0fb8cc9084cbc7175ceecd3235481709948bcbd5909267bb",
+    "image_reader_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+    "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c",
+    "llvm_version": "Apple LLVM version 21.0.0"
+  },
+  "vendor_bytes_or_listing_in_delivery": false
+}

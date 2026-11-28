@@ -7,10 +7,10 @@
 # to you under it immediately and permanently.
 
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Enums.EnumDocument import Severity
 from interchange.geometry.Models.GeometryCurves import CircleGeometry, PointGeometry
 from interchange.geometry.Models.VectorPlane import PlaneVector
 from tests.Convert.Solidworks.Core.CircleOnly.AssertSupport import AssertSupport
+from tests.Convert.Solidworks.Core.CircleOnly.CheckCircleInfo import CheckCircleInfo
 
 
 # the public document must retain the independent native circle diameter and origin ownership
@@ -19,10 +19,7 @@ def AssertCircle(
 ) -> None:
     Document.assert_valid()
     assert Document.bodies == () and Document.brep is None
-    (PropertyInfo,) = Document.diagnostics
-    assert PropertyInfo.code == "solidworks.part_text_properties_unavailable"
-    assert PropertyInfo.severity == Severity.INFO
-    assert PropertyInfo.message == "part properties require an empty compatible native manager"
+    CheckCircleInfo(Document)
     assert Document.metadata["source_display_units"] == DisplayUnit
     (SketchValue,) = Document.sketches
     Circle, Origin = SketchValue.entities

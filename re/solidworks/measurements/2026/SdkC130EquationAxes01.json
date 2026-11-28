@@ -1,0 +1,489 @@
+{
+  "base_revision": "9dca0bd65a4762962b0d71b896cdd354eb405a98",
+  "case": {
+    "axis_stream_differences": [
+      "Contents/CMgr",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Header2",
+      "swXmlContents/KeyWords"
+    ],
+    "bad_axis_owner_refusal": "angular datum requires its actual local selection",
+    "baseline_archive": {
+      "bytes": 9080,
+      "sha256": "5380e278a2bfd9745ddb5557b4f3584c21a96a2f26c5f243ce8b4065783093f9",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 28891,
+          "sha256": "c5df1c462b80c5dcd547988cac60f52c0a46328f51a04a8ab25da1dd7932b8e1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 591,
+          "sha256": "01dd5e3024914a6df7cb2129d2f23ea4816178398cba8409297e0b34e2d82836"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12233,
+          "sha256": "5dbbe860a2116b57b9e505aadd82bb87da3fbd8f8d8bfd9e99db6bf662883a15"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 591,
+          "sha256": "998cfffaaea18434883ae0c12b0557842a1e5bc390bf50609890a2f8abf6aad7"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1486,
+          "sha256": "4fc3d3b79696a6cb3d349e1982764b72573734f91484e35a3ab3ff8566374f88"
+        }
+      }
+    },
+    "combined_archive": {
+      "bytes": 9617,
+      "sha256": "a320ec8d8ec09844934b7e3c625d4722527542603cfc1ec82feb6f6fcd44bd4a",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "1d96043a33d243fdd5141aed9afc88d912175d0d2d0c130afd29ba40194876d7"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 28891,
+          "sha256": "c5df1c462b80c5dcd547988cac60f52c0a46328f51a04a8ab25da1dd7932b8e1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 969,
+          "sha256": "bb649c68674e0de3dc86a8e747aa4cb15aea975ac42343d2557ff979fe520e58"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15635,
+          "sha256": "1111a00c3a5f13ae8be0d295b82cf4c5c0c8680210fa435bbe7d4ce205053ba2"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 969,
+          "sha256": "06358d4f2f69c2fd0820ed5231fad5b6b9ce17be6ff48231647454d1186c19dd"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1621,
+          "sha256": "77ea9992daf9b091d757c78786b9dcb7e0410766c6bdb91536a2c8b06717ade5"
+        }
+      }
+    },
+    "hidden_axis_strict_refusal": {
+      "sha256": "b8e80191785f4eb50df60bb765ca35f9c40256e460f3a91d769fad9fbcbf3b42",
+      "strict_full": "contains no readable Parasolid payload"
+    },
+    "native_processes": 0,
+    "original_boundary": {
+      "adapter": "does not support the destination",
+      "registry": "does not support the destination"
+    },
+    "original_retained": true,
+    "public_readback": {
+      "design_only": {
+        "body_name": "Body 1",
+        "document_sha256": "bc152ed2790212121d504a46ab1047ddc1bd42d460c8e3e993f766f4a97fb55e",
+        "feature_count": 22,
+        "feature_ids": [
+          "sldprt:feature:27",
+          "sldprt:feature:28",
+          "sldprt:feature:29"
+        ],
+        "feature_operation": "join",
+        "json_parameter_feature_selection_equality": true,
+        "ordered_plane_selections": 0,
+        "timeline_order": [
+          18,
+          19,
+          20
+        ],
+        "typed_plane_axes": 0
+      },
+      "full": {
+        "body_name": "Body",
+        "document_sha256": "9754247fe72abdcb94f9744fc4e212883a14d861e60122187c0148b44f58c3cc",
+        "feature_count": 22,
+        "feature_ids": [
+          "sldprt:feature:27",
+          "sldprt:feature:28",
+          "sldprt:feature:29"
+        ],
+        "feature_operation": "create",
+        "geometry": {
+          "area_mm2": 4000.0,
+          "bounds_mm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              40.0,
+              20.0,
+              20.0
+            ]
+          ],
+          "counts": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "volume_mm3": 16000.0
+        },
+        "json_parameter_feature_selection_equality": true,
+        "ordered_plane_selections": 6,
+        "timeline_order": [
+          19,
+          20,
+          21
+        ],
+        "typed_plane_axes": 3
+      },
+      "shared_equation_owners": {
+        "dormant": {
+          "name": "D2",
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 238,
+            "display_index": 236,
+            "end": 7938,
+            "field_span": false,
+            "handle_index": 237,
+            "object_index": 239,
+            "offset": 7895,
+            "slot": "f818.f20",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "value_mm": 10.0
+        },
+        "height": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 20,
+          "dimension_index": 107,
+          "display_index": 125,
+          "end": 4928,
+          "field_span": false,
+          "group_index": 1,
+          "handle_index": 126,
+          "object_index": 108,
+          "offset": 4877,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "parameter_ids": [
+          "sldprt:parameter:18:width",
+          "sldprt:parameter:18:height",
+          "sldprt:parameter:21:Length"
+        ],
+        "portable_dormant_parameter": {
+          "has_second_end": false,
+          "id": "sldprt:parameter:21:D2",
+          "owner_id": "sldprt:feature:21",
+          "value_mm": 10.0
+        },
+        "relation": {
+          "class": "moRelation_c",
+          "end": 8798,
+          "field_span": false,
+          "object_index": 56,
+          "offset": 2257,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 22,
+          "dimension_index": 67,
+          "display_index": 233,
+          "end": 2681,
+          "field_span": false,
+          "handle_index": 234,
+          "object_index": 69,
+          "offset": 2607,
+          "slot": "f818.f18",
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "width": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 19,
+          "dimension_index": 102,
+          "display_index": 121,
+          "end": 4778,
+          "field_span": false,
+          "group_index": 0,
+          "handle_index": 122,
+          "object_index": 103,
+          "offset": 4729,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        }
+      }
+    },
+    "runtime_data_reads": 0,
+    "source_axis_targets": [
+      {
+        "feature_id": 27,
+        "name": "X-axis",
+        "plane_ids": [
+          15,
+          14
+        ],
+        "plane_names": [
+          "Top Plane",
+          "Front Plane"
+        ],
+        "segment_mm": [
+          [
+            -1.9999999999999982,
+            0.0,
+            0.0
+          ],
+          [
+            41.99999999999999,
+            0.0,
+            0.0
+          ]
+        ],
+        "source_direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "source_model_visible": true,
+        "source_object_id": "1723",
+        "source_role": "X_Axis"
+      },
+      {
+        "feature_id": 28,
+        "name": "Y-axis",
+        "plane_ids": [
+          14,
+          16
+        ],
+        "plane_names": [
+          "Front Plane",
+          "Right Plane"
+        ],
+        "segment_mm": [
+          [
+            0.0,
+            -0.9999999999999991,
+            0.0
+          ],
+          [
+            0.0,
+            20.999999999999996,
+            0.0
+          ]
+        ],
+        "source_direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source_model_visible": true,
+        "source_object_id": "1724",
+        "source_role": "Y_Axis"
+      },
+      {
+        "feature_id": 29,
+        "name": "Z-axis",
+        "plane_ids": [
+          16,
+          15
+        ],
+        "plane_names": [
+          "Right Plane",
+          "Top Plane"
+        ],
+        "segment_mm": [
+          [
+            0.0,
+            0.0,
+            -0.9999999999999991
+          ],
+          [
+            0.0,
+            0.0,
+            20.999999999999996
+          ]
+        ],
+        "source_direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "source_model_visible": true,
+        "source_object_id": "1725",
+        "source_role": "Z_Axis"
+      }
+    ],
+    "source_feature_inputs": {
+      "body": {
+        "body_group": [
+          "freecad:sketch:Sketch",
+          "freecad:feature:Pad"
+        ],
+        "body_id": "freecad:body:Body",
+        "origin_source_object": "Origin",
+        "support": "freecad:plane:XY_Plane",
+        "tip_feature": "freecad:feature:Pad"
+      },
+      "dimension_constraints": [
+        "freecad:sketch:Sketch:constraint:9",
+        "freecad:sketch:Sketch:constraint:10"
+      ],
+      "dormant_length_source_id": "freecad:parameter:Pad:Length2",
+      "origin_constraint": "freecad:sketch:Sketch:constraint:8",
+      "shared_endpoint_constraints": [
+        "freecad:sketch:Sketch:constraint:0",
+        "freecad:sketch:Sketch:constraint:2",
+        "freecad:sketch:Sketch:constraint:4",
+        "freecad:sketch:Sketch:constraint:6"
+      ],
+      "source_support_plane": "freecad:plane:XY_Plane",
+      "unary_line_constraints": [
+        "freecad:sketch:Sketch:constraint:1",
+        "freecad:sketch:Sketch:constraint:3",
+        "freecad:sketch:Sketch:constraint:5",
+        "freecad:sketch:Sketch:constraint:7"
+      ],
+      "width_height_primary_source_ids": [
+        "freecad:parameter:Sketch:constraint:9",
+        "freecad:parameter:Sketch:constraint:10",
+        "freecad:parameter:Pad:Length"
+      ]
+    },
+    "source_origin": {
+      "label": "Origin",
+      "model_visible": true,
+      "object_id": "1722"
+    },
+    "source_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+    "source_shape_correspondence": {
+      "metrics": {
+        "area_mm2": 4000.0,
+        "bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            40.0,
+            20.0,
+            20.0
+          ]
+        ],
+        "center_mm": [
+          20.0,
+          10.0,
+          10.0
+        ],
+        "method": "closed six-face rectangular boundary verified by the independent topology comparison",
+        "volume_mm3": 16000.0
+      },
+      "occt_id_transfer": false,
+      "owned_boundaries": {
+        "freecad:brep:Body:Shape": {
+          "boundary": {
+            "coordinate_tolerance_mm": 1e-09,
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "bytes": 7070,
+          "sha256": "466cf3b915f469f3bd1587c18e63f2acbf92760248017d6405fb9592e6b87d81"
+        },
+        "freecad:brep:Pad:AddSubShape": {
+          "boundary": {
+            "coordinate_tolerance_mm": 1e-09,
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "bytes": 4964,
+          "sha256": "d05ce7b078f45aebe0d5668744410c6873e194350bc72163e0aee63a384ba360"
+        },
+        "freecad:brep:Pad:Shape": {
+          "boundary": {
+            "coordinate_tolerance_mm": 1e-09,
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "bytes": 5187,
+          "sha256": "fb585e1af4c400a34407ca471534c2a5d7135a72ba852e78da4b879407518bad"
+        },
+        "freecad:brep:Sketch:Shape": {
+          "boundary": {
+            "edges": 4,
+            "ordered_editable_line_ring": true,
+            "vertices": 4
+          },
+          "bytes": 1655,
+          "sha256": "ae4b0dc7d32167e2f21e4cef79da665bd37b0877200e7c65afb78813b57babc5"
+        }
+      },
+      "source_only": {
+        "freecad:native-document": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+        "freecad:native-document-binding": "7a73414985891efbff7155e4c2ed1952d56e189a0cf755e8fb251e6c970282ef"
+      }
+    },
+    "stock_sketch_unchanged": true,
+    "target_self_path": "C:\\KitSdkCandidates\\C130-P01.SLDPRT",
+    "target_self_saved_at": 1790000000,
+    "whole_source_admitted": false
+  },
+  "changed_code_sha256": {
+    "re/tooling/sw2026/freecad_census/owned_pad/ProveC130Axes.py": "93efeaae6d35aba259cfbaa6685a6a738237b11d7a04e6567c66680ccdca712d",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/EmitAxesPart.py": "a4276de91e1cbe7029f0dce6468f13877182d88221eb8739e82c54cf563e7262",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/FinishAxesPart.py": "a9d9100e86eeb1b4f1eb1185dccb5268b6721e08365f8d61495cddca3a21d6d6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqFeatures.py": "0d20d4e53bf006cf105ac1852aba1bdb8b0d9e68184196c2f8a918c073137935",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadWidthDepth.py": "66e4a50039d5a0f19477101fbaa65ce8ffd0d503b7cd338b66e9e359c63213f1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/ReadAxisGeom.py": "c81dde08b7d83ea2c182583ed54cc1498e4760ab7f4d8dc535c5f8d29eea58a7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismScope.py": "00184ccab5d4888528d15ac40e29d8dad18e455d416d477297f9141993090b42",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadNoCache.py": "4d274181efc7461130049043bbf3cfa8ff65f66025f49c7ee4d7484417bb04f5"
+  },
+  "corpus_credit": 0,
+  "guarded_processes": 2,
+  "previous_stock_proof_sha256": "160f60518f6e0e8a8137f90ce9171628f9908671f076e1a4f28cec870fc71ba3",
+  "scope": "C130-P01",
+  "source_custody_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f"
+}

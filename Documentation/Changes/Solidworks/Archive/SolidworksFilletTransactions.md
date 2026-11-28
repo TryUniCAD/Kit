@@ -1,0 +1,5 @@
+# Read retained SOLIDWORKS edge-fillet transactions
+
+The internal `ReadFilletHist` entry point binds the current body and its previous state to the actual configuration and feature marks in an ordinary SOLIDWORKS 2026 SP05.2 part. It decodes restored nodes, removed slots, previous copies and pointer qualifiers. The first restore becomes the stock's implicit name on the same body slot. It checks the stock topology and the active cylindrical radius against their typed owners.
+
+All four disclosed original and edited saves match the earlier independent physical reader, field by field and at every historical state. The ordinary revolve control keeps its strict delete-only result. Four malformed wire contrasts and two crossed-owner contrasts refuse. The public SDK remains outside this qualification. [Exact receipt](../../../../re/solidworks/measurements/2026/EdgeFilletTxnRead01.json) · [Measured scope and procedure](../../../../re/solidworks/records/EdgeFilletRollback2026.md#explicit-production-transaction)

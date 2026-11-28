@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "authority": "derived analysis of an already completed controlled native geometry inspection; no CAD execution",
+  "source_revision": "b23e72c609caca0d0ca4acf871e9680a325f0548",
+  "original_native_report_sha256": "998fd0b3b18a240938d198b9c31bd6255efd261ab7e545061dcc6da8e1f5941e",
+  "published_inputs_sha256": {
+    "FreshGeometryReport.json": "4ba859b354ff80032d4dcd8f16197974afe035a6433c69b4b86b795961fd7043",
+    "FreshGeometryJob.json": "7d39761b2e389a7ada600782a7a5b2bfc78a93a629157ae796e38455f8d05d75",
+    "Provenance.json": "1c48ae50582640923e20690b980e1185fdea7f1ff1cc8f69a800d4f351685c29",
+    "BaselineInputs.json": "ae55efc0bc5f71164bfecb0437fe2ead8ce9efdaadb4de69764d81598d4275e9",
+    "Analyze.py": "e17d836df444d4dc716b31def6472a88d08c643709a0c8f66e4b92c47abd363f",
+    "AnalyzeGeometry.py": "5202c1a30ad032fd179eb5cb581865fa98ed908b947ceffdb65627bc8d5c7435"
+  },
+  "measurement_window_utc": {
+    "started_at": "2026-11-15T21:06:37.045728+00:00",
+    "finished_at": "2026-11-15T21:08:09.611365+00:00"
+  },
+  "native_job_hash_matches_original": true,
+  "native_inspector_hash_matches_staged_tool": true,
+  "distinct_process_lifetime_per_row": true,
+  "controls_healthy": true,
+  "control_mass_properties_identical": true,
+  "all_rows_clean_with_one_body": true,
+  "tolerances": {
+    "relative_geometry": 1e-9,
+    "m3": 1e-15,
+    "m2": 1e-12,
+    "m": 1e-12,
+    "kg": 1e-15
+  },
+  "heptagon_baseline_comparison": {
+    "volume": {
+      "measured": 5.3796500000000006e-5,
+      "expected": 5.3796500000000006e-5,
+      "absolute_difference": 0.0,
+      "tolerance": 5.379650000000001e-14,
+      "within_tolerance": true
+    },
+    "area": {
+      "measured": 0.009896349327158964,
+      "expected": 0.009896349327158964,
+      "absolute_difference": 0.0,
+      "tolerance": 9.896349327158964e-12,
+      "within_tolerance": true
+    },
+    "center_of_mass_m": [
+      {
+        "measured": 0.0014406699320587766,
+        "expected": 0.001440669932058777,
+        "absolute_difference": 4.336808689942018e-19,
+        "tolerance": 1.4406699320587772e-12,
+        "within_tolerance": true
+      },
+      {
+        "measured": 0.006562595460051614,
+        "expected": 0.006562595460051613,
+        "absolute_difference": 8.673617379884035e-19,
+        "tolerance": 6.562595460051614e-12,
+        "within_tolerance": true
+      },
+      {
+        "measured": 0.008499999999999999,
+        "expected": 0.008499999999999999,
+        "absolute_difference": 0.0,
+        "tolerance": 8.5e-12,
+        "within_tolerance": true
+      }
+    ],
+    "within_tolerance": true
+  },
+  "heptagon_neutral_geometry_comparison": {
+    "volume": {
+      "measured": 5.3796500000000006e-5,
+      "expected": 5.37965e-5,
+      "absolute_difference": 6.776263578034403e-21,
+      "tolerance": 5.37965e-14,
+      "within_tolerance": true
+    },
+    "area": {
+      "measured": 0.009896349327158964,
+      "expected": 0.009896349327158962,
+      "absolute_difference": 1.734723475976807e-18,
+      "tolerance": 9.896349327158962e-12,
+      "within_tolerance": true
+    },
+    "center_of_mass_m": [
+      {
+        "measured": 0.0014406699320587766,
+        "expected": 0.0014406699320587764,
+        "absolute_difference": 2.168404344971009e-19,
+        "tolerance": 1.4406699320587766e-12,
+        "within_tolerance": true
+      },
+      {
+        "measured": 0.006562595460051614,
+        "expected": 0.006562595460051614,
+        "absolute_difference": 0.0,
+        "tolerance": 6.5625954600516146e-12,
+        "within_tolerance": true
+      },
+      {
+        "measured": 0.008499999999999999,
+        "expected": 0.0085,
+        "absolute_difference": 1.734723475976807e-18,
+        "tolerance": 8.500000000000001e-12,
+        "within_tolerance": true
+      }
+    ],
+    "within_tolerance": true,
+    "mass_kg": {
+      "measured": 5.3796500000000006e-5,
+      "expected": 5.37965e-5,
+      "absolute_difference": 6.776263578034403e-21,
+      "tolerance": 5.37965e-14,
+      "within_tolerance": true
+    }
+  },
+  "heptagon_depth_readback_m": {
+    "measured": 0.017,
+    "expected": 0.017,
+    "absolute_difference": 0.0,
+    "tolerance": 1e-12,
+    "within_tolerance": true
+  },
+  "candidate_geometry_within_tolerance": true,
+  "rows": [
+    {
+      "kind": "control_before",
+      "process_id": 5484,
+      "process_creation_filetime": 134392504015311069,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "status": {
+        "opened": true,
+        "zero_load_errors": true,
+        "zero_load_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "zero_whats_wrong": true,
+        "features_clean_and_unsuppressed": true,
+        "no_measurement_exception": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "native_healthy_flag": true,
+        "exact_oracle_identity": true,
+        "recorded_input_hash_matches": true,
+        "completed_close_stage": true
+      },
+      "status_passed": true,
+      "feature_count": 19,
+      "body_count": 1,
+      "mass_properties": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      }
+    },
+    {
+      "kind": "candidate",
+      "process_id": 9688,
+      "process_creation_filetime": 134392504377320904,
+      "source_sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+      "status": {
+        "opened": true,
+        "zero_load_errors": true,
+        "zero_load_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "zero_whats_wrong": true,
+        "features_clean_and_unsuppressed": true,
+        "no_measurement_exception": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "native_healthy_flag": true,
+        "exact_oracle_identity": true,
+        "recorded_input_hash_matches": true,
+        "completed_close_stage": true
+      },
+      "status_passed": true,
+      "feature_count": 20,
+      "body_count": 1,
+      "mass_properties": {
+        "volume": 5.3796500000000006e-5,
+        "area": 0.009896349327158964,
+        "com": [
+          0.0014406699320587766, 0.006562595460051614, 0.008499999999999999
+        ],
+        "mass": 5.3796500000000006e-5
+      }
+    },
+    {
+      "kind": "control_after",
+      "process_id": 3552,
+      "process_creation_filetime": 134392504657277090,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "status": {
+        "opened": true,
+        "zero_load_errors": true,
+        "zero_load_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "zero_whats_wrong": true,
+        "features_clean_and_unsuppressed": true,
+        "no_measurement_exception": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "native_healthy_flag": true,
+        "exact_oracle_identity": true,
+        "recorded_input_hash_matches": true,
+        "completed_close_stage": true
+      },
+      "status_passed": true,
+      "feature_count": 19,
+      "body_count": 1,
+      "mass_properties": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      }
+    }
+  ],
+  "earlier_interruption": {
+    "record": "../PolygonCurrentInterruption.json",
+    "retained": true,
+    "cause_resolved": false,
+    "format_crash_attributed": false,
+    "observation": "fresh heptagon repeat and later five-row view batch pass with healthy surrounding controls; the original disconnect is not reproduced in these runs"
+  },
+  "acceptance_limits": [
+    "one heptagon geometry/rebuild repeat only",
+    "no driving edit, save or saved-copy reopen in this batch",
+    "input digest recorded before inspection; this report does not itself perform an after-inspection digest comparison",
+    "no full feature-family or production writer acceptance"
+  ]
+}

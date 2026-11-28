@@ -45,6 +45,12 @@ def CheckCacheReuse(TmpPath: FilePath) -> None:
     assert Record["compiled"] is True
     assert Record["assembly"] != Records[0]["assembly"]
     assert len(list(CachePath.glob("*.dll"))) == 2
+    CopiedPath = TmpPath / "PreparedProgress.dll"
+    PreparedCommand = [*Command[:-1], "-AssemblyPath", str(CopiedPath)]
+    Prepared = RunCompile(PreparedCommand, 60)
+    assert Prepared["compiled"] is False
+    assert CopiedPath.read_bytes() == FilePath(str(Record["assembly"])).read_bytes()
+    assert len(list(CachePath.glob("*.dll"))) == 2
 
 
 # each load must cross a fresh interpreter boundary without leaking a timed out child

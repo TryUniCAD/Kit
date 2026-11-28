@@ -1,0 +1,32 @@
+{
+  "attempted_phases": [
+    {
+      "numeric_checks": 0,
+      "passed": true,
+      "receipt_sha256": "d3f63616af867238cbc5fd62c0678959a1ae49ac90b714c089c243777cbc485d",
+      "role": "before",
+      "slot": null
+    },
+    {
+      "numeric_checks": 0,
+      "passed": true,
+      "receipt_sha256": "4d84b972341771d92cc415624188680d94a2089fe0f4218004821568d97e14c0",
+      "role": "after",
+      "slot": null
+    }
+  ],
+  "construction_revision": "e117feb05923400ff9178e47c69050180e9b738c",
+  "distinct_fresh_processes": 2,
+  "failure_sha256": "2f6c6e11aa3e9bf5d37468033da0a713a6b766b38926c8375f6a23e948e3390d",
+  "freeze_sha256": "45bdc4f1cd7d6181f1eb7b7a5d3eb8d0c817596e28cec2b58bdb92c798dbb3d3",
+  "fresh_lifetime_gate": false,
+  "healthy_controls": true,
+  "heldout_lifecycle_credit": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_idle_after": true,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": false,
+  "schema": "kit.sw2026.sealed-chamfer-native-result.v1",
+  "slots": [],
+  "source_lock_sha256": "71e701e7595d1bf7fbafef3cd1c9118eff2ab8386dee2b743c4bafe616a5b189"
+}

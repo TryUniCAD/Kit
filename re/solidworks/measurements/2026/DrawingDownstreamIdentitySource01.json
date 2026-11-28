@@ -1,0 +1,97 @@
+{
+  "base_revision": "0f571dad8f21624553aa6fef298d629d6b36e55e",
+  "complete_downstream_model_codec": false,
+  "delayed_kernel_import": {
+    "module": "PSKERNEL.dll",
+    "name": "PK_BODY_ask_edges",
+    "slot_index": 89
+  },
+  "fresh_downstream_writer_qualified": false,
+  "generated_native_files": 0,
+  "modules": [
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "base": "0x43740000",
+      "bytes": 10893912,
+      "name": "sldgcu.dll",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    {
+      "base": "0x32f70000",
+      "bytes": 1875032,
+      "name": "sldgciParau.dll",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    },
+    {
+      "base": "0x3cf80000",
+      "bytes": 4061272,
+      "name": "sldutu.dll",
+      "sha256": "dbc147c10b658544e44a7c13d3ae656c26a0778e9241fe74d6ca9ecae8730933"
+    },
+    {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  ],
+  "native_runs": 0,
+  "new_cad_payload_reads": 0,
+  "new_heldout_credit": 0,
+  "new_source_rules": [
+    "shared model-wide counter starts at one; first creation visits faces before edges",
+    "edge IDs are stored alongside actual moCompEdge references",
+    "DOWNSTREAM_EDGE_ID carries six typed i32 words, including FILETIME and model-owner hash",
+    "owner key is two UTF-16 polynomial hashes of a generated UUID string",
+    "rebuild tries stored semantic edge identity and retained native attribute before allocating a fresh ID",
+    "part edge enumeration preserves PK_BODY_ask_edges order"
+  ],
+  "passed": true,
+  "prior_measured_authorities": [
+    {
+      "bytes": 9034,
+      "path": "re/solidworks/measurements/2026/DrawingEdgeRailCorrelation01.json",
+      "sha256": "219c4e3f8709952267298a974c429411a872e6ea147681d5cd347ed05adebef6"
+    },
+    {
+      "bytes": 23302,
+      "path": "re/solidworks/measurements/2026/DrawingFrontDetailingMapOmission01.json",
+      "sha256": "e5a99b96ef4798a6afdf0ed97555a8e7c86b6df5093921af9c674bfead5f4070"
+    }
+  ],
+  "prior_native_counts_not_added_to_this_tranche": true,
+  "public_or_writer_behavior_changed": false,
+  "qualification": "source-and-module-identity-only",
+  "raw_source_verification_sha256": "e197716f95b7b1b868398edc4be1fb50744cdb6e3b8c48cb3d82c1c662d6658a",
+  "rea": {
+    "complete_body_unavailable_from_hopper_api": true,
+    "final_cleanup_pending": false,
+    "final_open": false,
+    "foreign_state_touched": false,
+    "full_evidence_private_only": true,
+    "get_edges_evidence_id": "ev_27eef1c01fbd650c6a5fbb7714cc161d5631de9cf3eb34dade52e5417ec7b646",
+    "inspect_native_instruction": "unsupported by this provider; exact thunk/import verified with original PE instead",
+    "original_pe_confirms_complete_body": true,
+    "owned_target_closed": true,
+    "procedure": "0x32fd8ed0",
+    "provider": "hopper",
+    "subject_sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+  },
+  "remaining_boundary": "neutral-to-kernel traversal order and complete downstream model serialization/qualification",
+  "schema": "kit.sw2026.drawing-downstream-source-measurement.v1",
+  "source_record_sha256": "b748b5d4146891d30b743e77d7044aee7de9405300f1a4101600fe2f9d783bf1",
+  "still_sealed_inputs_read": 0,
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "vendor_payload_or_code_published": false,
+  "verified_export_count": 11,
+  "verified_import_count": 8,
+  "verified_literal_count": 3,
+  "verified_module_count": 5,
+  "verified_range_count": 35,
+  "verifier_sha256": "d6a7c6d110394206aebd2c7df07ee9e15206be04ad61834acb30637a7eddc4ba"
+}

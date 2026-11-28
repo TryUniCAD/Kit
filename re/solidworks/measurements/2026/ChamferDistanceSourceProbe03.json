@@ -1,0 +1,101 @@
+{
+  "case_slots": [
+    1
+  ],
+  "cases": [
+    {
+      "case": "UnequalDistanceEdge",
+      "drivers": {
+        "first": [
+          "D1",
+          "DistancePairEdgeChamfer",
+          2,
+          0
+        ],
+        "second": [
+          "D3",
+          "DistancePairEdgeChamfer",
+          2,
+          0
+        ]
+      },
+      "edited_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+      "native_definition": {
+        "EqualDistance": false,
+        "GetEdgeCount": 1,
+        "GetFaceCount": 0,
+        "GetIsFlipped": false,
+        "KeepFeatures": false,
+        "LoopCount": 0,
+        "PropagateFeatureToParts": false,
+        "TangentPropagation": false,
+        "Type": 2,
+        "alternate_inputs": {
+          "faces": 0,
+          "loops": 0
+        },
+        "distance_by_side_m": [
+          0.004875,
+          0.008375
+        ]
+      },
+      "orientation": [
+        1
+      ],
+      "original_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6",
+      "passed": true,
+      "phases": [
+        {
+          "artifact_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6",
+          "first_failure": null,
+          "passed": true,
+          "phase": "author",
+          "record_sha256": "76de0851dc90c4b02de4d009a04d4a96fdb7ce74441d997d0a2ac38e010c39b3",
+          "return_code": 0
+        },
+        {
+          "artifact_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+          "first_failure": null,
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "afb7bdfe2b05458e22a10df7346717569af758fd197ad6d91db05f09a32f6943",
+          "return_code": 0
+        },
+        {
+          "artifact_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+          "first_failure": null,
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "211e0a6074d0a2baf6612aa173f432c5b6f6b7d143174e9dd0b60894bbf12fea",
+          "return_code": 0
+        }
+      ],
+      "snapshots": 4,
+      "tree_rows": 26
+    }
+  ],
+  "control_after": {
+    "artifact_sha256": null,
+    "first_failure": null,
+    "passed": true,
+    "phase": "control-after",
+    "record_sha256": "bcb94f1a289bd18f4cf02275b8fb6ea496b1f0fb611739a58ae53a0995fe3135",
+    "return_code": 0
+  },
+  "control_before": {
+    "artifact_sha256": null,
+    "first_failure": null,
+    "passed": true,
+    "phase": "control-before",
+    "record_sha256": "a4d7d75e87804bd43f74f0bdfddf58dd1a9bb70b22912e307597c5b37f52ef54",
+    "return_code": 0
+  },
+  "distinct_processes": 5,
+  "job_sha256": "4d04d391abccf892636287e7b7833e9d5fc1bca97ef591f874f32061a3ebb7f7",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "registered_api_sha256": "e0d6ab1ea4be499999d10f3e01480e50fd071f0f8f60bd83d9ae984da1d6594d",
+  "schema": "kit.sw2026.chamfer-distance-source-probe.v2",
+  "source_revision": "d8e700668c689f4a4073200278769fc148cad720"
+}

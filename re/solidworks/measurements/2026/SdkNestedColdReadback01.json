@@ -1,0 +1,1086 @@
+{
+  "authored_projection_sha256": "4a9df9873a2e98f88496bf0f0fb25a5188d2c162107ad00aa7da004002e459f8",
+  "cases": {
+    "SdkNestedNeutralNative03": {
+      "files": {
+        "SdkFrame.SLDASM": {
+          "active_config": {
+            "attributes": [
+              "native_configuration_id",
+              "native_object_id",
+              "native_properties"
+            ],
+            "name": "Default",
+            "native_id": 0,
+            "public_id": "sldprt:configuration:0"
+          },
+          "archived_file_key_sha256": "f06936fdda95758e4c2f04036ff04e8470f8c57d2258396e96a88c9bcfe29aa4",
+          "assembly": {
+            "declared_display_states": 0,
+            "definitions": [
+              {
+                "body_ids": [],
+                "bounded": true,
+                "caption": "SdkFrame",
+                "configuration_name": "Default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkFrame",
+                "file": "SdkFrame.SLDASM",
+                "holds_document": false,
+                "id": "frame",
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39"
+              },
+              {
+                "body_ids": [],
+                "bounded": true,
+                "caption": "SdkFrame",
+                "configuration_name": "Default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "embedded_assembly_occurrences": 1,
+                "embedded_deferred_definitions": 1,
+                "expected_caption": "SdkModule",
+                "file": "SdkModule.SLDASM",
+                "holds_document": true,
+                "id": "module",
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7"
+              },
+              {
+                "body_ids": [
+                  "sldprt:body:1"
+                ],
+                "bounded": false,
+                "caption": "SdkFrame",
+                "configuration_name": "modeled default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkNestedPlate",
+                "file": "SdkNestedPlate.SLDPRT",
+                "holds_document": true,
+                "id": "plate",
+                "leaf_guard": {
+                  "diagnostic": "configuration has unsupported inherited or extended state",
+                  "error": "ValueError"
+                },
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+              }
+            ],
+            "direct_occurrences": 1,
+            "expanded_depths": [
+              0,
+              1
+            ],
+            "mate_lists_bytes": [
+              6,
+              6
+            ],
+            "mesh_count": 0,
+            "nested_guard": {
+              "diagnostic": "assembly root contains unprojected model content",
+              "error": "ValueError"
+            },
+            "orders": {
+              "frame": {
+                "actual": [
+                  1
+                ],
+                "authored": [
+                  0
+                ]
+              },
+              "module": {
+                "actual": [
+                  0
+                ],
+                "authored": [
+                  0
+                ]
+              },
+              "plate": {
+                "actual": [],
+                "authored": []
+              }
+            },
+            "physical_direct_occurrences": [
+              {
+                "configuration": [
+                  0,
+                  "Default"
+                ],
+                "external_key_sha256": "fd35e23c0b527aabba22d7c72e1021c258595ccf7e928b869dd08119ace1d762",
+                "feature_id": 17,
+                "name": "SdkModule-1",
+                "pose_delta": 0.0,
+                "target": "SdkModule.SLDASM"
+              }
+            ],
+            "public_composed_pose_peak_delta": 0.0,
+            "public_local_pose_peak_delta": 0.0
+          },
+          "bytes": 9047,
+          "denied_access_attempts": 0,
+          "diagnostics": [
+            {
+              "code": "sldasm.native_record_unresolved",
+              "message": "native name records unavailable for 8:Lights and Cameras, 17:SdkModule-1"
+            }
+          ],
+          "document_title": null,
+          "file": "SdkFrame.SLDASM",
+          "frozen_data_reads": [
+            "SdkFrame.SLDASM",
+            "SdkModule.SLDASM",
+            "SdkNestedPlate.SLDPRT"
+          ],
+          "legacy_only_feature_ids": [
+            17
+          ],
+          "native_only_timeline_count": 17,
+          "native_tree": {
+            "diagnostic": "typed model expected concrete schema one moPart_c",
+            "status": "unqualified"
+          },
+          "native_tree_rows": 0,
+          "public_full_linked_graph_flag": false,
+          "retained_source_wrapper": true,
+          "sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39",
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "typed_feature_count": 16,
+          "typed_geometry_projection": false,
+          "typed_root_class": "moAssembly_c",
+          "typed_root_name": "SdkFrame",
+          "write_refusals": {
+            "explicit_internal_nested": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "explicit_public": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "implicit_public": {
+              "diagnostic": "no writer supports the destination",
+              "error": "AdapterNotFoundError"
+            }
+          }
+        },
+        "SdkModule.SLDASM": {
+          "active_config": {
+            "attributes": [
+              "native_configuration_id",
+              "native_object_id",
+              "native_properties"
+            ],
+            "name": "Default",
+            "native_id": 0,
+            "public_id": "sldprt:configuration:0"
+          },
+          "archived_file_key_sha256": "fd35e23c0b527aabba22d7c72e1021c258595ccf7e928b869dd08119ace1d762",
+          "assembly": {
+            "declared_display_states": 0,
+            "definitions": [
+              {
+                "body_ids": [],
+                "bounded": true,
+                "caption": "SdkModule",
+                "configuration_name": "Default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkModule",
+                "file": "SdkModule.SLDASM",
+                "holds_document": false,
+                "id": "module",
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7"
+              },
+              {
+                "body_ids": [
+                  "sldprt:body:1"
+                ],
+                "bounded": false,
+                "caption": "SdkNestedPlate",
+                "configuration_name": "modeled default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkNestedPlate",
+                "file": "SdkNestedPlate.SLDPRT",
+                "holds_document": true,
+                "id": "plate",
+                "leaf_guard": {
+                  "diagnostic": "configuration has unsupported inherited or extended state",
+                  "error": "ValueError"
+                },
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+              }
+            ],
+            "direct_occurrences": 1,
+            "expanded_depths": [
+              0
+            ],
+            "mate_lists_bytes": [
+              6
+            ],
+            "mesh_count": 0,
+            "nested_guard": {
+              "diagnostic": "assembly root contains unprojected model content",
+              "error": "ValueError"
+            },
+            "orders": {
+              "module": {
+                "actual": [
+                  0
+                ],
+                "authored": [
+                  0
+                ]
+              },
+              "plate": {
+                "actual": [],
+                "authored": []
+              }
+            },
+            "physical_direct_occurrences": [
+              {
+                "configuration": [
+                  0,
+                  "modeled default"
+                ],
+                "external_key_sha256": "dba37653c3e7c8b3eb3bbf5ec0ea6196f1d3a894c4341437928117de2116d776",
+                "feature_id": 17,
+                "name": "SdkNestedPlate-1",
+                "pose_delta": 0.0,
+                "target": "SdkNestedPlate.SLDPRT"
+              }
+            ],
+            "public_composed_pose_peak_delta": 0.0,
+            "public_local_pose_peak_delta": 0.0
+          },
+          "bytes": 8827,
+          "denied_access_attempts": 0,
+          "diagnostics": [
+            {
+              "code": "sldasm.native_record_unresolved",
+              "message": "native name records unavailable for 8:Lights and Cameras, 17:SdkNestedPlate-1"
+            }
+          ],
+          "document_title": null,
+          "file": "SdkModule.SLDASM",
+          "frozen_data_reads": [
+            "SdkModule.SLDASM",
+            "SdkNestedPlate.SLDPRT"
+          ],
+          "legacy_only_feature_ids": [
+            17
+          ],
+          "native_only_timeline_count": 17,
+          "native_tree": {
+            "diagnostic": "typed model expected concrete schema one moPart_c",
+            "status": "unqualified"
+          },
+          "native_tree_rows": 0,
+          "public_full_linked_graph_flag": false,
+          "retained_source_wrapper": true,
+          "sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7",
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "typed_feature_count": 16,
+          "typed_geometry_projection": false,
+          "typed_root_class": "moAssembly_c",
+          "typed_root_name": "SdkModule",
+          "write_refusals": {
+            "explicit_internal_nested": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "explicit_public": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "implicit_public": {
+              "diagnostic": "no writer supports the destination",
+              "error": "AdapterNotFoundError"
+            }
+          }
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "active_config": {
+            "attributes": [
+              "native_configuration_id",
+              "native_object_id",
+              "native_properties"
+            ],
+            "name": "modeled default",
+            "native_id": 0,
+            "public_id": "sldprt:configuration:0"
+          },
+          "archived_file_key_sha256": "dba37653c3e7c8b3eb3bbf5ec0ea6196f1d3a894c4341437928117de2116d776",
+          "bytes": 8192,
+          "denied_access_attempts": 0,
+          "diagnostics": [
+            {
+              "code": "sldprt.native_record_unresolved",
+              "message": "native name records unavailable for 9:Lights and Cameras"
+            },
+            {
+              "code": "sldprt.brep_reconstructed",
+              "message": "B-rep reconstructed from the complete typed ordinary rectangular prism history"
+            }
+          ],
+          "document_title": null,
+          "file": "SdkNestedPlate.SLDPRT",
+          "frozen_data_reads": [
+            "SdkNestedPlate.SLDPRT"
+          ],
+          "legacy_only_feature_ids": [],
+          "native_only_timeline_count": 18,
+          "native_tree": {
+            "full_native_tree_qualified": false,
+            "status": "ordinary_default_profile"
+          },
+          "native_tree_rows": 25,
+          "part": {
+            "area_mm2": 1607.3550000000002,
+            "authored_body_caption": "Boss-Extrude1",
+            "authored_operation": "create",
+            "body_caption": "Solid Bodies",
+            "body_id": "sldprt:body:1",
+            "bounds_mm": [
+              -14.325,
+              -8.175000000000002,
+              0.0,
+              14.325,
+              8.175000000000002,
+              7.45
+            ],
+            "brep_design_body_id": "sldprt:body:1",
+            "constraints": 0,
+            "depth_mm": 7.45,
+            "driving_parameter": "D1",
+            "end_condition": "blind",
+            "feature": "Boss-Extrude1",
+            "guards": {
+              "actual_boss_operation": {
+                "diagnostic": "ordinary extrusion requires its actual operation definition",
+                "error": "ValueError"
+              },
+              "blind_projection": {
+                "diagnostic": "plain boss candidate does not admit assemblies drawings or native boundary payloads",
+                "error": "ValueError"
+              },
+              "plain_planner": {
+                "diagnostic": "plain part preparation does not admit unresolved or extended source state",
+                "error": "ValueError"
+              }
+            },
+            "lines": 4,
+            "peak_line_coordinate_delta_mm": 1.7763568394002505e-15,
+            "profile": "Sketch1",
+            "read_operation": "join",
+            "support": "Front Plane",
+            "topology": [
+              1,
+              1,
+              6,
+              12,
+              8
+            ],
+            "volume_mm3": 3489.784875000001
+          },
+          "public_full_linked_graph_flag": false,
+          "retained_source_wrapper": true,
+          "sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39",
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "typed_feature_count": 19,
+          "typed_geometry_projection": true,
+          "typed_root_class": "moPart_c",
+          "typed_root_name": "SdkNestedPlate",
+          "write_refusals": {
+            "explicit_public": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "implicit_public": {
+              "diagnostic": "no writer supports the destination",
+              "error": "AdapterNotFoundError"
+            }
+          }
+        }
+      },
+      "files_unchanged": true,
+      "fixture_sha256": "d4bc3491fe62d251de31701f8fe1b645f996791b75e5211a7786efb9139307bf",
+      "native_prior_result_sha256": "bcc4e421981553c488cf4638e50342ae74c65544f60cee265493fd464eb016e8",
+      "request_sha256": "8afa7d0ebb29ab538788df53e847468217e0d3e7f5f575f8f8c622f02dd126b3"
+    },
+    "SdkRepeatedNeutralNative03": {
+      "files": {
+        "SdkFrame.SLDASM": {
+          "active_config": {
+            "attributes": [
+              "native_configuration_id",
+              "native_object_id",
+              "native_properties"
+            ],
+            "name": "Default",
+            "native_id": 0,
+            "public_id": "sldprt:configuration:0"
+          },
+          "archived_file_key_sha256": "ad2f88d7f2bc46498779861fc8ddee7f612183df9c858484c5b6ba9daa1536e5",
+          "assembly": {
+            "declared_display_states": 0,
+            "definitions": [
+              {
+                "body_ids": [],
+                "bounded": true,
+                "caption": "SdkFrame",
+                "configuration_name": "Default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkFrame",
+                "file": "SdkFrame.SLDASM",
+                "holds_document": false,
+                "id": "frame",
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10"
+              },
+              {
+                "body_ids": [
+                  "sldprt:body:1"
+                ],
+                "bounded": false,
+                "caption": "SdkFrame",
+                "configuration_name": "modeled default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkGaugePlate",
+                "file": "SdkGaugePlate.SLDPRT",
+                "holds_document": true,
+                "id": "gauge",
+                "leaf_guard": {
+                  "diagnostic": "configuration has unsupported inherited or extended state",
+                  "error": "ValueError"
+                },
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173"
+              },
+              {
+                "body_ids": [],
+                "bounded": true,
+                "caption": "SdkFrame",
+                "configuration_name": "Default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "embedded_assembly_occurrences": 2,
+                "embedded_deferred_definitions": 1,
+                "expected_caption": "SdkModule",
+                "file": "SdkModule.SLDASM",
+                "holds_document": true,
+                "id": "module",
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490"
+              },
+              {
+                "body_ids": [
+                  "sldprt:body:1"
+                ],
+                "bounded": false,
+                "caption": "SdkFrame",
+                "configuration_name": "modeled default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkNestedPlate",
+                "file": "SdkNestedPlate.SLDPRT",
+                "holds_document": true,
+                "id": "plate",
+                "leaf_guard": {
+                  "diagnostic": "configuration has unsupported inherited or extended state",
+                  "error": "ValueError"
+                },
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+              }
+            ],
+            "direct_occurrences": 3,
+            "expanded_depths": [
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0
+            ],
+            "mate_lists_bytes": [
+              6,
+              6
+            ],
+            "mesh_count": 0,
+            "nested_guard": {
+              "diagnostic": "assembly root contains unprojected model content",
+              "error": "ValueError"
+            },
+            "orders": {
+              "frame": {
+                "actual": [
+                  2,
+                  3,
+                  4
+                ],
+                "authored": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "gauge": {
+                "actual": [],
+                "authored": []
+              },
+              "module": {
+                "actual": [
+                  0,
+                  1
+                ],
+                "authored": [
+                  0,
+                  1
+                ]
+              },
+              "plate": {
+                "actual": [],
+                "authored": []
+              }
+            },
+            "physical_direct_occurrences": [
+              {
+                "configuration": [
+                  0,
+                  "Default"
+                ],
+                "external_key_sha256": "b3e1aa1657cec1abb379ef5d24dc21eb0ede9ef2293cabbc61b3789d45d94172",
+                "feature_id": 17,
+                "name": "SdkModule-1",
+                "pose_delta": 0.0,
+                "target": "SdkModule.SLDASM"
+              },
+              {
+                "configuration": [
+                  0,
+                  "Default"
+                ],
+                "external_key_sha256": "b3e1aa1657cec1abb379ef5d24dc21eb0ede9ef2293cabbc61b3789d45d94172",
+                "feature_id": 18,
+                "name": "SdkModule-2",
+                "pose_delta": 0.0,
+                "target": "SdkModule.SLDASM"
+              },
+              {
+                "configuration": [
+                  0,
+                  "modeled default"
+                ],
+                "external_key_sha256": "7ea6766ad5d341d91ac7b9b34cd47c5ab678add92f187b97c64951bdca8c856e",
+                "feature_id": 19,
+                "name": "SdkGaugePlate-1",
+                "pose_delta": 0.0,
+                "target": "SdkGaugePlate.SLDPRT"
+              }
+            ],
+            "public_composed_pose_peak_delta": 5.551115123125783e-17,
+            "public_local_pose_peak_delta": 5.551115123125783e-17
+          },
+          "bytes": 9854,
+          "denied_access_attempts": 0,
+          "diagnostics": [
+            {
+              "code": "sldasm.native_record_unresolved",
+              "message": "native name records unavailable for 8:Lights and Cameras, 17:SdkModule-1, 18:SdkModule-2"
+            }
+          ],
+          "document_title": null,
+          "file": "SdkFrame.SLDASM",
+          "frozen_data_reads": [
+            "SdkFrame.SLDASM",
+            "SdkGaugePlate.SLDPRT",
+            "SdkModule.SLDASM",
+            "SdkNestedPlate.SLDPRT"
+          ],
+          "legacy_only_feature_ids": [
+            17,
+            18,
+            19
+          ],
+          "native_only_timeline_count": 19,
+          "native_tree": {
+            "diagnostic": "typed model expected concrete schema one moPart_c",
+            "status": "unqualified"
+          },
+          "native_tree_rows": 0,
+          "public_full_linked_graph_flag": false,
+          "retained_source_wrapper": true,
+          "sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10",
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "typed_feature_count": 16,
+          "typed_geometry_projection": false,
+          "typed_root_class": "moAssembly_c",
+          "typed_root_name": "SdkFrame",
+          "write_refusals": {
+            "explicit_internal_nested": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "explicit_public": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "implicit_public": {
+              "diagnostic": "no writer supports the destination",
+              "error": "AdapterNotFoundError"
+            }
+          }
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "active_config": {
+            "attributes": [
+              "native_configuration_id",
+              "native_object_id",
+              "native_properties"
+            ],
+            "name": "modeled default",
+            "native_id": 0,
+            "public_id": "sldprt:configuration:0"
+          },
+          "archived_file_key_sha256": "7ea6766ad5d341d91ac7b9b34cd47c5ab678add92f187b97c64951bdca8c856e",
+          "bytes": 8198,
+          "denied_access_attempts": 0,
+          "diagnostics": [
+            {
+              "code": "sldprt.native_record_unresolved",
+              "message": "native name records unavailable for 9:Lights and Cameras"
+            },
+            {
+              "code": "sldprt.brep_reconstructed",
+              "message": "B-rep reconstructed from the complete typed ordinary rectangular prism history"
+            }
+          ],
+          "document_title": null,
+          "file": "SdkGaugePlate.SLDPRT",
+          "frozen_data_reads": [
+            "SdkGaugePlate.SLDPRT"
+          ],
+          "legacy_only_feature_ids": [],
+          "native_only_timeline_count": 18,
+          "native_tree": {
+            "full_native_tree_qualified": false,
+            "status": "ordinary_default_profile"
+          },
+          "native_tree_rows": 25,
+          "part": {
+            "area_mm2": 1888.555,
+            "authored_body_caption": "Boss-Extrude1",
+            "authored_operation": "create",
+            "body_caption": "Solid Bodies",
+            "body_id": "sldprt:body:1",
+            "bounds_mm": [
+              -9.575,
+              -12.275,
+              0.0,
+              9.575,
+              12.275,
+              10.85
+            ],
+            "brep_design_body_id": "sldprt:body:1",
+            "constraints": 0,
+            "depth_mm": 10.85,
+            "driving_parameter": "D1",
+            "end_condition": "blind",
+            "feature": "Boss-Extrude1",
+            "guards": {
+              "actual_boss_operation": {
+                "diagnostic": "ordinary extrusion requires its actual operation definition",
+                "error": "ValueError"
+              },
+              "blind_projection": {
+                "diagnostic": "plain boss candidate does not admit assemblies drawings or native boundary payloads",
+                "error": "ValueError"
+              },
+              "plain_planner": {
+                "diagnostic": "plain part preparation does not admit unresolved or extended source state",
+                "error": "ValueError"
+              }
+            },
+            "lines": 4,
+            "peak_line_coordinate_delta_mm": 0.0,
+            "profile": "Sketch1",
+            "read_operation": "join",
+            "support": "Front Plane",
+            "topology": [
+              1,
+              1,
+              6,
+              12,
+              8
+            ],
+            "volume_mm3": 5100.937625
+          },
+          "public_full_linked_graph_flag": false,
+          "retained_source_wrapper": true,
+          "sha256": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173",
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "typed_feature_count": 19,
+          "typed_geometry_projection": true,
+          "typed_root_class": "moPart_c",
+          "typed_root_name": "SdkGaugePlate",
+          "write_refusals": {
+            "explicit_public": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "implicit_public": {
+              "diagnostic": "no writer supports the destination",
+              "error": "AdapterNotFoundError"
+            }
+          }
+        },
+        "SdkModule.SLDASM": {
+          "active_config": {
+            "attributes": [
+              "native_configuration_id",
+              "native_object_id",
+              "native_properties"
+            ],
+            "name": "Default",
+            "native_id": 0,
+            "public_id": "sldprt:configuration:0"
+          },
+          "archived_file_key_sha256": "b3e1aa1657cec1abb379ef5d24dc21eb0ede9ef2293cabbc61b3789d45d94172",
+          "assembly": {
+            "declared_display_states": 0,
+            "definitions": [
+              {
+                "body_ids": [],
+                "bounded": true,
+                "caption": "SdkModule",
+                "configuration_name": "Default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkModule",
+                "file": "SdkModule.SLDASM",
+                "holds_document": false,
+                "id": "module",
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490"
+              },
+              {
+                "body_ids": [
+                  "sldprt:body:1"
+                ],
+                "bounded": false,
+                "caption": "SdkNestedPlate",
+                "configuration_name": "modeled default",
+                "definition_guard": {
+                  "diagnostic": "definition has unsupported cached geometry or external source references",
+                  "error": "ValueError"
+                },
+                "expected_caption": "SdkNestedPlate",
+                "file": "SdkNestedPlate.SLDPRT",
+                "holds_document": true,
+                "id": "plate",
+                "leaf_guard": {
+                  "diagnostic": "configuration has unsupported inherited or extended state",
+                  "error": "ValueError"
+                },
+                "linked_typed_config_id": "sldprt:configuration:0",
+                "provenance": true,
+                "raw_config_id": "0",
+                "source_sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+              }
+            ],
+            "direct_occurrences": 2,
+            "expanded_depths": [
+              0,
+              0
+            ],
+            "mate_lists_bytes": [
+              6
+            ],
+            "mesh_count": 0,
+            "nested_guard": {
+              "diagnostic": "assembly root contains unprojected model content",
+              "error": "ValueError"
+            },
+            "orders": {
+              "module": {
+                "actual": [
+                  0,
+                  1
+                ],
+                "authored": [
+                  0,
+                  1
+                ]
+              },
+              "plate": {
+                "actual": [],
+                "authored": []
+              }
+            },
+            "physical_direct_occurrences": [
+              {
+                "configuration": [
+                  0,
+                  "modeled default"
+                ],
+                "external_key_sha256": "e6f7ec654537757ef922aae0e745ce9f0ec632c89568db972e7b23eca545d714",
+                "feature_id": 17,
+                "name": "SdkNestedPlate-1",
+                "pose_delta": 0.0,
+                "target": "SdkNestedPlate.SLDPRT"
+              },
+              {
+                "configuration": [
+                  0,
+                  "modeled default"
+                ],
+                "external_key_sha256": "e6f7ec654537757ef922aae0e745ce9f0ec632c89568db972e7b23eca545d714",
+                "feature_id": 18,
+                "name": "SdkNestedPlate-2",
+                "pose_delta": 0.0,
+                "target": "SdkNestedPlate.SLDPRT"
+              }
+            ],
+            "public_composed_pose_peak_delta": 0.0,
+            "public_local_pose_peak_delta": 0.0
+          },
+          "bytes": 9125,
+          "denied_access_attempts": 0,
+          "diagnostics": [
+            {
+              "code": "sldasm.native_record_unresolved",
+              "message": "native name records unavailable for 8:Lights and Cameras, 17:SdkNestedPlate-1, 18:SdkNestedPlate-2"
+            }
+          ],
+          "document_title": null,
+          "file": "SdkModule.SLDASM",
+          "frozen_data_reads": [
+            "SdkModule.SLDASM",
+            "SdkNestedPlate.SLDPRT"
+          ],
+          "legacy_only_feature_ids": [
+            17,
+            18
+          ],
+          "native_only_timeline_count": 18,
+          "native_tree": {
+            "diagnostic": "typed model expected concrete schema one moPart_c",
+            "status": "unqualified"
+          },
+          "native_tree_rows": 0,
+          "public_full_linked_graph_flag": false,
+          "retained_source_wrapper": true,
+          "sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490",
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "typed_feature_count": 16,
+          "typed_geometry_projection": false,
+          "typed_root_class": "moAssembly_c",
+          "typed_root_name": "SdkModule",
+          "write_refusals": {
+            "explicit_internal_nested": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "explicit_public": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "implicit_public": {
+              "diagnostic": "no writer supports the destination",
+              "error": "AdapterNotFoundError"
+            }
+          }
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "active_config": {
+            "attributes": [
+              "native_configuration_id",
+              "native_object_id",
+              "native_properties"
+            ],
+            "name": "modeled default",
+            "native_id": 0,
+            "public_id": "sldprt:configuration:0"
+          },
+          "archived_file_key_sha256": "e6f7ec654537757ef922aae0e745ce9f0ec632c89568db972e7b23eca545d714",
+          "bytes": 8203,
+          "denied_access_attempts": 0,
+          "diagnostics": [
+            {
+              "code": "sldprt.native_record_unresolved",
+              "message": "native name records unavailable for 9:Lights and Cameras"
+            },
+            {
+              "code": "sldprt.brep_reconstructed",
+              "message": "B-rep reconstructed from the complete typed ordinary rectangular prism history"
+            }
+          ],
+          "document_title": null,
+          "file": "SdkNestedPlate.SLDPRT",
+          "frozen_data_reads": [
+            "SdkNestedPlate.SLDPRT"
+          ],
+          "legacy_only_feature_ids": [],
+          "native_only_timeline_count": 18,
+          "native_tree": {
+            "full_native_tree_qualified": false,
+            "status": "ordinary_default_profile"
+          },
+          "native_tree_rows": 25,
+          "part": {
+            "area_mm2": 1607.3550000000002,
+            "authored_body_caption": "Boss-Extrude1",
+            "authored_operation": "create",
+            "body_caption": "Solid Bodies",
+            "body_id": "sldprt:body:1",
+            "bounds_mm": [
+              -14.325,
+              -8.175000000000002,
+              0.0,
+              14.325,
+              8.175000000000002,
+              7.45
+            ],
+            "brep_design_body_id": "sldprt:body:1",
+            "constraints": 0,
+            "depth_mm": 7.45,
+            "driving_parameter": "D1",
+            "end_condition": "blind",
+            "feature": "Boss-Extrude1",
+            "guards": {
+              "actual_boss_operation": {
+                "diagnostic": "ordinary extrusion requires its actual operation definition",
+                "error": "ValueError"
+              },
+              "blind_projection": {
+                "diagnostic": "plain boss candidate does not admit assemblies drawings or native boundary payloads",
+                "error": "ValueError"
+              },
+              "plain_planner": {
+                "diagnostic": "plain part preparation does not admit unresolved or extended source state",
+                "error": "ValueError"
+              }
+            },
+            "lines": 4,
+            "peak_line_coordinate_delta_mm": 1.7763568394002505e-15,
+            "profile": "Sketch1",
+            "read_operation": "join",
+            "support": "Front Plane",
+            "topology": [
+              1,
+              1,
+              6,
+              12,
+              8
+            ],
+            "volume_mm3": 3489.784875000001
+          },
+          "public_full_linked_graph_flag": false,
+          "retained_source_wrapper": true,
+          "sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b",
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "typed_feature_count": 19,
+          "typed_geometry_projection": true,
+          "typed_root_class": "moPart_c",
+          "typed_root_name": "SdkNestedPlate",
+          "write_refusals": {
+            "explicit_public": {
+              "diagnostic": "native-only feature definitions cannot be exported:",
+              "error": "ValueError"
+            },
+            "implicit_public": {
+              "diagnostic": "no writer supports the destination",
+              "error": "AdapterNotFoundError"
+            }
+          }
+        }
+      },
+      "files_unchanged": true,
+      "fixture_sha256": "f97f9289a07a9482d017b6537dbbde27def4df2157115e09b0a712426f9258b4",
+      "native_prior_result_sha256": "9dfda9928f350c7b4a4e4a8b4455dff1712ab30c34fbb403b75671b080b4d0a1",
+      "request_sha256": "a06ccc7b93b23c599857508f2a48fcaa9c554056329fc62e5259687b01394a58"
+    }
+  },
+  "fresh_sdk_processes": 7,
+  "native_processes_started": 0,
+  "native_to_native_reexport_qualified": false,
+  "prior_measurement_sha256": "aa786c6aa4bc7bdae15662c4b4908205b7a0fda7fdb5bb1bb503594a6b0fb967",
+  "private_inputs_opened": 0,
+  "reader_revision": "bd835aab5fc01426976b2e2792129d806116dfc9",
+  "same_format_outputs": 0,
+  "schema": "kit.sw2026.nested-cold-readback.v1",
+  "source_tree": "a207312f5b355adf422edcec68a0fd9f260c5397",
+  "tool_sha256": "b7c3bf3f0018e6d8685bfea44179b047e94e3ae57fa2407f298541e84ea90d2d"
+}

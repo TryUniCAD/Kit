@@ -83,6 +83,10 @@ def InferCaps(
             DefinitionValue.source_path
             for AssemblyValue in AssemblyValues
             for DefinitionValue in AssemblyValue.definitions
+        )
+        or any(
+            ItemValue.DrawingValue is not None and ItemValue.DrawingValue.ModelRefs
+            for ItemValue in DocumentValues
         ),
         Capability.KMaterials: any(ItemValue.materials for ItemValue in DocumentValues)
         or any(

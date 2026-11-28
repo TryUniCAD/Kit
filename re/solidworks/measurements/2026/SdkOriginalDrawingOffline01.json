@@ -1,0 +1,17 @@
+{
+  "schema": "kit.sw2026.sdk-original-drawing-offline-receipt.v1",
+  "outcome": "complete source admission failed; partial geometry builds passed",
+  "evidence": "re/solidworks/records/SdkOriginalDrawingAdmission2026.json",
+  "evidence_sha256": "b576f8198c5966046f0a34f92689197e8c2bd8ec6d1767d46b11b46bb3092e65",
+  "writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "guarded_geometry_workers": 6,
+  "geometry_builds_passed": true,
+  "original_complete_semantics_passed": false,
+  "heldout_acceptance": false,
+  "native_execution": false,
+  "native_acceptance": false,
+  "vendor_loadable": false,
+  "application_usable": false,
+  "original_observations_read": false,
+  "native_packet_sha256": "cc970ee5951921b6e4f489e5b32faff568ec189d399e8a61b82f88be71f3fc7a"
+}

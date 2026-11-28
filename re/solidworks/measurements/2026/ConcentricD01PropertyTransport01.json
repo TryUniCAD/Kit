@@ -1,0 +1,557 @@
+{
+  "base": "4f7ce7b398c7e2493f8fa4351190e30e41a7bc45",
+  "disclosed_sources": {
+    "D01": {
+      "Edited": {
+        "application_fields": {
+          "application_characters": 10,
+          "company_characters": 40,
+          "edit_minutes": 1526,
+          "template_characters": 11,
+          "version": "23.0000"
+        },
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          }
+        },
+        "source_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      },
+      "Source": {
+        "application_fields": {
+          "application_characters": 10,
+          "company_characters": 40,
+          "edit_minutes": 1526,
+          "template_characters": 11,
+          "version": "23.0000"
+        },
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          }
+        },
+        "source_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      }
+    },
+    "D02": {
+      "Edited": {
+        "application_fields": {
+          "application_characters": 10,
+          "company_characters": 40,
+          "edit_minutes": 1526,
+          "template_characters": 11,
+          "version": "23.0000"
+        },
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          }
+        },
+        "source_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      },
+      "Source": {
+        "application_fields": {
+          "application_characters": 10,
+          "company_characters": 40,
+          "edit_minutes": 1526,
+          "template_characters": 11,
+          "version": "23.0000"
+        },
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          }
+        },
+        "source_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      }
+    },
+    "D03": {
+      "Edited": {
+        "application_fields": {
+          "application_characters": 10,
+          "company_characters": 40,
+          "edit_minutes": 1526,
+          "template_characters": 11,
+          "version": "23.0000"
+        },
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          }
+        },
+        "source_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      },
+      "Source": {
+        "application_fields": {
+          "application_characters": 10,
+          "company_characters": 40,
+          "edit_minutes": 1526,
+          "template_characters": 11,
+          "version": "23.0000"
+        },
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          }
+        },
+        "source_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      }
+    }
+  },
+  "generated": {
+    "actual_mate": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.04690999999999999
+        ],
+        [
+          0.0,
+          -0.04691000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        150,
+        203
+      ],
+      "mate_bytes": 3596,
+      "mate_sha256": "217f18c6b94af88cb0cbf577ed3fc5e09fffd2d8ba2e2c24397b216ef0b83a59",
+      "occurrence_names": [
+        "ConcentricD01Child-1",
+        "ConcentricD01Child-2"
+      ],
+      "occurrences": [
+        24,
+        25
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.03126999999999999,
+          0.26817
+        ]
+      ]
+    },
+    "authored_contrasts": {
+      "all_three": {
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 566,
+            "sha256": "7cd6d95a7d57dea9dce1baaaa4f813189194d68e7a88822965420506580047dc"
+          }
+        },
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      },
+      "application_and_core": {
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 431,
+            "sha256": "2994d7728fea6ea1a6487dfdd4eb4d59c213082beb073fada3ebdd60c15282c9"
+          },
+          "_rels/.rels": {
+            "bytes": 450,
+            "sha256": "6885ff412fda4edb8d77ac4cac68c0bd8355e49e6244b41bab64e971c350f8a6"
+          },
+          "docProps/app.xml": {
+            "bytes": 566,
+            "sha256": "7cd6d95a7d57dea9dce1baaaa4f813189194d68e7a88822965420506580047dc"
+          }
+        },
+        "targets": [
+          "docProps/app.xml",
+          "docProps/core.xml"
+        ]
+      },
+      "application_only": {
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 317,
+            "sha256": "2ad03ee14cb691e0a167151cbc85a1c7572464ed6eb6c136b57e4254014cb7fc"
+          },
+          "_rels/.rels": {
+            "bytes": 305,
+            "sha256": "799d2bcf4c683e7f14ecdc20d163395d14e74a84ecfb00f2bf1d25899a1b6d08"
+          },
+          "docProps/app.xml": {
+            "bytes": 529,
+            "sha256": "a204ef2a07d63e49faa458ef287dd708fa4414cd23cb2e3fd7a4f91c24eb63cf"
+          }
+        },
+        "targets": [
+          "docProps/app.xml"
+        ]
+      },
+      "full_app_only_change": {
+        "scope_streams": {
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/app.xml": {
+            "bytes": 566,
+            "sha256": "7cd6d95a7d57dea9dce1baaaa4f813189194d68e7a88822965420506580047dc"
+          }
+        }
+      }
+    },
+    "baseline_parent_sha256": "788755fe167bc6c125794b7dc668587909d319397cf580c226a9e5425e8e2609",
+    "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+    "ordinary_streams_unchanged": 21,
+    "parent_bytes": 15269,
+    "parent_sha256": "5317e0609a204953208d2ca0059ead999f91125e37314de4915dc13af7a836e9",
+    "parent_streams": [
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/User Units Table",
+      "Header2",
+      "ModelStamps",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_19000/DLUpdateStamp",
+      "_MO_VERSION_19000/Biography",
+      "_MO_VERSION_19000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "refusals": {
+      "crossed_relation_id": "property package index differs from its actual typed targets or declarations",
+      "duplicate_transport": "property transport already has an emitted stream",
+      "foreign_type_decl": "property package index differs from its actual typed targets or declarations",
+      "invalid_edit_minutes": "application edit time requires nonnegative whole minutes",
+      "missing_target": "property package index differs from its actual typed targets or declarations",
+      "unsupported_shared_state": "unsupported extended property security or shared-link state"
+    },
+    "runtime_external_accesses": 0,
+    "targets": [
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml"
+    ],
+    "transport_streams": {
+      "[Content_Types].xml": {
+        "bytes": 556,
+        "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+      },
+      "_rels/.rels": {
+        "bytes": 597,
+        "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+      },
+      "docProps/app.xml": {
+        "bytes": 535,
+        "sha256": "c59319fedc03d2e7a910fcf4a899ac63f57a7402d5763c52e67452116f02a64e"
+      }
+    },
+    "unrepresented_source_streams": [
+      "Contents/3DExperienceExchange2",
+      "Contents/3DExperienceExchange_ConfigHeader",
+      "Contents/Config-0-Attachment",
+      "Contents/Config-0-LWDATA",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/eModelLic",
+      "FaceTessellations/000-000-002",
+      "FaceTessellations/Directory",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPty/CM_MOTION_LOAD_1",
+      "ThirdPty/SWA_Schedules",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml"
+    ]
+  },
+  "guarded_generated_workers": 2,
+  "heldout_accesses": 0,
+  "independent_assembly_controls": {
+    "A0_one.SLDASM": {
+      "application_fields": {
+        "application_characters": 10,
+        "company_characters": 40,
+        "edit_minutes": 1526,
+        "template_characters": 11,
+        "version": "23.0000"
+      },
+      "scope_streams": {
+        "[Content_Types].xml": {
+          "bytes": 556,
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+        },
+        "_rels/.rels": {
+          "bytes": 597,
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+        },
+        "docProps/app.xml": {
+          "bytes": 570,
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+        }
+      },
+      "source_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "targets": [
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml"
+      ]
+    },
+    "A13SyncedSingle.SLDASM": {
+      "application_fields": {
+        "application_characters": 10,
+        "company_characters": 40,
+        "edit_minutes": 1526,
+        "template_characters": 11,
+        "version": "23.0000"
+      },
+      "scope_streams": {
+        "[Content_Types].xml": {
+          "bytes": 556,
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+        },
+        "_rels/.rels": {
+          "bytes": 597,
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+        },
+        "docProps/app.xml": {
+          "bytes": 570,
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+        }
+      },
+      "source_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "targets": [
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml"
+      ]
+    },
+    "A14SyncedRepeat.SLDASM": {
+      "application_fields": {
+        "application_characters": 10,
+        "company_characters": 40,
+        "edit_minutes": 1526,
+        "template_characters": 11,
+        "version": "23.0000"
+      },
+      "scope_streams": {
+        "[Content_Types].xml": {
+          "bytes": 556,
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+        },
+        "_rels/.rels": {
+          "bytes": 597,
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+        },
+        "docProps/app.xml": {
+          "bytes": 570,
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+        }
+      },
+      "source_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "targets": [
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml"
+      ]
+    },
+    "A1_two.SLDASM": {
+      "application_fields": {
+        "application_characters": 10,
+        "company_characters": 40,
+        "edit_minutes": 1526,
+        "template_characters": 11,
+        "version": "23.0000"
+      },
+      "scope_streams": {
+        "[Content_Types].xml": {
+          "bytes": 556,
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+        },
+        "_rels/.rels": {
+          "bytes": 597,
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+        },
+        "docProps/app.xml": {
+          "bytes": 570,
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+        }
+      },
+      "source_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "targets": [
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml"
+      ]
+    }
+  },
+  "native_probes": 0,
+  "neutral_request_sha256": "8b43f1aff13ffbe910d9361761a074f6aca3c8c40abd1a3f3e2a3110b956c650",
+  "prior_receipt_sha256": "d28682ed658e02680583ae378181ee096d167edead5ebbf1568e954369587aa1",
+  "public_publication": false,
+  "schema": "kit.sw2026.disclosed-d01-property-transport.v1",
+  "source_original_refusal": "assembly root contains unprojected model content",
+  "source_sha256": {
+    "re/tooling/sw2026/para/concentric/AssemblyPropertyTransport.py": "35a7d4bdd3a224f7e389d387146c9f224f49f7c7466d862ec944cc585e995d2a",
+    "re/tooling/sw2026/para/concentric/ProveD01PropertyTransport.py": "d496f6f2a221df5ff9181e938aab258e119ac66648bbd757fcd7f46aaf79e189"
+  },
+  "whole_source_admitted": false
+}

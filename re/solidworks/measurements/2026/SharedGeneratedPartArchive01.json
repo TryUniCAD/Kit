@@ -1,0 +1,86 @@
+{
+  "exact_containers": 10,
+  "exact_logical_streams": 120,
+  "import_constructions": {
+    "ConcaveBare": {
+      "candidate_bytes": 10459,
+      "candidate_sha256": "21867dbe53b94bbfadfc343ed47f8ca3b0af1fb30114f3a921f730c84f087429",
+      "exact_streams": 12
+    },
+    "ConcaveOwned": {
+      "candidate_bytes": 10890,
+      "candidate_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "exact_streams": 12
+    },
+    "RectangularBare": {
+      "candidate_bytes": 9914,
+      "candidate_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357",
+      "exact_streams": 12
+    },
+    "RectangularOwned": {
+      "candidate_bytes": 10341,
+      "candidate_sha256": "dafdf93377f504435d3fe62dd9417f7292ac03c2c23ade9d379b4632311f9149",
+      "exact_streams": 12
+    }
+  },
+  "import_native_receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "import_native_writer_revision": "67b2fa8b2aee19bade296f764bf7267afcbc72ca",
+  "new_native_runs": 0,
+  "owning_sources_sha256": {
+    "re/tooling/sw2026/MeasureAttachedBoxBuild.py": "5d309078d1072ac0f1a4a96464e622ebae47a0215296952ef79002987a748d2a",
+    "re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py": "cbec05d4ba90ed2cae750c5faf86b017db880c211fcb3e9c00b4f9db775110bb",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartArchive.py": "7b12018f140ae0a0f75407e4101cdadd798da22e7a69022d52dd9a05cdb27fec",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartStreams.py": "46e832da484e860c1a8d0d2a00f70bb9eb5cc35c6bf230940f15a448bc220eca",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/BindImportMut.py": "b2c537585b8e3b79a6c658b71f8c9adf0910efbbfa880fcc3c2d2f0e146f4b8e",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalWrite/EncodeLocalXmt.py": "ac7e8c3185a4831bd6cc1349349658e3cce2a54dc27d8d11b917b712964ce1b0"
+  },
+  "public_writer_qualified": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.shared-generated-part-archive.v1",
+  "signed_box_constructions": {
+    "0.21.2": {
+      "original": {
+        "cache_compared": true,
+        "candidate_bytes": 10189,
+        "candidate_sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+        "exact_streams": 12
+      },
+      "without_shape_cache": {
+        "cache_compared": false,
+        "candidate_bytes": 10189,
+        "candidate_sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+        "exact_streams": 12
+      }
+    },
+    "1.0.2": {
+      "original": {
+        "cache_compared": true,
+        "candidate_bytes": 10443,
+        "candidate_sha256": "72fe069852718df65ad889bfd749cd0bd291b83d238487527f6bb317d7038a65",
+        "exact_streams": 12
+      },
+      "without_shape_cache": {
+        "cache_compared": false,
+        "candidate_bytes": 10443,
+        "candidate_sha256": "72fe069852718df65ad889bfd749cd0bd291b83d238487527f6bb317d7038a65",
+        "exact_streams": 12
+      }
+    },
+    "1.1.4": {
+      "original": {
+        "cache_compared": true,
+        "candidate_bytes": 10557,
+        "candidate_sha256": "7025721f7ee5da668b0ae59753b439c1cfc820871b668e7861f7463f2d479293",
+        "exact_streams": 12
+      },
+      "without_shape_cache": {
+        "cache_compared": false,
+        "candidate_bytes": 10557,
+        "candidate_sha256": "7025721f7ee5da668b0ae59753b439c1cfc820871b668e7861f7463f2d479293",
+        "exact_streams": 12
+      }
+    }
+  },
+  "signed_box_native_receipt_sha256": "3b16c1abb7dd6240c4adb46e340f7b1167531a750553420bfc03b9f7139d2a89",
+  "signed_box_native_writer_revision": "46f2463dfae91263143b24fb98531e610d929f63"
+}

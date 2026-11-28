@@ -1,0 +1,434 @@
+{
+  "atom_manager_f260": 103,
+  "atoms": [
+    {
+      "archive": {
+        "class": "moAtom_c",
+        "end_offset": 3170,
+        "index": 58,
+        "name": null,
+        "native_f08": -1,
+        "schema": 1,
+        "start_offset": 3070
+      },
+      "atom_id": 103,
+      "consumers": [],
+      "f144": 0,
+      "producer": "ThroughFeature",
+      "producer_fields": [
+        47,
+        47
+      ],
+      "slot": 0
+    },
+    {
+      "archive": {
+        "class": "moAtom_c",
+        "end_offset": 3258,
+        "index": 59,
+        "name": null,
+        "native_f08": -1,
+        "schema": 1,
+        "start_offset": 3170
+      },
+      "atom_id": 102,
+      "consumers": [],
+      "f144": 0,
+      "producer": "MovingStock",
+      "producer_fields": [
+        40,
+        40
+      ],
+      "slot": 1
+    },
+    {
+      "archive": {
+        "class": "moAtom_c",
+        "end_offset": 3346,
+        "index": 60,
+        "name": null,
+        "native_f08": -1,
+        "schema": 1,
+        "start_offset": 3258
+      },
+      "atom_id": 101,
+      "consumers": [
+        "ThroughFeature"
+      ],
+      "f144": 1,
+      "producer": "SteadyStock",
+      "producer_fields": [
+        32,
+        32
+      ],
+      "slot": 2
+    }
+  ],
+  "config_root": {
+    "class": "moPart_c",
+    "end_offset": 25378,
+    "index": 2,
+    "name": "Part1",
+    "native_f08": 0,
+    "schema": 1,
+    "start_offset": 0
+  },
+  "current_gates": {
+    "all_managed_atoms": "cut body dependency does not alias its managed boss output",
+    "cold_wrapper": "cold cut selection has an external or cached topology owner",
+    "new_stock_as_boss": "typed model expected concrete schema one moExtrusion_c",
+    "public_reader": "multiple operation histories are outside typed blind topology",
+    "saved_scope": "cut body scope is outside the witnessed saved profiles",
+    "source_plan": "source requires its actual stock join followed by one cut"
+  },
+  "generated_native_files": 0,
+  "input_bytes": 75510,
+  "input_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+  "linked_streams": {
+    "Contents/CMgr": {
+      "byte_identity": true,
+      "bytes": 2323,
+      "sha256": "42a37c575d524ecb7d1902d13cd5a30d364604799bfef664975f841a87d95417"
+    },
+    "Contents/CMgrHdr2": {
+      "byte_identity": true,
+      "bytes": 137,
+      "sha256": "b8683a731bb3a80ade8359c689f50b9a655e85e1184f58542e9d125af4583cdc"
+    },
+    "Contents/Config-0": {
+      "byte_identity": true,
+      "bytes": 25378,
+      "sha256": "53d191804bdfd16747386d0d1b2d081d0ae811c29e890d41bd6aa3cf99937180"
+    },
+    "Contents/Config-0-ModelHeader": {
+      "byte_identity": true,
+      "bytes": 2755,
+      "sha256": "1fb951a5a304898df0b64400478fdf287ad95179af1eb367c1d5a4c4d3ebfc0c"
+    },
+    "Contents/Config-0-ResolvedFeatures": {
+      "byte_identity": true,
+      "bytes": 20625,
+      "sha256": "9e3a00f6d773dc6902a6ebdf334690d3bd42278051d3eca1c0ef0b4a8af53e92"
+    },
+    "Header2": {
+      "byte_identity": true,
+      "bytes": 2755,
+      "sha256": "1fb951a5a304898df0b64400478fdf287ad95179af1eb367c1d5a4c4d3ebfc0c"
+    }
+  },
+  "operations": {
+    "MovingStock": {
+      "archive": {
+        "class": "moICE_c",
+        "end_offset": 18058,
+        "index": 310,
+        "name": "MovingStock",
+        "native_f08": 40,
+        "schema": 1,
+        "start_offset": 15114
+      },
+      "driver": {
+        "metres": 0.01,
+        "name": "D1",
+        "owner": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 34,
+          "dimension_index": 346,
+          "display_index": 344,
+          "end": 16919,
+          "field_span": false,
+          "handle_index": 345,
+          "object_index": 347,
+          "offset": 16876,
+          "slot": "f818.f18",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "value_field": "f58"
+        }
+      },
+      "end_words": {
+        "f08": 1,
+        "f0c": 0,
+        "f10": 0,
+        "f88": 0,
+        "f8c": 0
+      },
+      "f498": [
+        {
+          "v": 102
+        }
+      ],
+      "f544": 0,
+      "f810": 0,
+      "parent": {
+        "class": "moProfileFeature_c",
+        "end_offset": 15114,
+        "index": 283,
+        "name": "MovingProfile",
+        "native_f08": 33,
+        "schema": 1,
+        "start_offset": 12337
+      },
+      "support": {
+        "class": "moRefPlane_c",
+        "end_offset": 5379,
+        "index": 180,
+        "name": "Right Plane",
+        "native_f08": 4,
+        "schema": 1,
+        "start_offset": 4809
+      }
+    },
+    "SteadyStock": {
+      "archive": {
+        "class": "moExtrusion_c",
+        "end_offset": 12337,
+        "index": 226,
+        "name": "SteadyStock",
+        "native_f08": 32,
+        "schema": 1,
+        "start_offset": 9096
+      },
+      "driver": {
+        "metres": 0.012,
+        "name": "D1",
+        "owner": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 27,
+          "dimension_index": 275,
+          "display_index": 271,
+          "end": 11157,
+          "field_span": false,
+          "handle_index": 273,
+          "object_index": 277,
+          "offset": 11091,
+          "slot": "f818.f18",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "value_field": "f58"
+        }
+      },
+      "end_words": {
+        "f08": 1,
+        "f0c": 0,
+        "f10": 0,
+        "f88": 0,
+        "f8c": 0
+      },
+      "f498": [
+        {
+          "v": 101
+        }
+      ],
+      "f544": 0,
+      "f810": -1,
+      "parent": {
+        "class": "moProfileFeature_c",
+        "end_offset": 9096,
+        "index": 196,
+        "name": "SteadyProfile",
+        "native_f08": 26,
+        "schema": 1,
+        "start_offset": 6314
+      },
+      "support": {
+        "class": "moRefPlane_c",
+        "end_offset": 4243,
+        "index": 173,
+        "name": "Front Plane",
+        "native_f08": 2,
+        "schema": 1,
+        "start_offset": 3704
+      }
+    },
+    "ThroughFeature": {
+      "archive": {
+        "class": "moICE_c",
+        "end_offset": 20621,
+        "index": 361,
+        "name": "ThroughFeature",
+        "native_f08": 47,
+        "schema": 1,
+        "start_offset": 19224
+      },
+      "driver": null,
+      "end_words": {
+        "f08": 1,
+        "f0c": 1,
+        "f10": 0,
+        "f88": 0,
+        "f8c": 1
+      },
+      "f498": [
+        {
+          "v": 103
+        }
+      ],
+      "f544": 1,
+      "f810": 1,
+      "parent": {
+        "class": "moProfileFeature_c",
+        "end_offset": 19224,
+        "index": 351,
+        "name": "ThroughProfile",
+        "native_f08": 41,
+        "schema": 1,
+        "start_offset": 18058
+      },
+      "support": {
+        "class": "moRefPlane_c",
+        "end_offset": 4243,
+        "index": 173,
+        "name": "Front Plane",
+        "native_f08": 2,
+        "schema": 1,
+        "start_offset": 3704
+      }
+    }
+  },
+  "public_fallback": {
+    "bodies": [
+      {
+        "final_feature_id": "sldprt:feature:47",
+        "id": "sldprt:body:1"
+      }
+    ],
+    "feature_steps": [
+      {
+        "definition": "ExtrusionFeature",
+        "id": "sldprt:feature:32",
+        "inputs": [
+          "sldprt:feature:26"
+        ],
+        "name": "SteadyStock",
+        "operation": "join",
+        "selections": []
+      },
+      {
+        "definition": "ExtrusionFeature",
+        "id": "sldprt:feature:40",
+        "inputs": [
+          "sldprt:feature:32",
+          "sldprt:feature:33"
+        ],
+        "name": "MovingStock",
+        "operation": "join",
+        "selections": []
+      },
+      {
+        "definition": "NativeFeatureDefinition",
+        "id": "sldprt:feature:47",
+        "inputs": [
+          "sldprt:feature:40",
+          "sldprt:feature:41"
+        ],
+        "name": "ThroughFeature",
+        "operation": "cut",
+        "selections": []
+      }
+    ]
+  },
+  "selected_face_carrier": {
+    "archive": {
+      "class": "moFaceRef_c",
+      "end_offset": 19729,
+      "index": 366,
+      "name": null,
+      "native_f08": 6,
+      "schema": 1,
+      "start_offset": 19559
+    },
+    "f10_slots": 6,
+    "shared_external_object": {
+      "class": "moExtObject_c",
+      "end_offset": 9594,
+      "index": 237,
+      "name": null,
+      "native_f08": null,
+      "schema": 1,
+      "start_offset": 9461
+    },
+    "steady_chooser_alias_count": 10,
+    "subrefs": [
+      {
+        "class": "moFromSktEntSurfIdRep_c",
+        "f38": 4,
+        "owner": "SteadyStock",
+        "owner_record": {
+          "f00": 32,
+          "f08": 1795186474
+        }
+      },
+      {
+        "class": "moEndFaceSurfIdRep_c",
+        "f38": 0,
+        "owner": "SteadyStock",
+        "owner_record": {
+          "f00": 32,
+          "f08": 1795186474
+        }
+      },
+      {
+        "class": "moFromSktEntSurfIdRep_c",
+        "f38": 1,
+        "owner": "SteadyStock",
+        "owner_record": {
+          "f00": 32,
+          "f08": 1795186474
+        }
+      },
+      {
+        "class": "moEndFaceSurfIdRep_c",
+        "f38": 1,
+        "owner": "SteadyStock",
+        "owner_record": {
+          "f00": 32,
+          "f08": 1795186474
+        }
+      },
+      {
+        "class": "moFromSktEntSurfIdRep_c",
+        "f38": 3,
+        "owner": "SteadyStock",
+        "owner_record": {
+          "f00": 32,
+          "f08": 1795186474
+        }
+      }
+    ]
+  },
+  "selected_wrapper": {
+    "archive": {
+      "class": "moCompSolidBody_c",
+      "end_offset": 19749,
+      "index": 364,
+      "name": null,
+      "native_f08": null,
+      "schema": 1,
+      "start_offset": 19451
+    },
+    "component": {
+      "class": "moUnitComponent_c",
+      "end_offset": 19479,
+      "index": 365,
+      "name": null,
+      "native_f08": null,
+      "schema": 1,
+      "start_offset": 19474
+    },
+    "component_is_config_root": true,
+    "f100": 90,
+    "f104": 103,
+    "f108": 32,
+    "f110": [
+      {
+        "v": 101
+      }
+    ],
+    "f18": 101,
+    "f1c": 101,
+    "n110": 1
+  },
+  "through_scope": {
+    "count": 1,
+    "has_f548": 1
+  }
+}

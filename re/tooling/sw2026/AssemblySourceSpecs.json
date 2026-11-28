@@ -1,0 +1,12 @@
+{
+  "schema": "kit.sw2026.ordinary-assembly-specs.v1",
+  "scope": "Native ordinary assemblies with zero to four occurrences of one immutable part, without mates or nested assemblies",
+  "placement_units": "metres and degrees",
+  "cases": [
+    {"name": "A02EmptyAssembly", "split": "discovery", "placements": []},
+    {"name": "A03SingleAssembly", "split": "discovery", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}]},
+    {"name": "A04RepeatedAssembly", "split": "discovery", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "z", "angle_deg": 90.0, "translation_m": [0.08191, -0.01713, 0.01371]}]},
+    {"name": "A05HeldoutThree", "split": "heldout", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "x", "angle_deg": 37.193, "translation_m": [0.07119, 0.01597, -0.01137]}, {"axis": "y", "angle_deg": -72.173, "translation_m": [-0.01379, 0.08913, 0.02357]}]},
+    {"name": "A06HeldoutFour", "split": "heldout", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "y", "angle_deg": 55.791, "translation_m": [0.11319, -0.01391, 0.02731]}, {"axis": "z", "angle_deg": -21.317, "translation_m": [0.04319, 0.09117, 0.05379]}, {"axis": "x", "angle_deg": -87.317, "translation_m": [-0.01371, -0.07113, 0.03917]}]}
+  ]
+}

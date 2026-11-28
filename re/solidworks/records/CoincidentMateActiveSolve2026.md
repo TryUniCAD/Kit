@@ -1,0 +1,23 @@
+# Native solve from an off-plane coincident mate start
+
+SOLIDWORKS corrected the floating occurrence's `0.00473 m` normal offset before the first explicit rebuild. It preserved the solved placement, ordered plane references, two bodies, and analytical mass properties through rebuild. Both A17 brackets passed. [Native receipt](../measurements/2026/GeneratedCoincidentMateActiveSolve01.json)
+
+This PR #121 discovery trial changes the floating occurrence's authored displacement along the mate normal by `0.00473 m`. Its starting Top Plane is parallel to and separated from the fixed occurrence's Top Plane. The first generated mate trial starts in a coincident pose and establishes the native tree, reference identity, depth edit, and synchronized save. [First native trial](GeneratedCoincidentMateTrial2026.md)
+
+## Frozen input and expected motion
+
+The generated parent and child use their same-path working-copy directory. The declared anchor is at `(0, 0, 0) m`. The floating component starts at `(0.1074, 0.00473, 0.0123) m`, with identity rotation and unit scale. The expected correction puts its Y coordinate at zero and preserves the rotation, tangential placement, both bodies and the fixed anchor. The child dimensions remain `0.0317 × 0.0126 × 0.0089 m`. The expected assembly centroid Y is `0.008665 m` at the authored pose and `0.0063 m` at the solved pose. Its volume is `7.109676e-6 m³` in either pose.
+
+Run `InspectCoincidentMateSolve.py prepare` with the authored prediction, sanitized writer report, generated-pair directory, the disclosed A17 `author` directory, and an unused deck directory. Pass the prediction and report SHA-256 digests and the committed writer revision. The preparer opens only the generated parent and verifies the exact stored occurrence transforms, both ordered resolved wrapper frames, their detached counterparts and the pending mate state through typed version-19000 readback. It binds the generated pair, existing A17 source files, prior native proof and guest scripts. [Preparer and observer](../../tooling/sw2026/InspectCoincidentMateSolve.py) · [Disclosed control lock](../v2026/heldout/AssemblyPlanarMateSourceLock01.json)
+
+## Native observation
+
+Run the frozen observer with `run Trial.json --packet-sha256 <sha256>` through the owned SOLIDWORKS 2026 SP05.2 oracle. The observer opens the exact A17 pair in fresh read-only sessions before and after the generated case. The generated case opens read-only at the encoded path. It measures initial and rebuilt placements, mate endpoints, body count, feature tree, mass properties and statuses in a fresh process. The candidate's initial transforms must match the stored pose or the independently computed solved pose. The first forced rebuild must end at the solved pose with both ordered exact `IRefPlane` references, zero residual, two bodies, and zero feature errors or warnings. The aggregate records whether correction first appeared on open or explicit rebuild and retains the original load status. It checks all source and working-copy digests after the batch. [Exact plane identity](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/MateDatumReferenceUsesSpecificPlane.md)
+
+## Observed result
+
+The typed input retained contact-plane origins at `(0, 0, 0) m` and `(0.1074, 0.00473, 0.0123) m`, parallel normals along positive Y, and pending mate state `(1, 0)`. The first post-open native observation had a fixed anchor at the authored origin and the floating occurrence at `(0.1074, 0, 0.0123) m`. Tangential translation and identity rotation matched exactly. Both native plane objects compared equal to the intended occurrence's specific plane object. The placement and mate entity residuals were zero before and after the explicit rebuild. [Initial-pose gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/MateCanSolveBeforeExplicitRebuild.md)
+
+The native model presented two solid bodies, centre `(0.06955, 0.0063, 0.0106) m`, and volume `7.109676e-6 m³`. The generated load and both native controls reported zero open errors and warnings. Rebuild passed with zero reported feature problems. The batch used three distinct native processes. The frozen artifacts, their working copies, and both native controls retained their digests. [Native receipt](../measurements/2026/GeneratedCoincidentMateActiveSolve01.json)
+
+This read-only motion trial covers one aligned principal-plane mate and one authored offset. Persistence after correction from an off-plane start remains unmeasured. The first paired trial supplies depth edit, synchronized save, and fresh reopen evidence for the coincident starting pose. Independent held-out qualification remains open. [First native trial](GeneratedCoincidentMateTrial2026.md)

@@ -1,0 +1,168 @@
+{
+  "candidate_sha256": "00e0175943682a25ffa6045b7a7f60189015a185dabf53f63ea127e28dc550ff",
+  "disclosed_native_lifecycle_passed": true,
+  "fresh_processes": 6,
+  "heldout_source_credit": false,
+  "independent_controls_passed": 3,
+  "job_sha256": "ed89303077cc38bcc36775a32b56d0fce7f944bc3ad9690c5b5e5fed28e1d2d7",
+  "observation_scope": [
+    "sheet properties",
+    "view sentinel",
+    "document alerts",
+    "note identity",
+    "text",
+    "position",
+    "attachments"
+  ],
+  "phases": {
+    "ControlAfter": {
+      "diagnostic_count": 0,
+      "open": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    "ControlBefore": {
+      "diagnostic_count": 0,
+      "open": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    "GeneratedEdit": {
+      "diagnostic_count": 0,
+      "initial_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.1049,
+          0.0972,
+          0.0
+        ],
+        "text": "Visual inspection \u03a9 verified 763"
+      },
+      "open": [
+        0,
+        0
+      ],
+      "output_sha256": "ebad7af6a83b6ff671ea6038032984ef821059ee6788cbf6c82dfc9fbac5d443",
+      "passed": true,
+      "rebuilt_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.1049,
+          0.0972,
+          0.0
+        ],
+        "text": "Visual inspection \u03a9 verified 763"
+      },
+      "save": [
+        true,
+        0,
+        0
+      ]
+    },
+    "GeneratedOpen": {
+      "diagnostic_count": 0,
+      "initial_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.0937,
+          0.1029,
+          0.0
+        ],
+        "text": "Visual inspection \u03a9 763"
+      },
+      "open": [
+        0,
+        0
+      ],
+      "passed": true,
+      "rebuilt_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.0937,
+          0.1029,
+          0.0
+        ],
+        "text": "Visual inspection \u03a9 763"
+      }
+    },
+    "GeneratedReopen": {
+      "diagnostic_count": 0,
+      "initial_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.1049,
+          0.0972,
+          0.0
+        ],
+        "text": "Visual inspection \u03a9 verified 763"
+      },
+      "open": [
+        0,
+        0
+      ],
+      "passed": true,
+      "rebuilt_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.1049,
+          0.0972,
+          0.0
+        ],
+        "text": "Visual inspection \u03a9 verified 763"
+      }
+    },
+    "NativeNoteSource": {
+      "diagnostic_count": 0,
+      "initial_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.0671,
+          0.0926,
+          0.0
+        ],
+        "text": "inspection datum"
+      },
+      "open": [
+        0,
+        0
+      ],
+      "passed": true,
+      "rebuilt_note": {
+        "attachment_count": 0,
+        "name": "DetailItem1",
+        "position": [
+          0.0671,
+          0.0926,
+          0.0
+        ],
+        "text": "inspection datum"
+      }
+    }
+  },
+  "public_writer_qualified": false,
+  "raw_result_sha256": "191a77eb4aabfc554f87d4b81a36cfaecc2138835783373b4766bfe83427950a",
+  "resaved_document_sdk_partial_read": {
+    "position_m": [
+      0.1049,
+      0.0972,
+      0.0
+    ],
+    "sha256": "ebad7af6a83b6ff671ea6038032984ef821059ee6788cbf6c82dfc9fbac5d443",
+    "text": "Visual inspection \u03a9 verified 763"
+  },
+  "schema": "kit.sw2026.fresh-plain-note-position-native-summary.v1",
+  "solidworks_file_version": "34.5.2.0604",
+  "source_commit": "5f9971baa88065fdd079c0a8ee59a0d0f86ecc88",
+  "source_immutable": true
+}

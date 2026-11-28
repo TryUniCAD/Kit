@@ -1,0 +1,100 @@
+{
+  "disclosed_trial_sha256": "2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a",
+  "freeze_sha256": "7f004ee4520d16d13bed5c6f76a732923b2bfb53bf63db59063b20f175c4c89f",
+  "native_com": "SldWorks.Application.34",
+  "native_receipt_sha256": "48f6767b85bced3f5f48e01d7476c541df21e6575727ac0e5bb9bc111f99d1d2",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "result": {
+    "distinct_processes": 5,
+    "multibody_selection_measured": false,
+    "observed_scopes": {
+      "After": {
+        "initial": {
+          "auto_select": false,
+          "feature_scope": true
+        },
+        "rebuilt": {
+          "auto_select": false,
+          "feature_scope": true
+        }
+      },
+      "Author": {
+        "after_save": {
+          "auto_select": false,
+          "feature_scope": true
+        },
+        "initial": {
+          "auto_select": false,
+          "feature_scope": true
+        },
+        "rebuilt": {
+          "auto_select": false,
+          "feature_scope": true
+        }
+      },
+      "Before": {
+        "initial": {
+          "auto_select": false,
+          "feature_scope": true
+        },
+        "rebuilt": {
+          "auto_select": false,
+          "feature_scope": true
+        }
+      },
+      "Reopen": {
+        "initial": {
+          "auto_select": false,
+          "feature_scope": true
+        },
+        "rebuilt": {
+          "auto_select": false,
+          "feature_scope": true
+        }
+      },
+      "Selected": {
+        "initial": {
+          "auto_select": false,
+          "feature_scope": true
+        },
+        "rebuilt": {
+          "auto_select": false,
+          "feature_scope": true
+        }
+      }
+    },
+    "passed": true,
+    "phase_receipt_sha256": {
+      "After": "6525821f567ac67063b2edaeeec3f539f292341668fc0641bbd86fe1d81c3a38",
+      "Author": "b1a4e5b0a6d35a809436640da6aab331c9d1137022f07db0129f4c654698bba3",
+      "Before": "ee7d17a6b5e898e494c7f2fad27c1f1feae48e5082667d61202e51f0e07c8c2f",
+      "Reopen": "1a53397cf3e4ca430e8a6eefd3748608b0bf7927bf391bcb89938c8b10d27cdb",
+      "Selected": "971eeb2e407fa4d9376c307292163762b8b05dc33014e6a2eac81c5c86ec4ead"
+    },
+    "schema": "kit.sw2026.disclosed-through-all-auto-scope.v1",
+    "scope_getters": [
+      {
+        "arguments": "()",
+        "invoke_kind": 2,
+        "member_id": 34,
+        "names": [
+          "FeatureScope"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invoke_kind": 2,
+        "member_id": 35,
+        "names": [
+          "AutoSelect"
+        ],
+        "return_type": "(11, 0, None)"
+      }
+    ],
+    "sealed_payloads_read": 0
+  },
+  "schema": "kit.sw2026.disclosed-through-all-auto-scope.receipt.v1",
+  "tool_sha256": "9d9065ea04a275b77e24371e74c7f98ebbfaa9fa2bc80bf774dd8e908a663f83"
+}

@@ -1,0 +1,571 @@
+{
+  "schema": "kit.sw2026.rectangle-sketch-owner-sdk.v1",
+  "baseline_source_revision": "3c17262762ed465e4a29125dee46dfd38b696528",
+  "cases": [
+    {
+      "name": "OffsetRepeated",
+      "all_native_artifact_hashes_unchanged": true,
+      "geometry": {
+        "counts": {
+          "curves": 12,
+          "surfaces": 6,
+          "vertices": 8,
+          "edges": 12,
+          "coedges": 24,
+          "loops": 6,
+          "faces": 6,
+          "face_uses": 6,
+          "shells": 1,
+          "shell_uses": 1,
+          "regions": 1,
+          "bodies": 1
+        },
+        "volume_mm3": 7661.959999999999,
+        "area_mm2": 2363.8199999999997,
+        "centre_mm": [
+          12.050000000000002,
+          6.3,
+          8.35
+        ],
+        "bounds_mm": [
+          [
+            2.8,
+            -6.1,
+            0.0
+          ],
+          [
+            21.3,
+            18.7,
+            16.7
+          ]
+        ]
+      },
+      "history": {
+        "unchanged_by_cache": true,
+        "sketch_id": "sldprt:sketch:18",
+        "support_plane_id": "sldprt:plane:14",
+        "extrusion_id": "sldprt:feature:21",
+        "design_body_id": "sldprt:body:1",
+        "three_driving_values_mm": {
+          "sldprt:parameter:18:D1": 18.5,
+          "sldprt:parameter:18:D2": 24.799999999999994,
+          "sldprt:parameter:21:D1": 16.7
+        },
+        "sketch_profiles": [
+          {
+            "kind": "rectangle",
+            "coordinates_mm": [
+              2.8,
+              -6.1,
+              21.3,
+              18.7
+            ],
+            "marker_offsets": [
+              5983,
+              6075,
+              6167,
+              6259
+            ],
+            "parameter": null,
+            "dimension_kind": null
+          }
+        ],
+        "sdk_entities": [
+          "line",
+          "line",
+          "line",
+          "line"
+        ],
+        "closed_profile_sizes": [
+          4
+        ],
+        "dimension_constraints": {
+          "sldprt:parameter:18:D1": "distance_x",
+          "sldprt:parameter:18:D2": "distance_y"
+        },
+        "summary_bounds_mm": [
+          [
+            2.8,
+            -6.1,
+            0.0
+          ],
+          [
+            21.3,
+            18.7,
+            16.7
+          ]
+        ],
+        "strict_sketch_semantics": true,
+        "strict_summary_bounds": true
+      }
+    },
+    {
+      "name": "CenteredSingle",
+      "all_native_artifact_hashes_unchanged": true,
+      "geometry": {
+        "counts": {
+          "curves": 12,
+          "surfaces": 6,
+          "vertices": 8,
+          "edges": 12,
+          "coedges": 24,
+          "loops": 6,
+          "faces": 6,
+          "face_uses": 6,
+          "shells": 1,
+          "shell_uses": 1,
+          "regions": 1,
+          "bodies": 1
+        },
+        "volume_mm3": 8770.576000000001,
+        "area_mm2": 2895.48,
+        "centre_mm": [
+          0.0,
+          0.0,
+          5.45
+        ],
+        "bounds_mm": [
+          [
+            -18.8,
+            -10.7,
+            0.0
+          ],
+          [
+            18.8,
+            10.7,
+            10.9
+          ]
+        ]
+      },
+      "history": {
+        "unchanged_by_cache": true,
+        "sketch_id": "sldprt:sketch:18",
+        "support_plane_id": "sldprt:plane:14",
+        "extrusion_id": "sldprt:feature:21",
+        "design_body_id": "sldprt:body:1",
+        "three_driving_values_mm": {
+          "sldprt:parameter:18:D1": 37.6,
+          "sldprt:parameter:18:D2": 21.4,
+          "sldprt:parameter:21:D1": 10.9
+        },
+        "sketch_profiles": [
+          {
+            "kind": "rectangle",
+            "coordinates_mm": [
+              -18.8,
+              -10.7,
+              18.8,
+              10.7
+            ],
+            "marker_offsets": [
+              5983,
+              6075,
+              6167,
+              6259
+            ],
+            "parameter": null,
+            "dimension_kind": null
+          }
+        ],
+        "sdk_entities": [
+          "line",
+          "line",
+          "line",
+          "line"
+        ],
+        "closed_profile_sizes": [
+          4
+        ],
+        "dimension_constraints": {
+          "sldprt:parameter:18:D1": "distance_x",
+          "sldprt:parameter:18:D2": "distance_y"
+        },
+        "summary_bounds_mm": [
+          [
+            -18.8,
+            -10.7,
+            0.0
+          ],
+          [
+            18.8,
+            10.7,
+            10.9
+          ]
+        ],
+        "strict_sketch_semantics": true,
+        "strict_summary_bounds": true
+      }
+    },
+    {
+      "name": "L1Single",
+      "all_native_artifact_hashes_unchanged": true,
+      "geometry": {
+        "counts": {
+          "curves": 12,
+          "surfaces": 6,
+          "vertices": 8,
+          "edges": 12,
+          "coedges": 24,
+          "loops": 6,
+          "faces": 6,
+          "face_uses": 6,
+          "shells": 1,
+          "shell_uses": 1,
+          "regions": 1,
+          "bodies": 1
+        },
+        "volume_mm3": 8000.0,
+        "area_mm2": 2800.0,
+        "centre_mm": [
+          0.0,
+          0.0,
+          5.0
+        ],
+        "bounds_mm": [
+          [
+            -20.0,
+            -10.0,
+            0.0
+          ],
+          [
+            20.0,
+            10.0,
+            10.0
+          ]
+        ]
+      },
+      "history": {
+        "unchanged_by_cache": true,
+        "sketch_id": "sldprt:sketch:18",
+        "support_plane_id": "sldprt:plane:14",
+        "extrusion_id": "sldprt:feature:21",
+        "design_body_id": "sldprt:body:1",
+        "three_driving_values_mm": {
+          "sldprt:parameter:18:D1": 40.0,
+          "sldprt:parameter:18:D2": 20.0,
+          "sldprt:parameter:21:D1": 10.0
+        },
+        "sketch_profiles": [
+          {
+            "kind": "rectangle",
+            "coordinates_mm": [
+              -20.0,
+              -10.0,
+              20.0,
+              10.0
+            ],
+            "marker_offsets": [
+              5983,
+              6075,
+              6167,
+              6259
+            ],
+            "parameter": null,
+            "dimension_kind": null
+          }
+        ],
+        "sdk_entities": [
+          "line",
+          "line",
+          "line",
+          "line"
+        ],
+        "closed_profile_sizes": [
+          4
+        ],
+        "dimension_constraints": {
+          "sldprt:parameter:18:D1": "distance_x",
+          "sldprt:parameter:18:D2": "distance_y"
+        },
+        "summary_bounds_mm": [
+          [
+            -20.0,
+            -10.0,
+            0.0
+          ],
+          [
+            20.0,
+            10.0,
+            10.0
+          ]
+        ],
+        "strict_sketch_semantics": true,
+        "strict_summary_bounds": true
+      }
+    }
+  ],
+  "unchanged_controls": {
+    "ControlCircle": {
+      "file_sha256": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7",
+      "projection_sha256": "dbb0c8a9281765f35369be56643c95ce85b2fd998cd95055f0456f15b0891921",
+      "sketch_count": 1,
+      "first_entity_types": {
+        "circle": 1,
+        "point": 1
+      },
+      "first_profile_lengths": [],
+      "first_constraints": {
+        "sldprt:parameter:26:D1": "distance"
+      },
+      "summary_bounds_mm": null
+    },
+    "D19Annulus": {
+      "file_sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439",
+      "projection_sha256": "639897b31897523c68d955bb2b232725908c1b2c774b3c9a2de27f6cc6162ac1",
+      "sketch_count": 1,
+      "first_entity_types": {
+        "circle": 2,
+        "point": 1
+      },
+      "first_profile_lengths": [],
+      "first_constraints": {
+        "sldprt:parameter:26:D1": "distance",
+        "sldprt:parameter:26:D2": "distance"
+      },
+      "summary_bounds_mm": null
+    },
+    "D23TangentCapsule": {
+      "file_sha256": "f0f2f52523015ff8b7a68584cec2f1ae79e82bf0ed0a8cb7f6da982d82451bb1",
+      "projection_sha256": "295963159fd869cb577995f1816798ccc05a326242ca65411b74ca33bc35ff6b",
+      "sketch_count": 1,
+      "first_entity_types": {
+        "line": 8,
+        "point": 6
+      },
+      "first_profile_lengths": [
+        4
+      ],
+      "first_constraints": {
+        "sldprt:parameter:26:D1": "distance"
+      },
+      "summary_bounds_mm": [
+        [
+          -8.6665,
+          -18.856,
+          0.0
+        ],
+        [
+          23.0525,
+          -8.582,
+          11.73
+        ]
+      ]
+    },
+    "D17TopCircle": {
+      "file_sha256": "cdf237d6d0ae21c0e81de168d2d0d6153a1b6dc20cd2d53beca88bf60e4b7aa5",
+      "projection_sha256": "492c51c996a5fca33f2de2094af7506f3bbe93649e18813d55806cc4ba0ce790",
+      "sketch_count": 1,
+      "first_entity_types": {
+        "circle": 1,
+        "point": 1
+      },
+      "first_profile_lengths": [],
+      "first_constraints": {
+        "sldprt:parameter:26:D1": "distance"
+      },
+      "summary_bounds_mm": null
+    },
+    "D18RightCircle": {
+      "file_sha256": "3bf38305bea09980a8a44da09a8721ae00294a9683c1a1fc157335f17fda61a9",
+      "projection_sha256": "7c1a7d46ffee300a75bdf57b22479d2c4e4458eecbd6c635180b2758d1163c6b",
+      "sketch_count": 1,
+      "first_entity_types": {
+        "circle": 1,
+        "point": 1
+      },
+      "first_profile_lengths": [],
+      "first_constraints": {
+        "sldprt:parameter:26:D1": "distance"
+      },
+      "summary_bounds_mm": null
+    },
+    "ControlRectangle": {
+      "file_sha256": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f",
+      "projection_sha256": "b11ce50b34e6902e09b41209d73ef0119fc07b9cf0e02f3dff9e872ec52c02f2",
+      "sketch_count": 1,
+      "first_entity_types": {
+        "line": 5
+      },
+      "first_profile_lengths": [
+        4
+      ],
+      "first_constraints": {},
+      "summary_bounds_mm": [
+        [
+          -21.9595,
+          2.3135,
+          0.0
+        ],
+        [
+          7.1775,
+          20.0325,
+          7.71
+        ]
+      ]
+    },
+    "CULATA_IZQUIERDO": {
+      "file_sha256": "972be7046e00a0febb5528f2a5f21506b9230abd3ea1b9c5d22f6b709080cb9a",
+      "projection_sha256": "6a5e2a31a0770ae40936a54e7044d31c4d235798c5307b77e51583a1164d1f70",
+      "sketch_count": 40,
+      "first_entity_types": {
+        "line": 8,
+        "native": 1,
+        "point": 8
+      },
+      "first_profile_lengths": [],
+      "first_constraints": {
+        "sldprt:parameter:23:D5": "distance",
+        "sldprt:parameter:23:D1": "distance",
+        "sldprt:parameter:23:D4": "distance",
+        "sldprt:parameter:23:D2": "distance",
+        "sldprt:parameter:23:D3": "distance",
+        "sldprt:parameter:23:D6": "distance"
+      },
+      "summary_bounds_mm": null
+    },
+    "BIELA": {
+      "file_sha256": "48837fdd1fc67cddd53449aa7308ec84805f2b117f30529037b11b9261c7e723",
+      "projection_sha256": "69b36866f12e3022b8d59f1fd426558d4b7c0a67c947db0f09f33043d2b35b82",
+      "sketch_count": 6,
+      "first_entity_types": {
+        "circle": 2,
+        "native": 1,
+        "point": 1
+      },
+      "first_profile_lengths": [],
+      "first_constraints": {
+        "sldprt:parameter:25:D1": "distance",
+        "sldprt:parameter:25:D2": "distance"
+      },
+      "summary_bounds_mm": [
+        [
+          -36.0,
+          -175.2,
+          0.0
+        ],
+        [
+          36.0,
+          9.0,
+          30.7
+        ]
+      ]
+    },
+    "Turbo Tube": {
+      "file_sha256": "eaee7c163b327c3c1330ec877fcb2d512bee011798cdeff71f080d93224d1169",
+      "projection_sha256": "9a900f7ef7927d87b4da2cd7072213b0427a477feb7eeba8d334dc9461a900df",
+      "sketch_count": 26,
+      "first_entity_types": {
+        "circle": 2,
+        "line": 1,
+        "native": 3,
+        "point": 5
+      },
+      "first_profile_lengths": [
+        1
+      ],
+      "first_constraints": {
+        "sldprt:parameter:29:D1": "diameter"
+      },
+      "summary_bounds_mm": [
+        [
+          -326.896146147518,
+          101.342552379894,
+          -164.24999999999972
+        ],
+        [
+          -319.896146147518,
+          108.342552379894,
+          -124.2499999999997
+        ]
+      ]
+    },
+    "CUBIERTA DE TURBINA 1": {
+      "file_sha256": "2f5a5f9573b412625c9d1fe4b93af6d5f99b284dce01050b522aab2c205026a2",
+      "projection_sha256": "d3061e37128f6cb38b4072788bec716ad453d9e300b47b47860f7a82bc672cfa",
+      "sketch_count": 22,
+      "first_entity_types": {
+        "circle": 1,
+        "line": 4,
+        "native": 1,
+        "point": 4
+      },
+      "first_profile_lengths": [
+        1
+      ],
+      "first_constraints": {
+        "sldprt:parameter:24:D1": "diameter",
+        "sldprt:parameter:24:D2": "distance",
+        "sldprt:parameter:24:D3": "distance"
+      },
+      "summary_bounds_mm": [
+        [
+          -57.15,
+          -57.15,
+          0.0
+        ],
+        [
+          78.95,
+          60.146962853279,
+          86.04
+        ]
+      ]
+    }
+  },
+  "vendor_rectangle_before": {
+    "file_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+    "projection_sha256": "dc0aaf7f93e3be45e601451d3bcd42d78e96b0e5b0bb22c489f73fa3fd23ac7a",
+    "sketch_count": 1,
+    "first_entity_types": {
+      "circle": 1,
+      "line": 4
+    },
+    "first_profile_lengths": [
+      1,
+      4
+    ],
+    "first_constraints": {
+      "sldprt:parameter:26:D2": "radius",
+      "sldprt:parameter:26:D1": "distance_x"
+    },
+    "summary_bounds_mm": [
+      [
+        -20.0,
+        -30.0,
+        0.0
+      ],
+      [
+        40.0,
+        10.0,
+        10.0
+      ]
+    ]
+  },
+  "vendor_rectangle_after": {
+    "file_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+    "projection_sha256": "5d10ad5dd136f11268af60bead8978bfadd01e93c7cc7eba2f52200acec97377",
+    "sketch_count": 1,
+    "first_entity_types": {
+      "line": 4
+    },
+    "first_profile_lengths": [
+      4
+    ],
+    "first_constraints": {
+      "sldprt:parameter:26:D1": "distance_x",
+      "sldprt:parameter:26:D2": "distance_y"
+    },
+    "summary_bounds_mm": [
+      [
+        -20.0,
+        -10.0,
+        0.0
+      ],
+      [
+        20.0,
+        10.0,
+        10.0
+      ]
+    ]
+  },
+  "oracle_heldout": false
+}

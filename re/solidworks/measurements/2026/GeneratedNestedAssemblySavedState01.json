@@ -1,0 +1,1347 @@
+{
+  "documents": {
+    "FrozenGenerated": {
+      "module": {
+        "activity_count": 1,
+        "bytes": 8781,
+        "class": "moAssembly_c",
+        "config_header_geometry_stamp": 202,
+        "config_header_transform_stamp": 102,
+        "configuration_order": [
+          17
+        ],
+        "direct_count": 1,
+        "f1300_geometry_stamp": 101,
+        "headers": {
+          "Contents/Config-0-ModelHeader": {
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 1
+          },
+          "Header2": {
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 1
+          }
+        },
+        "manager_save_time": 1794700800,
+        "references": [
+          {
+            "child_kind": 2,
+            "directory_slot": 4,
+            "directory_uses": 1,
+            "id": 17,
+            "name": "LinkPlate-1",
+            "stamps": {
+              "f3e0": 101,
+              "f3e8": 1794700000,
+              "f3f0": 102,
+              "f3f4": 101,
+              "f3f8": 101
+            },
+            "target": "LinkPlate"
+          }
+        ],
+        "resolved_roots": [
+          {
+            "class": "moCommentsFolder_c",
+            "id": 1
+          },
+          {
+            "class": "moFavoriteFolder_c",
+            "id": 2
+          },
+          {
+            "class": "moHistoryFolder_c",
+            "id": 3
+          },
+          {
+            "class": "moSelectionSetFolder_c",
+            "id": 4
+          },
+          {
+            "class": "moSensorFolder_c",
+            "id": 5
+          },
+          {
+            "class": "moLiveSectionFolder_c",
+            "id": 6
+          },
+          {
+            "class": "moDocsFolder_c",
+            "id": 7
+          },
+          {
+            "class": "moDetailCabinet_c",
+            "id": 11
+          },
+          {
+            "class": "moEnvFolder_c",
+            "id": 8
+          },
+          {
+            "class": "moInkMarkupFolder_c",
+            "id": 9
+          },
+          {
+            "class": "moEqnFolder_c",
+            "id": 10
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 12
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 13
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 14
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "id": 15
+          },
+          {
+            "class": "moMateGroup_c",
+            "id": 16
+          }
+        ],
+        "self_file_time": 1794700800,
+        "sha256": "f5bd894b220677e7c36b9601937bbce7da62fd94f242719aeea0a5bb1a074c6a",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2082,
+            "map_base": 1,
+            "map_count": 32,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "2602eedcbb5e0ad5eb6b8658a3a75034644e2f538c08cdb926859c935e9eacda",
+            "tail": 0
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "map_base": 1,
+            "map_count": 5,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "4a92987fd40702b2b007c7067080bbfcafaa42f3cda1da7ee7a76587763ed9b6",
+            "tail": 0
+          },
+          "Contents/Config-0": {
+            "bytes": 20959,
+            "map_base": 5,
+            "map_count": 72,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 2
+              },
+              "store": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 2
+              }
+            },
+            "sha256": "5e963ba31362daf51847eda757077ec77d9fda4bd23b630ff56ffb7087a24cf4",
+            "tail": 0
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1127,
+            "map_base": 1,
+            "map_count": 22,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "d14e1363b569df8d39c4b1b17cb1501196d89ac92dad12ad4a04d034a57543e6",
+            "tail": 0
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "map_base": 72,
+            "map_count": 129,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c",
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 2
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "9e29848bb7787c98609a22f80cf299d5b2285b9d86e2dee0b6df4e6ade9283cc",
+            "tail": 0
+          },
+          "Header2": {
+            "bytes": 1127,
+            "map_base": 1,
+            "map_count": 22,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "ba0d015783215b2408a0b4b8f0929ec2fdc6104eabd3931d237f1a2543d9a6cc",
+            "tail": 0
+          }
+        }
+      },
+      "plate": {
+        "activity_count": -1,
+        "bytes": 8641,
+        "class": "moPart_c",
+        "config_header_geometry_stamp": 101,
+        "config_header_transform_stamp": 101,
+        "end_spec": {
+          "active_depth_m": 0.0068,
+          "condition": 0,
+          "directions": 1,
+          "inactive_depth_m": 0.0068,
+          "reverse": 0
+        },
+        "f1300_geometry_stamp": 101,
+        "headers": {
+          "Contents/Config-0-ModelHeader": {
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 0
+          },
+          "Header2": {
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 0
+          }
+        },
+        "manager_save_time": 1794700800,
+        "resolved_roots": [
+          {
+            "class": "moCommentsFolder_c",
+            "id": 1
+          },
+          {
+            "class": "moFavoriteFolder_c",
+            "id": 2
+          },
+          {
+            "class": "moHistoryFolder_c",
+            "id": 3
+          },
+          {
+            "class": "moSelectionSetFolder_c",
+            "id": 4
+          },
+          {
+            "class": "moSensorFolder_c",
+            "id": 5
+          },
+          {
+            "class": "moDocsFolder_c",
+            "id": 6
+          },
+          {
+            "class": "moSurfaceBodyFolder_c",
+            "id": 7
+          },
+          {
+            "class": "moSolidBodyFolder_c",
+            "id": 8
+          },
+          {
+            "class": "moEnvFolder_c",
+            "id": 9
+          },
+          {
+            "class": "moNotesAreaFtrFolder_c",
+            "id": 10
+          },
+          {
+            "class": "moEqnFolder_c",
+            "id": 11
+          },
+          {
+            "class": "moMaterialFolder_c",
+            "id": 12
+          },
+          {
+            "class": "moDetailCabinet_c",
+            "id": 13
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 14
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 15
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 16
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "id": 17
+          },
+          {
+            "class": "moProfileFeature_c",
+            "id": 18
+          },
+          {
+            "class": "moExtrusion_c",
+            "id": 21
+          }
+        ],
+        "self_file_time": 1794700800,
+        "sha256": "41805711f0fd60a7d8fb29eeed580afaf010a6493cb8a98538fdaf6604ea5680",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "map_base": 1,
+            "map_count": 10,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "bb4192ed168d22ce2fb2f85ec030ebbfcdd6a6074e302351c69402d58a69ef02",
+            "tail": 0
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "map_base": 1,
+            "map_count": 5,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "9893e8b8231f95293b90e28dc503aec1136f84222ef73036daffc36235da7cda",
+            "tail": 0
+          },
+          "Contents/Config-0": {
+            "bytes": 21124,
+            "map_base": 4,
+            "map_count": 83,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 2
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 2
+              }
+            },
+            "sha256": "de017053ac3cba7b53889909c613078dc79de5c450c898a7f6391d888c2d7c51",
+            "tail": 0
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 791,
+            "map_base": 1,
+            "map_count": 17,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "5ecc26c3d58f72384a9500e8aec62b0236502011e867223e6bfa63f358f9662a",
+            "tail": 0
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17486,
+            "map_base": 83,
+            "map_count": 221,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 8
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 6
+              }
+            },
+            "sha256": "452c0dcbb98ec49d39dfb3553c446ca13a4476227fb53987baa8cbc59b4f1e68",
+            "tail": 0
+          },
+          "Header2": {
+            "bytes": 791,
+            "map_base": 1,
+            "map_count": 17,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "9542b54f6a44b21bc689a16933c8f26f1107a49c52fd74ab417d7a7791a23481",
+            "tail": 0
+          }
+        }
+      },
+      "root": {
+        "activity_count": 2,
+        "bytes": 8976,
+        "class": "moAssembly_c",
+        "config_header_geometry_stamp": 303,
+        "config_header_transform_stamp": 102,
+        "configuration_order": [
+          17
+        ],
+        "direct_count": 1,
+        "f1300_geometry_stamp": 101,
+        "headers": {
+          "Contents/Config-0-ModelHeader": {
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 2
+          },
+          "Header2": {
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 2
+          }
+        },
+        "manager_save_time": 1794700800,
+        "references": [
+          {
+            "child_kind": 3,
+            "directory_slot": 4,
+            "directory_uses": 1,
+            "id": 17,
+            "name": "OffsetModule-1",
+            "stamps": {
+              "f3e0": 101,
+              "f3e8": 1794700000,
+              "f3f0": 102,
+              "f3f4": 202,
+              "f3f8": 102
+            },
+            "target": "OffsetModule"
+          }
+        ],
+        "resolved_roots": [
+          {
+            "class": "moCommentsFolder_c",
+            "id": 1
+          },
+          {
+            "class": "moFavoriteFolder_c",
+            "id": 2
+          },
+          {
+            "class": "moHistoryFolder_c",
+            "id": 3
+          },
+          {
+            "class": "moSelectionSetFolder_c",
+            "id": 4
+          },
+          {
+            "class": "moSensorFolder_c",
+            "id": 5
+          },
+          {
+            "class": "moLiveSectionFolder_c",
+            "id": 6
+          },
+          {
+            "class": "moDocsFolder_c",
+            "id": 7
+          },
+          {
+            "class": "moDetailCabinet_c",
+            "id": 11
+          },
+          {
+            "class": "moEnvFolder_c",
+            "id": 8
+          },
+          {
+            "class": "moInkMarkupFolder_c",
+            "id": 9
+          },
+          {
+            "class": "moEqnFolder_c",
+            "id": 10
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 12
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 13
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 14
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "id": 15
+          },
+          {
+            "class": "moMateGroup_c",
+            "id": 16
+          }
+        ],
+        "self_file_time": 1794700800,
+        "sha256": "0f7c9757a015617748722c059a5f470991b3db2a2a3a3326fe99aa5e0c78e939",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2076,
+            "map_base": 1,
+            "map_count": 32,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "935c93df958b68fb5549d9340c469d35693f3c0637d1ddf7f3261b48889d11f1",
+            "tail": 0
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "map_base": 1,
+            "map_count": 5,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "86846636d61d1a3b20e66199c9c79264572ea34ab3e6d236fb06ec02ec8d582e",
+            "tail": 0
+          },
+          "Contents/Config-0": {
+            "bytes": 20953,
+            "map_base": 5,
+            "map_count": 72,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 2
+              },
+              "store": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 2
+              }
+            },
+            "sha256": "d5d4c6261d146c76712952481b48aba2dba3afef7f1974dcaa00ace6701ac748",
+            "tail": 0
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1121,
+            "map_base": 1,
+            "map_count": 22,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "5c1b73ecf9ee14e79e5acdb12eab4b17778f4229dfb7946c323d549e0bca94ca",
+            "tail": 0
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "map_base": 72,
+            "map_count": 129,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c",
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 2
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "9e29848bb7787c98609a22f80cf299d5b2285b9d86e2dee0b6df4e6ade9283cc",
+            "tail": 0
+          },
+          "Header2": {
+            "bytes": 1121,
+            "map_base": 1,
+            "map_count": 22,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "d8024262db2b56bd782311a0bf4482c0bd57e0331d45e694a535361763e69407",
+            "tail": 0
+          }
+        }
+      }
+    },
+    "GeneratedInput": {
+      "module": {
+        "activity_count": 1,
+        "bytes": 21743,
+        "class": "moAssembly_c",
+        "config_header_geometry_stamp": 210,
+        "config_header_transform_stamp": 102,
+        "configuration_order": [
+          17
+        ],
+        "direct_count": 1,
+        "f1300_geometry_stamp": 103,
+        "headers": {
+          "Contents/Config-0-ModelHeader": {
+            "f40": 107,
+            "f48": 1794931879,
+            "fc4": 0
+          },
+          "Header2": {
+            "f40": 107,
+            "f48": 1794931879,
+            "fc4": 0
+          }
+        },
+        "manager_save_time": 1794931900,
+        "references": [
+          {
+            "child_kind": 2,
+            "directory_slot": 4,
+            "directory_uses": 1,
+            "id": 17,
+            "name": "LinkPlate-1",
+            "stamps": {
+              "f3e0": 207,
+              "f3e8": 1794931879,
+              "f3f0": 102,
+              "f3f4": 107,
+              "f3f8": 101
+            },
+            "target": "LinkPlate",
+            "target_local_bounds_byte_equal": true
+          }
+        ],
+        "resolved_roots": [
+          {
+            "class": "moCommentsFolder_c",
+            "id": 1
+          },
+          {
+            "class": "moFavoriteFolder_c",
+            "id": 2
+          },
+          {
+            "class": "moHistoryFolder_c",
+            "id": 3
+          },
+          {
+            "class": "moSelectionSetFolder_c",
+            "id": 4
+          },
+          {
+            "class": "moSensorFolder_c",
+            "id": 5
+          },
+          {
+            "class": "moLiveSectionFolder_c",
+            "id": 6
+          },
+          {
+            "class": "moDocsFolder_c",
+            "id": 7
+          },
+          {
+            "class": "moDetailCabinet_c",
+            "id": 11
+          },
+          {
+            "class": "moEnvFolder_c",
+            "id": 8
+          },
+          {
+            "class": "moInkMarkupFolder_c",
+            "id": 9
+          },
+          {
+            "class": "moEqnFolder_c",
+            "id": 10
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 12
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 13
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 14
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "id": 15
+          },
+          {
+            "class": "moMateGroup_c",
+            "id": 16
+          }
+        ],
+        "self_file_time": 1794931900,
+        "sha256": "0963592b0f9548b3a816d940f4220765f520c0429772d3ac0543325ee79c92d2",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2677,
+            "map_base": 1,
+            "map_count": 36,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "f1b144241d02e55d1e363c81bd0901f60be11b6e95622296fec366aff35d1773",
+            "tail": 0
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "map_base": 1,
+            "map_count": 5,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "7ba9d2e893a8b552ed77c14937c99f37cee1379ca75f8ab34123f535eb87e69d",
+            "tail": 0
+          },
+          "Contents/Config-0": {
+            "bytes": 23573,
+            "map_base": 5,
+            "map_count": 99,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 3
+              },
+              "store": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 3
+              }
+            },
+            "sha256": "4399b34cb28a560cd4d4b9ec6a5d96c2a676d801ef8d90186274c1f9314544ea",
+            "tail": 0
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1575,
+            "map_base": 1,
+            "map_count": 34,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "4454a7f942f09ecb95fbe03d13520c91f59b0ee103f108a076fd03afa689e577",
+            "tail": 0
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5295,
+            "map_base": 99,
+            "map_count": 160,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c",
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 3
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "b8ef03faac95a4da605b16c3709b547c7169bd782e06a0c22f56a564814dcd2a",
+            "tail": 0
+          },
+          "Header2": {
+            "bytes": 1575,
+            "map_base": 1,
+            "map_count": 34,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "4454a7f942f09ecb95fbe03d13520c91f59b0ee103f108a076fd03afa689e577",
+            "tail": 0
+          }
+        }
+      },
+      "plate": {
+        "activity_count": -1,
+        "bytes": 27783,
+        "class": "moPart_c",
+        "config_header_geometry_stamp": 107,
+        "config_header_transform_stamp": 101,
+        "end_spec": {
+          "active_depth_m": 0.0103,
+          "condition": 0,
+          "directions": 1,
+          "inactive_depth_m": 0.0068,
+          "reverse": 0
+        },
+        "f1300_geometry_stamp": 107,
+        "headers": {
+          "Contents/Config-0-ModelHeader": {
+            "f40": 207,
+            "f48": 1794931879,
+            "fc4": 0
+          },
+          "Header2": {
+            "f40": 207,
+            "f48": 1794931879,
+            "fc4": 0
+          }
+        },
+        "manager_save_time": 1794931900,
+        "resolved_roots": [
+          {
+            "class": "moCommentsFolder_c",
+            "id": 1
+          },
+          {
+            "class": "moFavoriteFolder_c",
+            "id": 2
+          },
+          {
+            "class": "moHistoryFolder_c",
+            "id": 3
+          },
+          {
+            "class": "moSelectionSetFolder_c",
+            "id": 4
+          },
+          {
+            "class": "moSensorFolder_c",
+            "id": 5
+          },
+          {
+            "class": "moDocsFolder_c",
+            "id": 6
+          },
+          {
+            "class": "moDetailCabinet_c",
+            "id": 13
+          },
+          {
+            "class": "moSurfaceBodyFolder_c",
+            "id": 7
+          },
+          {
+            "class": "moSolidBodyFolder_c",
+            "id": 8
+          },
+          {
+            "class": "moEnvFolder_c",
+            "id": 9
+          },
+          {
+            "class": "moNotesAreaFtrFolder_c",
+            "id": 10
+          },
+          {
+            "class": "moEqnFolder_c",
+            "id": 11
+          },
+          {
+            "class": "moMaterialFolder_c",
+            "id": 12
+          },
+          {
+            "class": "moInkMarkupFolder_c",
+            "id": 35
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 14
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 15
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 16
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "id": 17
+          },
+          {
+            "class": "moProfileFeature_c",
+            "id": 18
+          },
+          {
+            "class": "moExtrusion_c",
+            "id": 21
+          }
+        ],
+        "self_file_time": 1794931900,
+        "sha256": "a54897f7af0737a43ec2b2cc7abe70c30698ce5649648f219ae9b1c954d3af33",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2453,
+            "map_base": 1,
+            "map_count": 22,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "ee40e87584a04904eb24edd513da3cbebac671dd1c29a1958c1d14024995a5d1",
+            "tail": 0
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "map_base": 1,
+            "map_count": 5,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "ac7eb847be32ad20331287a0732b39f05681991756d51bb3b81e098f441f6667",
+            "tail": 0
+          },
+          "Contents/Config-0": {
+            "bytes": 24873,
+            "map_base": 4,
+            "map_count": 120,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 3
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 3
+              }
+            },
+            "sha256": "bd351f2db7a9087bc35360c86badd2fbe28ca4f4f816f24ca444baba8a5238cc",
+            "tail": 0
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1311,
+            "map_base": 1,
+            "map_count": 31,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "06dd23ccc74f98c1571d5ad50ddf6d0a2b402ed9ba5d8fe17c14b0da30215d88",
+            "tail": 0
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 19456,
+            "map_base": 120,
+            "map_count": 306,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 9
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 6
+              }
+            },
+            "sha256": "aa5c607a51eed800ea657668906add4360e0831e6704c4a3ad863745068b2041",
+            "tail": 0
+          },
+          "Header2": {
+            "bytes": 1311,
+            "map_base": 1,
+            "map_count": 31,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "06dd23ccc74f98c1571d5ad50ddf6d0a2b402ed9ba5d8fe17c14b0da30215d88",
+            "tail": 0
+          }
+        }
+      },
+      "root": {
+        "activity_count": 2,
+        "bytes": 51844,
+        "class": "moAssembly_c",
+        "config_header_geometry_stamp": 313,
+        "config_header_transform_stamp": 102,
+        "configuration_order": [
+          17
+        ],
+        "direct_count": 1,
+        "f1300_geometry_stamp": 103,
+        "headers": {
+          "Contents/Config-0-ModelHeader": {
+            "f40": 105,
+            "f48": 1794931879,
+            "fc4": 2
+          },
+          "Header2": {
+            "f40": 105,
+            "f48": 1794931879,
+            "fc4": 3
+          }
+        },
+        "manager_save_time": 1794931901,
+        "references": [
+          {
+            "child_kind": 3,
+            "directory_slot": 4,
+            "directory_uses": 1,
+            "id": 17,
+            "name": "OffsetModule-1",
+            "stamps": {
+              "f3e0": 107,
+              "f3e8": 1794931879,
+              "f3f0": 102,
+              "f3f4": 210,
+              "f3f8": 102
+            },
+            "target": "OffsetModule",
+            "target_local_bounds_byte_equal": true
+          }
+        ],
+        "resolved_roots": [
+          {
+            "class": "moCommentsFolder_c",
+            "id": 1
+          },
+          {
+            "class": "moFavoriteFolder_c",
+            "id": 2
+          },
+          {
+            "class": "moHistoryFolder_c",
+            "id": 3
+          },
+          {
+            "class": "moSelectionSetFolder_c",
+            "id": 4
+          },
+          {
+            "class": "moSensorFolder_c",
+            "id": 5
+          },
+          {
+            "class": "moLiveSectionFolder_c",
+            "id": 6
+          },
+          {
+            "class": "moDocsFolder_c",
+            "id": 7
+          },
+          {
+            "class": "moDetailCabinet_c",
+            "id": 11
+          },
+          {
+            "class": "moEnvFolder_c",
+            "id": 8
+          },
+          {
+            "class": "moInkMarkupFolder_c",
+            "id": 9
+          },
+          {
+            "class": "moEqnFolder_c",
+            "id": 10
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 12
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 13
+          },
+          {
+            "class": "moRefPlane_c",
+            "id": 14
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "id": 15
+          },
+          {
+            "class": "moMateGroup_c",
+            "id": 16
+          }
+        ],
+        "self_file_time": 1794931901,
+        "sha256": "9c80c422f5c8d445a876ff8487b1327f63ba50d165f897c671778f30907c918c",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2451,
+            "map_base": 1,
+            "map_count": 35,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [
+                  "moContextChainComponent_c"
+                ],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "df4143231979fc15f0152b6c9de1022ddca533106259e83d6190318114d25208",
+            "tail": 0
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "map_base": 1,
+            "map_count": 5,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "c05b24640c0641cef78db433b9532d0fba934a40d84b2bdbefe60e7679e18609",
+            "tail": 0
+          },
+          "Contents/Config-0": {
+            "bytes": 23720,
+            "map_base": 5,
+            "map_count": 102,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 3
+              },
+              "store": {
+                "provisional": [
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 3
+              }
+            },
+            "sha256": "df220c51fb6f9c0f2a27e170582c8895f1b1741a73252aed748b372374e2f08a",
+            "tail": 0
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1587,
+            "map_base": 1,
+            "map_count": 35,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "7911e71105c3f097cfc085839315174eb4c7a771826eefe39eb459c0600d27e6",
+            "tail": 0
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5295,
+            "map_base": 102,
+            "map_count": 163,
+            "schema_usage": {
+              "load": {
+                "provisional": [
+                  "moContextChainComponent_c",
+                  "su_CMapStringToString"
+                ],
+                "raw_operations": 3
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "dc90eb4e505c2eb6f65efabc47ace45307b7e49b37a13aafbee243e61e05fcc9",
+            "tail": 0
+          },
+          "Header2": {
+            "bytes": 1587,
+            "map_base": 1,
+            "map_count": 35,
+            "schema_usage": {
+              "load": {
+                "provisional": [],
+                "raw_operations": 0
+              },
+              "store": {
+                "provisional": [],
+                "raw_operations": 0
+              }
+            },
+            "sha256": "472c5af60429c04c4e9246bde43b0d2e4fbcd97e77dcfc467ec959c06b84839e",
+            "tail": 0
+          }
+        }
+      }
+    }
+  },
+  "heldout_inputs_read": 0,
+  "native_files_written": 0,
+  "packet_sha256": "efc1cae76b8c7b0b6c0a9913e759248e32aa5ac4a15f0591a11aefd798dded53",
+  "raw_native_result_sha256": "539cb901df420671788475640ad5f097d673c48027a2754bea1e01396e908158",
+  "schema": "kit.sw2026.generated-nested-save-typed-audit.v1",
+  "stream_round_trips": 36,
+  "tool_sha256": "196ae1a84304900fd2224b97dbe6b2c23039d9f0fa65d03522bc37d957d8f5eb",
+  "typed_audit_passed": true,
+  "writer_revision": "aa245b58e0dc9857f07e68aafa9727925ec52386"
+}

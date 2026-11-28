@@ -1,0 +1,178 @@
+{
+  "cases": [
+    {
+      "design": "ParallelFrontDatums",
+      "report": {
+        "detached_wrappers": [
+          {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 14,
+            "world_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "world_origin": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 14,
+            "world_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "world_origin": {
+              "x": 0.13,
+              "y": 0.02,
+              "z": 0.0
+            }
+          }
+        ],
+        "heldout_inputs_tested": 0,
+        "inherited_map_next_index": 133,
+        "input_runtime_file_access_attempts": 0,
+        "native_acceptance": false,
+        "schema": "kit.sw2026.generated-paired-planar-wrapper.v1",
+        "wrapper_archive_bytes": 2366,
+        "wrapper_archive_sha256": "e831831cffff847729833a9afe19bb0136ba19efc45f8b68e078fe50e5fbb725",
+        "wrapper_map_next_index": 158,
+        "wrappers": [
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 14,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 17,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          },
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 14,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 18,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          }
+        ],
+        "writer_output_count": 0
+      },
+      "request_sha256": "9c8defed9418f422e1e6e4a7da4dcdc9ac61d799f43a407e3968e220482f22fa"
+    },
+    {
+      "design": "RotatedSelectedDatum",
+      "report": {
+        "detached_wrappers": [
+          {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 15,
+            "world_normal": {
+              "x": -0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "world_origin": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 16,
+            "world_normal": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "world_origin": {
+              "x": 0.013,
+              "y": 0.042,
+              "z": -0.006
+            }
+          }
+        ],
+        "heldout_inputs_tested": 0,
+        "inherited_map_next_index": 133,
+        "input_runtime_file_access_attempts": 0,
+        "native_acceptance": false,
+        "schema": "kit.sw2026.generated-paired-planar-wrapper.v1",
+        "wrapper_archive_bytes": 2654,
+        "wrapper_archive_sha256": "2058964d9de93482d710bda0b0de061a04ed4f44e18d058c50c0111c95a837e7",
+        "wrapper_map_next_index": 158,
+        "wrappers": [
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 15,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 17,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          },
+          {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 16,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 18,
+            "selection": [
+              -12345,
+              -12345,
+              -12345
+            ]
+          }
+        ],
+        "writer_output_count": 0
+      },
+      "request_sha256": "9e02333c10a6a1edff355442a48f5afbd29e74f82eb39faae1de4d520d99476f"
+    }
+  ],
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "schema": "kit.sw2026.paired-planar-wrapper-process.v1",
+  "writer_output_count": 0
+}

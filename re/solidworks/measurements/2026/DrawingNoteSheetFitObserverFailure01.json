@@ -1,0 +1,45 @@
+{
+  "cad_file_saves": 0,
+  "cleanup": {
+    "cad_processes_remaining": 0,
+    "exited": true,
+    "id": 5200,
+    "owned_birth": 134395834101830542,
+    "receipt_sha256": "a6f8db2fc4d41077fc9ceaf75399cb451c575eef903845eb70a718276acfe8ab"
+  },
+  "generated_candidate_opened": false,
+  "heldout_source_reads": 0,
+  "interpretable_candidate_result": false,
+  "job_sha256": "f44c830d5926001c66812e921ed36d57050ae34366854d99f474e4d639047574",
+  "leading_pristine_control_passed": true,
+  "native_exit_diagnostics": [
+    {
+      "error": "AttributeError('SldWorks.Application.34.CloseDoc')",
+      "stage": "close_document"
+    },
+    {
+      "error": "AttributeError('SldWorks.Application.34.CloseAllDocuments')",
+      "stage": "close_documents"
+    },
+    {
+      "error": "AttributeError('SldWorks.Application.34.ExitApp')",
+      "stage": "exit_application"
+    },
+    {
+      "error": "owned process did not exit; its lifetime handle remains registered",
+      "stage": "exit_confirmation"
+    }
+  ],
+  "native_note_source_failure": {
+    "error": "AttributeError('<unknown>.ActiveView')",
+    "pending_capability": true,
+    "stage": "ActiveView",
+    "type": "AttributeError"
+  },
+  "native_note_source_record_sha256": "06323a9481f17a87cdcca0e909380468c9aa358e576c83c42d607ba1ccd777ed",
+  "processes_started": 2,
+  "raw_result_sha256": "72842709aa6b40e5caa0935d96a3cc3c40d41b6abc8c45788f8e714759099bbf",
+  "schema": "kit.sw2026.disclosed-drawing-note-sheet-fit-observer-failure.v1",
+  "tool_sha256": "3662f0dbe54e2157e24704ed668a6ef134693783265ca64dc40dcfc26523501f",
+  "trailing_pristine_control_reached": false
+}

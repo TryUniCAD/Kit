@@ -1,0 +1,7 @@
+# Bind the public angular-plane API to actual construction
+
+PR #121 adds a source-only replay for the exact SOLIDWORKS 2026 `InsertRefPlane` path. It binds the actual API manager, command `0x70`, native/CLI bridge, marked geometry slots, angle/flip inputs and real `AngleGeom`/`CoincidentGeom` creation. The proposed two-angle author protocol also states how to bind and edit an actual angular parameter through immutable saves and fresh reopens.
+
+Run the [numeric replay and source protocol](../../../../../re/solidworks/records/FreecadCylinderAngleApi2026.md#replay-and-limits) with the pinned lawful original modules outside the checkout. Its [receipt](../../../../../re/solidworks/measurements/2026/FreecadCylinderAngleApi01.json) records whole native/managed function verification, independent deterministic process replays and fail-closed negatives. The [gotcha](../../../../Gotchas/Conversion/Solidworks/Model/ReferencePlanes/PlaneApiMarksAndAngleSigns.md) distinguishes selection marks, angle magnitude/reverse and the existing old-API predicate.
+
+This is format/API knowledge and an unexecuted source-author protocol. It adds no production writer, native angular-plane source qualification or held-out conversion credit. The exact public extrusion route still has no bound `10 → 4` selected-end translation; the first proposed plane-end probe uses source-backed native type `4` and measures its actual result. No CAD runtime, vendor saved payload or proprietary listing is distributed.

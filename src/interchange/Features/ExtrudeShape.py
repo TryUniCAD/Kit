@@ -16,7 +16,7 @@ if IsTypeCheck:
 class ExtrudeShape:
     __slots__: tuple[str, ...] = ()
 
-    # an absent length preserves an extrusion whose through all intent has no authored distance
+    # finite bounds expose a driver while geometric bounds can finish on actual model geometry
     @property
     def Length(self) -> ParameterValue | None:
         return CastValue(ParameterValue | None, getattr(self, "length"))

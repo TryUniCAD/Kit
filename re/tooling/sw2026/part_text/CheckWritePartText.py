@@ -11,8 +11,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from PartTextProbe import (
     PROPERTY_DIAGNOSTIC, PROPERTY_STATUS, check_model, model_state, read_part, refuse_write,
 )
+from PropPolicyControl import CAUSE, unknown_policy
 from convert import convert, open_document, write_document
 from convert.adapters.base.ReadOptions import ReadOptions
+from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.api.ApiContext import GetRegistry
 from convert.engine.EngineConvert import EngineConvert
 from convert.Geometry.Extrude.Polygon.PolygonExtrude import BuildPrism
@@ -29,7 +31,7 @@ from interchange.Records.RecordDiagnostic import Diagnostic
 from interchange.Records.RecordSource import CadSource
 from interchange.Records.RecordTopology import TopologyCounts
 
-CAUSE = "part properties require an empty compatible native manager"
+MANAGER = "Contents/CusProps"
 
 
 def authored_snapshot():
@@ -101,8 +103,15 @@ def check_filtered_copy(document):
 
 def inspect(source):
     raw = source.read_bytes()
-    document = read_part(source)
-    relaxed = read_part(source, strict=False)
+    streams = SldprtArchive.from_bytes(raw).streams
+    original_manager = streams[MANAGER]
+    streams[MANAGER] = unknown_policy(original_manager)
+    changed = BuildSldprt(streams, Template=raw)
+    if SldprtArchive.from_bytes(changed).streams != streams:
+        raise ValueError("the policy control changed unrelated part streams")
+    document = read_part(changed)
+    relaxed = read_part(changed, strict=False)
+    check_model(read_part(raw), document)
     check_model(document, relaxed)
     state = model_state(document)
     if state != model_state(relaxed):
@@ -116,15 +125,15 @@ def inspect(source):
         "include_tessellation": False,
     }
     operations = {
-        "strict": partial(convert, source, **options),
-        "nonstrict": partial(convert, source, strict=False, **options),
+        "strict": partial(convert, changed, **options),
+        "nonstrict": partial(convert, changed, strict=False, **options),
         "public_write": partial(
             write_document, relaxed, destination_format="interchange.json",
             validate=False, allow_carrier=True,
         ),
         "registry": partial(registry.write, relaxed, format_id="interchange.json"),
         "compatibility": partial(
-            legacy.ConvertData, source, SourceFormat="solidworks.sldprt",
+            legacy.ConvertData, changed, SourceFormat="solidworks.sldprt",
             DestFormat="interchange.json", ReadOpts=ReadOptions(
                 strict=False, include_tessellation=False,
             ),
@@ -143,6 +152,9 @@ def inspect(source):
     if source.read_bytes() != raw:
         raise ValueError("native source changed")
     state["source_sha256"] = sha256(raw).hexdigest()
+    state["original_manager_sha256"] = sha256(original_manager).hexdigest()
+    state["changed_manager_sha256"] = sha256(streams[MANAGER]).hexdigest()
+    state["geometry_equal"] = True
     state["refusals"] = refusals
     state["implicit_path_unchanged"] = True
     state["native_copy_refusals"] = native_copy_refusals(document, legacy)

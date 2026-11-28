@@ -1,0 +1,149 @@
+{
+  "confidence": {
+    "cap_selector_to_rectangular_ordered_station": "not_native_measured_here",
+    "four_surface_roles": "source_confirmed",
+    "fresh_downstream_numbering": "unresolved",
+    "inner_component_text": "unresolved_not_projected",
+    "outer_model_key": "source_confirmed_for_ordinary_external_reference"
+  },
+  "existing_native_authorities": [
+    "DrawingDetailingEdgeMap2026.md",
+    "DrawingEdgeReferenceArchive2026.md",
+    "DrawingSketchEntityIdArchive2026.md",
+    "DrawingEndFaceIdArchive2026.md",
+    "ConcentricKernelFaceIdentity2026.md"
+  ],
+  "external_name_import": {
+    "iat_va": "0x4cd35120",
+    "module": "sldarchiveu.dll",
+    "name": "?getName@moExtObjectInterface_c@@QEBAAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ"
+  },
+  "getter_bodies": [
+    {
+      "array_pointer_member": "this+0x10",
+      "bytes": 5,
+      "end_exclusive": "0x4b285115",
+      "entity_record_slot": 0,
+      "file_offset": 1328400,
+      "name": "left_surface_getter",
+      "proof": "exact exported getter inspected through original LLVM; no code listing distributed",
+      "return_pointer_bias_bytes": 0,
+      "runtime_record_stride_bytes": 16,
+      "sha256": "01b97d2da374096b4359dfb781da44ea9eb61ba0541de9f2d557cfad9adef8d3",
+      "start": "0x4b285110"
+    },
+    {
+      "array_pointer_member": "this+0x10",
+      "bytes": 9,
+      "end_exclusive": "0x4b750539",
+      "entity_record_slot": 1,
+      "file_offset": 6355248,
+      "name": "right_surface_getter",
+      "proof": "exact exported getter inspected through original LLVM; no code listing distributed",
+      "return_pointer_bias_bytes": 16,
+      "runtime_record_stride_bytes": 16,
+      "sha256": "ed126f61198d36a56e3dde91ad996e71de936fb1c6bbf7c210a8bb8a1be482d8",
+      "start": "0x4b750530"
+    },
+    {
+      "array_pointer_member": "this+0x10",
+      "bytes": 9,
+      "end_exclusive": "0x4b750549",
+      "entity_record_slot": 2,
+      "file_offset": 6355264,
+      "name": "start_surface_getter",
+      "proof": "exact exported getter inspected through original LLVM; no code listing distributed",
+      "return_pointer_bias_bytes": 32,
+      "runtime_record_stride_bytes": 16,
+      "sha256": "a268d72d30df4fe3eeafaecf01c26a6f6aa79d9a1eb237d5eb84dc9394441e01",
+      "start": "0x4b750540"
+    },
+    {
+      "array_pointer_member": "this+0x10",
+      "bytes": 9,
+      "end_exclusive": "0x4b750019",
+      "entity_record_slot": 3,
+      "file_offset": 6353936,
+      "name": "end_surface_getter",
+      "proof": "exact exported getter inspected through original LLVM; no code listing distributed",
+      "return_pointer_bias_bytes": 48,
+      "runtime_record_stride_bytes": 16,
+      "sha256": "116e4226d5a1e3ffc5329d0ad5c85fdd92e9df10a1f9f1bb2ca578ba7fcf48cd",
+      "start": "0x4b750010"
+    }
+  ],
+  "hopper": {
+    "foreign_session_touched": false,
+    "open_binary_bound_original": true,
+    "owned_logical_target_closed": true,
+    "procedure_query": "blocked before analysis by foreign retained run a2f20739-b5bb-4081-8bb1-6dbda3f61bc1"
+  },
+  "key_rule": {
+    "integer_converter": {
+      "module": "api-ms-win-crt-convert-l1-1-0.dll",
+      "name": "_itow"
+    },
+    "literal": "$",
+    "literal_address": "0x4ce7b998",
+    "ordinary_external_name_plus_two_separators_and_decimal_configuration_id": true
+  },
+  "llvm": {
+    "path_name": "llvm-objdump",
+    "sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c"
+  },
+  "measurement": "re/solidworks/measurements/2026/DrawingEdgeRailCorrelation01.json",
+  "measurement_sha256": "2f47066d8fc09e815028f089e5c543d08978011ab2627c20cdfa52267fb290bd",
+  "model_module": {
+    "base": "0x4b140000",
+    "bytes": 46536280,
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_runs": 0,
+  "new_runtime_native_claims": false,
+  "other_ranges": [
+    {
+      "bytes": 394,
+      "end_exclusive": "0x4c9a348a",
+      "file_offset": 25569024,
+      "name": "view_model_configuration_key",
+      "sha256": "be3d458244f27983450ba6f40e20eee7e6df75987a21d337011d4fed1f7e2e1a",
+      "start": "0x4c9a3300"
+    },
+    {
+      "bytes": 238,
+      "end_exclusive": "0x4c9b2f1e",
+      "file_offset": 25633328,
+      "name": "model_name_prefix_helper",
+      "sha256": "23dd973e092ced67b6f631b310cf79bdda535938ad0bc073d07053ccc9b21364",
+      "start": "0x4c9b2e30"
+    },
+    {
+      "bytes": 1746,
+      "end_exclusive": "0x4b74f882",
+      "file_offset": 6350256,
+      "name": "edge_array_resolver",
+      "sha256": "f4bdaa00a4cbc3114b7761e9ccc9e154a34b64d2004036567c4929da4928d07b",
+      "start": "0x4b74f1b0"
+    },
+    {
+      "bytes": 175,
+      "end_exclusive": "0x4b74f93f",
+      "file_offset": 6352016,
+      "name": "body_edge_resolver",
+      "sha256": "f11fb706a3c4534f2a51e1d28d09cd17040b5fb48f7b69587e7cd34a448ef882",
+      "start": "0x4b74f890"
+    },
+    {
+      "address": "0x31a008b0",
+      "module": "sldarchiveu.dll",
+      "name": "external_name_export",
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "symbol": "?getName@moExtObjectInterface_c@@QEBAAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ"
+    }
+  ],
+  "role_wire_binding": "moEdgeRef_c shares moBEntRef_c serializer; f10 is the ordered array of embedded native 16-byte moEntityId records; four getter slots bind array positions 0/1/2/3",
+  "schema": "kit.sw2026.drawing-edge-role-native.v1",
+  "task_id": "B04-SW2026-DRAWING-DETAIL-EDGE",
+  "vendor_listing_published": false
+}

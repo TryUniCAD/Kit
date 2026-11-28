@@ -1,0 +1,31 @@
+{
+  "schema": "kit.sw2026.unseen-view-specs.v1",
+  "scope": "Two independent native-authored heldout camera inputs; payload and native API observations stay sealed until the new camera writer is frozen",
+  "units": {"profile_and_depth": "mm", "translation": "native IModelView.Translation3 coordinates", "scale2": "native IModelView.Scale2"},
+  "cases": [
+    {
+      "name": "H01TrimetricPan",
+      "split": "heldout",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "blind",
+      "depth_mm": 9.431,
+      "expected_bodies": 1,
+      "dimension_kind": "diameter",
+      "profile": {"kind": "circle", "center_mm": [6.173, -3.419], "radius_mm": 4.219},
+      "view_request": {"named_view": 8, "scale2": 13.731, "translation": [-0.003719, 0.005193, -0.001731]}
+    },
+    {
+      "name": "H02DimetricPan",
+      "split": "heldout",
+      "plane": "top",
+      "reverse": true,
+      "end_condition": "blind",
+      "depth_mm": 31.173,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "profile": {"kind": "circle", "center_mm": [-11.419, 7.193], "radius_mm": 9.713},
+      "view_request": {"named_view": 9, "scale2": 0.7319, "translation": [0.002317, -0.004193, 0.006137]}
+    }
+  ]
+}

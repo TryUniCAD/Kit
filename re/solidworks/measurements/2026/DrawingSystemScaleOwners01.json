@@ -1,0 +1,819 @@
+{
+  "archive_body_fields": 0,
+  "archive_factory_arguments": [
+    0,
+    2
+  ],
+  "constructor_zeros_offsets": [
+    16,
+    24
+  ],
+  "exact_definition_cases": 34,
+  "fresh_generated_without_scale_row": 8,
+  "heldout_inputs_read": 0,
+  "input_snapshot_report_sha256": "aff42f251eb1230c185ac28b9ab5f630b87180e52d597847b00c357070f293b1",
+  "module": {
+    "base": "0x3c720000",
+    "name": "sldmfcu.dll",
+    "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "version": "34.5.2.0604"
+  },
+  "native_lazy_creation_binding": {
+    "call_sites": [
+      {
+        "address": "0x4c01fa79",
+        "iat": "0x4cd32470",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?GetThisClass@moScaleSysScale_c@@SAPEAUCRuntimeClass@@XZ"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x4c01fa85",
+        "iat": "0x4cd33b80",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?getUserUnits@moUnitsTable_c@@QEBAPEAVmoUserUnits_c@@PEAUCRuntimeClass@@@Z"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x4c01fab0",
+        "iat": "0x4cd32478",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "??0moScaleSysScale_c@@QEAA@HH@Z"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x4c01facf",
+        "iat": "0x4cd324d0",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?iAddUserUnits@moUnitsTable_c@@QEAAHPEAVmoUserUnits_c@@@Z"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x3c8ec664",
+        "iat": "0x3cb1d4a8",
+        "import": {
+          "module": "swccu.dll",
+          "symbol": "?Add@su_CObArray@@QEAAHPEAVCObject@@@Z"
+        },
+        "module": "sldmfcu.dll"
+      },
+      {
+        "address": "0x497c4a8f",
+        "iat": "0x4a4521b0",
+        "import": {
+          "module": "SLDMODU.dll",
+          "symbol": "?getDefaultScaleSysScale@moModel_c@@QEAAPEAVmoScaleSysScale_c@@XZ"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4ab1",
+        "iat": "0x4a4679d0",
+        "import": {
+          "module": "sldappu.dll",
+          "symbol": "?isCustomScale@uiStatusBar_c@@QEAAHNN@Z"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4abc",
+        "iat": "0x4a448808",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?setScaleSysScaleEnum@moScaleSysScale_c@@QEAAXH@Z"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4ad7",
+        "iat": "0x4a4521b0",
+        "import": {
+          "module": "SLDMODU.dll",
+          "symbol": "?getDefaultScaleSysScale@moModel_c@@QEAAPEAVmoScaleSysScale_c@@XZ"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4ae3",
+        "iat": "0x4a467ee8",
+        "import": {
+          "module": "sldappu.dll",
+          "symbol": "?SetScaleSys@uiStatusBar_c@@QEAAXPEAVmoScaleSysScale_c@@@Z"
+        },
+        "module": "slduiu.dll"
+      }
+    ],
+    "draw_units_pointer_field": 2488,
+    "draw_units_virtual_slot": 4104,
+    "drawing_complete_object_locator": "0x4d376d00",
+    "drawing_vtable": "0x4d26af68",
+    "exact_native_runtime_insertion_timing_measured": false,
+    "modules": [
+      {
+        "base": "0x4b140000",
+        "name": "sldmodu.dll",
+        "owned_extents": [
+          {
+            "bytes": 131,
+            "end_exclusive": "0x4c01fae3",
+            "role": "model_get_or_add_scale",
+            "sha256": "7660df6cd04e6a1cfd14697b84607527756e157c421ed21b0313ace064634c10",
+            "start": "0x4c01fa60"
+          },
+          {
+            "bytes": 8,
+            "end_exclusive": "0x4b69e2e8",
+            "role": "drawing_get_units",
+            "sha256": "01cd199b05d8e71be9c3d2ec91f483e2063fa7f21d692f812d8fd2a48f77e72a",
+            "start": "0x4b69e2e0"
+          }
+        ],
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      {
+        "base": "0x3c720000",
+        "name": "sldmfcu.dll",
+        "owned_extents": [
+          {
+            "bytes": 115,
+            "end_exclusive": "0x3c8ec653",
+            "role": "table_find_class",
+            "sha256": "10b6e25aa74eac10afb9cc63be377814ed67c1390c88520f68f3ce010c789811",
+            "start": "0x3c8ec5e0"
+          },
+          {
+            "bytes": 20,
+            "end_exclusive": "0x3c8ec674",
+            "role": "table_append_class",
+            "sha256": "ab0b997587fbc228ecacae70b395547a8aeca13f6fe59efae81ad8c391c5c433",
+            "start": "0x3c8ec660"
+          }
+        ],
+        "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+      },
+      {
+        "base": "0x48ea0000",
+        "name": "slduiu.dll",
+        "owned_extents": [
+          {
+            "bytes": 528,
+            "end_exclusive": "0x497c4b00",
+            "role": "ui_update_scale_indicator",
+            "sha256": "351bbcd185b089f72c56862519618284ef5320ec8abb7deac2cf047915244b0f",
+            "start": "0x497c48f0"
+          }
+        ],
+        "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+      },
+      {
+        "base": "0x453f0000",
+        "name": "sldappu.dll",
+        "owned_extents": [
+          {
+            "bytes": 64,
+            "end_exclusive": "0x45aa3040",
+            "role": "ui_status_bar_set_scale",
+            "sha256": "20e3ca73fcb215343e1ae496bd85d1fe503915046b5c127be458f8f5890a4adb",
+            "start": "0x45aa3000"
+          }
+        ],
+        "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+      }
+    ],
+    "previous_receipt_sha256": "f52f0bef7f4018a26b836e88ca3f67e8e9dd87afb94d43e051747c940e1e8637",
+    "runtime_enum_source": "current drawing sheet ratio evaluated by the status-bar custom-scale predicate",
+    "ui_scale_refresh_can_create_missing_units_row": true
+  },
+  "native_save_insertion_callsite_identified": false,
+  "native_scale_enum_offset": 8,
+  "new_native_processes": 0,
+  "output_publication_count": 0,
+  "passed": true,
+  "previously_native_saved_with_scale_row": 26,
+  "rea_pe_identity_evidence": "ev_e3eb920c1cd707279c911ed28a4701350154c3eb47614ab1d40bf40cb7332c7a",
+  "rows": [
+    {
+      "case": "H01SheetA",
+      "dataset": "Originals",
+      "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "stage": "initial",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 91
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "H02SheetB",
+      "dataset": "Originals",
+      "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "stage": "initial",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 91
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "H01SheetA",
+      "dataset": "Generated",
+      "definition_sha256": "2a06409ff0fb90511e4701af3bb279c518aeaccd1d052f145ec56adbae7d9690",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "dc45e3d9b9b3096a1bf84a6ee7f6b65ec73067d9a6aee517da946f3f12459f3b",
+      "stage": "initial",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "H02SheetB",
+      "dataset": "Generated",
+      "definition_sha256": "ff0eb4e9807a490f0cb3fdd18485c030218441cf7c03b10e13a33d2e8d1241fc",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "d88b4e0df2fb252ce736ad6d59a47399148b83f9aa4e8e350f490f9a4a6bb129",
+      "stage": "initial",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "b316afb61fc2284819e836ad456b6d74d0852c60320c2cb51fa48057be5627fa",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "4cebdc9eb79d50e061e441e047957eace61372ba4c00ae512b7b8c50d2f9321f",
+      "stage": "constructed",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "8f52f5f0bbe0c495c91358a5e4c207a94b21db6a4772ad92af7292d25a25c33b",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "96c8bb39cfe898fdd6908bea4ac443858c9e952dfe1dfbd3a4467c0be84639c9",
+      "stage": "open-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "8f52f5f0bbe0c495c91358a5e4c207a94b21db6a4772ad92af7292d25a25c33b",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "96c8bb39cfe898fdd6908bea4ac443858c9e952dfe1dfbd3a4467c0be84639c9",
+      "stage": "reopen",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "00503041b9c8cd3e61106e2ffb1ec7b63063c9949c0291c32cad597f2d6cec72",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "4565708607f2b40e0c00d8bd8050b721f9b531f2a2757e43f79715483eb08f9b",
+      "stage": "edit-move-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "00503041b9c8cd3e61106e2ffb1ec7b63063c9949c0291c32cad597f2d6cec72",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "4565708607f2b40e0c00d8bd8050b721f9b531f2a2757e43f79715483eb08f9b",
+      "stage": "reopen-edited",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "a91f92750ef8a373945120ce8ca7ed1fdc7985d2777cdbdd6d7ff09cafe30088",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "00941cca93735b06eb603a6ff62d1d8a2e1f93c0c6ea3621cd4f147e45aebdbe",
+      "stage": "constructed",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "7f7f1cf0dcb660e8c1f6befda266712f15207620b8fdf0835daf2daf8f9bb696",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "49d1ce775a74bb6e80f9a289a6941a1226b523d0cce5e679c70af69a849e2525",
+      "stage": "open-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "7f7f1cf0dcb660e8c1f6befda266712f15207620b8fdf0835daf2daf8f9bb696",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "49d1ce775a74bb6e80f9a289a6941a1226b523d0cce5e679c70af69a849e2525",
+      "stage": "reopen",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "84f675cd7b13e4c97ee32a908759b588cca89dffbf48df9b086548b4b894419e",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "5254adca3df538d712a69867a25753aa615575671d0cd69505900e1be10329e6",
+      "stage": "edit-move-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiCenterlineInitialized",
+      "dataset": "AnsiCentrelineNativePacket02",
+      "definition_sha256": "84f675cd7b13e4c97ee32a908759b588cca89dffbf48df9b086548b4b894419e",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "5254adca3df538d712a69867a25753aa615575671d0cd69505900e1be10329e6",
+      "stage": "reopen-edited",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "472354ad757175c8fad4f3e8c4aec9d1e57a677b447de31bc56cdad12ffcb0e5",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "9f8ed3b43aaeeb57e4b6b8fea870c54a92ed3be34155f0a6a375295b78b50318",
+      "stage": "constructed",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "fbce37f54488b8ed3e3a00e84bb241235e0b93a0077d5d4ab62eb6675d4bdd41",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "2ad96398aebcd724755eecac1ffa308c6ad5017536720454dbd0a33636181bd6",
+      "stage": "open-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "fbce37f54488b8ed3e3a00e84bb241235e0b93a0077d5d4ab62eb6675d4bdd41",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "2ad96398aebcd724755eecac1ffa308c6ad5017536720454dbd0a33636181bd6",
+      "stage": "reopen",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "b692e563c12b7422d08c8f57f6e1edc3a7b30e21f43267f367a7c3b05649e22c",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "d2ed1a4a2a2bfd1fc6ac1e6ef74e27156f0d73eec03104977a3dff7bf01db695",
+      "stage": "edit-move-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "b692e563c12b7422d08c8f57f6e1edc3a7b30e21f43267f367a7c3b05649e22c",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "d2ed1a4a2a2bfd1fc6ac1e6ef74e27156f0d73eec03104977a3dff7bf01db695",
+      "stage": "reopen-edited",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "d76918c3c2bec54f42b41bf0cc7308c398ad8e0459d1446c0790227e01b32aaf",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "e4bf3ac77c4918f259887c9898da346ef2f4cc10cef7bc0f186140ce3954bb18",
+      "stage": "constructed",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "e6548342ffffb0492e657af5b1805805e46de6714849a3d7d71e2f5f88090d42",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "8d07b26a1b7e9fbee01cb0bc7c7978e484d3a80c82661174005831ee3c79e568",
+      "stage": "open-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "e6548342ffffb0492e657af5b1805805e46de6714849a3d7d71e2f5f88090d42",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "8d07b26a1b7e9fbee01cb0bc7c7978e484d3a80c82661174005831ee3c79e568",
+      "stage": "reopen",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "d532ae6455c64f88a9e32d321336e498d5a2224c96570961a384538f511bda30",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "b22f46ed6c93f93bc4b0a0e65ac92ed0989aae0c10bfe1641a88710a2feb2d70",
+      "stage": "edit-move-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "d532ae6455c64f88a9e32d321336e498d5a2224c96570961a384538f511bda30",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "b22f46ed6c93f93bc4b0a0e65ac92ed0989aae0c10bfe1641a88710a2feb2d70",
+      "stage": "reopen-edited",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "c6ae82ffc2ee1f518f4985c21152eeadbce7604d0f3f1da6a18c339aef8a1c42",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "f4c1af87dbf8afebf03f165d9e7b93926f9d01e379a1247415ef8d17281050ff",
+      "stage": "constructed",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "06bff09c3f84eb8c275fcb407f5dc80b6151da84fea0882668508f1d618f79d3",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "7e49f7601b148caad2b945111d3a5e5cb4b7689ce6b4fb48bee82e7e8e404009",
+      "stage": "open-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "06bff09c3f84eb8c275fcb407f5dc80b6151da84fea0882668508f1d618f79d3",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "7e49f7601b148caad2b945111d3a5e5cb4b7689ce6b4fb48bee82e7e8e404009",
+      "stage": "reopen",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "7ec97531867e7a8dd67f12fd32840c63622be8fb1630ab8d6393fd1cf02db44f",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "da95ab9f78f49c269b5b5b237b686ffb3ebf6b64b70dca61da7000c8d69aac92",
+      "stage": "edit-move-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "7ec97531867e7a8dd67f12fd32840c63622be8fb1630ab8d6393fd1cf02db44f",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "da95ab9f78f49c269b5b5b237b686ffb3ebf6b64b70dca61da7000c8d69aac92",
+      "stage": "reopen-edited",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "5ce2628b7b522db2b5d8d54095a278cea9bf671b63ec6d22b35a6c3b97f89d14",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "da8cef4b9e55a6dbc66534bcd53de5538a98200832ac652c6297db627d9d6fb6",
+      "stage": "constructed",
+      "system_scale_entries": [],
+      "units_count": 16
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "6577b5f6503129dba1bece95477990bd7e3241075eee6408a457a88f1867da47",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "2787864650dba37349b32cf897cfbe562b80f6c27ea4fc8a12e528e742f30502",
+      "stage": "open-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "6577b5f6503129dba1bece95477990bd7e3241075eee6408a457a88f1867da47",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "2787864650dba37349b32cf897cfbe562b80f6c27ea4fc8a12e528e742f30502",
+      "stage": "reopen",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "5c6b86f9d79b9fd83a3ef8651633be02e910b58c4b346ae31c2709056bce42ec",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "d765d89727cb18c3894403396f5f0cba807c7c6c89c89e94c764a8f45cdf9cd9",
+      "stage": "edit-move-save",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    },
+    {
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "dataset": "AnsiNormalizationNativePacket01",
+      "definition_sha256": "5c6b86f9d79b9fd83a3ef8651633be02e910b58c4b346ae31c2709056bce42ec",
+      "drawing_units_field": "f9b8",
+      "exact": true,
+      "source_sha256": "d765d89727cb18c3894403396f5f0cba807c7c6c89c89e94c764a8f45cdf9cd9",
+      "stage": "reopen-edited",
+      "system_scale_entries": [
+        {
+          "body_field_count": 0,
+          "ordinal": 16,
+          "slot": 63
+        }
+      ],
+      "units_count": 17
+    }
+  ],
+  "runtime_class": {
+    "descriptor": "0x3ce6f760",
+    "name": "moScaleSysScale_c",
+    "schema": 1,
+    "size": 32,
+    "vtable": "0x3cc8c4e0"
+  },
+  "schema": "kit.sw2026.drawing-system-scale-owners.v1",
+  "scope": "plain named view in disclosed original and generated drawings",
+  "sdk_source_revision": "bebafa8760397e8711d03df88231c0bdca5ae38f",
+  "spans": [
+    {
+      "bytes": 54,
+      "end_exclusive": "0x3c904c06",
+      "has_unwind_row": true,
+      "range_sha256": "60630659065c4d817e92197a1aa10cfc2ef1c850fe34db042bef50eb0bda56ea",
+      "role": "archive_factory",
+      "start": "0x3c904bd0",
+      "unwind_flags": 2
+    },
+    {
+      "bytes": 64,
+      "end_exclusive": "0x3c907390",
+      "has_unwind_row": true,
+      "range_sha256": "003c7622a03595778a0c51645c8bbbda22cea54d91214c3b250eccc5e8815aa4",
+      "role": "constructor",
+      "start": "0x3c907350",
+      "unwind_flags": 2
+    },
+    {
+      "bytes": 4,
+      "end_exclusive": "0x3c7553e4",
+      "has_unwind_row": false,
+      "range_sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689",
+      "role": "scale_enum_getter",
+      "start": "0x3c7553e0",
+      "unwind_flags": null
+    },
+    {
+      "bytes": 4,
+      "end_exclusive": "0x3c755bf4",
+      "has_unwind_row": false,
+      "range_sha256": "7aaa8d9f5fd794be56f764d70b58d2fc7484b4b030dcabff56897cadd4b76a21",
+      "role": "scale_enum_setter",
+      "start": "0x3c755bf0",
+      "unwind_flags": null
+    },
+    {
+      "bytes": 3,
+      "end_exclusive": "0x3c74caa3",
+      "has_unwind_row": false,
+      "range_sha256": "b6cbececf1b07e74f37d57710c68c31f0b92cb08d51093252b321b07542e177b",
+      "role": "empty_serialize",
+      "start": "0x3c74caa0",
+      "unwind_flags": null
+    },
+    {
+      "bytes": 1285,
+      "end_exclusive": "0x3c8ecb85",
+      "has_unwind_row": true,
+      "range_sha256": "25c3a9c535fd4f483d34d23d88521ffca9b84e35f8b2c9ffd769aa004538be93",
+      "role": "default_user_units_builder",
+      "start": "0x3c8ec680",
+      "unwind_flags": 2
+    }
+  ],
+  "units_table_prefix": [
+    "moLengthUserUnits_c",
+    "moAngleUserUnits_c",
+    "moNumberUserUnits_c",
+    "moDensityUnits_c",
+    "moFloatNumberUserUnits_c",
+    "moSpringConstantUnits_c",
+    "moUnitSysUnits_c",
+    "moForceUnits_c",
+    "moStressUnits_c",
+    "moGravityUnits_c",
+    "moLinearMotorUnits_c",
+    "moRotaryMotorUnits_c",
+    "moPowerUnits_c",
+    "moEnergyUnits_c",
+    "moTimeUnits_c",
+    "moFrequencyUserUnits_c"
+  ],
+  "unserialized_runtime_state": true
+}

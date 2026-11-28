@@ -1,0 +1,172 @@
+{
+  "schema": "kit.sw2026.frozen-cohort-regression.v1",
+  "evaluation_revision": "4439534c531988783bba860154441a02530594d7",
+  "historical_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+  "tested_merge": "f5f987d6134c5ad7113e352ea0287e3bc6bb26fe",
+  "run_id": 43972344782,
+  "job_id": 133667458900,
+  "native_format_passed": 201,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14280346247,
+    "bytes": 23880424,
+    "sha256": "7263d2b2e2eeac84e06fcc191563b2446ecf65e26b08c930339c9ae5aa973d95"
+  },
+  "source_inventory_sha256": "f07325a243573e6f93cb5af7d84070a2949cd849eadc96a8fcd559706bfd5d00",
+  "outputs": [
+    {
+      "name": "H01Forward",
+      "sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
+      "bytes": 7967,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/EndHeldoutProcesses55d0.json",
+        "measured_sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "H01TranslatedDiameter",
+      "sha256": "8b06fbed4d59e49f5e6c90aaf7ade8667bb2e77601676076f622773ca59bf27a",
+      "bytes": 7985,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/CurveHeldoutProcessesAf6165.json",
+        "measured_sha256": "8b06fbed4d59e49f5e6c90aaf7ade8667bb2e77601676076f622773ca59bf27a",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "H02Reverse",
+      "sha256": "6b474e833e07ff8ef62aafa4794ec8d9c0edffc983e399d7f4bb9eb7783e16aa",
+      "bytes": 7967,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/EndHeldoutProcesses55d0.json",
+        "measured_sha256": "6b474e833e07ff8ef62aafa4794ec8d9c0edffc983e399d7f4bb9eb7783e16aa",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "H02ReverseTopCircle",
+      "sha256": "8adcae7ee0ebafa3dda245914ebabb8907c8f0a634c97cf99fca06ba2af8d447",
+      "bytes": 7988,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/CurveHeldoutProcessesAf6165.json",
+        "measured_sha256": "8adcae7ee0ebafa3dda245914ebabb8907c8f0a634c97cf99fca06ba2af8d447",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "H03MidPlane",
+      "sha256": "e8963d3c80b134194a5ce10ae5ca31c3f2339fdfee4881aba2e78240ceea96a0",
+      "bytes": 7986,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/EndHeldoutProcesses55d0.json",
+        "measured_sha256": "e8963d3c80b134194a5ce10ae5ca31c3f2339fdfee4881aba2e78240ceea96a0",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "H04TwoDirections",
+      "sha256": "5cded1cd89de1d91d50764cd9b5ed175db747ae0bfd9d43337d1c6e2fc5ebea6",
+      "bytes": 8015,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/EndHeldoutProcesses55d0.json",
+        "measured_sha256": "5cded1cd89de1d91d50764cd9b5ed175db747ae0bfd9d43337d1c6e2fc5ebea6",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "ViewH01TrimetricPan",
+      "sha256": "b53af0cf5bdc1e49a71a12e2ab36aea6eade783b1cd740d65ba75bf949a70a36",
+      "bytes": 8072,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/ViewHeldoutProcessesFd08.json",
+        "measured_sha256": "b53af0cf5bdc1e49a71a12e2ab36aea6eade783b1cd740d65ba75bf949a70a36",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "ViewH02DimetricPan",
+      "sha256": "0bdfd2e8f011921eb215e363f07b31cd29b746db4af7a316e418697808e0ed8a",
+      "bytes": 8066,
+      "frozen_regression": {
+        "source_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+        "source_file_count": 3404,
+        "measured_receipt": "re/solidworks/measurements/2026/ViewHeldoutProcessesFd08.json",
+        "measured_sha256": "0bdfd2e8f011921eb215e363f07b31cd29b746db4af7a316e418697808e0ed8a",
+        "historical_output_identical": true,
+        "current_output_identical": true,
+        "editable_project_imports": 0,
+        "new_unseen_evidence": false,
+        "native_acceptance_inherited": false
+      },
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    }
+  ],
+  "generated_outputs_compared": 8,
+  "historical_generated_outputs_compared": 8,
+  "complete_current_archive_comparisons": 64,
+  "complete_historical_archive_comparisons": 64,
+  "original_freezes_modified": false,
+  "writer_executed_locally": false,
+  "new_unseen_evidence": false,
+  "native_acceptance_inherited": false,
+  "passed": true
+}

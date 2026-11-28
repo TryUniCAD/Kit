@@ -1,0 +1,352 @@
+{
+  "assembly_tree_rows": 28,
+  "child_drivers_m": {
+    "D1@Boss-Extrude1": 0.0093,
+    "D1@Sketch1": 0.0371,
+    "D2@Sketch1": 0.0186
+  },
+  "child_occurrences": 3,
+  "child_tree_rows": 25,
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "edit_distance_m": 0.057730000000000004,
+  "exact_observer_tools": {
+    "re/tooling/sw2026/InspectPortableAsmTrial.py": "9bb2fa0ca12bb58a5f6bfd1040ad6049aafe18c35ef8e792265bba03ac468ea1",
+    "re/tooling/sw2026/PortableAsmPrediction.py": "b7f5790a17c7c9dcddb3482a298dda78350bc7971bd847bfe25678b092d43ed4"
+  },
+  "fcstd_qualification_credit": 0,
+  "files": {
+    "generated": {
+      "assembly": {
+        "bytes": 10833,
+        "name": "PublicPlanarPair3.SLDASM",
+        "sha256": "c6680b3c42c593e6f926031f24852b3e7e8d8a94f08748b19c7735da4440d92e"
+      },
+      "child": {
+        "bytes": 8727,
+        "name": "PublicDatumPrism.SLDPRT",
+        "sha256": "e0daf24884bcc664076bb02d00038afd96c414aa0e34a619b4d44b8571724ed2"
+      }
+    },
+    "native_saved": {
+      "assembly": {
+        "bytes": 43619,
+        "sha256": "2143baf73b1be86a5fa570cd294b1b6aed8d67b5270f71784ad70ea70fad1e13"
+      },
+      "child": {
+        "bytes": 28455,
+        "sha256": "7c47ff38c5ab5222a7c6c4441980e54b45b1b9abd73cab39365bc80cbdfc82fc"
+      }
+    }
+  },
+  "fresh_rebuild_child_stamp": 158,
+  "fresh_reopen_child_stamp": 144,
+  "heldout_inputs_read": 0,
+  "independent_prediction_sha256": "a527442d5507acb270a555588b09aca0cfe7c80c1b1b22d3c94f064d65b109e1",
+  "initial_distance_m": 0.042,
+  "input_immutability": true,
+  "mate_endpoints": 6,
+  "mate_order": [
+    "distance",
+    "coincident",
+    "parallel"
+  ],
+  "native_batch_sha256": "b7f67b7cbdd2ed07d91c4f200fe006ef1b682e5aad1d315d32cdc85406d955c6",
+  "native_processes": [
+    {
+      "case": "ControlBefore",
+      "numeric_comparisons": 80,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394683301199782,
+      "process_id": 6648,
+      "source_record_sha256": "03a052dab9f938f93968c54a18d3bb5e4f88e48e5cafe8e79ecc0619e86d66b0"
+    },
+    {
+      "case": "Generated",
+      "numeric_comparisons": 168,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394683856022598,
+      "process_id": 1140,
+      "source_record_sha256": "5f8f7a0d50a2490d4b8ae39bbc0431ab2300cf50c862b5a2134373bd459960e1"
+    },
+    {
+      "case": "FreshReopen",
+      "numeric_comparisons": 112,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394684905837846,
+      "process_id": 6040,
+      "source_record_sha256": "65ed1d082af66d011ec6de841e22314a89968b2eb03e30f800d316dedd2d20fb"
+    },
+    {
+      "case": "ControlAfter",
+      "numeric_comparisons": 80,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394685477147982,
+      "process_id": 5948,
+      "source_record_sha256": "12c85e5224b34c67c28db8b663f59642d8892ac512372719f3e85bf5c11d1aed"
+    }
+  ],
+  "native_scope_passed": true,
+  "native_transport_sha256": "524ad6624c2e3664b809ee431cc3f416b10a64ee4a31c2cb09674f89ce936541",
+  "numeric_comparisons": 440,
+  "oracle": {
+    "com_progid": "SldWorks.Application.34",
+    "executable": "sldworks.exe",
+    "file_version": "34.5.2.0604",
+    "guest": "Windows 11",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "transport": "prlctl exec --current-user"
+  },
+  "packet_sha256": "b6780e0e4b33a34b2245a1f21464865faf080aa453bddf02a2972d8d8efb9c38",
+  "prelaunch_failure": {
+    "class": "ModuleNotFoundError",
+    "host_sha256": "dc9eb7a8a01efd7045191d53bc720ecb6090f640c34a670959a074386311ec83",
+    "missing_module": "interchange",
+    "native_launches": 0,
+    "repair": "add the exact verified frozen src and research tool roots to the pinned guest interpreter import path",
+    "stage": "import before COM",
+    "stderr_sha256": "41e55f342813b1579cb88a1f7198791728aab7820b588e9490c20f77a6567223"
+  },
+  "producer_result_sha256": "0811e0a037e6c1bcae62f3b58e51eb47478f385df77cf75b914fd52663cd873f",
+  "public_registration_credit": false,
+  "readback": [
+    {
+      "input_sha256": "c6680b3c42c593e6f926031f24852b3e7e8d8a94f08748b19c7735da4440d92e",
+      "kind": "assembly",
+      "operation": "read",
+      "result": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 6,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 3,
+        "occurrences": 3,
+        "passed": true
+      },
+      "state": "generated",
+      "stdout_sha256": "6ad665063896292bc3620b5d671ec29be561e0dbd656c7cbe920dd531e98ead2"
+    },
+    {
+      "input_sha256": "c6680b3c42c593e6f926031f24852b3e7e8d8a94f08748b19c7735da4440d92e",
+      "kind": "assembly",
+      "operation": "audit",
+      "result": {
+        "passed": true,
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3004,
+            "sha256": "b0d30e124a259a1d95b6e55a3dc22715ac20abf7e0bb74632b54de607d56ec55"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 197,
+            "sha256": "0e39a2d93e06081c17cb4cceb649e21ab5a4d26e683e81fb1ee6b3eb7b449cb5"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 23411,
+            "sha256": "d078621bdb919baef0fe3cf09c965c8d2f4fbf8bf0d2d9bd9e1835b1110d8cee"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 10681,
+            "sha256": "c5061dfe4222ff1ad6b9cf68a7ab7cda084c954b8d0210596f6530f74a7d4468"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1555,
+            "sha256": "4f6e5ca64b99d47d1115bf67381c2af1ce8b9ff48b88a250a4c1814fe3b468b3"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "9c176472e998967a4cbe6a4be96a0cae55804347a8dbdb410e57153a828391ed"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1555,
+            "sha256": "f3ab021ad14dd2919bf0b305d640a1d5a7f624fe58ac3e4972cec1e051a669a7"
+          }
+        }
+      },
+      "state": "generated",
+      "stdout_sha256": "b8347968ec42a922e32f8c659a977f79ee4c45ce9fd1f6cfd90b50636986a4c2"
+    },
+    {
+      "input_sha256": "e0daf24884bcc664076bb02d00038afd96c414aa0e34a619b4d44b8571724ed2",
+      "kind": "child",
+      "operation": "audit",
+      "result": {
+        "passed": true,
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1153,
+            "sha256": "1c769694f46e40dc95b6bc5d37ee75d90f5707f00a718f19695b213bd6bac58d"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 185,
+            "sha256": "c76a14e72b39f8af4d295a3422a6c561d89a0ce0beda779b2f4142e5a6c497f9"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22266,
+            "sha256": "4fa40a950bfec37929c1f627b325eaf00a89249173939392aed52b297be093c8"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 797,
+            "sha256": "c37b548fc39a2acb3c0248ec8b02dee106d9986b6a7a774de07ef15fdf2ba345"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "7fbf9264074be5796712fd9844b5fc4a67ac90bca9b1ac1b767ba6235050ea21"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 797,
+            "sha256": "366f42c5d884637f8a372eaefe26b32f2113bbd14daede5c5d335e44a3603dcb"
+          }
+        }
+      },
+      "state": "generated",
+      "stdout_sha256": "899ab2d86756081261f081db78d37a432a89a5b64f8447e27970c32e35a3e300"
+    },
+    {
+      "input_sha256": "2143baf73b1be86a5fa570cd294b1b6aed8d67b5270f71784ad70ea70fad1e13",
+      "kind": "assembly",
+      "operation": "read",
+      "result": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 6,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 3,
+        "occurrences": 3,
+        "passed": true
+      },
+      "state": "native_saved",
+      "stdout_sha256": "96e44ab79cbf201fe1ad7d3aa5ea9641ddc319ede3279090faea339f601bd797"
+    },
+    {
+      "input_sha256": "2143baf73b1be86a5fa570cd294b1b6aed8d67b5270f71784ad70ea70fad1e13",
+      "kind": "assembly",
+      "operation": "audit",
+      "result": {
+        "passed": true,
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3585,
+            "sha256": "fd0c9657cf78a4c59834730d0b6c5c817ff65d0b6a05483354b9cf5848466993"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 197,
+            "sha256": "949df70aefbff78c7e3e55eb028320738bf9812d3264de253da021ecb55a84ba"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 26178,
+            "sha256": "f6d3e52ff50070bdc50181e35bc88d0f3a02477e6e13a9b1505db9136f196e65"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 12537,
+            "sha256": "35e0f05f6a8f298c9a610e367f31e079cef029034bfaf8c2ae8df6c2e6ec5009"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 2049,
+            "sha256": "db04dbec20f84a20008e6f4a9b6df09e2515775f33fec484b297d54c401ac483"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 5295,
+            "sha256": "a64d9b6326e1c82459a5c96d716233cfc46b9d30aa2cb2f43455b730acb4c058"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 2049,
+            "sha256": "f1680ed3382b32131ec6c4fe1af99ba82e742ace6656584da91210418f65dec3"
+          }
+        }
+      },
+      "state": "native_saved",
+      "stdout_sha256": "0fc5d74b1b4347bc8bd51a461e5df6cdf0fe592a5b7ba00669cf67e4fd7c9090"
+    },
+    {
+      "input_sha256": "7c47ff38c5ab5222a7c6c4441980e54b45b1b9abd73cab39365bc80cbdfc82fc",
+      "kind": "child",
+      "operation": "audit",
+      "result": {
+        "passed": true,
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2543,
+            "sha256": "41f162381088e66c8f4ffe88ec1423c5ba47965bbdf10626ab525b503ae6c51b"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 185,
+            "sha256": "14218a3990f62bcf04ba5e3f9d40d27a8f24b7980990ed961ab909953b80fb24"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 25999,
+            "sha256": "75fc6784942ea8f7b522b662e4ea4cdd541bd8c01b66bd7ff08524e39c8ccf2e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1257,
+            "sha256": "5dc6ffbea43efa1108a2454d83f37cc0e1ae4cff0b8bbff056a22e98259d1337"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 19161,
+            "sha256": "ada8e8e4a97c49d643cd2eddb127142ebff141fa6d70487acafe84eeccf83e87"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1257,
+            "sha256": "5dc6ffbea43efa1108a2454d83f37cc0e1ae4cff0b8bbff056a22e98259d1337"
+          }
+        }
+      },
+      "state": "native_saved",
+      "stdout_sha256": "4e411dbb99c60a4decefb84cff57c5c628e8badb89d1eb5fd20dbaddcddb79bb"
+    }
+  ],
+  "readback_processes": 6,
+  "readback_sha256": "d10d0a54d06d00b7b13ac6323e5f5bb2556a5cd9b6a9a97578b20316b15b796a",
+  "schema": "kit.sw2026.portable-assembly-registry-native-disclosed.v1",
+  "scope": "disclosed three-occurrence portable assembly, generated shared rectangular child and ordered distance, coincident and parallel mates through the private writer registry",
+  "scoped_stream_round_trips": 26,
+  "source_manifest_files": 4237,
+  "source_manifest_sha256": "133e3f00199e217dd675868eb36ed54e9be2811ed61ac040491b34661e4a5895",
+  "source_observations_read_by_prediction": 0
+}

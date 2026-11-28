@@ -1,0 +1,807 @@
+{
+  "actual_invocation_observed": false,
+  "data_collected": false,
+  "distinct_processes": 4,
+  "healthy_controls": true,
+  "heldout_accepted": false,
+  "hidden_inputs_read": 0,
+  "independently_complete_memory_stages": 16,
+  "job_sha256": "37af7688381042f795b5489b5eef4132eaf96dbca1e6e737f323ecec8af71c5b",
+  "known_equal": [
+    "node count 2",
+    "two unique runtime role/type identities",
+    "slddrwu getter module hash and RVA 0x39d360",
+    "no pending clear-all message in sampled stages"
+  ],
+  "native_source_failure": {
+    "hresult": -2147023179,
+    "hresult_hex": "0x800706b5",
+    "initial_annotation_state_verified": true,
+    "input_or_document_failure_not_established": true,
+    "post_redraw_full_annotation_state": "unknown",
+    "preceding_sheet_annotation_count_observed": 1,
+    "stage": "post-redraw note reacquisition inside repeated one_note/GetFirstView",
+    "symbol": "RPC_S_UNKNOWN_IF"
+  },
+  "new_vm_calls": 0,
+  "overall_exit": 3,
+  "phases": {
+    "ControlAfter": {
+      "cleanup_diagnostics_empty": true,
+      "first_failure": null,
+      "get_first_view_calls": [
+        {
+          "call_index": 10,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 58,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 76,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 124,
+          "error": null,
+          "succeeded": true
+        }
+      ],
+      "immutable_input": true,
+      "initial_com_state_complete": true,
+      "open": [
+        0,
+        0
+      ],
+      "owned_query_read_handle_closed": true,
+      "passed": true,
+      "phase_result_sha256": "0747bd0ff3d0a342615870d2c6613e15456f8b9e6ddea843bc3b92c54016cfd1",
+      "post_redraw_com_state_complete": true,
+      "rebuild": true,
+      "record_sha256": "1a38abe63ea2fc970bf48d55a9bf25b291f8b491897b4fc71d1676db3bf7ecc9",
+      "snapshots": [
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "tree_stable": true
+        }
+      ],
+      "sole_open_document": true
+    },
+    "ControlBefore": {
+      "cleanup_diagnostics_empty": true,
+      "first_failure": null,
+      "get_first_view_calls": [
+        {
+          "call_index": 10,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 58,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 76,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 124,
+          "error": null,
+          "succeeded": true
+        }
+      ],
+      "immutable_input": true,
+      "initial_com_state_complete": true,
+      "open": [
+        0,
+        0
+      ],
+      "owned_query_read_handle_closed": true,
+      "passed": true,
+      "phase_result_sha256": "6fa008437da56f5c42b417b4b9609de98d7341ac5546fb4bfb31cadd829287a1",
+      "post_redraw_com_state_complete": true,
+      "rebuild": true,
+      "record_sha256": "4903f7c0bea5f6f8b9e2ef2796e49739a52cd399772972e01fc3d3cf802e37d4",
+      "snapshots": [
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "tree_stable": true
+        }
+      ],
+      "sole_open_document": true
+    },
+    "Generated": {
+      "cleanup_diagnostics_empty": true,
+      "first_failure": null,
+      "get_first_view_calls": [
+        {
+          "call_index": 10,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 58,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 61,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 99,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 147,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 150,
+          "error": null,
+          "succeeded": true
+        }
+      ],
+      "immutable_input": true,
+      "initial_com_state_complete": true,
+      "open": [
+        0,
+        0
+      ],
+      "owned_query_read_handle_closed": true,
+      "passed": true,
+      "phase_result_sha256": "bdb38d0c1513bb0b31d456dc01327c0f104948194eff23698d446348c7ef9b02",
+      "post_redraw_com_state_complete": true,
+      "rebuild": true,
+      "record_sha256": "7a8d9e7e9319ede1d2b27edc630519d0c2c9203e99141c9dfdcb4dc8d19e5953",
+      "snapshots": [
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "tree_stable": true
+        }
+      ],
+      "sole_open_document": true
+    },
+    "NativeSource": {
+      "cleanup_diagnostics_empty": true,
+      "first_failure": {
+        "error": "com_error(-2147023179, 'The interface is unknown.', None, None)",
+        "pending_capability": false,
+        "stage": "GetFirstView",
+        "type": "com_error"
+      },
+      "get_first_view_calls": [
+        {
+          "call_index": 10,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 58,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 61,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 99,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 147,
+          "error": null,
+          "succeeded": true
+        },
+        {
+          "call_index": 150,
+          "error": "com_error(-2147023179, 'The interface is unknown.', None, None)",
+          "succeeded": false
+        }
+      ],
+      "immutable_input": true,
+      "initial_com_state_complete": true,
+      "open": [
+        0,
+        0
+      ],
+      "owned_query_read_handle_closed": true,
+      "passed": false,
+      "phase_result_sha256": "a5f63f5fd9a2b26145bc4b50c44d7b338341749c0ecc38253b16b7374f2a337b",
+      "post_redraw_com_state_complete": false,
+      "rebuild": true,
+      "record_sha256": "ef18e185b01f533886a0c8004ea21b71a2e963651235c2fe2cedd5bfd8b4bbdf",
+      "snapshots": [
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "tree_stable": true
+        },
+        {
+          "count": 2,
+          "getters": [
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            },
+            {
+              "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+              "field_read": false,
+              "field_refusal": "actual uiModelView getter does not match the source-bound +0x478 leaf",
+              "module": "slddrwu.dll",
+              "rva": "0x39d360"
+            }
+          ],
+          "identities": [
+            [
+              ".?AVuiDrawingView_c@@",
+              ".?AVmoDrSheet@@",
+              null,
+              ".?AVgfxSgSheetView_c@@"
+            ],
+            [
+              ".?AVuiDrawingView_c@@",
+              null,
+              null,
+              ".?AVgfxSgDrawingView_c@@"
+            ]
+          ],
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "tree_stable": true
+        }
+      ],
+      "sole_open_document": true
+    }
+  },
+  "raw_result_sha256": "8b72327abb9fa7b73fc5b1b1f880b8c7f0f0be750b7736393bef39cb425e716e",
+  "schema": "kit.sw2026.per-view-first-run-observation.v1",
+  "source_generated_layer_state_equal": null,
+  "task": "DRAWING-NOTES-C10",
+  "unknown": [
+    "layer-zero object presence, because every first-run field read was refused",
+    "virtual +0x78 owner, never read",
+    "post-redraw source text/name/position/geometry completion",
+    "rendering and callback invocation",
+    "full batch qualification"
+  ],
+  "writer_qualified": false
+}

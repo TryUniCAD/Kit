@@ -1,0 +1,421 @@
+{
+  "delivery_pr": 121,
+  "evidence": [
+    {
+      "bytes": 1779,
+      "case": "Brep",
+      "role": "GuardedBuild",
+      "sha256": "707aa8501972e03fc8100a95926afc1a9112880818df842ac6343376fbbcaab9"
+    },
+    {
+      "bytes": 37621,
+      "case": "Brep",
+      "role": "Neutral",
+      "sha256": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63"
+    },
+    {
+      "bytes": 30189,
+      "case": "Brep",
+      "role": "SourceAuthor",
+      "sha256": "72b5e65d8eef732175da041a5b4a86380ff21c88e69134dd9977429adeb841dd"
+    },
+    {
+      "bytes": 1774,
+      "case": "Feature",
+      "role": "GuardedBuild",
+      "sha256": "22869c0a4e5f71617c618dc366ee5552131bb5947afe8f3ff97ea4323a776ed5"
+    },
+    {
+      "bytes": 18804,
+      "case": "Feature",
+      "role": "Neutral",
+      "sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3"
+    },
+    {
+      "bytes": 29368,
+      "case": "Feature",
+      "role": "SourceAuthor",
+      "sha256": "3924f2208d0d04fb3fc22036f2547ecdb8e7a57fded5f8477638575576c74616"
+    }
+  ],
+  "generated_input_twin_bytes_equal": true,
+  "generated_profiles": {
+    "Brep": {
+      "api_alignment": 1,
+      "child_configuration": "Default",
+      "child_tree_rows": 25,
+      "control_api_alignment": 1,
+      "control_fixed_index": 0,
+      "control_lock_rotation": false,
+      "depth_parameter": "D1@RoundBoss",
+      "edited_depth_m": 0.01874901,
+      "edited_geometry": {
+        "assembly": {
+          "area": 0.002897562591905974,
+          "com": [
+            -0.03937348008294794,
+            0.004407103715574044,
+            0.028561253868552638
+          ],
+          "volume": 8.453325120480795e-06
+        },
+        "child": {
+          "area": 0.001448781295952987,
+          "com": [
+            -0.009283,
+            0.0069169999999999995,
+            0.009374505
+          ],
+          "volume": 4.2266625602403975e-06
+        }
+      },
+      "fixed_index": 1,
+      "initial_depth_m": 0.014763,
+      "initial_geometry": {
+        "assembly": {
+          "area": 0.0024732529216684126,
+          "com": [
+            -0.03937348008294794,
+            0.004407103715574044,
+            0.028561253868552638
+          ],
+          "volume": 6.6561615121896024e-06
+        },
+        "child": {
+          "area": 0.0012366264608342063,
+          "com": [
+            -0.009283,
+            0.0069169999999999995,
+            0.0073815
+          ],
+          "volume": 3.3280807560948012e-06
+        }
+      },
+      "ordered_endpoint_indexes": [
+        1,
+        0
+      ],
+      "parent_configuration": "AssemblyActive",
+      "parent_tree_rows": 25,
+      "prediction_sha256": "d4dfbe93b22269635ae16833dd535715cba27a5928f59532fe2764c7a7a83d8a",
+      "radial_parameter": "D1@RoundProfile",
+      "radial_system_value_m": 0.016942000000000002,
+      "rotation_locked": true
+    },
+    "Feature": {
+      "api_alignment": 0,
+      "child_configuration": "Default",
+      "child_tree_rows": 25,
+      "control_api_alignment": 0,
+      "control_fixed_index": 0,
+      "control_lock_rotation": false,
+      "depth_parameter": "D1@RoundBoss",
+      "edited_depth_m": 0.02898013,
+      "edited_geometry": {
+        "assembly": {
+          "area": 0.002202378303874682,
+          "com": [
+            -0.022930624417392086,
+            -0.006615438794620661,
+            0.04262577298144354
+          ],
+          "volume": 4.805065688210556e-06
+        },
+        "child": {
+          "area": 0.001101189151937341,
+          "com": [
+            0.003913,
+            -0.0074210000000000005,
+            0.014490065
+          ],
+          "volume": 2.402532844105278e-06
+        }
+      },
+      "fixed_index": 0,
+      "initial_depth_m": 0.022819,
+      "initial_geometry": {
+        "assembly": {
+          "area": 0.0018046561320697433,
+          "com": [
+            -0.022374104028587236,
+            -0.005030547805353401,
+            0.040043470456910646
+          ],
+          "volume": 3.7835162899295716e-06
+        },
+        "child": {
+          "area": 0.0009023280660348717,
+          "com": [
+            0.003913,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "volume": 1.8917581449647858e-06
+        }
+      },
+      "ordered_endpoint_indexes": [
+        0,
+        1
+      ],
+      "parent_configuration": "AssemblyActive",
+      "parent_tree_rows": 25,
+      "prediction_sha256": "e3526797ad49d04073a46e9a93a178377195f776697abe141d7d6ed54d112ca5",
+      "radial_parameter": "D1@RoundProfile",
+      "radial_system_value_m": 0.010274,
+      "rotation_locked": false
+    }
+  },
+  "heldout_inputs_read": 0,
+  "host_verify_native_processes_started": 0,
+  "host_verify_passed": true,
+  "input_identities": [
+    {
+      "bytes": 70897,
+      "case": "Brep",
+      "filename": "ConcentricD03Child.SLDPRT",
+      "role": "control_child",
+      "sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4"
+    },
+    {
+      "bytes": 45081,
+      "case": "Brep",
+      "filename": "ConcentricD03AntiFree.SLDASM",
+      "role": "control_parent",
+      "sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039"
+    },
+    {
+      "bytes": 10755,
+      "case": "Brep",
+      "filename": "NeutralCylinderBetaAuthored.SLDPRT",
+      "role": "generated_child",
+      "sha256": "438d18c98855653620ad54a914356767994d128249253b85dd2a0d56616ac8f8"
+    },
+    {
+      "bytes": 10810,
+      "case": "Brep",
+      "filename": "ConcentricNeutralBetaAuthored.SLDASM",
+      "role": "generated_parent",
+      "sha256": "0295b17d99658a7baec144f1ac9688a5c4e63d540b858fd36dc28e6884370bc5"
+    },
+    {
+      "bytes": 72027,
+      "case": "Feature",
+      "filename": "ConcentricD01Child.SLDPRT",
+      "role": "control_child",
+      "sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa"
+    },
+    {
+      "bytes": 46774,
+      "case": "Feature",
+      "filename": "ConcentricD01AlignedFree.SLDASM",
+      "role": "control_parent",
+      "sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+    },
+    {
+      "bytes": 10770,
+      "case": "Feature",
+      "filename": "NeutralCylinderAlphaDerived.SLDPRT",
+      "role": "generated_child",
+      "sha256": "64e1568c00763e734a00bf1f1778357b1864ca79abc30ec2b7f996bc3e20d845"
+    },
+    {
+      "bytes": 10820,
+      "case": "Feature",
+      "filename": "ConcentricNeutralAlphaDerived.SLDASM",
+      "role": "generated_parent",
+      "sha256": "e07d04635daf7a8b9ee5790dc34e7876c555b12690d36b9ff0cc6138a7222a59"
+    }
+  ],
+  "known_packet_output_inventory": [
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet01",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet02",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet03",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet04",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet05",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet06",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet07",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet08",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "Packet09",
+      "result_present": false
+    },
+    {
+      "inspection_present": false,
+      "owned_native_output_present": false,
+      "packet_name": "RootPacket10",
+      "result_present": false
+    }
+  ],
+  "new_candidate_bytes": 0,
+  "new_native_acceptance": false,
+  "original_protocol_sha256": "cbebcd5dd31bf839e76bf7f9a59bc42f82d20d40a276375d2b53d5d5fcadc812",
+  "original_recipe_sha256": "6967e8317b5eb39d20d2139a1206b142a11fc56bcfb547a2890ffc889dcae621",
+  "owner": "assembly_occurrence",
+  "packet_sha256": "5b90a632eab95d19fdf4f676798ec2bc44a6f0d464595a8198be25984d77ad34",
+  "published_host_contract_native_processes_started": 0,
+  "published_observer_contract_sha256": "ceb307a49bf4a33a13a169a362b474d43fcb92820e54259d062c162dc92a8aec",
+  "result": "generated native lifecycle remains outstanding in the declared published packet and known observer outputs",
+  "schema": "kit.sw2026.generated-concentric-disclosed-job-reconciliation.v1",
+  "scope": "two disclosed generated pre-solve pairs and already disclosed native D01/D03 controls only",
+  "shared_checkout_writes": 0,
+  "source_and_observer_changes": 0,
+  "source_cohort_native_processes": 25,
+  "source_cohort_scope": "three disclosed and two sealed source cases, not generated acceptance",
+  "source_tools": [
+    {
+      "bytes": 6153,
+      "name": "AssemblyMateEvidence.py",
+      "sha256": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1"
+    },
+    {
+      "bytes": 22921,
+      "name": "AuthorAssemblySources.py",
+      "sha256": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4"
+    },
+    {
+      "bytes": 17653,
+      "name": "AuthorConcentricMateSources.py",
+      "sha256": "78e1b0e2416c0aefc35dcbc553e259b008e2f23224733211fb56b97a981ded54"
+    },
+    {
+      "bytes": 70349,
+      "name": "AuthorCurves.py",
+      "sha256": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2"
+    },
+    {
+      "bytes": 3776,
+      "name": "CheckGeneratedConcentricContract.py",
+      "sha256": "d75d3e1bf30c1f1d6b8049a3eb1d3d1e86ea80564d63ef78f9e70fefe9948b97"
+    },
+    {
+      "bytes": 5714,
+      "name": "CollectConcentricEvidence.py",
+      "sha256": "07ccaa77885d098746ea3482287a5659e28ca936ad870f709efc34d8bc798ac2"
+    },
+    {
+      "bytes": 6990,
+      "name": "CollectDrawingViewSupportEvidence.py",
+      "sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d"
+    },
+    {
+      "bytes": 5007,
+      "name": "ConcentricApiMetadata.py",
+      "sha256": "74795188d8ad340a47a82b302e42a47ba37cf75549be7b537214fb9fc042e567"
+    },
+    {
+      "bytes": 14782,
+      "name": "ConcentricMateEvidence.py",
+      "sha256": "e02aea68812c306087d2f698bed6ce096afacf654f2a1355ab52b59e6b440702"
+    },
+    {
+      "bytes": 9677,
+      "name": "ConcentricNativeContract.py",
+      "sha256": "09509713b970c382f778aa6359555de1c208290e391ea085f70cfad325428540"
+    },
+    {
+      "bytes": 7979,
+      "name": "ConcentricSourcePlan.py",
+      "sha256": "09a05288fcd5f857453021f58e7920c8c84125b8a9534e29769e8b5c95d08a10"
+    },
+    {
+      "bytes": 4906,
+      "name": "ConcentricSourceRuntime.py",
+      "sha256": "b3fbc4f80b5867c9d9cee9322426fa416ec992ce0ed36bfb8806e588ac7fcb94"
+    },
+    {
+      "bytes": 29142,
+      "name": "InspectCircleSketch.py",
+      "sha256": "deffc8fb5522b0d75b082345b14ed2e92528bac184997af011f186a43e02d6e4"
+    },
+    {
+      "bytes": 15583,
+      "name": "InspectCombinedPlanarMates.py",
+      "sha256": "496d598d645e9faeee80bd71bd6717f4c260fd1e72370fe7b44bd8d3ce00956b"
+    },
+    {
+      "bytes": 4240,
+      "name": "InspectFresh.py",
+      "sha256": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de"
+    },
+    {
+      "bytes": 14861,
+      "name": "InspectGeneratedConcentric.py",
+      "sha256": "6df9c0703256aaf93e79b10dce543b792596f2fd0d9584e2373e7d5566eb702d"
+    },
+    {
+      "bytes": 3439,
+      "name": "ObserveAssemblyLoad.py",
+      "sha256": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf"
+    },
+    {
+      "bytes": 4284,
+      "name": "OracleIdentity.py",
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    {
+      "bytes": 4367,
+      "name": "PlanarMateEdit.py",
+      "sha256": "61f99e2e8ecd075b4c7d3c5732db35bc18563b3999ad1b06fcf01e9ee4198466"
+    },
+    {
+      "bytes": 7109,
+      "name": "PrepareConcentricMateSources.py",
+      "sha256": "9ce19bef6b53495e8dc1eeccabeec0fe5d8d07869f769c92fb309854fdb11210"
+    },
+    {
+      "bytes": 15742,
+      "name": "PrepareGeneratedConcentric.py",
+      "sha256": "bc682eb07cfff145e9c68afbcb3de3bc7061211947cb789b530fd3c429542dea"
+    },
+    {
+      "bytes": 15690,
+      "name": "Swapp.py",
+      "sha256": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  ],
+  "source_tools_count": 22,
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "vm_calls": 0
+}

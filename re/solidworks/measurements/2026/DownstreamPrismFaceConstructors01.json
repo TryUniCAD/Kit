@@ -1,0 +1,63 @@
+{
+  "archive_version": 19000,
+  "delivery_pr": 121,
+  "face_rows_across_distinct_inputs": 12,
+  "fresh_guarded_processes": 4,
+  "heldout_input_reads": 0,
+  "input_cad_file_reads": 0,
+  "known_constructor_roles_across_distinct_inputs": 24,
+  "native_runs": 0,
+  "parent_revision": "605e3c8f37d8ef0e719d56116f30ddf252f0ea61",
+  "qualified_corpus_assemblies": 0,
+  "qualified_corpus_parts": 0,
+  "qualified_heldout_cases": 0,
+  "results": [
+    {
+      "fresh_processes": 2,
+      "result": {
+        "atom": 101,
+        "body_sha256": "9a4c540b8b1573fc3c5e08d20ac4f8c7cfa8f9f475fe1893ccdee4e1e972ec5b",
+        "map_counter": 90,
+        "native_runs": 0,
+        "part_sha256": "cbbee2698d21471819426e6c76d3331603cbabd98360474c0be50829db403aa0",
+        "passed": true,
+        "preserved_part_streams": 11,
+        "refused": 2,
+        "representations": 30,
+        "rows": 6,
+        "runtime_io_attempts": 0,
+        "scope": "ordinary mode-0 face constructor wrappers, before row validation",
+        "variant": 1
+      },
+      "stdout_sha256": "a7fb06c9431ba2458a1df4fea17d4082ec97f0b9f265d6693910daa6adbd6cf8"
+    },
+    {
+      "fresh_processes": 2,
+      "result": {
+        "atom": 101,
+        "body_sha256": "2bfc38c055bb10157f610407fd237f42e73e519d529539057081eefa5a235213",
+        "map_counter": 90,
+        "native_runs": 0,
+        "part_sha256": "509972adbe606ff47e0499783ea3b2c00ea47136fecfe5ec4bd091224d94d9a0",
+        "passed": true,
+        "preserved_part_streams": 11,
+        "refused": 2,
+        "representations": 30,
+        "rows": 6,
+        "runtime_io_attempts": 0,
+        "scope": "ordinary mode-0 face constructor wrappers, before row validation",
+        "variant": 2
+      },
+      "stdout_sha256": "dfc7d01405b663005b6384089cf4435181129bdc8c829ad06b282f9d58613077"
+    }
+  ],
+  "schema": "kit.sw2026.prism-face-constructors.v1",
+  "scope": "generated mode-0 face constructors and exact standalone typed readback",
+  "source_files_sha256": {
+    "re/tooling/sw2026/downstream/CheckPrismFaceConstructors.py": "921f52a0ae7e93ccc351ff52346a3b9b896b13c604cc2566346451bcf9e843d4",
+    "re/tooling/sw2026/downstream/PrismFaceConstructors.py": "72448280c4f7a5ab292730d509aa74c645e407d1093e9bd0744573bfe1a7bac1",
+    "re/tooling/sw2026/para/rectangle/CheckAttachment.py": "8d6981f1eed319d1870574d98d32041004c455c392b9704118d78faf731d8e2c"
+  },
+  "task": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "vendor_build": "34.5.2.0604"
+}

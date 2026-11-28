@@ -1,0 +1,356 @@
+{
+  "api_enum_switch": {
+    "api_value": 1,
+    "case_va": "0x3f989af2",
+    "va": "0x3f98aac8"
+  },
+  "archive_primitives": {
+    "0x4cd3d870": {
+      "module": "swccu.dll",
+      "symbol": "?IsStoring@su_CArchive@@QEBAHXZ"
+    },
+    "0x4cd3d880": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    },
+    "0x4cd3d888": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+    },
+    "0x4cd3da10": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@N@Z"
+    },
+    "0x4cd3da18": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAN@Z"
+    }
+  },
+  "command_model_imports": {
+    "0x3fbea690": {
+      "module": "SLDMODU.dll",
+      "symbol": "?createMate@moMate@@SAPEAVmoMate2Geoms_c@@PEAVmoAssembly_c@@PEAUCRuntimeClass@@PEAPEAVmoRefWrapper_c@@PEAPEAVmoMateEntityHelpData_c@@H@Z"
+    },
+    "0x3fbecf80": {
+      "module": "SLDMODU.dll",
+      "symbol": "?GetThisClass@moMateConcentric@@SAPEAUCRuntimeClass@@XZ"
+    }
+  },
+  "command_vtable": {
+    "rtti_class": ".?AVuiAssemblyMateConcentricCmd_c@@",
+    "rtti_locator_va": "0x3fd45388",
+    "slots": {
+      "0x988": "0x3f815a20",
+      "0xb8": "0x3f8267f0"
+    },
+    "va": "0x3fc81270"
+  },
+  "construction_state": {
+    "common_two_geometry_constructor_call_va": "0x4bc2d732",
+    "concrete_constructor_va": "0x4bc2d720",
+    "lock_rotation_eligible_is_not_lock_rotation_enabled": true,
+    "shared_alignment_setter": "0x4b2cfe10",
+    "shared_model_initializer_slot": "0x23d0"
+  },
+  "document_version": 19000,
+  "heldout_inputs_read": 0,
+  "limitations": [
+    "No native concentric source or generated writer acceptance exists at this handoff",
+    "The concentric option at f4b8 is not yet declared to be the API lock-rotation field",
+    "Cylinder-face versus datum-axis wrapper publication requires the new source corpus",
+    "Misaligned and linked concentric mates are outside the first ordinary coaxial scope",
+    "Function extents come from exact exception-directory fragments; leaf export samples remain explicit"
+  ],
+  "model_vtable": {
+    "rtti_class": ".?AVmoMateConcentric@@",
+    "rtti_locator_va": "0x4d338df0",
+    "slots": {
+      "0x0": "0x4b6600b0",
+      "0x21f0": "0x4b2cfe10",
+      "0x2258": "0x4bc3d4d0",
+      "0x22c8": "0x4bc60cc0",
+      "0x23b0": "0x4b27e120",
+      "0x23d0": "0x4bc5d920",
+      "0x28": "0x4b669080"
+    },
+    "va": "0x4cfa8fb0"
+  },
+  "modules": {
+    "sldasmu.dll": {
+      "bytes": 10863704,
+      "image_base": "0x3f570000",
+      "machine": "0x8664",
+      "name": "sldasmu.dll",
+      "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390"
+    },
+    "sldmodu.dll": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "native_build": "34.5.2.0604",
+  "native_processes_started": 0,
+  "routines": {
+    "sldasmu.dll": {
+      "api_command_factory": {
+        "code_sha256": "cf691530aaae8810df530b557579c4a5970606ba09b6d7aa8ebcb5848ef60a42",
+        "end_rva_exclusive": "0x41ab2c",
+        "end_va_exclusive": "0x3f98ab2c",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x419a10",
+        "start_va": "0x3f989a10",
+        "unwind_rva": "0x86df08"
+      },
+      "command_model_creation": {
+        "code_sha256": "df9efc7d7a2b8e7b2d2c97dacadf7bc740532b5476e016f5e88e16a5d03fa6f2",
+        "end_rva_exclusive": "0x2a5a84",
+        "end_va_exclusive": "0x3f815a84",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x2a5a20",
+        "start_va": "0x3f815a20",
+        "unwind_rva": "0x7efbb0"
+      },
+      "ordinary_command_runner": {
+        "code_sha256": "669ce092d61447d649cc41dc448c7529dee37ee7a216b0dd575f02f2952561b2",
+        "end_rva_exclusive": "0x2b6e76",
+        "end_va_exclusive": "0x3f826e76",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x2b67f0",
+        "start_va": "0x3f8267f0",
+        "unwind_rva": "0x83a1d0"
+      }
+    },
+    "sldmodu.dll": {
+      "allocator": {
+        "code_sha256": "c3ff2707e49b133504ddfaeb1eceead0335ed17afdb7051921a4a03895ca2566",
+        "end_rva_exclusive": "0x513dae",
+        "end_va_exclusive": "0x4b653dae",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x513d80",
+        "start_va": "0x4b653d80",
+        "unwind_rva": "0x224969c"
+      },
+      "can_lock_rotation": {
+        "code_sha256": "c8408732ec37e0639becc822931b8ee1cecf34c70cfb0f53b6f04280a5eef7a6",
+        "end_rva_exclusive": "0xafd866",
+        "end_va_exclusive": "0x4bc3d866",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?canLockRotation@moMateConcentric@@UEAAHXZ"
+        ],
+        "start_rva": "0xafd6d0",
+        "start_va": "0x4bc3d6d0",
+        "unwind_rva": "0x23ad754"
+      },
+      "class_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "70ef6a54ec8ab55b179a78b1daf2af8eacb2943965abd6ef7641ed349078ad36",
+        "exact_export_alias_count": 2,
+        "exact_exports": [
+          "?GetRuntimeClass@moMateConcentric@@UEBAPEAUCRuntimeClass@@XZ",
+          "?GetThisClass@moMateConcentric@@SAPEAUCRuntimeClass@@XZ"
+        ],
+        "requested_va": "0x4b6600b0",
+        "unwind_entry_found": false
+      },
+      "concrete_constructor": {
+        "code_sha256": "689f60a46b05b952e74ff8b73092f0ec428ba3b40cf37f152d1473ff1ef7f71c",
+        "end_rva_exclusive": "0xaed7ba",
+        "end_va_exclusive": "0x4bc2d7ba",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0xaed720",
+        "start_va": "0x4bc2d720",
+        "unwind_rva": "0x23adad0"
+      },
+      "current_tolerance_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "04e22f6db68246335c2bd4639729b6a0b7d3bd73b453712cdf71ed620baf819c",
+        "exact_export_alias_count": 2,
+        "exact_exports": [
+          "?getCurrentToleranceValue@moMateConcentric@@QEAANXZ",
+          "?getPVSunDia@moSunLight_c@@QEAANXZ"
+        ],
+        "requested_va": "0x4b2abc40",
+        "unwind_entry_found": false
+      },
+      "misaligned_dependent_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "424896e9927f9d180a05cc1a16bcf9e803320a95065d8a0cc9160fc97a70eb88",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?getMisalignedDependentMate@moMateConcentric@@QEBAPEAV1@XZ"
+        ],
+        "requested_va": "0x4b2ac3d0",
+        "unwind_entry_found": false
+      },
+      "misaligned_parent_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "22bed8107d65cc7fb42d83569369fc7cb3139a521b3633bc6cde725f6ca58898",
+        "exact_export_alias_count": 3,
+        "exact_exports": [
+          "?getMisalignedParentMate@moMateConcentric@@QEBAPEAV1@XZ",
+          "?getSlotHolder@moMateSlot@@QEAAPEAVmoSlotHolder@@XZ",
+          "?iGetDDim2@moMateGearDim_c@@QEAAPEAVmoDisplayDim_c@@XZ"
+        ],
+        "requested_va": "0x4b2ac3e0",
+        "unwind_entry_found": false
+      },
+      "misaligned_query": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "906ce319262eca214a40c8b076f033831f9ec1bdb489c34ab6dd4087eb600a95",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?IsMisalignedMate@moMateConcentric@@QEAAHXZ"
+        ],
+        "requested_va": "0x4bc353c0",
+        "unwind_entry_found": false
+      },
+      "ordinary_factory": {
+        "code_sha256": "01927b7ffdd2d22af763f4b2d1d1bca653694504dc381d7ac29504e7b9c5766f",
+        "end_rva_exclusive": "0xb020cc",
+        "end_va_exclusive": "0x4bc420cc",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?createMate@moMate@@SAPEAVmoMate2Geoms_c@@PEAVmoAssembly_c@@PEAUCRuntimeClass@@PEAPEAVmoRefWrapper_c@@PEAPEAVmoMateEntityHelpData_c@@H@Z"
+        ],
+        "start_rva": "0xb02030",
+        "start_va": "0x4bc42030",
+        "unwind_rva": "0x2257360"
+      },
+      "ordinary_initializer": {
+        "code_sha256": "fcb0862607458d390a8f354cbaf01e6b0a156af5fea471ce719f003f9e89ff32",
+        "end_rva_exclusive": "0xb1ddbe",
+        "end_va_exclusive": "0x4bc5ddbe",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0xb1d920",
+        "start_va": "0x4bc5d920",
+        "unwind_rva": "0x23ac700"
+      },
+      "position_type_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "6e0b090965a5f3d1ae2e978b62ccba2be84c8ed4daf43932f8ce3273d20f1423",
+        "exact_export_alias_count": 3,
+        "exact_exports": [
+          "?getDual@moHoleTableFeat_c@@QEAAHXZ",
+          "?getPositionType@moMateConcentric@@QEBA?AW4concentricPositionType@@XZ",
+          "?getWatermarkID_Line@moDisplayItem_c@@QEBAHXZ"
+        ],
+        "requested_va": "0x4b28b0d0",
+        "unwind_entry_found": false
+      },
+      "serializer": {
+        "code_sha256": "77fe3c0d86aadf8783e517199e5ec352751ecd99dbf2cf2a0cd20150d2be6402",
+        "end_rva_exclusive": "0x529497",
+        "end_va_exclusive": "0x4b669497",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x529080",
+        "start_va": "0x4b669080",
+        "unwind_rva": "0x22d5e68"
+      },
+      "shared_two_geometry_serializer": {
+        "code_sha256": "200c39d173ea0079388980fa3635255f6a3e8abc554fb8f1ae2e309d7c33a450",
+        "end_rva_exclusive": "0x528a9c",
+        "end_va_exclusive": "0x4b668a9c",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x528a60",
+        "start_va": "0x4b668a60",
+        "unwind_rva": "0x22d5df0"
+      },
+      "tolerance_check_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "980ad282493d21bbd475f8bca3e8419b2fe13dbd1e80b45e952f4958819a1520",
+        "exact_export_alias_count": 4,
+        "exact_exports": [
+          "?getConcentricToleranceCheck@moMateConcentric@@QEAAHXZ",
+          "?getDistanceFlipped@moMateWidth@@QEAAHXZ",
+          "?getShowDualUnits@moHoleTableFeat_c@@QEAAHXZ",
+          "?getWatermarkID_Arc@moDisplayItem_c@@QEBAHXZ"
+        ],
+        "requested_va": "0x4b28b0c0",
+        "unwind_entry_found": false
+      },
+      "tolerance_value_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "ff82db89a70877ea595e8a5f80ae34a865be8f5a20436a2cdbf28b6c0ff564a1",
+        "exact_export_alias_count": 2,
+        "exact_exports": [
+          "?getPVHaze@moSunLight_c@@QEAANXZ",
+          "?getToleranceValue@moMateConcentric@@QEAANXZ"
+        ],
+        "requested_va": "0x4b2ac4d0",
+        "unwind_entry_found": false
+      }
+    }
+  },
+  "runtime_class": {
+    "allocator": "0x4b653d80",
+    "base_class_getter": "0x4b653b70",
+    "name": "moMateConcentric",
+    "object_bytes": 1264,
+    "schema": "0x80000001",
+    "va": "0x4dac9ca0"
+  },
+  "schema": "kit.sw2026.concentric-native-source.v1",
+  "script_sha256": "07ccaa77885d098746ea3482287a5659e28ca936ad870f709efc34d8bc798ac2",
+  "serializer_rules": {
+    "additional_reference_and_tolerance_tail_omitted_when_position_is_minus_one": true,
+    "base_call_va": "0x4b6690ac",
+    "base_serializer": "0x4b668a60",
+    "conditional_misalignment": {
+      "condition": "f4c4 != -1",
+      "fields": [
+        [
+          "f4c8",
+          "i32"
+        ],
+        [
+          "f4d0",
+          "f64"
+        ],
+        [
+          "f4d8",
+          "f64"
+        ],
+        [
+          "f4e0 feature ID or -1",
+          "i32"
+        ],
+        [
+          "f4e8 feature ID or -1",
+          "i32"
+        ]
+      ],
+      "reference_id_format_version_minimum": 9224
+    },
+    "ordinary_constructor_option": 0,
+    "ordinary_constructor_position_type": -1,
+    "ordinary_store": [
+      {
+        "load_version_minimum": 6197,
+        "meaning": "concentric-specific option; rotation-lock binding pending exact API/corpus correlation",
+        "member": "f4b8",
+        "store_call_va": "0x4b6690cb",
+        "type": "i32"
+      },
+      {
+        "load_version_minimum": 9129,
+        "meaning": "concentric position type",
+        "member": "f4c4",
+        "store_call_va": "0x4b6690da",
+        "type": "i32"
+      }
+    ]
+  },
+  "writer_output_count": 0
+}

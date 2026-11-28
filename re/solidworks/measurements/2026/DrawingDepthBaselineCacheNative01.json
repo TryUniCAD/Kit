@@ -1,0 +1,92 @@
+{
+  "cache_consumer_measured": false,
+  "controls_passed_annotation": true,
+  "controls_passed_trace": false,
+  "distinct_processes": 2,
+  "encoded_slots_unchanged": true,
+  "first_transport": {
+    "exit_code": 255,
+    "guest_process_started": false,
+    "reason": "prlctl reported VM not registered with option placed before VM name"
+  },
+  "generated_downstream_writer_qualified": false,
+  "generated_trial_skipped": "the exact native control did not prove the edge annotation lifecycle",
+  "heldout_inputs_read": 0,
+  "inputs_unchanged": true,
+  "oracle_build": "34.5.2.0604",
+  "phases": {
+    "ControlAfterOpenEditSave": {
+      "annotation_geometry_lifecycle_passed": true,
+      "lookup_status": "call_unobserved",
+      "observer_armed": true,
+      "observer_cleanup_confirmed": true,
+      "open_status": [
+        0,
+        0
+      ],
+      "pre_event7_source_gate_passed": false,
+      "process_birth_filetime": 134395673725344401,
+      "raw_phase_sha256": "3f6293bc10c90adc0c417c49eb61ea5193659c1102a65d692c75fc1af3309d78",
+      "save_events": [
+        [
+          7,
+          1437000000
+        ],
+        [
+          9,
+          1594000000
+        ],
+        [
+          28,
+          1672000000
+        ]
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    },
+    "ControlBeforeOpenEditSave": {
+      "annotation_geometry_lifecycle_passed": true,
+      "lookup_status": "call_unobserved",
+      "observer_armed": true,
+      "observer_cleanup_confirmed": true,
+      "open_status": [
+        0,
+        0
+      ],
+      "pre_event7_source_gate_passed": false,
+      "process_birth_filetime": 134395673217395193,
+      "raw_phase_sha256": "6c0efc6e654de294aa967d9b1f7dc7f48423b464042eca1bf34dd85e5038e414",
+      "save_events": [
+        [
+          7,
+          1485000000
+        ],
+        [
+          9,
+          1672000000
+        ],
+        [
+          28,
+          1750000000
+        ]
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    }
+  },
+  "preexecution_source": "c967014f62ed7add6ad75acc5c6b3e394b8cbd74",
+  "raw_result_sha256": "040e859f432f6b0b3999a0e65b74706a4f7d5d9d385fe43a0f17e4196289c468",
+  "refrozen_packet": {
+    "Recipe.json": "9f7c080c7ac4c14d8180e2ab572739354259db5cb5f3592213c6d4d82a945138",
+    "RequiredBaseline.json": "92f51a9a5c5e7c7136b01d7a56d73c840e1a5e81df8f7af4a612ca36aa644401",
+    "TraceFiles.json": "ad8159d7d1026f029f4ec5d18e687df7898688807f08c25035aae5c6e801265c",
+    "TraceTrial.json": "60e40b3ba1a084959b04ca1a91317915f86074a8455e6d17b63701a73041723d"
+  },
+  "schema": "kit.sw2026.drawing-depth-baseline-cache-trace-native.v1"
+}

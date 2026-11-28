@@ -56,15 +56,16 @@ def MainProbe() -> None:
     try:
         if ModeName == "cancel":
             Hooks.CommandArgs[-2] = "timeout"
+            RequestSeconds = 10
 
             # cancellation must race a real request without changing its provider behavior
             Caller = WorkerThread(
                 target=lambda: Results.append(
-                    Hooks.GenerateCall("first", SchemaMaker(), 10)
+                    Hooks.GenerateCall("first", SchemaMaker(), RequestSeconds)
                 )
             )
             Caller.start()
-            WaitRequest(Session)
+            WaitRequest(Session, StartedAt + RequestSeconds)
             Hooks.CloseCall()
             Caller.join(timeout=10)
             assert not Caller.is_alive()

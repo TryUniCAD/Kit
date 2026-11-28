@@ -1,0 +1,70 @@
+{
+  "schema": "kit.sw2026.markup-discovery-processes.v1",
+  "source_revision": "d5019da136433cf3b07dd8c53ee4a708950ad353",
+  "tested_merge": "0c02fdf63383623b76e34592608d9310dff37959",
+  "run_id": 43975945417,
+  "job_id": 133679955856,
+  "native_format_passed": 203,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14279489644,
+    "bytes": 23934840,
+    "sha256": "41d447c7db67323786d376cbb5e9c6540671270ceabff890e5a567080b17dd70"
+  },
+  "candidate": {
+    "sha256": "57727eaa05ee4fe1f50e6d9b00d16701fae656748a56dca7077721d3b25133d5",
+    "bytes": 8057,
+    "sizes": {
+      "Header2": 458,
+      "_MO_VERSION_19000/Biography": 23,
+      "_MO_VERSION_19000/History": 163,
+      "Contents/Config-0-ModelHeader": 458,
+      "swXmlContents/KeyWords": 1493,
+      "Contents/Config-0": 21132,
+      "Contents/CMgr": 1159,
+      "Contents/Definition": 549,
+      "Contents/Config-0-ResolvedFeatures": 15079
+    },
+    "features": [
+      "moCommentsFolder_c",
+      "moFavoriteFolder_c",
+      "moHistoryFolder_c",
+      "moSelectionSetFolder_c",
+      "moSensorFolder_c",
+      "moDocsFolder_c",
+      "moSurfaceBodyFolder_c",
+      "moSolidBodyFolder_c",
+      "moEnvFolder_c",
+      "moInkMarkupFolder_c",
+      "moEqnFolder_c",
+      "moMaterialFolder_c",
+      "moDetailCabinet_c",
+      "moRefPlane_c",
+      "moRefPlane_c",
+      "moRefPlane_c",
+      "moOriginProfileFeature_c",
+      "moProfileFeature_c",
+      "moExtrusion_c"
+    ],
+    "graph": {
+      "sha256": "daa05a55fccb572d09c828c64da5db2273d5cd9e2f51346959815a050e78ac73",
+      "node_count": 1471,
+      "reference_count": 1699,
+      "map_base": 82,
+      "map_count": 204,
+      "unresolved_references": 0
+    },
+    "denied_reads": [],
+    "vendor_acceptance": "unverified",
+    "heldout_native_payloads_read": false,
+    "native_acceptance": false
+  },
+  "complete_archive_comparisons": 8,
+  "unsupported_combined_folder_input_rejected": true,
+  "historical_current_output_regressions_passed": 8,
+  "new_heldout_predictions": 0,
+  "writer_executed_locally": false,
+  "native_acceptance": false,
+  "passed": true
+}

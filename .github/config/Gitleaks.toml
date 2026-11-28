@@ -28,6 +28,13 @@ paths = ['''^src/convert/adapters/solidworks/resolved/Core\.py$''']
 regexes = ['''^axis_kind=None$''']
 
 [[rules.allowlists]]
+description = "Historical ellipse receipt identifier holds the public report digest"
+condition = "AND"
+commits = ["ffa49a63caf2b3c433c05433c7b638e5d0d4fde7"]
+paths = ['''^src/convert/adapters/solidworks/Core/Writing/Ellipse/VerifyEllipMeas\.py$''']
+regexes = ['''^e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3$''']
+
+[[rules.allowlists]]
 description = "Public SHA256 of the reviewed readable WorkOS verification standard"
 condition = "AND"
 paths = ['''^\.github/workflows/SteeringSync\.yml$''']

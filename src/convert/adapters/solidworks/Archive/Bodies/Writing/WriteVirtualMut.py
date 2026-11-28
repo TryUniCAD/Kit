@@ -16,8 +16,7 @@ def WriteVirtualMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
             raise BodyUnsupported("native body virtual flag requires a boolean target")
         if TargetValue:
             FrameValue.FieldsWriter(FrameValue, RuleValue.BodyValue)
-        return
-    if isinstance(TargetValue, str):
+    elif isinstance(TargetValue, str):
         FrameValue.SchemaWriter(FrameValue, TargetValue)
     elif TargetValue is not None:
         raise BodyUnsupported("native body dispatch target is not a schema")

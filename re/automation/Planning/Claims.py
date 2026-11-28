@@ -3,7 +3,7 @@ import re
 
 
 def read_claims(root, relative):
-    text = (root / relative).read_text()
+    text = (root / relative).read_text(encoding="utf-8")
     claims = []
     for section in re.split(r"(?m)(?=^#{2,4} )", text):
         heading = section.splitlines()[0] if section.splitlines() else ""

@@ -1,0 +1,249 @@
+{
+  "cases": {
+    "ConcaveBare": {
+      "all_stream_sha256": {
+        "Config-0-FeatureBodies/LocalBodies": "6d3500c0fc16dc0c54577deeddbbca79c0df11103ab26fe05e7de95b995b4d93",
+        "Contents/CMgr": "f44c0baaebd18265f21f00f8fbbd523b5343daeadb5d1f5cb00ea3b821583b6a",
+        "Contents/CMgrHdr2": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225",
+        "Contents/Config-0": "1a5e13c8f17858b866ab66dabb17e557795811d461bcdd5d7fc8d125dd71fb5b",
+        "Contents/Config-0-ModelHeader": "88b5e52c42bce9fae0515dad54943b6e20915a1d55a44be90bba201f4809046a",
+        "Contents/Config-0-Partition": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75",
+        "Contents/Config-0-ResolvedFeatures": "2b363793b980093f3586c52d320ecc14ce6605f871a504c3db1e7bcb02e99422",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "85b5295ad1b3dc60484687817b1b9557ed06de0ea91512e4da2905f838dd16cd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7",
+        "swXmlContents/KeyWords": "31efa63c01a25ce1b4272d62b47b78e5b0eb0ae8375e0b9f5d09ea4350f183a2"
+      },
+      "bytes": 10363,
+      "cold_and_rebuilt_identity": true,
+      "cold_shape_si": {
+        "area_m2": 0.002068,
+        "com_m": [
+          0.01744186046511628,
+          -0.0043023255813953495,
+          0.0034999999999999996
+        ],
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12,
+        "volume_m3": 5.1600000000000006e-06
+      },
+      "feature_id": 18,
+      "kernel": {
+        "bytes": 5193,
+        "sha256": "2b362a362328962192cffbfa0b420c897d9f50dc4c018d37f42a595b944102ef"
+      },
+      "neutral_sha256": "95b57a30915e66b20fbb7dbe520fa1f9358780b013d4596bf7cc334f0e82fffe",
+      "numeric_checks": 82,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "rebuilt_shape_si": {
+        "area_m2": 0.002068,
+        "com_m": [
+          0.01744186046511628,
+          -0.0043023255813953495,
+          0.0034999999999999996
+        ],
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12,
+        "volume_m3": 5.1600000000000006e-06
+      },
+      "record_sha256": "774031ea8fa6493c28d7e4774d3954bcd6f1d2c0f3ae11b5dd7626f168a1e83f",
+      "sha256": "e0c79c5d6c02f61e7a808a4e88a006e0f982d0c15adb70c7c81460375ff26e9e"
+    },
+    "ConcaveOwned": {
+      "all_stream_sha256": {
+        "Config-0-FeatureBodies/LocalBodies": "c54c8b504f25ec18667159b70b9163f2590dff3f5db5c61b1cc1976d7036761c",
+        "Contents/CMgr": "f44c0baaebd18265f21f00f8fbbd523b5343daeadb5d1f5cb00ea3b821583b6a",
+        "Contents/CMgrHdr2": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225",
+        "Contents/Config-0": "e9dc7a4eff8f9d10312259dac1af90743b6799db58676640cac75a416882a1e7",
+        "Contents/Config-0-ModelHeader": "6c03157e533292ae3076bc534707d7aafcb627a717c13316d4fbdf284d53582a",
+        "Contents/Config-0-Partition": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75",
+        "Contents/Config-0-ResolvedFeatures": "2b363793b980093f3586c52d320ecc14ce6605f871a504c3db1e7bcb02e99422",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "d36798808644061cb2dc45e7dffd1e15392339eecd0ad3f2194fd3f1cce68ded",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7",
+        "swXmlContents/KeyWords": "067f823ee629cb6477d074d1177f65d5b8ca93843bb13c979b0a11ba02e55b28"
+      },
+      "bytes": 10794,
+      "cold_and_rebuilt_identity": true,
+      "cold_shape_si": {
+        "area_m2": 0.002068,
+        "com_m": [
+          0.01744186046511628,
+          -0.0043023255813953495,
+          0.0034999999999999996
+        ],
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12,
+        "volume_m3": 5.1600000000000006e-06
+      },
+      "feature_id": 18,
+      "kernel": {
+        "bytes": 6012,
+        "sha256": "0e3b3018f1875191b924be1eef2a5b61145bd5083bbcc4d65f1fbbafc0ceac06"
+      },
+      "neutral_sha256": "95b57a30915e66b20fbb7dbe520fa1f9358780b013d4596bf7cc334f0e82fffe",
+      "numeric_checks": 82,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "rebuilt_shape_si": {
+        "area_m2": 0.002068,
+        "com_m": [
+          0.01744186046511628,
+          -0.004302325581395349,
+          0.0034999999999999996
+        ],
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12,
+        "volume_m3": 5.1600000000000006e-06
+      },
+      "record_sha256": "3a339c6c9c46d855cb8823c1dd38e1d5220432f29f8e1c328cb49672ee36ac9f",
+      "sha256": "921a155cb67a721e4988032835d6a4d41e17b7f7f2e9e4bac2858210d7fdd05b"
+    },
+    "RectangularBare": {
+      "all_stream_sha256": {
+        "Config-0-FeatureBodies/LocalBodies": "31a52229b347abdfbd649901ee99360310e70b0d89170595fe612bfc11551250",
+        "Contents/CMgr": "f44c0baaebd18265f21f00f8fbbd523b5343daeadb5d1f5cb00ea3b821583b6a",
+        "Contents/CMgrHdr2": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225",
+        "Contents/Config-0": "6a0ba615cf67beed0796ab6ca18f2dd786c24165ff723c4d4522b2572d5484de",
+        "Contents/Config-0-ModelHeader": "407031769b8cae820220fd33b3bd5e04fecca8f842d51c86b9e1a65cc4a0e731",
+        "Contents/Config-0-Partition": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75",
+        "Contents/Config-0-ResolvedFeatures": "2b363793b980093f3586c52d320ecc14ce6605f871a504c3db1e7bcb02e99422",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "ee6b86b03f2026eef48e6770519b8bbd2b504ebffa29c80de3c4fbaf1ae8ed7a",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7",
+        "swXmlContents/KeyWords": "6b9d298647fccf2baa908f65d5cc86ad36e14a17b9bbea12554042f1bb27d425"
+      },
+      "bytes": 9813,
+      "cold_and_rebuilt_identity": true,
+      "cold_shape_si": {
+        "area_m2": 0.0011499999999999998,
+        "com_m": [
+          -0.0024999999999999996,
+          0.014,
+          0.008499999999999999
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 2.574e-06
+      },
+      "feature_id": 18,
+      "kernel": {
+        "bytes": 3759,
+        "sha256": "a7c77e2d2f1e4768e52b286df77d979098a4f4bef51000d593c30c27506b56ab"
+      },
+      "neutral_sha256": "0da7b5d2781a17bb21d0227a5842605bd743034384c0254c38dc0ae1bc2a03be",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "rebuilt_shape_si": {
+        "area_m2": 0.0011499999999999998,
+        "com_m": [
+          -0.0024999999999999996,
+          0.014,
+          0.008499999999999999
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 2.574e-06
+      },
+      "record_sha256": "a4b312b7881e37996fae2f7d6b16e9fc3832de316e3336dc57c2d34b60fd0568",
+      "sha256": "370af2e50469c911a5655f9b84a64d3ffc6a26789248fd7a4f0268ec362018b5"
+    },
+    "RectangularOwned": {
+      "all_stream_sha256": {
+        "Config-0-FeatureBodies/LocalBodies": "c6efdb81335ca033c63a61b744d7d753a532f2f579a2cd323b8e3f7229b423dd",
+        "Contents/CMgr": "f44c0baaebd18265f21f00f8fbbd523b5343daeadb5d1f5cb00ea3b821583b6a",
+        "Contents/CMgrHdr2": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225",
+        "Contents/Config-0": "449827cd0280b8484eb1159d814dcfde5b9d9417f2553a5c2c7fed3959df048a",
+        "Contents/Config-0-ModelHeader": "9af504426a2481d07ceb54cb518f3067d4fa75cde742299de48351ae360f1bcd",
+        "Contents/Config-0-Partition": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75",
+        "Contents/Config-0-ResolvedFeatures": "2b363793b980093f3586c52d320ecc14ce6605f871a504c3db1e7bcb02e99422",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "6d19f5f4317937b25d33e00f4faa65b0b0e10797df74fda404b9939d96423be0",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7",
+        "swXmlContents/KeyWords": "9f3d3cbeb298e8f2f5a528de49993ea80c920a84c50f760ad135e0f7d6b76ed4"
+      },
+      "bytes": 10243,
+      "cold_and_rebuilt_identity": true,
+      "cold_shape_si": {
+        "area_m2": 0.0011499999999999998,
+        "com_m": [
+          -0.0024999999999999996,
+          0.014,
+          0.008499999999999999
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 2.574e-06
+      },
+      "feature_id": 18,
+      "kernel": {
+        "bytes": 4578,
+        "sha256": "255b3cacb84e7148ff94e922117bcc0d195cf867511d9cb031b7a4655bd627ec"
+      },
+      "neutral_sha256": "0da7b5d2781a17bb21d0227a5842605bd743034384c0254c38dc0ae1bc2a03be",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 32
+      },
+      "rebuilt_shape_si": {
+        "area_m2": 0.0011499999999999998,
+        "com_m": [
+          -0.0024999999999999996,
+          0.014,
+          0.008499999999999999
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 2.574e-06
+      },
+      "record_sha256": "61179d06ea8afa4742dad266076e4bf85680c50fcad33f081bc6d49f7029db48",
+      "sha256": "e2f7f1c721986c8cf7d1f1c5368588dbebafd55222e4d2ed75d5652ace725408"
+    }
+  },
+  "controls": {
+    "ControlAfter": "f58120a5f215c306eda6a00f28fd8a6ba7cd245dfa4b9dba6978674702cf3eb3",
+    "ControlBefore": "ff30661b8b1dcbe96a76f0951f3cb2ce13cec25f0aaa1cee7eb800e6f1963c8f",
+    "ImportedControl": "a40bfcf1ed4e8f341b50f5d4ac1b36481a5d6d352748170abba06aa096e2ff99"
+  },
+  "controls_healthy": true,
+  "deterministic_guarded_builds": 2,
+  "distinct_native_processes": 7,
+  "heldout_candidates": 0,
+  "native_job_sha256": "901929e8f847a6bb069634058e2ddc7bba60fbcd21a91c0821209f7090d31e5f",
+  "native_raw_sha256": "c7a11204c769e75f8f0cd367196d6c3f8e20729ef0497f70a782d39c30876467",
+  "numeric_candidate_checks": 280,
+  "offline_build_sha256": "d3cb7c8cf6ecc75dc0bf7bd15c4f5b095810f0957ecf12999d4abfc81eb5a0db",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "qualifying_lifecycles": 0,
+  "runtime_input_file_reads": 0,
+  "saved_candidates": 0,
+  "schema": "kit.sw2026.generated-imported-local-part-cold-disclosure.v1",
+  "writer_revision": "965937b857d7bd0a3b9ce3f3085df868a8110fc2"
+}

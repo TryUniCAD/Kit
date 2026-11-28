@@ -62,7 +62,7 @@ Each control runs in a fresh process. The probe requires complete
 typed reads, identical re-emission and an immutable input. The tests
 pin each reported role digest and require the ConcaveOwned pair to
 differ. The two-part, four-stream replay awaits remote CI.
-[Identical header roles](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/StandaloneHeaderRolesCanMatch.md)
+[Identical header roles](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Headers/StandaloneHeaderRolesCanMatch.md)
 
 Source comparison resolved the same 19 prerequisite dependencies.
 AST comparison confirmed the moved serializer bodies and dispatch

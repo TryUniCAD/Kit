@@ -1,0 +1,930 @@
+{
+  "cases": {
+    "Short": {
+      "archive": {
+        "config_map_base": 112,
+        "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "datum_epoch": 1795245743,
+        "datum_id": 45,
+        "datum_normal_magnitude": 1.0,
+        "fc8_ieee754_le_hex": "2578e5638e7a6b3f2578e5638e7a6b3f458b6ce7fba9713f",
+        "fc8_point_m": [
+          0.003354337793253686,
+          0.003354337793253686,
+          0.004312500000000001
+        ],
+        "fc8_span": [
+          30355,
+          30379
+        ],
+        "fe0_signed_model": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ],
+        "file_sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b",
+        "line_bounds": [
+          30176,
+          30404
+        ],
+        "pattern_id": 52,
+        "pattern_object": 410,
+        "raw_display_arrays_per_direction": [
+          9,
+          9
+        ],
+        "resolved_bytes": 33618,
+        "resolved_next_slot": 472,
+        "resolved_sha256": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f",
+        "seed_id": 40,
+        "selected_component_object": 459,
+        "selected_line_object": 457,
+        "surrounding_provisional_schemas": [
+          "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+          "moPlaneInterAxisData_c",
+          "moRefPlaneAngleGeom_c"
+        ]
+      },
+      "artifact": {
+        "bytes": 73792,
+        "name": "DatumHeightShort.SLDPRT",
+        "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b"
+      },
+      "datum_checkpoints": {
+        "created": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.0033543377932536865,
+            0.0033543377932536865,
+            0.004312500000000001
+          ],
+          "model_diagonal_m": [
+            [
+              -0.0003354337793253686,
+              -0.0003354337793253686,
+              -0.0009056250000000004
+            ],
+            [
+              0.0070441093658327415,
+              0.0070441093658327415,
+              0.009530625000000003
+            ]
+          ]
+        },
+        "preselection": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.0033543377932536865,
+            0.0033543377932536865,
+            0.004312500000000001
+          ],
+          "model_diagonal_m": [
+            [
+              -0.0003354337793253686,
+              -0.0003354337793253686,
+              -0.0009056250000000004
+            ],
+            [
+              0.0070441093658327415,
+              0.0070441093658327415,
+              0.009530625000000003
+            ]
+          ]
+        },
+        "rebuilt": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.0033543377932536865,
+            0.0033543377932536865,
+            0.004312500000000001
+          ],
+          "model_diagonal_m": [
+            [
+              -0.0003354337793253686,
+              -0.0003354337793253686,
+              -0.0009056250000000004
+            ],
+            [
+              0.0070441093658327415,
+              0.0070441093658327415,
+              0.009530625000000003
+            ]
+          ]
+        },
+        "reopened": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.0033543377932536865,
+            0.0033543377932536865,
+            0.004312500000000001
+          ],
+          "model_diagonal_m": [
+            [
+              -0.0003354337793253686,
+              -0.0003354337793253686,
+              -0.0009056250000000004
+            ],
+            [
+              0.0070441093658327415,
+              0.0070441093658327415,
+              0.009530625000000003
+            ]
+          ]
+        }
+      },
+      "distances_m": {
+        "created": 6.133173666733497e-19,
+        "hinge_square_hypothesis": 1.5023145987371592e-18,
+        "preselection": 6.133173666733497e-19,
+        "projected_stock": 0.06950246202458749,
+        "rebuilt": 6.133173666733497e-19,
+        "reopened": 6.133173666733497e-19
+      },
+      "native_checks": 61,
+      "native_diagonal_distance_to_saved_corners_m": [
+        0.0,
+        0.0
+      ],
+      "native_geometry": {
+        "after": {
+          "area": 0.024245000000000003,
+          "com": [
+            0.060359439922320825,
+            0.044876728533500804,
+            0.0029141721717588762
+          ],
+          "mass": 6.266924999999998e-05,
+          "volume": 6.266924999999998e-05
+        },
+        "before": {
+          "area": 0.024130000000000002,
+          "com": [
+            0.06014827872252177,
+            0.04497034425549565,
+            0.0028946754458730817
+          ],
+          "mass": 6.238462499999999e-05,
+          "volume": 6.238462499999999e-05
+        },
+        "bounds_after": [
+          0.0,
+          0.0,
+          0.0,
+          0.12,
+          0.09,
+          0.008625
+        ]
+      },
+      "reciprocal_linked_replay": {
+        "both_streams_and_linked_maps_equal": true,
+        "config": {
+          "bytes": 25918,
+          "map_next_slot": 112,
+          "sha256": "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a"
+        },
+        "resolved": {
+          "bytes": 33618,
+          "map_next_slot": 472,
+          "sha256": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f"
+        }
+      },
+      "saved_display_formula": {
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.7071067811865476,
+            0.7071067811865476,
+            0.0
+          ],
+          [
+            0.7071067811865476,
+            -0.7071067811865476,
+            0.0
+          ]
+        ],
+        "center_model_m": [
+          0.003354337793253686,
+          0.003354337793253686,
+          0.004312500000000001
+        ],
+        "center_uv_m": [
+          -0.004312500000000001,
+          0.0047437500000000014
+        ],
+        "direction_line_object": 457,
+        "display_origin_field": "root",
+        "display_origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "fc8_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "fc8_point_m": [
+          0.003354337793253686,
+          0.003354337793253686,
+          0.004312500000000001
+        ],
+        "geometry_root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name_location_f6c0_m": [
+          0.0070441093658327415,
+          0.0070441093658327415,
+          0.009530625000000003
+        ],
+        "ordered_borders_m": [
+          0.0009056250000000004,
+          -0.009530625000000003,
+          0.009961875000000004,
+          -0.0004743750000000002
+        ],
+        "plane_archive_object": 381,
+        "plane_data_archive_object": 384,
+        "plane_data_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "plane_id": 45,
+        "plane_name": "EnvelopeDirection",
+        "rect_corners_model_m": [
+          [
+            0.0070441093658327415,
+            0.0070441093658327415,
+            -0.0009056250000000004
+          ],
+          [
+            -0.0003354337793253686,
+            -0.0003354337793253686,
+            -0.0009056250000000004
+          ],
+          [
+            0.0070441093658327415,
+            0.0070441093658327415,
+            0.009530625000000003
+          ],
+          [
+            -0.0003354337793253686,
+            -0.0003354337793253686,
+            0.009530625000000003
+          ]
+        ],
+        "same_binary64_words": true
+      }
+    },
+    "Tall": {
+      "archive": {
+        "config_map_base": 112,
+        "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "datum_epoch": 1795245851,
+        "datum_id": 45,
+        "datum_normal_magnitude": 1.0,
+        "fc8_ieee754_le_hex": "7da6d256773a803f7da6d256773a803f78be9f1a2fdd843f",
+        "fc8_point_m": [
+          0.00792401536667175,
+          0.00792401536667175,
+          0.010187500000000002
+        ],
+        "fc8_span": [
+          30355,
+          30379
+        ],
+        "fe0_signed_model": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ],
+        "file_sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb",
+        "line_bounds": [
+          30176,
+          30404
+        ],
+        "pattern_id": 52,
+        "pattern_object": 410,
+        "raw_display_arrays_per_direction": [
+          9,
+          9
+        ],
+        "resolved_bytes": 33618,
+        "resolved_next_slot": 472,
+        "resolved_sha256": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9",
+        "seed_id": 40,
+        "selected_component_object": 459,
+        "selected_line_object": 457,
+        "surrounding_provisional_schemas": [
+          "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+          "moPlaneInterAxisData_c",
+          "moRefPlaneAngleGeom_c"
+        ]
+      },
+      "artifact": {
+        "bytes": 81061,
+        "name": "DatumHeightTall.SLDPRT",
+        "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb"
+      },
+      "datum_checkpoints": {
+        "created": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.00792401536667175,
+            0.00792401536667175,
+            0.010187500000000002
+          ],
+          "model_diagonal_m": [
+            [
+              -0.000792401536667175,
+              -0.000792401536667175,
+              -0.0021393750000000007
+            ],
+            [
+              0.016640432270010674,
+              0.016640432270010674,
+              0.022514375000000003
+            ]
+          ]
+        },
+        "preselection": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.00792401536667175,
+            0.00792401536667175,
+            0.010187500000000002
+          ],
+          "model_diagonal_m": [
+            [
+              -0.000792401536667175,
+              -0.000792401536667175,
+              -0.0021393750000000007
+            ],
+            [
+              0.016640432270010674,
+              0.016640432270010674,
+              0.022514375000000003
+            ]
+          ]
+        },
+        "rebuilt": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.00792401536667175,
+            0.00792401536667175,
+            0.010187500000000002
+          ],
+          "model_diagonal_m": [
+            [
+              -0.000792401536667175,
+              -0.000792401536667175,
+              -0.0021393750000000007
+            ],
+            [
+              0.016640432270010674,
+              0.016640432270010674,
+              0.022514375000000003
+            ]
+          ]
+        },
+        "reopened": {
+          "datum": "EnvelopeDirection",
+          "feature_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane"
+          },
+          "frame": {
+            "normal": [
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0
+            ],
+            "origin_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform": [
+              0.0,
+              0.0,
+              -1.0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476,
+              -0.7071067811865476,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "geometry_reference": {
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000002d000000",
+            "role": "actual display plane geometry"
+          },
+          "midpoint_m": [
+            0.00792401536667175,
+            0.00792401536667175,
+            0.010187500000000002
+          ],
+          "model_diagonal_m": [
+            [
+              -0.000792401536667175,
+              -0.000792401536667175,
+              -0.0021393750000000007
+            ],
+            [
+              0.016640432270010674,
+              0.016640432270010674,
+              0.022514375000000003
+            ]
+          ]
+        }
+      },
+      "distances_m": {
+        "created": 0.0,
+        "hinge_square_hypothesis": 3.0046291974743185e-18,
+        "preselection": 0.0,
+        "projected_stock": 0.06303996202458749,
+        "rebuilt": 0.0,
+        "reopened": 0.0
+      },
+      "native_checks": 61,
+      "native_diagonal_distance_to_saved_corners_m": [
+        0.0,
+        0.0
+      ],
+      "native_geometry": {
+        "after": {
+          "area": 0.025185,
+          "com": [
+            0.06176300634451037,
+            0.04439536939544186,
+            0.003328882801952437
+          ],
+          "mass": 6.499575e-05,
+          "volume": 6.499575e-05
+        },
+        "before": {
+          "area": 0.0246,
+          "com": [
+            0.060740480110467884,
+            0.04485190397790642,
+            0.003107112034627438
+          ],
+          "mass": 6.3547875e-05,
+          "volume": 6.3547875e-05
+        },
+        "bounds_after": [
+          0.0,
+          0.0,
+          0.0,
+          0.12,
+          0.09,
+          0.020375
+        ]
+      },
+      "reciprocal_linked_replay": {
+        "both_streams_and_linked_maps_equal": true,
+        "config": {
+          "bytes": 25918,
+          "map_next_slot": 112,
+          "sha256": "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f"
+        },
+        "resolved": {
+          "bytes": 33618,
+          "map_next_slot": 472,
+          "sha256": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9"
+        }
+      },
+      "saved_display_formula": {
+        "basis_u_v_n": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.7071067811865476,
+            0.7071067811865476,
+            0.0
+          ],
+          [
+            0.7071067811865476,
+            -0.7071067811865476,
+            0.0
+          ]
+        ],
+        "center_model_m": [
+          0.00792401536667175,
+          0.00792401536667175,
+          0.010187500000000002
+        ],
+        "center_uv_m": [
+          -0.010187500000000002,
+          0.011206250000000001
+        ],
+        "direction_line_object": 457,
+        "display_origin_field": "root",
+        "display_origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "fc8_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "fc8_point_m": [
+          0.00792401536667175,
+          0.00792401536667175,
+          0.010187500000000002
+        ],
+        "geometry_root_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name_location_f6c0_m": [
+          0.016640432270010674,
+          0.016640432270010674,
+          0.022514375000000003
+        ],
+        "ordered_borders_m": [
+          0.0021393750000000007,
+          -0.022514375000000003,
+          0.023533125000000002,
+          -0.001120625
+        ],
+        "plane_archive_object": 381,
+        "plane_data_archive_object": 384,
+        "plane_data_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "plane_id": 45,
+        "plane_name": "EnvelopeDirection",
+        "rect_corners_model_m": [
+          [
+            0.016640432270010674,
+            0.016640432270010674,
+            -0.0021393750000000007
+          ],
+          [
+            -0.000792401536667175,
+            -0.000792401536667175,
+            -0.0021393750000000007
+          ],
+          [
+            0.016640432270010674,
+            0.016640432270010674,
+            0.022514375000000003
+          ],
+          [
+            -0.000792401536667175,
+            -0.000792401536667175,
+            0.022514375000000003
+          ]
+        ],
+        "same_binary64_words": true
+      }
+    }
+  },
+  "discriminator": {
+    "comparison_tolerance_m": 5e-09,
+    "discriminating_stages": [
+      "preselection",
+      "created",
+      "rebuilt",
+      "reopened"
+    ],
+    "disposition": "matches_measured_datum_display",
+    "matching_display_stages": [
+      "preselection",
+      "created",
+      "rebuilt",
+      "reopened"
+    ],
+    "minimum_transverse_contrast_m": 0.001,
+    "observed_transverse_shift_by_stage_m": {
+      "created": 0.0064625,
+      "preselection": 0.0064625,
+      "rebuilt": 0.0064625,
+      "reopened": 0.0064625
+    },
+    "projected_stock_matches_both": false
+  },
+  "generated_parts": 0,
+  "heldouts": 0,
+  "native_processes_started_on_host": 0,
+  "native_result_sha256": "5e28d6a87d55e1de2ee31ebe57d3321fe6bf1759ccd6d6a5bb99dbb264777fb8",
+  "packet_sha256": "a193b7e1eeaa9641f92e89a8e3c6697fe6843568ffc30a410979089ef4d07ceb",
+  "registered_properties": {
+    "IMathPoint": {
+      "arguments": 0,
+      "dispid": 3,
+      "guid": "{F7D97F84-162E-11D4-AEAB-00C04FA0AC51}",
+      "invoke": 2,
+      "property": "ArrayData",
+      "return_vartype": 12
+    },
+    "IRefPlane": {
+      "arguments": 0,
+      "dispid": 4,
+      "guid": "{83A33D84-27C5-11CE-BFD4-00400513BB57}",
+      "invoke": 2,
+      "property": "BoundingBox",
+      "return_vartype": 12
+    }
+  },
+  "schema": "kit.sw2026.linear-pattern-datum-height-evidence.v1",
+  "source_revision": "9d144c93e96e720bf9369d13506c43061f881a69",
+  "spec_sha256": "8325f3457f0e7d2a565a63d3bd4a718a70cf736d8a14d7045ca218dfe7d9354b"
+}

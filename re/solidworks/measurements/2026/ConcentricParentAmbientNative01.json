@@ -1,0 +1,360 @@
+{
+  "authored_name_preservation_passed": false,
+  "child_sha256_off": "6fa75f03fc6e201e29dfc65e90b20a773ca8212568b8a9dae0fb9601116ef785",
+  "child_sha256_on": "6569127deb36821679c7b425b65e0bfffbd2c3f9d3fa68777baa3a6f507d1129",
+  "diagnostic_completed": true,
+  "distinct_processes": 4,
+  "file_saves": 0,
+  "global_preference_changes": 0,
+  "heldout_inputs_read": 0,
+  "independent_geometry_mate_and_rebuild_checks_passed": true,
+  "native_acceptance": false,
+  "numeric_checks": 112,
+  "observer_sha256": "73b2ce157be413be5014e537db21f9d70ab45f1d00c528878c910c57a03f3abc",
+  "parameter_edits": 0,
+  "parent_sha256_both": "f857cf633fb9aedcd6baa369725d71d7d8738ad687ccadf912bedf3542a5afb9",
+  "parent_stream_changes": 0,
+  "phases": {
+    "ControlAfter": {
+      "diagnostic_completed": true,
+      "numeric_checks": 28,
+      "pristine_control_passed": true
+    },
+    "ControlBefore": {
+      "diagnostic_completed": true,
+      "numeric_checks": 28,
+      "pristine_control_passed": true
+    },
+    "ParentOff": {
+      "after_rebuild": {
+        "actual_child_identity_checked": true,
+        "actual_mate": {
+          "actual_endpoint_ids": [
+            17,
+            18
+          ],
+          "alignment": 0,
+          "axis_distance_m": 3.878959614448864e-18,
+          "axis_parallel_residual": 6.206335383118183e-17,
+          "name": "ConcentricAuthored",
+          "native_feature_id": 19,
+          "rotation_locked": false,
+          "type": 1
+        },
+        "actual_occurrence_ids": [
+          17,
+          18
+        ],
+        "archive_names": [
+          "Cylinder-1",
+          "Cylinder-2"
+        ],
+        "child_dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "child_geometry": {
+          "area": 0.0009023280660348716,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647856e-06,
+          "volume": 1.8917581449647856e-06
+        },
+        "child_ordered_tree_rows": 25,
+        "child_state": {
+          "active_configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 119,
+          "whats_wrong": 0
+        },
+        "live_names": [
+          "NeutralCylinderAlphaDerived-1",
+          "NeutralCylinderAlphaDerived-2"
+        ],
+        "parent_body_count": 2,
+        "parent_geometry": {
+          "area": 0.0018046561320697431,
+          "com": [
+            -0.022374104028587232,
+            -0.005030547805353398,
+            0.040043470456910646
+          ],
+          "mass": 0.0037835162899295706,
+          "volume": 3.7835162899295708e-06
+        },
+        "parent_ordered_tree_rows": 25,
+        "parent_state": {
+          "active_configuration": "AssemblyActive",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 104,
+          "whats_wrong": 0
+        },
+        "strict_original_capture": {
+          "error": {
+            "error": "component name path or uniqueness differs",
+            "type": "ValueError"
+          },
+          "passed": false
+        }
+      },
+      "before_rebuild": {
+        "actual_child_identity_checked": true,
+        "actual_mate": {
+          "actual_endpoint_ids": [
+            17,
+            18
+          ],
+          "alignment": 0,
+          "axis_distance_m": 0.0,
+          "axis_parallel_residual": 6.206335383118183e-17,
+          "name": "ConcentricAuthored",
+          "native_feature_id": 19,
+          "rotation_locked": false,
+          "type": 1
+        },
+        "actual_occurrence_ids": [
+          17,
+          18
+        ],
+        "archive_names": [
+          "Cylinder-1",
+          "Cylinder-2"
+        ],
+        "child_dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "child_geometry": {
+          "area": 0.0009023280660348718,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647858e-06,
+          "volume": 1.8917581449647858e-06
+        },
+        "child_ordered_tree_rows": 25,
+        "child_state": {
+          "active_configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 105,
+          "whats_wrong": 0
+        },
+        "live_names": [
+          "NeutralCylinderAlphaDerived-1",
+          "NeutralCylinderAlphaDerived-2"
+        ],
+        "parent_body_count": 2,
+        "parent_geometry": {
+          "area": 0.0018046561320697436,
+          "com": [
+            -0.022374104028587232,
+            -0.005030547805353399,
+            0.040043470456910646
+          ],
+          "mass": 0.0037835162899295715,
+          "volume": 3.7835162899295716e-06
+        },
+        "parent_ordered_tree_rows": 25,
+        "parent_state": {
+          "active_configuration": "AssemblyActive",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 103,
+          "whats_wrong": 0
+        },
+        "strict_original_capture": {
+          "error": {
+            "error": "component name path or uniqueness differs",
+            "type": "ValueError"
+          },
+          "passed": false
+        }
+      },
+      "diagnostic_completed": true,
+      "force_rebuild_return": true,
+      "immutable_inputs_unchanged": true,
+      "independent_checks_passed": true,
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "original_zero_warning_gate_passed": false
+    },
+    "ParentOn": {
+      "after_rebuild": {
+        "actual_child_identity_checked": true,
+        "actual_mate": {
+          "actual_endpoint_ids": [
+            17,
+            18
+          ],
+          "alignment": 0,
+          "axis_distance_m": 3.878959614448864e-18,
+          "axis_parallel_residual": 6.206335383118183e-17,
+          "name": "ConcentricAuthored",
+          "native_feature_id": 19,
+          "rotation_locked": false,
+          "type": 1
+        },
+        "actual_occurrence_ids": [
+          17,
+          18
+        ],
+        "archive_names": [
+          "Cylinder-1",
+          "Cylinder-2"
+        ],
+        "child_dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "child_geometry": {
+          "area": 0.0009023280660348716,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647854e-06,
+          "volume": 1.8917581449647854e-06
+        },
+        "child_ordered_tree_rows": 22,
+        "child_state": {
+          "active_configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 118,
+          "whats_wrong": 0
+        },
+        "live_names": [
+          "NeutralCylinderAlphaDerived-1",
+          "NeutralCylinderAlphaDerived-2"
+        ],
+        "parent_body_count": 2,
+        "parent_geometry": {
+          "area": 0.0018046561320697431,
+          "com": [
+            -0.022374104028587232,
+            -0.005030547805353401,
+            0.040043470456910646
+          ],
+          "mass": 0.0037835162899295706,
+          "volume": 3.7835162899295708e-06
+        },
+        "parent_ordered_tree_rows": 25,
+        "parent_state": {
+          "active_configuration": "AssemblyActive",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 104,
+          "whats_wrong": 0
+        },
+        "strict_original_capture": {
+          "error": {
+            "error": "component name path or uniqueness differs",
+            "type": "ValueError"
+          },
+          "passed": false
+        }
+      },
+      "before_rebuild": {
+        "actual_child_identity_checked": true,
+        "actual_mate": {
+          "actual_endpoint_ids": [
+            17,
+            18
+          ],
+          "alignment": 0,
+          "axis_distance_m": 0.0,
+          "axis_parallel_residual": 6.206335383118183e-17,
+          "name": "ConcentricAuthored",
+          "native_feature_id": 19,
+          "rotation_locked": false,
+          "type": 1
+        },
+        "actual_occurrence_ids": [
+          17,
+          18
+        ],
+        "archive_names": [
+          "Cylinder-1",
+          "Cylinder-2"
+        ],
+        "child_dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "child_geometry": {
+          "area": 0.0009023280660348718,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647858e-06,
+          "volume": 1.8917581449647858e-06
+        },
+        "child_ordered_tree_rows": 22,
+        "child_state": {
+          "active_configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "update_stamp": 104,
+          "whats_wrong": 0
+        },
+        "live_names": [
+          "NeutralCylinderAlphaDerived-1",
+          "NeutralCylinderAlphaDerived-2"
+        ],
+        "parent_body_count": 2,
+        "parent_geometry": {
+          "area": 0.0018046561320697436,
+          "com": [
+            -0.022374104028587232,
+            -0.005030547805353399,
+            0.040043470456910646
+          ],
+          "mass": 0.0037835162899295715,
+          "volume": 3.7835162899295716e-06
+        },
+        "parent_ordered_tree_rows": 25,
+        "parent_state": {
+          "active_configuration": "AssemblyActive",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 103,
+          "whats_wrong": 0
+        },
+        "strict_original_capture": {
+          "error": {
+            "error": "component name path or uniqueness differs",
+            "type": "ValueError"
+          },
+          "passed": false
+        }
+      },
+      "diagnostic_completed": true,
+      "force_rebuild_return": true,
+      "immutable_inputs_unchanged": true,
+      "independent_checks_passed": true,
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "original_zero_warning_gate_passed": true
+    }
+  },
+  "pristine_controls_passed": 2,
+  "raw_result_sha256": "e565f5e940076262507fff43296ee1205ccd7fbcfb8eee6ad2ca92d36b6998fa",
+  "schema": "kit.sw2026.concentric-parent-ambient-normalized-result.v1",
+  "solidworks_file_version": "34.5.2.0604",
+  "source_commit": "3930a03411f5dfb5d2fc985cee9ffbbd3f260f01",
+  "trial_sha256": "01b767e56dd5f8dd2f1a2c5218a0003b98654f7b9f4eea27369464575172fcd8",
+  "warning_changed_32_to_0": true
+}

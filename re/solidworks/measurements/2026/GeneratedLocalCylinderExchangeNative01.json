@@ -1,0 +1,313 @@
+{
+  "schema": "kit.sw2026.local-cylinder-exchange-compact.v1",
+  "builder_and_observer_revision": "a97cff51766f0434217c2cc94cb78b30eab285cd",
+  "job_sha256": "345676011b027a4398e78a04f3a70453ffbff037fce5321cf13ef286c4d79353",
+  "full_native_result_sha256": "aa4af60b944359540e694859ee150cb0651e58bf06f776da8d82bc9b59013b11",
+  "build_sha256": "92fcf0ba4589e92aa3967e9341aff655e7df442748f002d5e1c7dc6727ea7ff3",
+  "source_control_receipt_sha256": "bbaa59c9661882912fdc0f140feb864824a9ddc36609e902e359d8c50ffd1105",
+  "oracle_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "disclosed_cases": 2,
+  "heldout_cases": 0,
+  "complete_generated_native_parts": 0,
+  "distinct_native_processes": 10,
+  "controls_healthy": true,
+  "independent_control_phases": 8,
+  "candidate_numeric_checks": 152,
+  "packet_unchanged": true,
+  "host_runtime_reads": 0,
+  "phases": [
+    {
+      "name": "ApplicationBefore",
+      "role": "native_application_control",
+      "passed": true,
+      "record_sha256": "125303d0bd539fdb81267b40fbca144d670ddfef731d56135a6d4b461abe9ccc"
+    },
+    {
+      "name": "ExportBefore",
+      "role": "native_binary_export_control",
+      "passed": true,
+      "record_sha256": "29e09827e184c65fe3552b39e9113dffade2f7ce8fc93d1d0091b657103c524e",
+      "numeric_checks": 58
+    },
+    {
+      "name": "SourceZ",
+      "role": "native_source_control",
+      "passed": true,
+      "record_sha256": "98f7eec670d22ebef5ec6c7c4de66a7cb014f2247f19b124e825c44bdec15669",
+      "numeric_checks": 96
+    },
+    {
+      "name": "StockZ",
+      "role": "native_raw_control",
+      "passed": true,
+      "record_sha256": "ab9ae953f235d387b7895b634d0d79e71445aff684869c4c5776bf51174258cc",
+      "numeric_checks": 76
+    },
+    {
+      "name": "TranslatedZ",
+      "role": "generated_disclosed",
+      "passed": true,
+      "record_sha256": "dc4b5afa1e9ab34554356b4356dbddb0575f5838c74641dfb41e34098e52fe4b",
+      "numeric_checks": 76
+    },
+    {
+      "name": "ReverseY",
+      "role": "generated_disclosed",
+      "passed": true,
+      "record_sha256": "5dfd115ba8852cb288aea88d834ffb172464816e2a8b1d137702f033a0e3eff6",
+      "numeric_checks": 76
+    },
+    {
+      "name": "StockReverseY",
+      "role": "native_raw_control",
+      "passed": true,
+      "record_sha256": "7b5f1ecc49c380c55ca49658d7b98b6d339d7d1935225d75ac89fa324f4e71a2",
+      "numeric_checks": 76
+    },
+    {
+      "name": "SourceReverseY",
+      "role": "native_source_control",
+      "passed": true,
+      "record_sha256": "0196fd5d6973ef994f35be95c7f5cece52bf9465c34cba22816bb8681d547b91",
+      "numeric_checks": 96
+    },
+    {
+      "name": "ExportAfter",
+      "role": "native_binary_export_control",
+      "passed": true,
+      "record_sha256": "96b7247bdfc28725658335c5515c1c06e16c6b876d2be1dc47605672f414c1ca",
+      "numeric_checks": 58
+    },
+    {
+      "name": "ApplicationAfter",
+      "role": "native_application_control",
+      "passed": true,
+      "record_sha256": "b0de3756c0d02e39770b901ab5d7b14ef4e857c51f51d430874e607bf74790f1"
+    }
+  ],
+  "candidates": {
+    "TranslatedZ": {
+      "transmit_sha256": "20f764878d7ef568f01a9df61b276522f71a16aa7b13e2a2e121fd6ebf410b44",
+      "transmit_bytes": 1414,
+      "load_error": 0,
+      "preference_restored": true,
+      "cold_and_rebuilt_geometry_agree": true,
+      "measurements": {
+        "solids": 1,
+        "vertices": 0,
+        "edges": 2,
+        "faces": 3,
+        "cap_rims": [
+          {
+            "center_m": [
+              0.01625,
+              -0.0085,
+              0.003375
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "radius_m": 0.00675,
+            "trim": [
+              0.0,
+              6.283185307179586
+            ]
+          },
+          {
+            "center_m": [
+              0.01625,
+              -0.0085,
+              0.0205
+            ],
+            "normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "radius_m": 0.00675,
+            "trim": [
+              0.0,
+              6.283185307179586
+            ]
+          }
+        ],
+        "caps": [
+          {
+            "outward_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "plane_parameters": [
+              -0.0,
+              -0.0,
+              -1.0,
+              0.01625,
+              -0.0085,
+              0.003375
+            ],
+            "rim_station": 0
+          },
+          {
+            "outward_normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "plane_parameters": [
+              0.0,
+              0.0,
+              1.0,
+              0.01625,
+              -0.0085,
+              0.0205
+            ],
+            "rim_station": 1
+          }
+        ],
+        "mantle_parameters": [
+          0.01625,
+          -0.0085,
+          0.003375,
+          0.0,
+          0.0,
+          1.0,
+          0.00675
+        ],
+        "extreme_bounds_m": [
+          [
+            0.009500000000000001,
+            -0.01525,
+            0.003375
+          ],
+          [
+            0.023,
+            -0.0017500000000000007,
+            0.0205
+          ]
+        ],
+        "com_m": [
+          0.01625,
+          -0.0085,
+          0.0119375
+        ],
+        "volume_m3": 2.4512522116560424e-06,
+        "area_m2": 0.0010125745821601602
+      }
+    },
+    "ReverseY": {
+      "transmit_sha256": "85c47d7beb3b2c4a9e01d98341197e62f345601fcc4e813afb976cccc2b79852",
+      "transmit_bytes": 1414,
+      "load_error": 0,
+      "preference_restored": true,
+      "cold_and_rebuilt_geometry_agree": true,
+      "measurements": {
+        "solids": 1,
+        "vertices": 0,
+        "edges": 2,
+        "faces": 3,
+        "cap_rims": [
+          {
+            "center_m": [
+              -0.011125,
+              0.0285,
+              -0.004875
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "radius_m": 0.004625,
+            "trim": [
+              0.0,
+              6.283185307179586
+            ]
+          },
+          {
+            "center_m": [
+              -0.011125,
+              0.00425,
+              -0.004875
+            ],
+            "normal": [
+              -0.0,
+              1.0,
+              -0.0
+            ],
+            "radius_m": 0.004625,
+            "trim": [
+              0.0,
+              6.283185307179586
+            ]
+          }
+        ],
+        "caps": [
+          {
+            "outward_normal": [
+              -0.0,
+              1.0,
+              -0.0
+            ],
+            "plane_parameters": [
+              -0.0,
+              1.0,
+              -0.0,
+              -0.011125,
+              0.0285,
+              -0.004875
+            ],
+            "rim_station": 0
+          },
+          {
+            "outward_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "plane_parameters": [
+              0.0,
+              -1.0,
+              0.0,
+              -0.011125,
+              0.00425,
+              -0.004875
+            ],
+            "rim_station": 1
+          }
+        ],
+        "mantle_parameters": [
+          -0.011125,
+          0.0285,
+          -0.004875,
+          0.0,
+          -1.0,
+          0.0,
+          0.004625
+        ],
+        "extreme_bounds_m": [
+          [
+            -0.01575,
+            0.00425,
+            -0.0095
+          ],
+          [
+            -0.0065,
+            0.0285,
+            -0.0002500000000000002
+          ]
+        ],
+        "com_m": [
+          -0.011125,
+          0.016375,
+          -0.004875
+        ],
+        "volume_m3": 1.6296152861255836e-06,
+        "area_m2": 0.0008390997628197488
+      }
+    }
+  }
+}

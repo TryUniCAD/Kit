@@ -1,0 +1,962 @@
+{
+  "cases": {
+    "BlindCutDeep": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "public-sdk",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "d5a8b5c1667c1012157a214657993e659d34f2074914bc864397ac229b9e5909",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "c51b9a3feae35ef2d6d7124041ac56b7aef9d006d14c30fab88162617ed6e35c"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "cb975b6c60e0758fda655379d6f26c64be2b1559341ce3407914f0dc10d30557"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25572,
+          "sha256": "d99e01f57f4c365c7e37060c18b08bfbf1dede0065b04b9f656e075bb875df48"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2545,
+          "sha256": "ae2847df66ab94fd0fd21b6e82cc84766c3865b03bc4c720a5fa84de8302c3d7"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 16359,
+          "sha256": "1d9bd05f0e8de389dae03fea60009ad6ec8d6993c9a135ca5d266d26aa876d58"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2545,
+          "sha256": "ae2847df66ab94fd0fd21b6e82cc84766c3865b03bc4c720a5fa84de8302c3d7"
+        }
+      }
+    },
+    "BlindCutMiddle": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "public-sdk",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "04b911f1dc34fdb2b77b68881aaa439d5b2cced41321115ea662d3a0de1fd01b",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "5a5d5324a61549d4825d2487573145c57aec7795f0f6510893cec4023c0fed92"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "3c98726f0865035870ad060f3e2ca458ad998a536adb9d89a19bccc5f6f83d31"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25572,
+          "sha256": "8d1b2a8c817129bee8975b8a29a4a09c06cb72a0c776a2e668737db8ec1f1150"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2545,
+          "sha256": "c271d52428eec4f902ec7068782557a96256f45c097c2577624bcec21a18f14c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 16359,
+          "sha256": "922d345fe065b42aefafcbb6ceaf404c3cc9783d0fd579681ab94766bdbafba9"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2545,
+          "sha256": "c271d52428eec4f902ec7068782557a96256f45c097c2577624bcec21a18f14c"
+        }
+      }
+    },
+    "BlindCutShallow": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "public-sdk",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "b0b6aa24c320b2c13ca986daf91a6fca916a54a02a9a21746ce2ced8523e54d2",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "aa19a02fa7f3fe0b10b6a0371cda98800aebe7a53d4a3d3bea3ba8d29f7f3470"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "f770123608550d12059b70dfedcb37f6244d8b22e090711b4ea65c78d16b3b90"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25572,
+          "sha256": "f468771a10b799b8f8ca20d98d5ea6c1944da12fd930512ea66ec0a5dc6835ba"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2545,
+          "sha256": "1e47a38e095c75685133e218faabbbd6518b2eddcb375c45a656923c2f7c199e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 16359,
+          "sha256": "33fc8b2e72e1726215d6b6940f16067ba2a8cf1a055e00ea0c3db5aedc503d8a"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2545,
+          "sha256": "1e47a38e095c75685133e218faabbbd6518b2eddcb375c45a656923c2f7c199e"
+        }
+      }
+    },
+    "D01/edited": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "shared-linked-sketch",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2555,
+          "sha256": "782ae80a0b6b86dfc2d9e6ef4bb84df2c18f02f2619db66ecd01b05c49354a8d"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "61dedf611921b13a81742b6a70c1864d5727fdff49777efdbf495983dd5cc5d9"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25608,
+          "sha256": "f37d25ef0c7635b79253f02f8dd002fb5d5f79a55efd7ccc36bc0e707622770d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "1c7068ea79009fdb799c6b6585ab27ba969c83cf4ce45014cf10e18c1551b48f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14922,
+          "sha256": "4010dcb01ceb3027e47c6908301ea36c8c95d48fdaa3996cb549916292872535"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "1c7068ea79009fdb799c6b6585ab27ba969c83cf4ce45014cf10e18c1551b48f"
+        }
+      }
+    },
+    "D01/source": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "shared-linked-sketch",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "d8502b08c01f9af2e97c94dfd3ad47e92ce0765e662a906f648497ad1bdea50c"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "921134f972c2ed21d5b3c5159d79b104f7559b85c7ee6f755811ccb49f9c746b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25564,
+          "sha256": "eeca56a65740b63b28809b9fb370ec19d25dc953cbc479c8c6722aaacab3dda9"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "58065c9daeb53e0e7903e01c623258aec9f50b30c244d3be42353eeba179aa32"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "30090a1d9f8664d3336f89cc95e0a65f331d5f38d6f889c2eac75216a5c7ea0b"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "58065c9daeb53e0e7903e01c623258aec9f50b30c244d3be42353eeba179aa32"
+        }
+      }
+    },
+    "D02/edited": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "shared-linked-sketch",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "b7be92611a06555870b2779e31df2f8e3c9d8967450a9a9326faba4295f6feda",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2555,
+          "sha256": "8a2c87fac8893bfc13b3133304839f02eca2b67a2dcff1a62d3fd29dddc06452"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "7b1e101de41469cae70bfdd7641982a15849f59278384c8e18e20fffc3bddb9b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25540,
+          "sha256": "0387be03d0ca6b3f746c0a8843351faf9267447b06009d13397baa518cc4a234"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "adc768b1be0e67a571d9f66944f9073ab0dd4bcc83c45d6885d196e14c82015a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14994,
+          "sha256": "f4d684ec0916a9b521275e3ba36264145a9ce40d221dada1f82b8aecaee30dcd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "adc768b1be0e67a571d9f66944f9073ab0dd4bcc83c45d6885d196e14c82015a"
+        }
+      }
+    },
+    "D02/source": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "shared-linked-sketch",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "c46cc3d573de16d4509b9f67a7fca0bc195ed6818a53055024fe1f1653bbc56e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "3bba5c21bb25294d35533ea9a93db5f7ff2a78582f9916dabc90c5259ad3001d"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25496,
+          "sha256": "13a71727d2117ac416b7e9e8cb40517a990a26250e0c9f4ddccabc84f64d7a9d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "2c20af87346227c2170cdd2361e19f7100588babaeb2a4b69536354b50037316"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14700,
+          "sha256": "1c180bd74459b581f043189b416dd0969aaeb8464f4b908e9ec21952fe67c7bc"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "2c20af87346227c2170cdd2361e19f7100588babaeb2a4b69536354b50037316"
+        }
+      }
+    },
+    "D03/edited": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "shared-linked-sketch",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "074bf01c6b349eb0f48162c51409ab2e1a688ca6240d0b626cf96ba96fea8f82",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2543,
+          "sha256": "912da668cc80ebb918a4a9cc4ea5e2fe4f71587c7dee3518fd3ccf07fab278ab"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "4eafad408fabd3052551ae3402afab047977b85aefd14b79a89d402ae25fcdf5"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25602,
+          "sha256": "f4ddfc8f794d14eef58fdc7bbec81771cbc1db4441fd266006629ce7f3a92158"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2867,
+          "sha256": "12df68c8c258ab5f8e05e4689729416b90a619ff9754b81955c583925a28eb15"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 15080,
+          "sha256": "ff4db98a82486196642968a08e752c2f84160885c23ed439be27e6d927515537"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2867,
+          "sha256": "12df68c8c258ab5f8e05e4689729416b90a619ff9754b81955c583925a28eb15"
+        }
+      }
+    },
+    "D03/source": {
+      "lines": [
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "slot": 1
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "slot": 2
+        },
+        {
+          "axis": "horizontal",
+          "point_ids": [
+            [
+              6,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 3
+        },
+        {
+          "axis": "vertical",
+          "point_ids": [
+            [
+              7,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "slot": 4
+        }
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "path": "shared-linked-sketch",
+      "path_and_bytes_match": true,
+      "retired_line_slots": [
+        0
+      ],
+      "retired_point_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "77d1433bb22cb78c7c3281bc98b77bcc15014d59258ab35ceed2b57737cf7496"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "9a51d4f4c102254b9fb84a5eb30234897c5ebfea5d702ab29cf4f962e8d2a11c"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25564,
+          "sha256": "807d5330734b05a9555d6d30fe5a5d27b6c1b99c12128256de2cbf294ff76fe8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "a3d82dbb5e6d40be47b4292c2bdc40c516464684293787383bcdf41782b52f29"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14798,
+          "sha256": "f2cfabe1806a2edd1c84d3647428933586b0a2a77ad75a943007ee3bacff2aea"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "a3d82dbb5e6d40be47b4292c2bdc40c516464684293787383bcdf41782b52f29"
+        }
+      }
+    }
+  },
+  "heldout_inputs_read": 0,
+  "linked_stream_comparisons": 108,
+  "native_processes_started": 0,
+  "passed": true,
+  "schema": "kit.sw2026.disclosed-stock-sketch-read.v1",
+  "sdk_processes": 18,
+  "source_fingerprint": {
+    "manifest_sha256": "f0c664fcbfa3bdcb76530ff5edd2b2222891106d159ce5a010fb08eb1d6d03b0",
+    "python_source_files": 4435
+  },
+  "stream_audit_sha256": "3efab18180d8c849fc8eb8a809bfb2f9bff2726ca01b0faec5d8fbdf7ee9b9bb",
+  "tool_sha256": "a4fb10acca0a9a9a6c28d9e5b4b63b38c1d2faa35741ee42378a9f4a67aa5346",
+  "writer_outputs": 0
+}

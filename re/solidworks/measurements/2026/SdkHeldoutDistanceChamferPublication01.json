@@ -1,0 +1,147 @@
+{
+  "atomic_refusals": 24,
+  "authority_sha256": "00ebeab7479f9a9cc6468d4f91412e0a15bb162c65c4fdf32536d23b21857c36",
+  "candidate_writes": 6,
+  "cases": [
+    {
+      "archive_sha256": "3ce044f3507bebceb5bfe8d24ce2b50963020ee0fb488172e37c9e31363e3229",
+      "bytes": 9054,
+      "publication_routes": {
+        "adapter": {
+          "refusals": [
+            "unbound_report",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ],
+          "stream_count": 10
+        },
+        "direct": {
+          "refusals": [
+            "unbound_report",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ],
+          "stream_count": 10
+        },
+        "registry": {
+          "refusals": [
+            "unbound_report",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ],
+          "stream_count": 10
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "slot": 0
+    },
+    {
+      "archive_sha256": "86c6f4e5cbd8906d0f2b824c8c9ffe7bdc600d7c3c0d6466a07257ecff8ed99a",
+      "bytes": 9258,
+      "publication_routes": {
+        "adapter": {
+          "refusals": [
+            "unbound_report",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ],
+          "stream_count": 10
+        },
+        "direct": {
+          "refusals": [
+            "unbound_report",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ],
+          "stream_count": 10
+        },
+        "registry": {
+          "refusals": [
+            "unbound_report",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ],
+          "stream_count": 10
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "slot": 1
+    }
+  ],
+  "default_view_math_contrast": [
+    {
+      "actual_bytes": 9060,
+      "actual_sha256": "ca2769f9302c0ee6c61b0aeba135f29a0394d55f4f933d3f2402175f7d12bb52",
+      "changed_streams": [
+        "Contents/Config-0"
+      ],
+      "completed": true,
+      "exact": false,
+      "expected_bytes": 9054,
+      "expected_sha256": "3ce044f3507bebceb5bfe8d24ce2b50963020ee0fb488172e37c9e31363e3229",
+      "runtime_input_reads": 0,
+      "slot": 0
+    },
+    {
+      "actual_bytes": 9262,
+      "actual_sha256": "a0da1818e002b8beb404d777168a3e54e0d440c3d1bfca4f383ea225c364a198",
+      "changed_streams": [
+        "Contents/Config-0"
+      ],
+      "completed": true,
+      "exact": false,
+      "expected_bytes": 9258,
+      "expected_sha256": "86c6f4e5cbd8906d0f2b824c8c9ffe7bdc600d7c3c0d6466a07257ecff8ed99a",
+      "runtime_input_reads": 0,
+      "slot": 1
+    }
+  ],
+  "existing_healthy_controls": 2,
+  "existing_native_comparisons": 141,
+  "existing_native_lifetimes": 6,
+  "generation_sha256": "3b1ce612d2877499a7cb49c69ed66a7ae20004042fcbb74a5d4612faf440b866",
+  "guarded_workers": 2,
+  "native_processes_started": 0,
+  "new_native_acceptance": 0,
+  "oracle_build": "34.5.2.0604",
+  "original_native_sources_read": 0,
+  "original_platform_view_math_contrast": [
+    {
+      "actual_bytes": 9054,
+      "actual_sha256": "3ce044f3507bebceb5bfe8d24ce2b50963020ee0fb488172e37c9e31363e3229",
+      "changed_streams": [],
+      "completed": true,
+      "exact": true,
+      "expected_bytes": 9054,
+      "expected_sha256": "3ce044f3507bebceb5bfe8d24ce2b50963020ee0fb488172e37c9e31363e3229",
+      "runtime_input_reads": 0,
+      "slot": 0
+    },
+    {
+      "actual_bytes": 9258,
+      "actual_sha256": "86c6f4e5cbd8906d0f2b824c8c9ffe7bdc600d7c3c0d6466a07257ecff8ed99a",
+      "changed_streams": [],
+      "completed": true,
+      "exact": true,
+      "expected_bytes": 9258,
+      "expected_sha256": "86c6f4e5cbd8906d0f2b824c8c9ffe7bdc600d7c3c0d6466a07257ecff8ed99a",
+      "runtime_input_reads": 0,
+      "slot": 1
+    }
+  ],
+  "schema": "kit.sw2026.heldout-distance-pair-publication.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/edge_chamfer_source/distance_pair/VerifyHeldPairPublication.py": "9fd45ea0b5016095cf5b1d4d1cb99d93babb9b566e49cc685245de6963b04735",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/PrepChmfPart.py": "41d7eaa29f1af528a8eef2b3ec67bf017c1017002ba6ed0ca8755ddf779d5787",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/EmitPairMut.py": "6ab16ec691cc82680e3f44ba62cd4bb6061c7ca5645d8614a265c5ba9fd03625",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/MatchHeldPair.py": "fd811a496c4a3753eaf97a8f31663104fab368f6492659e38c1e9e8d13e823e9",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/ReadHeldPair.py": "f1536965d32e13e10ffbde0635c9ee343a7bca41e41e9a7a90a81f0f937dafc8",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/SnapshotReport.py": "e19e9dd31e256126343778bc9f507d8211e749d8bb40246f67a0306793b9577e"
+  }
+}

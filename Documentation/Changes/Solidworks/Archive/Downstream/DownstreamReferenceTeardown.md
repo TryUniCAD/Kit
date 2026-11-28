@@ -1,0 +1,5 @@
+# Ordinary downstream reference teardown
+
+PR #121 adds exact-build source rules for the selected same-owner part teardown after downstream row construction. The actual part borrows its surface map; temporary maps release raw container storage, the transferred representation vector survives, and the collector base destroys separately allocated comparison keys. Retained face/edge rows, flags, handles and embedded role data are preserved by these selected destructors.
+
+Use the [numeric/prose record](../../../../../re/solidworks/records/DownstreamReferenceTeardown2026.md) and [metadata replay receipt](../../../../../re/solidworks/measurements/2026/DownstreamReferenceTeardownSource01.json). The source verifier checks 51 complete entries across three pinned originals. No SDK/native/test process or hidden CAD input is involved. Other helper ownership, collisions, later save callers and complete native cache acceptance remain separate; no codec or writer changes. [Specific gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Downstream/BorrowedSurfaceMapsKeepTheirReferences.md)

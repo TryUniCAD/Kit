@@ -1,0 +1,247 @@
+{
+  "schema": "kit.sw2026.profile-frame-discovery-processes.v1",
+  "evaluation_revision": "6fc97ccebb41696c5dbc03e538ba132064af241d",
+  "tested_merge": "f5a780a9ecc44dbd2cfb9abe226c54a7edbc9967",
+  "tested_tree": "71cee0713b57be0c2d2c5299f93f9fdedf6f5372",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "6fc97ccebb41696c5dbc03e538ba132064af241d"
+  ],
+  "run_id": 43995605334,
+  "job_id": 133746762021,
+  "native_format_passed": 206,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14290785229,
+    "bytes": 24483371,
+    "sha256": "61f8fa84400c2125939ed92bc3126e0b3ef8868227b9d6faa137e068a79dc15f"
+  },
+  "historical_writer_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+  "evaluated_outputs": [
+    {
+      "name": "H01Forward",
+      "bytes": 7970,
+      "sha256": "8d20322fd2b0f0ed9ca163945e76314dd20bb7a2f05f9244d542a2ffac10a47d",
+      "report_bytes": 1002369,
+      "report_sha256": "a860e10a51001b03971b5bbc8f55ead41370cc5d76008e6577f2049ca22acdec",
+      "profile_model_to_sketch": [
+        -0.0,
+        0.0,
+        1.0,
+        -0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
+      "current_output_identical": false,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "archive_comparisons": 8
+    },
+    {
+      "name": "H01TranslatedDiameter",
+      "bytes": 7985,
+      "sha256": "8b06fbed4d59e49f5e6c90aaf7ade8667bb2e77601676076f622773ca59bf27a",
+      "report_bytes": 1000791,
+      "report_sha256": "5b406908496ac109248cec77f144e34d4cc263abee2995130d00aa77515d0ba9",
+      "profile_model_to_sketch": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "8b06fbed4d59e49f5e6c90aaf7ade8667bb2e77601676076f622773ca59bf27a",
+      "current_output_identical": true,
+      "changed_streams": [],
+      "archive_comparisons": 8
+    },
+    {
+      "name": "H02Reverse",
+      "bytes": 7970,
+      "sha256": "cfb1d4403b30eea97482ce8790893e2daf870a67fd49473461391b27a8e55c9d",
+      "report_bytes": 1002399,
+      "report_sha256": "3f2820d35105a450efd345917efcc19602e5d65f6d1ce184f49d57e8512169eb",
+      "profile_model_to_sketch": [
+        1.0,
+        0.0,
+        -0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "6b474e833e07ff8ef62aafa4794ec8d9c0edffc983e399d7f4bb9eb7783e16aa",
+      "current_output_identical": false,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "archive_comparisons": 8
+    },
+    {
+      "name": "H02ReverseTopCircle",
+      "bytes": 7989,
+      "sha256": "f7a8d0df3819a02d9e108b02fb3ab1258e76eaf0a6c6709035fe655f081ed549",
+      "report_bytes": 1002384,
+      "report_sha256": "a111ad6e8903c8ea2da0945c2f391565a7d37322f170b53c4c35042cd3b683a9",
+      "profile_model_to_sketch": [
+        1.0,
+        0.0,
+        -0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "8adcae7ee0ebafa3dda245914ebabb8907c8f0a634c97cf99fca06ba2af8d447",
+      "current_output_identical": false,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "archive_comparisons": 8
+    },
+    {
+      "name": "H03MidPlane",
+      "bytes": 7989,
+      "sha256": "b2e8ef581b728927285ab0cc5e5e64d3a53b37a77b089aba24c8354661974e88",
+      "report_bytes": 1002413,
+      "report_sha256": "645f825dd14a9a2ceed58e78c04d8fa56aba47e75604ef395f68eebd6104ff9f",
+      "profile_model_to_sketch": [
+        -0.0,
+        0.0,
+        1.0,
+        -0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "e8963d3c80b134194a5ce10ae5ca31c3f2339fdfee4881aba2e78240ceea96a0",
+      "current_output_identical": false,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "archive_comparisons": 8
+    },
+    {
+      "name": "H04TwoDirections",
+      "bytes": 8008,
+      "sha256": "52c8369bef0f7e5126c779867417cb618285a998e9dc9fcc62ebd0784cc194bb",
+      "report_bytes": 1002416,
+      "report_sha256": "3b2ec3964820497b16b460318c0fcc116225010cc9c128f794c74cd23557f354",
+      "profile_model_to_sketch": [
+        1.0,
+        0.0,
+        -0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "5cded1cd89de1d91d50764cd9b5ed175db747ae0bfd9d43337d1c6e2fc5ebea6",
+      "current_output_identical": false,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "archive_comparisons": 8
+    },
+    {
+      "name": "ViewH01TrimetricPan",
+      "bytes": 8072,
+      "sha256": "b53af0cf5bdc1e49a71a12e2ab36aea6eade783b1cd740d65ba75bf949a70a36",
+      "report_bytes": 1001390,
+      "report_sha256": "db1a818a07dd19da0ef435427c1f9b8f8b84764c14947ddc574a339278d64e33",
+      "profile_model_to_sketch": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "b53af0cf5bdc1e49a71a12e2ab36aea6eade783b1cd740d65ba75bf949a70a36",
+      "current_output_identical": true,
+      "changed_streams": [],
+      "archive_comparisons": 8
+    },
+    {
+      "name": "ViewH02DimetricPan",
+      "bytes": 8058,
+      "sha256": "cbf0e13538cdefef24b2e31fe9e5d039048564aecbd94ee96df97373abb4a1db",
+      "report_bytes": 1002943,
+      "report_sha256": "f91421a07f05ffe7e15cc5c014f419b90f8d6ed755a3a19107abb24387ba5f5f",
+      "profile_model_to_sketch": [
+        1.0,
+        0.0,
+        -0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "historical_measured_sha256": "0bdfd2e8f011921eb215e363f07b31cd29b746db4af7a316e418697808e0ed8a",
+      "current_output_identical": false,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "archive_comparisons": 8
+    }
+  ],
+  "complete_archive_comparisons_current": 64,
+  "new_unseen_evidence": false,
+  "native_acceptance_inherited": false,
+  "runtime_denied_reads": []
+}

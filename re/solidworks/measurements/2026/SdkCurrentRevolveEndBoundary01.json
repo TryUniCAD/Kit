@@ -1,0 +1,168 @@
+{
+  "evidence_sha256": {
+    "RevolveEndHeldoutSourceLock01.json": "977cfab507c7c77910b752bb8c46e4968a0ddfdf7efc9a8d582d99a2c7b364b9",
+    "SdkOrdinaryRevolveEndHeldout01.json": "67c41678df39397433ff94cc8183f74626df40829cad61bfbeea713addd1df88",
+    "SdkSquareRevolveHeldoutNative01.json": "ef201f8e33168e74ae776e7e6b7efa52c9b5acb80f0d4910e565ea6ead1905be",
+    "SdkSquareRevolvePublicParity01.json": "5da158ebd3f460f8e1efc9810ba94ce1326a368370a80a914e617cf42ff76d42",
+    "SdkTwoDirectionRevolvePublicParity01.json": "06e3c3413cc87a3060f05c815d8bafc384ffb122696377f806117584359a6eb1"
+  },
+  "existing_native_dispositions": {
+    "explicit_equal_native_lifecycle_passes": 2,
+    "mixed_original_qualified": 0,
+    "ordinary_mid_plane_member_lifecycle_passes": 1,
+    "ordinary_source_lock_processes": 14,
+    "ordinary_two_direction_parity": 2
+  },
+  "method_sha256": "030298f96aeed4936de11272eb08341cb71e72d324288570d6b46eb28c692f6c",
+  "model_only_cases": [
+    {
+      "edited_sha256": "03b72a64997973b377751c984b5e4d7635460d1fdfdcb47ed8a8df21e2a45478",
+      "edited_streams": 10,
+      "edited_views": {
+        "cold": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 0,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "history": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 1,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "shape": [
+          1,
+          6,
+          12,
+          8
+        ]
+      },
+      "eligibility_matrix": [
+        "explicit_square_mid_admitted",
+        "square_without_equal_mid_refused",
+        "ordinary_two_admitted",
+        "explicit_square_two_admitted",
+        "equal_single_refused",
+        "opposite_pair_refused"
+      ],
+      "original_sha256": "5ed3c046ea071d5ec41297bc99b008f1354aa893d587f934511dbb1ff051e5e3",
+      "original_streams": 10,
+      "public_refusals": {
+        "direct": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "reported_views": {
+        "cold": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 0,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "history": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 1,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "shape": [
+          1,
+          6,
+          12,
+          8
+        ]
+      },
+      "support": "top",
+      "unexpected_external_accesses": 0
+    },
+    {
+      "edited_sha256": "b2e79c1e99c59a348a2bbb17dca7e0d6a1efae4d8b696bf484fc02acf823d12a",
+      "edited_streams": 10,
+      "edited_views": {
+        "cold": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 0,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "history": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 1,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "shape": [
+          1,
+          6,
+          12,
+          8
+        ]
+      },
+      "eligibility_matrix": [
+        "explicit_square_mid_admitted",
+        "square_without_equal_mid_refused",
+        "ordinary_two_admitted",
+        "explicit_square_two_admitted",
+        "equal_single_refused",
+        "opposite_pair_refused"
+      ],
+      "original_sha256": "e9fc53ac23823e99723f1373a7884fce565cc9f3699c7e280370631f16d9ef02",
+      "original_streams": 10,
+      "public_refusals": {
+        "direct": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "reported_views": {
+        "cold": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 0,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "history": {
+          "mode": "symmetric_full",
+          "packaged_layout_reads": 1,
+          "parameters": [
+            "D1"
+          ],
+          "producer_linked": true,
+          "relations": 4
+        },
+        "shape": [
+          1,
+          6,
+          12,
+          8
+        ]
+      },
+      "support": "right",
+      "unexpected_external_accesses": 0
+    }
+  ],
+  "new_native_acceptance": 0,
+  "new_native_processes": 0,
+  "private_geometry_accesses": 0,
+  "schema": "kit.sw2026.current-ordinary-revolve-end-boundary.v1",
+  "sdk_source_tree": "1944f85edc481b7b2b04db050d04ee083ce5dafb"
+}

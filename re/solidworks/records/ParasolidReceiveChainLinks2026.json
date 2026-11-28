@@ -1,0 +1,905 @@
+{
+  "analyst_names": "Unexported helper names describe the interpreted bounded role, not recovered symbols",
+  "functions": [
+    {
+      "entry": "0x1803a80a0",
+      "fragments": [
+        {
+          "bytes": 3888,
+          "end_exclusive": "0x1803a8fd0",
+          "file_offset": 3830944,
+          "name": "unwind_fragment",
+          "sha256": "34b041dcc1e3a1cb3308e83feb3a9a2f340721cfb2c7329a7f9907520feae28b",
+          "start": "0x1803a80a0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "PK_PARTITION_receive"
+    },
+    {
+      "entry": "0x1808c86e0",
+      "fragments": [
+        {
+          "bytes": 21981,
+          "end_exclusive": "0x1808cdcbd",
+          "file_offset": 9206496,
+          "name": "unwind_fragment",
+          "sha256": "a3fd580492c09eaa4dc2111643e8c0008ce9ec09444d32184647e4b872825932",
+          "start": "0x1808c86e0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "active_partition_receive_core"
+    },
+    {
+      "entry": "0x180a1c400",
+      "fragments": [
+        {
+          "bytes": 1144,
+          "end_exclusive": "0x180a1c878",
+          "file_offset": 10598400,
+          "name": "unwind_fragment",
+          "sha256": "82b9f99c672fb58a7b817a319eb733c123e46b08b542df1524316ff8249bc40f",
+          "start": "0x180a1c400"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "DS_receive_start"
+    },
+    {
+      "entry": "0x180a1ba10",
+      "fragments": [
+        {
+          "bytes": 144,
+          "end_exclusive": "0x180a1baa0",
+          "file_offset": 10595856,
+          "name": "unwind_fragment",
+          "sha256": "fd6b299eff9681676b8b3383a3058fdcc640e5ecb152f62c68adaf8009add51c",
+          "start": "0x180a1ba10"
+        },
+        {
+          "bytes": 355,
+          "end_exclusive": "0x180a1bc03",
+          "file_offset": 10596000,
+          "name": "unwind_fragment",
+          "sha256": "40c27d20273aa051dbfea2cc678b978da3419fa0cef01e968894a93ccbe586ad",
+          "start": "0x180a1baa0"
+        },
+        {
+          "bytes": 40,
+          "end_exclusive": "0x180a1bc2b",
+          "file_offset": 10596355,
+          "name": "unwind_fragment",
+          "sha256": "1f17b25d755419e94f50619ca08d40ecd15b2485ddc42bbfe11d81f0559ee4b1",
+          "start": "0x180a1bc03"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "DS_receive_commit"
+    },
+    {
+      "entry": "0x180a1bc30",
+      "fragments": [
+        {
+          "bytes": 726,
+          "end_exclusive": "0x180a1bf06",
+          "file_offset": 10596400,
+          "name": "unwind_fragment",
+          "sha256": "b389ae09e4fb07cf1b7430f2216aa75e873ab14cb89555e7a30ec2ead342055f",
+          "start": "0x180a1bc30"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "DS_receive_nodes"
+    },
+    {
+      "entry": "0x180a26a90",
+      "fragments": [
+        {
+          "bytes": 254,
+          "end_exclusive": "0x180a26b8e",
+          "file_offset": 10641040,
+          "name": "unwind_fragment",
+          "sha256": "3191830b9db0efba63282322329455c4563a98680f186b172f6bf2ab8c5c4f95",
+          "start": "0x180a26a90"
+        },
+        {
+          "bytes": 213,
+          "end_exclusive": "0x180a26c63",
+          "file_offset": 10641294,
+          "name": "unwind_fragment",
+          "sha256": "12483df66c8c99c0bb8af010ca14f45aa118e05c38502e453d509c8ac22415f1",
+          "start": "0x180a26b8e"
+        },
+        {
+          "bytes": 200,
+          "end_exclusive": "0x180a26d2b",
+          "file_offset": 10641507,
+          "name": "unwind_fragment",
+          "sha256": "5b07d4b37432688a40b2919eefda9418607b54880b369f66bc9d08ab26f2a1f1",
+          "start": "0x180a26c63"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_default_nodes"
+    },
+    {
+      "entry": "0x180a22190",
+      "fragments": [
+        {
+          "bytes": 970,
+          "end_exclusive": "0x180a2255a",
+          "file_offset": 10622352,
+          "name": "unwind_fragment",
+          "sha256": "94d0f039728585f30a81df5eced400505ad0e5e8088a662b99358b0a63b717e8",
+          "start": "0x180a22190"
+        },
+        {
+          "bytes": 631,
+          "end_exclusive": "0x180a227d1",
+          "file_offset": 10623322,
+          "name": "unwind_fragment",
+          "sha256": "6ebbdb83db3ce8da5f81bdaa7e5d48413a76559813575ecbabdab796c04edaef",
+          "start": "0x180a2255a"
+        },
+        {
+          "bytes": 25,
+          "end_exclusive": "0x180a227ea",
+          "file_offset": 10623953,
+          "name": "unwind_fragment",
+          "sha256": "22287c23e19b6fc18d9c116d4d51022f8e3717577b1e6c6f3a4ad6453f2086bf",
+          "start": "0x180a227d1"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_one_record"
+    },
+    {
+      "entry": "0x180a22d40",
+      "fragments": [
+        {
+          "bytes": 86,
+          "end_exclusive": "0x180a22d96",
+          "file_offset": 10625344,
+          "name": "unwind_fragment",
+          "sha256": "8d7ab07d9c91da611332f6b193dd3bae3f6cd0e553cd2c4fb274a731b5b91d2a",
+          "start": "0x180a22d40"
+        },
+        {
+          "bytes": 1244,
+          "end_exclusive": "0x180a23272",
+          "file_offset": 10625430,
+          "name": "unwind_fragment",
+          "sha256": "6b5d9a897c76e769ed4d565d9d03ffa1f3367a4b8dc5dade127815d6ab6ec4aa",
+          "start": "0x180a22d96"
+        },
+        {
+          "bytes": 17,
+          "end_exclusive": "0x180a23283",
+          "file_offset": 10626674,
+          "name": "unwind_fragment",
+          "sha256": "e85fb9a90bae69bf27cbb72b48003dd933906cbe5078565607000bdf948a2b40",
+          "start": "0x180a23272"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_fixup_one_node"
+    },
+    {
+      "entry": "0x180a20cd0",
+      "fragments": [
+        {
+          "bytes": 5303,
+          "end_exclusive": "0x180a22187",
+          "file_offset": 10617040,
+          "name": "unwind_fragment",
+          "sha256": "d3312b5e9e6e09593db5519e6a4cc75d7e8bcbc3e14b5515b3c0f720b62ce774",
+          "start": "0x180a20cd0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_header_model"
+    },
+    {
+      "entry": "0x180a250d0",
+      "fragments": [
+        {
+          "bytes": 3526,
+          "end_exclusive": "0x180a25e96",
+          "file_offset": 10634448,
+          "name": "unwind_fragment",
+          "sha256": "b1a4b17fb85e18140d15afa0681349c1ecfe73352a41bbd42064384a8ac0fe3f",
+          "start": "0x180a250d0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_decode_node"
+    },
+    {
+      "entry": "0x181e2daf0",
+      "fragments": [
+        {
+          "bytes": 3468,
+          "end_exclusive": "0x181e2e87c",
+          "file_offset": 31641328,
+          "name": "unwind_fragment",
+          "sha256": "b09dcda3bc1a7cbdc36e9d14d34215d60b57e454e00e839584571136d0141d85",
+          "start": "0x181e2daf0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_body_callback"
+    },
+    {
+      "entry": "0x180a1e210",
+      "fragments": [
+        {
+          "bytes": 6448,
+          "end_exclusive": "0x180a1fb40",
+          "file_offset": 10606096,
+          "name": "unwind_fragment",
+          "sha256": "49dba8804267b5b53b352776ee8223fbe1a67fc5f5db6b1c2ffb8c0196cdbedf",
+          "start": "0x180a1e210"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_field_value"
+    },
+    {
+      "entry": "0x180a206b0",
+      "fragments": [
+        {
+          "bytes": 44,
+          "end_exclusive": "0x180a206dc",
+          "file_offset": 10615472,
+          "name": "unwind_fragment",
+          "sha256": "75467703dadc13c0a156f9210366a6a29a39e5bd34b05a2565c39b96cbb27b58",
+          "start": "0x180a206b0"
+        },
+        {
+          "bytes": 235,
+          "end_exclusive": "0x180a207c7",
+          "file_offset": 10615516,
+          "name": "unwind_fragment",
+          "sha256": "312ce00ea010310b651c39918feb15a6ba0da95906b8cec7b1bd67f7a45263b9",
+          "start": "0x180a206dc"
+        },
+        {
+          "bytes": 710,
+          "end_exclusive": "0x180a20a8d",
+          "file_offset": 10615751,
+          "name": "unwind_fragment",
+          "sha256": "87f5bdfa67176e2c73cae6fad1ce0114eb1eff9e3bb8130fd4459692df0c3cdc",
+          "start": "0x180a207c7"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_compatibility_node"
+    },
+    {
+      "entry": "0x180a205c0",
+      "fragments": [
+        {
+          "bytes": 237,
+          "end_exclusive": "0x180a206ad",
+          "file_offset": 10615232,
+          "name": "unwind_fragment",
+          "sha256": "6e1a54aea4f8181507d6ea613d09f07bd5e4923303dffd627e981c344a1057bd",
+          "start": "0x180a205c0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_field_read_plan"
+    },
+    {
+      "entry": "0x180a17960",
+      "fragments": [
+        {
+          "bytes": 579,
+          "end_exclusive": "0x180a17ba3",
+          "file_offset": 10579296,
+          "name": "unwind_fragment",
+          "sha256": "00aa0d2d6489b2fd987c36f02540056d1ffc67b969726857d45417c59b2cd13b",
+          "start": "0x180a17960"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_header_schema_values"
+    },
+    {
+      "entry": "0x3305ad80",
+      "fragments": [
+        {
+          "bytes": 756,
+          "end_exclusive": "0x3305b074",
+          "file_offset": 958848,
+          "name": "unwind_fragment",
+          "sha256": "30fdf29623c3f433f32e9f849bc142d3f0ecec488d31b563590a26909ba50edc",
+          "start": "0x3305ad80"
+        }
+      ],
+      "module": "sldgciParau.dll",
+      "name": "gci_partition_restore"
+    },
+    {
+      "entry": "0x18143e4b0",
+      "fragments": [
+        {
+          "bytes": 6,
+          "end_exclusive": "0x18143e4b6",
+          "file_offset": 21223600,
+          "name": "explicit_complete_code_interval",
+          "sha256": "b20cc369a4be2f67dd9220e440174a68985023645759b7d0e79f534a951eb575",
+          "start": "0x18143e4b0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_current_schema"
+    },
+    {
+      "entry": "0x181e21ef0",
+      "fragments": [
+        {
+          "bytes": 76,
+          "end_exclusive": "0x181e21f3c",
+          "file_offset": 31593200,
+          "name": "explicit_complete_code_interval",
+          "sha256": "d0098ef63d6c4df1883099ad185b916854002456f6634de2a58d0ca0e5ce4d26",
+          "start": "0x181e21ef0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_map_lookup"
+    },
+    {
+      "entry": "0x181e490d0",
+      "fragments": [
+        {
+          "bytes": 76,
+          "end_exclusive": "0x181e4911c",
+          "file_offset": 31753424,
+          "name": "explicit_complete_code_interval",
+          "sha256": "521bf1eac623e7252d50e9a6ad9a9b6ddd9d8b0c674a995701185684839f0df3",
+          "start": "0x181e490d0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "receive_record_callback"
+    },
+    {
+      "entry": "0x181432890",
+      "fragments": [
+        {
+          "bytes": 3029,
+          "end_exclusive": "0x181433465",
+          "file_offset": 21175440,
+          "name": "body_field_registration",
+          "sha256": "54d01aefb1a861cef73d7234b5b3005c147ad45ab3497bdfc2c7998e85a343e4",
+          "start": "0x181432890"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "body_field_registration"
+    },
+    {
+      "entry": "0x18144b000",
+      "fragments": [
+        {
+          "bytes": 716,
+          "end_exclusive": "0x18144b2cc",
+          "file_offset": 21275648,
+          "name": "region_field_registration",
+          "sha256": "d57fa37ce6bb190dd24db7f562a9ff0c656b8c7a6732e864b39727de97d14407",
+          "start": "0x18144b000"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "region_field_registration"
+    },
+    {
+      "entry": "0x18143e4c0",
+      "fragments": [
+        {
+          "bytes": 1022,
+          "end_exclusive": "0x18143e8be",
+          "file_offset": 21223616,
+          "name": "edge_field_registration",
+          "sha256": "e99dc494e0d98ea220fc7142a995ee12eed82be03f459fdd423d38c47530e5cf",
+          "start": "0x18143e4c0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "edge_field_registration"
+    },
+    {
+      "entry": "0x18143f390",
+      "fragments": [
+        {
+          "bytes": 1463,
+          "end_exclusive": "0x18143f947",
+          "file_offset": 21227408,
+          "name": "face_field_registration",
+          "sha256": "9f48e7f4db21d3278abc4e475763d39c8a0d82c7dda17b181599b3d363d2459d",
+          "start": "0x18143f390"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "face_field_registration"
+    },
+    {
+      "entry": "0x1814534d0",
+      "fragments": [
+        {
+          "bytes": 713,
+          "end_exclusive": "0x181453799",
+          "file_offset": 21309648,
+          "name": "shell_field_registration",
+          "sha256": "2e0b74a00206bffbcd74384f56bd08b22be8490e8eb2fe9d3c61c696108a1cf1",
+          "start": "0x1814534d0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "shell_field_registration"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 72681488,
+      "licensed_original_external_to_checkout": true,
+      "name": "PSKERNEL.dll",
+      "preferred_base": "0x180000000",
+      "sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+      "version": "37.01.250"
+    },
+    {
+      "bytes": 1875032,
+      "licensed_original_external_to_checkout": true,
+      "name": "sldgciParau.dll",
+      "preferred_base": "0x32f70000",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    }
+  ],
+  "next_observation": {
+    "acceptance": "Both pristine controls, exact module/process/frame identity, all chain owners/backlinks, unchanged source hashes, no unseen stop treated as a hit, explicit cleanup and no license-service changes",
+    "decision": "Any difference establishes later receive/load normalization for that source; equal sequences establish only this exact measured source/path",
+    "first_snapshot": "0x1808c95f5, only the identified ordinary receive frame: retain actual WORLD/body identity and complete typed chain pointer sequence after default node decode/fixup",
+    "identity_rule": "Runtime pointers/tags are observation-local; do not equate them with transmit indices, permanent node IDs, downstream IDs or wrapper handles",
+    "proposed_only": true,
+    "run_owner": "root",
+    "scope": "One existing healthy disclosed ordinary one-solid control, fresh normal COM-owned open and actual body enumeration with no deliberate rebuild or input mutation",
+    "second_snapshot": "Successful matching PK_PARTITION_receive return or actual PK_BODY_ask_edges/faces fill: verify same body, capture the same pointer-chain sequence before tag conversion"
+  },
+  "pointer_decode": {
+    "compressed_reference_id_store": "0x180a1ebae",
+    "field_decoder": "0x180a1e210",
+    "field_loop": "0x180a25bd5",
+    "function": "0x180a250d0",
+    "mapped_field_decoder_call": "0x180a25cbf",
+    "not_a_topology_relink_or_sort_in_this_bounded_path": true,
+    "ordinary_field_decoder_call": "0x180a25c61",
+    "pointer_case": "0x180a1e8fd",
+    "pointer_slot_step": "0x180a1ec7d",
+    "rule": "The scalar p decoder stores the decoded reference ID in the caller-provided destination and advances by 8 bytes; the ordinary field path computes that destination from the selected registered runtime field offset",
+    "runtime_destination_matching_mapped_descriptor": "0x180a25c9e",
+    "runtime_destination_same_descriptor": "0x180a25c44"
+  },
+  "pointer_field_registration": {
+    "array_selector": 0,
+    "classes": [
+      {
+        "fields": [
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x3b0",
+            "encoding": "p",
+            "encoding_assignment": "0x181432e3f",
+            "name": "owner",
+            "name_assignment": "0x181432e31",
+            "native_runtime_offset": "0xb8",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x181432e60",
+            "runtime_offset_assignment": "0x181432e72",
+            "runtime_slot_bytes": 8,
+            "target_kind": 1040,
+            "target_kind_assignment": "0x181432e67"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x590",
+            "encoding": "p",
+            "encoding_assignment": "0x181433125",
+            "name": "region",
+            "name_assignment": "0x181433117",
+            "native_runtime_offset": "0x100",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x181433146",
+            "runtime_offset_assignment": "0x181433158",
+            "runtime_slot_bytes": 8,
+            "target_kind": 19,
+            "target_kind_assignment": "0x18143314d"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x5c0",
+            "encoding": "p",
+            "encoding_assignment": "0x181433170",
+            "name": "edge",
+            "name_assignment": "0x181433162",
+            "native_runtime_offset": "0x108",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x181433191",
+            "runtime_offset_assignment": "0x1814331a3",
+            "runtime_slot_bytes": 8,
+            "target_kind": 16,
+            "target_kind_assignment": "0x181433198"
+          }
+        ],
+        "name": "BODY"
+      },
+      {
+        "fields": [
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x80",
+            "encoding": "p",
+            "encoding_assignment": "0x18144b0ad",
+            "name": "body",
+            "name_assignment": "0x18144b09f",
+            "native_runtime_offset": "0x10",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18144b0ce",
+            "runtime_offset_assignment": "0x18144b0e0",
+            "runtime_slot_bytes": 8,
+            "target_kind": 12,
+            "target_kind_assignment": "0x18144b0d5"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0xb0",
+            "encoding": "p",
+            "encoding_assignment": "0x18144b0f8",
+            "name": "next",
+            "name_assignment": "0x18144b0ea",
+            "native_runtime_offset": "0x18",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18144b119",
+            "runtime_offset_assignment": "0x18144b12b",
+            "runtime_slot_bytes": 8,
+            "target_kind": 19,
+            "target_kind_assignment": "0x18144b120"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x110",
+            "encoding": "p",
+            "encoding_assignment": "0x18144b18e",
+            "name": "shell",
+            "name_assignment": "0x18144b180",
+            "native_runtime_offset": "0x28",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18144b1af",
+            "runtime_offset_assignment": "0x18144b1c1",
+            "runtime_slot_bytes": 8,
+            "target_kind": 13,
+            "target_kind_assignment": "0x18144b1b6"
+          }
+        ],
+        "name": "REGION"
+      },
+      {
+        "fields": [
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0xb0",
+            "encoding": "p",
+            "encoding_assignment": "0x1814535c8",
+            "name": "next",
+            "name_assignment": "0x1814535ba",
+            "native_runtime_offset": "0x18",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x1814535e9",
+            "runtime_offset_assignment": "0x1814535fb",
+            "runtime_slot_bytes": 8,
+            "target_kind": 13,
+            "target_kind_assignment": "0x1814535f0"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0xe0",
+            "encoding": "p",
+            "encoding_assignment": "0x181453613",
+            "name": "face",
+            "name_assignment": "0x181453605",
+            "native_runtime_offset": "0x20",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x181453634",
+            "runtime_offset_assignment": "0x181453646",
+            "runtime_slot_bytes": 8,
+            "target_kind": 14,
+            "target_kind_assignment": "0x18145363b"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x110",
+            "encoding": "p",
+            "encoding_assignment": "0x18145365e",
+            "name": "edge",
+            "name_assignment": "0x181453650",
+            "native_runtime_offset": "0x28",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18145367f",
+            "runtime_offset_assignment": "0x181453691",
+            "runtime_slot_bytes": 8,
+            "target_kind": 16,
+            "target_kind_assignment": "0x181453686"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x170",
+            "encoding": "p",
+            "encoding_assignment": "0x1814536ed",
+            "name": "region",
+            "name_assignment": "0x1814536e6",
+            "native_runtime_offset": "0x38",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18145370e",
+            "runtime_offset_assignment": "0x181453720",
+            "runtime_slot_bytes": 8,
+            "target_kind": 19,
+            "target_kind_assignment": "0x181453715"
+          }
+        ],
+        "name": "SHELL"
+      },
+      {
+        "fields": [
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0xe0",
+            "encoding": "p",
+            "encoding_assignment": "0x18143f4d9",
+            "name": "next",
+            "name_assignment": "0x18143f4cb",
+            "native_runtime_offset": "0x48",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18143f4fa",
+            "runtime_offset_assignment": "0x18143f50c",
+            "runtime_slot_bytes": 8,
+            "target_kind": 14,
+            "target_kind_assignment": "0x18143f501"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x170",
+            "encoding": "p",
+            "encoding_assignment": "0x18143f5b3",
+            "name": "shell",
+            "name_assignment": "0x18143f5ac",
+            "native_runtime_offset": "0x60",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18143f5d4",
+            "runtime_offset_assignment": "0x18143f5f4",
+            "runtime_slot_bytes": 8,
+            "target_kind": 13,
+            "target_kind_assignment": "0x18143f5e2"
+          }
+        ],
+        "name": "FACE"
+      },
+      {
+        "fields": [
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x170",
+            "encoding": "p",
+            "encoding_assignment": "0x18143e6e6",
+            "name": "next",
+            "name_assignment": "0x18143e6df",
+            "native_runtime_offset": "0x60",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18143e70e",
+            "runtime_offset_assignment": "0x18143e720",
+            "runtime_slot_bytes": 8,
+            "target_kind": 16,
+            "target_kind_assignment": "0x18143e715"
+          },
+          {
+            "array_selector": 0,
+            "descriptor_offset": "0x230",
+            "encoding": "p",
+            "encoding_assignment": "0x18143e819",
+            "name": "owner",
+            "name_assignment": "0x18143e80b",
+            "native_runtime_offset": "0x80",
+            "pointer_flag": 1,
+            "pointer_flag_assignment": "0x18143e83a",
+            "runtime_offset_assignment": "0x18143e84c",
+            "runtime_slot_bytes": 8,
+            "target_kind": 1029,
+            "target_kind_assignment": "0x18143e841"
+          }
+        ],
+        "name": "EDGE"
+      }
+    ],
+    "descriptor_stride_bytes": 48,
+    "module_sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+    "pointer_flag": 1,
+    "runtime_offset_member": 40,
+    "runtime_slot_bytes": 8,
+    "scalar_signature": "p"
+  },
+  "pointer_fixup": {
+    "class_descriptor_table": "0x1845cd580",
+    "descriptor_stride_bytes": 48,
+    "function": "0x180a22d40",
+    "incompatible_target_clear": "0x180a22f29",
+    "indexed_pointer_map_call": "0x180a22e57",
+    "invalid_or_dangling_references_outside_preservation_claim": true,
+    "map_lookup": {
+      "entry": "0x181e21ef0",
+      "high_bits": "remaining signed nonnegative ID bits",
+      "low_bits": 11,
+      "middle_bits": 10,
+      "rule": "Paged direct integer-key lookup, no comparator or sort"
+    },
+    "node_plus_runtime_offset": "0x180a22ded",
+    "pointer_flag_check": "0x180a22ddb",
+    "pointer_slot_step": "0x180a230f6",
+    "reference_id_read": "0x180a22e31",
+    "resolved_pointer_write": "0x180a22e5c",
+    "rule": "For a valid compatible reference the corresponding receive-map node pointer replaces the ID in that same exact slot; there is no list insertion, sorting or topology relinking in this scalar fixup pass",
+    "runtime_offset_read": "0x180a22de5",
+    "tag_map_call": "0x180a22e45",
+    "tag_to_pointer_call": "0x180a22e4c",
+    "target_compatibility_call": "0x180a22eb5",
+    "zero_reference_null_write": "0x180a230e7"
+  },
+  "post_decode_boundaries": {
+    "bounded_callback_switch": "0x181e2daf0",
+    "callback_class_arms": [
+      {
+        "at": "0x181e2e3a6",
+        "class": "BODY",
+        "effect": "Checks self-child/self-owner and collects diagnostic tags; no chain-field store in this arm",
+        "kind": 12
+      },
+      {
+        "at": "0x181e2e64a",
+        "class": "SHELL",
+        "effect": "Checks region kind and increments counts; no chain-field store in this arm",
+        "kind": 13
+      },
+      {
+        "at": "0x181e2e6d2",
+        "class": "REGION",
+        "effect": "Increments receive count; no chain-field store in this arm",
+        "kind": 19
+      },
+      {
+        "at": "0x181e2e622",
+        "class": "FACE",
+        "effect": "Increments receive counts; no chain-field store in this arm",
+        "kind": 14
+      },
+      {
+        "at": "0x181e2e4cb",
+        "class": "EDGE",
+        "effect": "Accumulates tolerance/count state; no chain-field store in this arm",
+        "kind": 16
+      }
+    ],
+    "callback_scope": "Only listed switch arms are claimed; preceding type-category branches and all later core helper effects are not thereby proved",
+    "commit_at": "0x1808cbeff",
+    "compatibility_body_rule": {
+      "at": "0x180a2084e",
+      "body_kind": 12,
+      "effect": "Sets zero byte to1; this bounded body branch does not store to the enumerated chain fields",
+      "field": "runtime+c1"
+    },
+    "complete_receive_preservation_unproved": true,
+    "kernel_core_after_nodes": "0x1808c95f5..0x1808cdcbd",
+    "node_read_loop_call": "0x180a26ae9",
+    "per_node_caller_callbacks": [
+      "0x180a26bf2",
+      "0x180a26c4b"
+    ],
+    "per_node_fixup_calls": [
+      "0x180a26be2",
+      "0x180a26c3b"
+    ],
+    "post_commit_example": {
+      "call": "0x1808cc0d6",
+      "native_diagnostic_name": "ensure_body_meshes",
+      "role": "Mesh-related post-receive path; not a proof that all receive helpers leave analytic topology untouched",
+      "target": "0x1808d08f0"
+    },
+    "solidworks_bridge_after_receive": {
+      "ask_bodies_call": "0x3305af17",
+      "optional_delta_call": "0x3305aee6",
+      "partition_tag_copy": "0x3305aed0",
+      "rule": "The immediate gci restore bridge publishes the received tag, may restore deltas, and enumerates the bodies; no direct edge/face-chain sort is present there"
+    }
+  },
+  "prior_disclosed_evidence": {
+    "claim": "L1/A13/A14 transmit chains round trip and give a source-predicted enumeration order distinct from record order and first face-fin encounter order; these are not new live receive/order observations",
+    "independent_shapes": 1,
+    "new_native_runs": 0,
+    "record": "ParasolidBodyTraversal2026.json",
+    "record_sha256": "bde20ceafe8aab0ecc3c959510b7390d3a3449261121376a03dc8ac3c74a15fb",
+    "saved_contexts": 3
+  },
+  "schema": "kit.sw2026.parasolid-receive-chain-source.v1",
+  "schema_dispatch": {
+    "alternate_decoder_requires": "received schema strictly greater than 37102, receive state8 true, mode5/mode1 false, and additional native capability true",
+    "current_schema_result": "For a successfully parsed current SCH_3701250_37102_13006 header this gate clears state+c and DS_receive_nodes dispatches the default decoder",
+    "default_decoder_selector_clear": "0x180a1c7f9",
+    "header_model_schema_output_write": "0x180a219d9",
+    "header_parser": "0x180a17960",
+    "header_text_grammar": "SCH_<model_build>_<schema_revision>_<base_schema>",
+    "native_current_schema_revision": 37102,
+    "native_schema_leaf": "0x18143e4b0",
+    "not_newer_branch": "0x180a1c7de",
+    "older_newer_or_foreign_effective_schema_not_qualified": true,
+    "received_vs_current_compare": "0x180a1c7da",
+    "second_integer_output_write": "0x180a17b06",
+    "start_max_schema_call": "0x180a1c7d5"
+  },
+  "scope_limits": {
+    "complete_load_order_or_native_acceptance_claimed": false,
+    "native_runs": 0,
+    "new_generated_native_files": 0,
+    "new_heldout_credit": 0,
+    "new_hopper_or_rea_target_started": false,
+    "vendor_code_or_listings_published": false,
+    "vm_or_license_touched": false,
+    "writer_or_public_behavior_changed": false
+  },
+  "source_chain": [
+    {
+      "at": "0x3305aea7",
+      "delay_iat": "0x3312bf78",
+      "module": "sldgciParau.dll",
+      "target": "PSKERNEL.dll!PK_PARTITION_receive",
+      "via_thunk": "0x330a3313"
+    },
+    {
+      "at": "0x1803a885f",
+      "module": "PSKERNEL.dll",
+      "target": "0x1808c86e0"
+    },
+    {
+      "at": "0x1808c9494",
+      "module": "PSKERNEL.dll",
+      "target": "0x180a1c400"
+    },
+    {
+      "at": "0x1808c95f0",
+      "module": "PSKERNEL.dll",
+      "target": "0x180a1bc30"
+    },
+    {
+      "at": "0x180a1bd79",
+      "module": "PSKERNEL.dll",
+      "target": "0x180a26a90"
+    },
+    {
+      "at": "0x1808cbeff",
+      "module": "PSKERNEL.dll",
+      "target": "0x180a1ba10"
+    }
+  ],
+  "task": {
+    "base_revision": "47dd6ab67598eb7cdafe8b6595ba19ba2f7da355",
+    "delivery_pr": 121,
+    "exit": "Source-bound pointer decode/fixup checkpoint; complete load-chain preservation is not qualified",
+    "id": "B04-SW2026-KERNEL-RECEIVE-CHAINS",
+    "owner": "configuration_header"
+  },
+  "tool_hygiene": {
+    "foreign_or_unattributed_hopper_document_closed": false,
+    "prior_packet_unchanged": true,
+    "retained_cleanup_state_untouched": true,
+    "stateless_original_pe_only": true
+  }
+}

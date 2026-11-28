@@ -1,0 +1,551 @@
+{
+  "schema": "kit.sw2026.ordinary-assembly-archive-layout.v1",
+  "evaluation_revision": "45832385b104983f17f720d39764cefe7273b279",
+  "tested_merge": "fe9cc723d1704e7332ef112a3c11f6526bc0b019",
+  "tested_tree": "a517b20315aba701e6e703bf3af50d46d4f87e27",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "45832385b104983f17f720d39764cefe7273b279"
+  ],
+  "run_id": 44004721451,
+  "job_id": 133777138543,
+  "artifact": {
+    "id": 14294765416,
+    "bytes": 24773477,
+    "sha256": "8888cbbbb24d78c4a6364c059d7a6d934e2c0041e49231e8dde0677c93f18361"
+  },
+  "report": {
+    "name": "SourceParser/Assembly/Synchronized.json",
+    "bytes": 4677385,
+    "sha256": "1e556391cb18c3c1f03faa584bb87bef64eb4224c8012c07ccb3c1f35edc51da"
+  },
+  "passed": true,
+  "stream_comparisons": 35,
+  "consistent_top_level_resolved_root_count": 16,
+  "configured_object_counts": [
+    1,
+    2,
+    3
+  ],
+  "heldout_payloads_read": false,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "records": [
+    {
+      "name": "A12SyncedEmpty",
+      "configuration": {
+        "manager": {
+          "f40c": 1,
+          "f658": 0,
+          "f75c": 2,
+          "f0c": 0
+        },
+        "active_name": "Default",
+        "active_class": "moConfiguration_c",
+        "active_flags": {
+          "f08": 0,
+          "f0c": 0,
+          "f824": null,
+          "f82c": 0,
+          "fbc0": 0,
+          "fbc4": 1
+        },
+        "active_options": [
+          {
+            "f08": 2,
+            "f0c": 1,
+            "f10": 1,
+            "f14": 0,
+            "f18": 2,
+            "f28": 0,
+            "f20": 0,
+            "f34": 0,
+            "f38": 6,
+            "f3c": 1,
+            "f40": 0,
+            "f48": "",
+            "f50": -1,
+            "f58": 0,
+            "f5c": 0,
+            "f60": 0,
+            "f64": -1,
+            "f68": 0,
+            "f6c": 0,
+            "f70": 0,
+            "f74#wire": 0,
+            "f74": 0
+          },
+          {
+            "f08": 2,
+            "f0c": 1,
+            "f10": 1,
+            "f14": 0,
+            "f18": 2,
+            "f28": 0,
+            "f20": 0,
+            "f34": 0,
+            "f38": 6,
+            "f3c": 1,
+            "f40": 0,
+            "f48": "",
+            "f50": -1,
+            "f58": 0,
+            "f5c": 0,
+            "f60": 0,
+            "f64": -1,
+            "f68": 0,
+            "f6c": 0,
+            "f70": 0,
+            "f74#wire": 0,
+            "f74": 0
+          }
+        ],
+        "configured_object_count": 1
+      },
+      "resolved_roots": [
+        {
+          "class": "moCommentsFolder_c",
+          "name": "Comments",
+          "persistent_id": 9
+        },
+        {
+          "class": "moFavoriteFolder_c",
+          "name": "Favorites",
+          "persistent_id": 21
+        },
+        {
+          "class": "moHistoryFolder_c",
+          "name": "History",
+          "persistent_id": 22
+        },
+        {
+          "class": "moSelectionSetFolder_c",
+          "name": "Selection Sets",
+          "persistent_id": 23
+        },
+        {
+          "class": "moSensorFolder_c",
+          "name": "Sensors",
+          "persistent_id": 20
+        },
+        {
+          "class": "moLiveSectionFolder_c",
+          "name": "Live Section Planes",
+          "persistent_id": 10,
+          "assembly_state": {
+            "f360": 1,
+            "f370": 0,
+            "f378": 1
+          }
+        },
+        {
+          "class": "moDocsFolder_c",
+          "name": "Design Binder",
+          "persistent_id": 8
+        },
+        {
+          "class": "moDetailCabinet_c",
+          "name": "Annotations",
+          "persistent_id": 2
+        },
+        {
+          "class": "moEnvFolder_c",
+          "name": "Lights and Cameras",
+          "persistent_id": 7
+        },
+        {
+          "class": "moInkMarkupFolder_c",
+          "name": "Markups",
+          "persistent_id": 19
+        },
+        {
+          "class": "moEqnFolder_c",
+          "name": "Equations",
+          "persistent_id": 16
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Front Plane",
+          "persistent_id": 3
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Top Plane",
+          "persistent_id": 4
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Right Plane",
+          "persistent_id": 5
+        },
+        {
+          "class": "moOriginProfileFeature_c",
+          "name": "Origin",
+          "persistent_id": 6
+        },
+        {
+          "class": "moMateGroup_c",
+          "name": "Mates",
+          "persistent_id": 11,
+          "assembly_state": {
+            "manager_count": 0,
+            "resolved_mate_row_count": 0,
+            "f4f8": null
+          }
+        }
+      ],
+      "resolved_map": {
+        "sha256": "b9493f32807b996445dce26fb2da2b62945107bb515412c3bdd072e9e2a7d782",
+        "node_count": 907,
+        "reference_count": 1104,
+        "map_base": 91,
+        "map_count": 152,
+        "unresolved_references": 0
+      }
+    },
+    {
+      "name": "A13SyncedSingle",
+      "configuration": {
+        "manager": {
+          "f40c": 1,
+          "f658": 0,
+          "f75c": 2,
+          "f0c": 0
+        },
+        "active_name": "Default",
+        "active_class": "moConfiguration_c",
+        "active_flags": {
+          "f08": 0,
+          "f0c": 0,
+          "f824": null,
+          "f82c": 0,
+          "fbc0": 0,
+          "fbc4": 1
+        },
+        "active_options": [
+          {
+            "f08": 2,
+            "f0c": 1,
+            "f10": 1,
+            "f14": 0,
+            "f18": 2,
+            "f28": 0,
+            "f20": 0,
+            "f34": 0,
+            "f38": 6,
+            "f3c": 1,
+            "f40": 0,
+            "f48": "",
+            "f50": -1,
+            "f58": 0,
+            "f5c": 0,
+            "f60": 0,
+            "f64": -1,
+            "f68": 0,
+            "f6c": 0,
+            "f70": 0,
+            "f74#wire": 0,
+            "f74": 0
+          },
+          {
+            "f08": 2,
+            "f0c": 1,
+            "f10": 1,
+            "f14": 0,
+            "f18": 2,
+            "f28": 0,
+            "f20": 0,
+            "f34": 0,
+            "f38": 6,
+            "f3c": 1,
+            "f40": 0,
+            "f48": "",
+            "f50": -1,
+            "f58": 0,
+            "f5c": 0,
+            "f60": 0,
+            "f64": -1,
+            "f68": 0,
+            "f6c": 0,
+            "f70": 0,
+            "f74#wire": 0,
+            "f74": 0
+          }
+        ],
+        "configured_object_count": 2
+      },
+      "resolved_roots": [
+        {
+          "class": "moCommentsFolder_c",
+          "name": "Comments",
+          "persistent_id": 9
+        },
+        {
+          "class": "moFavoriteFolder_c",
+          "name": "Favorites",
+          "persistent_id": 21
+        },
+        {
+          "class": "moHistoryFolder_c",
+          "name": "History",
+          "persistent_id": 22
+        },
+        {
+          "class": "moSelectionSetFolder_c",
+          "name": "Selection Sets",
+          "persistent_id": 23
+        },
+        {
+          "class": "moSensorFolder_c",
+          "name": "Sensors",
+          "persistent_id": 20
+        },
+        {
+          "class": "moLiveSectionFolder_c",
+          "name": "Live Section Planes",
+          "persistent_id": 10,
+          "assembly_state": {
+            "f360": 1,
+            "f370": 0,
+            "f378": 1
+          }
+        },
+        {
+          "class": "moDocsFolder_c",
+          "name": "Design Binder",
+          "persistent_id": 8
+        },
+        {
+          "class": "moDetailCabinet_c",
+          "name": "Annotations",
+          "persistent_id": 2
+        },
+        {
+          "class": "moEnvFolder_c",
+          "name": "Lights and Cameras",
+          "persistent_id": 7
+        },
+        {
+          "class": "moInkMarkupFolder_c",
+          "name": "Markups",
+          "persistent_id": 19
+        },
+        {
+          "class": "moEqnFolder_c",
+          "name": "Equations",
+          "persistent_id": 16
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Front Plane",
+          "persistent_id": 3
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Top Plane",
+          "persistent_id": 4
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Right Plane",
+          "persistent_id": 5
+        },
+        {
+          "class": "moOriginProfileFeature_c",
+          "name": "Origin",
+          "persistent_id": 6
+        },
+        {
+          "class": "moMateGroup_c",
+          "name": "Mates",
+          "persistent_id": 11,
+          "assembly_state": {
+            "manager_count": 0,
+            "resolved_mate_row_count": 0,
+            "f4f8": null
+          }
+        }
+      ],
+      "resolved_map": {
+        "sha256": "b04ca01356b7e5fab1a60e6f14ea28157b3a1eb95b6a7d240ed879fa5c9a91dc",
+        "node_count": 936,
+        "reference_count": 1153,
+        "map_base": 103,
+        "map_count": 164,
+        "unresolved_references": 1
+      }
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "configuration": {
+        "manager": {
+          "f40c": 1,
+          "f658": 0,
+          "f75c": 2,
+          "f0c": 0
+        },
+        "active_name": "Default",
+        "active_class": "moConfiguration_c",
+        "active_flags": {
+          "f08": 0,
+          "f0c": 0,
+          "f824": null,
+          "f82c": 0,
+          "fbc0": 0,
+          "fbc4": 1
+        },
+        "active_options": [
+          {
+            "f08": 2,
+            "f0c": 1,
+            "f10": 1,
+            "f14": 0,
+            "f18": 2,
+            "f28": 0,
+            "f20": 0,
+            "f34": 0,
+            "f38": 6,
+            "f3c": 1,
+            "f40": 0,
+            "f48": "",
+            "f50": -1,
+            "f58": 0,
+            "f5c": 0,
+            "f60": 0,
+            "f64": -1,
+            "f68": 0,
+            "f6c": 0,
+            "f70": 0,
+            "f74#wire": 0,
+            "f74": 0
+          },
+          {
+            "f08": 2,
+            "f0c": 1,
+            "f10": 1,
+            "f14": 0,
+            "f18": 2,
+            "f28": 0,
+            "f20": 0,
+            "f34": 0,
+            "f38": 6,
+            "f3c": 1,
+            "f40": 0,
+            "f48": "",
+            "f50": -1,
+            "f58": 0,
+            "f5c": 0,
+            "f60": 0,
+            "f64": -1,
+            "f68": 0,
+            "f6c": 0,
+            "f70": 0,
+            "f74#wire": 0,
+            "f74": 0
+          }
+        ],
+        "configured_object_count": 3
+      },
+      "resolved_roots": [
+        {
+          "class": "moCommentsFolder_c",
+          "name": "Comments",
+          "persistent_id": 9
+        },
+        {
+          "class": "moFavoriteFolder_c",
+          "name": "Favorites",
+          "persistent_id": 21
+        },
+        {
+          "class": "moHistoryFolder_c",
+          "name": "History",
+          "persistent_id": 22
+        },
+        {
+          "class": "moSelectionSetFolder_c",
+          "name": "Selection Sets",
+          "persistent_id": 23
+        },
+        {
+          "class": "moSensorFolder_c",
+          "name": "Sensors",
+          "persistent_id": 20
+        },
+        {
+          "class": "moLiveSectionFolder_c",
+          "name": "Live Section Planes",
+          "persistent_id": 10,
+          "assembly_state": {
+            "f360": 1,
+            "f370": 0,
+            "f378": 1
+          }
+        },
+        {
+          "class": "moDocsFolder_c",
+          "name": "Design Binder",
+          "persistent_id": 8
+        },
+        {
+          "class": "moDetailCabinet_c",
+          "name": "Annotations",
+          "persistent_id": 2
+        },
+        {
+          "class": "moEnvFolder_c",
+          "name": "Lights and Cameras",
+          "persistent_id": 7
+        },
+        {
+          "class": "moInkMarkupFolder_c",
+          "name": "Markups",
+          "persistent_id": 19
+        },
+        {
+          "class": "moEqnFolder_c",
+          "name": "Equations",
+          "persistent_id": 16
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Front Plane",
+          "persistent_id": 3
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Top Plane",
+          "persistent_id": 4
+        },
+        {
+          "class": "moRefPlane_c",
+          "name": "Right Plane",
+          "persistent_id": 5
+        },
+        {
+          "class": "moOriginProfileFeature_c",
+          "name": "Origin",
+          "persistent_id": 6
+        },
+        {
+          "class": "moMateGroup_c",
+          "name": "Mates",
+          "persistent_id": 11,
+          "assembly_state": {
+            "manager_count": 0,
+            "resolved_mate_row_count": 0,
+            "f4f8": null
+          }
+        }
+      ],
+      "resolved_map": {
+        "sha256": "46f7142a6aad1e12d6d10dadf8fe857ad0274c987aa8b839d697e43e424890b9",
+        "node_count": 953,
+        "reference_count": 1182,
+        "map_base": 107,
+        "map_count": 168,
+        "unresolved_references": 2
+      }
+    }
+  ]
+}

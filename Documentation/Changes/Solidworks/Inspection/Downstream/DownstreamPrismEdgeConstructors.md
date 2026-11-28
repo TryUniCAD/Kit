@@ -1,0 +1,5 @@
+# SOLIDWORKS prism downstream edge construction
+
+The standalone research projection shares collected surface objects with the actual face and edge slots. It derives the ordinary prism's four edge roles from the positive fin, its reciprocal and the two adjacent reciprocal fins. Each edge uses the body atom, both native identity keys and the selected mode-1 reference state. [Collected surfaces](../../../../../re/solidworks/records/DownstreamCollectedSurfaceOwnership2026.md) · [Edge construction and replay](../../../../../re/solidworks/records/DownstreamPrismEdgeConstructors2026.md)
+
+Sixteen guarded processes verify two generated designs and their direct-face regression controls. The edge bodies preserve the generated part streams, reproduce their bytes exactly and refuse the original and anti-key collision cases. Native drawing acceptance and later cache construction stages remain open. [Replay receipt](../../../../../re/solidworks/measurements/2026/DownstreamPrismReferenceReplay01.json)

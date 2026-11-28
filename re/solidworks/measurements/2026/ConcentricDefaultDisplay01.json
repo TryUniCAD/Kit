@@ -1,0 +1,395 @@
+{
+  "cases": {
+    "Edited": {
+      "child_sha256": "73e448eb1bf723adaf74d183212d084300f86367e77c74a11766386a94815d09",
+      "generated_parent_bytes": 11055,
+      "generated_parent_sha256": "3922d0746c80ea1e9e648a1b7e6fbce8df3ab6390cf1c14152c4aa877680a3f2",
+      "mate": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.04690999999999999
+          ],
+          [
+            0.0,
+            -0.04691000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "73e448eb1bf723adaf74d183212d084300f86367e77c74a11766386a94815d09",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          150,
+          203
+        ],
+        "mate_bytes": 3606,
+        "mate_sha256": "14d78da50afae3d2e18b6a0cfdc9ae2b325dcef3760acf88db40f8691068c134",
+        "occurrence_names": [
+          "ConcentricD01Child-1",
+          "ConcentricD01Child-2"
+        ],
+        "occurrences": [
+          24,
+          25
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.04393000000000001,
+            -0.03126999999999999,
+            0.26817
+          ]
+        ]
+      },
+      "parent_identity": {
+        "context_count": 2,
+        "locator_sha256": "42ab245305ff79c811d8a63cff5da7f965ec7dbed0da4941255429888d558b45",
+        "matching_parent_headers": 2,
+        "title": "ConcentricD01AlignedFree"
+      },
+      "prior_no_display_parent_sha256": "381d7bb67144c0f16c5d878b51ee7f3eeed11fa0d9375fe3b1255fb33a54e839",
+      "refusals": {
+        "detached_header_file": "assembly visibility requires both actual headers and their shared assembly self-file",
+        "duplicate_occurrence": "assembly display state must bind each actual occurrence exactly once",
+        "hidden_singleton": "assembly visibility requires one all-visible default state",
+        "misordered_actual_owners": "assembly visibility requires the actual ordered direct occurrences",
+        "numeric_visibility": "assembly visibility requires named states and explicit Boolean occurrence values",
+        "renamed_default": "assembly visibility requires one all-visible default state",
+        "two_states": "assembly visibility requires one default state or the default and two opposite states",
+        "unknown_occurrence": "assembly display state must bind each actual occurrence exactly once"
+      },
+      "request_sha256": "1efbac20d69416ab76dedc49a7fe20da94d8e8cbb1f436a7a55b8a9841511dc8",
+      "runtime_external_accesses": 0,
+      "shifted_occurrence_ids": [
+        23,
+        24
+      ],
+      "shifted_store_sha256": "b9fb78e9bde9c409a91454d417c24412ca6fe14bb23d179227dc39f5869dde8c",
+      "source_child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "source_parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "source_visual": {
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "display_state_key": 1,
+        "state_name": "Display State-1",
+        "store_bytes": 1599,
+        "store_order": [
+          25,
+          24
+        ],
+        "store_sha256": "aed1504ad35260e463cb9d8506a18a88c2b498dbeb50cc17358095a77f7797f7",
+        "xml_members": [
+          [
+            24,
+            "Yes"
+          ],
+          [
+            25,
+            "Yes"
+          ]
+        ],
+        "xml_state_id": 9
+      },
+      "store": {
+        "all_objects_typed": true,
+        "bytes": 1439,
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "exact_replay": true,
+        "sha256": "ccd796e26de56d78becbcd148432749b5bb05e35cc8e20af06998f8b52ee51fc",
+        "states": [
+          [
+            1,
+            "Display State-1"
+          ]
+        ],
+        "terminal_map": 38,
+        "visual_occurrences": [
+          [
+            25,
+            "ConcentricD01Child-2",
+            [
+              1
+            ]
+          ],
+          [
+            24,
+            "ConcentricD01Child-1",
+            [
+              1
+            ]
+          ]
+        ],
+        "visual_planes": [
+          [
+            14,
+            2592000
+          ],
+          [
+            13,
+            2592000
+          ],
+          [
+            12,
+            2592000
+          ]
+        ],
+        "xml_occurrences": [
+          24,
+          25
+        ]
+      },
+      "unchanged_parent_streams": 12,
+      "whole_source_refusal": "assembly root contains unprojected model content"
+    },
+    "Source": {
+      "child_sha256": "9f6d8f3e07948441c1e5ad7acb5a263234955660143163a0d97f59c591287296",
+      "generated_parent_bytes": 11044,
+      "generated_parent_sha256": "d43e398de18485c3706a58ac7f950851faa3d3598bb1476e298857fec5ea49ea",
+      "mate": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.031369999999999995
+          ],
+          [
+            0.0,
+            -0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "9f6d8f3e07948441c1e5ad7acb5a263234955660143163a0d97f59c591287296",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          150,
+          203
+        ],
+        "mate_bytes": 3534,
+        "mate_sha256": "ad89f7957398fb2a63909587be28544505340ccc2a3dc24a36629c6e1527fab0",
+        "occurrence_names": [
+          "ConcentricD01Child-1",
+          "ConcentricD01Child-2"
+        ],
+        "occurrences": [
+          24,
+          25
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ]
+        ]
+      },
+      "parent_identity": {
+        "context_count": 2,
+        "locator_sha256": "f06cbbe2dca540dc4a3ad61b7a6a2b9db037efe9c1a6cb5f17345a0eed414953",
+        "matching_parent_headers": 2,
+        "title": "Assem1"
+      },
+      "prior_no_display_parent_sha256": "380c50e72eb099dd4f8dd31b08b7bcc967ec37e6f0905aa767839fc414b44e22",
+      "refusals": {
+        "detached_header_file": "assembly visibility requires both actual headers and their shared assembly self-file",
+        "duplicate_occurrence": "assembly display state must bind each actual occurrence exactly once",
+        "hidden_singleton": "assembly visibility requires one all-visible default state",
+        "misordered_actual_owners": "assembly visibility requires the actual ordered direct occurrences",
+        "numeric_visibility": "assembly visibility requires named states and explicit Boolean occurrence values",
+        "renamed_default": "assembly visibility requires one all-visible default state",
+        "two_states": "assembly visibility requires one default state or the default and two opposite states",
+        "unknown_occurrence": "assembly display state must bind each actual occurrence exactly once"
+      },
+      "request_sha256": "343f11647e32faf4790462b06dd55f1f1d2a525ee7d23535d653ba127cf34958",
+      "runtime_external_accesses": 0,
+      "shifted_occurrence_ids": [
+        23,
+        24
+      ],
+      "shifted_store_sha256": "75de3d0787d3379dfb16e817cbb61ea6b8f175b53057096b13a3d4a62db5c38f",
+      "source_child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "source_parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "source_visual": {
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "display_state_key": 1,
+        "state_name": "Display State-1",
+        "store_bytes": 1275,
+        "store_order": [
+          25,
+          24
+        ],
+        "store_sha256": "0074a31dad2c0aba533eadea9c2a55b30faef0a45646ebf198e9566719a34df6",
+        "xml_members": [
+          [
+            24,
+            "Yes"
+          ],
+          [
+            25,
+            "Yes"
+          ]
+        ],
+        "xml_state_id": 9
+      },
+      "store": {
+        "all_objects_typed": true,
+        "bytes": 1403,
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "exact_replay": true,
+        "sha256": "b1e35c814df35bbb256f6fd76126459eeea6c29d5cd3aeb26e82b8087b1848d7",
+        "states": [
+          [
+            1,
+            "Display State-1"
+          ]
+        ],
+        "terminal_map": 38,
+        "visual_occurrences": [
+          [
+            25,
+            "ConcentricD01Child-2",
+            [
+              1
+            ]
+          ],
+          [
+            24,
+            "ConcentricD01Child-1",
+            [
+              1
+            ]
+          ]
+        ],
+        "visual_planes": [
+          [
+            14,
+            2592000
+          ],
+          [
+            13,
+            2592000
+          ],
+          [
+            12,
+            2592000
+          ]
+        ],
+        "xml_occurrences": [
+          24,
+          25
+        ]
+      },
+      "unchanged_parent_streams": 12,
+      "whole_source_refusal": "assembly root contains unprojected model content"
+    }
+  },
+  "complete_appearance_parity": false,
+  "guarded_workers": 4,
+  "new_heldout_credit": 0,
+  "prior_design_bridge_sha256": "bfde612890cb5952042fe63b46a1d34fa17d5cd28e6d18aaa1b5a60125138de6",
+  "prior_display_audit_sha256": "6d2e2dcddbaf2db31696cd925e0d8e360947ee29db739a8b7a1cdb9c0c98c944",
+  "public_writer_qualified": false,
+  "runtime_cad_launches": 0,
+  "schema": "kit.sw2026.disclosed-d01-parent-display.v1",
+  "sdk_base": "0cd00727bac5068f3a21df07d6e3981b6cef3f69",
+  "source_build": "34.5.2.0604",
+  "source_lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b"
+}

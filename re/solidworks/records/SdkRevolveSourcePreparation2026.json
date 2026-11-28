@@ -1,0 +1,156 @@
+{
+  "schema": "kit.sw2026.ordinary-revolve-source-preparation-record.v1",
+  "task_id": "B04-SW2026-REVOLVE-ORIGINAL-PREPARATION",
+  "owner": "PR 121 configuration and header lane",
+  "delivery_pr": 121,
+  "source_layer_sha256": "9e8ce1415875ae4a03189310a43158befec592815430ef1869b4891fe86455cc",
+  "source_manifest_sha256": "ce549bdb7486717dc9b0e9d423a0f76b4905d91854a7d6e343e74b339a2f8be0",
+  "source_report_sha256": "6e86419bfc7fa13c70768e3f64d041bde3249c158055ee1a15053baeb9f149ca",
+  "fresh_report_sha256": "830db498a6653a4ca709ddc5a1c634700f8b66140efc73a616a5176c9952aef8",
+  "measurement": "../measurements/2026/SdkRevolveSourcePreparation01.json",
+  "measurement_sha256": "90c6935d964cbfe82164d628491301d6aecde18d1c6d5cdf7d9ecb03d91b6274",
+  "unit_owner_facts": "RevolveSourceUnitOwners2026.json",
+  "unit_owner_facts_sha256": "7fce6aaa09be074035ad9d8ec86ee698504d4d8fdc4319175da76c067ab81356",
+  "source_to_input_full_admission": false,
+  "source_cases": [
+    {
+      "name": "control-RevolveFull",
+      "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "native_observer_sha256": "35795ccd5a42ad297a187d516e6a36c9d4e089a6eabce1558b6c669c505908bc",
+      "constructor_gaps": [
+        {
+          "owner": "uiPartDoc_c",
+          "reason": "complete source Definition contains additional presentation owners or state beyond the explicit preference projection"
+        },
+        {
+          "owner": "moPart_c.fae0",
+          "reason": "complete source standard-zero detail graph exceeds the standard-one constructor; changing f10 alone is insufficient"
+        },
+        {
+          "owner": "moPart_c.f9b8",
+          "reason": "source unit-format rows differ beyond semantic unit codes and common precision"
+        },
+        {
+          "owner": "moPart_c.f9c0",
+          "reason": "source analysis-unit owner is absent; current part composition always constructs one"
+        },
+        {
+          "owner": "moConfigurationMgr_c.f18",
+          "reason": "source manager is anonymous; current manager constructor requires a nonempty authored name"
+        },
+        {
+          "owner": "moHeader_c.f50/f70 and moVersionHistory_c.states",
+          "reason": "actual template, creation and history epochs cannot be conflated by the current fresh recipe"
+        },
+        {
+          "owner": "moHeader_c.f20",
+          "reason": "source has per-feature chronology; current fresh header emits one model log"
+        },
+        {
+          "owner": "moVersionHistory_c.states.f38",
+          "reason": "source save-history flag bits exceed the fresh low twenty four bit profile and their complete semantics remain unqualified"
+        },
+        {
+          "owner": "CadDocument.bodies[0].name",
+          "reason": "current public body label is a legacy projection; actual original native body-name equivalence is not independently recorded by this method"
+        }
+      ]
+    },
+    {
+      "name": "control-RevolvePartialForward",
+      "sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "native_observer_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "constructor_gaps": [
+        {
+          "owner": "uiPartDoc_c",
+          "reason": "complete source Definition contains additional presentation owners or state beyond the explicit preference projection"
+        },
+        {
+          "owner": "moPart_c.fae0",
+          "reason": "complete source standard-zero detail graph exceeds the standard-one constructor; changing f10 alone is insufficient"
+        },
+        {
+          "owner": "moPart_c.f9b8",
+          "reason": "source unit-format rows differ beyond semantic unit codes and common precision"
+        },
+        {
+          "owner": "moPart_c.f9c0",
+          "reason": "source analysis-unit owner is absent; current part composition always constructs one"
+        },
+        {
+          "owner": "moConfigurationMgr_c.f18",
+          "reason": "source manager is anonymous; current manager constructor requires a nonempty authored name"
+        },
+        {
+          "owner": "moHeader_c.f50/f70 and moVersionHistory_c.states",
+          "reason": "actual template, creation and history epochs cannot be conflated by the current fresh recipe"
+        },
+        {
+          "owner": "moHeader_c.f20",
+          "reason": "source has per-feature chronology; current fresh header emits one model log"
+        },
+        {
+          "owner": "moVersionHistory_c.states.f38",
+          "reason": "source save-history flag bits exceed the fresh low twenty four bit profile and their complete semantics remain unqualified"
+        },
+        {
+          "owner": "CadDocument.bodies[0].name",
+          "reason": "current public body label is a legacy projection; actual original native body-name equivalence is not independently recorded by this method"
+        }
+      ]
+    },
+    {
+      "name": "control-RevolvePartialReverse",
+      "sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "native_observer_sha256": "27c5496ffd5f0ed868fe1d043a2e3e7a63bfe82652f64490ad08122dc8da591c",
+      "constructor_gaps": [
+        {
+          "owner": "uiPartDoc_c",
+          "reason": "complete source Definition contains additional presentation owners or state beyond the explicit preference projection"
+        },
+        {
+          "owner": "moPart_c.fae0",
+          "reason": "complete source standard-zero detail graph exceeds the standard-one constructor; changing f10 alone is insufficient"
+        },
+        {
+          "owner": "moPart_c.f9b8",
+          "reason": "source unit-format rows differ beyond semantic unit codes and common precision"
+        },
+        {
+          "owner": "moPart_c.f9c0",
+          "reason": "source analysis-unit owner is absent; current part composition always constructs one"
+        },
+        {
+          "owner": "moConfigurationMgr_c.f18",
+          "reason": "source manager is anonymous; current manager constructor requires a nonempty authored name"
+        },
+        {
+          "owner": "moHeader_c.f50/f70 and moVersionHistory_c.states",
+          "reason": "actual template, creation and history epochs cannot be conflated by the current fresh recipe"
+        },
+        {
+          "owner": "moHeader_c.f20",
+          "reason": "source has per-feature chronology; current fresh header emits one model log"
+        },
+        {
+          "owner": "moVersionHistory_c.states.f38",
+          "reason": "source save-history flag bits exceed the fresh low twenty four bit profile and their complete semantics remain unqualified"
+        },
+        {
+          "owner": "CadDocument.bodies[0].name",
+          "reason": "current public body label is a legacy projection; actual original native body-name equivalence is not independently recorded by this method"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    "typed version 19000 Config Resolved Definition Biography History and Header codecs",
+    "independent source-owned ANSI detail graph constructor and explicit overrides",
+    "complete primary and density unit formatting",
+    "source-specific header per-feature clocks logs and history flag classification",
+    "independent actual native body label binding"
+  ],
+  "exit_condition": "faithful source-to-neutral intent and complete generative output measured by root between healthy controls before original heldout acceptance",
+  "heldout_inputs_read": 0,
+  "windows_operations": 0
+}

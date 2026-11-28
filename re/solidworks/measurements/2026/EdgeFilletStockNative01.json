@@ -1,0 +1,237 @@
+{
+  "candidate_unchanged_after_bracket": {
+    "EdgeFilletAxial": true,
+    "EdgeFilletTransverse": true
+  },
+  "comparison_valid": true,
+  "distinct_native_processes": 4,
+  "fillet_writer_output_count": 0,
+  "heldout_sources_read": 0,
+  "oracle": {
+    "build": "34.5.2.0604",
+    "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "oracle_idle_after": true,
+  "passed": true,
+  "phases": {
+    "ControlAfter": {
+      "cleanup_diagnostics": false,
+      "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "dialogs_observed": false,
+      "executable_build": "34.5.2.0604",
+      "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "failure_stage": null,
+      "failure_type": null,
+      "passed": true,
+      "process": [
+        6620,
+        134398144743802800
+      ],
+      "raw_receipt_sha256": "c74dc117df5adc83ff1dcc14ff56f06e3188bc7b20537b51d38197a336cc313f",
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    "ControlBefore": {
+      "cleanup_diagnostics": false,
+      "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "dialogs_observed": false,
+      "executable_build": "34.5.2.0604",
+      "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "failure_stage": null,
+      "failure_type": null,
+      "passed": true,
+      "process": [
+        6040,
+        134398143137725716
+      ],
+      "raw_receipt_sha256": "8f2bbedde76111f7fdfb79a48d4d73d2c6ad44ad142e8d670f592b34bc14571a",
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    "EdgeFilletAxial": {
+      "body_vertices_m": [
+        [
+          -0.0155,
+          0.0095,
+          0.0228
+        ],
+        [
+          0.0419,
+          0.0095,
+          0.0228
+        ],
+        [
+          0.0419,
+          -0.0251,
+          0.0228
+        ],
+        [
+          -0.0155,
+          -0.0251,
+          0.0228
+        ],
+        [
+          -0.0155,
+          0.0095,
+          0.0
+        ],
+        [
+          0.0419,
+          0.0095,
+          0.0
+        ],
+        [
+          0.0419,
+          -0.0251,
+          0.0
+        ],
+        [
+          -0.0155,
+          -0.0251,
+          0.0
+        ]
+      ],
+      "candidate_sha256": "2e1140eaf19a444f078485604916c5d4b8e5f716c1a9a85bdb28a3e40e5fb85a",
+      "candidate_unchanged": true,
+      "cleanup_diagnostics": false,
+      "cold_counts": {
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "dialogs_observed": false,
+      "edge_endpoints_m": [
+        [
+          0.0419,
+          -0.0251,
+          0.0228
+        ],
+        [
+          0.0419,
+          -0.0251,
+          0.0
+        ]
+      ],
+      "executable_build": "34.5.2.0604",
+      "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "failure_stage": null,
+      "failure_type": null,
+      "native_save_sha256": "7d1599a24406898f7906ef52da4baf2ae83484048cdd621a3bc6ca3fe0f2e737",
+      "numeric_checks": 24,
+      "numeric_passed": 24,
+      "open_status": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "passed": true,
+      "process": [
+        6232,
+        134398143382271003
+      ],
+      "raw_receipt_sha256": "5dfdf8e36d673e7bc303c2a2b07750103e5fce29b9e3670dbe8f3a1099bb0a6d",
+      "rebuilt_counts": {
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    "EdgeFilletTransverse": {
+      "body_vertices_m": [
+        [
+          -0.029750000000000002,
+          0.02645,
+          0.0286
+        ],
+        [
+          0.013149999999999998,
+          0.02645,
+          0.0286
+        ],
+        [
+          0.013149999999999998,
+          -0.00525,
+          0.0286
+        ],
+        [
+          -0.029750000000000002,
+          -0.00525,
+          0.0286
+        ],
+        [
+          -0.029750000000000002,
+          0.02645,
+          0.0
+        ],
+        [
+          0.013149999999999998,
+          0.02645,
+          0.0
+        ],
+        [
+          0.013149999999999998,
+          -0.00525,
+          0.0
+        ],
+        [
+          -0.029750000000000002,
+          -0.00525,
+          0.0
+        ]
+      ],
+      "candidate_sha256": "8991f73cecd6a8df5ad289a1caf3afd27fb5173f0f324c0fe5ce9fa8ababe27b",
+      "candidate_unchanged": true,
+      "cleanup_diagnostics": false,
+      "cold_counts": {
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "dialogs_observed": false,
+      "edge_endpoints_m": [
+        [
+          0.013149999999999998,
+          0.02645,
+          0.0286
+        ],
+        [
+          -0.029750000000000002,
+          0.02645,
+          0.0286
+        ]
+      ],
+      "executable_build": "34.5.2.0604",
+      "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "failure_stage": null,
+      "failure_type": null,
+      "native_save_sha256": "c8696aabf30b342f084fe9b792b7f11e9dd4ac64b1d484dae4bc2bf67ef19136",
+      "numeric_checks": 24,
+      "numeric_passed": 24,
+      "open_status": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "passed": true,
+      "process": [
+        6140,
+        134398143947175868
+      ],
+      "raw_receipt_sha256": "1558e9829366b8f72f055dbf9cbb7ef553c0e02c98e29086f404765c0e8fe479",
+      "rebuilt_counts": {
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    }
+  },
+  "schema": "kit.sw2026.edge-fillet-stock-acquisition.v1",
+  "stock_job_sha256": "7d7d00df163c36608311a0f343545f6bf2a3014d4287f1eec9868298d76e343c"
+}

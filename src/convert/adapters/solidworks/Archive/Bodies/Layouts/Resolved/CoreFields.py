@@ -9,12 +9,24 @@ KCoreFields = MappingProxyType(
             NativeField("Virtual", "", MaskValue=1208),
             NativeField("Virtual", "", MaskValue=1216),
         ),
+        "moPartConfiguration_c.SerializeMBSMDataObjects": (
+            NativeField(
+                "Array",
+                "fcd8",
+                "u32",
+                BodyValue=(
+                    NativeField("Scalar", "key", "i32"),
+                    NativeField("Node", "o"),
+                ),
+                CountValue="n",
+            ),
+        ),
         "rf.suObArray": (
             NativeField(
                 "Array",
                 "items",
                 "Count",
-                BodyValue=(NativeField("Fail", "alternate rf.suObArray items"),),
+                BodyValue=(NativeField("Node", "o"),),
                 CountValue="n",
             ),
         ),

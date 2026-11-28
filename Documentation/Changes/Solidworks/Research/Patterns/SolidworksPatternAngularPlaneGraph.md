@@ -1,0 +1,3 @@
+# Model-derived angular plane and driving dimension
+
+The SOLIDWORKS research composer attaches a driving D1 model to a constrained plane that selects an actual Right plane and a registered finite hinge. It derives the display arc, joins the independent annotation catalog, takes the leader as explicit presentation input and publishes the resulting identifiers in both research headers. Two independently authored models replay five linked stream graphs with zero runtime file reads. Complete pattern output and native qualification remain pending. [Method and evidence](../../../../../re/solidworks/records/LocalLinearPatternAngularPlaneGraph2026.md)

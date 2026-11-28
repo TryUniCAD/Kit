@@ -1,0 +1,27 @@
+{
+  "assembly_benchmark_paths_verified": 0,
+  "corpus_membership_verified": false,
+  "historical_ignored_random_directory_present": false,
+  "local_worktree_re_roots_checked": 70,
+  "mac_task_re_signature_scan": {
+    "fcstd_archive_or_embedded_member_matches": 0,
+    "files": 9417,
+    "fcstd_members_in_non_zip_archives": 0,
+    "non_zip_signature_matches": 75,
+    "zip_signature_matches": 1799
+  },
+  "new_identities_beyond_disclosed_162": 0,
+  "part_benchmark_paths_verified": 0,
+  "production_case_credit": 0,
+  "re_input_groups": {
+    "cadmpeg_clone": {"distinct_content": 53, "paths": 57},
+    "cadmpeg_fuzz_seed_directory": {"distinct_content": 3, "paths": 4},
+    "historical_additive_box_fixtures": {"distinct_content": 2, "paths": 2}
+  },
+  "re_inputs_distinct_content": 53,
+  "re_inputs_paths": 63,
+  "schema": "kit.sw2026.re-fcstd-roster-audit.v1",
+  "source_task_head": "f222ee669",
+  "vm_shared_re": {"exists": true, "fcstd_files": 0},
+  "vm_windows_root_re": {"exists": false, "fcstd_files": 0}
+}

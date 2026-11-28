@@ -1,0 +1,19 @@
+{
+  "after_sha256": "c2084be7ae0982aaf9340785e9cd64e59255dff3ac2716a3e242ca811f4eca8e",
+  "archive_map_counter": 169,
+  "before_sha256": "5e5e7612b4ba3167623187673b0729ef125a55dde697f3969438c939c6124bc5",
+  "changed_definition_byte_count": 1,
+  "decoded_generic_text_f160": 459777,
+  "defined_stream_total": 7,
+  "heldout_reads": 0,
+  "independent_bits_raised": [
+    10
+  ],
+  "map_slot_identities_equal": 168,
+  "native_processes": 0,
+  "only_changed_stream": "Contents/Definition",
+  "raw_guarded_worker_sha256": "d7c8db803b9f9c2b507c90796ee407bc1677f469e8dffa3be2e821edde855066",
+  "rendering_qualified": false,
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.plain-note-constructor-text-border.v1"
+}

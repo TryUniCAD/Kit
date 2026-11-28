@@ -1,0 +1,86 @@
+{
+  "schema": "kit.sw2026.linear-pattern-source-lock.v1",
+  "task_id": "B04-SW2026-LOCAL-LINEAR-PATTERN",
+  "source_revision": "bebafa8760397e8711d03df88231c0bdca5ae38f",
+  "cohort": "disclosed",
+  "packet_sha256": "5a1a9397655c8ac3f5208e1398d637232abc448209af9f4910e083ae267908f5",
+  "job_sha256": "038c1d16b217930799d0854db9f542aac8cde34166f1f021379501f6c9cfa4bc",
+  "specs_sha256": "6249601e081a83d7d9456cd694118dfa30ca7270d84c17ce4c5a574e7b0314d7",
+  "qualified_disclosed_lock_sha256": null,
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "installed_libraries": [
+    {
+      "name": "sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library_identity": {
+        "name": "SldWorks",
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "locale_id": 0,
+        "system_kind": 3,
+        "major_version": 34,
+        "minor_version": 0,
+        "flags": 8
+      },
+      "registered_library_identity_matches": true
+    },
+    {
+      "name": "swconst.tlb",
+      "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+      "library_identity": {
+        "name": "SwConst",
+        "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+        "locale_id": 0,
+        "system_kind": 3,
+        "major_version": 34,
+        "minor_version": 0,
+        "flags": 8
+      },
+      "registered_library_identity_matches": true
+    }
+  ],
+  "started_at": 1795236185.2985752,
+  "cases": [
+    {
+      "name": "D01X",
+      "split": "disclosed",
+      "phases": [
+        {
+          "phase": "author",
+          "record_sha256": "019cd4e4c10d37f0cbe8ef04984c0ef1ecd8093ebe46ca440c714f1900b62544",
+          "passed": false,
+          "native_sha256": null,
+          "native_bytes": null,
+          "exports": []
+        }
+      ],
+      "native_sources": [],
+      "passed": false
+    }
+  ],
+  "controls": {
+    "before": {
+      "passed": true,
+      "record_sha256": "a70d01ffa3798337845600da7f22d1d40525adc4b7032589bca4174a31ce075f"
+    },
+    "after": {
+      "passed": true,
+      "record_sha256": "fde131cc06b1b8c10da1a9d8bda5b809cbf0758eadda297f98ec2f9e807f5fbd"
+    }
+  },
+  "writer_output_count": 0,
+  "source_writer_implemented": false,
+  "heldout_raw_remains_guest_private": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "passed": false,
+  "application_pids_before": [],
+  "packet_unchanged": true,
+  "inputs_unchanged": true,
+  "control_unchanged": true,
+  "completed_native_phases": 3,
+  "distinct_processes": 3,
+  "expected_native_phases": 14,
+  "application_pids_after": [],
+  "finished_at": 1795236274.4555771
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "kit.sw2026.imported-body-source.v1",
+  "source_revision": "484ab01f133e48b600a6f61923adc126fbbc3184",
+  "cohort": "sealed-topology",
+  "job_sha256": "03e4c5015e08bcdbec6c1912cce7226f3f2594196d6476853bff9f1f2dce464f",
+  "specifications_sha256": "37b24919b0f9e7de8edde0f4d7c6914b8d310219804a8cb7894fd971b847494f",
+  "specifications_locked_at_unix_s": 1795166890.222752,
+  "tools_sha256": {
+    "RunImportedBodySources.py": "0399abd851863d711dc232d332db87ba4a8ee0e3cd1eb1becab5806c1d66a49c",
+    "AuthorImportedBody.py": "8935fa40217244d4d4eb37bc822b419cdc79778b9a4cdc2bd03a2d0925252a6b",
+    "SealedCylinderSource.py": "3c9be759962b6aaeb32bf75b91e0bfaa780690fb8339c479ca69fade0f3dcab6",
+    "ObserveCylinderExchange.py": "332855d795f3a0d026c626ba8aea3423769279f59964f6a1168bd10c288e98b3",
+    "ObserveKernelBodyRestore.py": "4d15596ee8dbb7be548a68d8fc442c801da7bca62133f4487218601c058d7afe",
+    "ObserveKernelExchange.py": "6a18f4de3bcd816c5f38d82d2a2bd22f2cd4ad509797c2e3975d963ba67cbea7",
+    "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "phases": [
+    {
+      "name": "ControlBefore",
+      "passed": true,
+      "record_sha256": "4d8efa3a5ab9ac484209e1fee8fdb323877ee92fa5575d875a385288c5af9b1d",
+      "process_id": 5536,
+      "process_creation_filetime": 134396404948780457
+    },
+    {
+      "name": "CylinderSlot01Author",
+      "passed": true,
+      "record_sha256": "d017aeb29ef21e55a7883e5778881fb2cf88c745dd2f981ce127a21c08aca44a",
+      "process_id": 1892,
+      "process_creation_filetime": 134396405200485333
+    },
+    {
+      "name": "CylinderSlot01Reopen",
+      "passed": true,
+      "record_sha256": "1a2d1f041262d9a16dfc1f855c51c9d6300817a44e74c0ae0db6c9c4a2eecc1e",
+      "process_id": 8004,
+      "process_creation_filetime": 134396405582396267
+    },
+    {
+      "name": "CylinderSlot02Author",
+      "passed": true,
+      "record_sha256": "06ee353db754cf68008a4dbf730e564356946ad0fe7a5c6f6c63d1a77e9414a2",
+      "process_id": 696,
+      "process_creation_filetime": 134396405895981179
+    },
+    {
+      "name": "CylinderSlot02Reopen",
+      "passed": true,
+      "record_sha256": "de165c9b000b6042c3c43c0b7d77195e61659249e193a7681c81aca8c0904d41",
+      "process_id": 10212,
+      "process_creation_filetime": 134396406289678125
+    },
+    {
+      "name": "ControlAfter",
+      "passed": true,
+      "record_sha256": "3aa70b47ff541f2414f0d6f8f754b94ea1d36cf9e3ae005ddfb28a013f07496f",
+      "process_id": 4228,
+      "process_creation_filetime": 134396406630069339
+    }
+  ],
+  "sources": {
+    "CylinderSlot01": {
+      "source_sha256": "38565e3c6d69fac22bb8ac6e9ca4a3b1dbc4c53345bd23f8e6c29d5ce72b67dc",
+      "author_record_sha256": "d017aeb29ef21e55a7883e5778881fb2cf88c745dd2f981ce127a21c08aca44a",
+      "reopen_record_sha256": "1a2d1f041262d9a16dfc1f855c51c9d6300817a44e74c0ae0db6c9c4a2eecc1e"
+    },
+    "CylinderSlot02": {
+      "source_sha256": "e3e02af056389073ef3b37f20440c752a36076eb7de5cf922ef2014235048d16",
+      "author_record_sha256": "06ee353db754cf68008a4dbf730e564356946ad0fe7a5c6f6c63d1a77e9414a2",
+      "reopen_record_sha256": "de165c9b000b6042c3c43c0b7d77195e61659249e193a7681c81aca8c0904d41"
+    }
+  },
+  "passed": true,
+  "heldout_sources_locked": 2,
+  "writer_outputs": 0,
+  "native_writer_acceptance": false,
+  "heldout_payloads_shared": 0,
+  "source_profile": "single_closed_periodic_cylinder",
+  "periodic_source_observations": 8,
+  "stage": "source_batch_passed",
+  "distinct_processes": 6,
+  "controls_healthy": true,
+  "source_batch_locked_at_unix_s": 1795167086.0533674
+}

@@ -1,14 +1,24 @@
 from dataclasses import dataclass as DataClass
-from math import isfinite as IsFinite
+from dataclasses import field as MakeDataField
 from typing import cast as CastValue
 
+from convert.adapters.solidworks.Archive.Construction.Blind.ReadEndDepth import (
+    ReadEndDepth,
+)
 
-# blind construction needs authored depth direction and target version before any archive node exists
+from convert.adapters.solidworks.Archive.Construction.Dimensions.ReadDriverName import (
+    ReadDriverName,
+)
+
+
+# one direction construction needs to retain an independently authored dormant depth without changing its geometric mode
 @DataClass(frozen=True, slots=True)
 class BlindEndInput:
     DepthValue: float
     IsReversed: bool
     VersionValue: int
+    DepthName: str = "D1"
+    DormantDepth: float | None = MakeDataField(default=None, kw_only=True)
 
     # invalid dimensions must fail before constructor state can be mistaken for native output
     def __post_init__(self) -> None:
@@ -21,13 +31,7 @@ class BlindEndInput:
             raise ValueError(
                 "blind construction currently requires the forward direction"
             )
-        if type(CastValue(object, self.DepthValue)) not in (int, float):
-            raise TypeError("blind depth must be a real numeric input")
-        try:
-            NativeValue = float(self.DepthValue)
-        except OverflowError as ErrorInfo:
-            raise ValueError(
-                "blind depth exceeds the native numeric domain"
-            ) from ErrorInfo
-        if not IsFinite(NativeValue) or NativeValue < 1e-14:
-            raise ValueError("blind depth must be finite and at least 1e-14 metres")
+        _ = ReadEndDepth(self.DepthValue)
+        if self.DormantDepth is not None:
+            _ = ReadEndDepth(self.DormantDepth)
+        _ = ReadDriverName(self.DepthName)

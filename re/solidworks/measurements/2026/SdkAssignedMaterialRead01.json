@@ -1,0 +1,698 @@
+{
+  "base_commit": "f818c0c665c8c1d538cad7e1a6bcfade14ee36d0",
+  "cases": {
+    "Control": {
+      "assignment_refusal": "SOLIDWORKS assigned material density is absent, overridden or inconsistent",
+      "file_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "ordinary_read": "moPart_c",
+      "runtime_file_or_process_accesses": 0
+    },
+    "D01Corner/Author": {
+      "archive_refusals": {
+        "duplicate_xml_config": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "missing_xml": "required stream is missing: swXmlContents/MATERIALTREE",
+        "wrong_container_version": "SOLIDWORKS assigned material requires an ordinary version-19000 part Config-0",
+        "wrong_xml_config": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "wrong_xml_density": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "wrong_xml_material_id": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "xml_doctype": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "xml_framing": "SOLIDWORKS MATERIALTREE requires its current UTF-16LE framing"
+      },
+      "default_manager_refusal_before_and_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "default_part_refusal_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f",
+      "graph": {
+        "map_counters": {
+          "directory": 5,
+          "manager": 21,
+          "part": 110
+        },
+        "nodes": {
+          "density_parameter": [
+            "moDensityParameter_c",
+            54,
+            3260,
+            3319
+          ],
+          "header_config": [
+            "dmConfigHeader_c",
+            4,
+            27,
+            129
+          ],
+          "manager_config": [
+            "moPartConfiguration_c",
+            4,
+            165,
+            2304
+          ],
+          "manager_hatch": [
+            "gcXhatch_c",
+            12,
+            2112,
+            2248
+          ],
+          "manager_visual": [
+            "moVisualProperties_c",
+            8,
+            252,
+            1387
+          ],
+          "part": [
+            "moPart_c",
+            2,
+            0,
+            26294
+          ],
+          "part_atom": [
+            "moAtom_c",
+            58,
+            3390,
+            3490
+          ],
+          "part_hatch": [
+            "gcXhatch_c",
+            50,
+            3106,
+            3242
+          ],
+          "part_material": [
+            "moMaterial_c",
+            52,
+            3242,
+            3319
+          ],
+          "part_visual": [
+            "moVisualProperties_c",
+            7,
+            82,
+            1217
+          ]
+        },
+        "refusals": {
+          "body_assignment_table": "SOLIDWORKS assigned material has an unqualified body or custom material override",
+          "conflicting_visual_identity": "SOLIDWORKS assigned material visual owners disagree or use an unqualified layout",
+          "custom_density_table": "SOLIDWORKS assigned material has an unqualified body or custom material override",
+          "detached_active_pointer": "SOLIDWORKS material directory does not own the selected Config-0",
+          "detached_atom": "SOLIDWORKS assigned material owner is detached from its archive map",
+          "detached_density_node": "SOLIDWORKS assigned material owner is detached from its archive map",
+          "matching_unqualified_visual_selector": "SOLIDWORKS assigned material visual owners disagree or use an unqualified layout",
+          "missing_native_id": "SOLIDWORKS assigned material requires a named catalog and explicit native id",
+          "separate_body_scene": "SOLIDWORKS assigned material has an unqualified body or custom material override",
+          "separate_density_override": "SOLIDWORKS assigned material density is absent, overridden or inconsistent",
+          "shifted_density_span": "SOLIDWORKS assigned material density is absent, overridden or inconsistent",
+          "split_density": "SOLIDWORKS assigned material density is absent, overridden or inconsistent",
+          "stale_active_header": "SOLIDWORKS material directory does not own the selected Config-0",
+          "unqualified_texture_selector": "SOLIDWORKS assigned material visual owners disagree or use an unqualified layout"
+        },
+        "solid_atom_id": 101
+      },
+      "independent_matching_xml_read": true,
+      "manager_texture_visits": 1,
+      "material_tree_sha256": "76c1b9393a30433ef554eb607958df54344f5409341c421aaff4421dade2b50f",
+      "observation": {
+        "CfgName": "Default",
+        "DensityValue": 2700.0,
+        "NativeId": 258,
+        "PendingDomains": [
+          "appearance",
+          "material_tree"
+        ]
+      },
+      "ordinary_read": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "part_texture_visits": 1,
+      "runtime_file_or_process_accesses": 0
+    },
+    "D01Corner/Depth": {
+      "default_manager_refusal_before_and_after": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "default_part_refusal_after": null,
+      "file_sha256": "55ec08dca438f20b0b5623eb2e36905279899035ba44aaeddf0427aa5ebf7370",
+      "graph": {
+        "map_counters": {
+          "directory": 5,
+          "manager": 21,
+          "part": 110
+        },
+        "nodes": {
+          "density_parameter": [
+            "moDensityParameter_c",
+            54,
+            3008,
+            3067
+          ],
+          "header_config": [
+            "dmConfigHeader_c",
+            4,
+            27,
+            129
+          ],
+          "manager_config": [
+            "moPartConfiguration_c",
+            4,
+            165,
+            2048
+          ],
+          "manager_hatch": [
+            "gcXhatch_c",
+            12,
+            1904,
+            1992
+          ],
+          "manager_visual": [
+            "moVisualProperties_c",
+            8,
+            252,
+            1179
+          ],
+          "part": [
+            "moPart_c",
+            2,
+            0,
+            26042
+          ],
+          "part_atom": [
+            "moAtom_c",
+            58,
+            3138,
+            3238
+          ],
+          "part_hatch": [
+            "gcXhatch_c",
+            50,
+            2902,
+            2990
+          ],
+          "part_material": [
+            "moMaterial_c",
+            52,
+            2990,
+            3067
+          ],
+          "part_visual": [
+            "moVisualProperties_c",
+            7,
+            86,
+            1013
+          ]
+        },
+        "refusals": {},
+        "solid_atom_id": 101
+      },
+      "manager_texture_visits": 0,
+      "material_tree_sha256": "c892653fc627bf817520ea3468f14ecda169db253a559722c42537df1c601305",
+      "observation": {
+        "CfgName": "Default",
+        "DensityValue": 7858.000032,
+        "NativeId": 82,
+        "PendingDomains": [
+          "appearance",
+          "material_tree"
+        ]
+      },
+      "ordinary_read": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "part_texture_visits": 0,
+      "runtime_file_or_process_accesses": 0
+    },
+    "D01Corner/Swap": {
+      "default_manager_refusal_before_and_after": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "default_part_refusal_after": null,
+      "file_sha256": "af2c822de8ee4cf274f4d5d15ad419dba16b129b31af8b28945c21850857d62c",
+      "graph": {
+        "map_counters": {
+          "directory": 5,
+          "manager": 21,
+          "part": 110
+        },
+        "nodes": {
+          "density_parameter": [
+            "moDensityParameter_c",
+            54,
+            3048,
+            3107
+          ],
+          "header_config": [
+            "dmConfigHeader_c",
+            4,
+            27,
+            129
+          ],
+          "manager_config": [
+            "moPartConfiguration_c",
+            4,
+            165,
+            2086
+          ],
+          "manager_hatch": [
+            "gcXhatch_c",
+            12,
+            1942,
+            2030
+          ],
+          "manager_visual": [
+            "moVisualProperties_c",
+            8,
+            252,
+            1217
+          ],
+          "part": [
+            "moPart_c",
+            2,
+            0,
+            26082
+          ],
+          "part_atom": [
+            "moAtom_c",
+            58,
+            3178,
+            3278
+          ],
+          "part_hatch": [
+            "gcXhatch_c",
+            50,
+            2942,
+            3030
+          ],
+          "part_material": [
+            "moMaterial_c",
+            52,
+            3030,
+            3107
+          ],
+          "part_visual": [
+            "moVisualProperties_c",
+            7,
+            88,
+            1053
+          ]
+        },
+        "refusals": {},
+        "solid_atom_id": 101
+      },
+      "manager_texture_visits": 0,
+      "material_tree_sha256": "c892653fc627bf817520ea3468f14ecda169db253a559722c42537df1c601305",
+      "observation": {
+        "CfgName": "Default",
+        "DensityValue": 7858.000032,
+        "NativeId": 82,
+        "PendingDomains": [
+          "appearance",
+          "material_tree"
+        ]
+      },
+      "ordinary_read": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "part_texture_visits": 0,
+      "runtime_file_or_process_accesses": 0
+    },
+    "D02Center/Author": {
+      "default_manager_refusal_before_and_after": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "default_part_refusal_after": null,
+      "file_sha256": "603b8387e59ce3f9095a4d9d32f06525422a8d825c969dce7fb82eb2d478074e",
+      "graph": {
+        "map_counters": {
+          "directory": 5,
+          "manager": 21,
+          "part": 110
+        },
+        "nodes": {
+          "density_parameter": [
+            "moDensityParameter_c",
+            54,
+            3042,
+            3101
+          ],
+          "header_config": [
+            "dmConfigHeader_c",
+            4,
+            27,
+            129
+          ],
+          "manager_config": [
+            "moPartConfiguration_c",
+            4,
+            165,
+            2086
+          ],
+          "manager_hatch": [
+            "gcXhatch_c",
+            12,
+            1942,
+            2030
+          ],
+          "manager_visual": [
+            "moVisualProperties_c",
+            8,
+            252,
+            1217
+          ],
+          "part": [
+            "moPart_c",
+            2,
+            0,
+            26076
+          ],
+          "part_atom": [
+            "moAtom_c",
+            58,
+            3172,
+            3272
+          ],
+          "part_hatch": [
+            "gcXhatch_c",
+            50,
+            2936,
+            3024
+          ],
+          "part_material": [
+            "moMaterial_c",
+            52,
+            3024,
+            3101
+          ],
+          "part_visual": [
+            "moVisualProperties_c",
+            7,
+            82,
+            1047
+          ]
+        },
+        "refusals": {},
+        "solid_atom_id": 101
+      },
+      "manager_texture_visits": 0,
+      "material_tree_sha256": "c892653fc627bf817520ea3468f14ecda169db253a559722c42537df1c601305",
+      "observation": {
+        "CfgName": "Default",
+        "DensityValue": 7858.000032,
+        "NativeId": 82,
+        "PendingDomains": [
+          "appearance",
+          "material_tree"
+        ]
+      },
+      "ordinary_read": "unsupported SOLIDWORKS body class gcXhatch_c schema 1",
+      "part_texture_visits": 0,
+      "runtime_file_or_process_accesses": 0
+    },
+    "D02Center/Depth": {
+      "default_manager_refusal_before_and_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "default_part_refusal_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_sha256": "1680a7e30de015cc2a88016d6ca0887636a4ee75716e597b6db7fbede97cfb05",
+      "graph": {
+        "map_counters": {
+          "directory": 5,
+          "manager": 21,
+          "part": 110
+        },
+        "nodes": {
+          "density_parameter": [
+            "moDensityParameter_c",
+            54,
+            3226,
+            3285
+          ],
+          "header_config": [
+            "dmConfigHeader_c",
+            4,
+            27,
+            129
+          ],
+          "manager_config": [
+            "moPartConfiguration_c",
+            4,
+            165,
+            2266
+          ],
+          "manager_hatch": [
+            "gcXhatch_c",
+            12,
+            2074,
+            2210
+          ],
+          "manager_visual": [
+            "moVisualProperties_c",
+            8,
+            252,
+            1349
+          ],
+          "part": [
+            "moPart_c",
+            2,
+            0,
+            26260
+          ],
+          "part_atom": [
+            "moAtom_c",
+            58,
+            3356,
+            3456
+          ],
+          "part_hatch": [
+            "gcXhatch_c",
+            50,
+            3072,
+            3208
+          ],
+          "part_material": [
+            "moMaterial_c",
+            52,
+            3208,
+            3285
+          ],
+          "part_visual": [
+            "moVisualProperties_c",
+            7,
+            86,
+            1183
+          ]
+        },
+        "refusals": {},
+        "solid_atom_id": 101
+      },
+      "manager_texture_visits": 1,
+      "material_tree_sha256": "4dc5aacdf30c2774dea4e39226008b21e7847d43cb6577de4328cc23b4370194",
+      "observation": {
+        "CfgName": "Default",
+        "DensityValue": 2700.0,
+        "NativeId": 258,
+        "PendingDomains": [
+          "appearance",
+          "material_tree"
+        ]
+      },
+      "ordinary_read": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "part_texture_visits": 1,
+      "runtime_file_or_process_accesses": 0
+    },
+    "D02Center/Swap": {
+      "default_manager_refusal_before_and_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "default_part_refusal_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23",
+      "graph": {
+        "map_counters": {
+          "directory": 5,
+          "manager": 21,
+          "part": 110
+        },
+        "nodes": {
+          "density_parameter": [
+            "moDensityParameter_c",
+            54,
+            3266,
+            3325
+          ],
+          "header_config": [
+            "dmConfigHeader_c",
+            4,
+            27,
+            129
+          ],
+          "manager_config": [
+            "moPartConfiguration_c",
+            4,
+            165,
+            2304
+          ],
+          "manager_hatch": [
+            "gcXhatch_c",
+            12,
+            2112,
+            2248
+          ],
+          "manager_visual": [
+            "moVisualProperties_c",
+            8,
+            252,
+            1387
+          ],
+          "part": [
+            "moPart_c",
+            2,
+            0,
+            26300
+          ],
+          "part_atom": [
+            "moAtom_c",
+            58,
+            3396,
+            3496
+          ],
+          "part_hatch": [
+            "gcXhatch_c",
+            50,
+            3112,
+            3248
+          ],
+          "part_material": [
+            "moMaterial_c",
+            52,
+            3248,
+            3325
+          ],
+          "part_visual": [
+            "moVisualProperties_c",
+            7,
+            88,
+            1223
+          ]
+        },
+        "refusals": {},
+        "solid_atom_id": 101
+      },
+      "manager_texture_visits": 1,
+      "material_tree_sha256": "4dc5aacdf30c2774dea4e39226008b21e7847d43cb6577de4328cc23b4370194",
+      "observation": {
+        "CfgName": "Default",
+        "DensityValue": 2700.0,
+        "NativeId": 258,
+        "PendingDomains": [
+          "appearance",
+          "material_tree"
+        ]
+      },
+      "ordinary_read": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "part_texture_visits": 1,
+      "runtime_file_or_process_accesses": 0
+    },
+    "Diagnostic": {
+      "default_manager_refusal_before_and_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "default_part_refusal_after": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "file_sha256": "04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583",
+      "graph": {
+        "map_counters": {
+          "directory": 5,
+          "manager": 21,
+          "part": 110
+        },
+        "nodes": {
+          "density_parameter": [
+            "moDensityParameter_c",
+            54,
+            3260,
+            3319
+          ],
+          "header_config": [
+            "dmConfigHeader_c",
+            4,
+            27,
+            129
+          ],
+          "manager_config": [
+            "moPartConfiguration_c",
+            4,
+            165,
+            2304
+          ],
+          "manager_hatch": [
+            "gcXhatch_c",
+            12,
+            2112,
+            2248
+          ],
+          "manager_visual": [
+            "moVisualProperties_c",
+            8,
+            252,
+            1387
+          ],
+          "part": [
+            "moPart_c",
+            2,
+            0,
+            26294
+          ],
+          "part_atom": [
+            "moAtom_c",
+            58,
+            3390,
+            3490
+          ],
+          "part_hatch": [
+            "gcXhatch_c",
+            50,
+            3106,
+            3242
+          ],
+          "part_material": [
+            "moMaterial_c",
+            52,
+            3242,
+            3319
+          ],
+          "part_visual": [
+            "moVisualProperties_c",
+            7,
+            82,
+            1217
+          ]
+        },
+        "refusals": {},
+        "solid_atom_id": 101
+      },
+      "manager_texture_visits": 1,
+      "material_tree_sha256": "76c1b9393a30433ef554eb607958df54344f5409341c421aaff4421dade2b50f",
+      "observation": {
+        "CfgName": "Default",
+        "DensityValue": 2700.0,
+        "NativeId": 258,
+        "PendingDomains": [
+          "appearance",
+          "material_tree"
+        ]
+      },
+      "ordinary_read": "unsupported SOLIDWORKS body schema uoMaterialTextureProperties.restore",
+      "part_texture_visits": 1,
+      "runtime_file_or_process_accesses": 0
+    }
+  },
+  "earlier_evidence": {
+    "archive_owners_sha256": "0d21e27c454c2b4619c3db3106e2f167d0a28d9eb91e9a1cca90b05d7625ea5c",
+    "density_diagnostic_sha256": "a23e44a29967ad84e2716f66363c2898025460bd5a9dddf266e575bdac3a88d2",
+    "disclosed_lifecycle_sha256": "cb044d2a615d819e8ac642f3eea4bf5f313b8b61c5bd70570e7e3c90895a26f1",
+    "material_tree_correlation_sha256": "be4df2e8449c6d0bbd883ae439b658e16ca3d915a6a57564096b2096952d2106"
+  },
+  "fresh_guarded_processes": 8,
+  "held_out_credit": 0,
+  "malformed_or_outside_profile_refusals": 23,
+  "named_assignment_observations": 7,
+  "native_build": "34.5.2.0604",
+  "native_processes_started": 0,
+  "public_conversion_admitted": false,
+  "schema": "kit.sw2026.assigned-material-archive-read.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/materials/CorrelateMaterialTree.py": "0f0633eaad431a98726129fcf9f655bd2415b162993866bf264ee3dec45b218d",
+    "re/tooling/sw2026/materials/ProveAssignedMaterialRead.py": "67bf84b66a167488210da781584978bd4b6fc8a5b75d060937dbdc95f68db5b3",
+    "src/convert/adapters/solidworks/Archive/Cmgr/ReadCmgrMut.py": "9ea12728634b6a05e915ce49fde2586caf2521ab4689dadc99bb55f226b4d883",
+    "src/convert/adapters/solidworks/Archive/Config/Material/BindMatReadMut.py": "5cd559890ac476e48b7bb17437489984f1bdf6f944cd527f1fb1d52d1e3178dc",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "099a24b89d43ec57a8253ad41a625f767cbcd7d8d78be726c84bf6582ca89e65",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/BindNamedMat.py": "69c75f6a216043f4f25be81cc458ac3b56e58ea524da69327e3e837a583e4852",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/CheckMatAtoms.py": "8c875f9f91b605da84d01396811efb6eb2f4e7f0b25319869cd1ffdfd2a0e656",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/CheckMatSlots.py": "01314bde0246588e0b2bd6371b9a6e9fcb60c3df2c364302638dea8d52d9480a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/CheckMatTree.py": "5933d4f86840ac74866f0ceb062592324b9249455d575c1887b36faedbe81e61",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/NamedMatRead.py": "9f6864cf603c94329a8904ad6283fa484300962e3c2cddb494173f0d778bf399",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/ReadMatCfg.py": "39df37343993b5281516ac959e19f61a543c36ff2e6dc459d70565ab5facce4a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/ReadMatDensity.py": "495f94aba2335c340cfb07a69594e064661307fd4ecfc3140fb28b47c598318b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/ReadMatIdent.py": "9181c1d45762394b92ad6cd9c01f05da0b6782a2dc6ecc7c0b17fade45114889",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Materials/ReadNamedMat.py": "029a517291a2ab17b1e7a54d0f6fa2c8178d7ffce1a7cd1422db0a327e033dbd"
+  },
+  "whole_material_semantics_admitted": false
+}

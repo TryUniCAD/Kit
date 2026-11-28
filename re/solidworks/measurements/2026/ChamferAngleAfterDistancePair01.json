@@ -1,0 +1,103 @@
+{
+  "candidates": [
+    {
+      "archive_sha256": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a",
+      "bytes": 9298,
+      "case": "ChamferComplementAxialC",
+      "inventory_order_independent": true,
+      "public_path_sha256": "d1508e6c6554b927702ba77e8c6bdbe7504ac562d2b944161662f14ec63ad830",
+      "reciprocal": true,
+      "refusals": [
+        "distance_distance",
+        "equal_distance",
+        "lost_side",
+        "nonincident_face",
+        "crossed_picks",
+        "wrong_driver",
+        "unknown_configuration",
+        "unnamed_stream",
+        "wrong_drive"
+      ],
+      "replayed_streams": 2,
+      "runtime_accesses": 0,
+      "streams": {
+        "Contents/CMgr": "daf05db44ee6dbd9ec11cb7257e7945bc9becd46491ac289a7821c684c2c3c68",
+        "Contents/CMgrHdr2": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413",
+        "Contents/Config-0": "360fce2f310bf6bf0cc9cadd94a0e682c160278a98d4ba9102c69329352068d7",
+        "Contents/Config-0-ModelHeader": "5746aef336ad9bac5170a0fc5905e6d82577360e632cc4730142d1efb8d8f185",
+        "Contents/Config-0-ResolvedFeatures": "48d3d6e018e750815d098cdac4241b11ae93c5a4981ab5e363d653d6e5e2a46f",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "7eabfb4324c707e2812876b5caecf35c79930d87aaecf510fa04fbdfd8953b53",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284",
+        "swXmlContents/KeyWords": "e6cea83ca6e199ed7b4b12cb0dd3ab3dfc72187bab6b26dfa84f24bc502e8a33"
+      },
+      "strict_readback": true
+    },
+    {
+      "archive_sha256": "77d7292d2ccb45807479612f8f55e6f934e65a855d34213ffe4ed199193281ad",
+      "bytes": 9285,
+      "case": "ChamferPrincipalTopD",
+      "inventory_order_independent": true,
+      "public_path_sha256": "4f11c987a2a6109960697fa0c1774bbd1bb86de5b3c2b7d5dd31760c980bfc25",
+      "reciprocal": false,
+      "refusals": [
+        "distance_distance",
+        "equal_distance",
+        "lost_side",
+        "nonincident_face",
+        "crossed_picks",
+        "wrong_driver",
+        "unknown_configuration",
+        "unnamed_stream",
+        "wrong_drive"
+      ],
+      "replayed_streams": 2,
+      "runtime_accesses": 0,
+      "streams": {
+        "Contents/CMgr": "13ad5f4724dde389895d138af7739705c761b102a39e7ad25da8af966268b808",
+        "Contents/CMgrHdr2": "a0a812cfe13e7161927549a140ff9b076213579734b25706cbe7692357db548c",
+        "Contents/Config-0": "8f531eabc6df9297e1d6d49588a4cf194418f43d276388980ba877164cb064f9",
+        "Contents/Config-0-ModelHeader": "232f93ae2c8909814e3fc577ef5b759d81064890450b143baf48fe02438242cb",
+        "Contents/Config-0-ResolvedFeatures": "b7aa3c87997e4795e823e3e46b697d62c8b15c4ce2bf64934a1c024762a9f812",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "fbaa8894e68d59934ff8f586f8358d5fc25a12d05591dc8e2612bc4236bc5061",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bc3f500f1d4a5be34dc07b61c9c42326152420e107681a44918b1724bd317316",
+        "swXmlContents/KeyWords": "772a83453e655fdd29c06f4cd31ad436110925d3adf2b06f2fe9e0b899520346"
+      },
+      "strict_readback": true
+    }
+  ],
+  "comparison_manifest_sha256": "8db08a479cd2b3e29dd4d5ad38eec3e96631e0aec15f71868a37aea51d423f49",
+  "construction_sources": {
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfEdgeRoles.py": "f1ed22368f8753ddb050071702c0822331490ac6147474cd53c90c6471d8fd80",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfFrame.py": "edcff8492fe5b56a0f686be87f5326f21f527b69d07120278bfa899271498ae3",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfPlan.py": "1febdf2f363540c501136a0664a3d2dff4b90d782975b55e10d67ee1d955b146",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfRefOwners.py": "4a5cf1527788eab10b81a5ed5fb7e42a333d388c8a743c3ca1c8e1532714a5db",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfStockGeom.py": "6074eb5aa33a54bf18f191a1aeac77ff897546dbae83cec578575a3f97fb8ac7",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/EmitChmfPart.py": "bfd03864d8c72ff0f77d60582d1d7ba486242ad03ed2462c822d8a9b7f3e748b",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfAngle.py": "f9f85882c08921e938f0faf185bdc99e46fe6b2d84c5a1279f01f761784f34a1",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfDist.py": "2798aebe6ac0d815224c2a0b31d7fbea1190a92b414f4345921ec293eebd5e28",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfDrivers.py": "9b68c9e85a0e67b0dad0792bca5799ae83d82e6937722ff8ead7328735c31882",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfGraph.py": "94c3985b56ac207abb29da67e4969fbd950431ed4181fe8d2ed58965600277b9",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfRefs.py": "003c802f0db7623d20d3625364547e46f4c31feb46d1262117fb1720b902ccce",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfView.py": "bd51fd9917984b440253926169e2847323098aecdb24467eec0f7e8e6c386340",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckRevKeys.py": "e552f5495ffbcef7dbbbd8234464ae910a6a2582042500a6afde63db433f034a",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartArchive.py": "edc640cb2ea75d7b901f32b7d281fc7861ba0ba33be4adf44e7fdd250d2b8a46",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartKeys.py": "7baef0b7f836ecad3cf97f37b85e8c2c70c131cd69fc59946f88addad43329ab",
+    "src/convert/adapters/solidworks/Archive/Resolved/WriteResolMut.py": "8ca1e0cb09761569c3913b23f80c554e29bc169e231ea5508414dd5073a36c0d",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/IsChmfPart.py": "265e56bcf8d3675fe17ef908643042f9a36cf3a3ba7e73cd70078e1517feba19",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/PlanChmfPart.py": "b71ab5525d01e5306b51a20f692483df5bbbe4c67f558250fee816391618fa9a",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/PrepChmfPart.py": "a363af241948b39b3971e8ced021f57ac941670ca63da9ba61871eb94d5bac93",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/ReadChmfPicks.py": "e78f2f86a42f43d4eac0d4f2e95d59c9a686519b80f953ef213700220f68d1b9",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/ReadChmfValues.py": "df32debae6bc3f0783a8629f5fd3e658463c29c59619e73e18273abc75129a41",
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "654ff845a7c9c092e1ffd42b5c39646b891dafe145bcd18bfa165d18f1b421e0",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "2be6a98e35f787ac00c973c7dda0b20e4cfaf2c015b57916bc257faf44d47f05"
+  },
+  "disclosed_native_receipt_sha256": "d161909999b3ed8d72f0885dbb6dbc0dfa3866e712dc4dd390aef7406c236409",
+  "guarded_processes": 2,
+  "heldout_inputs_read": 0,
+  "method_sha256": "5b339a2ac0625e0c44fa942ee19f05d932af7d4bd5e3b1b751db567eee7a7ec5",
+  "native_processes": 0
+}

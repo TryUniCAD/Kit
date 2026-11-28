@@ -1,5 +1,8 @@
 # SOLIDWORKS 2026 typed KeyWords model
 
+The [expanded typed corpus](KeywordTypedCorpus2026.md) records saved radius,
+diameter, cut order, empty sheet-metal and assembly occurrence forms.
+
 | Delivery item | Scope |
 | --- | --- |
 | Task | `B03-SW2026-KEYWORDS-MODEL` |

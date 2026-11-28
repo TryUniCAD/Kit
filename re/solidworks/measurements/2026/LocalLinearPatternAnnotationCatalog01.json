@@ -1,0 +1,227 @@
+{
+  "cad_files_written": 0,
+  "disclosed_catalogs": {
+    "D01X.SLDPRT": {
+      "active": 199,
+      "named_source_ids": [
+        [
+          "*Top",
+          200
+        ],
+        [
+          "*Front",
+          201
+        ]
+      ],
+      "sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+      "shown": [
+        199
+      ]
+    },
+    "D02Y.SLDPRT": {
+      "active": 199,
+      "named_source_ids": [
+        [
+          "*Top",
+          200
+        ],
+        [
+          "*Left",
+          201
+        ],
+        [
+          "*Front",
+          202
+        ]
+      ],
+      "sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+      "shown": [
+        199
+      ]
+    },
+    "DatumHeightShort.SLDPRT": {
+      "active": 199,
+      "named_source_ids": [
+        [
+          "*Top",
+          200
+        ],
+        [
+          "*Back",
+          201
+        ]
+      ],
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b",
+      "shown": [
+        199
+      ]
+    },
+    "DatumHeightTall.SLDPRT": {
+      "active": 199,
+      "named_source_ids": [
+        [
+          "*Top",
+          200
+        ],
+        [
+          "*Back",
+          201
+        ]
+      ],
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb",
+      "shown": [
+        199
+      ]
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "active": 199,
+      "named_source_ids": [
+        [
+          "*Top",
+          200
+        ],
+        [
+          "*Back",
+          201
+        ]
+      ],
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f",
+      "shown": [
+        199
+      ]
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "active": 199,
+      "named_source_ids": [
+        [
+          "*Top",
+          200
+        ],
+        [
+          "*Back",
+          201
+        ]
+      ],
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168",
+      "shown": [
+        199
+      ]
+    }
+  },
+  "guarded_neutral_models": [
+    {
+      "active": 199,
+      "actual_join_to_angle_view": 200,
+      "annotation_ids": {
+        "*Back": 200,
+        "*Top": 201
+      },
+      "cad_files_written": 0,
+      "config_bytes": 22814,
+      "config_map_delta": 3,
+      "config_sha256": "fc8d4463ea74250fd0c44072c362ed59e795dd098a85dab58748bdb46bfd950f",
+      "fEB0": 201,
+      "guarded_runtime_reads": 0,
+      "only_catalog_and_explicit_state_changed": true,
+      "ordinary_config_bytes": 22274,
+      "ordinary_config_sha256": "42b840bef310166dacc701d9fbbfe69a55d22f672ad834412a5cef0193a88158",
+      "refusals": {
+        "duplicate_names": "ambiguous authored annotation view names",
+        "duplicate_shown": "ambiguous shown annotation membership",
+        "invalid_orientation": "annotation frame requires a right-handed model-axis rotation",
+        "unknown_active": "annotation membership names no registered view",
+        "unknown_shown": "annotation membership names no registered view"
+      },
+      "request_sha256": "939160413be56e8965868ca8b594a7a25f89b7353ba2a6f5547966a8e42ec7c2",
+      "shown": [
+        199
+      ]
+    },
+    {
+      "active": 200,
+      "actual_join_to_angle_view": 202,
+      "annotation_ids": {
+        "*Back": 202,
+        "*Front": 201,
+        "*Top": 200
+      },
+      "cad_files_written": 0,
+      "config_bytes": 23008,
+      "config_map_delta": 4,
+      "config_sha256": "ced41a5a6e5e962d93c5ad82796a9de3fea1ba3ea517eed88b6d9d06b115b8b1",
+      "fEB0": 202,
+      "guarded_runtime_reads": 0,
+      "only_catalog_and_explicit_state_changed": true,
+      "ordinary_config_bytes": 22276,
+      "ordinary_config_sha256": "c222d06550290a7cb43753be421458bcf20d6dd5cf5776c0b33fa2aa15d77ad3",
+      "refusals": {
+        "duplicate_names": "ambiguous authored annotation view names",
+        "duplicate_shown": "ambiguous shown annotation membership",
+        "invalid_orientation": "annotation frame requires a right-handed model-axis rotation",
+        "unknown_active": "annotation membership names no registered view",
+        "unknown_shown": "annotation membership names no registered view"
+      },
+      "request_sha256": "5f80d88f7279309e8a6e2d9c6a0540f39fc843373a5a1bebd5a724e698603a2e",
+      "shown": [
+        199,
+        202
+      ]
+    }
+  ],
+  "native_or_heldout_calls": 0,
+  "neutral_processes": 4,
+  "schema": "kit.sw2026.research-only.annotation-catalog.v1",
+  "static_ownership": {
+    "actual_shown_id_add": {
+      "address_range": [
+        "0x4c037010",
+        "0x4c03707e"
+      ],
+      "sha256": "e2d418b76f0ca40b0c6615f13db7be0bb106c30dbe2bd636582633b9134a8c71"
+    },
+    "bytes": 46536280,
+    "current_view_id_getter": {
+      "address_range": [
+        "0x4c01efd0",
+        "0x4c01efd7"
+      ],
+      "sha256": "77a1116e9d7c39056d3d2b5af28928b0b04526fb3789e42352801ee048300781"
+    },
+    "image_base": "0x4b140000",
+    "increment_frontier_for_parent": {
+      "address_range": [
+        "0x4c7e9a72",
+        "0x4c7e9a82"
+      ],
+      "sha256": "d0e08eef571bcefdda94ca25743506a7b9818d97d2649d3cfbb7a74c1282d228"
+    },
+    "increment_frontier_for_view": {
+      "address_range": [
+        "0x4c013c86",
+        "0x4c013c97"
+      ],
+      "sha256": "76972655acf61f59fdca317fb79daf9a6e927d707894ed9ba2e2c0aaf28167b3"
+    },
+    "machine": "0x8664",
+    "name": "sldmodu.dll",
+    "ownerless_annotation_init": {
+      "address_range": [
+        "0x4c7e8470",
+        "0x4c7e8763"
+      ],
+      "sha256": "a65bf1233bd1eafc72584ff7c0609bda37d2cd083590c3acc0f3dd7ad87ca564"
+    },
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "write_high_active_and_shown": {
+      "address_range": [
+        "0x4c234b93",
+        "0x4c234c01"
+      ],
+      "sha256": "e3c3ce1a3ec952fbcbbab6a3f851f62e4eb78e1e80e417d0f61992ce97ffecfd"
+    }
+  },
+  "tools": {
+    "MakePatternAnnotationCatalog.py": "5d9e3d704fadd1560f3328a432ca4c055a6055b7365a0e65a12d69506671201b",
+    "ProvePatternAnnotationCatalog.py": "dd76ef2d7f349b414d1f29aefd91a8c3dcc0ff35608423efb0510b2e3eddd986"
+  }
+}

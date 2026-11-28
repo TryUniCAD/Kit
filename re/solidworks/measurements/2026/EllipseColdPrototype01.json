@@ -1,0 +1,207 @@
+{
+  "schema": "kit.sw2026.cold-ellipse-construction-receipt.v1",
+  "trial_sha256": "13619e76344d3a3bc2fa2b98e06b5753260d81c34bc010b5d4aaa82c270fc1f6",
+  "construction_revision": "9e850ab36c3a7c310c031ebc79c5931dfb7f08fd",
+  "src_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "native_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "host_python": "3.12.14",
+  "guarded_writer_processes": 4,
+  "runtime_accesses": 0,
+  "heldout_credit": 0,
+  "paired_source": {
+    "EllipseSeamDiscriminator01": {
+      "live_point_id": [
+        1,
+        1
+      ],
+      "major_station_matches": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "rebuilt_station_m": [
+        0.03492311490813406,
+        0.0057318278389240085,
+        0.0
+      ],
+      "record_sha256": "ea68a19f9ad39c55a8115c88a4a77ab3058481481b7b59c8b3dd6a13be50f084"
+    },
+    "EllipseSeamNoUpdate01": {
+      "live_point_id": [
+        1,
+        1
+      ],
+      "major_station_matches": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "rebuilt_station_m": [
+        0.03492311490813406,
+        0.0057318278389240085,
+        0.0
+      ],
+      "record_sha256": "f897d6f203c880214c821251e133de774d503bcd19e5daec6b96d1ead1bfb53b"
+    }
+  },
+  "source_terminals": {
+    "EllipseSeamDiscriminator01": "24835a708644209a1d8fb73fa17b36f85d471c7308b38d22d6a22f75870cb39d",
+    "EllipseSeamNoUpdate01": "efbd584eca6cafdd9b715b1a03b26db6a0f146ab51c850681dfee2268cfc3cc8"
+  },
+  "packet_members": 24,
+  "native_processes": 0,
+  "protected_reads": 0,
+  "candidates": [
+    {
+      "file": "EllipseFrontA.SLDPRT",
+      "archive_sha256": "9b9269ccf8f0ebc7ed560c94132dbbda2608f2ddb0436624c53d9861c6d309a2",
+      "neutral_input_sha256": "f499082e0e2396e356136346a5d852cc84d91125097e7f3611b98a9e23e8b910",
+      "bytes": 8123,
+      "stream_count": 10,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "7ac1f0425dd7638edd352f8c7cae0d6f9f872534543f2725b6f531d0ba699c9b"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "d2f1e86f2508795804f641868bae538253ab7106e124203c4f1f8c1b040fd657"
+        },
+        "Contents/Config-0": {
+          "bytes": 22260,
+          "sha256": "34fadd57567d318f58ef4f901df8e13a79a6d39b6f57445489adcabee7824471"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 675,
+          "sha256": "b950053d4d0ab9a0f96bf2c4fd27bb5f8586f343d454fdc8295a758b55d17230"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13834,
+          "sha256": "35835c3bb521af80dfa3458d12ef74af226535c58fcc30ade8db7fe2740598b8"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 675,
+          "sha256": "6eea62fd03deddae64341d478fbe59f2e62db012dce6a274c9b5f991c49c8095"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "1a673a332a9b021393fbe39e19e974d5fb4e403f6c7289a69eeea9bb306e30f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1423,
+          "sha256": "1b9d29b93b4d64fbab1e72051734cfd5d85787014c7737b53eedac8adec1a874"
+        }
+      },
+      "resolved_map_base": 87,
+      "resolved_next_slot": 195,
+      "point_bindings": {
+        "Center": 0,
+        "Major": 2,
+        "Minor": 3,
+        "OppositeMajor": 4,
+        "OppositeMinor": 5,
+        "Seam": 1
+      },
+      "major_station_m": [
+        0.03699003440324798,
+        0.0039061349356519113
+      ],
+      "seam_handle_slot": 151,
+      "profile_id": 18,
+      "boss_id": 19,
+      "dimension_id": 20,
+      "depth_m": 0.013125,
+      "refused_scopes": [
+        "crossed_endpoint",
+        "ordinary_reader_closed",
+        "equal_radii",
+        "construction_entity"
+      ]
+    },
+    {
+      "file": "EllipseFrontB.SLDPRT",
+      "archive_sha256": "aa9686411a7355ec820a3757ab8cdb04c1c6339a2ef269d7547f8727fd50bcb0",
+      "neutral_input_sha256": "81d8af9d665c1b98689d49aedccc16411cf326eb322af6c501ea76f3bf81fa91",
+      "bytes": 8122,
+      "stream_count": 10,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "6882876e49e128bc53e9774ce928ddf8af410d71cdd015aae813d0d23b73408d"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "3734927b8c64051ce160ea40b0f062ecb0d7ec361331d95a784f14d8ad5d7ae5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22260,
+          "sha256": "24d980da2f4559a78a1455818d352ab88ac27f6b3fd6d0e2026f6bfb3ea40124"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 675,
+          "sha256": "2c4caf1da3030ae766171154a6f5b758bb5b4a41ad843b2910667df7d802452e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13834,
+          "sha256": "deea5090185a57493dce670bdf3c57fba31f52ac2a91e6d1e7837ac4a664b716"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 675,
+          "sha256": "173e3dfa1b713a5e0d7fb3f7a417bcd33f81c7296244d49a63a26c016df3cdfc"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "1690143a6e71930dbba6c1750161b135f89961299c3f95383d681606c0f676e0"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1423,
+          "sha256": "884457c2b720ef3c8661534d1a7280c84ba6936d4d3b320309cdbc46be412d3b"
+        }
+      },
+      "resolved_map_base": 87,
+      "resolved_next_slot": 195,
+      "point_bindings": {
+        "Center": 0,
+        "Major": 2,
+        "Minor": 3,
+        "OppositeMajor": 4,
+        "OppositeMinor": 5,
+        "Seam": 1
+      },
+      "major_station_m": [
+        0.0008761766068169762,
+        -0.0024959699911387134
+      ],
+      "seam_handle_slot": 151,
+      "profile_id": 18,
+      "boss_id": 19,
+      "dimension_id": 20,
+      "depth_m": 0.021625000000000002,
+      "refused_scopes": [
+        "crossed_endpoint",
+        "ordinary_reader_closed",
+        "equal_radii",
+        "construction_entity"
+      ]
+    }
+  ]
+}

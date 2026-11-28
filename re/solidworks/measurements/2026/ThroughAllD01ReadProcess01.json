@@ -1,0 +1,4198 @@
+{
+  "schema": "kit.sw2026.through-all-disclosed-read-process.v1",
+  "source_case": "D01",
+  "states": 2,
+  "workers": 8,
+  "round_trips": 12,
+  "negative_cases": 6,
+  "results": {
+    "source": {
+      "archive_retention_only": true,
+      "body_ownership": {
+        "consumed_atom_id": 101,
+        "managed_atoms": [
+          {
+            "atom_id": 101,
+            "class": "moAtom_c",
+            "end_offset": 3258,
+            "index": 59,
+            "name": null,
+            "native_f08": -1,
+            "producer_id": 32,
+            "schema": 1,
+            "start_offset": 3170
+          },
+          {
+            "atom_id": 102,
+            "class": "moAtom_c",
+            "end_offset": 3170,
+            "index": 58,
+            "name": null,
+            "native_f08": -1,
+            "producer_id": 40,
+            "schema": 1,
+            "start_offset": 3070
+          }
+        ],
+        "result_atom_id": 102,
+        "scope_code": 1,
+        "selection_component_owner_alias": true,
+        "selection_owner_alias": true,
+        "selection_wrapper": {
+          "f100": 0,
+          "f104": 0,
+          "f108": 32,
+          "f110": [
+            {
+              "v": 101
+            }
+          ],
+          "f18": 101,
+          "f1c": 101,
+          "f20": 0,
+          "f30": 0,
+          "f34": 0,
+          "f48": 0,
+          "f4c": 19000,
+          "f58": {
+            "class": "moUnitComponent_c",
+            "end_offset": 13525,
+            "index": 291,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 13520
+          },
+          "f68": 0,
+          "f70": 0,
+          "f84": 0,
+          "f90": -1,
+          "f94": -1,
+          "f98": -1,
+          "f9c": -1,
+          "fa0": 0,
+          "ff0": {
+            "class": "moFaceRef_c",
+            "end_offset": 13775,
+            "index": 292,
+            "name": null,
+            "native_f08": 6,
+            "schema": 1,
+            "start_offset": 13605
+          },
+          "has_fb0": 0,
+          "has_fb8": 0,
+          "has_fc0": 0,
+          "has_fc8": 0,
+          "has_fd0": 0,
+          "n110": 1
+        }
+      },
+      "cut": {
+        "body_fields": {
+          "f28": 1073873354,
+          "f4c0": {
+            "f48": {
+              "items": [
+                {
+                  "o": {
+                    "class": "moPerBodyChooserData_c",
+                    "end_offset": 14398,
+                    "index": 319,
+                    "name": null,
+                    "native_f08": null,
+                    "schema": 1,
+                    "start_offset": 14202
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "f68": {
+              "class": "moICE_c",
+              "end_offset": 14624,
+              "index": 287,
+              "name": "ThroughFeature",
+              "native_f08": 40,
+              "schema": 1,
+              "start_offset": 13259
+            }
+          },
+          "f528": {
+            "items": [
+              {
+                "o": {
+                  "class": "moAtom_c",
+                  "end_offset": 3170,
+                  "index": 58,
+                  "name": null,
+                  "native_f08": -1,
+                  "schema": 1,
+                  "start_offset": 3070
+                }
+              }
+            ],
+            "n": 1
+          },
+          "f530": {
+            "items": [
+              {
+                "o": {
+                  "class": "moAtom_c",
+                  "end_offset": 3258,
+                  "index": 59,
+                  "name": null,
+                  "native_f08": -1,
+                  "schema": 1,
+                  "start_offset": 3170
+                }
+              }
+            ],
+            "n": 1
+          },
+          "f540": 3,
+          "f544": 1,
+          "f548": {
+            "items": [
+              {
+                "o": {
+                  "class": "moCompSolidBody_c",
+                  "end_offset": 13795,
+                  "index": 290,
+                  "name": null,
+                  "native_f08": null,
+                  "schema": 1,
+                  "start_offset": 13497
+                }
+              }
+            ],
+            "n": 1
+          },
+          "f60": {
+            "list": {
+              "items": [
+                {
+                  "o": {
+                    "class": "moProfileFeature_c",
+                    "end_offset": 13259,
+                    "index": 276,
+                    "name": "ThroughProfile",
+                    "native_f08": 33,
+                    "schema": 1,
+                    "start_offset": 12093
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "tail": 0
+          },
+          "f810": 1
+        },
+        "end": {
+          "fields": {
+            "f08": 1,
+            "f0c": 1,
+            "f10": 0,
+            "f100": {
+              "items": [],
+              "n": 0
+            },
+            "f128": 1,
+            "f12c": 0,
+            "f130": 0,
+            "f138": null,
+            "f140": {
+              "class": "moFromEndSpec_c",
+              "end_offset": 14592,
+              "index": 325,
+              "name": null,
+              "native_f08": null,
+              "schema": 1,
+              "start_offset": 14586
+            },
+            "f148": 0,
+            "f14c": 0,
+            "f150": 0,
+            "f154": 0,
+            "f158": 1119080160,
+            "f18": null,
+            "f20": null,
+            "f28": {
+              "items": [],
+              "n": 0
+            },
+            "f48": {
+              "items": [],
+              "n": 0
+            },
+            "f88": 0,
+            "f8c": 1,
+            "f90": null,
+            "fa0": 0.0,
+            "fa8": 0,
+            "fac": 0,
+            "fb0": 0,
+            "fb4": 0,
+            "fb8": 0,
+            "fbc": 0,
+            "fc0": 0,
+            "fc4": 0,
+            "fc8": null,
+            "fd0": null,
+            "fd8": 0,
+            "fdc": 0,
+            "fe0": {
+              "items": [],
+              "n": 0
+            },
+            "has_f28": 1,
+            "has_f48": 1
+          },
+          "owner": {
+            "class": "moEndSpec_c",
+            "end_offset": 14612,
+            "index": 324,
+            "name": null,
+            "native_f08": 1,
+            "schema": 1,
+            "start_offset": 14482
+          }
+        },
+        "feature": {
+          "class": "moICE_c",
+          "end_offset": 14624,
+          "index": 287,
+          "name": "ThroughFeature",
+          "native_f08": 40,
+          "schema": 1,
+          "start_offset": 13259
+        },
+        "intent": {
+          "forward_depth": null,
+          "mode": "through_all",
+          "reverse_depth": null,
+          "reversed": true,
+          "single_ended": true
+        }
+      },
+      "cut_profile": {
+        "arc_rows": [
+          {
+            "arc": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 1,
+              "f0c": 1,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 1,
+              "fcc_s": 1,
+              "fd0": 1,
+              "fd4": 0,
+              "fd8": 1,
+              "fdc_s": 0,
+              "fe0": -2,
+              "fe4": -2,
+              "fe8": -2,
+              "fec": -2,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            },
+            "flags": 0
+          }
+        ],
+        "constraint_manager": {
+          "circular_patt_cons": [],
+          "circular_patterns": [],
+          "f118": {
+            "class": "suObList",
+            "end_offset": 12789,
+            "index": 281,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 12785
+          },
+          "groups": [],
+          "iso": [],
+          "linear_patt_cons": [],
+          "linear_patterns": [],
+          "list_7c0": [],
+          "list_9f0": [],
+          "log_g1": [],
+          "log_g2": [],
+          "log_g3": [],
+          "n7c0": 0,
+          "n9f0": 0,
+          "ncirccon": 0,
+          "ncircpatt": 0,
+          "ng1": 0,
+          "ng2": 0,
+          "ng3": 0,
+          "ngroup": 0,
+          "niso": 0,
+          "nlincon": 0,
+          "nlinpatt": 0,
+          "nlog1": 0,
+          "nlog2": 0,
+          "nlog3": 0,
+          "noffset": 0,
+          "offset_dims": [],
+          "val_g1": [],
+          "val_g2": [],
+          "val_g3": []
+        },
+        "counts": {
+          "narcs": 1,
+          "nlines": 0,
+          "npoints": 2
+        },
+        "frame": {
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0,
+          "has_matrix": 0
+        },
+        "line_rows": [],
+        "point_rows": [
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 2,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 1,
+              "fec": 1,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.00673,
+                "y": 0.00419
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 2,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgArcHandle",
+                "end_offset": 12557,
+                "index": 280,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 12530
+              },
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.0014999999999999996,
+                "y": 0.00419
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end_offset": 13259,
+          "index": 276,
+          "name": "ThroughProfile",
+          "native_f08": 33,
+          "schema": 1,
+          "start_offset": 12093
+        },
+        "sketch": {
+          "class": "sgSketch",
+          "end_offset": 12995,
+          "index": 278,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 12286
+        },
+        "support": {
+          "class": "moCompRefPlane_c",
+          "end_offset": 13195,
+          "index": 284,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 13094
+        },
+        "support_fields": {
+          "f100": 3,
+          "f18": 0,
+          "f1c": 0,
+          "f20": 0,
+          "f30": 0,
+          "f34": 0,
+          "f48": 0,
+          "f4c": 19000,
+          "f58": {
+            "class": "moUnitComponent_c",
+            "end_offset": 13101,
+            "index": 285,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 13096
+          },
+          "f68": 0,
+          "f70": 0,
+          "f84": 0,
+          "f90": -1,
+          "f94": -1,
+          "f98": -1,
+          "f9c": -1,
+          "fa0": 0,
+          "ff0": {
+            "f00": 2,
+            "f08": 1794529625
+          },
+          "ff8": null,
+          "has_fb0": 0,
+          "has_fb8": 0,
+          "has_fc0": 0,
+          "has_fc8": 0,
+          "has_fd0": 0
+        },
+        "typed_frame": {
+          "origin": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "y_axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "z_axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        },
+        "typed_frame_admitted": true,
+        "typed_shape": {
+          "arc_id": 1,
+          "center_id": 2,
+          "center_mm": [
+            -6.7299999999999995,
+            4.19
+          ],
+          "driving_dimension": false,
+          "kind": "circle",
+          "radius_mm": 8.229999999999999
+        },
+        "typed_shape_admitted": true
+      },
+      "diagnostic_payload_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "features": [
+        {
+          "class": "moCommentsFolder_c",
+          "end_offset": 203,
+          "index": 111,
+          "name": "Comments",
+          "native_f08": 8,
+          "schema": 1,
+          "start_offset": 6
+        },
+        {
+          "class": "moFavoriteFolder_c",
+          "end_offset": 410,
+          "index": 114,
+          "name": "Favorites",
+          "native_f08": 23,
+          "schema": 1,
+          "start_offset": 203
+        },
+        {
+          "class": "moHistoryFolder_c",
+          "end_offset": 1128,
+          "index": 117,
+          "name": "History",
+          "native_f08": 24,
+          "schema": 1,
+          "start_offset": 410
+        },
+        {
+          "class": "moSelectionSetFolder_c",
+          "end_offset": 1347,
+          "index": 134,
+          "name": "Selection Sets",
+          "native_f08": 25,
+          "schema": 1,
+          "start_offset": 1128
+        },
+        {
+          "class": "moSensorFolder_c",
+          "end_offset": 1540,
+          "index": 137,
+          "name": "Sensors",
+          "native_f08": 22,
+          "schema": 1,
+          "start_offset": 1347
+        },
+        {
+          "class": "moDocsFolder_c",
+          "end_offset": 1743,
+          "index": 140,
+          "name": "Design Binder",
+          "native_f08": 7,
+          "schema": 1,
+          "start_offset": 1540
+        },
+        {
+          "class": "moDetailCabinet_c",
+          "end_offset": 2395,
+          "index": 143,
+          "name": "Annotations",
+          "native_f08": 1,
+          "schema": 1,
+          "start_offset": 1743
+        },
+        {
+          "class": "moSurfaceBodyFolder_c",
+          "end_offset": 2619,
+          "index": 151,
+          "name": "Surface Bodies",
+          "native_f08": 10,
+          "schema": 1,
+          "start_offset": 2395
+        },
+        {
+          "class": "moSolidBodyFolder_c",
+          "end_offset": 2837,
+          "index": 154,
+          "name": "Solid Bodies",
+          "native_f08": 9,
+          "schema": 1,
+          "start_offset": 2619
+        },
+        {
+          "class": "moEnvFolder_c",
+          "end_offset": 22310,
+          "index": 71,
+          "name": "Lights and Cameras",
+          "native_f08": 6,
+          "schema": 1,
+          "start_offset": 20822
+        },
+        {
+          "class": "moInkMarkupFolder_c",
+          "end_offset": 3035,
+          "index": 157,
+          "name": "Markups",
+          "native_f08": 21,
+          "schema": 1,
+          "start_offset": 2839
+        },
+        {
+          "class": "moEqnFolder_c",
+          "end_offset": 3229,
+          "index": 160,
+          "name": "Equations",
+          "native_f08": 16,
+          "schema": 1,
+          "start_offset": 3035
+        },
+        {
+          "class": "moMaterialFolder_c",
+          "end_offset": 3466,
+          "index": 163,
+          "name": "Material <not specified>",
+          "native_f08": 11,
+          "schema": 1,
+          "start_offset": 3229
+        },
+        {
+          "class": "moRefPlane_c",
+          "end_offset": 4005,
+          "index": 166,
+          "name": "Front Plane",
+          "native_f08": 2,
+          "schema": 1,
+          "start_offset": 3466
+        },
+        {
+          "class": "moRefPlane_c",
+          "end_offset": 4571,
+          "index": 170,
+          "name": "Top Plane",
+          "native_f08": 3,
+          "schema": 1,
+          "start_offset": 4005
+        },
+        {
+          "class": "moRefPlane_c",
+          "end_offset": 5141,
+          "index": 173,
+          "name": "Right Plane",
+          "native_f08": 4,
+          "schema": 1,
+          "start_offset": 4571
+        },
+        {
+          "class": "moOriginProfileFeature_c",
+          "end_offset": 6076,
+          "index": 177,
+          "name": "Origin",
+          "native_f08": 5,
+          "schema": 1,
+          "start_offset": 5141
+        },
+        {
+          "class": "moProfileFeature_c",
+          "end_offset": 8856,
+          "index": 189,
+          "name": "StockProfile",
+          "native_f08": 26,
+          "schema": 1,
+          "start_offset": 6076
+        },
+        {
+          "class": "moExtrusion_c",
+          "end_offset": 12093,
+          "index": 219,
+          "name": "StockBoss",
+          "native_f08": 32,
+          "schema": 1,
+          "start_offset": 8856
+        },
+        {
+          "class": "moProfileFeature_c",
+          "end_offset": 13259,
+          "index": 276,
+          "name": "ThroughProfile",
+          "native_f08": 33,
+          "schema": 1,
+          "start_offset": 12093
+        },
+        {
+          "class": "moICE_c",
+          "end_offset": 14624,
+          "index": 287,
+          "name": "ThroughFeature",
+          "native_f08": 40,
+          "schema": 1,
+          "start_offset": 13259
+        }
+      ],
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "native_measurement": {
+        "body_count": 1,
+        "mass": {
+          "area": 0.013967801633414718,
+          "com": [
+            0.0034967773433163024,
+            -0.002607191405961744,
+            -0.00023031201141308197
+          ],
+          "mass": 8.996273307849843e-05,
+          "volume": 8.996273307849843e-05
+        },
+        "prediction": {
+          "analytic_qualified": true,
+          "area": 0.013967801633414718,
+          "axial_span_m": 0.013955,
+          "body_count": 1,
+          "com": [
+            0.0034967773433163037,
+            -0.0026071914059617456,
+            -0.00023031201141308176
+          ],
+          "com_local": [
+            0.0034967773433163037,
+            -0.0026071914059617456,
+            -0.00023031201141308176
+          ],
+          "removed_volume": 2.969473021501564e-06,
+          "volume": 8.996273307849845e-05
+        },
+        "tree_rows": 27
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "reports": {
+        "config": {
+          "completed": true,
+          "missing_schemas": [],
+          "provisional_schemas": []
+        },
+        "resolved": {
+          "completed": true,
+          "missing_schemas": [],
+          "provisional_schemas": []
+        }
+      },
+      "sdk_public_read": {
+        "diagnostic_codes": [
+          "sldprt.native_record_unresolved"
+        ],
+        "opened": true,
+        "operations": [
+          {
+            "definition": "ExtrusionFeature",
+            "kind": "extrusion",
+            "name": "StockBoss"
+          },
+          {
+            "definition": "NativeFeatureDefinition",
+            "kind": "extrusion",
+            "name": "ThroughFeature"
+          }
+        ],
+        "typed_status": {
+          "archive_version": 19000,
+          "configuration_id": 0,
+          "diagnostic": "extrusion end mode is outside ordinary boss semantics",
+          "full_linked_graph": false,
+          "public_writer_qualified": false,
+          "status": "unsupported",
+          "typed_assembly_mates": false,
+          "typed_geometry_projection": false
+        }
+      },
+      "state": "source",
+      "stock": {
+        "actual_depth_m": 0.02791,
+        "dimension": {
+          "class": "ParallelPlaneDistanceDim_c",
+          "end_offset": 11168,
+          "index": 268,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 10811
+        },
+        "display": {
+          "class": "moDisplayDistanceDim_c",
+          "end_offset": 11960,
+          "index": 264,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 10094
+        },
+        "end": {
+          "fields": {
+            "f08": 1,
+            "f0c": 6,
+            "f10": 0,
+            "f100": {
+              "items": [],
+              "n": 0
+            },
+            "f128": 1,
+            "f12c": 0,
+            "f130": 0,
+            "f138": null,
+            "f140": {
+              "class": "moFromEndSpec_c",
+              "end_offset": 12061,
+              "index": 275,
+              "name": null,
+              "native_f08": null,
+              "schema": 1,
+              "start_offset": 12036
+            },
+            "f148": 0,
+            "f14c": 0,
+            "f150": 267333456,
+            "f154": 268214864,
+            "f158": 0,
+            "f18": {
+              "class": "moDisplayDistanceDim_c",
+              "end_offset": 11960,
+              "index": 264,
+              "name": null,
+              "native_f08": null,
+              "schema": 1,
+              "start_offset": 10094
+            },
+            "f20": null,
+            "f28": {
+              "items": [],
+              "n": 0
+            },
+            "f48": {
+              "items": [],
+              "n": 0
+            },
+            "f88": 0,
+            "f8c": 0,
+            "f90": null,
+            "fa0": 0.0,
+            "fa8": 0,
+            "fac": 0,
+            "fb0": 0,
+            "fb4": 0,
+            "fb8": 0,
+            "fbc": 0,
+            "fc0": 0,
+            "fc4": 0,
+            "fc8": null,
+            "fd0": null,
+            "fd8": 0,
+            "fdc": 0,
+            "fe0": {
+              "items": [],
+              "n": 0
+            },
+            "has_f28": 1,
+            "has_f48": 1
+          },
+          "owner": {
+            "class": "moEndSpec_c",
+            "end_offset": 12081,
+            "index": 262,
+            "name": null,
+            "native_f08": 1,
+            "schema": 1,
+            "start_offset": 10053
+          }
+        },
+        "feature": {
+          "class": "moExtrusion_c",
+          "end_offset": 12093,
+          "index": 219,
+          "name": "StockBoss",
+          "native_f08": 32,
+          "schema": 1,
+          "start_offset": 8856
+        },
+        "parameter": {
+          "class": "moLengthParameter_c",
+          "end_offset": 10913,
+          "index": 270,
+          "name": "D1",
+          "native_f08": -1,
+          "schema": 1,
+          "start_offset": 10847
+        }
+      },
+      "stock_profile": {
+        "arc_rows": [],
+        "constraint_manager": {
+          "circular_patt_cons": [],
+          "circular_patterns": [],
+          "f118": {
+            "class": "suObList",
+            "end_offset": 8281,
+            "index": 205,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 8277
+          },
+          "groups": [],
+          "iso": [],
+          "linear_patt_cons": [],
+          "linear_patterns": [],
+          "list_7c0": [],
+          "list_9f0": [],
+          "log_g1": [
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 5,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8098,
+                  "index": 201,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8086
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            },
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 4,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8153,
+                  "index": 202,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8141
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            },
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 5,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8208,
+                  "index": 203,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8196
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            },
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 4,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8263,
+                  "index": 204,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8251
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            }
+          ],
+          "log_g2": [],
+          "log_g3": [],
+          "n7c0": 0,
+          "n9f0": 0,
+          "ncirccon": 0,
+          "ncircpatt": 0,
+          "ng1": 0,
+          "ng2": 0,
+          "ng3": 0,
+          "ngroup": 0,
+          "niso": 0,
+          "nlincon": 0,
+          "nlinpatt": 0,
+          "nlog1": 4,
+          "nlog2": 0,
+          "nlog3": 0,
+          "noffset": 0,
+          "offset_dims": [],
+          "val_g1": [],
+          "val_g2": [],
+          "val_g3": []
+        },
+        "counts": {
+          "narcs": 0,
+          "nlines": 5,
+          "npoints": 8
+        },
+        "frame": {
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0,
+          "has_matrix": 0
+        },
+        "line_rows": [
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 0,
+              "fcc_s": 1,
+              "fd0": 0,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 1,
+              "f0c": 1,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 0,
+              "fcc_s": 7,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 4,
+              "f0c": 2,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 0,
+              "fcc_s": 6,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 3,
+              "f0c": 3,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 6,
+              "fcc_s": 1,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 2,
+              "f0c": 4,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 7,
+              "fcc_s": 1,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "point_rows": [
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 6417,
+                "index": 193,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6389
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 6429,
+                "index": 194,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6417
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 2,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 6579,
+                "index": 195,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6567
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 6591,
+                "index": 196,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6579
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 3,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 7309,
+                "index": 197,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7297
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 7321,
+                "index": 198,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7309
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 4,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 7471,
+                "index": 199,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7459
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 7483,
+                "index": 200,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7471
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end_offset": 8856,
+          "index": 189,
+          "name": "StockProfile",
+          "native_f08": 26,
+          "schema": 1,
+          "start_offset": 6076
+        },
+        "sketch": {
+          "class": "sgSketch",
+          "end_offset": 8561,
+          "index": 191,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 6287
+        },
+        "support": {
+          "class": "moCompRefPlane_c",
+          "end_offset": 8792,
+          "index": 216,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 8691
+        },
+        "support_fields": {
+          "f100": 3,
+          "f18": 0,
+          "f1c": 0,
+          "f20": 0,
+          "f30": 0,
+          "f34": 0,
+          "f48": 0,
+          "f4c": 19000,
+          "f58": {
+            "class": "moUnitComponent_c",
+            "end_offset": 8698,
+            "index": 217,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 8693
+          },
+          "f68": 0,
+          "f70": 0,
+          "f84": 0,
+          "f90": -1,
+          "f94": -1,
+          "f98": -1,
+          "f9c": -1,
+          "fa0": 0,
+          "ff0": {
+            "f00": 2,
+            "f08": 1794529625
+          },
+          "ff8": null,
+          "has_fb0": 0,
+          "has_fb8": 0,
+          "has_fc0": 0,
+          "has_fc8": 0,
+          "has_fd0": 0
+        },
+        "typed_frame": {
+          "origin": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "y_axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "z_axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        },
+        "typed_frame_admitted": true,
+        "typed_shape_admitted": false,
+        "typed_shape_diagnostic": "typed line ring has unqualified entity ownership or geometry"
+      },
+      "typed_stream_round_trips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "d8502b08c01f9af2e97c94dfd3ad47e92ce0765e662a906f648497ad1bdea50c"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "921134f972c2ed21d5b3c5159d79b104f7559b85c7ee6f755811ccb49f9c746b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25564,
+          "sha256": "eeca56a65740b63b28809b9fb370ec19d25dc953cbc479c8c6722aaacab3dda9"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "58065c9daeb53e0e7903e01c623258aec9f50b30c244d3be42353eeba179aa32"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "30090a1d9f8664d3336f89cc95e0a65f331d5f38d6f889c2eac75216a5c7ea0b"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "58065c9daeb53e0e7903e01c623258aec9f50b30c244d3be42353eeba179aa32"
+        }
+      },
+      "writer_output_count": 0
+    },
+    "edited": {
+      "archive_retention_only": true,
+      "body_ownership": {
+        "consumed_atom_id": 101,
+        "managed_atoms": [
+          {
+            "atom_id": 101,
+            "class": "moAtom_c",
+            "end_offset": 3294,
+            "index": 59,
+            "name": null,
+            "native_f08": -1,
+            "producer_id": 32,
+            "schema": 1,
+            "start_offset": 3206
+          },
+          {
+            "atom_id": 102,
+            "class": "moAtom_c",
+            "end_offset": 3206,
+            "index": 58,
+            "name": null,
+            "native_f08": -1,
+            "producer_id": 40,
+            "schema": 1,
+            "start_offset": 3106
+          }
+        ],
+        "result_atom_id": 102,
+        "scope_code": 1,
+        "selection_component_owner_alias": true,
+        "selection_owner_alias": true,
+        "selection_wrapper": {
+          "f100": 0,
+          "f104": 0,
+          "f108": 32,
+          "f110": [
+            {
+              "v": 101
+            }
+          ],
+          "f18": 101,
+          "f1c": 101,
+          "f20": 0,
+          "f30": 0,
+          "f34": 0,
+          "f48": 0,
+          "f4c": 19000,
+          "f58": {
+            "class": "moUnitComponent_c",
+            "end_offset": 13819,
+            "index": 291,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 13814
+          },
+          "f68": 0,
+          "f70": 0,
+          "f84": 0,
+          "f90": -1,
+          "f94": -1,
+          "f98": -1,
+          "f9c": -1,
+          "fa0": 0,
+          "ff0": {
+            "class": "moFaceRef_c",
+            "end_offset": 14069,
+            "index": 292,
+            "name": null,
+            "native_f08": 6,
+            "schema": 1,
+            "start_offset": 13899
+          },
+          "has_fb0": 0,
+          "has_fb8": 0,
+          "has_fc0": 0,
+          "has_fc8": 0,
+          "has_fd0": 0,
+          "n110": 1
+        }
+      },
+      "cut": {
+        "body_fields": {
+          "f28": 1073873354,
+          "f4c0": {
+            "f48": {
+              "items": [
+                {
+                  "o": {
+                    "class": "moPerBodyChooserData_c",
+                    "end_offset": 14692,
+                    "index": 319,
+                    "name": null,
+                    "native_f08": null,
+                    "schema": 1,
+                    "start_offset": 14496
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "f68": {
+              "class": "moICE_c",
+              "end_offset": 14918,
+              "index": 287,
+              "name": "ThroughFeature",
+              "native_f08": 40,
+              "schema": 1,
+              "start_offset": 13553
+            }
+          },
+          "f528": {
+            "items": [
+              {
+                "o": {
+                  "class": "moAtom_c",
+                  "end_offset": 3206,
+                  "index": 58,
+                  "name": null,
+                  "native_f08": -1,
+                  "schema": 1,
+                  "start_offset": 3106
+                }
+              }
+            ],
+            "n": 1
+          },
+          "f530": {
+            "items": [
+              {
+                "o": {
+                  "class": "moAtom_c",
+                  "end_offset": 3294,
+                  "index": 59,
+                  "name": null,
+                  "native_f08": -1,
+                  "schema": 1,
+                  "start_offset": 3206
+                }
+              }
+            ],
+            "n": 1
+          },
+          "f540": 3,
+          "f544": 1,
+          "f548": {
+            "items": [
+              {
+                "o": {
+                  "class": "moCompSolidBody_c",
+                  "end_offset": 14089,
+                  "index": 290,
+                  "name": null,
+                  "native_f08": null,
+                  "schema": 1,
+                  "start_offset": 13791
+                }
+              }
+            ],
+            "n": 1
+          },
+          "f60": {
+            "list": {
+              "items": [
+                {
+                  "o": {
+                    "class": "moProfileFeature_c",
+                    "end_offset": 13553,
+                    "index": 276,
+                    "name": "ThroughProfile",
+                    "native_f08": 33,
+                    "schema": 1,
+                    "start_offset": 12387
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "tail": 0
+          },
+          "f810": 1
+        },
+        "end": {
+          "fields": {
+            "f08": 1,
+            "f0c": 1,
+            "f10": 0,
+            "f100": {
+              "items": [],
+              "n": 0
+            },
+            "f128": 1,
+            "f12c": 0,
+            "f130": 0,
+            "f138": null,
+            "f140": {
+              "class": "moFromEndSpec_c",
+              "end_offset": 14886,
+              "index": 325,
+              "name": null,
+              "native_f08": null,
+              "schema": 1,
+              "start_offset": 14880
+            },
+            "f148": 0,
+            "f14c": 0,
+            "f150": 0,
+            "f154": 0,
+            "f158": 1119080160,
+            "f18": null,
+            "f20": null,
+            "f28": {
+              "items": [],
+              "n": 0
+            },
+            "f48": {
+              "items": [],
+              "n": 0
+            },
+            "f88": 0,
+            "f8c": 1,
+            "f90": null,
+            "fa0": 0.0,
+            "fa8": 0,
+            "fac": 0,
+            "fb0": 0,
+            "fb4": 0,
+            "fb8": 0,
+            "fbc": 0,
+            "fc0": 0,
+            "fc4": 0,
+            "fc8": null,
+            "fd0": null,
+            "fd8": 0,
+            "fdc": 0,
+            "fe0": {
+              "items": [],
+              "n": 0
+            },
+            "has_f28": 1,
+            "has_f48": 1
+          },
+          "owner": {
+            "class": "moEndSpec_c",
+            "end_offset": 14906,
+            "index": 324,
+            "name": null,
+            "native_f08": 1,
+            "schema": 1,
+            "start_offset": 14776
+          }
+        },
+        "feature": {
+          "class": "moICE_c",
+          "end_offset": 14918,
+          "index": 287,
+          "name": "ThroughFeature",
+          "native_f08": 40,
+          "schema": 1,
+          "start_offset": 13553
+        },
+        "intent": {
+          "forward_depth": null,
+          "mode": "through_all",
+          "reverse_depth": null,
+          "reversed": true,
+          "single_ended": true
+        }
+      },
+      "cut_profile": {
+        "arc_rows": [
+          {
+            "arc": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 1,
+              "f0c": 1,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 1,
+              "fcc_s": 1,
+              "fd0": 1,
+              "fd4": 0,
+              "fd8": 1,
+              "fdc_s": 0,
+              "fe0": -2,
+              "fe4": -2,
+              "fe8": -2,
+              "fec": -2,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            },
+            "flags": 0
+          }
+        ],
+        "constraint_manager": {
+          "circular_patt_cons": [],
+          "circular_patterns": [],
+          "f118": {
+            "class": "suObList",
+            "end_offset": 13083,
+            "index": 281,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 13079
+          },
+          "groups": [],
+          "iso": [],
+          "linear_patt_cons": [],
+          "linear_patterns": [],
+          "list_7c0": [],
+          "list_9f0": [],
+          "log_g1": [],
+          "log_g2": [],
+          "log_g3": [],
+          "n7c0": 0,
+          "n9f0": 0,
+          "ncirccon": 0,
+          "ncircpatt": 0,
+          "ng1": 0,
+          "ng2": 0,
+          "ng3": 0,
+          "ngroup": 0,
+          "niso": 0,
+          "nlincon": 0,
+          "nlinpatt": 0,
+          "nlog1": 0,
+          "nlog2": 0,
+          "nlog3": 0,
+          "noffset": 0,
+          "offset_dims": [],
+          "val_g1": [],
+          "val_g2": [],
+          "val_g3": []
+        },
+        "counts": {
+          "narcs": 1,
+          "nlines": 0,
+          "npoints": 2
+        },
+        "frame": {
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0,
+          "has_matrix": 0
+        },
+        "line_rows": [],
+        "point_rows": [
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 2,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 1,
+              "fec": 1,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.00673,
+                "y": 0.00419
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 2,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgArcHandle",
+                "end_offset": 12851,
+                "index": 280,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 12824
+              },
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.0014999999999999996,
+                "y": 0.00419
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end_offset": 13553,
+          "index": 276,
+          "name": "ThroughProfile",
+          "native_f08": 33,
+          "schema": 1,
+          "start_offset": 12387
+        },
+        "sketch": {
+          "class": "sgSketch",
+          "end_offset": 13289,
+          "index": 278,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 12580
+        },
+        "support": {
+          "class": "moCompRefPlane_c",
+          "end_offset": 13489,
+          "index": 284,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 13388
+        },
+        "support_fields": {
+          "f100": 3,
+          "f18": 0,
+          "f1c": 0,
+          "f20": 0,
+          "f30": 0,
+          "f34": 0,
+          "f48": 0,
+          "f4c": 19000,
+          "f58": {
+            "class": "moUnitComponent_c",
+            "end_offset": 13395,
+            "index": 285,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 13390
+          },
+          "f68": 0,
+          "f70": 0,
+          "f84": 0,
+          "f90": -1,
+          "f94": -1,
+          "f98": -1,
+          "f9c": -1,
+          "fa0": 0,
+          "ff0": {
+            "f00": 2,
+            "f08": 1794529625
+          },
+          "ff8": null,
+          "has_fb0": 0,
+          "has_fb8": 0,
+          "has_fc0": 0,
+          "has_fc8": 0,
+          "has_fd0": 0
+        },
+        "typed_frame": {
+          "origin": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "y_axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "z_axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        },
+        "typed_frame_admitted": true,
+        "typed_shape": {
+          "arc_id": 1,
+          "center_id": 2,
+          "center_mm": [
+            -6.7299999999999995,
+            4.19
+          ],
+          "driving_dimension": false,
+          "kind": "circle",
+          "radius_mm": 8.229999999999999
+        },
+        "typed_shape_admitted": true
+      },
+      "diagnostic_payload_sha256": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144",
+      "features": [
+        {
+          "class": "moCommentsFolder_c",
+          "end_offset": 203,
+          "index": 111,
+          "name": "Comments",
+          "native_f08": 8,
+          "schema": 1,
+          "start_offset": 6
+        },
+        {
+          "class": "moFavoriteFolder_c",
+          "end_offset": 410,
+          "index": 114,
+          "name": "Favorites",
+          "native_f08": 23,
+          "schema": 1,
+          "start_offset": 203
+        },
+        {
+          "class": "moHistoryFolder_c",
+          "end_offset": 1128,
+          "index": 117,
+          "name": "History",
+          "native_f08": 24,
+          "schema": 1,
+          "start_offset": 410
+        },
+        {
+          "class": "moSelectionSetFolder_c",
+          "end_offset": 1347,
+          "index": 134,
+          "name": "Selection Sets",
+          "native_f08": 25,
+          "schema": 1,
+          "start_offset": 1128
+        },
+        {
+          "class": "moSensorFolder_c",
+          "end_offset": 1540,
+          "index": 137,
+          "name": "Sensors",
+          "native_f08": 22,
+          "schema": 1,
+          "start_offset": 1347
+        },
+        {
+          "class": "moDocsFolder_c",
+          "end_offset": 1743,
+          "index": 140,
+          "name": "Design Binder",
+          "native_f08": 7,
+          "schema": 1,
+          "start_offset": 1540
+        },
+        {
+          "class": "moDetailCabinet_c",
+          "end_offset": 2395,
+          "index": 143,
+          "name": "Annotations",
+          "native_f08": 1,
+          "schema": 1,
+          "start_offset": 1743
+        },
+        {
+          "class": "moSurfaceBodyFolder_c",
+          "end_offset": 2619,
+          "index": 151,
+          "name": "Surface Bodies",
+          "native_f08": 10,
+          "schema": 1,
+          "start_offset": 2395
+        },
+        {
+          "class": "moSolidBodyFolder_c",
+          "end_offset": 2837,
+          "index": 154,
+          "name": "Solid Bodies",
+          "native_f08": 9,
+          "schema": 1,
+          "start_offset": 2619
+        },
+        {
+          "class": "moEnvFolder_c",
+          "end_offset": 22346,
+          "index": 71,
+          "name": "Lights and Cameras",
+          "native_f08": 6,
+          "schema": 1,
+          "start_offset": 20858
+        },
+        {
+          "class": "moInkMarkupFolder_c",
+          "end_offset": 3035,
+          "index": 157,
+          "name": "Markups",
+          "native_f08": 21,
+          "schema": 1,
+          "start_offset": 2839
+        },
+        {
+          "class": "moEqnFolder_c",
+          "end_offset": 3229,
+          "index": 160,
+          "name": "Equations",
+          "native_f08": 16,
+          "schema": 1,
+          "start_offset": 3035
+        },
+        {
+          "class": "moMaterialFolder_c",
+          "end_offset": 3466,
+          "index": 163,
+          "name": "Material <not specified>",
+          "native_f08": 11,
+          "schema": 1,
+          "start_offset": 3229
+        },
+        {
+          "class": "moRefPlane_c",
+          "end_offset": 4005,
+          "index": 166,
+          "name": "Front Plane",
+          "native_f08": 2,
+          "schema": 1,
+          "start_offset": 3466
+        },
+        {
+          "class": "moRefPlane_c",
+          "end_offset": 4571,
+          "index": 170,
+          "name": "Top Plane",
+          "native_f08": 3,
+          "schema": 1,
+          "start_offset": 4005
+        },
+        {
+          "class": "moRefPlane_c",
+          "end_offset": 5141,
+          "index": 173,
+          "name": "Right Plane",
+          "native_f08": 4,
+          "schema": 1,
+          "start_offset": 4571
+        },
+        {
+          "class": "moOriginProfileFeature_c",
+          "end_offset": 6076,
+          "index": 177,
+          "name": "Origin",
+          "native_f08": 5,
+          "schema": 1,
+          "start_offset": 5141
+        },
+        {
+          "class": "moProfileFeature_c",
+          "end_offset": 8856,
+          "index": 189,
+          "name": "StockProfile",
+          "native_f08": 26,
+          "schema": 1,
+          "start_offset": 6076
+        },
+        {
+          "class": "moExtrusion_c",
+          "end_offset": 12387,
+          "index": 219,
+          "name": "StockBoss",
+          "native_f08": 32,
+          "schema": 1,
+          "start_offset": 8856
+        },
+        {
+          "class": "moProfileFeature_c",
+          "end_offset": 13553,
+          "index": 276,
+          "name": "ThroughProfile",
+          "native_f08": 33,
+          "schema": 1,
+          "start_offset": 12387
+        },
+        {
+          "class": "moICE_c",
+          "end_offset": 14918,
+          "index": 287,
+          "name": "ThroughFeature",
+          "native_f08": 40,
+          "schema": 1,
+          "start_offset": 13553
+        }
+      ],
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144",
+      "native_measurement": {
+        "body_count": 1,
+        "mass": {
+          "area": 0.017534270922096497,
+          "com": [
+            0.003496777343316305,
+            -0.002607191405961745,
+            -0.00034270361282641643
+          ],
+          "mass": 0.00013386428895557293,
+          "volume": 0.00013386428895557293
+        },
+        "prediction": {
+          "analytic_qualified": true,
+          "area": 0.017534270922096497,
+          "axial_span_m": 0.020765,
+          "body_count": 1,
+          "com": [
+            0.003496777343316304,
+            -0.0026071914059617456,
+            -0.0003427036128264166
+          ],
+          "com_local": [
+            0.003496777343316304,
+            -0.0026071914059617456,
+            -0.0003427036128264166
+          ],
+          "removed_volume": 4.4185673444270855e-06,
+          "volume": 0.0001338642889555729
+        },
+        "tree_rows": 27
+      },
+      "native_processes_started": 0,
+      "passed": true,
+      "reports": {
+        "config": {
+          "completed": true,
+          "missing_schemas": [],
+          "provisional_schemas": []
+        },
+        "resolved": {
+          "completed": true,
+          "missing_schemas": [],
+          "provisional_schemas": []
+        }
+      },
+      "sdk_public_read": {
+        "diagnostic_codes": [
+          "sldprt.native_record_unresolved"
+        ],
+        "opened": true,
+        "operations": [
+          {
+            "definition": "ExtrusionFeature",
+            "kind": "extrusion",
+            "name": "StockBoss"
+          },
+          {
+            "definition": "NativeFeatureDefinition",
+            "kind": "extrusion",
+            "name": "ThroughFeature"
+          }
+        ],
+        "typed_status": {
+          "archive_version": 19000,
+          "configuration_id": 0,
+          "diagnostic": "extrusion end mode is outside ordinary boss semantics",
+          "full_linked_graph": false,
+          "public_writer_qualified": false,
+          "status": "unsupported",
+          "typed_assembly_mates": false,
+          "typed_geometry_projection": false
+        }
+      },
+      "state": "edited",
+      "stock": {
+        "actual_depth_m": 0.04153,
+        "dimension": {
+          "class": "ParallelPlaneDistanceDim_c",
+          "end_offset": 11462,
+          "index": 268,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 11105
+        },
+        "display": {
+          "class": "moDisplayDistanceDim_c",
+          "end_offset": 12254,
+          "index": 264,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 10388
+        },
+        "end": {
+          "fields": {
+            "f08": 1,
+            "f0c": 6,
+            "f10": 0,
+            "f100": {
+              "items": [],
+              "n": 0
+            },
+            "f128": 1,
+            "f12c": 0,
+            "f130": 0,
+            "f138": null,
+            "f140": {
+              "class": "moFromEndSpec_c",
+              "end_offset": 12355,
+              "index": 275,
+              "name": null,
+              "native_f08": null,
+              "schema": 1,
+              "start_offset": 12330
+            },
+            "f148": 0,
+            "f14c": 0,
+            "f150": 267333456,
+            "f154": 268214864,
+            "f158": 0,
+            "f18": {
+              "class": "moDisplayDistanceDim_c",
+              "end_offset": 12254,
+              "index": 264,
+              "name": null,
+              "native_f08": null,
+              "schema": 1,
+              "start_offset": 10388
+            },
+            "f20": null,
+            "f28": {
+              "items": [],
+              "n": 0
+            },
+            "f48": {
+              "items": [],
+              "n": 0
+            },
+            "f88": 0,
+            "f8c": 0,
+            "f90": null,
+            "fa0": 0.0,
+            "fa8": 0,
+            "fac": 0,
+            "fb0": 0,
+            "fb4": 0,
+            "fb8": 0,
+            "fbc": 0,
+            "fc0": 0,
+            "fc4": 0,
+            "fc8": null,
+            "fd0": null,
+            "fd8": 0,
+            "fdc": 0,
+            "fe0": {
+              "items": [],
+              "n": 0
+            },
+            "has_f28": 1,
+            "has_f48": 1
+          },
+          "owner": {
+            "class": "moEndSpec_c",
+            "end_offset": 12375,
+            "index": 262,
+            "name": null,
+            "native_f08": 1,
+            "schema": 1,
+            "start_offset": 10347
+          }
+        },
+        "feature": {
+          "class": "moExtrusion_c",
+          "end_offset": 12387,
+          "index": 219,
+          "name": "StockBoss",
+          "native_f08": 32,
+          "schema": 1,
+          "start_offset": 8856
+        },
+        "parameter": {
+          "class": "moLengthParameter_c",
+          "end_offset": 11207,
+          "index": 270,
+          "name": "D1",
+          "native_f08": -1,
+          "schema": 1,
+          "start_offset": 11141
+        }
+      },
+      "stock_profile": {
+        "arc_rows": [],
+        "constraint_manager": {
+          "circular_patt_cons": [],
+          "circular_patterns": [],
+          "f118": {
+            "class": "suObList",
+            "end_offset": 8281,
+            "index": 205,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 8277
+          },
+          "groups": [],
+          "iso": [],
+          "linear_patt_cons": [],
+          "linear_patterns": [],
+          "list_7c0": [],
+          "list_9f0": [],
+          "log_g1": [
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 5,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8098,
+                  "index": 201,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8086
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            },
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 4,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8153,
+                  "index": 202,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8141
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            },
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 5,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8208,
+                  "index": 203,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8196
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            },
+            {
+              "d": {
+                "f28": null,
+                "f30": 0,
+                "f48": null,
+                "f50": -1,
+                "f54": 0,
+                "f5c": 0,
+                "f60": null,
+                "f68": 0,
+                "f80": 4,
+                "f90": 2,
+                "f94": 0,
+                "f98": 0,
+                "fa0": 65534,
+                "fa4": 0,
+                "h1": {
+                  "class": "sgLineHandle",
+                  "end_offset": 8263,
+                  "index": 204,
+                  "name": null,
+                  "native_f08": 0,
+                  "schema": 1,
+                  "start_offset": 8251
+                },
+                "has_f78": 0,
+                "refcount": 0
+              }
+            }
+          ],
+          "log_g2": [],
+          "log_g3": [],
+          "n7c0": 0,
+          "n9f0": 0,
+          "ncirccon": 0,
+          "ncircpatt": 0,
+          "ng1": 0,
+          "ng2": 0,
+          "ng3": 0,
+          "ngroup": 0,
+          "niso": 0,
+          "nlincon": 0,
+          "nlinpatt": 0,
+          "nlog1": 4,
+          "nlog2": 0,
+          "nlog3": 0,
+          "noffset": 0,
+          "offset_dims": [],
+          "val_g1": [],
+          "val_g2": [],
+          "val_g3": []
+        },
+        "counts": {
+          "narcs": 0,
+          "nlines": 5,
+          "npoints": 8
+        },
+        "frame": {
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0,
+          "has_matrix": 0
+        },
+        "line_rows": [
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 0,
+              "fcc_s": 1,
+              "fd0": 0,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 1,
+              "f0c": 1,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 0,
+              "fcc_s": 7,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 4,
+              "f0c": 2,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 0,
+              "fcc_s": 6,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 3,
+              "f0c": 3,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 6,
+              "fcc_s": 1,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "flags": 0,
+            "line": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 2,
+              "f0c": 4,
+              "f20": 1,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fc8_s": 7,
+              "fcc_s": 1,
+              "fd0": 1,
+              "fd4": 0,
+              "fe8": 0,
+              "group": null,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 1
+              },
+              "seg_tol": -1.0,
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "point_rows": [
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 6417,
+                "index": 193,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6389
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 6429,
+                "index": 194,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6417
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 2,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 6579,
+                "index": 195,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6567
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 6591,
+                "index": 196,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 6579
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": -1,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 5,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 0,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": null,
+              "h2": null,
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 3,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 7309,
+                "index": 197,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7297
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 7321,
+                "index": 198,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7309
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": -0.03248,
+                "y": 0.02096
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": 0,
+            "point": {
+              "dflt": 0,
+              "ext": null,
+              "f08": 0,
+              "f0c": 4,
+              "f108": -2,
+              "f20": 0,
+              "f30": 5,
+              "f34": 1,
+              "f38": 1,
+              "f50": 0,
+              "f54": 4,
+              "f56": 0,
+              "f68": 1.0,
+              "f74": 0,
+              "f78": 0,
+              "fe4": 0,
+              "fe8": 2,
+              "fec": 0,
+              "ff0": 0,
+              "group": null,
+              "h1": {
+                "class": "sgLineHandle",
+                "end_offset": 7471,
+                "index": 199,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7459
+              },
+              "h2": {
+                "class": "sgLineHandle",
+                "end_offset": 7483,
+                "index": 200,
+                "name": null,
+                "native_f08": 0,
+                "schema": 1,
+                "start_offset": 7471
+              },
+              "has_jet": 0,
+              "has_name": 0,
+              "lw": {
+                "f00": -1.0,
+                "f06": 0
+              },
+              "p1": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "p2": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "pflags": 30,
+              "pos": {
+                "x": 0.03882,
+                "y": -0.02574
+              },
+              "vis": {
+                "f00": 65535,
+                "f02": 31,
+                "f04": 3,
+                "f08": {
+                  "f00": 4294967295,
+                  "f04": 65535,
+                  "f08": {
+                    "f00": -1.0,
+                    "f06": -1
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end_offset": 8856,
+          "index": 189,
+          "name": "StockProfile",
+          "native_f08": 26,
+          "schema": 1,
+          "start_offset": 6076
+        },
+        "sketch": {
+          "class": "sgSketch",
+          "end_offset": 8561,
+          "index": 191,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 6287
+        },
+        "support": {
+          "class": "moCompRefPlane_c",
+          "end_offset": 8792,
+          "index": 216,
+          "name": null,
+          "native_f08": null,
+          "schema": 1,
+          "start_offset": 8691
+        },
+        "support_fields": {
+          "f100": 3,
+          "f18": 0,
+          "f1c": 0,
+          "f20": 0,
+          "f30": 0,
+          "f34": 0,
+          "f48": 0,
+          "f4c": 19000,
+          "f58": {
+            "class": "moUnitComponent_c",
+            "end_offset": 8698,
+            "index": 217,
+            "name": null,
+            "native_f08": null,
+            "schema": 1,
+            "start_offset": 8693
+          },
+          "f68": 0,
+          "f70": 0,
+          "f84": 0,
+          "f90": -1,
+          "f94": -1,
+          "f98": -1,
+          "f9c": -1,
+          "fa0": 0,
+          "ff0": {
+            "f00": 2,
+            "f08": 1794529625
+          },
+          "ff8": null,
+          "has_fb0": 0,
+          "has_fb8": 0,
+          "has_fc0": 0,
+          "has_fc8": 0,
+          "has_fd0": 0
+        },
+        "typed_frame": {
+          "origin": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "y_axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "z_axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        },
+        "typed_frame_admitted": true,
+        "typed_shape_admitted": false,
+        "typed_shape_diagnostic": "typed line ring has unqualified entity ownership or geometry"
+      },
+      "typed_stream_round_trips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2555,
+          "sha256": "782ae80a0b6b86dfc2d9e6ef4bb84df2c18f02f2619db66ecd01b05c49354a8d"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "61dedf611921b13a81742b6a70c1864d5727fdff49777efdbf495983dd5cc5d9"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25608,
+          "sha256": "f37d25ef0c7635b79253f02f8dd002fb5d5f79a55efd7ccc36bc0e707622770d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "1c7068ea79009fdb799c6b6585ab27ba969c83cf4ce45014cf10e18c1551b48f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14922,
+          "sha256": "4010dcb01ceb3027e47c6908301ea36c8c95d48fdaa3996cb549916292872535"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "1c7068ea79009fdb799c6b6585ab27ba969c83cf4ce45014cf10e18c1551b48f"
+        }
+      },
+      "writer_output_count": 0
+    },
+    "active-distance": {
+      "diagnostic": "the through-all end cannot supply an active distance, draft or custom direction owner",
+      "diagnostic_payload_sha256": "276df1c11b25feba40959999069ff273439f1550bba8e63d094ba6be7bb16784",
+      "fault": "active-distance",
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "native_processes_started": 0,
+      "passed": true,
+      "rejected": true,
+      "state": "source",
+      "writer_output_count": 0
+    },
+    "second-distance": {
+      "diagnostic": "the through-all end cannot supply an active distance, draft or custom direction owner",
+      "diagnostic_payload_sha256": "f73b5c6eac4f9b002947f48017f36ce99c3b04b4525f850a94d85aa76090f5fd",
+      "fault": "second-distance",
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "native_processes_started": 0,
+      "passed": true,
+      "rejected": true,
+      "state": "source",
+      "writer_output_count": 0
+    },
+    "second-end": {
+      "diagnostic": "the disclosed grammar requires one forward type-one cut end",
+      "diagnostic_payload_sha256": "413f4df7ba0cb12fbd9eb63d24c81cbdb8b3cd371c607a604eb7dee6b5bde21d",
+      "fault": "second-end",
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "native_processes_started": 0,
+      "passed": true,
+      "rejected": true,
+      "state": "source",
+      "writer_output_count": 0
+    },
+    "chooser-owner": {
+      "diagnostic": "cut body chooser does not alias its owning feature",
+      "diagnostic_payload_sha256": "97f922c35fc48ac01a617f28a406a29f61ffda02faaee76b2e8ee24056eed60b",
+      "fault": "chooser-owner",
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "native_processes_started": 0,
+      "passed": true,
+      "rejected": true,
+      "state": "source",
+      "writer_output_count": 0
+    },
+    "consumes-output": {
+      "diagnostic": "cut body dependency does not alias its managed boss output",
+      "diagnostic_payload_sha256": "f0acaa1b10b8316edd8d6d64fa5c6afd005b6c9a26029fc3719cf603ccd72e3e",
+      "fault": "consumes-output",
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "native_processes_started": 0,
+      "passed": true,
+      "rejected": true,
+      "state": "source",
+      "writer_output_count": 0
+    },
+    "wrapper-atom": {
+      "diagnostic": "cut selection wrapper differs from the consumed boss atom",
+      "diagnostic_payload_sha256": "16ebdb77050d1a5c3e58b9b06e8250d48d335657567a6cbd64d0f32a15a8188a",
+      "fault": "wrapper-atom",
+      "file_unchanged": true,
+      "hidden_inputs_read": 0,
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "native_processes_started": 0,
+      "passed": true,
+      "rejected": true,
+      "state": "source",
+      "writer_output_count": 0
+    }
+  },
+  "python_version": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]",
+  "passed": true,
+  "tool_hashes": {
+    "AuditThroughAllDisclosed.py": "3efab18180d8c849fc8eb8a809bfb2f9bff2726ca01b0faec5d8fbdf7ee9b9bb",
+    "CheckThroughAllDisclosed.py": "9a42834db34807b3bb3b5a5de5118523466a689d4ccadf43a4f15eabc6b67679",
+    "ReadThroughAllEnd.py": "10a122006abe33d8e0966520036e16d18e98eb21696fad8af5afd7cd45ac41dd"
+  },
+  "native_processes_started": 0,
+  "hidden_inputs_read": 0,
+  "writer_output_count": 0,
+  "public_reader_enabled": false,
+  "native_generated_acceptance": false
+}

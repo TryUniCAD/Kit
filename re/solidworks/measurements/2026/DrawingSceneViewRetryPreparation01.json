@@ -1,0 +1,50 @@
+{
+  "delivery_pr": 121,
+  "first_run_raw_sha256": "8b72327abb9fa7b73fc5b1b1f880b8c7f0f0be750b7736393bef39cb425e716e",
+  "first_run_sanitized_receipt_sha256": "c92db438b542bd7c68a82564dffec5b455082bf209f0bb2e35801f6d6fe31eb6",
+  "heldout_accepted": false,
+  "hidden_inputs_read": 0,
+  "input_drawings": {
+    "Inputs/Control.SLDDRW": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+    "Inputs/Generated/Disclosed01.SLDDRW": "5e5e7612b4ba3167623187673b0729ef125a55dde697f3969438c939c6124bc5",
+    "Inputs/NativeSource/Disclosed01.SLDDRW": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad"
+  },
+  "job_sha256": "ece0432aba11e6af754c86593d3c82c0fede2773cbb2a37b8cd4cee9f3c16f9c",
+  "new_tool_hashes": {
+    "InspectDrawingSceneViews.py": "e7ff63a8635e045601ccb607a1625ab43502d96806f37c352bfdb772da9e4d83",
+    "OwnedDrawingSceneViews.py": "0913a464da926cfd95e8f2d912225714ce7defbb696c6c03b6d88780468d07fe",
+    "ScopedDrawingState.py": "f22c8f664b04a406fc7b919ef3da1da0e21eaaf37a3fd740f40f83981c86d7fa"
+  },
+  "new_tools": 3,
+  "note_geometry_body_preserved_by_ast_comparison": true,
+  "packet_files": 28,
+  "packet_manifest_sha256": "9b39c970df5cc17225959ebaa05ee927573a295e009fb86fc0d34aeeda2363d0",
+  "prior_tools_unchanged": 15,
+  "proprietary_bytes_or_listings_included": false,
+  "runtime_execution": false,
+  "schema": "kit.sw2026.drawing-view-retry-preparation.v1",
+  "source_replay": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 2,
+    "data_windows": 2,
+    "imports": 0,
+    "instruction_windows": 0,
+    "modules": 2,
+    "native_execution": false,
+    "record_sha256": "47bd5819b53ca179602898917e5f279efc75478867e6ecd81ededefd71c78640",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 1
+  },
+  "source_replay_sha256": "fdf3da5fa5eee4a3b93c45e744fec23b3dd3129164aed1e6a4daa67e9d9ed214",
+  "static_ast_parsed": 18,
+  "status": "prepared; fresh root runtime pending",
+  "task": "DRAWING-NOTES-C10",
+  "tests_run": false,
+  "tools": 18,
+  "vm_calls": 0,
+  "writer_qualified": false
+}

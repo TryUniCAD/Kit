@@ -1,0 +1,1618 @@
+{
+  "case": {
+    "compared_value_count": 950,
+    "mismatch_count": 0,
+    "name": "D01FrontView",
+    "passed": true,
+    "reports": [
+      {
+        "compared_value_count": 164,
+        "mismatches": [],
+        "passed": true
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [],
+        "passed": true
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [],
+        "passed": true
+      },
+      {
+        "compared_value_count": 65,
+        "mismatches": [],
+        "passed": true
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [],
+        "passed": true
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [],
+        "passed": true
+      },
+      {
+        "compared_value_count": 65,
+        "mismatches": [],
+        "passed": true
+      }
+    ],
+    "state": "qualified_pass"
+  },
+  "comparison_contract": {
+    "all_five_native_states_compared": true,
+    "annotation_inventory_compared": true,
+    "child_identity_and_hashes_checked": true,
+    "child_relative_tolerance": 5e-07,
+    "child_volume_area_absolute_tolerance": 1e-15,
+    "numeric_absolute_tolerance": 1e-12,
+    "numeric_relative_tolerance": 1e-09,
+    "ordered_drawing_and_child_trees": true,
+    "path_role_fields": [
+      "reference_name",
+      "resolved_reference_path"
+    ],
+    "volatile_fields": [
+      "child_update_stamp"
+    ]
+  },
+  "complete_cad_acceptance": false,
+  "controls_healthy": true,
+  "distinct_processes": 8,
+  "drawing_layout_heldout_profile_passed": false,
+  "evidence_notes": [
+    "Numeric values are compared under the declared tolerances; string, structure, tree order and identity checks are exact.",
+    "Host guest_state_unknown is retained as transport scope and is not rewritten as native cleanup evidence.",
+    "No hidden source was used in generation or comparison. Complete CAD and production support remain unqualified."
+  ],
+  "expected_processes": 8,
+  "heldout_inputs_read": 0,
+  "host_preparation_sha256": "924d3496261276c8381106d91fcd851e31539bd3af2bd63e305be46e560a8354",
+  "host_report_sha256": "6a5738d529aaa97f2c2359d796fbfcc2c3be384c84180d5a88a1c5d7eee3d0c8",
+  "host_transport": {
+    "automatic_guest_kill": false,
+    "automatic_retry": false,
+    "automatic_vm_reset": false,
+    "current_user": true,
+    "external_inventory_required_before_another_batch": false,
+    "guest_state_unknown": true,
+    "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+    "status": "transport_exited",
+    "supervisor_exit_code": 0,
+    "transport_exit_confirmed": true,
+    "transport_returncode": 0
+  },
+  "input_files_immutable": true,
+  "interpretable": true,
+  "lanes": {
+    "ControlAfter": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "b0a7562f635df1fcd9316c0ceb180c5762e3d3f9e3ceea976ba2547b74f2e060",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 22556,
+          "derivative_sha256": "07846f24e975b1401b16566d629d6562f057d5803c29891f673c0164cdd3aa27",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "dbb231d3b6fd0d5e5c81b4254d9f0b04b8a8679c433ccd015ece4d1a7f3bbbe5",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    "ControlBefore": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "491315bd3e431e6c53e7eebd62f4d6159afdab80a2a91ddfe7d14ede8353e728",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 21864,
+          "derivative_sha256": "01102789c240ada709a0c26ab25fb0c080995855e8940d7b3df49213aa01e3fe",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "bbb9e4defb8d0d7e3af0627bd01ddb2f6ee00aa171ad91eb044f2a78a7341cc8",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    "D01FrontViewGenerated": {
+      "child_sha256": "b75cb20722435a700fb28e74ae84c90b6bde60188fcbc0cf4c605a30c1ad4627",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "0a2798f8c5b91fa3ed8471074571837b3210e94290bb3317b8a8eff4cb89c1de",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 20257,
+          "derivative_sha256": "f05e19440d4060bbd602d9f889269b9f169d51e5ee6e5251a0b38eaefb8bd1a8",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "2d2801a736728eb9207e9965dc70e4d496b6858caf9f6ddd9aa87ac63ce766dc",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "de708c560562a022831b0abd01e308da30e9afcff5fd63e8ec0a2c9ee5dda8d0"
+    },
+    "D01FrontViewSource": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "7fd4ee02702e31db63ff646cacc901970450896b5a0810b6fc9e60575baee108",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 22734,
+          "derivative_sha256": "96f98f97c2b86b633cb2b7f5807f9c582197a7e901add87c5a5bf51e6225a1a2",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "c53af78a7e4db31bfc81fe4407245cfeadb9820def00fa97bb92acaf3ae988e4",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    }
+  },
+  "mode": "disclosed",
+  "neutral_binding_sha256": "3611c049a520b0d3855d70c5e7da650dc5e24e18a41bb349f6cd849ad63b06e1",
+  "packet_sha256": "9cf0198b96f2282693924a76e2da701a7d830fbdb8d3315533d8373a21c5d787",
+  "paired_semantic_profile_passed": true,
+  "passed": true,
+  "phase_count": 8,
+  "prior_failure_receipt": "DrawingBlindDisclosedOrderMismatchNative01.json",
+  "raw_result_sha256": "df1e8b086d1feeb81bfa4a74113a8d2655a3df2fb258282c90d57d6b3b3769b0",
+  "runner_sha256": "d03d73ed1cd964142562905c0955e9a528d341f2c62fedb41b446ba2e2eea2fa",
+  "schema": "kit.sw2026.blind-standard-drawing-disclosed-native-receipt.v1",
+  "scope": "disclosed D01 ordinary populated standard-view drawing and independent rectangular child, exact paired layout/history profile",
+  "source_count": 3685,
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "source_specs_sha256": "72d46ec33a13b1d5074e053e4052d31afa82ab575c395affcea8d9c247973b73",
+  "tools_sha256": "be6e5d6f2ca7e1be468d5915c8c45ab2cb65a2e316cc9fe00d7748f08268b349",
+  "writer_delivery_revision": "58066ce573fd84f14030ff60609b47fe0a5d24b4",
+  "writer_source_manifest_sha256": "ba27d8eb41a580553678995b9d863a1162325b2d3dcf17c31a9e5c8b96840293"
+}

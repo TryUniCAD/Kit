@@ -1,0 +1,19 @@
+# Preserve the blank rewrite inputs while repairing observer startup
+
+The first private rewrite batch has no native file acceptance result. Four SDK builds passed in two identical pairs with zero guarded writer input reads, but both control workers exited before any native process or record. The privacy-safe root diagnostic identifies missing `pythoncom` under isolated Python. The same exact observer imports under the existing legacy environment. [Negative receipt](../measurements/2026/BlankRewriteObserverIsolation01.json)
+
+The original native phase helper and full SDK closure remain unchanged. `generation` and `worker` function bodies are AST-identical to the first packet. Only the native subprocess environment changes from isolated mode to the bytecode-suppressed legacy launch. SDK builds retain their original isolated mode. A passive `verify-observer` import gate checks the actual observer modules before another private run.
+
+The [retry method](BlankRewriteHeldoutObserverRetry2026.json) binds the exact failed binding/export/raw-result hashes. `prepare-retry` reads those guest-local metadata records and creates a new observer binding/output root. It requires the original four SDK build reports, both actual first/second generated copies, exact current hashes, unchanged layout and provenance, explicit old save events and the old source prediction. It reuses the original final candidate paths and bytes. It creates no new SDK model or saved input, and it does not change any first-run file.
+
+The new native generation gate records the retained predecessor generation descriptor under the new binding hash. The original source/rewrite/control observation, strict tree/sheet comparisons, immutable input checks, healthy-control requirement and fresh reopen remain unchanged. The retry export explicitly records reused builds, zero new SDK builds and the predecessor result hash. All raw paths, intent, logs and derivatives stay guest-local.
+
+Source manifest SHA-256 remains `80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80`. No writer, public registry, source semantic field or result attestation changes. Root must commit this observer protocol before native execution, then separately adjudicate the complete twelve-phase result. The old false result remains historical evidence. [Original protocol](BlankRewriteHeldoutProtocol2026.md) · [Import-environment gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/Rewrite/IsolatedPythonHidesUserSiteComObservers.md)
+
+## Native outcome
+
+Both locked canonical SDK source layouts and their independently generated rewrites pass native open, rebuild, scale edit, save and fresh reopen. Both control lifecycles pass. The twelve distinct launches verify thirty sheet states and 120 ordered tree rows. The retry reuses both original byte-identical candidate pairs and performs zero new SDK builds. Both canonical sources and both candidate pairs retain their hashes. The sanitized result verifies the original guarded input-read count of zero. [Native receipt](../measurements/2026/BlankRewriteHeldoutNative01.json)
+
+The first retry dispatch returned Parallels status 255 before the generation gate, any phase record or a running observer existed. A guest inspection verified that the output contained only the bound metadata file. The identical observer then ran in a fresh detached guest launcher with that binding. The first successful phase followed the same exact native method. The two status-255 and import-only boundaries supply no native acceptance credit. All private observations and derivatives remain in the guest.
+
+These results qualify the bounded rewrite from the exact canonical SDK drawing profile. Original SOLIDWORKS source support, linked drawings and annotations use distinct production gates. The measured generator kept its provisional output flags until this report. The public registration has its own source revision and replay.

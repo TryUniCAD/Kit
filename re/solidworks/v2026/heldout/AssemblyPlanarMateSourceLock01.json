@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "source_revision": "d40009302a9b554bac7bd07c61045d251845e502",
+  "job_sha256": "50caebaee2655d3ee409d1cb91db03c1225a6bda149ee7a9de68637c37d3a7fb",
+  "specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+  "tool_sha256": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "distinct_processes": 12,
+  "started_at": 1794907514.2140994,
+  "finished_at": 1794907963.2381666,
+  "schema": "kit.sw2026.planar-mate-source-lock.v1",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "private_inspection_sha256": "a1473bd4fbc9db2b7fb767845eec6a620b130586ed28b7069b9e714f63c1b5c3",
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "heldout_results_sealed": true,
+  "cases": [
+    {
+      "name": "A17PlaneCoincident",
+      "split": "discovery",
+      "passed": true,
+      "native_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "native_bytes": 48227,
+      "phases": 2,
+      "record_sha256": [
+        "7ab1bfd1188480ff0d813b133cbcc33f39f9a93d40c103bf97398040df9e9262",
+        "365f0418758fa177ee3d51d1ecdb898d9f57c82ec19dd72476e890b8abdd9f1d"
+      ],
+      "numeric_checks": 185,
+      "synchronized_child": {
+        "native_sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+        "native_bytes": 60059,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    },
+    {
+      "name": "A18PlaneDistance",
+      "split": "discovery",
+      "passed": true,
+      "native_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "native_bytes": 57875,
+      "phases": 2,
+      "record_sha256": [
+        "7d64a80674e9a2cf2ace9fb9999e795f0dbeaacdca381cc7d4739d1258ac0699",
+        "60a18de825ef771b93f0478d26210c06b35b3764f12bab5237d159d686b9a1f2"
+      ],
+      "numeric_checks": 185,
+      "synchronized_child": {
+        "native_sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+        "native_bytes": 59729,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    },
+    {
+      "name": "A19PlaneParallel",
+      "split": "discovery",
+      "passed": true,
+      "native_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+      "native_bytes": 51399,
+      "phases": 2,
+      "record_sha256": [
+        "dc62dff94e08efd7082d477c9989be2dfe0c9190364917e201b81cf385dd1714",
+        "2171c9907a835eff4e0f2bf826fb603e1593c142544dd4f3f39765a4367483bd"
+      ],
+      "numeric_checks": 185,
+      "synchronized_child": {
+        "native_sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+        "native_bytes": 60693,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    },
+    {
+      "name": "A20HeldoutPlaneCoincidentDistance",
+      "split": "heldout",
+      "passed": true,
+      "native_sha256": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd",
+      "native_bytes": 53112,
+      "phases": 2,
+      "record_sha256": [
+        "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+        "f4cbcea3b25eeb7f34295c861cc0bfc0a5669cfc10aa0225ec0136f45e789e15"
+      ],
+      "numeric_checks": 185,
+      "synchronized_child": {
+        "native_sha256": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+        "native_bytes": 59783,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    },
+    {
+      "name": "A21HeldoutPlaneParallelDistance",
+      "split": "heldout",
+      "passed": true,
+      "native_sha256": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0",
+      "native_bytes": 50237,
+      "phases": 2,
+      "record_sha256": [
+        "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+        "8f8528e89b21a4f02099651f509257dab14dddf881e53bf89fdb71fd6612167a"
+      ],
+      "numeric_checks": 265,
+      "synchronized_child": {
+        "native_sha256": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+        "native_bytes": 60080,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    }
+  ],
+  "scope": "Native reference source locks for coincident, parallel and distance plane mates. Writer code for the mate graph follows these sources.",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "tool_source_manifest_sha256": "3fbd73c8192a82dcb835ac8bf5552dbe3172945ca9dcb18dcc12a3bb8c92c412",
+  "tools_sha256": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AssemblyMateSourceSpecs01.json": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "prior_reference_enum_observation_sha256": "d71588e7e1622ebbe2c0d13130ecc0631104c14e9c405372819e9038c15bd301",
+  "private_transport_sha256": "2a56555080a3acba2bdb63dfe538b57143704d159c5931dbd458af555e73741c",
+  "private_source_lock_sha256": "92a8f99288b3193bf0b39bd7694a63d8c6475df0c158ba39778b44ae47e1b1e0"
+}

@@ -1,0 +1,191 @@
+{
+  "cases": [
+    {
+      "body_feature_list_empty": true,
+      "case": "ScopePairA",
+      "consumed_atom_producers": {
+        "101": 31,
+        "102": 37
+      },
+      "cut_output_atoms": [
+        103,
+        104
+      ],
+      "edited": false,
+      "runtime_external_access_attempts": 0,
+      "selected_wrappers_in_wire_order": [
+        {
+          "f100": 58,
+          "f104": 103,
+          "f108": 31,
+          "f18": 101,
+          "f1c": 101,
+          "n110": 1
+        },
+        {
+          "f100": 58,
+          "f104": 104,
+          "f108": 37,
+          "f18": 102,
+          "f1c": 102,
+          "n110": 1
+        }
+      ],
+      "source_sha256": "797520b4695d7ef9d6b390fd30a925c5795a9f492201a0b5863b18193977f9b1",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25466,
+          "map_counter": 112,
+          "sha256": "92d3c7344d4ddbdbc9e1386079dbd3960568813f27aa3e90e73a8e1c104e2bc6"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25674,
+          "map_counter": 460,
+          "sha256": "8ce0ff0aba2d43361b0c6b65c92fc1ed6199ecfad52bc70f659cea87dad66ea9"
+        }
+      }
+    },
+    {
+      "body_feature_list_empty": true,
+      "case": "ScopePairA",
+      "consumed_atom_producers": {
+        "101": 31,
+        "102": 37
+      },
+      "cut_output_atoms": [
+        103,
+        104
+      ],
+      "edited": true,
+      "runtime_external_access_attempts": 0,
+      "selected_wrappers_in_wire_order": [
+        {
+          "f100": 58,
+          "f104": 103,
+          "f108": 31,
+          "f18": 101,
+          "f1c": 101,
+          "n110": 1
+        },
+        {
+          "f100": 58,
+          "f104": 104,
+          "f108": 37,
+          "f18": 102,
+          "f1c": 102,
+          "n110": 1
+        }
+      ],
+      "source_sha256": "a03c1468b4962025a7a6f0b3dc531177a596fad8d365df53cf779cf0f3d90f25",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25476,
+          "map_counter": 112,
+          "sha256": "08ac87f0b07b8024ba8dab6637abfa5177d9f1af5720f548a217a933e3e1282c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25832,
+          "map_counter": 460,
+          "sha256": "0acdbcf52d36017a966fbcba15de45fabaabe8c9d8956dec028ebe3b0d0cff39"
+        }
+      }
+    },
+    {
+      "body_feature_list_empty": true,
+      "case": "ScopePairB",
+      "consumed_atom_producers": {
+        "101": 31,
+        "102": 37
+      },
+      "cut_output_atoms": [
+        103,
+        104
+      ],
+      "edited": false,
+      "runtime_external_access_attempts": 0,
+      "selected_wrappers_in_wire_order": [
+        {
+          "f100": 58,
+          "f104": 103,
+          "f108": 31,
+          "f18": 101,
+          "f1c": 101,
+          "n110": 1
+        },
+        {
+          "f100": 0,
+          "f104": 0,
+          "f108": 37,
+          "f18": 102,
+          "f1c": 102,
+          "n110": 1
+        }
+      ],
+      "source_sha256": "de0a62060b102336ab71664f274c92a5af689a070c858e20e7f8ded4da272a6a",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25466,
+          "map_counter": 112,
+          "sha256": "6a1308237cebd7a621b4e0d17b8790fb7df703e8c1fd0ee71a63cded4f16cccf"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 25890,
+          "map_counter": 460,
+          "sha256": "f6b2a32ea59f9731b233e8d897b1edb95c290bc5f137f079f97d354349ffd192"
+        }
+      }
+    },
+    {
+      "body_feature_list_empty": true,
+      "case": "ScopePairB",
+      "consumed_atom_producers": {
+        "101": 31,
+        "102": 37
+      },
+      "cut_output_atoms": [
+        103,
+        104
+      ],
+      "edited": true,
+      "runtime_external_access_attempts": 0,
+      "selected_wrappers_in_wire_order": [
+        {
+          "f100": 58,
+          "f104": 103,
+          "f108": 31,
+          "f18": 101,
+          "f1c": 101,
+          "n110": 1
+        },
+        {
+          "f100": 0,
+          "f104": 0,
+          "f108": 37,
+          "f18": 102,
+          "f1c": 102,
+          "n110": 1
+        }
+      ],
+      "source_sha256": "e5d9b03ecdbec2cbfee2cdb8ff21d62db68cc864c8e675fbf151dee332f5bcbe",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25476,
+          "map_counter": 112,
+          "sha256": "516150eaa0599a33bcf878f328bcb245066b25390d14d2bbc047f060ed57a100"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 26048,
+          "map_counter": 460,
+          "sha256": "6fbee20ab251f3f615165ae24284cd8744db98871a76c6ae807cbf0f898731a2"
+        }
+      }
+    }
+  ],
+  "heldout_cases": 0,
+  "oracle_build": "34.5.2.0604",
+  "runtime_external_access_attempts": 0,
+  "schema": "kit.sw2026.explicit-two-selected-revolve-cut.v1",
+  "source_lock_sha256": "f3caaecc7fce3f4f2feb50cd09e24b2b2b9ef78779e493d10ac71b950854186b",
+  "streams": 8,
+  "writer_outputs": 0
+}

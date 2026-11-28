@@ -1,0 +1,110 @@
+{
+  "construction_revision": "1f0235b91c8ce56e66ae7e4202898dbff01777d1",
+  "custody_sha256": "f48495c0e0926448e59e7be0ee9da1d42ad3d4286e45fe7c19cbefd8a983f39b",
+  "freeze_sha256": "151a9ea9190a6784f2820cb68d27ed14f5ebdad79514cf2b1cdfee79d06e604d",
+  "fresh_processes": 8,
+  "healthy_controls": true,
+  "heldout_passed": 2,
+  "idle_after": true,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "phases": [
+    {
+      "checks": 0,
+      "control": "ControlRectangle.SLDPRT",
+      "passed": true,
+      "phase": "before",
+      "record_sha256": "98535b4b017d1b7300fe0aaac0dfa496e43518bd10a05e0831a56c4c82488df1",
+      "slot": null
+    },
+    {
+      "checks": 0,
+      "control": "ControlCircle.SLDPRT",
+      "passed": true,
+      "phase": "before",
+      "record_sha256": "b4515c02985e20ef0611a1cab380046713da835cf84d2b9f76713b2144ca7b7b",
+      "slot": null
+    },
+    {
+      "checks": 287,
+      "control": null,
+      "passed": true,
+      "phase": "edit",
+      "record_sha256": "4713166a618bc4f29de736df7222e722512dafbea317ad93b9bf56593a887794",
+      "slot": "Slot01"
+    },
+    {
+      "checks": 168,
+      "control": null,
+      "passed": true,
+      "phase": "reopen",
+      "record_sha256": "bb6005f94075398108d8e83941cc3a2545cd00d06ecc282b68a5eec876502cb9",
+      "slot": "Slot01"
+    },
+    {
+      "checks": 287,
+      "control": null,
+      "passed": true,
+      "phase": "edit",
+      "record_sha256": "243659e1e78ad22d5e2eb5b41ab342f46eac7c9c6f62f6e0efc251d00ffc7e5e",
+      "slot": "Slot02"
+    },
+    {
+      "checks": 168,
+      "control": null,
+      "passed": true,
+      "phase": "reopen",
+      "record_sha256": "3c41eeccecfd33ab9b555c19a1429cc60d836aa4ee95e61a5b29f81c3a79fcd0",
+      "slot": "Slot02"
+    },
+    {
+      "checks": 0,
+      "control": "ControlRectangle.SLDPRT",
+      "passed": true,
+      "phase": "after",
+      "record_sha256": "38f00c09b7ffc609f9c24e119aa86eb9e64bfda994d7194940bfae8acbb82047",
+      "slot": null
+    },
+    {
+      "checks": 0,
+      "control": "ControlCircle.SLDPRT",
+      "passed": true,
+      "phase": "after",
+      "record_sha256": "1e38f416dbcafc0e2a693517bf8033f588a8f92ff3048b8ed90ab46258ecc630",
+      "slot": null
+    }
+  ],
+  "prewriter_lock_sha256": "e152ceab9e1738d85058e6bc85cb46422b64cf92104b3ad0ba4726bee172a43e",
+  "slots": [
+    {
+      "editable_drivers": 1,
+      "edited_sha256": "1c1845d93437cef0157e8d9d9ff256d966181ebdfad1898234039f7d8d27db05",
+      "generated_sha256": "ad3ee9c1c989a8c25193c862453744c023b899e117c91cf725555f71f87650fa",
+      "generated_streams": 10,
+      "guarded_writer_processes": 2,
+      "linked_replays": 2,
+      "ordered_tree_rows": 25,
+      "paired_numeric_checks": 64,
+      "paired_states": 4,
+      "passed": true,
+      "runtime_accesses": 0,
+      "slot": "Slot01"
+    },
+    {
+      "editable_drivers": 1,
+      "edited_sha256": "a6b9f9e2333cca2d280666d7e77d5033c04dac26dc728dd23e0062c62563bc5b",
+      "generated_sha256": "3ba01cf3431278b984cfc25e50c75a4518427bd266ae2b9ece8cd9a3bdbd6563",
+      "generated_streams": 10,
+      "guarded_writer_processes": 2,
+      "linked_replays": 2,
+      "ordered_tree_rows": 25,
+      "paired_numeric_checks": 64,
+      "paired_states": 4,
+      "passed": true,
+      "runtime_accesses": 0,
+      "slot": "Slot02"
+    }
+  ],
+  "source_inputs_unchanged": true
+}

@@ -1,0 +1,345 @@
+{
+  "angular": {
+    "body_va": "0x45bf6ec0",
+    "cross_libm_integer_boundary_cases_unqualified": true,
+    "default_input": 26,
+    "default_result": 4,
+    "formula": "0 if n <= 6 else trunc(log(n - 6) * 1.4426950408889634)",
+    "input_key": "0x176",
+    "math_import": "api-ms-win-crt-math-l1-1-0.dll!log",
+    "math_thunk_va": "0x45ca9f52",
+    "multiplier": 1.4426950408889634,
+    "multiplier_va": "0x45ff3500",
+    "ui_getter_va": "0x45a34960"
+  },
+  "code_ranges": {
+    "angular_body": {
+      "code_sha256": "c137b4003c2358099546625a456be5b1f08987fab60b7cd82d0bfafc1089e272",
+      "end_va_exclusive": "0x45bf6f55",
+      "start_va": "0x45bf6ec0"
+    },
+    "boolean_payload_factory": {
+      "code_sha256": "e5aa896db8c4f3eab07e10149f871053da22c6f4868788dcc32c2f9863de9d70",
+      "end_va_exclusive": "0x18000cb8c",
+      "start_va": "0x18000ca00"
+    },
+    "double_cache_reader": {
+      "code_sha256": "edfd073ad6dba166d39000cf67c92a3010c244e0e7cf0d0264f9bac2278d88bf",
+      "end_va_exclusive": "0x18000974c",
+      "start_va": "0x1800096b0"
+    },
+    "double_payload_factory": {
+      "code_sha256": "66dc155231805cb7c03124eba0d1c84fe7bd5f4d73b37b0ea0a69a167569c9ef",
+      "end_va_exclusive": "0x18000ceb9",
+      "start_va": "0x18000cd20"
+    },
+    "get_boolean": {
+      "code_sha256": "265b3f83df80229294b2a6e27c21b7d12a09f2d84c97f50df772689f7956e6a4",
+      "end_va_exclusive": "0x180063706",
+      "start_va": "0x1800636b0"
+    },
+    "get_double": {
+      "code_sha256": "9cd5136560766dcfd14a095c9f45d968d383393ff17a392b8c57bc4871fab9d1",
+      "end_va_exclusive": "0x180063521",
+      "start_va": "0x1800634c0"
+    },
+    "get_integer": {
+      "code_sha256": "c3aa4369b685337c03026973076ef58645d94a9dcacee7301e1a961a504022d5",
+      "end_va_exclusive": "0x180063589",
+      "start_va": "0x180063530"
+    },
+    "integer_cache_reader": {
+      "code_sha256": "2e97d01cbbc4e1224512670be28021c7525d80d38a5ff266c2b6ed8b50ffd098",
+      "end_va_exclusive": "0x18000960c",
+      "start_va": "0x180009570"
+    },
+    "integer_payload_factory": {
+      "code_sha256": "37c61e8f355a90cee23ad1896f142ea5e791e9ebdb51cbdd6da1ec69561fb61f",
+      "end_va_exclusive": "0x18000c86c",
+      "start_va": "0x18000c6e0"
+    },
+    "model_part_active_constructor": {
+      "code_sha256": "7b4e722302717f2661b1ee0895d5e88cce37dca09723f19bf72536b33af28d94",
+      "end_va_exclusive": "0x4c19fbc6",
+      "start_va": "0x4c19f170"
+    },
+    "model_part_default_constructor": {
+      "code_sha256": "b400c5f14751be122484164313b865d8a82f7eda34d91f1d53df06532f750d85",
+      "end_va_exclusive": "0x4c19f164",
+      "start_va": "0x4c19e7b0"
+    },
+    "settings_constructor": {
+      "code_sha256": "3d06352330c84dacc5af4055d5eeba352ac5f6be51ebee3e10e7d1f930646aa0",
+      "end_va_exclusive": "0x180061d01",
+      "start_va": "0x18000dae0"
+    },
+    "settings_default_main": {
+      "code_sha256": "6b62012559b7c94219af0553dd327270e53a36c00cfdef03c7d06e49b705f74c",
+      "end_va_exclusive": "0x1800c8ffa",
+      "start_va": "0x1800c2dd0"
+    },
+    "settings_density_default_group": {
+      "code_sha256": "5a5210fe51a58b5382b803de82fbcd6b9b918e1cfcc4f271e677844e60d9eb6c",
+      "end_va_exclusive": "0x1800b6e41",
+      "start_va": "0x18008cf40"
+    },
+    "settings_integer_default_group": {
+      "code_sha256": "a93f4d00080d540b38dc74f1c81547e5a62ef3249ea0262412399b840cb2e2ed",
+      "end_va_exclusive": "0x1800c28b5",
+      "start_va": "0x1800bce40"
+    },
+    "ui_model_constructor": {
+      "code_sha256": "bf5c4e74fb9831332234ac17884d67d733990bdc38fe933eb1240314a06d90b0",
+      "end_va_exclusive": "0x4974a371",
+      "start_va": "0x497486b0"
+    },
+    "ui_model_serialize": {
+      "code_sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e",
+      "end_va_exclusive": "0x49704a43",
+      "start_va": "0x497011e0"
+    },
+    "ui_part_constructor": {
+      "code_sha256": "b37829dc6922342d2b368d70fc8d656998e7e018533841e034751166f1a2be1d",
+      "end_va_exclusive": "0x33374c9b",
+      "start_va": "0x33374980"
+    }
+  },
+  "compression_binding": {
+    "get_boolean_call_va": "0x49701978",
+    "load_gate": "document version >= 0xa89",
+    "load_member_store_va": "0x497039c2",
+    "member_store_va": "0x4970197e",
+    "serialize_va": "0x497011e0",
+    "wire_type": "low byte of boolean result",
+    "wire_write_va": "0x4970198a"
+  },
+  "defaults": {
+    "fa58": 26,
+    "fa5c": 4,
+    "fa60": 25,
+    "fa64": true,
+    "fa90_stream_compression": false,
+    "model_f1418_hatch_name": "ANSI31 (Iron BrickStone)",
+    "ui_part_density_1688": 1000.0
+  },
+  "getter_rule": {
+    "current_or_primary_index": -1,
+    "double_cache_reader": "0x1800096b0",
+    "entry_key_offset": "0x20",
+    "entry_primary_object_offset": "0x30",
+    "entry_type_offset": "0x28",
+    "environment_boolean_getter": "0x45a29b50",
+    "environment_double_getter": "0x45a2b720",
+    "environment_integer_getter": "0x45a2d950",
+    "environment_registry_offset": "0x310",
+    "integer_cache_reader": "0x180009570",
+    "nonzero_mode": "calls readRegistryValue instead",
+    "null_registry_settings_result": 0,
+    "registry_settings_offset": "0x640",
+    "settings_mode_zero": "read cached map",
+    "zero_argument_is_numeric_fallback": false
+  },
+  "hatch": {
+    "active_constructor": {
+      "hatch_ctor_call_va": "0x4c19f946",
+      "load_call_va": "0x4c19f8f6",
+      "load_id_va": "0x4c19f8ed",
+      "owner_store_va": "0x4c19f951"
+    },
+    "angle": 0.0,
+    "class": "gcXhatch_c",
+    "confidence": "source-confirmed, no saved file used",
+    "default_constructor": {
+      "hatch_ctor_call_va": "0x4c19ef94",
+      "load_call_va": "0x4c19ef44",
+      "load_id_va": "0x4c19ef3b",
+      "owner_store_va": "0x4c19ef9f"
+    },
+    "english_name": "ANSI31 (Iron BrickStone)",
+    "flags": [
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      0
+    ],
+    "hatch_ctor_iat": "0x4cd332a8",
+    "hatch_ctor_import": {
+      "module": "SLDMFCU.dll",
+      "symbol": "??0gcXhatch_c@@QEAA@PEB_WNNW4gcHatchingOveride_e@@HHHHH@Z"
+    },
+    "language_id": 1033,
+    "language_neutral_caption_qualified": false,
+    "name_origin": "MFC LoadString resource 0x3c2c in both native moPart constructors",
+    "part_owner_field": "f1418",
+    "plain_ANSI31": "deliberate authored pattern token rather than exact full English constructor caption",
+    "resource_block_bytes": 1738,
+    "resource_block_data_rva": "0x303f60",
+    "resource_id": "0x3c2c",
+    "resource_payload": {
+      "available_language_ids": [
+        1033
+      ],
+      "block_bytes": 1738,
+      "block_data_rva": "0x303f60",
+      "block_file_offset": "0x2ffb60",
+      "block_id": 963,
+      "codepage": 0,
+      "language_id": 1033,
+      "length_word_file_offset": "0x300112",
+      "resource_data_entry_file_offset": "0x17df0",
+      "resource_id": "0x3c2c",
+      "resource_type": "RT_STRING (6)",
+      "string_index": 12,
+      "text": "ANSI31 (Iron BrickStone)",
+      "text_bytes": 48,
+      "text_file_offset": "0x300114",
+      "text_sha256": "80c8ffb06feec058f4521c67998f516cf59116db99a2b48b49d3b159b839978a",
+      "utf16_code_units": 24
+    },
+    "scale": 1.0
+  },
+  "modules": [
+    {
+      "bytes": 1411160,
+      "image_base": "0x180000000",
+      "machine": "0x8664",
+      "name": "sldsettingsu.dll",
+      "sha256": "2b7496d4e0bf9271eb774ff92a6a7c6f9333643f675f7b57ebba5933cd633e95"
+    },
+    {
+      "bytes": 16519768,
+      "image_base": "0x453f0000",
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "bytes": 36036696,
+      "image_base": "0x48ea0000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 3340888,
+      "image_base": "0x332a0000",
+      "machine": "0x8664",
+      "name": "sldprtu.dll",
+      "sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494"
+    },
+    {
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "image_base": "0x404e0000",
+      "machine": "0x8664",
+      "name": "sldresu.dll",
+      "sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111"
+    }
+  ],
+  "provenance": {
+    "cleanup_pending": false,
+    "heldout_inputs_read": 0,
+    "native_saved_inputs_read": 0,
+    "repo_files_modified": 0,
+    "task_owned_hopper_closed": true,
+    "vendor_runtime_executed": false,
+    "vm_accessed": false
+  },
+  "rea_evidence": [
+    "ev_c1eaabe4753d5779eeacec1e4441f0a008e0eefc1b5e3de2a49d002b2a728006",
+    "ev_6bf25071543359426882037ef404a9d918c4f0f4dff92373ed44cf20d5b0a34b",
+    "ev_17dc90484b909e273cecf99eaa51d909cb6f4f54894a90e42207f6e876aab8b1",
+    "ev_398063a3b8e811b6e8664c93decf0168351cadec32edccca656cbbfc5b7aa510"
+  ],
+  "schema": "kit.sw2026.definition-factory-defaults-ledger.v1",
+  "scope": "Pinned original registered factory initial settings and constructor resource vocabulary; no actual registry override or physical model-density equivalence claim",
+  "settings_keys": [
+    {
+      "argument": "r9d",
+      "default": 26,
+      "definition_member": "a58",
+      "enum_name": "TessellationNumber",
+      "enum_name_va": "0x180100da0",
+      "enum_registration_va": "0x1800211bb",
+      "getter_va": "0x1800637b0",
+      "helper_va": "0x18000c6e0",
+      "key": "0x176",
+      "payload_value_offset": "0xc",
+      "type": 0,
+      "value_registration_va": "0x1800be43d"
+    },
+    {
+      "argument": "r9d",
+      "default": 25,
+      "definition_member": "a60",
+      "enum_name": "WireframeTessNumber",
+      "enum_name_va": "0x180100ae8",
+      "enum_registration_va": "0x18001fa8b",
+      "getter_va": "0x1800637b0",
+      "helper_va": "0x18000c6e0",
+      "key": "0x15a",
+      "payload_value_offset": "0xc",
+      "type": 0,
+      "value_registration_va": "0x1800beb4c"
+    },
+    {
+      "argument": "r9d",
+      "default": true,
+      "definition_member": "a64",
+      "enum_name": "UseOptimalTessNumber",
+      "enum_name_va": "0x1801017f8",
+      "enum_registration_va": "0x180026e7b",
+      "getter_va": "0x1800637b0",
+      "helper_va": "0x18000ca00",
+      "key": "0x1e6",
+      "payload_value_offset": "0xc",
+      "type": 1,
+      "value_registration_va": "0x1800be5fd"
+    },
+    {
+      "api_enum_argument": 7,
+      "argument": "xmm3",
+      "default": 1000.0,
+      "definition_member": "1688",
+      "enum_name": "DensityValue",
+      "enum_name_va": "0x180100010",
+      "enum_registration_va": "0x1800198d3",
+      "getter_va": "0x1800637c0",
+      "helper_va": "0x18000cd20",
+      "key": "0xe4",
+      "literal_va": "0x180126ce0",
+      "payload_value_offset": "0x10",
+      "public_api_name": "swMaterialPropertyDensity",
+      "public_api_name_va": "0x180119e20",
+      "type": 3,
+      "value_registration_va": "0x1800a173a"
+    },
+    {
+      "argument": "r9d",
+      "default": false,
+      "definition_member": "a90",
+      "enum_name": "StreamCompression",
+      "enum_name_va": "0x1800ff698",
+      "enum_registration_va": "0x18001410b",
+      "getter_va": "0x1800637b0",
+      "helper_va": "0x18000ca00",
+      "key": "0x7a",
+      "payload_value_offset": "0xc",
+      "type": 1,
+      "value_registration_va": "0x1800c356b"
+    }
+  ],
+  "unknowns": [
+    "Effective values after user, administrative or migrated registry overrides were not measured",
+    "The source trace does not explain why three measured ordinary source parts have mass/volume ratio 1.0 despite this distinct UI material-density initial preference of 1000.0",
+    "The precise physical-density application and conversion boundary from the UI field to actual model/body material density remains outside this trace",
+    "No complete valid range or registry-missing branch proof is claimed",
+    "The logarithmic rule is pinned to the native log-times-constant sequence; arbitrary cross-libm boundary equivalence is not qualified"
+  ]
+}

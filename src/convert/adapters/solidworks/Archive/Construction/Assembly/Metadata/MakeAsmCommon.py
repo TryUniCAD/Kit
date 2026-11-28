@@ -1,0 +1,51 @@
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
+from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyInput import (
+    AssemblyInput,
+)
+from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState import (
+    AssemblyState,
+)
+from convert.adapters.solidworks.Archive.Construction.Assembly.Metadata.Information.MakeAsmInfo import (
+    MakeAsmInfo,
+)
+from convert.adapters.solidworks.Archive.Construction.Metadata.MakeBiography import (
+    MakeBiography,
+)
+from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist import (
+    MakeFreshHist,
+)
+from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
+from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
+from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
+from convert.adapters.solidworks.Archive.History.WriteHistMut import WriteHistMut
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.ParseDisplay import KInformationStream
+
+
+# recursive and flat assemblies need identical header definition and history construction while their computed document indexes have different closure scopes
+def MakeAsmCommon(
+    StateValue: AssemblyState,
+    InputValue: AssemblyInput,
+    HeadersValue: tuple[ArchiveNode, ArchiveNode],
+    ManagerHeader: ArchiveNode,
+    DefinitionValue: ModelDefGraph,
+) -> dict[str, bytes]:
+    HeaderValue, TopHeader = HeadersValue
+    StreamsValue = {
+        "Header2": WriteHeadGraph(TopHeader, 19000),
+        "Contents/Config-0-ModelHeader": WriteHeadGraph(HeaderValue, 19000),
+        "Contents/CMgrHdr2": WriteMgrHeader(ManagerHeader, 19000)[0],
+        "Contents/Definition": WriteModelDef(DefinitionValue).OutputValue,
+        "_MO_VERSION_19000/Biography": WriteHistMut(MakeBiography(), 19000)[0],
+        "_MO_VERSION_19000/History": WriteHistMut(
+            MakeFreshHist(InputValue.HistoryValue), 19000
+        )[0],
+    }
+    if InputValue.InformationValue is not None:
+        StreamsValue[KInformationStream] = MakeAsmInfo(
+            StateValue,
+            HeadersValue,
+            InputValue.OutputValue,
+            InputValue.InformationValue,
+        )
+    return StreamsValue

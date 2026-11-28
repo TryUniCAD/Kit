@@ -1,3 +1,5 @@
+from pathlib import PureWindowsPath
+
 from convert.adapters.solidworks.Archive.Construction.Files.MakeSelfFile import (
     MakeSelfFile,
 )
@@ -20,6 +22,7 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import
     PersistentIds,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Container.Format import KPartSuffix
 
 
 # both standalone roles must share the same self record while the manager projects the actual part
@@ -35,6 +38,8 @@ def MakePartHeads(
         raise ValueError("SOLIDWORKS manager header requires the same actual part")
     if type(OutputValue) is not SelfFileInput:
         raise TypeError("SOLIDWORKS part headers require an explicit self file input")
+    if PureWindowsPath(OutputValue.PathName).suffix.casefold() != KPartSuffix:
+        raise ValueError("native self path must identify a part")
     ManagerHeader = MakeMgrHeader(ManagerValue, OutputValue.SavedAt)
     ConfigValue = ArchiveNode.RequireNode(ManagerValue.FieldsValue["f360"])
     ModelHeader = MakePartHeader(RootValue, InputValue, Allocator, True)

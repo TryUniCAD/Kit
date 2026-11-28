@@ -1,0 +1,924 @@
+{
+  "baseline": {
+    "changed_diagnostic": "local circular bore does not join its two exact cap stations",
+    "older_cases": 10,
+    "previous_receipt": {
+      "bytes": 29726,
+      "sha256": "cc1c3a00165aa07e97fce3ee0da00152252ef7e3bc2a2771e05fa925fa59db73"
+    },
+    "runtime_data_reads": 0,
+    "signed_perforated_cases": 2,
+    "stream_hashes": 144
+  },
+  "compressor": "1.2.12",
+  "disclosed": {
+    "all_current_generated_cases_native_qualified": false,
+    "disclosed_census": {
+      "classes": "SCH_3701250_37102_13006",
+      "inventory_sha256": "d3d8987a512a9ec9c619c9f04bbca9622721aacfd45d4d140cccd8422c4426f8",
+      "max_cap_loops": 2,
+      "more_than_two_loops": 0,
+      "part_count": 129,
+      "roots": [
+        "re/solidworks/v2026/corpus",
+        "re/automation/PairedCaptures"
+      ]
+    },
+    "disclosed_ingredients": {
+      "bytes": 29726,
+      "sha256": "cc1c3a00165aa07e97fce3ee0da00152252ef7e3bc2a2771e05fa925fa59db73"
+    },
+    "measured_single_oblique_cylinder": {
+      "bytes": 28041,
+      "sha256": "7d18092bcf71dc7a10ef179eb9016c0eb56486ea495b4569eaddbb7e8008588c"
+    },
+    "native_build": "34.5.2.0604",
+    "single_cylinder_axis": [
+      0.6666666666666666,
+      -0.3333333333333333,
+      0.6666666666666666
+    ]
+  },
+  "generate": {
+    "cases": {
+      "ObliqueTriple": {
+        "archive_ownership": {
+          "activation_mark": 2,
+          "atom_body_tag": 0,
+          "atom_display_mode": 6,
+          "atom_id": 101,
+          "atom_map_index": 51,
+          "body_stamp": 102,
+          "configured_body_count": 1,
+          "feature_id": 18,
+          "local_group": "Imported oblique bores",
+          "model_update": 103,
+          "selected_mark": 3,
+          "typed_stream_replay": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Header2"
+          ]
+        },
+        "candidate": {
+          "bytes": 9471,
+          "sha256": "c2b84813a3f5ae8004d4ad0f8e5e78dac3bd0b0e8cbac167b373c89e920dca86"
+        },
+        "cells": 65,
+        "epoch": 1790000000,
+        "local": {
+          "bytes": 3082,
+          "sha256": "9ba8418a0f49829da59b2d9ac7111d84c6f501f0ff5ebbdda742ec8c2fb4849a"
+        },
+        "local_ownership": {
+          "cap_loops": {
+            "20": [
+              21,
+              23,
+              25,
+              27
+            ],
+            "6": [
+              7,
+              9,
+              11,
+              13
+            ]
+          },
+          "paired_owners": [
+            [
+              44,
+              6,
+              15
+            ],
+            [
+              46,
+              20,
+              15
+            ],
+            [
+              48,
+              6,
+              29
+            ],
+            [
+              50,
+              20,
+              29
+            ],
+            [
+              52,
+              6,
+              34
+            ],
+            [
+              54,
+              20,
+              34
+            ],
+            [
+              56,
+              6,
+              39
+            ],
+            [
+              58,
+              20,
+              39
+            ]
+          ]
+        },
+        "locator": "C:\\KitObliqueBores\\Candidates\\ObliqueTriple.SLDPRT",
+        "neutral_specification": [
+          109.375,
+          [
+            -1,
+            -4,
+            8
+          ],
+          [
+            4,
+            -1,
+            0
+          ],
+          7.8125,
+          [
+            -93.75,
+            7.8125,
+            62.5
+          ],
+          [
+            [
+              [
+                -62.5,
+                0.0,
+                62.5
+              ],
+              9.765625
+            ],
+            [
+              [
+                -93.75,
+                39.0625,
+                78.125
+              ],
+              13.671875
+            ],
+            [
+              [
+                -156.25,
+                7.8125,
+                54.6875
+              ],
+              9.765625
+            ]
+          ],
+          [
+            [
+              3,
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1,
+              3
+            ]
+          ]
+        ],
+        "public_write_refusals": 9,
+        "sdk_readback": {
+          "design": {
+            "body": "sldprt:body:1",
+            "feature": "sldprt:feature:18",
+            "json": {
+              "bytes": 66808,
+              "sha256": "726283632e47d287d0169ca43e5c9fb22bd5f5c06574642cc2e4e8bf497c5463"
+            },
+            "topology": [
+              1,
+              1,
+              6,
+              8,
+              8
+            ]
+          },
+          "full": {
+            "body": "sldprt:body:1",
+            "feature": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 135781.26817768996,
+              "axis": [
+                -0.1111111111111111,
+                -0.4444444444444444,
+                0.8888888888888888
+              ],
+              "bounds_mm": [
+                [
+                  -210.26024890623978,
+                  -121.41632680223931,
+                  12.392813577563146
+                ],
+                [
+                  14.947748906239767,
+                  105.79132680223931,
+                  175.10718642243685
+                ]
+              ],
+              "cap_rims": [
+                [
+                  [
+                    [
+                      -156.25,
+                      7.8125,
+                      54.6875
+                    ],
+                    9.765625,
+                    false
+                  ],
+                  [
+                    [
+                      -62.5,
+                      0.0,
+                      62.5
+                    ],
+                    9.765625,
+                    false
+                  ],
+                  [
+                    [
+                      -93.75,
+                      7.8125,
+                      62.5
+                    ],
+                    109.375,
+                    true
+                  ],
+                  [
+                    [
+                      -93.75,
+                      39.0625,
+                      78.125
+                    ],
+                    13.671875,
+                    false
+                  ]
+                ],
+                [
+                  [
+                    [
+                      -101.5625,
+                      -23.4375,
+                      125.0
+                    ],
+                    109.375,
+                    true
+                  ],
+                  [
+                    [
+                      -101.5625,
+                      7.8125,
+                      140.625
+                    ],
+                    13.671875,
+                    false
+                  ],
+                  [
+                    [
+                      -70.3125,
+                      -31.25,
+                      125.0
+                    ],
+                    9.765625,
+                    false
+                  ],
+                  [
+                    [
+                      -164.0625,
+                      -23.4375,
+                      117.1875
+                    ],
+                    9.765625,
+                    false
+                  ]
+                ]
+              ],
+              "centroid_mm": [
+                -97.39900600921962,
+                -8.252387224234443,
+                93.56221188673032
+              ],
+              "height_mm": 70.3125,
+              "volume_mm3": 2559100.1510789935
+            },
+            "json": {
+              "bytes": 97048,
+              "sha256": "36f1e5cc71658fad393f324086ccaed8bcec8769bcdbb8a9948127568a1a552f"
+            },
+            "topology": [
+              1,
+              1,
+              6,
+              8,
+              8
+            ]
+          }
+        },
+        "source_geometry": {
+          "area_mm2": 135781.26817768996,
+          "axis": [
+            -0.1111111111111111,
+            -0.4444444444444444,
+            0.8888888888888888
+          ],
+          "bounds_mm": [
+            [
+              -210.26024890623978,
+              -121.41632680223931,
+              12.392813577563146
+            ],
+            [
+              14.947748906239767,
+              105.79132680223931,
+              175.10718642243685
+            ]
+          ],
+          "cap_rims": [
+            [
+              [
+                [
+                  -156.25,
+                  7.8125,
+                  54.6875
+                ],
+                9.765625,
+                false
+              ],
+              [
+                [
+                  -62.5,
+                  0.0,
+                  62.5
+                ],
+                9.765625,
+                false
+              ],
+              [
+                [
+                  -93.75,
+                  7.8125,
+                  62.5
+                ],
+                109.375,
+                true
+              ],
+              [
+                [
+                  -93.75,
+                  39.0625,
+                  78.125
+                ],
+                13.671875,
+                false
+              ]
+            ],
+            [
+              [
+                [
+                  -101.5625,
+                  -23.4375,
+                  125.0
+                ],
+                109.375,
+                true
+              ],
+              [
+                [
+                  -101.5625,
+                  7.8125,
+                  140.625
+                ],
+                13.671875,
+                false
+              ],
+              [
+                [
+                  -70.3125,
+                  -31.25,
+                  125.0
+                ],
+                9.765625,
+                false
+              ],
+              [
+                [
+                  -164.0625,
+                  -23.4375,
+                  117.1875
+                ],
+                9.765625,
+                false
+              ]
+            ]
+          ],
+          "centroid_mm": [
+            -97.39900600921962,
+            -8.252387224234443,
+            93.56221188673032
+          ],
+          "height_mm": 70.3125,
+          "volume_mm3": 2559100.1510789935
+        },
+        "stream_map": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 1379,
+            "sha256": "086459124fecced433e71a4496159fcf576bc7ab4e9507bd1bda322ba0f1f3f7"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22383,
+            "sha256": "2e7d0eb7476cefcf9836ccc75c13ef7ff1b0f6efa45a550eb71370d3aa96a7fc"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 799,
+            "sha256": "c83fdf7f17e850833bf5e49b861c5084a2ae831105ab89d69dce036ca3440d0e"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5499,
+            "sha256": "75cb770fb658788548c590f70e8cc73d4efe4c2cb248f5350d61a818fcecd838"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 799,
+            "sha256": "86ad92ba28768f41cbad25d7f3a725b20b7f7d4fcb826b2d476b85b966f9c148"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1312,
+            "sha256": "b9815bd0d9c3af8442a8a93868fde57aa04c6353510a841515f3a6c7c2fac29d"
+          }
+        },
+        "typed_refusals": {
+          "adjacent_wire_axis_component": {
+            "typed_read": "local circular bore axes must follow both cap stations",
+            "typed_write": "local circular bore axes must follow both cap stations"
+          },
+          "adjacent_wire_coordinate": {
+            "typed_read": "local circular bore does not join its two exact cap stations",
+            "typed_write": "local circular bore does not join its two exact cap stations"
+          },
+          "physical_vertex_on_periodic_fin": {
+            "typed_read": "local cylinder has unqualified bare ownership or identities",
+            "typed_write": "local cylinder has unqualified bare ownership or identities"
+          }
+        }
+      },
+      "ObliqueTwin": {
+        "archive_ownership": {
+          "activation_mark": 2,
+          "atom_body_tag": 0,
+          "atom_display_mode": 6,
+          "atom_id": 101,
+          "atom_map_index": 51,
+          "body_stamp": 102,
+          "configured_body_count": 1,
+          "feature_id": 18,
+          "local_group": "Imported oblique bores",
+          "model_update": 103,
+          "selected_mark": 3,
+          "typed_stream_replay": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Header2"
+          ]
+        },
+        "candidate": {
+          "bytes": 9274,
+          "sha256": "415a4443a097e92ae48a8c45b81514ebfad2ae700a255b8dfb4e336a923dc8d4"
+        },
+        "cells": 51,
+        "epoch": 1790000000,
+        "local": {
+          "bytes": 2526,
+          "sha256": "78d98f91d1299ee693b250338c1651d27440ebc67ac5bedbe4f79975aceb8351"
+        },
+        "local_ownership": {
+          "cap_loops": {
+            "18": [
+              19,
+              21,
+              23
+            ],
+            "6": [
+              7,
+              9,
+              11
+            ]
+          },
+          "paired_owners": [
+            [
+              35,
+              6,
+              13
+            ],
+            [
+              37,
+              18,
+              13
+            ],
+            [
+              39,
+              6,
+              25
+            ],
+            [
+              41,
+              18,
+              25
+            ],
+            [
+              43,
+              6,
+              30
+            ],
+            [
+              45,
+              18,
+              30
+            ]
+          ]
+        },
+        "locator": "C:\\KitObliqueBores\\Candidates\\ObliqueTwin.SLDPRT",
+        "neutral_specification": [
+          93.75,
+          [
+            2,
+            -1,
+            2
+          ],
+          [
+            1,
+            0,
+            -1
+          ],
+          15.625,
+          [
+            31.25,
+            -46.875,
+            15.625
+          ],
+          [
+            [
+              [
+                15.625,
+                -78.125,
+                15.625
+              ],
+              11.71875
+            ],
+            [
+              [
+                62.5,
+                -46.875,
+                -15.625
+              ],
+              7.8125
+            ]
+          ],
+          [
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ]
+        ],
+        "public_write_refusals": 9,
+        "sdk_readback": {
+          "design": {
+            "body": "sldprt:body:1",
+            "feature": "sldprt:feature:18",
+            "json": {
+              "bytes": 66548,
+              "sha256": "1b1216dd8ce74b09db1001df4f41dcc43e0aa1698d1cae9432b92983c9b5f693"
+            },
+            "topology": [
+              1,
+              1,
+              5,
+              6,
+              6
+            ]
+          },
+          "full": {
+            "body": "sldprt:body:1",
+            "feature": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 87341.03111023869,
+              "axis": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "bounds_mm": [
+                [
+                  -38.62712429686843,
+                  -150.88834764831844,
+                  -54.25212429686843
+                ],
+                [
+                  132.37712429686843,
+                  41.513347648318444,
+                  116.75212429686843
+                ]
+              ],
+              "cap_rims": [
+                [
+                  [
+                    [
+                      62.5,
+                      -46.875,
+                      -15.625
+                    ],
+                    7.8125,
+                    false
+                  ],
+                  [
+                    [
+                      31.25,
+                      -46.875,
+                      15.625
+                    ],
+                    93.75,
+                    true
+                  ],
+                  [
+                    [
+                      15.625,
+                      -78.125,
+                      15.625
+                    ],
+                    11.71875,
+                    false
+                  ]
+                ],
+                [
+                  [
+                    [
+                      46.875,
+                      -93.75,
+                      46.875
+                    ],
+                    11.71875,
+                    false
+                  ],
+                  [
+                    [
+                      93.75,
+                      -62.5,
+                      15.625
+                    ],
+                    7.8125,
+                    false
+                  ],
+                  [
+                    [
+                      62.5,
+                      -62.5,
+                      46.875
+                    ],
+                    93.75,
+                    true
+                  ]
+                ]
+              ],
+              "centroid_mm": [
+                46.902753108348136,
+                -54.187944049733574,
+                31.472024866785077
+              ],
+              "height_mm": 46.875,
+              "volume_mm3": 1265084.7415717032
+            },
+            "json": {
+              "bytes": 91280,
+              "sha256": "c3c5c9484d13161b4281851ae676eb5abaf2af4ffd2746e40ac0ae8b8cfceee3"
+            },
+            "topology": [
+              1,
+              1,
+              5,
+              6,
+              6
+            ]
+          }
+        },
+        "source_geometry": {
+          "area_mm2": 87341.03111023869,
+          "axis": [
+            0.6666666666666666,
+            -0.3333333333333333,
+            0.6666666666666666
+          ],
+          "bounds_mm": [
+            [
+              -38.62712429686843,
+              -150.88834764831844,
+              -54.25212429686843
+            ],
+            [
+              132.37712429686843,
+              41.513347648318444,
+              116.75212429686843
+            ]
+          ],
+          "cap_rims": [
+            [
+              [
+                [
+                  62.5,
+                  -46.875,
+                  -15.625
+                ],
+                7.8125,
+                false
+              ],
+              [
+                [
+                  31.25,
+                  -46.875,
+                  15.625
+                ],
+                93.75,
+                true
+              ],
+              [
+                [
+                  15.625,
+                  -78.125,
+                  15.625
+                ],
+                11.71875,
+                false
+              ]
+            ],
+            [
+              [
+                [
+                  46.875,
+                  -93.75,
+                  46.875
+                ],
+                11.71875,
+                false
+              ],
+              [
+                [
+                  93.75,
+                  -62.5,
+                  15.625
+                ],
+                7.8125,
+                false
+              ],
+              [
+                [
+                  62.5,
+                  -62.5,
+                  46.875
+                ],
+                93.75,
+                true
+              ]
+            ]
+          ],
+          "centroid_mm": [
+            46.902753108348136,
+            -54.187944049733574,
+            31.472024866785077
+          ],
+          "height_mm": 46.875,
+          "volume_mm3": 1265084.7415717032
+        },
+        "stream_map": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 1185,
+            "sha256": "c94b93ba6bdd100eb0643e8fc8a275fe32b72e0f7e9dac00e475f97ddba433eb"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22379,
+            "sha256": "6c6042acad292bf1b5dc8b815c4f4bf82fb2e01b31c89a85073768ad4d527140"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 787,
+            "sha256": "44c7a5bf21974dbc6ac5ba5bd9603f1a0016700e1addfaaefbeaad347a78efa9"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5499,
+            "sha256": "75cb770fb658788548c590f70e8cc73d4efe4c2cb248f5350d61a818fcecd838"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 787,
+            "sha256": "7b96a03b83e3c54657d663566800e67c2f001104fa47fe7ecdd546bcecb3cb2d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1310,
+            "sha256": "7673e2baf49ae44a47d8ac3db473db6954e2c4cb5cd6c573675329aea0697ce4"
+          }
+        },
+        "typed_refusals": {
+          "adjacent_wire_axis_component": {
+            "typed_read": "local circular bore axes must follow both cap stations",
+            "typed_write": "local circular bore axes must follow both cap stations"
+          },
+          "adjacent_wire_coordinate": {
+            "typed_read": "local circular bore does not join its two exact cap stations",
+            "typed_write": "local circular bore does not join its two exact cap stations"
+          },
+          "physical_vertex_on_periodic_fin": {
+            "typed_read": "local cylinder has unqualified bare ownership or identities",
+            "typed_write": "local cylinder has unqualified bare ownership or identities"
+          }
+        }
+      }
+    },
+    "neutral_refusals": {
+      "encoded_cap_residual": "6004799503160661/2596148429267413814265248164610048",
+      "failures": {
+        "exact_neutral_but_not_after_metre_encoding": "local circular bore does not join its two exact cap stations",
+        "noncanonical_neutral_seam": "local cylinder seam is noncanonical or unrepresentable",
+        "outside_cap_plane": "local circular bore does not join its two exact cap stations",
+        "overlap": "local circular bore openings overlap or touch",
+        "tangent": "local circular bore openings overlap or touch",
+        "tangent_to_exterior": "local circular bore does not clear the exterior wall"
+      },
+      "neutral_cap_residual": "0"
+    },
+    "runtime_data_reads": 0
+  },
+  "native_processes_started": 0,
+  "new_exact_native_admission": false,
+  "new_heldout_cases": 0,
+  "runtime": "3.14.7",
+  "schema": "kit.sw2026.oblique-local-bores.v1",
+  "tool": {
+    "bytes": 15127,
+    "sha256": "9cd97b0bccfdc90d27102b7125c2efa05e6e9ed83be8f43df2acdd460e08ef57"
+  }
+}

@@ -1,0 +1,2358 @@
+{
+  "candidate_identity": {
+    "cached_face": "f70 gets that same actual selected face at0x4bc136dd, and ordinary store emits its low32 bits",
+    "clear_cache": "0x4b74c510 clears runtime body state and bits0x700; it does not clear f18/f60/f64/f70",
+    "count_word": "f60 is selected/filtered candidate-index count after resolution, not universally body-face count",
+    "generation_gap": "actual live gcFace_w handle from receive/allocation remains an explicit root-owned dependency; do not substitute kernel node_id, downstream row id, atom id, feature id or transmit index",
+    "one_match": "candidate_indices=[0] -> f60=1/f64=0; temporary mode1 f64 was actual handle before selection, a separate phase",
+    "ordinal_word": "f64 is ordinal into a candidate-index vector after selection, not kernel node/tag or transmit order",
+    "publication": "actual selected body and actual selected face passed to0x4b759590; boolean1/non-null face gives cache bits0x100|0x200 in ordinary direct-body branch",
+    "selection": "chosen_actual_face = candidate_faces[candidate_indices[f64]] at0x4bc13511..3525"
+  },
+  "confidence": {
+    "all_context_closure": "partial",
+    "generated_native_admission": "not found",
+    "native_field_and_owner_rules": "partial",
+    "qualification": "Original source identity and instruction ranges are verified; no dynamic trace or new CAD input exercises the complete selected construction path in this tranche"
+  },
+  "cylinder_topology": {
+    "cap": "one one-coedge loop -> own,lateral,null =3 inline rows, so mode1 requested",
+    "lateral_if_two_one_coedge_loops": "own,capA,null,capB,null =5 rows but only3 distinct nonnull surfaces, so mode1 requested",
+    "limits": "Compute from actual generated loops; seam/split/other topologies must not borrow this row shape"
+  },
+  "delivery_pr": 121,
+  "dependencies": [
+    {
+      "path": "re/solidworks/records/DownstreamFreshFaceRows2026.json",
+      "sha256": "f4339d5c560eb7106f1fb588e7ca54873921923463df637da741979928fd0a0f"
+    }
+  ],
+  "direct_call_inventory": [
+    {
+      "calls": [
+        "0x4b748ecf"
+      ],
+      "kind": "First executable-section E8 rel32 candidates; each listed site is instruction-aligned in its privately retained complete LLVM owner. This is not an inventory of indirect or inlined calls",
+      "target": "0x4b53b4d0"
+    },
+    {
+      "calls": [
+        "0x4b748e8b"
+      ],
+      "kind": "First executable-section E8 rel32 candidates; each listed site is instruction-aligned in its privately retained complete LLVM owner. This is not an inventory of indirect or inlined calls",
+      "target": "0x4b53b590"
+    },
+    {
+      "calls": [
+        "0x4b749750",
+        "0x4b759908"
+      ],
+      "kind": "First executable-section E8 rel32 candidates; each listed site is instruction-aligned in its privately retained complete LLVM owner. This is not an inventory of indirect or inlined calls",
+      "target": "0x4b53b6c0"
+    },
+    {
+      "calls": [
+        "0x4b5364d2"
+      ],
+      "kind": "First executable-section E8 rel32 candidates; each listed site is instruction-aligned in its privately retained complete LLVM owner. This is not an inventory of indirect or inlined calls",
+      "target": "0x4b53b6f0"
+    },
+    {
+      "calls": [
+        "0x4b527484"
+      ],
+      "kind": "First executable-section E8 rel32 candidates; each listed site is instruction-aligned in its privately retained complete LLVM owner. This is not an inventory of indirect or inlined calls",
+      "target": "0x4b7598d0"
+    },
+    {
+      "calls": [
+        "0x4b802fbd"
+      ],
+      "kind": "First executable-section E8 rel32 candidates; each listed site is instruction-aligned in its privately retained complete LLVM owner. This is not an inventory of indirect or inlined calls",
+      "target": "0x4b759a90"
+    },
+    {
+      "calls": [
+        "0x4b7e8cfb",
+        "0x4b7e930d"
+      ],
+      "kind": "First executable-section E8 rel32 candidates; each listed site is instruction-aligned in its privately retained complete LLVM owner. This is not an inventory of indirect or inlined calls",
+      "target": "0x4b802f40"
+    }
+  ],
+  "embedded_payload_domains": {
+    "f10": "signed role -> actual allocated identity from its type-specific lookup; face rows retain constructor-prefix face roles unless reconstructed/replaced",
+    "f20": {
+      "fresh_face_state": [],
+      "meaning": "ordered nonzero incident edge-row ids",
+      "producer": "vertex-reference entity constructor0x4b748be0",
+      "setter": "0x4b53b4d0"
+    },
+    "f38": {
+      "fresh_face_state": 0,
+      "meaning": "selected allocated face-row id hint",
+      "producers": [
+        "vertex-reference entity constructor0x4b748be0",
+        "late vertex factory0x4b526cb0 via0x4b7598d0"
+      ],
+      "setter": "0x4b53b6c0"
+    },
+    "f40": {
+      "fresh_face_state": [
+        0,
+        0
+      ],
+      "meaning": "selected endpoint vertex-row id and opposite endpoint vertex-row id; not a face/edge/node id pair",
+      "ordering_limit": "Do not relabel the first as universally geometric start; it follows the actual repair record then asks edge.startVertex/endVertex for the opposite endpoint",
+      "producer": "late repair0x4b5360d0 only for actual EdgeRef virtual+f8=true",
+      "setter": "0x4b53b6f0"
+    },
+    "face_wire": "i32(len(f10)), key/value pairs, i32(0), i32(0), i32(0), i32(0); size20+8*len(f10)",
+    "limits": "Only fresh selected face producers; raw saved/unrepresented nonzero payload must still be preserved/refused, never reset by this profile",
+    "present_empty_owner": "first nonnull indexed constructor call recreates owner under active scope even if no row id is yet available",
+    "runtime_f58": "separate candidate pointer vector copied by0x4b53b700; not part of this serialized payload"
+  },
+  "execution": {
+    "application_usable": null,
+    "cad_inputs_read": 0,
+    "heldout_inputs_read": 0,
+    "hopper_documents_opened": 0,
+    "native_processes": 0,
+    "rea_targets_opened": 0,
+    "sdk_product_runs": 0,
+    "shared_checkout_writes": 0,
+    "source_verification_only": true,
+    "vendor_bytes_or_listings_published": false,
+    "vendor_loadable": null,
+    "vm_calls": 0
+  },
+  "functions": [
+    {
+      "entry": "0x4b52b130",
+      "fragments": [
+        {
+          "bytes": 1281,
+          "end_exclusive": "0x4b52b631",
+          "file_offset": 4105520,
+          "name": "unwind_fragment",
+          "sha256": "38336b0a5be07db1b04ca9f9c7e749395847392c142b0e8747d2bacde8b2ab3b",
+          "start": "0x4b52b130"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "fresh_face_rows"
+    },
+    {
+      "entry": "0x4bc128f0",
+      "fragments": [
+        {
+          "bytes": 467,
+          "end_exclusive": "0x4bc12ac3",
+          "file_offset": 11345136,
+          "name": "unwind_fragment",
+          "sha256": "c0c0833b9eee8f62c9bfd80cf48c5190bb38164a6efff03920b0e2486bb50095",
+          "start": "0x4bc128f0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_reference_factory"
+    },
+    {
+      "entry": "0x4bc11630",
+      "fragments": [
+        {
+          "bytes": 1354,
+          "end_exclusive": "0x4bc11b7a",
+          "file_offset": 11340336,
+          "name": "unwind_fragment",
+          "sha256": "f4fe06578f5718023183b48434090563c7beb771d749693842570bd869a32fbf",
+          "start": "0x4bc11630"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_reference_semantic_ctor"
+    },
+    {
+      "entry": "0x4bc141f0",
+      "fragments": [
+        {
+          "bytes": 1229,
+          "end_exclusive": "0x4bc146bd",
+          "file_offset": 11351536,
+          "name": "unwind_fragment",
+          "sha256": "aaf9266e25d5e55f38089622a9c6cc7741cd7415793241767177e6d6a1d8d9bf",
+          "start": "0x4bc141f0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_initialize_ids"
+    },
+    {
+      "entry": "0x4b74cdf0",
+      "fragments": [
+        {
+          "bytes": 11,
+          "end_exclusive": "0x4b74cdfb",
+          "file_offset": 6341104,
+          "name": "unwind_fragment",
+          "sha256": "ae24cdccbfd9d3f8270ee2412df61af04608c97e9fd79a486c03e20afc22473d",
+          "start": "0x4b74cdf0"
+        },
+        {
+          "bytes": 26,
+          "end_exclusive": "0x4b74ce15",
+          "file_offset": 6341115,
+          "name": "unwind_fragment",
+          "sha256": "692e14d1ea7fe2f728646624ccf32954214dea3105199e6d8e9113e457af803c",
+          "start": "0x4b74cdfb"
+        },
+        {
+          "bytes": 60,
+          "end_exclusive": "0x4b74ce51",
+          "file_offset": 6341141,
+          "name": "unwind_fragment",
+          "sha256": "82b1a361090b17e8d9c4636cef923e430ad4a0416addf08629e2111c40025691",
+          "start": "0x4b74ce15"
+        },
+        {
+          "bytes": 19,
+          "end_exclusive": "0x4b74ce64",
+          "file_offset": 6341201,
+          "name": "unwind_fragment",
+          "sha256": "a4064d64b62015b11251b41d5d1742e98b9fa1af3d708c48a6e1c66351044f31",
+          "start": "0x4b74ce51"
+        },
+        {
+          "bytes": 27,
+          "end_exclusive": "0x4b74ce7f",
+          "file_offset": 6341220,
+          "name": "unwind_fragment",
+          "sha256": "67e8509bab64e1c16b85b03afd94c0abacdb3621b414349241360a30e6eb1495",
+          "start": "0x4b74ce64"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_model_callback"
+    },
+    {
+      "entry": "0x4b538ca0",
+      "fragments": [
+        {
+          "bytes": 443,
+          "end_exclusive": "0x4b538e5b",
+          "file_offset": 4161696,
+          "name": "unwind_fragment",
+          "sha256": "94da75b61b6efca9751b7b1712a11b262bd84b56dad8fc4295b891ede8f86062",
+          "start": "0x4b538ca0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_row_mode_predicate"
+    },
+    {
+      "entry": "0x4b5254f0",
+      "fragments": [
+        {
+          "bytes": 860,
+          "end_exclusive": "0x4b52584c",
+          "file_offset": 4081904,
+          "name": "unwind_fragment",
+          "sha256": "5f9bbc87b0f7722940e79799f3ebd4df6376f5312ae6bd492d74b2b2243f54d9",
+          "start": "0x4b5254f0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_row_postinsert_validator"
+    },
+    {
+      "entry": "0x4b7e72b0",
+      "fragments": [
+        {
+          "bytes": 146,
+          "end_exclusive": "0x4b7e7342",
+          "file_offset": 6973104,
+          "name": "unwind_fragment",
+          "sha256": "992cfa5455f2a8d0fb972c6c03270f853fe43afc25142645532b184ab9f52028",
+          "start": "0x4b7e72b0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_face_from_reference"
+    },
+    {
+      "entry": "0x4b7e7180",
+      "fragments": [
+        {
+          "bytes": 290,
+          "end_exclusive": "0x4b7e72a2",
+          "file_offset": 6972800,
+          "name": "unwind_fragment",
+          "sha256": "1ccf71f895dcfda3f2b43ddd2cdbc56923f665ad65e50cc288faffc0a6175a9a",
+          "start": "0x4b7e7180"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_face_from_face"
+    },
+    {
+      "entry": "0x4b7e5dd0",
+      "fragments": [
+        {
+          "bytes": 469,
+          "end_exclusive": "0x4b7e5fa5",
+          "file_offset": 6967760,
+          "name": "unwind_fragment",
+          "sha256": "88b16d873c39b0efa56b2100623c1a7d9fe178109657f03c3c044c98d7d21bbe",
+          "start": "0x4b7e5dd0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_bent_semantic_ctor"
+    },
+    {
+      "entry": "0x4b748310",
+      "fragments": [
+        {
+          "bytes": 228,
+          "end_exclusive": "0x4b7483f4",
+          "file_offset": 6321936,
+          "name": "unwind_fragment",
+          "sha256": "bb5173015c86225fe1dcee5fc99b68fde6dd49263e58be93dd4fc183a1d1ef1d",
+          "start": "0x4b748310"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_default_ctor"
+    },
+    {
+      "entry": "0x4bba3780",
+      "fragments": [
+        {
+          "bytes": 2671,
+          "end_exclusive": "0x4bba41ef",
+          "file_offset": 10890112,
+          "name": "unwind_fragment",
+          "sha256": "e5491d90050bf64fd704e55ddf869319cc680b69a3a3559bb7e3d8827ff90c07",
+          "start": "0x4bba3780"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_serialize"
+    },
+    {
+      "entry": "0x4bba9640",
+      "fragments": [
+        {
+          "bytes": 529,
+          "end_exclusive": "0x4bba9851",
+          "file_offset": 10914368,
+          "name": "unwind_fragment",
+          "sha256": "5095ea73d605c6d0c0caa5c020a5a0ea7027ac8414f80f29db0a412100197b4d",
+          "start": "0x4bba9640"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_serialize"
+    },
+    {
+      "entry": "0x4b755540",
+      "fragments": [
+        {
+          "bytes": 139,
+          "end_exclusive": "0x4b7555cb",
+          "file_offset": 6375744,
+          "name": "unwind_fragment",
+          "sha256": "01962163b4edbd608118f38b4bf3d824cf83115c579926bf8007084fb5ea6ab5",
+          "start": "0x4b755540"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_install_id_array"
+    },
+    {
+      "entry": "0x4bac81d0",
+      "fragments": [
+        {
+          "bytes": 107,
+          "end_exclusive": "0x4bac823b",
+          "file_offset": 9991632,
+          "name": "unwind_fragment",
+          "sha256": "d05d330552e35279a4a4aee0372c400f05692fcaaa1f7d4fb3869078ccd57a01",
+          "start": "0x4bac81d0"
+        },
+        {
+          "bytes": 105,
+          "end_exclusive": "0x4bac82a4",
+          "file_offset": 9991739,
+          "name": "unwind_fragment",
+          "sha256": "5f5b4f6a1487086f882c5e86ef4edf8078d5d2dbea41d124a8d2040f40c76b3c",
+          "start": "0x4bac823b"
+        },
+        {
+          "bytes": 58,
+          "end_exclusive": "0x4bac82de",
+          "file_offset": 9991844,
+          "name": "unwind_fragment",
+          "sha256": "b49fada522f16789cc159ba074a59967ff29218bcf945811e770ce8a8d41f2c8",
+          "start": "0x4bac82a4"
+        },
+        {
+          "bytes": 9,
+          "end_exclusive": "0x4bac82e7",
+          "file_offset": 9991902,
+          "name": "unwind_fragment",
+          "sha256": "9abf77890bcb5dc884ad9a88ba6225bfb6f5c3954485869a702abec8c91ddefe",
+          "start": "0x4bac82de"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entity_id_externalize"
+    },
+    {
+      "entry": "0x4b526a60",
+      "fragments": [
+        {
+          "bytes": 207,
+          "end_exclusive": "0x4b526b2f",
+          "file_offset": 4087392,
+          "name": "unwind_fragment",
+          "sha256": "97544102ca2c53d9cd5a6cbbe0c472bfea9520c88739ddd60bfb49f782941d7d",
+          "start": "0x4b526a60"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_reference_key"
+    },
+    {
+      "entry": "0x4b757970",
+      "fragments": [
+        {
+          "bytes": 316,
+          "end_exclusive": "0x4b757aac",
+          "file_offset": 6385008,
+          "name": "unwind_fragment",
+          "sha256": "1cdc75019654b21d7b551733dce6a45dc43ba023c690798d027cb18c2877bae2",
+          "start": "0x4b757970"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_reference_clone_for_key"
+    },
+    {
+      "entry": "0x4b536bc0",
+      "fragments": [
+        {
+          "bytes": 687,
+          "end_exclusive": "0x4b536e6f",
+          "file_offset": 4153280,
+          "name": "unwind_fragment",
+          "sha256": "f13361399eb0b749adea8bc4e26570b90d75342590d779c53a1007f2cff3086e",
+          "start": "0x4b536bc0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_reference_compare"
+    },
+    {
+      "entry": "0x4b5293d0",
+      "fragments": [
+        {
+          "bytes": 1009,
+          "end_exclusive": "0x4b5297c1",
+          "file_offset": 4098000,
+          "name": "unwind_fragment",
+          "sha256": "884cf4d721649fc0108495035bbad69858b76773b95f6f281f3dcfca040991a2",
+          "start": "0x4b5293d0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "row_register_unique_info"
+    },
+    {
+      "entry": "0x4b7e8250",
+      "fragments": [
+        {
+          "bytes": 310,
+          "end_exclusive": "0x4b7e8386",
+          "file_offset": 6977104,
+          "name": "unwind_fragment",
+          "sha256": "d22db22d6408ae1b4cb6638678e1fe5ccbbbd260a2ba28555042068e2d3b7f6c",
+          "start": "0x4b7e8250"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_reference_component_ctor"
+    },
+    {
+      "entry": "0x4b53ad00",
+      "fragments": [
+        {
+          "bytes": 206,
+          "end_exclusive": "0x4b53adce",
+          "file_offset": 4169984,
+          "name": "unwind_fragment",
+          "sha256": "a8027892b861e782f3056aca0bf0fa09ed8d9078f4b9dee69b74528d35132d80",
+          "start": "0x4b53ad00"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entref_downstream_owner_ctor"
+    },
+    {
+      "entry": "0x4c6c0ee0",
+      "fragments": [
+        {
+          "bytes": 57,
+          "end_exclusive": "0x4c6c0f19",
+          "file_offset": 22545120,
+          "name": "unwind_fragment",
+          "sha256": "e413b310fdf6ccc7d4b48b922a171dbdb12df82057c9cf16b2e110f2468d803b",
+          "start": "0x4c6c0ee0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entity_id_default_ctor"
+    },
+    {
+      "entry": "0x4b74bfc0",
+      "fragments": [
+        {
+          "bytes": 69,
+          "end_exclusive": "0x4b74c005",
+          "file_offset": 6337472,
+          "name": "unwind_fragment",
+          "sha256": "1ce6c4f71fcbbe11018377a59f640439d747f7a0b3c4c639292d0a8d93a218f7",
+          "start": "0x4b74bfc0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_semantic_initialize"
+    },
+    {
+      "entry": "0x4b5360d0",
+      "fragments": [
+        {
+          "bytes": 59,
+          "end_exclusive": "0x4b53610b",
+          "file_offset": 4150480,
+          "name": "unwind_fragment",
+          "sha256": "d1d8f4e2c6e5f3ce6fb86dc08de16790439249a3b0d55222ef1c0185a8def6b9",
+          "start": "0x4b5360d0"
+        },
+        {
+          "bytes": 66,
+          "end_exclusive": "0x4b53614d",
+          "file_offset": 4150539,
+          "name": "unwind_fragment",
+          "sha256": "6ded764f88eac41c3fb05b7850374fcd0553b292eb0ff4fcf1a52a5112a4b686",
+          "start": "0x4b53610b"
+        },
+        {
+          "bytes": 1059,
+          "end_exclusive": "0x4b536570",
+          "file_offset": 4150605,
+          "name": "unwind_fragment",
+          "sha256": "9ea434161889f15e530129e7e96abea98b883d0b1d13e58696107416238f24a8",
+          "start": "0x4b53614d"
+        },
+        {
+          "bytes": 21,
+          "end_exclusive": "0x4b536585",
+          "file_offset": 4151664,
+          "name": "unwind_fragment",
+          "sha256": "5b42e31db39469cb6046764be325b2e72f3b6e6d6f4f076ee3f68acec4729cc3",
+          "start": "0x4b536570"
+        },
+        {
+          "bytes": 9,
+          "end_exclusive": "0x4b53658e",
+          "file_offset": 4151685,
+          "name": "unwind_fragment",
+          "sha256": "309ccf53fbb648e6aa34795432fcde3f55aac19e5f98db7b454759f6de287842",
+          "start": "0x4b536585"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "late_face_reference_pass"
+    },
+    {
+      "entry": "0x4b525b90",
+      "fragments": [
+        {
+          "bytes": 81,
+          "end_exclusive": "0x4b525be1",
+          "file_offset": 4083600,
+          "name": "unwind_fragment",
+          "sha256": "de4b7cbeb3b595ea4578a28b8bd7ed4f246602be6e39cae21a987ebe636c5f84",
+          "start": "0x4b525b90"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "downstream_final_pass"
+    },
+    {
+      "entry": "0x4b52b640",
+      "fragments": [
+        {
+          "bytes": 831,
+          "end_exclusive": "0x4b52b97f",
+          "file_offset": 4106816,
+          "name": "unwind_fragment",
+          "sha256": "3a1e77db0acdac9a14f163d004822f1370a350fec845661a723d2b7d89a9ff42",
+          "start": "0x4b52b640"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "body_or_vertex_followup"
+    },
+    {
+      "entry": "0x4be81b10",
+      "fragments": [
+        {
+          "bytes": 64,
+          "end_exclusive": "0x4be81b50",
+          "file_offset": 13897488,
+          "name": "unwind_fragment",
+          "sha256": "83d887a80c694926814e0ab8d472869d15f9473f637ac418b0dc24a515704dae",
+          "start": "0x4be81b10"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_boundary_has_permanent_id"
+    },
+    {
+      "entry": "0x4b750240",
+      "fragments": [
+        {
+          "bytes": 33,
+          "end_exclusive": "0x4b750261",
+          "file_offset": 6354496,
+          "name": "unwind_fragment",
+          "sha256": "2c279e9b6c48dd8b9302d41572cd98f21b231b49cf5f33c0303f06dbf7dd0a48",
+          "start": "0x4b750240"
+        },
+        {
+          "bytes": 71,
+          "end_exclusive": "0x4b7502a8",
+          "file_offset": 6354529,
+          "name": "unwind_fragment",
+          "sha256": "60e3ef5468744846ec841c2c53871ad85184656ad390556235ea8aa937240eea",
+          "start": "0x4b750261"
+        },
+        {
+          "bytes": 13,
+          "end_exclusive": "0x4b7502b5",
+          "file_offset": 6354600,
+          "name": "unwind_fragment",
+          "sha256": "9707fa3564a17ec77d986bf9f8ff20332465f63b65515087229bd67ead95fa8b",
+          "start": "0x4b7502a8"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "reference_candidate_features"
+    },
+    {
+      "entry": "0x4b27cbe0",
+      "fragments": [
+        {
+          "bytes": 3,
+          "end_exclusive": "0x4b27cbe3",
+          "file_offset": 1294304,
+          "name": "complete_leaf",
+          "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+          "start": "0x4b27cbe0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "native_false_leaf"
+    },
+    {
+      "entry": "0x4b27e150",
+      "fragments": [
+        {
+          "bytes": 6,
+          "end_exclusive": "0x4b27e156",
+          "file_offset": 1299792,
+          "name": "complete_leaf",
+          "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+          "start": "0x4b27e150"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "native_true_leaf"
+    },
+    {
+      "entry": "0x4b7e8390",
+      "fragments": [
+        {
+          "bytes": 269,
+          "end_exclusive": "0x4b7e849d",
+          "file_offset": 6977424,
+          "name": "unwind_fragment",
+          "sha256": "2d30270276b74e2c23399f9c00e711a7914ee0c70150250f54efef3046a1933a",
+          "start": "0x4b7e8390"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_reference_default_ctor"
+    },
+    {
+      "entry": "0x4b74bf60",
+      "fragments": [
+        {
+          "bytes": 86,
+          "end_exclusive": "0x4b74bfb6",
+          "file_offset": 6337376,
+          "name": "unwind_fragment",
+          "sha256": "905b2ccdce2dfc3582faa772c2e46f2a818fefe5de0c6543232cf00469553a26",
+          "start": "0x4b74bf60"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "indexed_face_join"
+    },
+    {
+      "entry": "0x4b53b540",
+      "fragments": [
+        {
+          "bytes": 31,
+          "end_exclusive": "0x4b53b55f",
+          "file_offset": 4172096,
+          "name": "unwind_fragment",
+          "sha256": "53dc1ed0ec72cec2bb0bed9a8ec86790d3e3fde7205e232b6451b3750f727f63",
+          "start": "0x4b53b540"
+        },
+        {
+          "bytes": 37,
+          "end_exclusive": "0x4b53b584",
+          "file_offset": 4172127,
+          "name": "unwind_fragment",
+          "sha256": "f69b024322413370d74daeff166d15bae274611eb52428c9ed220c7e00987d38",
+          "start": "0x4b53b55f"
+        },
+        {
+          "bytes": 6,
+          "end_exclusive": "0x4b53b58a",
+          "file_offset": 4172164,
+          "name": "unwind_fragment",
+          "sha256": "4eeabf8bcdc796d3a19ec782d70470e18a3a52ddfa5cfed7abe03e359a03625d",
+          "start": "0x4b53b584"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "indexed_face_map_set"
+    },
+    {
+      "entry": "0x4b5661f0",
+      "fragments": [
+        {
+          "bytes": 98,
+          "end_exclusive": "0x4b566252",
+          "file_offset": 4347376,
+          "name": "unwind_fragment",
+          "sha256": "da97556f16767e5d52b75eb9c715747132c600e7f26f56b103a5a81af4e0d470",
+          "start": "0x4b5661f0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "temp_edge_helper_enter"
+    },
+    {
+      "entry": "0x4b566270",
+      "fragments": [
+        {
+          "bytes": 275,
+          "end_exclusive": "0x4b566383",
+          "file_offset": 4347504,
+          "name": "unwind_fragment",
+          "sha256": "1b5fd2a34a74c74da2e1847ae79dd4990ea30bbc736d5d643e315abd9e7a2fde",
+          "start": "0x4b566270"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "temp_edge_helper_leave"
+    },
+    {
+      "entry": "0x4b567590",
+      "fragments": [
+        {
+          "bytes": 666,
+          "end_exclusive": "0x4b56782a",
+          "file_offset": 4352400,
+          "name": "unwind_fragment",
+          "sha256": "8f73b6b3bb0bee17412309878b910b07a641a2309dbc1c7f997de4edaf73aa45",
+          "start": "0x4b567590"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "temp_edge_helper_initialize"
+    },
+    {
+      "entry": "0x4b566900",
+      "fragments": [
+        {
+          "bytes": 226,
+          "end_exclusive": "0x4b5669e2",
+          "file_offset": 4349184,
+          "name": "unwind_fragment",
+          "sha256": "be0c9157ab906de921bec5cb4b787b288b0985ea886b9bc7524c8a926d96d0a3",
+          "start": "0x4b566900"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "temp_edge_helper_nested_holder_cleanup"
+    },
+    {
+      "entry": "0x4bba46c0",
+      "fragments": [
+        {
+          "bytes": 1772,
+          "end_exclusive": "0x4bba4dac",
+          "file_offset": 10894016,
+          "name": "unwind_fragment",
+          "sha256": "005e44ead6413814374af894889002f25124a2c4cfc829ae49fde65c990ae89d",
+          "start": "0x4bba46c0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_bent_serialize"
+    },
+    {
+      "entry": "0x4bba6ed0",
+      "fragments": [
+        {
+          "bytes": 3511,
+          "end_exclusive": "0x4bba7c87",
+          "file_offset": 10904272,
+          "name": "unwind_fragment",
+          "sha256": "6c741d6c802d356c0773b7e6460b7d3f10ee1cec1c9a3773238c9a13f9ffaa76",
+          "start": "0x4bba6ed0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_reference_serialize"
+    },
+    {
+      "entry": "0x4be81b50",
+      "fragments": [
+        {
+          "bytes": 116,
+          "end_exclusive": "0x4be81bc4",
+          "file_offset": 13897552,
+          "name": "unwind_fragment",
+          "sha256": "b71f5fd504ac1d8dd6e4e36c40181ec36b32b799b6237c2a4c2e2fdfa54afd30",
+          "start": "0x4be81b50"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "edge_has_permanent_id"
+    },
+    {
+      "entry": "0x4c0361c0",
+      "fragments": [
+        {
+          "bytes": 162,
+          "end_exclusive": "0x4c036262",
+          "file_offset": 15685056,
+          "name": "unwind_fragment",
+          "sha256": "72eced6156c1e829abe50cc2cb6ea40eada15e3502681fd105564449f2c15c12",
+          "start": "0x4c0361c0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "model_set_temporary_surface_map"
+    },
+    {
+      "entry": "0x4b53b4d0",
+      "fragments": [
+        {
+          "bytes": 106,
+          "end_exclusive": "0x4b53b53a",
+          "file_offset": 4171984,
+          "name": "unwind_fragment",
+          "sha256": "4dd56bd5a7a2ac6b50964383223e9bdd82e95077f4ce2776c246d14c6d6ce99b",
+          "start": "0x4b53b4d0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entref_append_edge_id"
+    },
+    {
+      "entry": "0x4b53b590",
+      "fragments": [
+        {
+          "bytes": 82,
+          "end_exclusive": "0x4b53b5e2",
+          "file_offset": 4172176,
+          "name": "unwind_fragment",
+          "sha256": "a986276bcde2301686f050df18b2967899535358cbba63edb7e54dee99b4e9cb",
+          "start": "0x4b53b590"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entref_prepare_edge_capacity"
+    },
+    {
+      "entry": "0x4b53b6c0",
+      "fragments": [
+        {
+          "bytes": 39,
+          "end_exclusive": "0x4b53b6e7",
+          "file_offset": 4172480,
+          "name": "unwind_fragment",
+          "sha256": "4ab378446b377fa79621c5dd13a7829cfe5d5ddf61a543a8ef2fdcd0759f5827",
+          "start": "0x4b53b6c0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entref_set_face_hint"
+    },
+    {
+      "entry": "0x4b53b6f0",
+      "fragments": [
+        {
+          "bytes": 15,
+          "end_exclusive": "0x4b53b6ff",
+          "file_offset": 4172528,
+          "name": "complete_leaf",
+          "sha256": "af9744275495539c27b1e690cb7beda39c65bf4adb96a27bd021f8aa189f43cf",
+          "start": "0x4b53b6f0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entref_set_pair"
+    },
+    {
+      "entry": "0x4b7598d0",
+      "fragments": [
+        {
+          "bytes": 72,
+          "end_exclusive": "0x4b759918",
+          "file_offset": 6393040,
+          "name": "unwind_fragment",
+          "sha256": "fee237b15d9528065517ec5051daf18b5100a91ef13f948c4a465d016e2688c0",
+          "start": "0x4b7598d0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_set_face_hint"
+    },
+    {
+      "entry": "0x4b759a90",
+      "fragments": [
+        {
+          "bytes": 100,
+          "end_exclusive": "0x4b759af4",
+          "file_offset": 6393488,
+          "name": "unwind_fragment",
+          "sha256": "7d76917e68de0f7a58fa79a8b9f6067ee06521be31e447b578cafcbdf9f1f37d",
+          "start": "0x4b759a90"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_set_role_zero"
+    },
+    {
+      "entry": "0x4b802f40",
+      "fragments": [
+        {
+          "bytes": 28,
+          "end_exclusive": "0x4b802f5c",
+          "file_offset": 7086912,
+          "name": "unwind_fragment",
+          "sha256": "74d77e2e637f1c5779cecb8ec609cdb219ff30926c9ab928c86f48dcaeb2154f",
+          "start": "0x4b802f40"
+        },
+        {
+          "bytes": 107,
+          "end_exclusive": "0x4b802fc7",
+          "file_offset": 7086940,
+          "name": "unwind_fragment",
+          "sha256": "5ed5c948f519838862d9d74e623589a47eb59cc6eb5acd14191228331c30fba8",
+          "start": "0x4b802f5c"
+        },
+        {
+          "bytes": 11,
+          "end_exclusive": "0x4b802fd2",
+          "file_offset": 7087047,
+          "name": "unwind_fragment",
+          "sha256": "58ab97a7530a732b42d19c06eef40e7a345c0ee0b50717c1d0efffe844d83631",
+          "start": "0x4b802fc7"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "component_set_role_zero"
+    },
+    {
+      "entry": "0x4b526cb0",
+      "fragments": [
+        {
+          "bytes": 2496,
+          "end_exclusive": "0x4b527670",
+          "file_offset": 4087984,
+          "name": "unwind_fragment",
+          "sha256": "75a21dbb159e72eaa3deec2fa5b2cd89b154573c5ac7cc938bde61ff6508ee87",
+          "start": "0x4b526cb0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "late_vertex_reference_factory"
+    },
+    {
+      "entry": "0x4b748be0",
+      "fragments": [
+        {
+          "bytes": 3088,
+          "end_exclusive": "0x4b7497f0",
+          "file_offset": 6324192,
+          "name": "unwind_fragment",
+          "sha256": "72ba9032beb1c3dae52c4253fdcd4a0b65369fa24e8f7412a318cb29894168ce",
+          "start": "0x4b748be0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "vertex_reference_entity_ctor"
+    },
+    {
+      "entry": "0x4bc12cc0",
+      "fragments": [
+        {
+          "bytes": 2653,
+          "end_exclusive": "0x4bc1371d",
+          "file_offset": 11346112,
+          "name": "unwind_fragment",
+          "sha256": "7904ed5c2cf96e9e70c2d6c03f588af24d9946d169e215abdabd211a27c5536a",
+          "start": "0x4bc12cc0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_find_candidates"
+    },
+    {
+      "entry": "0x4bc11b80",
+      "fragments": [
+        {
+          "bytes": 47,
+          "end_exclusive": "0x4bc11baf",
+          "file_offset": 11341696,
+          "name": "unwind_fragment",
+          "sha256": "27fa52b2c922f821cc6bf784e20cf5ed55708581f44015b80a96908715442272",
+          "start": "0x4bc11b80"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_default_ctor"
+    },
+    {
+      "entry": "0x4b74cb00",
+      "fragments": [
+        {
+          "bytes": 89,
+          "end_exclusive": "0x4b74cb59",
+          "file_offset": 6340352,
+          "name": "unwind_fragment",
+          "sha256": "a9163ef6800191007979cbc670feeaa436272bf6ae5629c0129cbbe9cf466b8f",
+          "start": "0x4b74cb00"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "face_make_copy"
+    },
+    {
+      "entry": "0x4b5367a0",
+      "fragments": [
+        {
+          "bytes": 95,
+          "end_exclusive": "0x4b5367ff",
+          "file_offset": 4152224,
+          "name": "unwind_fragment",
+          "sha256": "6e3b36a3ed4432de6e812eca3c000375982fa3e15dd769bc77b8dcc023574385",
+          "start": "0x4b5367a0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "replace_face_wrapper"
+    },
+    {
+      "entry": "0x4b5288d0",
+      "fragments": [
+        {
+          "bytes": 106,
+          "end_exclusive": "0x4b52893a",
+          "file_offset": 4095184,
+          "name": "unwind_fragment",
+          "sha256": "7d5a44608702ad11a34bb3648a8995ebcb37f58e43c9a3107c86be1e36a7b28c",
+          "start": "0x4b5288d0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "actual_face_to_component"
+    },
+    {
+      "entry": "0x4b53b0b0",
+      "fragments": [
+        {
+          "bytes": 955,
+          "end_exclusive": "0x4b53b46b",
+          "file_offset": 4170928,
+          "name": "unwind_fragment",
+          "sha256": "573f99c70616689d1cbafbf603ae99a1ada31a168f5342aaae3a2b7cbf271ba5",
+          "start": "0x4b53b0b0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "entref_store"
+    },
+    {
+      "entry": "0x4bac8330",
+      "fragments": [
+        {
+          "bytes": 101,
+          "end_exclusive": "0x4bac8395",
+          "file_offset": 9991984,
+          "name": "unwind_fragment",
+          "sha256": "5689708900c890dcdd0a1e484a656ea865f18b11928b20e26ae78055b96aa509",
+          "start": "0x4bac8330"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "surface_context_conversion"
+    },
+    {
+      "entry": "0x4bac8510",
+      "fragments": [
+        {
+          "bytes": 9,
+          "end_exclusive": "0x4bac8519",
+          "file_offset": 9992464,
+          "name": "complete_leaf",
+          "sha256": "8525db0913a2974fff57519e91ee8f0df979c56f11dd6f9441fc880c18c31aea",
+          "start": "0x4bac8510"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "surface_context_predicate"
+    },
+    {
+      "entry": "0x4bb5dca0",
+      "fragments": [
+        {
+          "bytes": 274,
+          "end_exclusive": "0x4bb5ddb2",
+          "file_offset": 10604704,
+          "name": "unwind_fragment",
+          "sha256": "b1fdf0d8b2ef62559a5badc1a35f765a15f5229eac1ecf16f25c0f800227bf54",
+          "start": "0x4bb5dca0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "keeper_context_predicate"
+    },
+    {
+      "entry": "0x4c029100",
+      "fragments": [
+        {
+          "bytes": 489,
+          "end_exclusive": "0x4c0292e9",
+          "file_offset": 15631616,
+          "name": "unwind_fragment",
+          "sha256": "d2ae2636321987f4b229c98729a792ae749fdfb5332553a5647865bffd524e24",
+          "start": "0x4c029100"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "model_find_mapped_representation"
+    },
+    {
+      "entry": "0x4c02fa10",
+      "fragments": [
+        {
+          "bytes": 557,
+          "end_exclusive": "0x4c02fc3d",
+          "file_offset": 15658512,
+          "name": "unwind_fragment",
+          "sha256": "6c0e9bb845b17293cc0c2fa286a011eb505773aa19e4d52238403265f9964632",
+          "start": "0x4c02fa10"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "model_register_mapped_representation"
+    },
+    {
+      "entry": "0x4bb97ce0",
+      "fragments": [
+        {
+          "bytes": 66,
+          "end_exclusive": "0x4bb97d22",
+          "file_offset": 10842336,
+          "name": "unwind_fragment",
+          "sha256": "dc634de4fec924f44d9584fd562fbd1cc2e56b5623fd6f5756f8780f7bd488ce",
+          "start": "0x4bb97ce0"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "cap_runtime_factory"
+    },
+    {
+      "entry": "0x4bb95d00",
+      "fragments": [
+        {
+          "bytes": 131,
+          "end_exclusive": "0x4bb95d83",
+          "file_offset": 10834176,
+          "name": "unwind_fragment",
+          "sha256": "f274e212307ad0c3017077bd3dc471cf873fdba8ebeae8b5f0261b849e707242",
+          "start": "0x4bb95d00"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "side_runtime_factory"
+    },
+    {
+      "entry": "0x4b755d80",
+      "fragments": [
+        {
+          "bytes": 382,
+          "end_exclusive": "0x4b755efe",
+          "file_offset": 6377856,
+          "name": "unwind_fragment",
+          "sha256": "dc3503082146f5cd1234ad63af0148d6234a3f2480547ad1430493bc34531db4",
+          "start": "0x4b755d80"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_copy_owned_data"
+    },
+    {
+      "entry": "0x4b756630",
+      "fragments": [
+        {
+          "bytes": 244,
+          "end_exclusive": "0x4b756724",
+          "file_offset": 6380080,
+          "name": "unwind_fragment",
+          "sha256": "ae129bf10d682586a03445fa7a5533f8f17ba7c1c3ff1a0004a4222c7c04327e",
+          "start": "0x4b756630"
+        },
+        {
+          "bytes": 192,
+          "end_exclusive": "0x4b7567e4",
+          "file_offset": 6380324,
+          "name": "unwind_fragment",
+          "sha256": "62117ada984a17a3cf6b5d9e611eb3c07fa23372a42505b1d6c9c2f63a566142",
+          "start": "0x4b756724"
+        },
+        {
+          "bytes": 101,
+          "end_exclusive": "0x4b756849",
+          "file_offset": 6380516,
+          "name": "unwind_fragment",
+          "sha256": "5387372a787587cfcb59393029b53eea168558af0f56eb293464fbd4d61329a9",
+          "start": "0x4b7567e4"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_cached_candidate"
+    },
+    {
+      "entry": "0x4b759590",
+      "fragments": [
+        {
+          "bytes": 361,
+          "end_exclusive": "0x4b7596f9",
+          "file_offset": 6392208,
+          "name": "unwind_fragment",
+          "sha256": "db62fbed7431c979ce6740ae3c41a7c2e77c3dee61f3ae2ec4c319bd1545fe07",
+          "start": "0x4b759590"
+        },
+        {
+          "bytes": 221,
+          "end_exclusive": "0x4b7597d6",
+          "file_offset": 6392569,
+          "name": "unwind_fragment",
+          "sha256": "05292913a72289d2ee787f3f38765d371634cc2ffe32e40c58ae123548aa51e1",
+          "start": "0x4b7596f9"
+        },
+        {
+          "bytes": 240,
+          "end_exclusive": "0x4b7598c6",
+          "file_offset": 6392790,
+          "name": "unwind_fragment",
+          "sha256": "937bd34a4904f2dd107bfdf783aae50f4bb0425c30b2779d67416a4594a9ff57",
+          "start": "0x4b7597d6"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_publish_selected_geometry"
+    },
+    {
+      "entry": "0x4b7e8980",
+      "fragments": [
+        {
+          "bytes": 1202,
+          "end_exclusive": "0x4b7e8e32",
+          "file_offset": 6978944,
+          "name": "unwind_fragment",
+          "sha256": "75ff8caaa1e2563fce09b057422cba3d9e96260be5087c0f74175853c57acd12",
+          "start": "0x4b7e8980"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "solid_body_reference_constructor"
+    },
+    {
+      "entry": "0x4b7e9050",
+      "fragments": [
+        {
+          "bytes": 1165,
+          "end_exclusive": "0x4b7e94dd",
+          "file_offset": 6980688,
+          "name": "unwind_fragment",
+          "sha256": "d7b405b27b25697ad2e7160d5a6f3d9553b2af4c1dbc01e0e228562a170a4123",
+          "start": "0x4b7e9050"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "surface_body_reference_constructor"
+    },
+    {
+      "entry": "0x4b74c510",
+      "fragments": [
+        {
+          "bytes": 91,
+          "end_exclusive": "0x4b74c56b",
+          "file_offset": 6338832,
+          "name": "unwind_fragment",
+          "sha256": "ccfc35eebc12b2552fa38f755c2dd124634b502232962810e98699e683304445",
+          "start": "0x4b74c510"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "bent_clear_runtime_cache"
+    }
+  ],
+  "imports": [
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getLoops@gcFace_w@@QEBAHPEAPEAPEAVgcLoop_w@@@Z"
+      },
+      "iat": "0x4cd38190",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getFirstLoop@gcFace_w@@QEBAPEAVgcLoop_w@@XZ"
+      },
+      "iat": "0x4cd383c8",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getNonHoleLoops@gcFace_w@@QEBAHPEAVsuPtrArray@@@Z"
+      },
+      "iat": "0x4cd36868",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getCoEdges@gcLoop_w@@QEBAHPEAPEAPEAVgcCoEdge_w@@@Z"
+      },
+      "iat": "0x4cd38178",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?rightFace@gcCoEdge_w@@QEBAPEAVgcFace_w@@XZ"
+      },
+      "iat": "0x4cd379d0",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?gc_IsKernelParasolid@@YAHXZ"
+      },
+      "iat": "0x4cd37f80",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?edge@gcCoEdge_w@@QEBAPEAVgcEdge_w@@XZ"
+      },
+      "iat": "0x4cd38368",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?isSheet@gcBody_w@@QEBAHW4gcPointerKnow_e@@@Z"
+      },
+      "iat": "0x4cd38780",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getInt@gcAttrib_w@@QEAAHHH@Z"
+      },
+      "iat": "0x4cd38550",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?isGhostBody@gcBody_w@@QEAAHXZ"
+      },
+      "iat": "0x4cd371e8",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getFromEntity@gcAttrib_w@@SAPEAV1@PEAVgcTopEnt_w@@PEAVgcAttribDef_w@@H@Z"
+      },
+      "iat": "0x4cd38620",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?compIndexForShrinkWrap_ad@gcIntAttrib_w@@2PEAVgcAttribDef_w@@EA"
+      },
+      "iat": "0x4cd38540",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getOldestFromEntity@gcEdgeIdAttrib_w@@SAPEAV1@PEAVgcEdge_w@@@Z"
+      },
+      "iat": "0x4cd39ce8",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getSurfaceIdRep@gcIdAttrib_w@@QEBAPEAVmoEntityIdRep_c@@XZ"
+      },
+      "iat": "0x4cd379c8",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getAtomId@gcBody_w@@QEAAHXZ"
+      },
+      "iat": "0x4cd38788",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?destroy@gcCurve_w@@QEAAXXZ"
+      },
+      "iat": "0x4cd37908",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "swccu.dll",
+        "name": "??6su_CArchive@@QEAAAEAV0@K@Z"
+      },
+      "iat": "0x4cd3da60",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "swccu.dll",
+        "name": "??6su_CArchive@@QEAAAEAV0@J@Z"
+      },
+      "iat": "0x4cd3d880",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "swccu.dll",
+        "name": "??6su_CArchive@@QEAAAEAV0@N@Z"
+      },
+      "iat": "0x4cd3da10",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldarchiveu.dll",
+        "name": "??6@YAAEAVsu_CArchive@@AEAV0@AEAPEAVmoExtObject_c@@@Z"
+      },
+      "iat": "0x4cd351d0",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getBody@gcVertex_w@@QEBAPEAVgcBody_w@@XZ"
+      },
+      "iat": "0x4cd37920",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?getBody@gcCoEdge_w@@QEBAPEAVgcBody_w@@XZ"
+      },
+      "iat": "0x4cd37930",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?startVertex@gcEdge_w@@QEBAPEAVgcVertex_w@@XZ"
+      },
+      "iat": "0x4cd381d8",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?endVertex@gcEdge_w@@QEBAPEAVgcVertex_w@@XZ"
+      },
+      "iat": "0x4cd381d0",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?isFakeBody@gcBody_w@@QEBAHXZ"
+      },
+      "iat": "0x4cd37638",
+      "module": "sldmodu.dll"
+    },
+    {
+      "binding": {
+        "module": "sldgcu.dll",
+        "name": "?GetMultiKernel@gcEnvironment_c@@QEAAHXZ"
+      },
+      "iat": "0x4cd375b8",
+      "module": "sldmodu.dll"
+    }
+  ],
+  "instruction_ranges": [
+    {
+      "meaning": "One loop selects actual first loop; otherwise actual non-hole loop collection",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 53,
+        "end_exclusive": "0x4bc14268",
+        "file_offset": 11351603,
+        "name": "face_loop_selection",
+        "sha256": "a555b08bddbadf647a0fd971b51a3b6d3323e6f752c0549945292456bcd4ce9b",
+        "start": "0x4bc14233"
+      }
+    },
+    {
+      "meaning": "Retain coedge order then append a null for each selected loop and include it in count",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 151,
+        "end_exclusive": "0x4bc14317",
+        "file_offset": 11351680,
+        "name": "append_coedges_and_loop_separator",
+        "sha256": "3a1ed8e374dd82b23f9dc08d64bffe1c2415f19607eb3a950d35062984465967",
+        "start": "0x4bc14280"
+      }
+    },
+    {
+      "meaning": "Parasolid installs1+sum(coedge_count+1) inline rows and fills own slot0",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 171,
+        "end_exclusive": "0x4bc143d0",
+        "file_offset": 11351845,
+        "name": "parasolid_array_count_and_own_slot",
+        "sha256": "9d24af9e1bfc39f9803a5e5aadeaecb464c220dc2336045e221ea84bc3214cb5",
+        "start": "0x4bc14325"
+      }
+    },
+    {
+      "meaning": "A real edge-id presence selects edge representation; otherwise actual right-face surface is used",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 141,
+        "end_exclusive": "0x4bc1446d",
+        "file_offset": 11352032,
+        "name": "parasolid_boundary_id_choice",
+        "sha256": "5124240cb99d9139340b8d080e7b377e1d7ddfa49cddcf4a54036d2686692709",
+        "start": "0x4bc143e0"
+      }
+    },
+    {
+      "meaning": "Mode0 writes qword1 at+60, hence scalar pair(1,0)",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 38,
+        "end_exclusive": "0x4bc118f4",
+        "file_offset": 11341006,
+        "name": "mode0_face_words",
+        "sha256": "6a9161194df23b57f2edce963f5dc08ca8735fe61cd2c8b96df56cbf0af7c0c3",
+        "start": "0x4bc118ce"
+      }
+    },
+    {
+      "meaning": "Mode1 writes low32 of actual gcFace handle to+64; no invented handle",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 15,
+        "end_exclusive": "0x4bc11903",
+        "file_offset": 11341044,
+        "name": "mode1_face_word_operand",
+        "sha256": "0301fde09321ef3b32cdf218a6701e9d49e9cd0d25174e9ede89a13ea95dea78",
+        "start": "0x4bc118f4"
+      }
+    },
+    {
+      "meaning": "Actual FaceRef virtual+c8 receives actual model and mode0",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 18,
+        "end_exclusive": "0x4bc12aad",
+        "file_offset": 11345563,
+        "name": "factory_externalize_model_context",
+        "sha256": "10f412cf2de9e3dc00bd8fc6ab4bf28a4ff938046aeb2af81fb61e9ec16ab4db",
+        "start": "0x4bc12a9b"
+      }
+    },
+    {
+      "meaning": "At most3 inline rows requests mode1",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 16,
+        "end_exclusive": "0x4b538cd2",
+        "file_offset": 4161730,
+        "name": "mode_predicate_small",
+        "sha256": "ecbfac462585789fb1ce4e269039e999a86faecdd180777e99b3a162cb0dbacd",
+        "start": "0x4b538cc2"
+      }
+    },
+    {
+      "meaning": "For larger arrays requests mode1 when fewer than4 distinct nonnull representation pointers",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 9,
+        "end_exclusive": "0x4b538df0",
+        "file_offset": 4162023,
+        "name": "mode_predicate_distinct_representations",
+        "sha256": "355bc57f8b9d314145892c0b2be17b478cce4d7fb9e64f5a57f0e47c6eb31bd7",
+        "start": "0x4b538de7"
+      }
+    },
+    {
+      "meaning": "Actual face uses mode0 first and is destroyed/rebuilt in mode1 when predicate true",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 77,
+        "end_exclusive": "0x4b52b2d8",
+        "file_offset": 4105867,
+        "name": "f48_factory_retry",
+        "sha256": "3b1c8a0e4d5b7247f2ed26905f7dd1de49c4f83b9e549feca42a10be1229302a",
+        "start": "0x4b52b28b"
+      }
+    },
+    {
+      "meaning": "Actual body atom to wrapper+18/+1c; shared counter and pointer are stored in f48 row",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 71,
+        "end_exclusive": "0x4b52b3b0",
+        "file_offset": 4106089,
+        "name": "wrapper_atom_and_row_allocation",
+        "sha256": "20bcfcfbbed1cd9f59ac1bdb6868a0f666822dcea03dc66a6394c0943714e663",
+        "start": "0x4b52b369"
+      }
+    },
+    {
+      "meaning": "Mode0 rows are validated; failed validator rebuilds actual CompFace from actual face",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 194,
+        "end_exclusive": "0x4b52b528",
+        "file_offset": 4106342,
+        "name": "row_postinsert_fallback",
+        "sha256": "45f06e054c23d5ed26085104cdb47b48e890b0cd6bed135e649645b321be9927",
+        "start": "0x4b52b466"
+      }
+    },
+    {
+      "meaning": "Replace existing row pointer while keeping its already allocated id word",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 58,
+        "end_exclusive": "0x4b52b562",
+        "file_offset": 4106536,
+        "name": "row_pointer_replacement_only",
+        "sha256": "5f28240fcb7a0d316b8a35336a3a125c27af062e16fdf93f27b557787dbcf8f0",
+        "start": "0x4b52b528"
+      }
+    },
+    {
+      "meaning": "Array install deletes and clears old embedded f18",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 40,
+        "end_exclusive": "0x4b7555c0",
+        "file_offset": 6375832,
+        "name": "id_array_install_clears_downstream_owner",
+        "sha256": "5a0cfdd75f013f56aa131bc9c2a0093e6fd5deb8067e79f22fe640d8a5465182",
+        "start": "0x4b755598"
+      }
+    },
+    {
+      "meaning": "Active scope, nonnull face and positive row count recreate owner then attempt actual-face-id insertion",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 55,
+        "end_exclusive": "0x4b74bfa6",
+        "file_offset": 6337391,
+        "name": "indexed_join_recreates_owner",
+        "sha256": "8a052536d77baf2c4d0430aecc4341c6064290c9bb1e8bdbeeb372bc84c7da1c",
+        "start": "0x4b74bf6f"
+      }
+    },
+    {
+      "meaning": "Transfer selected reference bits to wrapper flags; consume bit0x40 from the reference",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 103,
+        "end_exclusive": "0x4b7e5eaf",
+        "file_offset": 6967880,
+        "name": "wrapper_flag_transfer",
+        "sha256": "0db3069d7b40ee6852d6c8d101235e3f819d4cf95f180c489d4a0797a0f71923",
+        "start": "0x4b7e5e48"
+      }
+    },
+    {
+      "meaning": "Only a candidate feature with successful+1c0 and positive+1e80 can assign wrapper+48",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 68,
+        "end_exclusive": "0x4b7e5f84",
+        "file_offset": 6968128,
+        "name": "wrapper_optional_feature_word",
+        "sha256": "9e801b04cd5060832fa0f7c21e2d61179dfb6e5c4fa93a036bfc917e2c11aeea",
+        "start": "0x4b7e5f40"
+      }
+    },
+    {
+      "meaning": "Alternate reference swaps inline1/2 and copies60/64/e8; not a geometric sort",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 79,
+        "end_exclusive": "0x4b757a83",
+        "file_offset": 6385204,
+        "name": "alternate_key_swap",
+        "sha256": "318459d3a1675997a50c133c77172b6154efadc7c9f73b5fcff186dd95efebf3",
+        "start": "0x4b757a34"
+      }
+    },
+    {
+      "meaning": "Successful alternate validation may set original f60 to2, or1 when rebuilt f64 is0",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 41,
+        "end_exclusive": "0x4b536e4f",
+        "file_offset": 4153894,
+        "name": "validator_f60_change",
+        "sha256": "3dd3817770512d7d67ec130fc08c0c5e3fc170d746a1560425001b6a68969303",
+        "start": "0x4b536e26"
+      }
+    },
+    {
+      "meaning": "Late pass skips a reference whose actual virtual+f8 returns0",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 36,
+        "end_exclusive": "0x4b5361b8",
+        "file_offset": 4150676,
+        "name": "late_pass_face_filter",
+        "sha256": "4acbb31dcacbbcb1db7b11181f3dd9594af854d71e51d6efa3155c7cd5817a9d",
+        "start": "0x4b536194"
+      }
+    },
+    {
+      "meaning": "Ordinary BEnt store emits retained60/64/count/e8/70/28/30 and vertex owner",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 103,
+        "end_exclusive": "0x4bba3886",
+        "file_offset": 10890271,
+        "name": "bent_retained_store_words",
+        "sha256": "3d8151b7e8cbdb4f2bb84d0fe0b48063be2907ec7bd5dee60cbea29e79884c6f",
+        "start": "0x4bba381f"
+      }
+    },
+    {
+      "meaning": "Alias presence then actual BEnt pointer then actual optional external object",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 76,
+        "end_exclusive": "0x4bba47dc",
+        "file_offset": 10894224,
+        "name": "component_store_reference",
+        "sha256": "f9d7f71c432b7522323b363d7185bde47fddc8f6a55835d0fc169dc69c34eaed",
+        "start": "0x4bba4790"
+      }
+    },
+    {
+      "meaning": "Actual feature filed owner equal to supplied model makes context predicate false",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 46,
+        "end_exclusive": "0x4bb5dd53",
+        "file_offset": 10604837,
+        "name": "local_keeper_owner_equality",
+        "sha256": "d56ed6e6c35298ef9c1ce9e8f3afe7252cbb16a6f83694ab7ddfe2436e6093af",
+        "start": "0x4bb5dd25"
+      }
+    },
+    {
+      "meaning": "Same actual owner returns original representation before slot280 clone",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 61,
+        "end_exclusive": "0x4bac8382",
+        "file_offset": 9992005,
+        "name": "local_conversion_returns_original",
+        "sha256": "2689956592e5c36902eb9922452ccce43c81b2198aa0d71ac92a14fe6f1a895c",
+        "start": "0x4bac8345"
+      }
+    },
+    {
+      "meaning": "Temporary actual face handle is converted to filtered-candidate ordinal; single candidate gives f60=1/f64=0",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 70,
+        "end_exclusive": "0x4bc133f7",
+        "file_offset": 11347889,
+        "name": "one_candidate_ordinal",
+        "sha256": "2be2edd9b077b992c3a213f61cf8fd5d44603b8cfbcfdf18d61535219d50027a",
+        "start": "0x4bc133b1"
+      }
+    },
+    {
+      "meaning": "Selected actual face is candidates[indices[f64]]",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 25,
+        "end_exclusive": "0x4bc1352a",
+        "file_offset": 11348241,
+        "name": "candidate_two_level_selection",
+        "sha256": "2d0080b301ea1c4cacf274c9e299bb59ea65f51dce09782e8b4a622c46d7741b",
+        "start": "0x4bc13511"
+      }
+    },
+    {
+      "meaning": "Publish actual selected body/face, then store that same actual face at f70",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 52,
+        "end_exclusive": "0x4bc136e1",
+        "file_offset": 11348653,
+        "name": "candidate_publish_and_face_handle",
+        "sha256": "a4d41a7d4db32957c9fd3d73c07677c519affc924314e8060f1841fe57e87cd3",
+        "start": "0x4bc136ad"
+      }
+    },
+    {
+      "meaning": "Actual part surface map must resolve own id to the same actual face; then use get0 and publish boolean0",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 208,
+        "end_exclusive": "0x4bc12a5f",
+        "file_offset": 11345295,
+        "name": "fast_map_exact_actual_face",
+        "sha256": "9662ccd476dd728607e74700f81364ca25b8ba190e95c5b7c4cd86e090cd06b3",
+        "start": "0x4bc1298f"
+      }
+    },
+    {
+      "meaning": "Selected direct-body publisher sets cache bits from supplied boolean and actual face presence",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 181,
+        "end_exclusive": "0x4b759866",
+        "file_offset": 6392753,
+        "name": "publisher_flag_pair",
+        "sha256": "6bcc0c6c7fabc4084826082c4b94b0354d121bb246efa6ebd16227ed1f6917a4",
+        "start": "0x4b7597b1"
+      }
+    },
+    {
+      "meaning": "Map actual coedge edge to nonzero allocated edge id, append that i32 to f20",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 70,
+        "end_exclusive": "0x4b53b52f",
+        "file_offset": 4172009,
+        "name": "edge_vector_id_append",
+        "sha256": "789238142aa77a7d73c4a19f9bb22328ac9b0829ef9667cd58a9a39e445df009",
+        "start": "0x4b53b4e9"
+      }
+    },
+    {
+      "meaning": "Map actual face to nonzero allocated face id, retain it in f38",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 24,
+        "end_exclusive": "0x4b53b6e1",
+        "file_offset": 4172489,
+        "name": "face_hint_allocated_id",
+        "sha256": "4f87f7ec01fbbeedfed2c5b32264c9500172efd9aeb22fc50a29b96762d974d6",
+        "start": "0x4b53b6c9"
+      }
+    },
+    {
+      "meaning": "Store supplied low32 words into fixed f40[0:2]",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 15,
+        "end_exclusive": "0x4b53b6ff",
+        "file_offset": 4172528,
+        "name": "two_word_pair_setter",
+        "sha256": "af9744275495539c27b1e690cb7beda39c65bf4adb96a27bd021f8aa189f43cf",
+        "start": "0x4b53b6f0"
+      }
+    },
+    {
+      "meaning": "Clone existing actual f48 FaceRef into body representative f0 and insert own role0 in that new object",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 32,
+        "end_exclusive": "0x4b802fc2",
+        "file_offset": 7087010,
+        "name": "body_reference_role0_clone",
+        "sha256": "85c66de04e2f7b6ad3aab99d89b3c63285b5ba60155659aaa9302e9fbce71bfb",
+        "start": "0x4b802fa2"
+      }
+    },
+    {
+      "meaning": "Copy selected scalar/vertex/version fields but no source f18 or f70",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 115,
+        "end_exclusive": "0x4b755efd",
+        "file_offset": 6378122,
+        "name": "copy_omits_embedded_role_owner",
+        "sha256": "5066dd102034e717290d5b9d606f2b7ae73af6f9a8e873e646807d9184948e61",
+        "start": "0x4b755e8a"
+      }
+    },
+    {
+      "meaning": "Clear runtime body caches and bits700, not f18/f60/f64/f70",
+      "module": "sldmodu.dll",
+      "pin": {
+        "bytes": 70,
+        "end_exclusive": "0x4b74c560",
+        "file_offset": 6338842,
+        "name": "cache_clear_keeps_serialized_owners",
+        "sha256": "727b0c57155ef267f79d52061ae9b377ed2ddd3e0f93ffb321c486e94869c4d9",
+        "start": "0x4b74c51a"
+      }
+    }
+  ],
+  "local_mapping": {
+    "classes": [
+      "moEndFaceSurfIdRep_c",
+      "moFromSktEntSurfIdRep_c"
+    ],
+    "conversion_even_if_called": "same actual owner comparison at0x4bac8356..8362 returns identical representation pointer before+280",
+    "entity_id_mode0": "predicate0 returns before model cache lookup and conversion",
+    "limits": [
+      "missing runtime feature",
+      "different filed owner",
+      "forced foreign/null context",
+      "special model category and model mapping branches"
+    ],
+    "predicate": "actual runtime feature nonnull; actual feature virtual+498 filed owner equals supplied model -> keeper context predicate0",
+    "result": "actual local representation/keeper/FR/file-config ownership and aliases retained; no new externalization clone allocated",
+    "runtime_feature": "keeper+8, which is representation+0x18; not BEnt.f18"
+  },
+  "modules": [
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "owner": "configuration_header",
+  "remaining": [
+    "Generation of actual gcFace_w handle for nonzero f70 is not closed by semantic surface identity alone",
+    "Candidate uniqueness and exact model+1350 state must come from the actual generated model; multiple matches remain explicit",
+    "Original/swapped semantic-key collisions and their wrapper replacement retain prior guards",
+    "Temporary map lifetime and other out-of-profile operations remain outside full closure",
+    "No native process or SDK product proof runs in this source-only tranche; no warning32 repair claim"
+  ],
+  "role0": {
+    "body_copy": "solid/surface body constructors call0x4b802f40; it finds actual f48 CompFace, creates a new FaceRef, installs it at body f0, and adds role0 there",
+    "body_copy_f18": "copy helper installs a new inline array and does not copy source f18; explicit role0 helper creates a new embedded owner, so source f48 map is not aliased",
+    "counter_effect": "reference replacement retains already allocated row id word",
+    "initial_face_construction": "own actual face lookup precedes registering its current f48 row, so no own key0 then",
+    "postappend_reconstruction": "CompFace(actual face) at0x4b52b50f occurs after append; its FaceRef factory receives mode1 and own indexed call can now resolve current allocated row id"
+  },
+  "runtime_classes": [
+    {
+      "address": "0x4dadd6f0",
+      "file_schema": 1,
+      "module": "sldmodu.dll",
+      "name": "moFaceRef_c",
+      "object_bytes": 248,
+      "pin": {
+        "bytes": 16,
+        "end_exclusive": "0x4dadd700",
+        "file_offset": 43627760,
+        "name": "moFaceRef_c_descriptor",
+        "sha256": "64ea60b72fe2c667ced3545363804c1d25b75837c2f88584fe841b5750b965ce",
+        "start": "0x4dadd6f0"
+      },
+      "registered_schema": 2147483649
+    },
+    {
+      "address": "0x4dade0b0",
+      "file_schema": 1,
+      "module": "sldmodu.dll",
+      "name": "moCompFace_c",
+      "object_bytes": 320,
+      "pin": {
+        "bytes": 16,
+        "end_exclusive": "0x4dade0c0",
+        "file_offset": 43630256,
+        "name": "moCompFace_c_descriptor",
+        "sha256": "de1c61164309e6886488257adca3fa2dc6f5f3acaee7e6bffad454923590aa74",
+        "start": "0x4dade0b0"
+      },
+      "registered_schema": 2147483649
+    },
+    {
+      "address": "0x4dade290",
+      "file_schema": 1,
+      "module": "sldmodu.dll",
+      "name": "moEndFaceSurfIdRep_c",
+      "object_bytes": 64,
+      "pin": {
+        "bytes": 16,
+        "end_exclusive": "0x4dade2a0",
+        "file_offset": 43630736,
+        "name": "moEndFaceSurfIdRep_c_descriptor",
+        "sha256": "f8afb3dff3b996f9e4111776ea1fd133dc667dd2126959db34b0d77a5ec3effe",
+        "start": "0x4dade290"
+      },
+      "registered_schema": 2147483649
+    },
+    {
+      "address": "0x4dadd3f0",
+      "file_schema": 1,
+      "module": "sldmodu.dll",
+      "name": "moFromSktEntSurfIdRep_c",
+      "object_bytes": 64,
+      "pin": {
+        "bytes": 16,
+        "end_exclusive": "0x4dadd400",
+        "file_offset": 43626992,
+        "name": "moFromSktEntSurfIdRep_c_descriptor",
+        "sha256": "df630d79c1ab1becf0be9d2ddb88f4da2799ea549b0ff62b196c8f44fed02756",
+        "start": "0x4dadd3f0"
+      },
+      "registered_schema": 2147483649
+    }
+  ],
+  "schema": "kit.sw2026.downstream-stored-face-state.v1",
+  "scope": "Source-only fresh ordinary rectangular-prism/circular-cylinder face state after local model-context mapping and selected insertion/resolution branches",
+  "selected_branches": [
+    {
+      "condition": "actual one-loop four-coedge face; post-context >=4 distinct nonnull surface operands; no special/duplicate-key replacement",
+      "f60": 1,
+      "f64": 0,
+      "f70": 0,
+      "fe8": 0,
+      "name": "prism_direct_mode0_no_collision"
+    },
+    {
+      "condition": "mode1 request; actual part; model+1350 nonnull; map accepts actual body and resolves own surface to the exact supplied face; recursive get0 and publish boolean0; no other initial flags",
+      "f60": 1,
+      "f64": 0,
+      "f70": 0,
+      "fe8": 512,
+      "name": "part_surface_map_exact_match"
+    },
+    {
+      "condition": "no fast-map replacement; fresh body cache empty; exactly one actual candidate in one valid classical body; current original actual face matches positive handle or selection defaults0; no special initial flags",
+      "f60": 1,
+      "f64": 0,
+      "f70": "actual selected gcFace_w handle, same pointer as candidates[indices[0]]",
+      "fe8": 768,
+      "name": "mode1_unique_candidate"
+    }
+  ],
+  "task": "B04-SW2026-DOWNSTREAM-STORED-FACE-STATE",
+  "virtual_slots": [
+    {
+      "module": "sldmodu.dll",
+      "name": "face_runtime_class",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf95ed8",
+        "file_offset": 31803600,
+        "name": "face_runtime_class",
+        "sha256": "957750112e0f4e3ac492c2cf7baf7bcfdcad5cdde248bba1aa858debf4c104ee",
+        "start": "0x4cf95ed0"
+      },
+      "slot": "0x0",
+      "table": "0x4cf95ed0",
+      "target": "0x4bb96a00"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "face_serialize",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf95f00",
+        "file_offset": 31803640,
+        "name": "face_serialize",
+        "sha256": "26e06856b0a64a837a39eecbfdc25fe9dfdc2a1df54ed53436a055600e0a9b79",
+        "start": "0x4cf95ef8"
+      },
+      "slot": "0x28",
+      "table": "0x4cf95ed0",
+      "target": "0x4bba9640"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "face_feature_candidates",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf95f60",
+        "file_offset": 31803736,
+        "name": "face_feature_candidates",
+        "sha256": "5ae9ee3ef955058096fa9469b70673b898ae4bcff66a2035924c49381139b0b7",
+        "start": "0x4cf95f58"
+      },
+      "slot": "0x88",
+      "table": "0x4cf95ed0",
+      "target": "0x4b750240"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "face_externalize",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf95fa0",
+        "file_offset": 31803800,
+        "name": "face_externalize",
+        "sha256": "f35696163a5a3b58d350c394481436c082721075f0eca0baf917d246b4e262af",
+        "start": "0x4cf95f98"
+      },
+      "slot": "0xc8",
+      "table": "0x4cf95ed0",
+      "target": "0x4b74cdf0"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "face_late_pass_predicate_false",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf95fd0",
+        "file_offset": 31803848,
+        "name": "face_late_pass_predicate_false",
+        "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+        "start": "0x4cf95fc8"
+      },
+      "slot": "0xf8",
+      "table": "0x4cf95ed0",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "component_face_runtime_class",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce05788",
+        "file_offset": 30163328,
+        "name": "component_face_runtime_class",
+        "sha256": "d80089e2b0abd6b78b44c12f4ea37fe2c545c19ec6596a453ba599aed0f4564f",
+        "start": "0x4ce05780"
+      },
+      "slot": "0x0",
+      "table": "0x4ce05780",
+      "target": "0x4bb94100"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "component_face_serialize_reuses_bent",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce057b0",
+        "file_offset": 30163368,
+        "name": "component_face_serialize_reuses_bent",
+        "sha256": "9b9cef360ab78961bd0d0ff9006dc08fed45d2dbdf0de7078284830549d25847",
+        "start": "0x4ce057a8"
+      },
+      "slot": "0x28",
+      "table": "0x4ce05780",
+      "target": "0x4bba46c0"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "ordinary_boss_feature_predicate_true",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf3d650",
+        "file_offset": 31440968,
+        "name": "ordinary_boss_feature_predicate_true",
+        "sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66",
+        "start": "0x4cf3d648"
+      },
+      "slot": "0x1c0",
+      "table": "0x4cf3d488",
+      "target": "0x4b27e150"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "ordinary_boss_f48_predicate_false",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf3f310",
+        "file_offset": 31448328,
+        "name": "ordinary_boss_f48_predicate_false",
+        "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+        "start": "0x4cf3f308"
+      },
+      "slot": "0x1e80",
+      "table": "0x4cf3d488",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "cap_context_conversion",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf706b0",
+        "file_offset": 31649960,
+        "name": "cap_context_conversion",
+        "sha256": "a7383becc1359f20548fb4acc3b9149504f7c039223fffd57d49e55309863617",
+        "start": "0x4cf706a8"
+      },
+      "slot": "0x100",
+      "table": "0x4cf705a8",
+      "target": "0x4bac8330"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "cap_context_predicate",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf706c0",
+        "file_offset": 31649976,
+        "name": "cap_context_predicate",
+        "sha256": "cb42dd0afc76a494f770b5d60c9870240bf02530398a9be291be1b84f475846b",
+        "start": "0x4cf706b8"
+      },
+      "slot": "0x110",
+      "table": "0x4cf705a8",
+      "target": "0x4bac8510"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "cap_clone_not_reached_for_same_owner",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf70830",
+        "file_offset": 31650344,
+        "name": "cap_clone_not_reached_for_same_owner",
+        "sha256": "33a99536944bf9279b3a1825994f7db84b1f7c2f2c82aa7d698ace001554e140",
+        "start": "0x4cf70828"
+      },
+      "slot": "0x280",
+      "table": "0x4cf705a8",
+      "target": "0x4c6cf810"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "side_context_conversion",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf6ac18",
+        "file_offset": 31626768,
+        "name": "side_context_conversion",
+        "sha256": "a7383becc1359f20548fb4acc3b9149504f7c039223fffd57d49e55309863617",
+        "start": "0x4cf6ac10"
+      },
+      "slot": "0x100",
+      "table": "0x4cf6ab10",
+      "target": "0x4bac8330"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "side_context_predicate",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf6ac28",
+        "file_offset": 31626784,
+        "name": "side_context_predicate",
+        "sha256": "cb42dd0afc76a494f770b5d60c9870240bf02530398a9be291be1b84f475846b",
+        "start": "0x4cf6ac20"
+      },
+      "slot": "0x110",
+      "table": "0x4cf6ab10",
+      "target": "0x4bac8510"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "side_clone_not_reached_for_same_owner",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4cf6ad98",
+        "file_offset": 31627152,
+        "name": "side_clone_not_reached_for_same_owner",
+        "sha256": "4bd891f280e9407fbb5aca08ce8081913188ae6c12e3dea57fbb4332881620a5",
+        "start": "0x4cf6ad90"
+      },
+      "slot": "0x280",
+      "table": "0x4cf6ab10",
+      "target": "0x4c6cfbe0"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "edge_late_pair_predicate_true",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce863e0",
+        "file_offset": 30690776,
+        "name": "edge_late_pair_predicate_true",
+        "sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66",
+        "start": "0x4ce863d8"
+      },
+      "slot": "0xf8",
+      "table": "0x4ce862e0",
+      "target": "0x4b27e150"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "vertex_late_pair_predicate_false",
+      "pin": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce86680",
+        "file_offset": 30691448,
+        "name": "vertex_late_pair_predicate_false",
+        "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+        "start": "0x4ce86678"
+      },
+      "slot": "0xf8",
+      "table": "0x4ce86580",
+      "target": "0x4b27cbe0"
+    }
+  ]
+}

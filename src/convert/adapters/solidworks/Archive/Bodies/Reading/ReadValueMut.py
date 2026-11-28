@@ -1,4 +1,5 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.PartScopeOwner import HasPartOwner
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBodyTextMut import (
     ReadBodyTextMut,
@@ -6,6 +7,10 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBodyTextMut import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadFrameOwnMut import (
     ReadFrameOwnMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadHistRefMut import (
+    ReadHistRefMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.RequireHistRef import KHistRefMode
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
 from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadScalarMut
 
@@ -15,8 +20,10 @@ def ReadValueMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
     Cursor = FrameValue.ReaderValue.Cursor
     Value: object
     if RuleValue.KindValue == "Node":
-        if RuleValue.ModeValue == "FrameOwner":
+        if HasPartOwner(FrameValue.ContextValue, FrameValue.NodeValue, RuleValue):
             Value = ReadFrameOwnMut(FrameValue)
+        elif RuleValue.ModeValue == KHistRefMode:
+            Value = ReadHistRefMut(FrameValue)
         else:
             Value = ReadNodeMut(FrameValue.ReaderValue)
     elif RuleValue.KindValue == "Text":

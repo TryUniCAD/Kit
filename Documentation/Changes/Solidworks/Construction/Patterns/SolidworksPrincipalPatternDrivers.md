@@ -1,0 +1,5 @@
+# SOLIDWORKS principal pattern driving displays
+
+The internal SOLIDWORKS 2026 archive constructor can bind a local linear pattern's count and spacing displays for the measured forward Right and reversed Top plane roles. It takes an existing generated seed graph and explicit presentation intent. It derives the pitch witnesses and dimension frame from the selected plane and seed geometry and joins both displays to the actual registered annotation views. The shared driver allocator retains the four dormant owners. [Construction and evidence](../../../../../re/solidworks/records/LocalPrincipalPatternDrivers2026.md)
+
+Six disclosed source and edited archives reproduce both linked streams and object maps. Fresh guarded model workers exercise independent count and pitch changes, annotation allocation and unsupported inputs with zero runtime file reads. The principal path remains an internal archive construction prerequisite. Existing public oblique publication retains its exact native measurement gate. [Measurement receipt](../../../../../re/solidworks/measurements/2026/LocalPrincipalPatternDrivers01.json)

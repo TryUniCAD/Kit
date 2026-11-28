@@ -1,0 +1,98 @@
+{
+  "distinct_native_processes": 6,
+  "first_gate": "cold open returns warning 32",
+  "generated_strict_native_passes": 0,
+  "healthy_controls": 4,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "oracle_build": "34.5.2.0604",
+  "packet_sha256": "5b90a632eab95d19fdf4f676798ec2bc44a6f0d464595a8198be25984d77ad34",
+  "phases": {
+    "Brep/ControlAfter": {
+      "executed": true,
+      "first_failure": null,
+      "model_returned": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed_original_phase_gate": true,
+      "path_query_reached": true,
+      "process_creation_filetime": 134395701260690225,
+      "raw_phase_sha256": "1e27ea23a110d642121d134a54aa8786969ba9eb880e81746c0c011ce5006a23"
+    },
+    "Brep/ControlBefore": {
+      "executed": true,
+      "first_failure": null,
+      "model_returned": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed_original_phase_gate": true,
+      "path_query_reached": true,
+      "process_creation_filetime": 134395700619211415,
+      "raw_phase_sha256": "d1574f1a5d15d5b21643b918d8111d732ce6a91e6e366874eb9baa9f9122ff74"
+    },
+    "Brep/Generated": {
+      "executed": true,
+      "first_failure": {
+        "error": "ValueError('native load failed warned or selected another file')",
+        "pending_capability": false,
+        "stage": "cold open exact immutable concentric pair",
+        "type": "ValueError"
+      },
+      "model_returned": true,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "passed_original_phase_gate": false,
+      "path_query_reached": false,
+      "process_creation_filetime": 134395701021859236,
+      "raw_phase_sha256": "2c041394487fcd77f93f7d5849fde771a70655a60de85ea02442af3af4803e52"
+    },
+    "Brep/Reopen": {
+      "executed": false,
+      "skipped_for": "generated strict open gate"
+    },
+    "Feature/ControlAfter": {
+      "executed": true,
+      "first_failure": null,
+      "model_returned": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed_original_phase_gate": true,
+      "path_query_reached": true,
+      "process_creation_filetime": 134395700216681554,
+      "raw_phase_sha256": "9c3773abc21273cf2c568c2b5b9a82db7f5c0c773722c56839f49fd66a0334fe"
+    },
+    "Feature/ControlBefore": {
+      "executed": true,
+      "first_failure": null,
+      "model_returned": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed_original_phase_gate": true,
+      "path_query_reached": true,
+      "process_creation_filetime": 134395699563015273,
+      "raw_phase_sha256": "ca41db92343ac71eb3638c1d956866e34e01eb478d07bc3157d575dd3ff5e9aa"
+    },
+    "Feature/Generated": {
+      "executed": true,
+      "first_failure": {
+        "error": "ValueError('native load failed warned or selected another file')",
+        "pending_capability": false,
+        "stage": "cold open exact immutable concentric pair",
+        "type": "ValueError"
+      },
+      "model_returned": true,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "passed_original_phase_gate": false,
+      "path_query_reached": false,
+      "process_creation_filetime": 134395699972373732,
+      "raw_phase_sha256": "329dc8ad5968e3de5afcd0ca5800b7b547b9135c495fc4715065fe66a9609b90"
+    },
+    "Feature/Reopen": {
+      "executed": false,
+      "skipped_for": "generated strict open gate"
+    }
+  },
+  "raw_phase_summary_sha256": "2b7e5e0a87d0ba80a24c19c52f0c02a709ea932d964479b6737e201cf6bf5445",
+  "schema": "kit.sw2026.generated-concentric-native-first-open.v1"
+}

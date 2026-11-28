@@ -1,0 +1,3 @@
+# the partial reader can reroute a recognized note object into its complete versioned graph decoder
+class PlainNoteError(ValueError):
+    __slots__ = ()

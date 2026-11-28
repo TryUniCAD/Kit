@@ -1,0 +1,401 @@
+{
+  "schema": "kit.sw2026.empty-part-exploded-construction.v1",
+  "scope": "ordinary version-19000 Config-0 part helper and assembly constructor factoring",
+  "binary_module": {
+    "binary_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "feature_base": {
+      "sha256": "172a45fe9be3d9218cdefb41784454b6a7cedae0ffa07b8187499ae2ab81eff9",
+      "start": "0x4bb38710",
+      "stop": "0x4bb38aed"
+    },
+    "image_base": "0x4b140000",
+    "managers": {
+      "moExplViewManager_c": {
+        "constructor": {
+          "sha256": "aa7617342fdc5d4dc7686f5c8ecd18a25c04983715fd9076c0bcfdc8adcc4005",
+          "start": "0x4baa1cc0",
+          "stop": "0x4baa1d33"
+        },
+        "descriptor": "0x4dac9700",
+        "descriptor_stamp16_sha256": "4b3185c34bf0304d3a348881c408e55474a480cc82510959331a142d0a131083",
+        "factory": {
+          "sha256": "b07313d74dc13ee97cadfaa15211ccd5a275e9aa3240f975af62be0403010d40",
+          "start": "0x4b653550",
+          "stop": "0x4b65357e"
+        },
+        "schema_on_wire": 1,
+        "serializer_entry": "0x4b667070",
+        "size": 936,
+        "vtable": "0x4cf101d8"
+      },
+      "moPrtExplViewManager_c": {
+        "constructor": {
+          "sha256": "201ab7d1ef6667d9bcd034b73eb489dc43c837b2065d2d4d80677f8091b0537d",
+          "start": "0x4baaa740",
+          "stop": "0x4baaa7b3"
+        },
+        "descriptor": "0x4daca990",
+        "descriptor_stamp16_sha256": "8f48e90a34570aba42cba9ecadb36d7ae1e2a428fb9421fbc711b23e02cf0a04",
+        "factory": {
+          "sha256": "345f08c9f688d00ba9301c0b1211d0640b695e9a7a566d37dd07c1ca1a1c3ae0",
+          "start": "0x4b655100",
+          "stop": "0x4b65512e"
+        },
+        "schema_on_wire": 1,
+        "serializer_entry": "0x4b66d5e0",
+        "size": 936,
+        "vtable": "0x4cf13dc8"
+      }
+    },
+    "module": "sldmodu.dll"
+  },
+  "source_overlay": "3a651f09276a88c33dd2f8463c4516c2a04557bf",
+  "process_python": "3.13.15",
+  "codec_owner_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitNodeMut.py": "842394e6e753f286ab984bc90d91b8ad96e98b1597dd96846461106e42563f43",
+    "src/convert/adapters/solidworks/Archive/Construction/System/InitExplodeMut.py": "807fcf0d17758294d60ae9f5e2cf1de093bb9f0b37aad58d26feb128b248fb61",
+    "src/convert/adapters/solidworks/Archive/Construction/System/MakePartExplode.py": "cdd55c1298484fda5f01296c77f9933beed2df04a1f8848582d6f57cd27d308b",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmExploded.py": "dba29671d89a244e5b261baeca8957fdc8f00e3dfe53cca2b949ffc417f5fc6a",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmSysMut.py": "896f52fe29426638850745b0f7808900c1cbf6fce2e7dc8537f981929dcf0b18",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeBareImport.py": "4ee6daf323a3c1b572eef3dc333f14541e5dfdea5b0da58b0c23abee35b37ba9",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartBaseMut.py": "b7f5cc05432560b290f1a4088f2f342c871028b3cacd596b20106cfbb3ee8ff7",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/KeywordFeature.py": "2e2310a48cb984761747652980492858126033fc236c5862fbd5b460aedb3148",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py": "8a487d9c9f5a18eb09438ebc26c9bd31ef40a12e95e44e642032b94a878634f0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/AssemblyFields.py": "e97a25a296542cea5181f6d8cebf36ec58ce32d487c4c3b3e455a19261aaf8e6",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/CommonFields.py": "1dbd9ff5a7f86897f16d8abcc444b019a5887b09e96d3bf5577ab60b287c17b8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py": "fb679705fcb9ae37b7de314d9c12bd2433d444dce3e928fe7d8d3469116247c7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "c00869fa3ead56527000885d53532451dd2a2c16cdd0e13e930b1e2466716ac7",
+    "re/tooling/sw2026/para/concentric/ProveSignedConcentricWriter.py": "10b567768f4a30f399ab5f3316d70d834844e5481112c357d81667322d0073ce"
+  },
+  "disclosed_part_census": {
+    "cases": [
+      {
+        "path": "ImportedBodySourceDisclosed03/DisclosedImported.SLDPRT",
+        "sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+        "id": 19,
+        "map_index": 106,
+        "keyword_index": 11,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25190,
+            "identity": true
+          },
+          {
+            "bytes": 6080,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "ImportedBodyContrast02/OtherShape.SLDPRT",
+        "sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+        "id": 19,
+        "map_index": 106,
+        "keyword_index": 11,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25190,
+            "identity": true
+          },
+          {
+            "bytes": 6080,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "ImportedBodyContrast02/RenamedFeature.SLDPRT",
+        "sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8",
+        "id": 19,
+        "map_index": 106,
+        "keyword_index": 11,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25190,
+            "identity": true
+          },
+          {
+            "bytes": 6092,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "ImportedBodyContrast02/RenamedBody.SLDPRT",
+        "sha256": "2814fd13c29c840f2079485d47856333e756860fd0abee927703fc47a7cb7f43",
+        "id": 19,
+        "map_index": 107,
+        "keyword_index": 11,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25216,
+            "identity": true
+          },
+          {
+            "bytes": 6092,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "ImportedBodyContrast02/Control.SLDPRT",
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "id": 19,
+        "map_index": 109,
+        "keyword_index": 12,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25390,
+            "identity": true
+          },
+          {
+            "bytes": 14407,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "GeneratedThroughAll02/Control/ThroughAllD01CutForward.SLDPRT",
+        "sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+        "id": 19,
+        "map_index": 109,
+        "keyword_index": 13,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25564,
+            "identity": true
+          },
+          {
+            "bytes": 14628,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "GeneratedThroughAllReverse01/Control/ThroughAllD02CutReverse.SLDPRT",
+        "sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+        "id": 19,
+        "map_index": 109,
+        "keyword_index": 13,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25496,
+            "identity": true
+          },
+          {
+            "bytes": 14700,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "GeneratedThroughAllBoth01/Control/ThroughAllD03CutBoth.SLDPRT",
+        "sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+        "id": 19,
+        "map_index": 109,
+        "keyword_index": 13,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25564,
+            "identity": true
+          },
+          {
+            "bytes": 14798,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "SdkOrdinaryRevolvePrepare01/Fixtures01/control-RevolveFull.SLDPRT",
+        "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+        "id": 19,
+        "map_index": 108,
+        "keyword_index": 11,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25476,
+            "identity": true
+          },
+          {
+            "bytes": 12345,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "SdkOrdinaryRevolvePrepare01/Fixtures01/control-RevolvePartialForward.SLDPRT",
+        "sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+        "id": 19,
+        "map_index": 108,
+        "keyword_index": 11,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25476,
+            "identity": true
+          },
+          {
+            "bytes": 12465,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "SdkOrdinaryRevolvePrepare01/Fixtures01/control-RevolvePartialReverse.SLDPRT",
+        "sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+        "id": 19,
+        "map_index": 108,
+        "keyword_index": 11,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25482,
+            "identity": true
+          },
+          {
+            "bytes": 12465,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "SdkBlindNative02/Candidate.SLDPRT",
+        "sha256": "750261e28691593f0163c172498ea3c5760a5c29fa231d4a5a9f8f309aaebe9d",
+        "id": null,
+        "map_index": null,
+        "keyword_index": null,
+        "keywords_lexical": false,
+        "linked_replay": [
+          {
+            "bytes": 22076,
+            "identity": true
+          },
+          {
+            "bytes": 13867,
+            "identity": true
+          }
+        ]
+      },
+      {
+        "path": "SdkBlindNative02/Inspection/Generated/Edited.SLDPRT",
+        "sha256": "16b7cfa11d4d76612b84c53abc4f0ea6229bbdb0800dc38fc355ed1796f54dd0",
+        "id": 31,
+        "map_index": 121,
+        "keyword_index": 19,
+        "keywords_lexical": true,
+        "linked_replay": [
+          {
+            "bytes": 25879,
+            "identity": true
+          },
+          {
+            "bytes": 15609,
+            "identity": true
+          }
+        ]
+      }
+    ],
+    "present_count": 12,
+    "present_nonid_fields_equal": 42,
+    "linked_byte_identity": 26
+  },
+  "assembly_prior_bytes": {
+    "assembly_pairs": [
+      {
+        "child_bytes": 10621,
+        "child_sha256": "4b88316de53a32fde933af46c702996628f40c5bebe2599e3650fd34460ef3cd",
+        "epoch": 1816309903,
+        "id": null,
+        "parent_bytes": 10403,
+        "parent_sha256": "324276edb814b42f47fee6e5d5116ebef03e88eb5958e6f5709219a416309f16",
+        "present": false
+      },
+      {
+        "child_bytes": 10621,
+        "child_sha256": "4b88316de53a32fde933af46c702996628f40c5bebe2599e3650fd34460ef3cd",
+        "epoch": 1816309903,
+        "id": 17,
+        "parent_bytes": 10457,
+        "parent_sha256": "fb66f2a3a5e8628404efa2ec4fc39f9696bc992c857a00ea9ea5091312727550",
+        "present": true
+      },
+      {
+        "child_bytes": 10615,
+        "child_sha256": "be219a07df1f9a33acde8434f66f51cbb80ffb9d95a429abd274db5cb2b39b50",
+        "epoch": 1816310014,
+        "id": 17,
+        "parent_bytes": 10454,
+        "parent_sha256": "2cbfa7300e67e70758c7fff950518675d8d69f7a9a6fc511b4a85f6c41d6b0bb",
+        "present": true
+      }
+    ],
+    "baseline_rev": "3a651f09276a88c33dd2f8463c4516c2a04557bf",
+    "baseline_wrapper_sha256": "e65739fdd875966be3bd806f33f095a6e34aaf6833d74e2fa2214e94bea3e3c3",
+    "fixture": "re/solidworks/inputs/ConcentricFeatureNeutral01.json",
+    "fixture_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+    "runtime_access_attempts": []
+  },
+  "neutral_part_construction": {
+    "allocator_pressure_id": 121,
+    "generated_part_cases": {
+      "IndependentRectangle": {
+        "keyword_row": "<Feature id=\"18\" Name=\"\" Type=\"Exploded Views\"/>",
+        "manager_id": 18,
+        "manager_map_index": 92,
+        "part_bytes": 9850,
+        "part_sha256": "ac70839c7824bd09d39b74b5fa11383d270190bcf99e1f3764bdbf75158f5033",
+        "provenance": {
+          "f2ac": 370120,
+          "f2b0": 19000,
+          "f2b4": 2026317,
+          "f300": 5,
+          "f301": 1
+        },
+        "round_trip_streams": 2
+      },
+      "IndependentTriangle": {
+        "keyword_row": "<Feature id=\"18\" Name=\"\" Type=\"Exploded Views\"/>",
+        "manager_id": 18,
+        "manager_map_index": 92,
+        "part_bytes": 9649,
+        "part_sha256": "c7760d4350eeca95f5c151e36837879488e79294d450a41174c299484d75ef2e",
+        "provenance": {
+          "f2ac": 370108,
+          "f2b0": 19000,
+          "f2b4": 2026306,
+          "f300": 5,
+          "f301": 2
+        },
+        "round_trip_streams": 2
+      }
+    },
+    "refusals": {
+      "bool_companion": "part exploded manager requires an empty configuration owner",
+      "foreign_allocator": "part exploded manager requires its model persistent allocator",
+      "missing_slot": "part exploded manager requires an empty configuration owner",
+      "nonzero_companion": "part exploded manager requires an empty configuration owner",
+      "occupied_slot": "part exploded manager requires an empty configuration owner"
+    },
+    "runtime_access_attempts": []
+  },
+  "verification": {
+    "black": "pass",
+    "ruff": "pass",
+    "steering": "pass",
+    "mypy": "pass",
+    "pyright_findings": 0,
+    "pyright_preexisting_config_notices": 3,
+    "donor_scan_python_files": 4936,
+    "native_processes": 0,
+    "heldout_cases_read": 0
+  }
+}

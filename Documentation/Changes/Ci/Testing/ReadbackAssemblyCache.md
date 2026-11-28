@@ -106,3 +106,9 @@ Windows PowerShell compilation, assembly loading, mutex behavior and native proc
 Green PR checks do not prove those Windows behaviors or queue acceptance.
 
 See the [assembly warm-up gotcha](../../../Gotchas/Ci/Windows/ReadbackAssemblyWarmup.md) and [owner query guidance](../../../Gotchas/Ci/Windows/OwnerParentQueryColdStart.md).
+
+## Prepared assembly compatibility
+
+The [PR #121 integration](SolidworksReadinessFixtureMerge.md) retains cache warm-up and prepared capture as separate process modes.
+Preparation copies the complete cached DLL before listener startup.
+The timed capture process loads that prepared DLL without compiling.

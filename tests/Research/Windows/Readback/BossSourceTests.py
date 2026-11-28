@@ -45,7 +45,7 @@ def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) ->
         Destination = RootPath / "re/automation" / RelativePath
         Destination.parent.mkdir(parents=True, exist_ok=True)
         _ = Destination.write_bytes(SourcePath.read_bytes())
-    _ = ReadbackGit(RootPath, "add", "re")
+    _ = ReadbackGit(RootPath, "add", "--", "re/automation")
     _ = ReadbackGit(
         RootPath,
         "-c",

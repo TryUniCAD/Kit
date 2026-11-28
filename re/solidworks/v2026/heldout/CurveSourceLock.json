@@ -1,0 +1,291 @@
+{
+  "schema": "kit-sw2026-curve-source-lock/1",
+  "created_at": 1794787988.1551461,
+  "generator_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "script_sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31",
+  "tool_hashes": {
+    "AuthorCurves.py": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31",
+    "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "specs_sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+  "batch_sha256": "08be3c5557771b61de5999c26e471a3d97ed842dfefeb8295387706bcfef6681",
+  "oracle": {
+    "progid": "SldWorks.Application.34",
+    "file_version_words": [34, 5, 2, 604],
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "cases": [
+    {
+      "name": "D01CircleRadius",
+      "split": "discovery",
+      "sha256": "e6615329888108657debef922af95c8d7f6c417bd131e23da2baff0b48ac73aa",
+      "file": "Discovery/D01CircleRadius/D01CircleRadius.SLDPRT",
+      "manifest_sha256": "e8f22dbdd637ce47b6b704dad7cf024d7729046526de6dca81aba82fa958da25"
+    },
+    {
+      "name": "D02CircleRadius",
+      "split": "discovery",
+      "sha256": "9781377658aa2b6d904068c860451c3826c77d5360baa8e0252d3bd288f983d4",
+      "file": "Discovery/D02CircleRadius/D02CircleRadius.SLDPRT",
+      "manifest_sha256": "dbd0e3b8bf1453d9818942b7681c5f0c99b73f14a31dfc2cb5ec1cae3fd8eda2"
+    },
+    {
+      "name": "D03CircleRadius",
+      "split": "discovery",
+      "sha256": "5c5617c169154e9a5f7dd2623ed1304ea11e574ac7200c86b9a377a09a870cad",
+      "file": "Discovery/D03CircleRadius/D03CircleRadius.SLDPRT",
+      "manifest_sha256": "a46d42ed5a9524c1ac0d798d7944c196b4b785d568d6d9ba41ccb3997a578721"
+    },
+    {
+      "name": "D04CircleRadius",
+      "split": "discovery",
+      "sha256": "cde8a58c01b9a7c6fbc0010ac56c1033e0abc6789286a2edbffa68a25e106e93",
+      "file": "Discovery/D04CircleRadius/D04CircleRadius.SLDPRT",
+      "manifest_sha256": "83243de84a0ebd33e3b1f548cd75be39c667bcdca06ff465eb2d8656fe556e10"
+    },
+    {
+      "name": "D05CircleRadius",
+      "split": "discovery",
+      "sha256": "4dc92bc0c74a0bbf6774783aefdd6f6a57d3dd8be01f8e55416964a7b35a223a",
+      "file": "Discovery/D05CircleRadius/D05CircleRadius.SLDPRT",
+      "manifest_sha256": "ba1960afebc8d46dfbfe3aa3b6061c8c5a43ad17e85d5f17ef4d0736994bf4a0"
+    },
+    {
+      "name": "D06CircleRadius",
+      "split": "discovery",
+      "sha256": "d0affd3141c144c661fe5cdc94e5566fc8cec676edd6fd0a9c63172ba9a93f9f",
+      "file": "Discovery/D06CircleRadius/D06CircleRadius.SLDPRT",
+      "manifest_sha256": "11e42abef224a5b96d2de6c2256cb1b5913a2271662dd0d6ca0f2889c81b91dc"
+    },
+    {
+      "name": "D07CircleRadius",
+      "split": "discovery",
+      "sha256": "20851968dd4d2ce17ee54e2480f33f84a41f0c96ef58f77228587095fd362108",
+      "file": "Discovery/D07CircleRadius/D07CircleRadius.SLDPRT",
+      "manifest_sha256": "7d6e27186e0ffa25ad1d4a82f5865b8788e6e8c06b7806dca58035b001189523"
+    },
+    {
+      "name": "D08CircleRadius",
+      "split": "discovery",
+      "sha256": "a1420edbcc419fb5cc0137e1c2f52d6a0c22e262c384fd3c780bb351d3e44fa4",
+      "file": "Discovery/D08CircleRadius/D08CircleRadius.SLDPRT",
+      "manifest_sha256": "617ddc44819c4f865fca681c0d4539c44c734347fb04dfb0009be0d7534b598c"
+    },
+    {
+      "name": "D09Arc17Ccw",
+      "split": "discovery",
+      "sha256": "2111f8d1f09f1c6acaf0efbaf9b4b56051926916c9463e70d36c63e2c4bc1ec7",
+      "file": "Discovery/D09Arc17Ccw/D09Arc17Ccw.SLDPRT",
+      "manifest_sha256": "9d20eb95f22e2e2ae9ac65e3bc3a67b6a7c66579555101b8106e6b3ce14bcc7e"
+    },
+    {
+      "name": "D10Arc17Cw",
+      "split": "discovery",
+      "sha256": "4b65a8b4367c26ad85934899403636b08e735d0aa8c805351046e80dc448d048",
+      "file": "Discovery/D10Arc17Cw/D10Arc17Cw.SLDPRT",
+      "manifest_sha256": "cacaf400e4fde4d2baf55546faa73b596ec1584c26c8ba7ef31b1f0e50a823a3"
+    },
+    {
+      "name": "D11Arc90Ccw",
+      "split": "discovery",
+      "sha256": "666aba3c2120b8437368565d4e51c670bd69769509310694302af8a489466030",
+      "file": "Discovery/D11Arc90Ccw/D11Arc90Ccw.SLDPRT",
+      "manifest_sha256": "0dca603966c3531a360a921a3fb35fac4f3abc567eefb8d804a8cc9f535efea4"
+    },
+    {
+      "name": "D12Arc90Cw",
+      "split": "discovery",
+      "sha256": "a8fcc99e91866c37b80439daba5a845c644fffac11d25023e14bf785ef8b140d",
+      "file": "Discovery/D12Arc90Cw/D12Arc90Cw.SLDPRT",
+      "manifest_sha256": "a3ed2a20a5f75efce4ea217f69fb761f14e350c344f66c7bb3b1955e50152702"
+    },
+    {
+      "name": "D13Arc180Ccw",
+      "split": "discovery",
+      "sha256": "f6c940ad4694eb612a7a4260b984302be52abc13fc0fbb95dc8b4b75d9cc6e59",
+      "file": "Discovery/D13Arc180Ccw/D13Arc180Ccw.SLDPRT",
+      "manifest_sha256": "2184d786815ba5d1f71aa74c6280bb27e746e4b5030c6cf9aef2772286eb5b7d"
+    },
+    {
+      "name": "D14Arc180Cw",
+      "split": "discovery",
+      "sha256": "6c14bd32f9a3db7b17ec4a8fe2cc5ff6cb3853ab40a74f04dff5e02f6dbe9a2b",
+      "file": "Discovery/D14Arc180Cw/D14Arc180Cw.SLDPRT",
+      "manifest_sha256": "2c7d3f436493d749c5332c012034a36252eef6168c2d524cb954e6674030bfd9"
+    },
+    {
+      "name": "D15Arc270Ccw",
+      "split": "discovery",
+      "sha256": "941aef2cc3f8b5b3af5b024546bb12ca9caa613b3979f43a5965da953f949927",
+      "file": "Discovery/D15Arc270Ccw/D15Arc270Ccw.SLDPRT",
+      "manifest_sha256": "8a827b679b666a7764999edd5ad51e12590765f0eb332ed8a8505b794ddfc7f2"
+    },
+    {
+      "name": "D16Arc270Cw",
+      "split": "discovery",
+      "sha256": "4e73d5d623617ff4c726c6b35c48299bb2a0cd5e4f07f8023656d14b6c31a675",
+      "file": "Discovery/D16Arc270Cw/D16Arc270Cw.SLDPRT",
+      "manifest_sha256": "c61f48cb0027d5ef71b8e9f451ebaef7d303dfd496042bf1809ef64f73616713"
+    },
+    {
+      "name": "D17TopCircle",
+      "split": "discovery",
+      "sha256": "93b74de21bb264164e0413266b3847eeb8ca9db9c95746d2aa2ace03cfc43110",
+      "file": "Discovery/D17TopCircle/D17TopCircle.SLDPRT",
+      "manifest_sha256": "6438dabfdad5175cb970ab57c4984b6d4952d0d03a284a0f20f434ad7ee40364"
+    },
+    {
+      "name": "D18RightCircle",
+      "split": "discovery",
+      "sha256": "79e305afb5524e0d0ba44debe89d81676b8ad21544cc36a133b1f4ca172827cf",
+      "file": "Discovery/D18RightCircle/D18RightCircle.SLDPRT",
+      "manifest_sha256": "f7955be06f92070084f8a98438d5b24221b811829cc764972a91430a558fedd1"
+    },
+    {
+      "name": "D19Annulus",
+      "split": "discovery",
+      "sha256": "f2d1bafc081e1576bf3542076ae2d346bdc792c8585b2d20121fb09e68965294",
+      "file": "Discovery/D19Annulus/D19Annulus.SLDPRT",
+      "manifest_sha256": "739bd2afb91eb4d56562b033412d8bded6494fff59e0079566e61a2e56e7a58f"
+    },
+    {
+      "name": "D20TwoCircles",
+      "split": "discovery",
+      "sha256": "7e21aa6bfdd6f629a778a86d494641b38db7fd38e12388224f526bee844b445b",
+      "file": "Discovery/D20TwoCircles/D20TwoCircles.SLDPRT",
+      "manifest_sha256": "5afa7720f2767f5ccde57ca3d3f1ef5f623a2c84b54596a8cbe66d83ddb51ff9"
+    },
+    {
+      "name": "D21EightCircles",
+      "split": "discovery",
+      "sha256": "4d353ba7165373f89353980399c63366e6a49afffa223c45c7089f3ad4b4fdf3",
+      "file": "Discovery/D21EightCircles/D21EightCircles.SLDPRT",
+      "manifest_sha256": "ff35c9aaced604642253849bda1cffa9e15a0c9aaceff1c81534669253a1c67e"
+    },
+    {
+      "name": "D22ConstructionArc",
+      "split": "discovery",
+      "sha256": "ba432dfa9b158402cb70c490b0aa75f1a1465a3c9b23e84cc9bb57019ded1133",
+      "file": "Discovery/D22ConstructionArc/D22ConstructionArc.SLDPRT",
+      "manifest_sha256": "78ae7daab5b674f0f1ffb280385f442616cafae5f03e25f773941e2e8c0557c9"
+    },
+    {
+      "name": "D23TangentCapsule",
+      "split": "discovery",
+      "sha256": "b74657aeb7ab7843cbb5f8af188a99374d61a9a9fed63fe752feaa25a806cc1f",
+      "file": "Discovery/D23TangentCapsule/D23TangentCapsule.SLDPRT",
+      "manifest_sha256": "678d4d41c8a00b10c424b3d4c241f6e47a61adcfe12085f517c30f0c18119692"
+    },
+    {
+      "name": "D24NearFullArc",
+      "split": "discovery",
+      "sha256": "0fcbcea5879d18514fb5f42d33214d4e85d14181ae500302cc69b56425087e2c",
+      "file": "Discovery/D24NearFullArc/D24NearFullArc.SLDPRT",
+      "manifest_sha256": "d32bb7731c6810bf76aee6ded3399f4f76954b9bc039d5d6210119c446293afe"
+    },
+    {
+      "name": "H01TranslatedDiameter",
+      "split": "heldout",
+      "sha256": "16837814717ae5a5c2a815b42afda8583b2cc51db4411b5837ca904ee8d5dddc",
+      "file": "Heldout/H01TranslatedDiameter/H01TranslatedDiameter.SLDPRT",
+      "manifest_sha256": "1025125888fbc059af33e1118d60f5614d14fcb9a2d27687cd09037776ce9103"
+    },
+    {
+      "name": "H02ReverseTopCircle",
+      "split": "heldout",
+      "sha256": "236c9191b5b0cab47ff43398d66ec9c984b7c3d6b11c76b600b00303e4dba200",
+      "file": "Heldout/H02ReverseTopCircle/H02ReverseTopCircle.SLDPRT",
+      "manifest_sha256": "9a565cdbedb8266052956112de2349eeac045192916fbaa7270edaaa056d12d9"
+    },
+    {
+      "name": "H03ThinRightAnnulus",
+      "split": "heldout",
+      "sha256": "7e26c77f86ab8c33bdf12fb52835723d2a8cd60b9213b0e8d6a192c60ddbbe88",
+      "file": "Heldout/H03ThinRightAnnulus/H03ThinRightAnnulus.SLDPRT",
+      "manifest_sha256": "710b02eebfde87f0b3f4a2fcf97eb9a145c8fa76c8b7b52e275b178b4a1004df"
+    },
+    {
+      "name": "H04ClockwiseSeamArc",
+      "split": "heldout",
+      "sha256": "4193f7aa95bd104fcfacc854fe37e4ba3feedede79c56182b0a0038ffffd5261",
+      "file": "Heldout/H04ClockwiseSeamArc/H04ClockwiseSeamArc.SLDPRT",
+      "manifest_sha256": "6cf115c248eef6bedf3bc357011183ae1a5d7238c2130a5179ae9578b57f63f8"
+    },
+    {
+      "name": "H05RotatedCapsule",
+      "split": "heldout",
+      "sha256": "f2ed589c9405bc81dc5d76b99ab469a2a14818ab0967cbb4a44128e5ea6b0662",
+      "file": "Heldout/H05RotatedCapsule/H05RotatedCapsule.SLDPRT",
+      "manifest_sha256": "d2f5afc07f516bd36f40ca7a65ae96649e25cc7cc5e89af8dc84e7607a2241af"
+    },
+    {
+      "name": "H06ReorderedIslands",
+      "split": "heldout",
+      "sha256": "cc6e723d82e439c9035d97afd002cb900bb6758ac62eee3a032205c8c2e0fbd2",
+      "file": "Heldout/H06ReorderedIslands/H06ReorderedIslands.SLDPRT",
+      "manifest_sha256": "0fdd720d89124c68bfc388fe100698775aa0ee697b74bc976418f10b0c838adb"
+    },
+    {
+      "name": "ControlRectangle",
+      "split": "control",
+      "sha256": "1b50107230e745f7ab327ae6e1d413d2391884ac4adf27a07b3020eb3dba467d",
+      "file": "Controls/ControlRectangle/ControlRectangle.SLDPRT",
+      "manifest_sha256": "829f5652ab13b4a34e8bec5ce86f570a699bc00491105db1842334142ad1a49f"
+    },
+    {
+      "name": "ControlCircle",
+      "split": "control",
+      "sha256": "b8e27fe3b9e901bf3e6833567517107925e0131b83e2a8b6c01fd9f4796f59fc",
+      "file": "Controls/ControlCircle/ControlCircle.SLDPRT",
+      "manifest_sha256": "6fead9087c5fdf33236109ac66058fa7b139a6b47801ca8d56c3d22f472e7ca9"
+    }
+  ],
+  "writer_implementation_started": false,
+  "heldout_policy": "Heldout native files and streams must not be inspected while deriving or implementing the family; only independent heldout oracle results establish generalization",
+  "acceptance_scope": "2026-authored source corpus only; no Kit-written curve output or writer acceptance is established",
+  "publication_provenance": {
+    "original_raw_file": "CurvesSourceLock02/Lock.json",
+    "original_raw_sha256": "21da3f3e8a6e2a6fe732f69c377a9539bc26a3ee1111795319b4a95d0124ad25",
+    "original_raw_bytes": 11646,
+    "normalization": "Only cases[*].file uses forward slashes joined from PureWindowsPath relative parts; all original lock fields other than these path strings are unchanged",
+    "original_file_paths_windows": {
+      "D01CircleRadius": "Discovery\\D01CircleRadius\\D01CircleRadius.SLDPRT",
+      "D02CircleRadius": "Discovery\\D02CircleRadius\\D02CircleRadius.SLDPRT",
+      "D03CircleRadius": "Discovery\\D03CircleRadius\\D03CircleRadius.SLDPRT",
+      "D04CircleRadius": "Discovery\\D04CircleRadius\\D04CircleRadius.SLDPRT",
+      "D05CircleRadius": "Discovery\\D05CircleRadius\\D05CircleRadius.SLDPRT",
+      "D06CircleRadius": "Discovery\\D06CircleRadius\\D06CircleRadius.SLDPRT",
+      "D07CircleRadius": "Discovery\\D07CircleRadius\\D07CircleRadius.SLDPRT",
+      "D08CircleRadius": "Discovery\\D08CircleRadius\\D08CircleRadius.SLDPRT",
+      "D09Arc17Ccw": "Discovery\\D09Arc17Ccw\\D09Arc17Ccw.SLDPRT",
+      "D10Arc17Cw": "Discovery\\D10Arc17Cw\\D10Arc17Cw.SLDPRT",
+      "D11Arc90Ccw": "Discovery\\D11Arc90Ccw\\D11Arc90Ccw.SLDPRT",
+      "D12Arc90Cw": "Discovery\\D12Arc90Cw\\D12Arc90Cw.SLDPRT",
+      "D13Arc180Ccw": "Discovery\\D13Arc180Ccw\\D13Arc180Ccw.SLDPRT",
+      "D14Arc180Cw": "Discovery\\D14Arc180Cw\\D14Arc180Cw.SLDPRT",
+      "D15Arc270Ccw": "Discovery\\D15Arc270Ccw\\D15Arc270Ccw.SLDPRT",
+      "D16Arc270Cw": "Discovery\\D16Arc270Cw\\D16Arc270Cw.SLDPRT",
+      "D17TopCircle": "Discovery\\D17TopCircle\\D17TopCircle.SLDPRT",
+      "D18RightCircle": "Discovery\\D18RightCircle\\D18RightCircle.SLDPRT",
+      "D19Annulus": "Discovery\\D19Annulus\\D19Annulus.SLDPRT",
+      "D20TwoCircles": "Discovery\\D20TwoCircles\\D20TwoCircles.SLDPRT",
+      "D21EightCircles": "Discovery\\D21EightCircles\\D21EightCircles.SLDPRT",
+      "D22ConstructionArc": "Discovery\\D22ConstructionArc\\D22ConstructionArc.SLDPRT",
+      "D23TangentCapsule": "Discovery\\D23TangentCapsule\\D23TangentCapsule.SLDPRT",
+      "D24NearFullArc": "Discovery\\D24NearFullArc\\D24NearFullArc.SLDPRT",
+      "H01TranslatedDiameter": "Heldout\\H01TranslatedDiameter\\H01TranslatedDiameter.SLDPRT",
+      "H02ReverseTopCircle": "Heldout\\H02ReverseTopCircle\\H02ReverseTopCircle.SLDPRT",
+      "H03ThinRightAnnulus": "Heldout\\H03ThinRightAnnulus\\H03ThinRightAnnulus.SLDPRT",
+      "H04ClockwiseSeamArc": "Heldout\\H04ClockwiseSeamArc\\H04ClockwiseSeamArc.SLDPRT",
+      "H05RotatedCapsule": "Heldout\\H05RotatedCapsule\\H05RotatedCapsule.SLDPRT",
+      "H06ReorderedIslands": "Heldout\\H06ReorderedIslands\\H06ReorderedIslands.SLDPRT",
+      "ControlRectangle": "Controls\\ControlRectangle\\ControlRectangle.SLDPRT",
+      "ControlCircle": "Controls\\ControlCircle\\ControlCircle.SLDPRT"
+    },
+    "source_root": "External oracle-owner corpus; no native source files are included beside this metadata lock",
+    "native_cad_payloads_read_or_copied_during_publication": false,
+    "sealed_heldout_source_count": 6,
+    "acceptance_scope": "Completed oracle-authored source corpus only; no Kit-written curve output, held-out writer generalization or generative writer acceptance"
+  }
+}

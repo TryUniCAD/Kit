@@ -1,0 +1,166 @@
+{
+  "disclosed_lock_sha256": "aa3408803e08ea1a7e32f4117103f92eb5bd8132ff01648fbfc260839cff7a91",
+  "generated_native_files": 0,
+  "native_observation_sha256": "3e52817b5811202118533fad930bbd44ab3b1d84ba0c6caedacc0cd87367b47d",
+  "native_oracle_starts": 0,
+  "schema": "kit.sw2026.part-equation-config-replay.v1",
+  "sealed_inputs_read": 0,
+  "total_source_bytes": 65148,
+  "typed_configs": {
+    "Edited": {
+      "byte_exact": true,
+      "config_bytes": 32581,
+      "config_sha256": "29c7c66c6db9621055fb5d9659e4016ac5eda523de41ba6a02d9384edc6fe174",
+      "map_base": 4,
+      "map_counter": 193,
+      "ordinary_profile_refused": true,
+      "relation": {
+        "flags": 512,
+        "following_signed_long": 0,
+        "manager_dimension_cache_count": 0,
+        "manager_map_slot": 60,
+        "relation_map_slot": 62,
+        "sides": [
+          {
+            "side_map_slot": 64,
+            "tokens": [
+              {
+                "binding_class": "moFeatureDimHandle_c",
+                "binding_map_slot": 70,
+                "cached_si": 0.02915,
+                "class": "moRelDimension_c",
+                "dependency_count": 0,
+                "element_type": 0,
+                "end": 15,
+                "local_reference": true,
+                "start": 0,
+                "text": "\"D1@AnchorBoss\"",
+                "wrapper_f08": 134
+              }
+            ]
+          },
+          {
+            "side_map_slot": 77,
+            "tokens": [
+              {
+                "class": "moRelOperator_c",
+                "element_type": 3,
+                "end": 1,
+                "start": 0,
+                "text": "="
+              },
+              {
+                "binding_class": "moSkDimHandleValG2_c",
+                "binding_map_slot": 83,
+                "cached_si": 0.0583,
+                "class": "moRelDimension_c",
+                "dependency_count": 0,
+                "element_type": 0,
+                "end": 19,
+                "local_reference": true,
+                "start": 2,
+                "text": "\"D1@AnchorSketch\"",
+                "wrapper_f08": 134
+              },
+              {
+                "class": "moRelOperator_c",
+                "element_type": 3,
+                "end": 21,
+                "start": 20,
+                "text": "/"
+              },
+              {
+                "class": "moRelValue_c",
+                "element_type": 2,
+                "end": 23,
+                "start": 22,
+                "text": "2"
+              }
+            ]
+          }
+        ]
+      },
+      "source_sha256": "6f576c8aa8badc4209b14c081250bb917086433dccbcc2b25bba6c4b44339880"
+    },
+    "Original": {
+      "byte_exact": true,
+      "config_bytes": 32567,
+      "config_sha256": "72059327eefd23d280ec3f089bcfeb79b43bd32da238f8750fbb347cf9ad9eef",
+      "map_base": 4,
+      "map_counter": 193,
+      "ordinary_profile_refused": true,
+      "relation": {
+        "flags": 512,
+        "following_signed_long": 0,
+        "manager_dimension_cache_count": 0,
+        "manager_map_slot": 60,
+        "relation_map_slot": 62,
+        "sides": [
+          {
+            "side_map_slot": 64,
+            "tokens": [
+              {
+                "binding_class": "moFeatureDimHandle_c",
+                "binding_map_slot": 70,
+                "cached_si": 0.02185,
+                "class": "moRelDimension_c",
+                "dependency_count": 0,
+                "element_type": 0,
+                "end": 15,
+                "local_reference": true,
+                "start": 0,
+                "text": "\"D1@AnchorBoss\"",
+                "wrapper_f08": 120
+              }
+            ]
+          },
+          {
+            "side_map_slot": 77,
+            "tokens": [
+              {
+                "class": "moRelOperator_c",
+                "element_type": 3,
+                "end": 1,
+                "start": 0,
+                "text": "="
+              },
+              {
+                "binding_class": "moSkDimHandleValG2_c",
+                "binding_map_slot": 83,
+                "cached_si": 0.0437,
+                "class": "moRelDimension_c",
+                "dependency_count": 0,
+                "element_type": 0,
+                "end": 19,
+                "local_reference": true,
+                "start": 2,
+                "text": "\"D1@AnchorSketch\"",
+                "wrapper_f08": 120
+              },
+              {
+                "class": "moRelOperator_c",
+                "element_type": 3,
+                "end": 21,
+                "start": 20,
+                "text": "/"
+              },
+              {
+                "class": "moRelValue_c",
+                "element_type": 2,
+                "end": 23,
+                "start": 22,
+                "text": "2"
+              }
+            ]
+          }
+        ]
+      },
+      "source_sha256": "8d79922604aba1816348ae2b62d3601c44a088dccf4b1373dd17ca0e39b02e58"
+    }
+  },
+  "unchanged_control": {
+    "byte_exact": true,
+    "config_bytes": 25696,
+    "config_sha256": "b034154ddc594c1f3932a0414e9e59bdc6cde90b1b81cc3f4e1e766bf7523e38"
+  }
+}

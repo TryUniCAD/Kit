@@ -1,0 +1,14 @@
+{
+  "ambient": {
+    "AmbientValue": 0.4375,
+    "ColourValue": 6004434,
+    "DiffuseValue": 0.625,
+    "ExternalName": "KitAuthoredAmbientAlpha",
+    "NameValue": "authored soft ambient alpha",
+    "SpecularValue": 0.1875
+  },
+  "feature_target": {
+    "DateCode": 2026306,
+    "ParasolidVersion": 370108
+  }
+}

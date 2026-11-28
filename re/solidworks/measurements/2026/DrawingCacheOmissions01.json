@@ -1,0 +1,223 @@
+{
+  "blank_sheet": {
+    "edited_saved_reopened_ratio": [
+      3.0,
+      2.0
+    ],
+    "height_m": 0.21589999999999998,
+    "model_views": 0,
+    "original_ratio": [
+      1.0,
+      1.0
+    ],
+    "paper_size": 0,
+    "template": 13,
+    "width_m": 0.2794
+  },
+  "cases": [
+    {
+      "derivative_sha256": "ce5857b9a4975ab64f7bd8e5fe5b03b8e8492ab50eba81b34c1ecf97a5cf6b55",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "input_stream_count": 29,
+      "name": "ControlBefore",
+      "omitted_stream": null,
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "d1e128a30bb8ed5dac0ffd1cd801254583ba384e52d9210514c54ead1576226d",
+        "b2141ce1c54595dc92e6b05e4956dae37c263ad1de595e068cb9af6d590a0c2a"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "082c266cd0bc065cb66a7d49e51ef43b7427b2957b692271cb750bf23a2a0a74",
+      "input_sha256": "7344be42ffa72325dc4883a768cb4656f8d2319b2ee214c23de9f96bd5f4feb5",
+      "input_stream_count": 29,
+      "name": "Repacked",
+      "omitted_stream": null,
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "c6d260015f1062adaa077b0b5bd970a155a7050d9361ed9d649de001bf5e79fe",
+        "3577b5ed2510e72e7aada3b2bf5cbd9e99a661fa618f76fee47aeb9784219d5e"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "727b19f321576adbc132373b6f10f9c0157f1202968d58255358ac2fe9e9b960",
+      "input_sha256": "a6bccbd0925cad95dd96320e7f40d2615b4449d6fadaadabee952be916eac899",
+      "input_stream_count": 28,
+      "name": "OmitDisplayLists",
+      "omitted_stream": "Contents/DisplayLists",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "0fd5f47ae1c66e352033a5336b47f727b8631e393ca9c136ea553a3782c7371a",
+        "76b1e9bbc1bf1254d4e61c4d4636f5cac0b9a4e6b3846ea8a8735ddd1e2d2270"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "restored_stream_bytes": 3249,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "6192c0e04af56aeaf6e2ca8a2c447e608473196734b2dd4fbae6b20a238ed3c6",
+      "input_sha256": "f3d9b21a45bf0749096c6ba5e6dcc3e83fe60f402e65e05f5889ba2d2c19795f",
+      "input_stream_count": 28,
+      "name": "OmitViewBucketLists",
+      "omitted_stream": "Contents/VBLists",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "99665dfdb19822f31ccc5ed0a3e3d71b013d5f8f7b8de8882c1c58d0711af5dc",
+        "a1f1e3f8237a6f164a8c0e6731ccb002a74a1c4f4cda0432ba3932e188d22281"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "restored_stream_bytes": 8,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "c5dfbfd6204aae7a1d52faf02ea79176db67caf06daf4d10429eded653851c4d",
+      "input_sha256": "78201588c67be78dfcdb876cc523ea283932f7fa8b5a5cdf1e14beaeb831d5d4",
+      "input_stream_count": 28,
+      "name": "OmitDisplayStamp",
+      "omitted_stream": "_DL_VERSION_19000/DLUpdateStamp",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "cc4c872b2b366360fd038f63279b2cf183edde0148007c5034b6322fb9020eb3",
+        "1c251cf9e2e11eabc3d2c8a04eba8e3d3a834078e69f4f5cdf40b3242456cab8"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "restored_stream_bytes": 6,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "f781f2bb9b00de969d3f5f9934619056656ae907027e6aa88edce37d4ec53c46",
+      "input_sha256": "51d172bd548c73def2d1b3ed7bd0d241bec9ceee7fbb3c077f2cd30757d44616",
+      "input_stream_count": 28,
+      "name": "OmitSheetPreviewNames",
+      "omitted_stream": "SheetPreviews/SheetNames",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "f9facf04f3902ede67e2b3e1c2171553262a5307019db1e9890365e6f03eca45",
+        "5efda2d98c47ac490774a8ad7114e61e31bd7d218d9c02f24e58b1f1d174a76f"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "restored_stream_bytes": 22,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "44985c98861d3ea0a2b3e309292fb35adc0ba19d431eb480e282939e425e0356",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "input_stream_count": 29,
+      "name": "ControlAfter",
+      "omitted_stream": null,
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "528ea17a312fdaebac418a359e0b36896f4e89dfd0f5336e18dd4dc683f7b68a",
+        "d29d79a5fa1d5c834dc629b4d3365fbf52a881c1daa457dcf018d88cf92213c5"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    }
+  ],
+  "combined_omission_measured": false,
+  "control_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+  "controls_passed": [
+    true,
+    true
+  ],
+  "dialog_count": 0,
+  "distinct_processes": 14,
+  "host_transport_sha256": "c0d69deed2563572366cf34ddc1a17b483e2139a81942af08bbf9f6e517cb970",
+  "immutable_inputs": true,
+  "live_tree_rows": 10,
+  "native_acceptance": false,
+  "native_record_sha256": "2862b39d7410d7b11790e9f058f5a2d7a09483521fd8b80a67cbc0f181a6f039",
+  "oracle": {
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "packet_sha256": "1707b7b860d6324eede323567d709fd009053c6a6c64b334ce8c836a1bb8921d",
+  "rebuild_problem_count": 0,
+  "repacked_control_passed": true,
+  "schema": "kit.sw2026.drawing-cache-omissions.v1",
+  "scope": "one omitted stream per disclosed blank drawing",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "transport_exit_code": 0,
+  "writer_output_count": 0
+}

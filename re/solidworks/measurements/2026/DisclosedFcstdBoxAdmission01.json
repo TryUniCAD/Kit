@@ -1,0 +1,221 @@
+{
+  "schema": "kit.solidworks.disclosed-fcstd-box-admission.v1",
+  "sdk_revision": "b679eb1092620911bcee6dd3d22eb5971f34913c",
+  "pinned_source_inventory_sha256": "db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c",
+  "independent_projection_audit_sha256": "b0b51d5ef98a7b6f5d37f996bac00efa339a9f3aee13fbccbc3eef3519de9d4b",
+  "scope": {
+    "source_identities": 162,
+    "box_bearing_identities": 33,
+    "box_bearing_filter": [
+      "Part::Box",
+      "PartDesign::AdditiveBox"
+    ],
+    "strict_reader": {
+      "include_brep": true,
+      "include_tessellation": false
+    },
+    "read_entry": "convert.open_document(original_path, strict=True, include_brep=True, include_tessellation=False)",
+    "projection_entry": "ProjectFreecadBox.project(document, source_labels=True)",
+    "original_inputs_verified_by_sha256": true,
+    "input_document_modified": false
+  },
+  "strict_reads": 33,
+  "previously_measured_research_profiles_accepted": 3,
+  "additional_profiles_accepted": 0,
+  "first_refusals_by_message": {
+    "FreeCAD box translation requires one part body, one primitive and one active configuration": 7,
+    "FreeCAD feature is outside the origin-fixed AdditiveBox profile": 2,
+    "FreeCAD primitive includes another authored model domain": 6,
+    "FreeCAD primitive uses another attachment engine or owner": 3,
+    "expected the measured FreeCAD schema-four primitive source": 12
+  },
+  "existing_matches": [
+    {
+      "public_recipe": "1.0.2 F14a",
+      "input_sha256": "2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df",
+      "geometry_source_cache_compared": true,
+      "dimensions_mm": [
+        20.0,
+        30.0,
+        10.0
+      ],
+      "driver_count": 3,
+      "text_property_count": 19
+    },
+    {
+      "public_recipe": "0.21.2 F14a",
+      "input_sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d",
+      "geometry_source_cache_compared": true,
+      "dimensions_mm": [
+        20.0,
+        30.0,
+        10.0
+      ],
+      "driver_count": 3,
+      "text_property_count": 13
+    },
+    {
+      "public_recipe": "1.1.4 F14a",
+      "input_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8",
+      "geometry_source_cache_compared": true,
+      "dimensions_mm": [
+        20.0,
+        30.0,
+        10.0
+      ],
+      "driver_count": 3,
+      "text_property_count": 22
+    }
+  ],
+  "attached_plane_sources": {
+    "recipe_family": "F14c",
+    "versions_by_source_sha256": {
+      "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb": "0.21.2",
+      "40a68d097af87a4ca192fe8d0caa227e236547cc1a5e8b95ddba1037eb8dca70": "1.0.2",
+      "dba4b4257d5b44c03051121c52d9ffb84e73fe17deae499256d807a129cd8852": "1.1.4"
+    },
+    "source_feature_id": "freecad:feature:AdditiveBox",
+    "direct_object_dependencies": [
+      {
+        "id": "freecad:body:Body",
+        "type": "PartDesign::Body"
+      },
+      {
+        "id": "freecad:plane:XZ_Plane",
+        "type": "App::Plane"
+      }
+    ],
+    "map_mode": 5,
+    "map_reversed": false,
+    "support_link_count": 1,
+    "support_is_whole_plane": true,
+    "source_support_fields": {
+      "0.21.2": "Support",
+      "1.0.2": "AttachmentSupport",
+      "1.1.4": "AttachmentSupport"
+    },
+    "typed_principal_frame": {
+      "origin_mm": [
+        0,
+        0,
+        0
+      ],
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        -1
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "selection_id": null,
+      "offset_parameter_id": null
+    },
+    "source_attachment_offset_is_identity": true,
+    "source_feature_placement": {
+      "translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "rotation_degrees": 90,
+      "local_u_in_world": [
+        1,
+        0,
+        0
+      ],
+      "local_v_in_world": [
+        0,
+        0,
+        1
+      ],
+      "local_z_in_world": [
+        0,
+        -1,
+        0
+      ]
+    },
+    "driver_values_mm": {
+      "Length": 20,
+      "Width": 30,
+      "Height": 10
+    },
+    "rounded_brep_bounds_mm": [
+      [
+        0,
+        -10,
+        0
+      ],
+      [
+        20,
+        0,
+        30
+      ]
+    ],
+    "maximum_bound_rounding_difference_mm": 1.5e-14,
+    "shared_plane_reference": "re/tooling/sw2026/builders/ReferencePlane.py",
+    "shared_offset_plane_requires_minimum_distance_m": 1e-14,
+    "shared_offset_plane_changes_support_axes": false,
+    "current_origin_box_lowers_to_xy_plane": true,
+    "current_origin_box_requires_forward_boss": true,
+    "attached_profile_promoted": false
+  },
+  "native_app_processes": 0,
+  "native_files_generated": 0,
+  "new_conversion_credits": 0,
+  "historical_benchmark_membership_verified": false,
+  "source_case_columns": [
+    "input_sha256",
+    "bytes",
+    "typed_source_version",
+    "xml_schema",
+    "first_outcome"
+  ],
+  "source_cases": [
+    ["09f0953e5a30c05166725f9c430e0f14ba20b2af3c330ff7837b7134b77a5ed8", 12263, "1.1R45039 (Git)", "4", "unsupported release or source schema"],
+    ["25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb", 5288, "0.21R33771 (Git)", "4", "additional attachment owner"],
+    ["2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df", 5330, "1.0R39319 (Git)", "4", "existing F14a profile"],
+    ["2ef5892f1516b66de5f10dfdd884b140edb6b683679838577f2db87e35000299", 99867, "0.21R30669 (Git)", "4", "other authored domains"],
+    ["2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d", 5166, "0.21R33771 (Git)", "4", "existing F14a profile"],
+    ["2f963ff6722a4556c07bbe19ba1da4c461cb1629d4183585dad024b79b0045e9", 39240, "0.21R32592 (Git)", "4", "different primitive kind"],
+    ["34207b128f433c53b68f09e58a14412eac6eff36bb6f25c7baaff659bf5d7375", 20661, "0.21R32198 (Git)", "4", "unsupported feature, body or configuration count"],
+    ["40a68d097af87a4ca192fe8d0caa227e236547cc1a5e8b95ddba1037eb8dca70", 5418, "1.0R39319 (Git)", "4", "additional attachment owner"],
+    ["50450fbe592989557b01a854f4c4b5916c46fa4654f85d78cae3817fda95879b", 4932, "1.1R45039 (Git)", "4", "unsupported release or source schema"],
+    ["54cc992ca6278fdd8e38b3d01f37c616e5dfdc38ca7a058fe838599b709ed228", 43614, "1.1R20260414 (Git shallow)", "4", "unsupported release or source schema"],
+    ["5ddd8687c9a9f0c73f2863dec1c550c046c79985efd45a83c3b89cc0de2b64dd", 65985, "0.21R32589 (Git)", "4", "different primitive kind"],
+    ["610d6e1aa1d73e940f0702b779edba65ec31b0e364836ca6dfcd190b18298058", 6321, "0.21R33771 (Git)", "4", "other authored domains"],
+    ["69c6aa00699cb8d8bb4014b48eb7c419352c49f360cffb45075f31e152f989ba", 9807, "1.1R20260414 (Git shallow)", "4", "unsupported release or source schema"],
+    ["6bc4c0e639b8055640c0bb02e2828a63184c787d42bda85d661707de3db84317", 5014, "1.1R20260414 (Git shallow)", "4", "unsupported release or source schema"],
+    ["6f821c04ddd34092779e6781288cef62436f108dee5ff948117d35820d3d9c87", 113723, "1.1R20260414 (Git shallow)", "4", "unsupported release or source schema"],
+    ["78a466e5a10fdd4212c2d055e20d909ac3857d83e679cc4e42def44e56386ea4", 6699, "1.0R39319 (Git)", "4", "other authored domains"],
+    ["7b3af35a37e9048f9e70e9143ba1c60abb568d92494a209d4c3fca5113c93b9b", 16972, "0.20R29177 (Git)", "4", "unsupported release or source schema"],
+    ["8356cbdcb11cb7ee0f0c83fc31b1821c10636d176808a2eef1fb433212d044ec", 39033, "0.21R32331 +3 (Git)", "4", "unsupported feature, body or configuration count"],
+    ["85d9b34419fa92b1de954dff2cd8dfe1e0b964e7859b6841e991329d7de931a3", 30107, "0.21R33694 (Git)", "4", "unsupported feature, body or configuration count"],
+    ["8afd602cdd801c879b4830be6cb437270ca087532dfcb3a51f7a6da50d2841b0", 8548, "1.1R45039 (Git)", "4", "unsupported release or source schema"],
+    ["98bcd14bd2e52e4ec4fd991fdacf23d0d9dd388a22e7d84a8b1e43f4a72da446", 46372, "0.21R32282 (Git)", "4", "unsupported feature, body or configuration count"],
+    ["9f56136546eecaa27e715fde335e2addfea75222eefafd3cf729932ea19fac7e", 79058, "0.21R32460 (Git)", "4", "other authored domains"],
+    ["a1ec94417092ac8de667b13a164922e01adb23cc427a9a535ca2f51e12a61f75", 11636, "1.1R45039 (Git)", "4", "unsupported release or source schema"],
+    ["b53113f12a679edcb1bce48be1a1f6319bd3721cf0203be9e1c52cfdd04ee4f9", 41788, "1.1R41497 (Git)", "4", "unsupported release or source schema"],
+    ["bb83368b4b85cfdd24784c547940a31bf91aac450c2a8feea6f55c5a041c64c0", 528077, "1.2R45573 +1 (Git)", "4", "unsupported release or source schema"],
+    ["c2e90d3ae6b8d02f11e599b8179643a2f1ccf8d9a3ef1a48e537a118b7372537", 13074, "0.21R30669 (Git)", "4", "unsupported feature, body or configuration count"],
+    ["c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8", 5477, "1.1R20260928 (Git shallow)", "4", "existing F14a profile"],
+    ["dba4b4257d5b44c03051121c52d9ffb84e73fe17deae499256d807a129cd8852", 5570, "1.1R20260928 (Git shallow)", "4", "additional attachment owner"],
+    ["e48d5a107c21cf23ad1385f0b9e0346fa3d161517e4c7935dd5027e4b4ffe2df", 92453, "1.2R20260113 (Git shallow)", "4", "unsupported release or source schema"],
+    ["e56c50987f3e9fc8a0e1c40b3054ba02c57d133f6381bc9fa2f3eb36e7f3f1b2", 1311119, "0.21R30669 (Git)", "4", "other authored domains"],
+    ["e789d339d2a917dce88b85feebba6703d20e2d5cce57068f3068f67ce2b9ed1f", 6923, "1.1R20260928 (Git shallow)", "4", "other authored domains"],
+    ["eb4954687dca8015a662ab2dd8b391e654f044e9935f5dbf7fd3cbff004ed789", 140538, "0.21R32592 (Git)", "4", "unsupported feature, body or configuration count"],
+    ["ef5661105657e402988327f6ae87611982d236bf6e5e04eaf9b1606694c2d9d4", 14094, "0.21R30669 (Git)", "4", "unsupported feature, body or configuration count"]
+  ]
+}

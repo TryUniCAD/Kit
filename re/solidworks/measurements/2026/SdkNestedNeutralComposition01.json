@@ -1,0 +1,544 @@
+{
+  "cases": {
+    "SdkNestedAssemblyNative01": {
+      "definition_count": 3,
+      "outputs": {
+        "SdkFrame.SLDASM": {
+          "activity": 2,
+          "bytes": 9059,
+          "map_next": 129,
+          "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkNestedAssemblyNative01\\GeneratedInput\\SdkFrame.SLDASM",
+          "references": 1,
+          "sha256": "6901eab04d9642045b3f56a44ed7602fba1f533a7b8fee46dcde063801aa26bc",
+          "streams": {
+            "Contents/CMgr": {
+              "byte_identity": true,
+              "bytes": 2066,
+              "sha256": "a55d2f71721ffc607db92f0756c2d311146fde540a1434ff60b25653a762dee1"
+            },
+            "Contents/CMgrHdr2": {
+              "byte_identity": true,
+              "bytes": 137,
+              "sha256": "e7508b07e0e767994f7798f254df40eb7e5f27e10ff6d0cf434cdcb67587b8b2"
+            },
+            "Contents/Config-0": {
+              "byte_identity": true,
+              "bytes": 22029,
+              "sha256": "a8c7f035d084eee363a1beed975b61f7357ead6ed54223a4e525899e09eb0f1f"
+            },
+            "Contents/Config-0-MatesList": {
+              "byte_identity": true,
+              "bytes": 6,
+              "sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "byte_identity": true,
+              "bytes": 1043,
+              "sha256": "51c4dc0ca1723f01a9a4a389601835072cb09c870d7c7a5a549918662e8c5537"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "byte_identity": true,
+              "bytes": 4839,
+              "sha256": "dc847780d531323cc1a788c66a76f413623960209e4171383fbd575de7cbcf91"
+            },
+            "Contents/Definition": {
+              "byte_identity": true,
+              "bytes": 543,
+              "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+            },
+            "Header2": {
+              "byte_identity": true,
+              "bytes": 1043,
+              "sha256": "ca5cbded4b4b4f637e774bfe639ca90c34cfca86e95a2d46a1b2588ceb7d3cbf"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "byte_identity": true,
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "byte_identity": true,
+              "bytes": 187,
+              "sha256": "7c4e8052c766b18ac3c611cd24180badc9447da0920ab396b31bb0eb16f95644"
+            },
+            "swXmlContents/COMPINSTANCETREE": {
+              "byte_identity": true,
+              "bytes": 2838,
+              "sha256": "7bc8458846ad24a12c038a4d75b7529fee024f104c5eae77a894238ead9ff0d6"
+            },
+            "swXmlContents/KeyWords": {
+              "byte_identity": true,
+              "bytes": 1065,
+              "sha256": "4a89dda30bae268f2dfbc9623a064559a9243bf2b37fa44edd3e0b58362e22a7"
+            }
+          }
+        },
+        "SdkModule.SLDASM": {
+          "activity": 1,
+          "bytes": 8839,
+          "map_next": 129,
+          "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkNestedAssemblyNative01\\GeneratedInput\\SdkModule.SLDASM",
+          "references": 1,
+          "sha256": "7326aa2f78ff2c2c609e00ea20ec79ebf8e43e5638c596bf42d2d8b2dc9017c6",
+          "streams": {
+            "Contents/CMgr": {
+              "byte_identity": true,
+              "bytes": 2096,
+              "sha256": "d799d6ca167ed330daa8b3a73df84c6040d813bd60c5f1e450c966b98c364b1f"
+            },
+            "Contents/CMgrHdr2": {
+              "byte_identity": true,
+              "bytes": 137,
+              "sha256": "1c7305a206b454b08f4a2c34fd72eaeeb9fd1e5246ba7685bbb74a81bcca0eb3"
+            },
+            "Contents/Config-0": {
+              "byte_identity": true,
+              "bytes": 22071,
+              "sha256": "9ce4d396c67456c5aff95ae4f007712f7b4f5d76589db69ace267b4102e7e3fe"
+            },
+            "Contents/Config-0-MatesList": {
+              "byte_identity": true,
+              "bytes": 6,
+              "sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "byte_identity": true,
+              "bytes": 1069,
+              "sha256": "6a50eaadfdd5e17935b310dcbdd66a4d4b40e08a2426979710a7d4c44eac92f7"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "byte_identity": true,
+              "bytes": 4839,
+              "sha256": "dc847780d531323cc1a788c66a76f413623960209e4171383fbd575de7cbcf91"
+            },
+            "Contents/Definition": {
+              "byte_identity": true,
+              "bytes": 543,
+              "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+            },
+            "Header2": {
+              "byte_identity": true,
+              "bytes": 1069,
+              "sha256": "6f5191ff0cc63ebdc108ed42c83532bf79473956b9f556aadc371acdaa400d55"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "byte_identity": true,
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "byte_identity": true,
+              "bytes": 187,
+              "sha256": "7c4e8052c766b18ac3c611cd24180badc9447da0920ab396b31bb0eb16f95644"
+            },
+            "swXmlContents/COMPINSTANCETREE": {
+              "byte_identity": true,
+              "bytes": 1873,
+              "sha256": "42523bdd1966f9f7f022e2d03363038cc426f57a9efd5ad3e33a7379a4c23a0e"
+            },
+            "swXmlContents/KeyWords": {
+              "byte_identity": true,
+              "bytes": 1076,
+              "sha256": "9765627cb6cf29c61400492bbbd8370dc760e96a9aceddc43cff34108a542575"
+            }
+          }
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "activity": 0,
+          "bytes": 8196,
+          "map_next": 202,
+          "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkNestedAssemblyNative01\\GeneratedInput\\SdkNestedPlate.SLDPRT",
+          "references": 0,
+          "sha256": "de72b0db675a3ecb96e27f36c2766f80aaaeb6cf8b81792097809e4118936a5f",
+          "streams": {
+            "Contents/CMgr": {
+              "byte_identity": true,
+              "bytes": 1145,
+              "sha256": "084f35a37de138e43f91265e31251becc1d9e8cc7bc98d3a8b448443d2888603"
+            },
+            "Contents/CMgrHdr2": {
+              "byte_identity": true,
+              "bytes": 169,
+              "sha256": "89e82103d5feb80a537874eb46d5d6660346034029decc72b5e2eb69c31c3a73"
+            },
+            "Contents/Config-0": {
+              "byte_identity": true,
+              "bytes": 22262,
+              "sha256": "7e0869c72b5fc9e7fc85c66b6c4a6e8a3b6eada4bb2b387575e882ba77c592b0"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "byte_identity": true,
+              "bytes": 777,
+              "sha256": "db5b2248b1c55a39b60ac488c0797e73087cd381b7febaec74ab6da49c12d2f2"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "byte_identity": true,
+              "bytes": 13867,
+              "sha256": "88409bf56d2f46e9e03247cf767202abde4009cfb572c10475d9a711798d5d8b"
+            },
+            "Contents/Definition": {
+              "byte_identity": true,
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "byte_identity": true,
+              "bytes": 777,
+              "sha256": "377a6ec041079d87e16c934418893a88caaaf614f89dbd21bdbb9eb52b22612b"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "byte_identity": true,
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "byte_identity": true,
+              "bytes": 187,
+              "sha256": "7c4e8052c766b18ac3c611cd24180badc9447da0920ab396b31bb0eb16f95644"
+            },
+            "swXmlContents/KeyWords": {
+              "byte_identity": true,
+              "bytes": 1439,
+              "sha256": "ef17cf0a5c304ff27a31db1c94f58538b0cf3948ba01c28917a085d41efc425b"
+            }
+          }
+        }
+      },
+      "passed": true,
+      "prior_fixture_sha256": "4fc7cc504ab20b275abc41d13832adcaa9c0ce0e9da999fb3fb898e9359ec40a",
+      "prior_native_candidate_comparison": {
+        "SdkFrame.SLDASM": {
+          "exact_container": false,
+          "exact_streams": [
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-MatesList",
+            "_MO_VERSION_19000/Biography"
+          ]
+        },
+        "SdkModule.SLDASM": {
+          "exact_container": false,
+          "exact_streams": [
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-MatesList",
+            "_MO_VERSION_19000/Biography"
+          ]
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "exact_container": false,
+          "exact_streams": [
+            "_MO_VERSION_19000/Biography"
+          ]
+        }
+      },
+      "root": "SdkFrame.SLDASM",
+      "root_activity": 2,
+      "runtime_file_reads": 0
+    },
+    "SdkRepeatedNestedAssemblyNative01": {
+      "definition_count": 4,
+      "outputs": {
+        "SdkFrame.SLDASM": {
+          "activity": 7,
+          "bytes": 9880,
+          "map_next": 138,
+          "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkRepeatedNestedAssemblyNative01\\GeneratedInput\\SdkFrame.SLDASM",
+          "references": 3,
+          "sha256": "abf744242a62fe36885afb25340abdfb0cfc5d6393bcf1c9e2715af68cc0b5a0",
+          "streams": {
+            "Contents/CMgr": {
+              "byte_identity": true,
+              "bytes": 2774,
+              "sha256": "b936ba96dead61128c0ea9d510e6530a3888eb694eb0818b06aee5204a543003"
+            },
+            "Contents/CMgrHdr2": {
+              "byte_identity": true,
+              "bytes": 137,
+              "sha256": "300105f0b7570d049d15d905eb7dfb5a0d54e78c682291ec74e430517416b3d1"
+            },
+            "Contents/Config-0": {
+              "byte_identity": true,
+              "bytes": 23249,
+              "sha256": "842c48f2a9febe752dd9fb4685791e9943605e7c52222810d451d37d17672509"
+            },
+            "Contents/Config-0-MatesList": {
+              "byte_identity": true,
+              "bytes": 6,
+              "sha256": "e2d03b127d64eb09ce26fbb841bad9960407d05676461515b26fcd9f3fc0cd07"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "byte_identity": true,
+              "bytes": 1402,
+              "sha256": "2478008b2d14c550fcec598eab85ac429cceb3d0e9135193f6d3f57d16974a52"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "byte_identity": true,
+              "bytes": 4839,
+              "sha256": "5bc983e4cf3f111ae166efdf8a25c9bcfbd204cc4e2a2fdf95fb1bf704295c70"
+            },
+            "Contents/Definition": {
+              "byte_identity": true,
+              "bytes": 543,
+              "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+            },
+            "Header2": {
+              "byte_identity": true,
+              "bytes": 1402,
+              "sha256": "5e9721d1283e2b9e2718ff3974fb7b6647db5df99ef3a0956b5f2bf6c3fd9ba6"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "byte_identity": true,
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "byte_identity": true,
+              "bytes": 187,
+              "sha256": "7c4e8052c766b18ac3c611cd24180badc9447da0920ab396b31bb0eb16f95644"
+            },
+            "swXmlContents/COMPINSTANCETREE": {
+              "byte_identity": true,
+              "bytes": 4623,
+              "sha256": "2880b0912d5169cea8a186fe1570085513ce426863c2cf2a5039f755321ac98a"
+            },
+            "swXmlContents/KeyWords": {
+              "byte_identity": true,
+              "bytes": 1187,
+              "sha256": "fb3819382b5beac6ef53c3be14751f06f1136c191ee77a0f343aa4e2c728445a"
+            }
+          }
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "activity": 0,
+          "bytes": 8212,
+          "map_next": 202,
+          "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkRepeatedNestedAssemblyNative01\\GeneratedInput\\SdkGaugePlate.SLDPRT",
+          "references": 0,
+          "sha256": "20a4ddaa6eae45a9c84964b51a73c84a74a317632c48e19db65fe03ad1ee2950",
+          "streams": {
+            "Contents/CMgr": {
+              "byte_identity": true,
+              "bytes": 1145,
+              "sha256": "084f35a37de138e43f91265e31251becc1d9e8cc7bc98d3a8b448443d2888603"
+            },
+            "Contents/CMgrHdr2": {
+              "byte_identity": true,
+              "bytes": 169,
+              "sha256": "89e82103d5feb80a537874eb46d5d6660346034029decc72b5e2eb69c31c3a73"
+            },
+            "Contents/Config-0": {
+              "byte_identity": true,
+              "bytes": 22260,
+              "sha256": "71b883ef2f759cfa8fb5b206ce7efce5e80c0f6335fa2f00c51a760e8444eb29"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "byte_identity": true,
+              "bytes": 787,
+              "sha256": "e101b660014fe974d5b4102beee7aaca9b646548f62075b3d570da26e1a15a1b"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "byte_identity": true,
+              "bytes": 13867,
+              "sha256": "9b5c2f54d72aadbe070d2b52dd5c38226a893208a9680621e484fbccb03013ed"
+            },
+            "Contents/Definition": {
+              "byte_identity": true,
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "byte_identity": true,
+              "bytes": 787,
+              "sha256": "2f6a23ff99d68ec6c60b706e50445b8f86c51b44f8bb355471725c411e1190bd"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "byte_identity": true,
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "byte_identity": true,
+              "bytes": 187,
+              "sha256": "7c4e8052c766b18ac3c611cd24180badc9447da0920ab396b31bb0eb16f95644"
+            },
+            "swXmlContents/KeyWords": {
+              "byte_identity": true,
+              "bytes": 1425,
+              "sha256": "b300cffcd06a7f09560268701ec118da357a373c7b6a2da81acd11d5a177f90c"
+            }
+          }
+        },
+        "SdkModule.SLDASM": {
+          "activity": 2,
+          "bytes": 9143,
+          "map_next": 133,
+          "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkRepeatedNestedAssemblyNative01\\GeneratedInput\\SdkModule.SLDASM",
+          "references": 2,
+          "sha256": "392681d05e2fb6233a3df59cf8a6066eb2cbce89db7f9e3ed653917bd3456f31",
+          "streams": {
+            "Contents/CMgr": {
+              "byte_identity": true,
+              "bytes": 2472,
+              "sha256": "4d3889d598302dd54ae2e00b3f4d799ad409f9a1752e37a1c8005934157a48bb"
+            },
+            "Contents/CMgrHdr2": {
+              "byte_identity": true,
+              "bytes": 137,
+              "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+            },
+            "Contents/Config-0": {
+              "byte_identity": true,
+              "bytes": 22709,
+              "sha256": "ea697eac84b91135b9d7118fa2c20a3df186c8895d0da3e5be284da9c4920c3d"
+            },
+            "Contents/Config-0-MatesList": {
+              "byte_identity": true,
+              "bytes": 6,
+              "sha256": "a539923cc9592b1ad23e790f82b9a15dc8c85ea216b89a5e1e9998fb3e030979"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "byte_identity": true,
+              "bytes": 1101,
+              "sha256": "76fa95b776e1fd713b26480d2fdf6215b32c2e8bfe288bceae69aca4b413b1ac"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "byte_identity": true,
+              "bytes": 4839,
+              "sha256": "9ab66e94edb5284cce243b5ebeb9d8cc7131992fa33b056a260c893b79f56727"
+            },
+            "Contents/Definition": {
+              "byte_identity": true,
+              "bytes": 543,
+              "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+            },
+            "Header2": {
+              "byte_identity": true,
+              "bytes": 1101,
+              "sha256": "ccc50f9146fe97df2189831dd9bf9962a46620eb98b64ba234eaa06a7fdff4cd"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "byte_identity": true,
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "byte_identity": true,
+              "bytes": 187,
+              "sha256": "7c4e8052c766b18ac3c611cd24180badc9447da0920ab396b31bb0eb16f95644"
+            },
+            "swXmlContents/COMPINSTANCETREE": {
+              "byte_identity": true,
+              "bytes": 2345,
+              "sha256": "2c6d0d93fa37446119c18360a317faed7cac34a72ed86a12a4da6c95e6a90101"
+            },
+            "swXmlContents/KeyWords": {
+              "byte_identity": true,
+              "bytes": 1143,
+              "sha256": "828c48c76b04c15b49b59da6e8f3bcd2b514eb74ae8e2c56f3af2cff78688cfd"
+            }
+          }
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "activity": 0,
+          "bytes": 8215,
+          "map_next": 202,
+          "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkRepeatedNestedAssemblyNative01\\GeneratedInput\\SdkNestedPlate.SLDPRT",
+          "references": 0,
+          "sha256": "4ef7654cc2aa07d03a7047853f8a961f7889e45bae568db7b599d663ce17f470",
+          "streams": {
+            "Contents/CMgr": {
+              "byte_identity": true,
+              "bytes": 1145,
+              "sha256": "084f35a37de138e43f91265e31251becc1d9e8cc7bc98d3a8b448443d2888603"
+            },
+            "Contents/CMgrHdr2": {
+              "byte_identity": true,
+              "bytes": 169,
+              "sha256": "89e82103d5feb80a537874eb46d5d6660346034029decc72b5e2eb69c31c3a73"
+            },
+            "Contents/Config-0": {
+              "byte_identity": true,
+              "bytes": 22262,
+              "sha256": "7e0869c72b5fc9e7fc85c66b6c4a6e8a3b6eada4bb2b387575e882ba77c592b0"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "byte_identity": true,
+              "bytes": 793,
+              "sha256": "d92c45014300e8e132bee517aa435dceb722d16293bd039898514c4460f1f1a9"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "byte_identity": true,
+              "bytes": 13867,
+              "sha256": "88409bf56d2f46e9e03247cf767202abde4009cfb572c10475d9a711798d5d8b"
+            },
+            "Contents/Definition": {
+              "byte_identity": true,
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "byte_identity": true,
+              "bytes": 793,
+              "sha256": "b1e6ffaa3cf1324762d0f02e68021a5ed7ab569edc218936eac37ad20d531261"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "byte_identity": true,
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "byte_identity": true,
+              "bytes": 187,
+              "sha256": "7c4e8052c766b18ac3c611cd24180badc9447da0920ab396b31bb0eb16f95644"
+            },
+            "swXmlContents/KeyWords": {
+              "byte_identity": true,
+              "bytes": 1439,
+              "sha256": "ef17cf0a5c304ff27a31db1c94f58538b0cf3948ba01c28917a085d41efc425b"
+            }
+          }
+        }
+      },
+      "passed": true,
+      "prior_fixture_sha256": "b0deabf21fd6701b11f3c8e77023235e29c1895a7e08da1802c7cae96de9a4e4",
+      "prior_native_candidate_comparison": {
+        "SdkFrame.SLDASM": {
+          "exact_container": false,
+          "exact_streams": [
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-MatesList",
+            "_MO_VERSION_19000/Biography"
+          ]
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "exact_container": false,
+          "exact_streams": [
+            "_MO_VERSION_19000/Biography"
+          ]
+        },
+        "SdkModule.SLDASM": {
+          "exact_container": false,
+          "exact_streams": [
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-MatesList",
+            "_MO_VERSION_19000/Biography"
+          ]
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "exact_container": false,
+          "exact_streams": [
+            "_MO_VERSION_19000/Biography"
+          ]
+        }
+      },
+      "root": "SdkFrame.SLDASM",
+      "root_activity": 7,
+      "runtime_file_reads": 0
+    }
+  },
+  "fresh_processes": 4,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "passed": true,
+  "public_writer": false,
+  "schema": "kit.sw2026.neutral-nested-assembly-composition.v1"
+}

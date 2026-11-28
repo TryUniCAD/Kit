@@ -1,0 +1,169 @@
+{
+  "schema": "kit.sw2026.typed-planar-mate-projection-extended.v1",
+  "prior_receipt_sha256": "802e79b9671f71f9de1e1c6271966dc4c5aaa4a2037cc560777e61779c5027a8",
+  "projection_script_sha256": "9c03378ea21616f7774a3d84e8e8d0d030db6dd327aced7bcbdb0749933d6995",
+  "driving_dimension_helper_sha256": "793727f7fb3578c1aca5333f83089edb27f4a559d319b80aac625940ce123f0d",
+  "generated_distance_bundle_receipt_sha256": "9fdea7a56f2eb3ba0c344f9062cab12a71a3c062c834a328e10a5265e713aa4a",
+  "passed": true,
+  "prior_cases_reproduced": [
+    "GeneratedCold",
+    "NativeSaved",
+    "GeneratedOffset",
+    "NativeCoincident",
+    "NativeDistance",
+    "NativeParallel"
+  ],
+  "new_cases": {
+    "GeneratedParallel": {
+      "parent_file": "ParallelPlatePair.SLDASM",
+      "child_file": "DatumPlate.SLDPRT",
+      "assembly_sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719",
+      "child_sha256": {
+        "datumplate.sldprt": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4"
+      },
+      "version": 19000,
+      "configuration_id": 0,
+      "mate_list_sha256": "2f6f75fce598116c92a5fd3b51f7a3c1a7416ebbe5598864cfaf8188afd8cd8d",
+      "mate_list_round_trip": true,
+      "mates": [
+        {
+          "mate_id": 19,
+          "name": "Parallel1",
+          "kind": "parallel",
+          "class": "moMateParallel",
+          "alignment_code": 1,
+          "alignment": "aligned",
+          "entities": [
+            {
+              "order": 0,
+              "occurrence_feature_id": 17,
+              "occurrence_object_id": 4,
+              "instance_path": [
+                "sldasm:instance:4"
+              ],
+              "child_definition_id": 5,
+              "child_configuration_id": 0,
+              "child_update": 101,
+              "datum_feature_id": 14,
+              "source_entity_id": "sldprt:plane:14",
+              "datum_name": "Front Plane",
+              "stored_origin_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "stored_normal": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "order": 1,
+              "occurrence_feature_id": 18,
+              "occurrence_object_id": 7,
+              "instance_path": [
+                "sldasm:instance:7"
+              ],
+              "child_definition_id": 5,
+              "child_configuration_id": 0,
+              "child_update": 101,
+              "datum_feature_id": 14,
+              "source_entity_id": "sldprt:plane:14",
+              "datum_name": "Front Plane",
+              "stored_origin_m": [
+                0.10321,
+                -0.01873,
+                0.02261
+              ],
+              "stored_normal": [
+                0.0,
+                -0.0,
+                1.0000000000000002
+              ]
+            }
+          ],
+          "driving_distance_m": null
+        }
+      ]
+    },
+    "GeneratedDistance": {
+      "parent_file": "DistanceMateDiscovery.SLDASM",
+      "child_file": "DistanceDatumPlate.SLDPRT",
+      "assembly_sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198",
+      "child_sha256": {
+        "distancedatumplate.sldprt": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37"
+      },
+      "version": 19000,
+      "configuration_id": 0,
+      "mate_list_sha256": "4eff181cfb85bc2b475c772f347876157cf29da9393137b9d5a44f9907ec4fce",
+      "mate_list_round_trip": true,
+      "mates": [
+        {
+          "mate_id": 20,
+          "name": "Distance1",
+          "kind": "distance",
+          "class": "moMateDistanceDim_c",
+          "alignment_code": 1,
+          "alignment": "aligned",
+          "entities": [
+            {
+              "order": 0,
+              "occurrence_feature_id": 17,
+              "occurrence_object_id": 4,
+              "instance_path": [
+                "sldasm:instance:4"
+              ],
+              "child_definition_id": 5,
+              "child_configuration_id": 0,
+              "child_update": 101,
+              "datum_feature_id": 16,
+              "source_entity_id": "sldprt:plane:16",
+              "datum_name": "Right Plane",
+              "stored_origin_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "stored_normal": [
+                1.0,
+                -0.0,
+                0.0
+              ]
+            },
+            {
+              "order": 1,
+              "occurrence_feature_id": 18,
+              "occurrence_object_id": 7,
+              "instance_path": [
+                "sldasm:instance:7"
+              ],
+              "child_definition_id": 5,
+              "child_configuration_id": 0,
+              "child_update": 101,
+              "datum_feature_id": 16,
+              "source_entity_id": "sldprt:plane:16",
+              "datum_name": "Right Plane",
+              "stored_origin_m": [
+                0.043875,
+                -0.00671,
+                0.01391
+              ],
+              "stored_normal": [
+                1.0,
+                -0.0,
+                0.0
+              ]
+            }
+          ],
+          "driving_distance_m": 0.071375
+        }
+      ],
+      "guarded_constructor_cache": 0.0,
+      "guarded_distance_build_sha256": "943618b9de268a81ebb8af4d2aadd71bd55fb3fa88afa73de3937ee7d3bf297d"
+    }
+  },
+  "heldout_inputs_tested": 0,
+  "native_application_runs": 0,
+  "public_assembly_adapter_changed": false
+}

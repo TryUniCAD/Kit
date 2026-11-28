@@ -1,0 +1,222 @@
+{
+  "base_revision": "7d9e15658f5e2d19db2d2f6afe5a995c26ebc54a",
+  "corpus_inventory_sha256": "29c46bb51ff0ff883c939b9dfd10bf0ebdf83f17bca962557b9260516c7e0c21",
+  "distinct_source_streams": 64,
+  "drawing_sheet_check": {
+    "fresh_processes": 22,
+    "passed": true,
+    "proof_source_manifest_sha256": "aaccc113e30b947d7bdf7ab667fa80be7693653fb2efadd3b29561be0c8caf35",
+    "result_sha256": "19befb121cdcda80ae2495b9e336f1f28ece0c00ff9ce54de29e880ff4beab17"
+  },
+  "guarded_construction": {
+    "composers": [
+      "ordinary part",
+      "camera part",
+      "ordinary planar mate assembly"
+    ],
+    "generated": [
+      {
+        "bytes": 467,
+        "density_kg_m3": 4123.75,
+        "display_flags": [
+          1073741825,
+          -2147450880
+        ],
+        "document_class": "uiPartDoc_c",
+        "font_count": 0,
+        "has_material_state": false,
+        "independent_wire_equal": true,
+        "journal_name": "Geometric \u03b2",
+        "journal_schema": 0,
+        "next_map_index": 7,
+        "passed": true,
+        "runtime_input_reads": 0,
+        "save_as_part": null,
+        "sha256": "16dcd7e38ebe1993cef36290e67917d400f666c21d0ad2bf8137d69b4b85d7bf",
+        "style_count": 0,
+        "view_environment_count": 0
+      },
+      {
+        "bytes": 983,
+        "density_kg_m3": 4481.25,
+        "display_flags": [
+          -2147483646,
+          -2147450880
+        ],
+        "document_class": "uiPartDoc_c",
+        "font_count": 0,
+        "has_material_state": false,
+        "independent_wire_equal": true,
+        "journal_name": "\u8a2d\u8a08 \ud83d\udeb2 KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK",
+        "journal_schema": 0,
+        "next_map_index": 7,
+        "passed": true,
+        "runtime_input_reads": 0,
+        "save_as_part": null,
+        "sha256": "d916316c7ee8404b14c22267df431bf48ed938623b504235ade0b97704c65244",
+        "style_count": 0,
+        "view_environment_count": 0
+      },
+      {
+        "bytes": 549,
+        "density_kg_m3": null,
+        "display_flags": [
+          4,
+          -2147450879
+        ],
+        "document_class": "uiAssemblyDoc_c",
+        "font_count": 0,
+        "has_material_state": false,
+        "independent_wire_equal": true,
+        "journal_name": "Assembly \u03b4",
+        "journal_schema": 0,
+        "next_map_index": 7,
+        "passed": true,
+        "runtime_input_reads": 0,
+        "save_as_part": {
+          "f08": 0,
+          "f0c": 1,
+          "f10": 0.0,
+          "f18": 0,
+          "f20": 1.25,
+          "f28": 1,
+          "f2c": 0,
+          "f30": 0,
+          "f34": 1,
+          "f38": 1,
+          "f3c": -11
+        },
+        "sha256": "f18c7717493aad07d75f0d547fdfde5825fa980bd2d8a0673c5602ce6450877e",
+        "style_count": 0,
+        "view_environment_count": 0
+      },
+      {
+        "bytes": 548,
+        "density_kg_m3": null,
+        "display_flags": [
+          8,
+          -2147450878
+        ],
+        "document_class": "uiAssemblyDoc_c",
+        "font_count": 0,
+        "has_material_state": false,
+        "independent_wire_equal": true,
+        "journal_name": "\u4e0a\u90e8 journal",
+        "journal_schema": 0,
+        "next_map_index": 7,
+        "passed": true,
+        "runtime_input_reads": 0,
+        "save_as_part": {
+          "f08": 0,
+          "f0c": 1,
+          "f10": 0.9,
+          "f18": 0,
+          "f20": 1.25,
+          "f28": 1,
+          "f2c": 0,
+          "f30": 0,
+          "f34": 1,
+          "f38": 1,
+          "f3c": -12
+        },
+        "sha256": "233842a961645bd80f40e7754d7a1dcebc9ce2df1be203a135869573353646ac",
+        "style_count": 0,
+        "view_environment_count": 0
+      }
+    ],
+    "negative_rejections": 9,
+    "passed": true,
+    "positive_processes": 8
+  },
+  "guarded_process_receipt_sha256": "6453901621fc28ef29ef8bdbbd7756f1b344f1ff39528e978913d9cfc2f91c3d",
+  "heldout_inputs_read": 0,
+  "migrated_part": {
+    "artifact": {
+      "bytes": 8668,
+      "sha256": "8e327db149fdec95b849e39bf59eb1cf807273c84b493b677942ebc55f7aca54"
+    },
+    "complete_container_bytes_identical": true,
+    "disclosed_slot": "D03",
+    "guarded_processes": 2,
+    "neutral_sha256": "4b435b0e6328626aac0d2b6bf65421c830e9a7f2f72474b7a7db1639d499c018",
+    "passed": true,
+    "runtime_file_reads": 0,
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "error": null,
+        "passed": true,
+        "sha256": "25787663519855827f72ce6562b40a5fe641c7757945cef292c75a40cfc762ae",
+        "tail": 0
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "error": null,
+        "passed": true,
+        "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2",
+        "tail": 0
+      },
+      "Contents/Config-0": {
+        "bytes": 21134,
+        "error": null,
+        "passed": true,
+        "sha256": "e5ef68d33b0012e5f59e48d0c64e2c5b506e56c214abd1cc0404574d9f9398b6",
+        "tail": 0
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 821,
+        "error": null,
+        "passed": true,
+        "sha256": "6d9e559b6672ef843a64841e7262c9b69f58f528193fd318298ff81b591cd617",
+        "tail": 0
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 17729,
+        "error": null,
+        "passed": true,
+        "sha256": "befec0d3a1a1b16d5aec4573fe4cc164afd57c3d1c96eec304b9240c4bcafb06",
+        "tail": 0
+      },
+      "Contents/Definition": {
+        "bytes": 477,
+        "error": null,
+        "passed": true,
+        "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+        "tail": 0
+      },
+      "Header2": {
+        "bytes": 821,
+        "error": null,
+        "passed": true,
+        "sha256": "d70ebe931752453332e5c000adf318e029e3c4db117d8ca737494830a430b8e2",
+        "tail": 0
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "error": null,
+        "passed": true,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "tail": 0
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 163,
+        "error": null,
+        "passed": true,
+        "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+        "tail": 0
+      }
+    }
+  },
+  "migrated_part_proof_sha256": "0a6eb40eeffaf7832c6a157465c37841b902e0e96f0defd4907f29221648f082",
+  "new_native_acceptance": false,
+  "passed": true,
+  "public_writer_enabled": false,
+  "schema": "kit.sw2026.sdk-model-definition-process.v1",
+  "sdk_codec_scope": "ordinary version-19000 parts and assemblies",
+  "source_file_count": 4200,
+  "source_file_counts": {
+    ".sldasm": 8,
+    ".sldprt": 76
+  },
+  "source_manifest_sha256": "f25772edde9b9c1539b112becfc38a3f6c6b39cc634432ffa78e3371aa7a4f7b"
+}

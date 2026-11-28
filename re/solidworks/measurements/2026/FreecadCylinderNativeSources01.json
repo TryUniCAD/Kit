@@ -1,0 +1,211 @@
+{
+  "analytic_values_compared": 50,
+  "cases": [
+    {
+      "case": "CylinderA",
+      "depth_edited": {
+        "area_m2": 0.0012636353731399835,
+        "center_of_mass_m": [
+          -1.4183498212621751e-19,
+          0.0,
+          0.010179956499999998
+        ],
+        "depth_m": 0.020359912999999997,
+        "radius_m": 0.0072770000000000005,
+        "rebuild_feature_errors": 0,
+        "rebuild_feature_warnings": 0,
+        "solid_bodies": 1,
+        "volume_m3": 3.3871196660101717e-06
+      },
+      "freecad_sha256": "dae320f82c08ccb47056aaafb31f46ac0c7136c3024ed0dc2b1484825df02faa",
+      "live_edits": [
+        {
+          "after_m": 0.008419489,
+          "before_m": 0.0072770000000000005,
+          "dimension": "D1@CurveSketch"
+        },
+        {
+          "after_m": 0.020359912999999997,
+          "before_m": 0.024619,
+          "dimension": "D1@CurveBoss"
+        }
+      ],
+      "pristine": {
+        "authored": {
+          "area_m2": 0.0014583724984651113,
+          "center_of_mass_m": [
+            -1.4183498212621754e-19,
+            0.0,
+            0.0123095
+          ],
+          "depth_m": 0.024619,
+          "radius_m": 0.0072770000000000005,
+          "rebuild_feature_errors": 0,
+          "rebuild_feature_warnings": 0,
+          "solid_bodies": 1,
+          "volume_m3": 4.095670696505649e-06
+        },
+        "reopened_for_depth": {
+          "area_m2": 0.0014583724984651113,
+          "center_of_mass_m": [
+            -1.4183498212621754e-19,
+            0.0,
+            0.0123095
+          ],
+          "depth_m": 0.024619,
+          "radius_m": 0.0072770000000000005,
+          "rebuild_feature_errors": 0,
+          "rebuild_feature_warnings": 0,
+          "solid_bodies": 1,
+          "volume_m3": 4.095670696505649e-06
+        },
+        "reopened_for_radius": {
+          "area_m2": 0.0014583724984651113,
+          "center_of_mass_m": [
+            -1.4183498212621754e-19,
+            0.0,
+            0.0123095
+          ],
+          "depth_m": 0.024619,
+          "radius_m": 0.0072770000000000005,
+          "rebuild_feature_errors": 0,
+          "rebuild_feature_warnings": 0,
+          "solid_bodies": 1,
+          "volume_m3": 4.095670696505649e-06
+        }
+      },
+      "radius_edited": {
+        "area_m2": 0.0017477760307545616,
+        "center_of_mass_m": [
+          3.1132954591117855e-19,
+          0.0,
+          0.012309499999999998
+        ],
+        "depth_m": 0.024619,
+        "radius_m": 0.008419489,
+        "rebuild_feature_errors": 0,
+        "rebuild_feature_warnings": 0,
+        "solid_bodies": 1,
+        "volume_m3": 5.482665482206591e-06
+      },
+      "solidworks_source_sha256": "cdba3e818bb424c4ef466a11f49e77ab2cce396cb04ced2844278fe7c6033a57"
+    },
+    {
+      "case": "CylinderB",
+      "depth_edited": {
+        "area_m2": 0.0014195962915744672,
+        "center_of_mass_m": [
+          2.5096045736143697e-19,
+          0.0,
+          0.0036329645
+        ],
+        "depth_m": 0.007265929,
+        "radius_m": 0.011831,
+        "rebuild_feature_errors": 0,
+        "rebuild_feature_warnings": 0,
+        "solid_bodies": 1,
+        "volume_m3": 3.1950961447265257e-06
+      },
+      "freecad_sha256": "ea39285f9b32d6f173eed57ccdeb8182d3ac1c0e7b7f13516f4f53635061891a",
+      "live_edits": [
+        {
+          "after_m": 0.010494096999999999,
+          "before_m": 0.011831,
+          "dimension": "D1@CurveSketch"
+        },
+        {
+          "after_m": 0.007265929,
+          "before_m": 0.006413,
+          "dimension": "D1@CurveBoss"
+        }
+      ],
+      "pristine": {
+        "authored": {
+          "area_m2": 0.0013561926497964452,
+          "center_of_mass_m": [
+            2.5096045736143697e-19,
+            0.0,
+            0.0032065
+          ],
+          "depth_m": 0.006413,
+          "radius_m": 0.011831,
+          "rebuild_feature_errors": 0,
+          "rebuild_feature_warnings": 0,
+          "solid_bodies": 1,
+          "volume_m3": 2.8200319017886373e-06
+        },
+        "reopened_for_depth": {
+          "area_m2": 0.0013561926497964452,
+          "center_of_mass_m": [
+            2.5096045736143697e-19,
+            0.0,
+            0.0032065
+          ],
+          "depth_m": 0.006413,
+          "radius_m": 0.011831,
+          "rebuild_feature_errors": 0,
+          "rebuild_feature_warnings": 0,
+          "solid_bodies": 1,
+          "volume_m3": 2.8200319017886373e-06
+        },
+        "reopened_for_radius": {
+          "area_m2": 0.0013561926497964452,
+          "center_of_mass_m": [
+            2.5096045736143697e-19,
+            0.0,
+            0.0032065
+          ],
+          "depth_m": 0.006413,
+          "radius_m": 0.011831,
+          "rebuild_feature_errors": 0,
+          "rebuild_feature_warnings": 0,
+          "solid_bodies": 1,
+          "volume_m3": 2.8200319017886373e-06
+        }
+      },
+      "radius_edited": {
+        "area_m2": 0.0011147923681136612,
+        "center_of_mass_m": [
+          -2.045389666656304e-19,
+          0.0,
+          0.0032065000000000006
+        ],
+        "depth_m": 0.006413,
+        "radius_m": 0.010494096999999999,
+        "rebuild_feature_errors": 0,
+        "rebuild_feature_warnings": 0,
+        "solid_bodies": 1,
+        "volume_m3": 2.2187136793383446e-06
+      },
+      "solidworks_source_sha256": "3b7f82c669817e7026f44b4c11353735775ca01df7721474e4019bdf15f6decd"
+    }
+  ],
+  "deck_sha256": "f1b7c782c26dad59a8ea45a4486ca22595171347201279212920e1d4a50ad738",
+  "generated_writer_output_count": 0,
+  "heldout_source_count": 0,
+  "hidden_inputs_read": 0,
+  "known_control": {
+    "both_passed": true,
+    "mass_properties": {
+      "area": 0.0028,
+      "com": [
+        0.0,
+        0.0,
+        0.005
+      ],
+      "mass": 8.000000000000001e-06,
+      "volume": 8.000000000000001e-06
+    },
+    "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+  },
+  "oracle_application_processes": 8,
+  "oracle_build": "34.5.2.0604",
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "original_report_sha256": "f1f81836f74221335eeb10e6a1cc9da7315af7cbbbf9931fdf6ffe43b897f1eb",
+  "passed": true,
+  "schema": "kit.sw2026.freecad-cylinder-source-companions.v1",
+  "source_controller_sha256": "9d3beabc0a222e32298c5c43dd4e86733234fcaaf6da345b77dfe2edff6553bd",
+  "source_packet_sha256": "960c71d6cc3e61b1124cfe48dbcf7c22502042f3592d5aecf1d454fefbb8ec54",
+  "status": "disclosed source controls",
+  "transport_report_sha256": "83f9307daf931c4dbb6d584309d75825a9b2d01e0001f980a51f07f8186d3d86"
+}

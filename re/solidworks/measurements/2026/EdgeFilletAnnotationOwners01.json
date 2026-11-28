@@ -1,0 +1,956 @@
+{
+  "disclosed": {
+    "EdgeFilletAxial": {
+      "active": 199,
+      "catalogue": [
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -0.0
+            ]
+          ],
+          "id": 200,
+          "map_slot": 101,
+          "name": "*Top"
+        },
+        {
+          "basis": [
+            [
+              -1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "id": 201,
+          "map_slot": 102,
+          "name": "*Back"
+        }
+      ],
+      "config_map_next": 110,
+      "config_sha256": "7e201eed643babd50d752549e1fc484e78d8f59345d1a4860b735f2d81ffff30",
+      "driver": {
+        "id": 201,
+        "name": "*Back"
+      },
+      "frontier": 201,
+      "runtime_external_access_attempts": 0,
+      "sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+      "shown": [
+        199
+      ]
+    },
+    "EdgeFilletAxialEdited": {
+      "active": 199,
+      "catalogue": [
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -0.0
+            ]
+          ],
+          "id": 200,
+          "map_slot": 101,
+          "name": "*Top"
+        },
+        {
+          "basis": [
+            [
+              -1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "id": 201,
+          "map_slot": 102,
+          "name": "*Back"
+        }
+      ],
+      "config_map_next": 110,
+      "config_sha256": "872ab4e630b9ccd5fe879683ea696639e49fb3bd2f7d46bb3a009efb39f91af8",
+      "driver": {
+        "id": 201,
+        "name": "*Back"
+      },
+      "frontier": 201,
+      "runtime_external_access_attempts": 0,
+      "sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a",
+      "shown": [
+        199
+      ]
+    },
+    "EdgeFilletTransverse": {
+      "active": 199,
+      "catalogue": [
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -0.0
+            ]
+          ],
+          "id": 200,
+          "map_slot": 101,
+          "name": "*Top"
+        },
+        {
+          "basis": [
+            [
+              -0.0,
+              0.0,
+              1.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "id": 201,
+          "map_slot": 102,
+          "name": "*Left"
+        }
+      ],
+      "config_map_next": 110,
+      "config_sha256": "8c4df100085eeb46aeff0b6481a6f2f04e97354c55e928dcf423e761a1dc4134",
+      "driver": {
+        "id": 201,
+        "name": "*Left"
+      },
+      "frontier": 201,
+      "runtime_external_access_attempts": 0,
+      "sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e",
+      "shown": [
+        199
+      ]
+    },
+    "EdgeFilletTransverseEdited": {
+      "active": 199,
+      "catalogue": [
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -0.0
+            ]
+          ],
+          "id": 200,
+          "map_slot": 101,
+          "name": "*Top"
+        },
+        {
+          "basis": [
+            [
+              -0.0,
+              0.0,
+              1.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "id": 201,
+          "map_slot": 102,
+          "name": "*Left"
+        }
+      ],
+      "config_map_next": 110,
+      "config_sha256": "04f4c84d1fc9361fd6ec82af3306a5f3c62dd1557ef3967b72135174eacc1210",
+      "driver": {
+        "id": 201,
+        "name": "*Left"
+      },
+      "frontier": 201,
+      "runtime_external_access_attempts": 0,
+      "sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3",
+      "shown": [
+        199
+      ]
+    }
+  },
+  "generation": {
+    "EdgeFilletAxial": {
+      "annotation_only_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "baseline_edit_sha256": "01b57d32fa6c91da86c1b57d695546677bd9540d0fc97b178627bd1c251b1f68",
+      "baseline_sha256": "6d28864133d0d291317d309a9835d9fabf2717a073b4f7b435f644b520e18acd",
+      "independent_neutral": {
+        "generated": {
+          "bytes": 8890,
+          "encoded_locator": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletAxial.SLDPRT",
+          "guarded_external_accesses": 0,
+          "owners": {
+            "annotation": {
+              "id": 200,
+              "name": "*Back"
+            },
+            "atom_id": 101,
+            "config_id": 0,
+            "config_name": "Default",
+            "driver": "D1",
+            "driver_id": 25,
+            "feature_id": 26,
+            "radius_m": 0.00325,
+            "self_path": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletAxial.SLDPRT",
+            "stock_birth": 1795510277,
+            "stock_id": 19,
+            "surface_keys": [
+              [
+                "moFromSktEntSurfIdRep_c",
+                2,
+                null
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                1,
+                null
+              ],
+              [
+                "moEndFaceSurfIdRep_c",
+                1,
+                0
+              ],
+              [
+                "moEndFaceSurfIdRep_c",
+                0,
+                0
+              ]
+            ]
+          },
+          "refusals": {
+            "default_resolved": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+            "saved_resolved": "unsupported SOLIDWORKS fillet keeper inventory",
+            "trailing_typed_bytes": "cold fillet resolved read must finish at its actual empty inline body map"
+          },
+          "resolved_map": {
+            "base": 92,
+            "end": 248,
+            "roots": 20
+          },
+          "sha256": "cc567243e8156044400ecb082cf3ba3e0a8b2c73442a34116b18f99707f516d9",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "56375d8ca4d8f5e24bed94b3af924ce2711041f74b5e3a720d354ab2300bef68"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413"
+            },
+            "Contents/Config-0": {
+              "bytes": 22908,
+              "sha256": "1cb404427a6ec6ad7bddb80911bc521baab0b2345b63dc325923c543b85cccb2"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 965,
+              "sha256": "1d0450ee9bb04311a39a2e8a04d2cac5aaf334361331480f431c2f9839245642"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 16917,
+              "sha256": "b59adc49e5972bcc61737f278a58edb62f91ea2f8f4a97574dbb365e6d32c4ff"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 965,
+              "sha256": "ba8bff97f988b3451421808bbd983c3be56fb230cbab7001646920795c666f60"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1532,
+              "sha256": "3469ac798d65f5af74dac725ab26f56160a269f35fb39bea09f8c16a9c770d87"
+            }
+          }
+        },
+        "intent_sha256": "fc191c053ecabd25006b5f0fbe50ba0272e082146f07bb650fde18b24d9d469b",
+        "read": {
+          "active": 201,
+          "catalogue": [
+            {
+              "basis": [
+                [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              ],
+              "id": 200,
+              "map_slot": 89,
+              "name": "*Back"
+            },
+            {
+              "basis": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "id": 201,
+              "map_slot": 90,
+              "name": "*Top"
+            }
+          ],
+          "config_map_next": 92,
+          "config_sha256": "1cb404427a6ec6ad7bddb80911bc521baab0b2345b63dc325923c543b85cccb2",
+          "driver": {
+            "id": 200,
+            "name": "*Back"
+          },
+          "frontier": 201,
+          "runtime_external_access_attempts": 0,
+          "sha256": "cc567243e8156044400ecb082cf3ba3e0a8b2c73442a34116b18f99707f516d9",
+          "shown": [
+            199,
+            200
+          ]
+        }
+      },
+      "source_orientation": {
+        "generated": {
+          "bytes": 8894,
+          "encoded_locator": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletAxial.SLDPRT",
+          "guarded_external_accesses": 0,
+          "owners": {
+            "annotation": {
+              "id": 201,
+              "name": "*Back"
+            },
+            "atom_id": 101,
+            "config_id": 0,
+            "config_name": "Default",
+            "driver": "D1",
+            "driver_id": 25,
+            "feature_id": 26,
+            "radius_m": 0.00437,
+            "self_path": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletAxial.SLDPRT",
+            "stock_birth": 1795510277,
+            "stock_id": 19,
+            "surface_keys": [
+              [
+                "moFromSktEntSurfIdRep_c",
+                2,
+                null
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                1,
+                null
+              ],
+              [
+                "moEndFaceSurfIdRep_c",
+                1,
+                0
+              ],
+              [
+                "moEndFaceSurfIdRep_c",
+                0,
+                0
+              ]
+            ]
+          },
+          "refusals": {
+            "default_resolved": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+            "saved_resolved": "unsupported SOLIDWORKS fillet keeper inventory",
+            "trailing_typed_bytes": "cold fillet resolved read must finish at its actual empty inline body map"
+          },
+          "resolved_map": {
+            "base": 92,
+            "end": 248,
+            "roots": 20
+          },
+          "sha256": "8122e38a9b94d396f789395e2f0eaeea2aa085dcd0b7dad093d2770c6e449393",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "56375d8ca4d8f5e24bed94b3af924ce2711041f74b5e3a720d354ab2300bef68"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413"
+            },
+            "Contents/Config-0": {
+              "bytes": 22904,
+              "sha256": "3c57ace67923a6e1da9867a36dd73eb9980ddea970a05e55cb662ab2212bd85f"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 965,
+              "sha256": "1d0450ee9bb04311a39a2e8a04d2cac5aaf334361331480f431c2f9839245642"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 16917,
+              "sha256": "230c2eb608f2939dec5eef46b2823a6f31fe0d5283509c331fa64d10c888da01"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 965,
+              "sha256": "ba8bff97f988b3451421808bbd983c3be56fb230cbab7001646920795c666f60"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1562,
+              "sha256": "b505fb9cd14e42896c0eef809450f015d634201cda2f67176999b2568d6bcd0f"
+            }
+          }
+        },
+        "intent_sha256": "bb248462c5e94dc93e09ac6ac774460b241cff10d4125e4ca59960063cd899a4",
+        "read": {
+          "active": 199,
+          "catalogue": [
+            {
+              "basis": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "id": 200,
+              "map_slot": 89,
+              "name": "*Top"
+            },
+            {
+              "basis": [
+                [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              ],
+              "id": 201,
+              "map_slot": 90,
+              "name": "*Back"
+            }
+          ],
+          "config_map_next": 92,
+          "config_sha256": "3c57ace67923a6e1da9867a36dd73eb9980ddea970a05e55cb662ab2212bd85f",
+          "driver": {
+            "id": 201,
+            "name": "*Back"
+          },
+          "frontier": 201,
+          "runtime_external_access_attempts": 0,
+          "sha256": "8122e38a9b94d396f789395e2f0eaeea2aa085dcd0b7dad093d2770c6e449393",
+          "shown": [
+            199
+          ]
+        }
+      }
+    },
+    "EdgeFilletTransverse": {
+      "annotation_only_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "baseline_edit_sha256": "e3142e416d59c6222594e4ca3d80c402c508d2f9bd8e4f933aeb94e9a526c630",
+      "baseline_sha256": "2cd7a0bcc61d19a02a295c16f47d13e660f886a9630728671eecd3d8a9e4c5f7",
+      "independent_neutral": {
+        "generated": {
+          "bytes": 8928,
+          "encoded_locator": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletTransverse.SLDPRT",
+          "guarded_external_accesses": 0,
+          "owners": {
+            "annotation": {
+              "id": 202,
+              "name": "*Left"
+            },
+            "atom_id": 101,
+            "config_id": 0,
+            "config_name": "Default",
+            "driver": "D1",
+            "driver_id": 25,
+            "feature_id": 26,
+            "radius_m": 0.00275,
+            "self_path": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletTransverse.SLDPRT",
+            "stock_birth": 1795510277,
+            "stock_id": 19,
+            "surface_keys": [
+              [
+                "moEndFaceSurfIdRep_c",
+                1,
+                0
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                3,
+                null
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                2,
+                null
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                4,
+                null
+              ]
+            ]
+          },
+          "refusals": {
+            "default_resolved": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+            "saved_resolved": "unsupported SOLIDWORKS fillet keeper inventory",
+            "trailing_typed_bytes": "cold fillet resolved read must finish at its actual empty inline body map"
+          },
+          "resolved_map": {
+            "base": 93,
+            "end": 249,
+            "roots": 20
+          },
+          "sha256": "db238fdfb64bed1a0ae6e51e34eb42962671f7e3aa501d733b941561f54ed150",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "56375d8ca4d8f5e24bed94b3af924ce2711041f74b5e3a720d354ab2300bef68"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413"
+            },
+            "Contents/Config-0": {
+              "bytes": 23106,
+              "sha256": "6473e9b928667b273e9234458c832f445470829981e36c2c8a8e613b31ff58cb"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 995,
+              "sha256": "53565adeb723cab9723e97b42772a805d4e8e7e132a6119fc97d03867b071395"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 16933,
+              "sha256": "2272b0e3ff7ad067f76d2465333d674527737c1012e10771ceba1e8377d66a5e"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 995,
+              "sha256": "0786675b6d3dd4ca43e5cfc26c97bf71960dc0b5d0625ea76a6b7a80a8bd91c0"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1537,
+              "sha256": "6b9868071762f3e0b5b7dee53725cc2c9201526dbde15495fcfd8b954c3664a4"
+            }
+          }
+        },
+        "intent_sha256": "16e22554dd2e4c733bbc9e88e33c87acf4c151928b001c00fc0b7c37135235db",
+        "read": {
+          "active": 202,
+          "catalogue": [
+            {
+              "basis": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              ],
+              "id": 200,
+              "map_slot": 89,
+              "name": "*Front"
+            },
+            {
+              "basis": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "id": 201,
+              "map_slot": 90,
+              "name": "*Top"
+            },
+            {
+              "basis": [
+                [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  -1.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              "id": 202,
+              "map_slot": 91,
+              "name": "*Left"
+            }
+          ],
+          "config_map_next": 93,
+          "config_sha256": "6473e9b928667b273e9234458c832f445470829981e36c2c8a8e613b31ff58cb",
+          "driver": {
+            "id": 202,
+            "name": "*Left"
+          },
+          "frontier": 202,
+          "runtime_external_access_attempts": 0,
+          "sha256": "db238fdfb64bed1a0ae6e51e34eb42962671f7e3aa501d733b941561f54ed150",
+          "shown": [
+            201,
+            202
+          ]
+        }
+      },
+      "source_orientation": {
+        "generated": {
+          "bytes": 8923,
+          "encoded_locator": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletTransverse.SLDPRT",
+          "guarded_external_accesses": 0,
+          "owners": {
+            "annotation": {
+              "id": 201,
+              "name": "*Left"
+            },
+            "atom_id": 101,
+            "config_id": 0,
+            "config_name": "Default",
+            "driver": "D1",
+            "driver_id": 25,
+            "feature_id": 26,
+            "radius_m": 0.00283,
+            "self_path": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletTransverse.SLDPRT",
+            "stock_birth": 1795510277,
+            "stock_id": 19,
+            "surface_keys": [
+              [
+                "moEndFaceSurfIdRep_c",
+                1,
+                0
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                3,
+                null
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                2,
+                null
+              ],
+              [
+                "moFromSktEntSurfIdRep_c",
+                4,
+                null
+              ]
+            ]
+          },
+          "refusals": {
+            "default_resolved": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+            "saved_resolved": "unsupported SOLIDWORKS fillet keeper inventory",
+            "trailing_typed_bytes": "cold fillet resolved read must finish at its actual empty inline body map"
+          },
+          "resolved_map": {
+            "base": 92,
+            "end": 248,
+            "roots": 20
+          },
+          "sha256": "7bb49510159be9da0148ab5d2fbedf57d39aa3d12ceb4467e441fda9e43a32ea",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "56375d8ca4d8f5e24bed94b3af924ce2711041f74b5e3a720d354ab2300bef68"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413"
+            },
+            "Contents/Config-0": {
+              "bytes": 22914,
+              "sha256": "6ff9325a719624aecd399c2cc842d29edab5af0c430ec990e19d2b4077bead44"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 995,
+              "sha256": "53565adeb723cab9723e97b42772a805d4e8e7e132a6119fc97d03867b071395"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 16933,
+              "sha256": "12c3a5265c22d00cc660c15e673b5244806e13f3683a4ca499a4029c1394f7ff"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 995,
+              "sha256": "0786675b6d3dd4ca43e5cfc26c97bf71960dc0b5d0625ea76a6b7a80a8bd91c0"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1567,
+              "sha256": "262f317e3e827563cb37b919b987d40f38fac7cf182a0dc93eb905790972b3d4"
+            }
+          }
+        },
+        "intent_sha256": "ea6312435c9199e690fc8a2a81e4e44c97a5bed34649aab5294a0e93a768ed29",
+        "read": {
+          "active": 199,
+          "catalogue": [
+            {
+              "basis": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "id": 200,
+              "map_slot": 89,
+              "name": "*Top"
+            },
+            {
+              "basis": [
+                [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  -1.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              "id": 201,
+              "map_slot": 90,
+              "name": "*Left"
+            }
+          ],
+          "config_map_next": 92,
+          "config_sha256": "6ff9325a719624aecd399c2cc842d29edab5af0c430ec990e19d2b4077bead44",
+          "driver": {
+            "id": 201,
+            "name": "*Left"
+          },
+          "frontier": 201,
+          "runtime_external_access_attempts": 0,
+          "sha256": "7bb49510159be9da0148ab5d2fbedf57d39aa3d12ceb4467e441fda9e43a32ea",
+          "shown": [
+            199
+          ]
+        }
+      }
+    }
+  },
+  "guarded_data_processes": 24,
+  "heldout_inputs_read": 0,
+  "native_acceptance_added": 0,
+  "native_processes_started": 0,
+  "native_source_build": "34.5.2.0604",
+  "neutral_stock_sha256": "d985611e397e943860b8b0ce4b3f9631e6c31f5355bdd784519a2b028a9a51cb",
+  "public_writer_changed": false,
+  "reference_model_receipt_sha256": "efe553717fcd7ea1323bd58c138a5a9211f4b022870fdd89d3807f987c8ae8dc",
+  "refusals": {
+    "duplicate_view": "ValueError: ambiguous authored annotation view names",
+    "left_handed": "ValueError: annotation frame requires a right-handed model-axis rotation",
+    "missing_driver": "ValueError: fillet driver view is absent from its catalogue",
+    "unknown_shown": "ValueError: annotation membership names no registered view"
+  },
+  "schema": "kit.sw2026.fillet-explicit-annotation-ownership.v1",
+  "sdk_base": "f835b1395a6e0159e2e08ae45d26a3239e0151ed",
+  "source_archive_receipt_sha256": "e7573a71c5fb709a26ae512a332f3fe6eecca5fef949b8f98380ac7cbd1337f3",
+  "tools_sha256": {
+    "BuildColdFillet.py": "4270f47553f6e680763646c7999346d1711bfffbb39eb5ddc53464d0b465ef6e",
+    "ColdFilletAnno.py": "32e09a726d70d35163dd6a5f9c51b0b8afbc80bd59332ecd85f2e30ed888607e",
+    "ColdFilletGraph.py": "60b78ba3cf4dba25d7747423183ecefdf99e4c84020afb926338d00435223d54",
+    "ColdFilletIntent.py": "c7496c783cfa517a70e591e3de904db76eebee4fbf352c9d035c8b51dd37f92a",
+    "ColdFilletWire.py": "d10c4bd36d4b724608099a0d2c727c9c12c416f62618190df40a9efe6da143de",
+    "ComposeColdFillet.py": "bb269fb0f2bd5ec835ae5e8dcac9f56e26d4532aced06aaf1695c5558bc92ed8",
+    "ProveFilletAnno.py": "d7c08fa1ee1bc32b502033d9f5ea32bb222272b668559f6922e60bb53685479e"
+  }
+}

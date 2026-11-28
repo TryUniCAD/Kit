@@ -1,0 +1,219 @@
+{
+  "base": "bd3ab078476c403e5615fc1f0eca6b29dd770747",
+  "cases": {
+    "OpenShell.SLDPRT": {
+      "axis_rows": 4,
+      "bytes": 8977,
+      "candidate_sha256": "1bf01c7f4e485c70e6cce2f962de65abd50956c66f520e8249eda40e413db057",
+      "exact_regenerations": 4,
+      "logical_locator": "C:\\KitOpenShellRelations01\\Working\\ShellRetainedOriginal.SLDPRT",
+      "native_launches": 0,
+      "publications": 0,
+      "reads": [
+        "17158fe84c5b98bf08c9346293c8743abc59bb603baf485c6dd48d95d57cb46d",
+        "afdbc6071f91bdd146c08df426acaf030b3bb43f9e1cf7e5cb2f04d8c8353439"
+      ],
+      "refusals": {
+        "direct": "ValueError",
+        "original_native_source": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "runtime_file_reads": 0,
+      "selected_corner_pairs": 4,
+      "source_sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "2753dbb1fe3af538138e6c21a818ca01c62cc92d3e4c96f48d5f77628b489e88"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22684,
+          "sha256": "e4e64833dc5e5f38fbdac38066e39d904cd2a9d2fa8292fc6bee4c75db05416a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 973,
+          "sha256": "00f937b79cfbdf8ccb6ea112820e7bef5c551c644f49e3daf4c059ce5950142d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17148,
+          "sha256": "de819880c43a20125cbf6fd97c32261d8d31a01e3f0acc808c647d3715666e63"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 973,
+          "sha256": "7fb24e506075d9e8a8ea1371238115f4cb8559fd085f0d8ba5f0dfc26bf67559"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1540,
+          "sha256": "0cfdef3ed463593cdc9ecff2bbda35c30f3cf8a4dc191be4e657f75e3df4ad68"
+        }
+      }
+    },
+    "OpenShellEdited.SLDPRT": {
+      "axis_rows": 4,
+      "bytes": 8975,
+      "candidate_sha256": "93afd11653b73c04e925b65c06bf92b928140eeffd2e8e8accf31529eddb3886",
+      "exact_regenerations": 4,
+      "logical_locator": "C:\\KitOpenShellRelations01\\Working\\ShellRetainedEdited.SLDPRT",
+      "native_launches": 0,
+      "publications": 0,
+      "reads": [
+        "d6f43c5ccbc7d37acf5f6b350f60df219a74c72672ec550f311142f5d2fa98fd",
+        "37512a346694fdc59c50c960e2c753fce0fdac10c2f0ba68fbc33b44296e103f"
+      ],
+      "refusals": {
+        "direct": "ValueError",
+        "original_native_source": "ValueError",
+        "registry": "AdapterNotFoundError"
+      },
+      "runtime_file_reads": 0,
+      "selected_corner_pairs": 4,
+      "source_sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "2753dbb1fe3af538138e6c21a818ca01c62cc92d3e4c96f48d5f77628b489e88"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22680,
+          "sha256": "4a5f667fec9934ba78057a50ff756a920086ebb91e64b3dfc2695618676a22a5"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 961,
+          "sha256": "cd4ec3f43a403c04fb0b730f3c679533b3c8a91077c9bafd38800fce6e77320b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17140,
+          "sha256": "bb744afa7ed81e259a826eb4c1ec659ae1dcb322f23574c6b3a17bb401ac43b7"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 961,
+          "sha256": "75c368ad6b1534007c6f38b3e36dd8815908a6aca99bbd2739d378bcc1fac91c"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1538,
+          "sha256": "6e0258a9312b412e9ff23327ed985b763c20899a77f5f9acba5450c097f47a7e"
+        }
+      }
+    },
+    "independent": {
+      "axis_rows": 4,
+      "bytes": 9013,
+      "candidate_sha256": "aec29066c47e9f6585356d41fb30a2c568e7015d3103a1ee4a1114f1262559f7",
+      "exact_regenerations": 4,
+      "logical_locator": "C:\\KitOpenShellRelations01\\Working\\ShellAxisContrast.SLDPRT",
+      "native_launches": 0,
+      "publications": 0,
+      "reads": [
+        "1e34a3dc1353a72d17b061db142354c7a523603b067fed0b83ad1a413d01d1db",
+        "3a7e3038d0fe2ec63b5955f4ea9ca4831b47c6130310231ed45e400142c27488"
+      ],
+      "refusals": {
+        "direct": "ValueError",
+        "duplicate_corner": "ValueError",
+        "independent_chamfer_stock": "ValueError",
+        "missing": "ValueError",
+        "non_driving_corner": "ValueError",
+        "registry": "AdapterNotFoundError",
+        "swapped_axes_full_and_design": "typed axes disagree with the actual selected lines",
+        "wrong_axis": "ValueError",
+        "wrong_join_owner": "ValueError"
+      },
+      "runtime_file_reads": 0,
+      "selected_corner_pairs": 4,
+      "source_sha256": null,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "2753dbb1fe3af538138e6c21a818ca01c62cc92d3e4c96f48d5f77628b489e88"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22676,
+          "sha256": "303b307fa90167385715f71ba869e3e8bb803292e6d6078668e198ca7b40d64b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 949,
+          "sha256": "76f005bbbd7852d36f25fc9593337f073e4e774f4dd225838b789ec3b20a86a9"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17132,
+          "sha256": "7be58697bac7546a1fdb9a34709a00e5523e7df6d15393fd8890774094ae4d54"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 949,
+          "sha256": "5ff8042794fdd4a478aabdaf5fe7551481b5f3f6090e313c506994bf68d8648d"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1539,
+          "sha256": "75134711b0d2fa277dbee6a3a639026fa00a9950d525a846335ac93bcfe663c5"
+        }
+      }
+    }
+  },
+  "guard_tool_sha256": "179dad32e2fa7414b37729cf5627a83fa36f42e8bb1d44ccebd37b8f002175cc",
+  "heldout_source_reads": 0,
+  "native_launches": 0,
+  "native_publications": 0,
+  "schema": "kit.sw2026.open-shell-relations.v1",
+  "scoped_source_sha256": {
+    "Archive/Construction/Shells/EmitShellPart.py": "60da081a6639dfd71381de2db3c17b977b17b689b1b85a23b8771832dbfae6fb",
+    "Archive/Construction/Shells/MakeShellStock.py": "6591eb561fc91ed61bef5e414af617e2d49adf0697cadd9f3e85dcdd54f60a7b",
+    "Archive/Construction/Shells/OpenShellPlan.py": "9009497436d32c9fd9e191ac7c9269ad4d7b90b3688caed4cc8d4470139df529",
+    "Core/Preparation/Shells/PlanOpenShell.py": "3f9ef387eb231586c4fde9b0d9fde88de0180617551e8ada8c1f1f4cecccdbe8",
+    "Core/Preparation/Shells/ReadShellRect.py": "9d436725c8c12a843f9981db70bde9b8e26b9c2a3a6dc25c0dcab43ab7ef326d",
+    "Core/Preparation/Shells/Readback/ReadShellInput.py": "99234d67ab03f1c5bb63801c1e5adc849fce48a344f09b6f1096853aaff7449f",
+    "Core/TypedResolved/Chamfers/ReadChmfStock.py": "3a6c680250010cca3b78ea1f1074c6fb8d2665bea3447364a91cd7e2f8470d64",
+    "Core/TypedResolved/Shells/BindShellDoc.py": "a12bf4d6836c1268159f11bd34e038bbc0c83fab483c4b7788dbc9dff74a339d",
+    "Core/TypedResolved/Shells/Stock/BindShellSketch.py": "f7a5070ca04dd29e26a1b0e22502217c68b3b44c48053371361851a7783e7a1a",
+    "Core/TypedResolved/Shells/Stock/ReadShellStock.py": "8950ff401c75318ae2ff41669742e1f66b325fff583d4a2230e5847a1e88ad26"
+  },
+  "source_lock_sha256": "d469a4d75549f1c95948047264c118adadb3b843b3376218140baa61c752987b",
+  "workers": 3
+}

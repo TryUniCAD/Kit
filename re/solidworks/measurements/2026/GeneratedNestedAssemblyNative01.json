@@ -1,0 +1,3604 @@
+{
+  "packet_sha256": "efc1cae76b8c7b0b6c0a9913e759248e32aa5ac4a15f0591a11aefd798dded53",
+  "writer_revision": "aa245b58e0dc9857f07e68aafa9727925ec52386",
+  "writer_tool_sha256": {
+    "NestedAssemblyBundleProcess.py": "c2cdcbdb42990a21453a4d2e1753ced794ae5f591c05aa28d71dd05ecbeeaad0",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMetadata.py": "583b7761943284dbeb9b655bd740a65856892132c614f046c6a113bdf58299fb",
+    "builders/AssemblyOccurrences.py": "4daf8beb31a85aa3f00fbd1092239e369797a22acc7611cac5c210850640988f",
+    "builders/AssemblyTargetState.py": "c6f40ce995779fd4451e25bd2a3801119c151fd45df6a18b145f247ab2d4dfe1",
+    "builders/ConfigurationHeader.py": "87197b7d9b108135d006cdd5053c7af60ae02ddd0d9c1661ca3cb292bc7e9906",
+    "builders/NestedAssembly.py": "a81270bf9cfbfb014d2dfad9b2bb4cf1ad5f2508d2ea0cf74d52b2b8d610acb3",
+    "builders/NestedAssemblyMetadata.py": "4c0c32570006b8a6b66610d0bb4cfa7cfc3ed62d60536c854dbc81e8be35d767",
+    "builders/Part.py": "b82c0dd08099e7c53f33dca6eb9a3f2dfbfaf6d8c156b41f80976f1afbcd1a3f"
+  },
+  "source_lock_sha256": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+  "prediction_sha256": "d22736293463d60315e038b8ebb86319a9f13a58da73fc03925260b83140f170",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "heldout_inputs_read": 0,
+  "generated_input_files_immutable": true,
+  "synchronized_derivative_files_match": true,
+  "controls_healthy": true,
+  "distinct_processes": 4,
+  "bracket_order_verified": true,
+  "schema": "kit.sw2026.generated-nested-native-persistence.v1",
+  "generated_profile_native_passed": true,
+  "native_acceptance": false,
+  "production_corpus_conversions": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "observer_revision": "c5bb84f27565d702a6774ec5fef8999b8c0f7cb5",
+  "observer_tool_sha256": {
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "ReplayIndexedAssemblyProgress.py": "4e7fe3c9b159ee5e0eabf96c08d1b27b64d4fd8187b22b39e8df0716739324a7",
+    "ReplayNestedAssemblyReopen.py": "60c8797a27b1179e61fd1ab38f1191a5371e3e49fb2c6c1136a104e5d6b01d92",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "InspectGeneratedNestedAssembly.py": "80cace6237aae82b1b9fc4ec223540e37b9e7f0a36f6b5796bee01d59ee89bf9"
+  },
+  "raw_native_result_sha256": "539cb901df420671788475640ad5f097d673c48027a2754bea1e01396e908158",
+  "frozen_generated_files": {
+    "module": {
+      "file": "OffsetModule.SLDASM",
+      "bytes": 8781,
+      "sha256": "f5bd894b220677e7c36b9601937bbce7da62fd94f242719aeea0a5bb1a074c6a"
+    },
+    "plate": {
+      "file": "LinkPlate.SLDPRT",
+      "bytes": 8641,
+      "sha256": "41805711f0fd60a7d8fb29eeed580afaf010a6493cb8a98538fdaf6604ea5680"
+    },
+    "root": {
+      "file": "TiltFrame.SLDASM",
+      "bytes": 8976,
+      "sha256": "0f7c9757a015617748722c059a5f470991b3db2a2a3a3326fe99aa5e0c78e939"
+    }
+  },
+  "edit": {
+    "document": "plate",
+    "parameter": "D1@Boss-Extrude1",
+    "before_m": 0.0068,
+    "after_m": 0.0103
+  },
+  "phases": [
+    {
+      "mode": "before",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "record_sha256": "3aef678b22a12c89a53a54ffbb677cebeaec8b3672a55073bece325a26cf5902",
+      "host_transport_result_sha256": "ec4d02c640d4681a1bad1a446ea61fbae39acf887179a2f65b1fc6b5a7eae2f4",
+      "transport_exit_code": 0,
+      "native_process_creation_filetime": 134394053955644368,
+      "source_files_unchanged": true
+    },
+    {
+      "mode": "generated",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "record_sha256": "679279899cb112fe8ea072756b43b994891394d8d524cfcbdddca002e869151f",
+      "host_transport_result_sha256": "a27dcc2c5ff9fb6b5323bb994976c3bbf4a17b56f8bca12f4e8072e206c6f742",
+      "transport_exit_code": 0,
+      "native_process_creation_filetime": 134394054413387838,
+      "initial": {
+        "total_occurrences": 2,
+        "body_count": 1,
+        "occurrences": [
+          {
+            "name": "OffsetModule-1",
+            "target": "module",
+            "world": [
+              0.8571673007021123,
+              0.0,
+              0.5150380749100542,
+              0.0,
+              1.0,
+              0.0,
+              -0.5150380749100542,
+              0.0,
+              0.8571673007021123,
+              0.0872,
+              0.0246,
+              -0.0178,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fixed": false,
+            "children": [
+              {
+                "name": "OffsetModule-1/LinkPlate-1",
+                "target": "plate",
+                "world": [
+                  0.8571673007021123,
+                  0.0,
+                  0.5150380749100542,
+                  -0.16767999552363316,
+                  0.9455185755993168,
+                  0.27906637615060936,
+                  -0.48697806696836865,
+                  -0.3255681544571567,
+                  0.8104676052101726,
+                  0.09480744077164867,
+                  0.0205,
+                  -0.006579178064604294,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "fixed": false,
+                "children": [],
+                "body_count": 1
+              }
+            ],
+            "body_count": 1
+          }
+        ],
+        "definitions": {
+          "root": {
+            "mass_properties": {
+              "volume": 2.370888e-06,
+              "area": 0.0012182,
+              "com": [
+                0.10193135679551986,
+                0.02643718166306058,
+                0.004281401771879965
+              ],
+              "mass": 0.0023708880000000002
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "OffsetModule-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "module": {
+            "mass_properties": {
+              "volume": 2.3708879999999997e-06,
+              "area": 0.0012182,
+              "com": [
+                0.024,
+                0.0018371816630605763,
+                0.011340245907743494
+              ],
+              "mass": 0.002370888
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "LinkPlate-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "plate": {
+            "mass_properties": {
+              "volume": 2.370888e-06,
+              "area": 0.0012182,
+              "com": [
+                0.0117,
+                0.00745,
+                0.0034
+              ],
+              "mass": 2.370888e-06
+            },
+            "tree": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0,
+            "dimensions_m": {
+              "D1@Boss-Extrude1": 0.0068,
+              "D1@Sketch1": 0.0234,
+              "D2@Sketch1": 0.0149
+            },
+            "body_count": 1
+          }
+        }
+      },
+      "rebuilt": {
+        "total_occurrences": 2,
+        "body_count": 1,
+        "occurrences": [
+          {
+            "name": "OffsetModule-1",
+            "target": "module",
+            "world": [
+              0.8571673007021123,
+              0.0,
+              0.5150380749100542,
+              0.0,
+              1.0,
+              0.0,
+              -0.5150380749100542,
+              0.0,
+              0.8571673007021123,
+              0.0872,
+              0.0246,
+              -0.0178,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fixed": false,
+            "children": [
+              {
+                "name": "OffsetModule-1/LinkPlate-1",
+                "target": "plate",
+                "world": [
+                  0.8571673007021123,
+                  0.0,
+                  0.5150380749100542,
+                  -0.16767999552363316,
+                  0.9455185755993168,
+                  0.27906637615060936,
+                  -0.48697806696836865,
+                  -0.3255681544571567,
+                  0.8104676052101726,
+                  0.09480744077164867,
+                  0.0205,
+                  -0.006579178064604294,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "fixed": false,
+                "children": [],
+                "body_count": 1
+              }
+            ],
+            "body_count": 1
+          }
+        ],
+        "definitions": {
+          "root": {
+            "mass_properties": {
+              "volume": 2.370888e-06,
+              "area": 0.0012182,
+              "com": [
+                0.10193135679551986,
+                0.02643718166306058,
+                0.004281401771879965
+              ],
+              "mass": 0.0023708880000000002
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "OffsetModule-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "module": {
+            "mass_properties": {
+              "volume": 2.370888e-06,
+              "area": 0.0012182,
+              "com": [
+                0.024,
+                0.0018371816630605772,
+                0.011340245907743494
+              ],
+              "mass": 0.0023708880000000002
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "LinkPlate-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "plate": {
+            "mass_properties": {
+              "volume": 2.370888e-06,
+              "area": 0.0012182,
+              "com": [
+                0.0117,
+                0.00745,
+                0.0034
+              ],
+              "mass": 2.370888e-06
+            },
+            "tree": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0,
+            "dimensions_m": {
+              "D1@Boss-Extrude1": 0.0068,
+              "D1@Sketch1": 0.0234,
+              "D2@Sketch1": 0.0149
+            },
+            "body_count": 1
+          }
+        }
+      },
+      "edited": {
+        "total_occurrences": 2,
+        "body_count": 1,
+        "occurrences": [
+          {
+            "name": "OffsetModule-1",
+            "target": "module",
+            "world": [
+              0.8571673007021123,
+              0.0,
+              0.5150380749100542,
+              0.0,
+              1.0,
+              0.0,
+              -0.5150380749100542,
+              0.0,
+              0.8571673007021123,
+              0.0872,
+              0.0246,
+              -0.0178,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fixed": false,
+            "children": [
+              {
+                "name": "OffsetModule-1/LinkPlate-1",
+                "target": "plate",
+                "world": [
+                  0.8571673007021123,
+                  0.0,
+                  0.5150380749100542,
+                  -0.16767999552363316,
+                  0.9455185755993168,
+                  0.27906637615060936,
+                  -0.48697806696836865,
+                  -0.3255681544571567,
+                  0.8104676052101726,
+                  0.09480744077164867,
+                  0.0205,
+                  -0.006579178064604294,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "fixed": false,
+                "children": [],
+                "body_count": 1
+              }
+            ],
+            "body_count": 1
+          }
+        ],
+        "definitions": {
+          "root": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.10107914517832522,
+                0.025867437392760553,
+                0.005699720080997768
+              ],
+              "mass": 0.0035911979999999994
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "OffsetModule-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "module": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.024,
+                0.001267437392760553,
+                0.0129949034150423
+              ],
+              "mass": 0.0035911979999999994
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "LinkPlate-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "plate": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.0117,
+                0.00745,
+                0.00515
+              ],
+              "mass": 3.5911979999999995e-06
+            },
+            "tree": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0,
+            "dimensions_m": {
+              "D1@Boss-Extrude1": 0.0103,
+              "D1@Sketch1": 0.0234,
+              "D2@Sketch1": 0.0149
+            },
+            "body_count": 1
+          }
+        }
+      },
+      "saved_files": {
+        "plate": {
+          "status": [
+            true,
+            0,
+            0
+          ],
+          "sha256": "a54897f7af0737a43ec2b2cc7abe70c30698ce5649648f219ae9b1c954d3af33",
+          "bytes": 27783,
+          "update_stamp": 207
+        },
+        "module": {
+          "status": [
+            true,
+            0,
+            0
+          ],
+          "sha256": "0963592b0f9548b3a816d940f4220765f520c0429772d3ac0543325ee79c92d2",
+          "bytes": 21743,
+          "update_stamp": 107
+        },
+        "root": {
+          "status": [
+            true,
+            0,
+            0
+          ],
+          "sha256": "9c80c422f5c8d445a876ff8487b1327f63ba50d165f897c671778f30907c918c",
+          "bytes": 51844,
+          "update_stamp": 105
+        }
+      }
+    },
+    {
+      "mode": "reopen",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "record_sha256": "23de7a9c3439dc7e9be7c2ecc13f5d2c875a0e3d21ad8dc268a1487e4fd20905",
+      "host_transport_result_sha256": "8dd0f6eaa916ed9f8229a162f34f77377b248cf1aa9072dd595dcf66824a2356",
+      "transport_exit_code": 0,
+      "native_process_creation_filetime": 134394055109434338,
+      "initial": {
+        "total_occurrences": 2,
+        "body_count": 1,
+        "occurrences": [
+          {
+            "name": "OffsetModule-1",
+            "target": "module",
+            "world": [
+              0.8571673007021123,
+              0.0,
+              0.5150380749100542,
+              0.0,
+              1.0,
+              0.0,
+              -0.5150380749100542,
+              0.0,
+              0.8571673007021123,
+              0.0872,
+              0.0246,
+              -0.0178,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fixed": false,
+            "children": [
+              {
+                "name": "OffsetModule-1/LinkPlate-1",
+                "target": "plate",
+                "world": [
+                  0.8571673007021123,
+                  0.0,
+                  0.5150380749100542,
+                  -0.16767999552363316,
+                  0.9455185755993168,
+                  0.27906637615060936,
+                  -0.48697806696836865,
+                  -0.3255681544571567,
+                  0.8104676052101726,
+                  0.09480744077164867,
+                  0.0205,
+                  -0.006579178064604294,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "fixed": false,
+                "children": [],
+                "body_count": 1
+              }
+            ],
+            "body_count": 1
+          }
+        ],
+        "definitions": {
+          "root": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.10107914517832522,
+                0.025867437392760553,
+                0.005699720080997768
+              ],
+              "mass": 0.0035911979999999994
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "OffsetModule-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "module": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.024,
+                0.001267437392760553,
+                0.0129949034150423
+              ],
+              "mass": 0.0035911979999999994
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "LinkPlate-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "plate": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.0117,
+                0.00745,
+                0.00515
+              ],
+              "mass": 3.5911979999999995e-06
+            },
+            "tree": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0,
+            "dimensions_m": {
+              "D1@Boss-Extrude1": 0.0103,
+              "D1@Sketch1": 0.0234,
+              "D2@Sketch1": 0.0149
+            },
+            "body_count": 1
+          }
+        }
+      },
+      "rebuilt": {
+        "total_occurrences": 2,
+        "body_count": 1,
+        "occurrences": [
+          {
+            "name": "OffsetModule-1",
+            "target": "module",
+            "world": [
+              0.8571673007021123,
+              0.0,
+              0.5150380749100542,
+              0.0,
+              1.0,
+              0.0,
+              -0.5150380749100542,
+              0.0,
+              0.8571673007021123,
+              0.0872,
+              0.0246,
+              -0.0178,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fixed": false,
+            "children": [
+              {
+                "name": "OffsetModule-1/LinkPlate-1",
+                "target": "plate",
+                "world": [
+                  0.8571673007021123,
+                  0.0,
+                  0.5150380749100542,
+                  -0.16767999552363316,
+                  0.9455185755993168,
+                  0.27906637615060936,
+                  -0.48697806696836865,
+                  -0.3255681544571567,
+                  0.8104676052101726,
+                  0.09480744077164867,
+                  0.0205,
+                  -0.006579178064604294,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "fixed": false,
+                "children": [],
+                "body_count": 1
+              }
+            ],
+            "body_count": 1
+          }
+        ],
+        "definitions": {
+          "root": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.10107914517832522,
+                0.025867437392760553,
+                0.005699720080997768
+              ],
+              "mass": 0.0035911979999999994
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "OffsetModule-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "module": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.024,
+                0.001267437392760553,
+                0.0129949034150423
+              ],
+              "mass": 0.0035911979999999994
+            },
+            "tree": [
+              {
+                "name": "Comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "History",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Selection Sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Live Section Planes",
+                "type": "LiveSectionFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "Annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Lights and Cameras",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "Lights and Cameras",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "LinkPlate-1",
+                "type": "Reference",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Mates",
+                "type": "MateGroup",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0
+          },
+          "plate": {
+            "mass_properties": {
+              "volume": 3.5911979999999995e-06,
+              "area": 0.0014862999999999999,
+              "com": [
+                0.0117,
+                0.00745,
+                0.00515
+              ],
+              "mass": 3.5911979999999995e-06
+            },
+            "tree": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Notes1___EndTag___",
+                "type": "NotesAreaFtrFolder",
+                "parent": "authored annotations",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Ambient",
+                "type": "AmbientLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional1",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional2",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Directional3",
+                "type": "DirectionLight",
+                "parent": "authored environment",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "parent": null,
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "whats_wrong": 0,
+            "needs_rebuild": 0,
+            "dimensions_m": {
+              "D1@Boss-Extrude1": 0.0103,
+              "D1@Sketch1": 0.0234,
+              "D2@Sketch1": 0.0149
+            },
+            "body_count": 1
+          }
+        }
+      }
+    },
+    {
+      "mode": "after",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "record_sha256": "ea5664ce4ed5049ce251ea1d1f5391dc919852fc9ece0d04363a95ae1cca22ad",
+      "host_transport_result_sha256": "b2c901ad32f99c6b2174ae4f934ea5f7b53233c8841b22e949fd17f2188dbfe0",
+      "transport_exit_code": 0,
+      "native_process_creation_filetime": 134394055666385986,
+      "source_files_unchanged": true
+    }
+  ],
+  "offline_summary": {
+    "initial_attempt_python": "3.9",
+    "initial_attempt_error": "zip() takes no keyword arguments",
+    "recovered_with_python": "3.11.16",
+    "recovered_result_sha256": "539cb901df420671788475640ad5f097d673c48027a2754bea1e01396e908158",
+    "native_phases_reexecuted_for_summary_recovery": false
+  },
+  "limitations": [
+    "Disclosed ordinary rigid prism hierarchy",
+    "Separate sealed evaluation pending",
+    "Public adapter writing remains unqualified"
+  ]
+}

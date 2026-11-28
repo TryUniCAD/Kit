@@ -1,0 +1,101 @@
+{
+  "authority_sha256": [
+    "abaa363a2722c95166fe33cc668baf4555582b172e663ca67b42b775c9bacfb2",
+    "f6066ca8a258b2394744632d3062dfdf02bdda3207b84467555f27a0a8a53197"
+  ],
+  "cases": [
+    {
+      "alternate_view_stream_changes": [
+        "Contents/Config-0"
+      ],
+      "archive_sha256": "282c74886c69189b26baa24744de2d1f071771295dda594ca137a2ea0be37eda",
+      "bytes": 10544,
+      "publication_routes": {
+        "adapter": {
+          "archives": 2,
+          "refusals": [
+            "crossed_receipt",
+            "edited_receipt",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ]
+        },
+        "direct": {
+          "archives": 2,
+          "refusals": [
+            "crossed_receipt",
+            "edited_receipt",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ]
+        },
+        "registry": {
+          "archives": 2,
+          "refusals": [
+            "crossed_receipt",
+            "edited_receipt",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ]
+        }
+      },
+      "runtime_input_reads": 0,
+      "slot": "Slot01",
+      "stream_count": 10,
+      "strict_read": true,
+      "typed_stream_replays": 9
+    },
+    {
+      "alternate_view_stream_changes": [
+        "Contents/Config-0"
+      ],
+      "archive_sha256": "4d953621bc46940c6650a6e334e3b6dae42c40cfb4400ff807429348fd9b3823",
+      "bytes": 10533,
+      "publication_routes": {
+        "adapter": {
+          "archives": 2,
+          "refusals": [
+            "crossed_receipt",
+            "edited_receipt",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ]
+        },
+        "direct": {
+          "archives": 2,
+          "refusals": [
+            "crossed_receipt",
+            "edited_receipt",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ]
+        },
+        "registry": {
+          "archives": 2,
+          "refusals": [
+            "crossed_receipt",
+            "edited_receipt",
+            "wrong_epoch",
+            "wrong_locator",
+            "missing_receipt"
+          ]
+        }
+      },
+      "runtime_input_reads": 0,
+      "slot": "Slot02",
+      "stream_count": 10,
+      "strict_read": true,
+      "typed_stream_replays": 9
+    }
+  ],
+  "guarded_workers": 2,
+  "native_processes_started": 0,
+  "original_native_sources_read": 0,
+  "schema": "kit.sw2026.heldout-linear-pattern-publication.v1",
+  "source_lock_sha256": "3b35bab5c3f7d2b1b4dfcbb7d7eedfe132ae3ddc8c0a97eb91ba7d934c6a4c76"
+}

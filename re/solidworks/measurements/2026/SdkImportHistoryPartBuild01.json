@@ -1,0 +1,36 @@
+{
+  "archive_mark_ids": [
+    2,
+    3
+  ],
+  "cases": {
+    "ConcaveBare": {
+      "exact_streams": 12,
+      "sha256": "21867dbe53b94bbfadfc343ed47f8ca3b0af1fb30114f3a921f730c84f087429"
+    },
+    "ConcaveOwned": {
+      "exact_streams": 12,
+      "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "RectangularBare": {
+      "exact_streams": 12,
+      "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+    },
+    "RectangularOwned": {
+      "exact_streams": 12,
+      "sha256": "dafdf93377f504435d3fe62dd9417f7292ac03c2c23ade9d379b4632311f9149"
+    }
+  },
+  "exact_logical_streams": 48,
+  "exact_prior_native_accepted_containers": 4,
+  "generated_history": {
+    "bytes": 606,
+    "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+  },
+  "native_receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "new_native_processes": 0,
+  "package_history_receipt_sha256": "03cf86b76a8f2c47985fd166ec10d2bae3ee1ede2d4613c2e5fccef8c6d9e765",
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.local-import-history-part-construction.v1",
+  "writer_source_sha256": "b481dac42620e7ac1ad7328509efe884c8ed8307e97fb7575c9b83de20a8fd10"
+}

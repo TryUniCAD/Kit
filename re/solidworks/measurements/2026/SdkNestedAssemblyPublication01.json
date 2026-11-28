@@ -1,0 +1,286 @@
+{
+  "base": "4d7deb8495646c4e148401bb6da723ab0275d3db",
+  "direct_preparation_receipt_sha256": "4b950c7909de76c2691067c64af80e275c0c10b408ea35367f3ae7083929402d",
+  "disclosed": {
+    "SdkNestedAssemblyNative01": {
+      "application_usable": false,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9059,
+          "sha256": "6901eab04d9642045b3f56a44ed7602fba1f533a7b8fee46dcde063801aa26bc"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 8839,
+          "sha256": "7326aa2f78ff2c2c609e00ea20ec79ebf8e43e5638c596bf42d2d8b2dc9017c6"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8196,
+          "sha256": "de72b0db675a3ecb96e27f36c2766f80aaaeb6cf8b81792097809e4118936a5f"
+        }
+      },
+      "metadata": {
+        "bundle_bytes_written": 26094,
+        "component_bytes_written": 17035,
+        "component_file_count": 2,
+        "component_file_names": [
+          "SdkNestedPlate.SLDPRT",
+          "SdkModule.SLDASM"
+        ],
+        "native_qualification": "unmeasured_portable_nested_assembly_profile"
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "neutral_request_sha256": "c913f5c43bd086a11080fcc9e68fe31e598735ca20c568d208b1a2637ce18e22",
+      "publication_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkModule.SLDASM",
+        "SdkNestedPlate.SLDPRT"
+      ],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkNestedPlate.SLDPRT",
+        "SdkModule.SLDASM"
+      ],
+      "vendor_loadable": false
+    },
+    "SdkRepeatedNestedAssemblyNative01": {
+      "application_usable": false,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9880,
+          "sha256": "abf744242a62fe36885afb25340abdfb0cfc5d6393bcf1c9e2715af68cc0b5a0"
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "bytes": 8212,
+          "sha256": "20a4ddaa6eae45a9c84964b51a73c84a74a317632c48e19db65fe03ad1ee2950"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 9143,
+          "sha256": "392681d05e2fb6233a3df59cf8a6066eb2cbce89db7f9e3ed653917bd3456f31"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8215,
+          "sha256": "4ef7654cc2aa07d03a7047853f8a961f7889e45bae568db7b599d663ce17f470"
+        }
+      },
+      "metadata": {
+        "bundle_bytes_written": 35450,
+        "component_bytes_written": 25570,
+        "component_file_count": 3,
+        "component_file_names": [
+          "SdkNestedPlate.SLDPRT",
+          "SdkModule.SLDASM",
+          "SdkGaugePlate.SLDPRT"
+        ],
+        "native_qualification": "unmeasured_portable_nested_assembly_profile"
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "neutral_request_sha256": "161e64f3572e97b6832d38055254a94c1a3935639785ef577c07bb6476d192f3",
+      "publication_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkGaugePlate.SLDPRT",
+        "SdkModule.SLDASM",
+        "SdkNestedPlate.SLDPRT"
+      ],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkNestedPlate.SLDPRT",
+        "SdkModule.SLDASM",
+        "SdkGaugePlate.SLDPRT"
+      ],
+      "vendor_loadable": false
+    }
+  },
+  "fresh_workers": 16,
+  "heldout_inputs_read": 0,
+  "native_launches": 0,
+  "normal_public_route_enabled": false,
+  "proof_sha256": "d23b8e6404fa4ae4609a4bc27513238bd05dd352e11578ac1092f1569b4fb097",
+  "refusals": {
+    "companion-case": {
+      "diagnostic": "",
+      "error": "FileExistsError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "companion-directory": {
+      "diagnostic": "",
+      "error": "FileExistsError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "configuration": {
+      "diagnostic": "requested assembly configuration is unavailable",
+      "error": "ValueError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "escaping-companion": {
+      "diagnostic": "nested definition destination must be a distinct sibling filename",
+      "error": "ValueError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "overwrite": {
+      "diagnostic": "assembly overwrite",
+      "error": "ValueError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "public-closed": {
+      "diagnostic": "does not support the destination",
+      "error": "AdapterNotFoundError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "publish-denied": {
+      "diagnostic": "controlled final companion failure",
+      "error": "PermissionError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkGaugePlate.SLDPRT",
+        "SdkModule.SLDASM",
+        "SdkNestedPlate.SLDPRT"
+      ],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkNestedPlate.SLDPRT",
+        "SdkModule.SLDASM",
+        "SdkGaugePlate.SLDPRT"
+      ]
+    },
+    "publish-race": {
+      "diagnostic": "",
+      "error": "FileExistsError",
+      "existing_entries_preserved": true,
+      "peer_preserved": true,
+      "publication_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkGaugePlate.SLDPRT",
+        "SdkModule.SLDASM",
+        "SdkNestedPlate.SLDPRT"
+      ],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkNestedPlate.SLDPRT",
+        "SdkModule.SLDASM",
+        "SdkGaugePlate.SLDPRT"
+      ]
+    },
+    "relative-native": {
+      "diagnostic": "explicit absolute windows destination",
+      "error": "ValueError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "root-symlink": {
+      "diagnostic": "",
+      "error": "FileExistsError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "stage-denied": {
+      "diagnostic": "controlled staged companion failure",
+      "error": "PermissionError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkNestedPlate.SLDPRT"
+      ]
+    },
+    "stream": {
+      "diagnostic": "filesystem bundle destination",
+      "error": "TypeError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    },
+    "unmeasured-policy": {
+      "diagnostic": "",
+      "error": "ApplicationUsabilityError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": [
+        "SdkFrame.SLDASM",
+        "SdkNestedPlate.SLDPRT",
+        "SdkModule.SLDASM",
+        "SdkGaugePlate.SLDPRT"
+      ]
+    },
+    "wrong-native-name": {
+      "diagnostic": "staged final and native assembly filenames must agree",
+      "error": "ValueError",
+      "existing_entries_preserved": true,
+      "peer_preserved": false,
+      "publication_attempts": [],
+      "runtime_input_file_reads": 0,
+      "staged_write_attempts": []
+    }
+  },
+  "schema": "kit.sw2026.staged-nested-publication.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/CheckFreshAsm.py": "248d62fe10a7ef8ae233e6e5e2f70ad61fa8deb8221fb0a1c164bf3465245242",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/CheckFreshFiles.py": "8f49f9a7a736e099e88cec006a154fda7810a05e369867cc60de56d6a3101b6e",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/CanWriteNested.py": "3c067902bb466b2ecb71447731f136e156f6651fa8d4d800c0a69c85806269e5",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/EmitNestedMut.py": "e8db58733bd84aa4277c6e067bd32ad1d21060ce2d5f02be5bdc1e0444534892",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/MakeNestWriter.py": "f833e7e48ed8f034f8dbf65da5cc5ec8086941aed03f6670486ed78e6265a159",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/NestFileNames.py": "1ef0521a1bcaf037a17753d47e82ff57be74b8ee2be34833cc4bb721f27f08cf",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/Nested/WriteNestedAsm.py": "ad8bf57148d81568ba80d7b7cba55fd0d4a0caa0df2e9de6d2ab317fd57fbee0",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/WriteAsmBundle.py": "2724044636107a2f21487d3533de773857adc2f83cee1b7bbcc4b8e8bfab1c75",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/WriteAsmFiles.py": "360456e1f4ebe78dc9c5c58c677de4685ab4127ba5abf4c159da1d23ea5d7db0"
+  }
+}

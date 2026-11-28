@@ -1,0 +1,97 @@
+{
+  "cases": [
+    {
+      "case": "ColdRaisedPatternA",
+      "generated_sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+      "native_processes": 0,
+      "packet_sha256": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1",
+      "publications": 6,
+      "readback_publications": 14,
+      "readback_refusals": 28,
+      "refusals": 20,
+      "request_sha256": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+      "result_sha256": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b",
+      "runtime": "1.2.12",
+      "runtime_reads": 0,
+      "status": "native_hash_reproduced",
+      "streams": 10,
+      "strict_geometry": {
+        "area_mm2": 36638.0,
+        "count": 3,
+        "faces": 21,
+        "pitch_mm": 18.0,
+        "sdk_sketch_relations": [
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ],
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ]
+        ],
+        "volume_mm3": 107715.0
+      }
+    },
+    {
+      "case": "ColdRaisedPatternB",
+      "generated_sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+      "native_processes": 0,
+      "packet_sha256": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1",
+      "publications": 6,
+      "readback_publications": 14,
+      "readback_refusals": 28,
+      "refusals": 20,
+      "request_sha256": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+      "result_sha256": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b",
+      "runtime": "1.2.12",
+      "runtime_reads": 0,
+      "status": "native_hash_reproduced",
+      "streams": 10,
+      "strict_geometry": {
+        "area_mm2": 36275.0,
+        "count": 4,
+        "faces": 26,
+        "pitch_mm": 19.0,
+        "sdk_sketch_relations": [
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ],
+          [
+            "horizontal",
+            "vertical",
+            "horizontal",
+            "vertical",
+            "coincident",
+            "coincident",
+            "coincident",
+            "coincident"
+          ]
+        ],
+        "volume_mm3": 83836.0
+      }
+    }
+  ],
+  "oracle_build": "34.5.2.0604",
+  "reader_base": "e64a0f0b6cb803668ab789840ce67bb7691dfab0",
+  "schema": "kit.sw2026.measured-pattern-readback.v1"
+}

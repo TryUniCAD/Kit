@@ -60,3 +60,7 @@ also verify the two disclosed sources.
 python -I -B re/tooling/sw2026/CheckCfgCacheWrite.py measure
 python -I -B re/tooling/sw2026/CheckCfgCacheWrite.py measure --disclosed-root /path/to/disclosed-controls
 ```
+
+## Integration in the generative branch
+
+Main accepted PR #221 at `b46259ae0f847339d8a043799e8b8539a2b909d6` with all 32 native merge-group jobs green. The integrated codec preserves the full part owner's tagged bounds mode alongside the limited standalone fragment. Five guarded workers reproduce the accepted cache field results, all 1,328 pinned typed stream rows remain exact, and six guarded local pattern states retain their earlier complete output hashes. [Integrated archive proof](../measurements/2026/ArchiveAfterCacheWritingMerge01.json)

@@ -1,0 +1,243 @@
+{
+  "archive_proof_sha256": "7be3756016025093a917c74bc1b2480da140e2d19d1eab67f7c55c53f23f602e",
+  "base": "6d85ed1cb9ff6c033c5a0017dbfc49ffb52bc146",
+  "cases": [
+    {
+      "case": "ChamferDistanceAxialA",
+      "edited": false,
+      "foreign_display_refusals": 2,
+      "history": {
+        "driver_ids": [
+          33,
+          34
+        ],
+        "effective_si_values": [
+          0.004125,
+          0.5017821599483697
+        ],
+        "owned_selection_order": [
+          "edge",
+          "distance face"
+        ],
+        "parameter_names": [
+          "D1",
+          "D2"
+        ],
+        "tree_rows": 27
+      },
+      "keyword_order": [
+        "D1",
+        "D2"
+      ],
+      "native_source_phase_sha256": "d63ed6315fb7c7bda7b3e1f306ddd3cca5f09e1cd134d645f7ef67e623a0c3b1",
+      "reader_routes": 4,
+      "runtime_accesses": 0,
+      "saved_publication_refused": true,
+      "shape": {
+        "active_payload_sha256": "7ee250ed76156459e15799a870b96ecbd4f4ae4caf37f826c2fb255c9bdf8530",
+        "area_m2": 0.008377567428350097,
+        "centroid_m": [
+          0.00669078491294771,
+          -0.008458616934676947,
+          0.011875000000000002
+        ],
+        "mark_ids": [
+          13,
+          11,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          222,
+          48
+        ],
+        "volume_m3": 4.8205552037948316e-05
+      },
+      "source_sha256": "836084659fbd2875467c3e74c342f3ef5c6863cc1cc385431f046c5cc829d2b2"
+    },
+    {
+      "case": "ChamferDistanceAxialA",
+      "edited": true,
+      "foreign_display_refusals": 2,
+      "history": {
+        "driver_ids": [
+          33,
+          34
+        ],
+        "effective_si_values": [
+          0.005625,
+          0.5017821599483697
+        ],
+        "owned_selection_order": [
+          "edge",
+          "distance face"
+        ],
+        "parameter_names": [
+          "D1",
+          "D2"
+        ],
+        "tree_rows": 27
+      },
+      "keyword_order": [
+        "D2",
+        "D1"
+      ],
+      "native_source_phase_sha256": "f3f005124846132fbb4768abd6695a9d67d6329cbbfa4f7410c7b7a2826afe83",
+      "reader_routes": 4,
+      "runtime_accesses": 0,
+      "saved_publication_refused": true,
+      "shape": {
+        "active_payload_sha256": "2043764a90af1a8ea0653ed0c206a8128f7b7f704d42afd6614e5bd987c15b06",
+        "area_m2": 0.008355008431283423,
+        "centroid_m": [
+          0.006641813539125903,
+          -0.008424070929417314,
+          0.011874999999999998
+        ],
+        "mark_ids": [
+          21,
+          19,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          221,
+          46
+        ],
+        "volume_m3": 4.8110272384614645e-05
+      },
+      "source_sha256": "1da486887e30e7e33fab8e482c8bd170302a75126bd106980a2baeb492a94d2b"
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "edited": false,
+      "foreign_display_refusals": 2,
+      "history": {
+        "driver_ids": [
+          33,
+          34
+        ],
+        "effective_si_values": [
+          0.003375,
+          0.619591884457987
+        ],
+        "owned_selection_order": [
+          "edge",
+          "distance face"
+        ],
+        "parameter_names": [
+          "D1",
+          "D2"
+        ],
+        "tree_rows": 27
+      },
+      "keyword_order": [
+        "D2",
+        "D1"
+      ],
+      "native_source_phase_sha256": "845c3fc713ea264e5a1fad2c3b1140034895dcd9bf5b9a0e1faac0bb3e0064b6",
+      "reader_routes": 4,
+      "runtime_accesses": 0,
+      "saved_publication_refused": true,
+      "shape": {
+        "active_payload_sha256": "7ed6db2013a0208b1779d6c1dbb5f6ddf01998195532756dd795bfdee7f016d7",
+        "area_m2": 0.006924986158140645,
+        "centroid_m": [
+          -0.01225,
+          0.007806332988457015,
+          0.014067445612964236
+        ],
+        "mark_ids": [
+          13,
+          11,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          227,
+          48
+        ],
+        "volume_m3": 3.888303825277104e-05
+      },
+      "source_sha256": "feeca66dd548eb6361c7626385302d6bf4a64ca22c027504d0f8bf8b9a58ee15"
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "edited": true,
+      "foreign_display_refusals": 2,
+      "history": {
+        "driver_ids": [
+          33,
+          34
+        ],
+        "effective_si_values": [
+          0.003375,
+          1.069014166846527
+        ],
+        "owned_selection_order": [
+          "edge",
+          "distance face"
+        ],
+        "parameter_names": [
+          "D1",
+          "D2"
+        ],
+        "tree_rows": 27
+      },
+      "keyword_order": [
+        "D1",
+        "D2"
+      ],
+      "native_source_phase_sha256": "f5337919dac28af5b1e21599d5b0ad3f558a35c0a1af9a47b8c67aafeb28f1b0",
+      "reader_routes": 4,
+      "runtime_accesses": 0,
+      "saved_publication_refused": true,
+      "shape": {
+        "active_payload_sha256": "c5caa0e60f8d0948f0eb8cad4cf9fa78172e33a313ec574dbcd67b756df6da03",
+        "area_m2": 0.006875344419912582,
+        "centroid_m": [
+          -0.01225,
+          0.007712529448625695,
+          0.01397690487991854
+        ],
+        "mark_ids": [
+          21,
+          19,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          226,
+          46
+        ],
+        "volume_m3": 3.861528092714349e-05
+      },
+      "source_sha256": "e82b727876b1db00a986372a7fdc7efb897185ebf46add9acab3b2677f2fd197"
+    }
+  ],
+  "disclosed_lock_sha256": "a696a97d73129ef7ffd7e829dfff7d1729000309e1273c0bef70b5f2ceedddb8",
+  "guarded_workers": 4,
+  "method_sha256": "d66d93f90169017d3006467f262f94b89ce743228c3f6ca687efd193e45da391",
+  "new_heldout_credit": 0,
+  "new_native_processes": 0,
+  "schema": "kit.sw2026.saved-angle-chamfer-sdk.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfModel.py": "4ad3b174611f66df99816cbf1ad59b1121cd79974e66d134e90fe4fe75283790",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfRoots.py": "69007bada0248c6436e6ff1a50536205c48bb9d838cc64ffdfe8dc09e0666df0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/OrderWarmDims.py": "d89c0559961188db6004777267e43f3c87c9a43edd2e215fd78d252d794815c7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/Warm/ReadWarmChmf.py": "b4c3660569abcfbb8e7e327ca0c9355a8bb625800f42b31d61f7f01ad1e45eae"
+  },
+  "spec_sha256": "ef23dfb43314e133f7b6d490a8c257208244c3163c50659bac7bae9d7a6e4bc4"
+}

@@ -1,0 +1,803 @@
+{
+  "build": "34.5.2.0604",
+  "cad_files_written": 0,
+  "disclosed_warm_owner_audit": {
+    "D01X.SLDPRT": {
+      "config_sha256": "3d907c69875881895c1cddf1dcb328a9fa931952e12a9d745c962a02917bed2a",
+      "ends": [
+        {
+          "depth_m": 0.00637,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 27,
+            "dimension_index": 273,
+            "display_index": 269,
+            "end": 11030,
+            "field_span": false,
+            "handle_index": 271,
+            "object_index": 275,
+            "offset": 10964,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 32,
+          "merge": 1,
+          "native_merge_tolerance_m": 0.0,
+          "solid_mode": -1
+        },
+        {
+          "depth_m": 0.01066,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 34,
+            "dimension_index": 358,
+            "display_index": 356,
+            "end": 17008,
+            "field_span": false,
+            "handle_index": 357,
+            "object_index": 359,
+            "offset": 16965,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 40,
+          "merge": 1,
+          "native_merge_tolerance_m": 1e-05,
+          "solid_mode": 0
+        }
+      ],
+      "lineage": [
+        101,
+        102,
+        103
+      ],
+      "live_output_kernel_tag": 3098,
+      "manager_order": [
+        103,
+        102,
+        101
+      ],
+      "map_counters": [
+        112,
+        427
+      ],
+      "resolved_sha256": "e502cfbc9bcd027a1536d6f9d72b71d6c5aecae1632a8a059fc6101104418ca8",
+      "roots": 22,
+      "seed_wrapper_base": 32,
+      "seed_wrapper_immediate": 101,
+      "seed_wrapper_saved_face_class": "moFaceRef_c",
+      "seed_wrapper_saved_face_index": 313,
+      "source_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839"
+    },
+    "D02Y.SLDPRT": {
+      "config_sha256": "99323ed45509bc433e6c649ca08375a21cd1ffefb5304af2492f7b6e69901abc",
+      "ends": [
+        {
+          "depth_m": 0.00413,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 27,
+            "dimension_index": 274,
+            "display_index": 270,
+            "end": 11030,
+            "field_span": false,
+            "handle_index": 272,
+            "object_index": 276,
+            "offset": 10964,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 32,
+          "merge": 1,
+          "native_merge_tolerance_m": 0.0,
+          "solid_mode": -1
+        },
+        {
+          "depth_m": 0.010839999999999999,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 34,
+            "dimension_index": 359,
+            "display_index": 357,
+            "end": 17008,
+            "field_span": false,
+            "handle_index": 358,
+            "object_index": 360,
+            "offset": 16965,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 40,
+          "merge": 1,
+          "native_merge_tolerance_m": 1e-05,
+          "solid_mode": 0
+        }
+      ],
+      "lineage": [
+        101,
+        102,
+        103
+      ],
+      "live_output_kernel_tag": 3347,
+      "manager_order": [
+        103,
+        102,
+        101
+      ],
+      "map_counters": [
+        113,
+        428
+      ],
+      "resolved_sha256": "8d90f9bd93ea45d25c334df76aa5ca6bdfa25edb1dbdf62630f4d923e4bcd7a9",
+      "roots": 22,
+      "seed_wrapper_base": 32,
+      "seed_wrapper_immediate": 101,
+      "seed_wrapper_saved_face_class": "moFaceRef_c",
+      "seed_wrapper_saved_face_index": 314,
+      "source_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371"
+    },
+    "DatumHeightShort.SLDPRT": {
+      "config_sha256": "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a",
+      "ends": [
+        {
+          "depth_m": 0.00575,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 27,
+            "dimension_index": 279,
+            "display_index": 275,
+            "end": 11268,
+            "field_span": false,
+            "handle_index": 277,
+            "object_index": 281,
+            "offset": 11202,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 32,
+          "merge": 1,
+          "native_merge_tolerance_m": 0.0,
+          "solid_mode": -1
+        },
+        {
+          "depth_m": 0.008625,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 34,
+            "dimension_index": 364,
+            "display_index": 362,
+            "end": 17246,
+            "field_span": false,
+            "handle_index": 363,
+            "object_index": 365,
+            "offset": 17203,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 40,
+          "merge": 1,
+          "native_merge_tolerance_m": 1e-05,
+          "solid_mode": 0
+        }
+      ],
+      "lineage": [
+        101,
+        102,
+        103
+      ],
+      "live_output_kernel_tag": 3672,
+      "manager_order": [
+        103,
+        102,
+        101
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "resolved_sha256": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f",
+      "roots": 24,
+      "seed_wrapper_base": 32,
+      "seed_wrapper_immediate": 101,
+      "seed_wrapper_saved_face_class": "moFaceRef_c",
+      "seed_wrapper_saved_face_index": 319,
+      "source_sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b"
+    },
+    "DatumHeightTall.SLDPRT": {
+      "config_sha256": "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f",
+      "ends": [
+        {
+          "depth_m": 0.00575,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 27,
+            "dimension_index": 279,
+            "display_index": 275,
+            "end": 11268,
+            "field_span": false,
+            "handle_index": 277,
+            "object_index": 281,
+            "offset": 11202,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 32,
+          "merge": 1,
+          "native_merge_tolerance_m": 0.0,
+          "solid_mode": -1
+        },
+        {
+          "depth_m": 0.020375,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 34,
+            "dimension_index": 364,
+            "display_index": 362,
+            "end": 17246,
+            "field_span": false,
+            "handle_index": 363,
+            "object_index": 365,
+            "offset": 17203,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 40,
+          "merge": 1,
+          "native_merge_tolerance_m": 1e-05,
+          "solid_mode": 0
+        }
+      ],
+      "lineage": [
+        101,
+        102,
+        103
+      ],
+      "live_output_kernel_tag": 3672,
+      "manager_order": [
+        103,
+        102,
+        101
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "resolved_sha256": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9",
+      "roots": 24,
+      "seed_wrapper_base": 32,
+      "seed_wrapper_immediate": 101,
+      "seed_wrapper_saved_face_class": "moFaceRef_c",
+      "seed_wrapper_saved_face_index": 319,
+      "source_sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb"
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "config_sha256": "5d30c8d33d52227be16c58d77a818f11f9ff911ce035501d2187f5a353e10784",
+      "ends": [
+        {
+          "depth_m": 0.00575,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 27,
+            "dimension_index": 279,
+            "display_index": 275,
+            "end": 11268,
+            "field_span": false,
+            "handle_index": 277,
+            "object_index": 281,
+            "offset": 11202,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 32,
+          "merge": 1,
+          "native_merge_tolerance_m": 0.0,
+          "solid_mode": -1
+        },
+        {
+          "depth_m": 0.01225,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 34,
+            "dimension_index": 364,
+            "display_index": 362,
+            "end": 17246,
+            "field_span": false,
+            "handle_index": 363,
+            "object_index": 365,
+            "offset": 17203,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 40,
+          "merge": 1,
+          "native_merge_tolerance_m": 1e-05,
+          "solid_mode": 0
+        }
+      ],
+      "lineage": [
+        101,
+        102,
+        103
+      ],
+      "live_output_kernel_tag": 3672,
+      "manager_order": [
+        103,
+        102,
+        101
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "resolved_sha256": "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305",
+      "roots": 24,
+      "seed_wrapper_base": 32,
+      "seed_wrapper_immediate": 101,
+      "seed_wrapper_saved_face_class": "moFaceRef_c",
+      "seed_wrapper_saved_face_index": 319,
+      "source_sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f"
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "config_sha256": "534bc50076ed18e0b83576c7c84a0e7b0be839192f63056db7775208cb7942ff",
+      "ends": [
+        {
+          "depth_m": 0.00575,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 27,
+            "dimension_index": 279,
+            "display_index": 275,
+            "end": 11510,
+            "field_span": false,
+            "handle_index": 277,
+            "object_index": 281,
+            "offset": 11444,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 32,
+          "merge": 1,
+          "native_merge_tolerance_m": 0.0,
+          "solid_mode": -1
+        },
+        {
+          "depth_m": 0.01225,
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 34,
+            "dimension_index": 364,
+            "display_index": 362,
+            "end": 17488,
+            "field_span": false,
+            "handle_index": 363,
+            "object_index": 365,
+            "offset": 17445,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature_id": 40,
+          "merge": 1,
+          "native_merge_tolerance_m": 1e-05,
+          "solid_mode": 0
+        }
+      ],
+      "lineage": [
+        101,
+        102,
+        103
+      ],
+      "live_output_kernel_tag": 2512,
+      "manager_order": [
+        101,
+        102,
+        103
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "resolved_sha256": "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9",
+      "roots": 24,
+      "seed_wrapper_base": 32,
+      "seed_wrapper_immediate": 101,
+      "seed_wrapper_saved_face_class": "moFaceRef_c",
+      "seed_wrapper_saved_face_index": 319,
+      "source_sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168"
+    }
+  },
+  "exact_native_runs": 0,
+  "fresh_guarded_processes": 4,
+  "heldout_cases": 0,
+  "independent_model_cases": {
+    "RaisedNoteA": {
+      "actual_atoms": [
+        101,
+        102
+      ],
+      "atom_map_indices": [
+        51,
+        52
+      ],
+      "authored_inputs": {
+        "configuration": "Default",
+        "epoch": 1795251123,
+        "name": "RaisedNoteA",
+        "path": "C:\\KitRaisedPattern\\RaisedNoteA.SLDPRT",
+        "plate": {
+          "bounds_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0.147,
+              0.11,
+              0.0065
+            ]
+          ],
+          "feature": "Model plate",
+          "sketch": "Model plate rectangle"
+        },
+        "seed": {
+          "bounds_m": [
+            [
+              0.047,
+              0.025,
+              0
+            ],
+            [
+              0.057,
+              0.037,
+              0.01375
+            ]
+          ],
+          "feature": "Model raised seed",
+          "sketch": "Model seed rectangle"
+        }
+      },
+      "bad_input": {
+        "below_plate": "expected an origin plate and an interior raised Front-plane seed with a common start",
+        "coincident_plate_boundary": "expected an origin plate and an interior raised Front-plane seed with a common start",
+        "disjoint_footprint": "expected an origin plate and an interior raised Front-plane seed with a common start",
+        "offset_start": "expected an origin plate and an interior raised Front-plane seed with a common start"
+      },
+      "bad_readback": {
+        "foreign_profile": "raised seed has an alternate feature or extrusion end",
+        "prior_atom_still_live": "consumed and output atoms do not retain single live stock history",
+        "self_consumption": "consumed and output atoms do not retain single live stock history",
+        "shared_depth_handle": "raised rectangular extrusion lost its actual independent editable D1",
+        "wrong_base_producer": "cut selection wrapper differs from the consumed boss atom",
+        "wrong_selected_result": "cut selection wrapper differs from the consumed boss atom"
+      },
+      "base_and_immediate": [
+        19,
+        101
+      ],
+      "consumed": [
+        1,
+        0
+      ],
+      "guarded_runtime_reads": 0,
+      "independent_joined_geometry": {
+        "area_m2": 0.036,
+        "body_count": 1,
+        "centroid_m": [
+          0.07332349610757254,
+          0.05480297239915075,
+          0.0033064401981599436
+        ],
+        "face_count": 11,
+        "volume_m3": 0.000105975
+      },
+      "manager_counts": [
+        2,
+        102
+      ],
+      "map_counters": [
+        90,
+        221
+      ],
+      "native_files_written": 0,
+      "operations": [
+        {
+          "bounds_m": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.147,
+              0.11,
+              0.0065
+            ]
+          ],
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 180,
+            "display_index": 176,
+            "end": 8219,
+            "field_span": false,
+            "handle_index": 178,
+            "object_index": 182,
+            "offset": 8153,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature": 19,
+          "names": [
+            "Model plate rectangle",
+            "Model plate"
+          ],
+          "profile": 18
+        },
+        {
+          "bounds_m": [
+            [
+              0.047,
+              0.025,
+              0.0
+            ],
+            [
+              0.057,
+              0.037,
+              0.01375
+            ]
+          ],
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 216,
+            "display_index": 214,
+            "end": 12358,
+            "field_span": false,
+            "handle_index": 215,
+            "object_index": 217,
+            "offset": 12315,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature": 22,
+          "names": [
+            "Model seed rectangle",
+            "Model raised seed"
+          ],
+          "profile": 21
+        }
+      ],
+      "request_sha256": "daf03baac38a1a77a1414ccab13a87d30618de757e2b23a35a84f2e8e841fe79",
+      "roots": 21,
+      "streams": {
+        "CMgr": {
+          "bytes": 1129,
+          "sha256": "7b03bb1185bd59e2895faba5a2e493aac27f981fe671a97586e09b823d43bd00"
+        },
+        "Config-0": {
+          "bytes": 22444,
+          "sha256": "0c7e0d29c71a89fc323a78183909ac8c443e09461d6493e0a4061defb6efd5f9"
+        },
+        "Config-0-ModelHeader": {
+          "bytes": 893,
+          "sha256": "66fc95e1f6d7390eb4fa9963bc9db659b7715c4388f29225063dd55900043d3c"
+        },
+        "Config-0-ResolvedFeatures": {
+          "bytes": 13339,
+          "sha256": "9b56c279db9d1656de2dfdc2c20953bd2d820fc67a47b44fdb344b3548a0e736"
+        },
+        "Header2": {
+          "bytes": 893,
+          "sha256": "f9c714fa85715cff06e1ac6be94c700f90bb0f3375ca58d07148574dd7dfcb8f"
+        }
+      },
+      "wrapper_face": null
+    },
+    "RaisedNoteB": {
+      "actual_atoms": [
+        101,
+        102
+      ],
+      "atom_map_indices": [
+        51,
+        52
+      ],
+      "authored_inputs": {
+        "configuration": "Modelled",
+        "epoch": 1795262162,
+        "name": "RaisedNoteB",
+        "path": "C:\\KitRaisedPattern\\RaisedNoteB.SLDPRT",
+        "plate": {
+          "bounds_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0.128,
+              0.104,
+              0.00475
+            ]
+          ],
+          "feature": "Base extrusion",
+          "sketch": "Base plate footprint"
+        },
+        "seed": {
+          "bounds_m": [
+            [
+              0.024,
+              0.071,
+              0
+            ],
+            [
+              0.039,
+              0.085,
+              0.01625
+            ]
+          ],
+          "feature": "Raised extrusion",
+          "sketch": "Raised island footprint"
+        }
+      },
+      "bad_input": {
+        "below_plate": "expected an origin plate and an interior raised Front-plane seed with a common start",
+        "coincident_plate_boundary": "expected an origin plate and an interior raised Front-plane seed with a common start",
+        "disjoint_footprint": "expected an origin plate and an interior raised Front-plane seed with a common start",
+        "offset_start": "expected an origin plate and an interior raised Front-plane seed with a common start"
+      },
+      "bad_readback": {
+        "foreign_profile": "raised seed has an alternate feature or extrusion end",
+        "prior_atom_still_live": "consumed and output atoms do not retain single live stock history",
+        "self_consumption": "consumed and output atoms do not retain single live stock history",
+        "shared_depth_handle": "raised rectangular extrusion lost its actual independent editable D1",
+        "wrong_base_producer": "cut selection wrapper differs from the consumed boss atom",
+        "wrong_selected_result": "cut selection wrapper differs from the consumed boss atom"
+      },
+      "base_and_immediate": [
+        19,
+        101
+      ],
+      "consumed": [
+        1,
+        0
+      ],
+      "guarded_runtime_reads": 0,
+      "independent_joined_geometry": {
+        "area_m2": 0.029495,
+        "body_count": 1,
+        "centroid_m": [
+          0.062804400810395,
+          0.05295647935168401,
+          0.0026738997974012526
+        ],
+        "face_count": 11,
+        "volume_m3": 6.564699999999999e-05
+      },
+      "manager_counts": [
+        2,
+        102
+      ],
+      "map_counters": [
+        90,
+        221
+      ],
+      "native_files_written": 0,
+      "operations": [
+        {
+          "bounds_m": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.128,
+              0.10400000000000001,
+              0.00475
+            ]
+          ],
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 180,
+            "display_index": 176,
+            "end": 8223,
+            "field_span": false,
+            "handle_index": 178,
+            "object_index": 182,
+            "offset": 8157,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature": 19,
+          "names": [
+            "Base plate footprint",
+            "Base extrusion"
+          ],
+          "profile": 18
+        },
+        {
+          "bounds_m": [
+            [
+              0.024,
+              0.07100000000000001,
+              0.0
+            ],
+            [
+              0.039,
+              0.085,
+              0.01625
+            ]
+          ],
+          "depth_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 216,
+            "display_index": 214,
+            "end": 12366,
+            "field_span": false,
+            "handle_index": 215,
+            "object_index": 217,
+            "offset": 12323,
+            "slot": "f818.f18",
+            "stream": "Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "feature": 22,
+          "names": [
+            "Raised island footprint",
+            "Raised extrusion"
+          ],
+          "profile": 21
+        }
+      ],
+      "request_sha256": "2f405e47eb3a9261c44212c5ed6c371d7cd291c9a12242f75f43f0abf8cd9652",
+      "roots": 21,
+      "streams": {
+        "CMgr": {
+          "bytes": 1131,
+          "sha256": "def2efa861cd4161c082119eaec2df934238c41525ed29b9d26d60d2b2fae5bb"
+        },
+        "Config-0": {
+          "bytes": 22444,
+          "sha256": "b02e6d71444cc4a5775dcbfcfe27dcbba9c60b2bbabb4201832506c2866b7036"
+        },
+        "Config-0-ModelHeader": {
+          "bytes": 899,
+          "sha256": "6fdc655b26b67e20dcbac8878900e16ffbee5fa48529083f3e671800cc94ff12"
+        },
+        "Config-0-ResolvedFeatures": {
+          "bytes": 13347,
+          "sha256": "ef38079377cdb3959ecb3c76d2350ba14036cc96e84ae8b4d25f3c1d5c9b3eaf"
+        },
+        "Header2": {
+          "bytes": 899,
+          "sha256": "bdd6b1bdf842479d84d00a1963e95fca5e1f8bb54e8d62aaaa8cbf76bcdafb9a"
+        }
+      },
+      "wrapper_face": null
+    }
+  },
+  "schema": "kit.sw2026.raised-seed-graph.v1",
+  "tools": {
+    "re/tooling/sw2026/linear_pattern/MakePatternSeed.py": "0e3ca04a65f85c3dae79c75bbf202396738b1f005e243e96e0f6fedda38f47f9",
+    "re/tooling/sw2026/linear_pattern/PatternSeedProcess.py": "0d83e43b16492ba9570b09afcda479fa4222d8fc64879b7735cd1b47b4e3571b",
+    "re/tooling/sw2026/linear_pattern/ProvePatternSeed.py": "4c43b93e15d6fc97a0e1d908b5bf125cf860eac4455d757c787cc7bbd69bcd20"
+  }
+}

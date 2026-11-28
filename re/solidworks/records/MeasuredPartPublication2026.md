@@ -62,12 +62,13 @@ evidence also preserve existing bytes. The shared staging regression
 reaches actual single-file publication and requires a populated directory
 to retain its contents and original location.
 
-An evidence report is unsigned. The host proof independently verifies
-custody against archived digests. The production contract checks data
-shape, exact oracle identity, measured phases and full output digest.
-The caller remains responsible for obtaining an authentic report from the
-controlled offline oracle. Prepare the offline candidate with the same
-Python compression runtime that will publish it. The packaging comparison
+The writer snapshots the caller's parsed receipt and checks its canonical
+JSON digest before publishing. It binds two independently measured reports,
+one for each compression runtime. The existing phase, ownership and full
+archive checks still establish the matching case. Replacing either the
+packet digest or the terminal result digest with another valid digest
+refuses before opening the destination. Prepare the candidate with the
+same Python compression runtime that will publish it. This comparison
 uses the two disclosed models and adds zero held-out corpus conversions.
 
 ## Reproduce

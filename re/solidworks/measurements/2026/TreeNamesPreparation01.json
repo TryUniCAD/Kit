@@ -1,0 +1,87 @@
+{
+  "schema": "kit.sw2026.tree-save-preparation-observation.v1",
+  "observed_at_utc": "2026-11-16T18:23:13.263941+00:00",
+  "source_native_receipt": "re/solidworks/measurements/2026/TreeNamesInspection01.json",
+  "source_native_receipt_sha256": "0ef049546db7e112cb0fd7109555abbaaf2275c92a6b7e1d160993c67d08c6d4",
+  "prepared_corpus": "re/solidworks/v2026/corpus/tree-saves",
+  "manifest_sha256": "11358f571936fec421593dbbd6e2f93ac4f9813797fe7d9e63703793dda762f9",
+  "privacy_ledger_sha256": "3b3b07ea7ea8ab9bc8d82a5b7e5b2ffeb581a8593fbc270b686f2e1989e41366",
+  "source_evidence_sha256": "2e92e624583803099d9833934a1a2375abb042b26b57e084885d0b940045e97a",
+  "preparer_sha256": "7c589cff0107e6fc75a0a43f7bb5035c440faef577330c895d00437913286f78",
+  "file_count": 8,
+  "stream_count": 320,
+  "framed_metadata_replacements": 152,
+  "all_encoded_stream_lengths_preserved": true,
+  "archive_schemas_executed": false,
+  "container_outputs_reparsed": false,
+  "previews": [
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H01Forward-fresh-reopen.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H01Forward-open-save.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H02Reverse-fresh-reopen.SLDPRT.png",
+      "sha256": "5d1a66ae10781300e95f2172c20e18c29d578ea9b5f0d3e3cb0ba17acefad0de",
+      "bytes": 10197,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H02Reverse-open-save.SLDPRT.png",
+      "sha256": "5d1a66ae10781300e95f2172c20e18c29d578ea9b5f0d3e3cb0ba17acefad0de",
+      "bytes": 10197,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H03MidPlane-fresh-reopen.SLDPRT.png",
+      "sha256": "40dc12ba5253191316e5778ce2f7eb5f981fff29853eb5e9b3d5dceb5a438b80",
+      "bytes": 30046,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H03MidPlane-open-save.SLDPRT.png",
+      "sha256": "40dc12ba5253191316e5778ce2f7eb5f981fff29853eb5e9b3d5dceb5a438b80",
+      "bytes": 30046,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H04TwoDirections-fresh-reopen.SLDPRT.png",
+      "sha256": "5264c8377147ce666deb8726ec40001d2178037b1cf2b23724fc9194714bf5b8",
+      "bytes": 10755,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/tree-saves/Previews/H04TwoDirections-open-save.SLDPRT.png",
+      "sha256": "5264c8377147ce666deb8726ec40001d2178037b1cf2b23724fc9194714bf5b8",
+      "bytes": 10755,
+      "individually_viewed": true,
+      "observation": "Nonempty shaded cylinder with clean background; geometry visible without private application chrome. Paired before/after-reopen previews show the same apparent saved view",
+      "acceptance_scope": "Saved derivative preview only; no initial active-camera or source appearance parity is inferred"
+    }
+  ],
+  "writer_output_count": 0,
+  "native_acceptance_inherited": false,
+  "heldout_native_payloads_read": false,
+  "remote_archive_decoding": "pending"
+}

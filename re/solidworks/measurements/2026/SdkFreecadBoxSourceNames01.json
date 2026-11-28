@@ -1,0 +1,154 @@
+{
+  "body_label": "Body",
+  "exact_native_observer_sha256": "ec689b2bb845fd0e8e61d9c357af67c6cb0c31190e1b5e1a268edd9e7be6dd93",
+  "fresh_open_retain_all_authored_names": true,
+  "guarded_process_reports": {
+    "LegacyNamedSdkWorker.json": "1cf2820721c4d5eb604309696711fa57281b5f4f49a15143acfd6e73ad3c5e41",
+    "NamedSdkWorker01.json": "b4167afb982a47754609574850ed21777269e01e29c827d7aa51c0002bb48a49"
+  },
+  "healthy_controls": 2,
+  "heldout_inputs_read": 0,
+  "historical_corpus_membership_verified": false,
+  "native_candidate_checks": 162,
+  "native_driver_full_names": [
+    "Height@AdditiveBox",
+    "Length@AdditiveBox Profile",
+    "Width@AdditiveBox Profile"
+  ],
+  "native_edit_save_status": [
+    true,
+    0,
+    0
+  ],
+  "native_packet_sha256": "11e0fbda10602db59fe84adcf51677dda2622e9cac458f023850decdb0da8af6",
+  "native_processes": 4,
+  "native_result_sha256": "ad8e725f3d6966c89f47349fb078053214cd321d19a51d60f7b074b5ad4dc57f",
+  "oracle_build": "34.5.2.0604",
+  "public_fcstd_conversion_qualified": false,
+  "schema": "kit.sw2026.disclosed-freecad-box-source-labels.v1",
+  "scope": "one disclosed FreeCAD 0.21.2 origin AdditiveBox",
+  "source_neutral_request_sha256": "b5c49b223ac7d81da79bc8c1d43751fd8d69e9b7ad7fbe9528197b898b1fba77",
+  "source_revision_for_native_build": "bff9fae3ea7d03783a9f82e583cc79484e09068d",
+  "task": "B04-SW2026-FCSTD-BOX",
+  "typed_readback": {
+    "historical_corpus_membership_verified": false,
+    "native_candidate_checks": 162,
+    "native_result_sha256": "ad8e725f3d6966c89f47349fb078053214cd321d19a51d60f7b074b5ad4dc57f",
+    "passed": true,
+    "public_reader_cases": [
+      {
+        "driver_owners": {
+          "Height": {
+            "id": "sldprt:parameter:21:Height",
+            "millimetres": 10.0,
+            "owner": "sldprt:feature:21"
+          },
+          "Length": {
+            "id": "sldprt:parameter:18:Length",
+            "millimetres": 20.0,
+            "owner": "sldprt:feature:18"
+          },
+          "Width": {
+            "id": "sldprt:parameter:18:Width",
+            "millimetres": 30.0,
+            "owner": "sldprt:feature:18"
+          }
+        },
+        "linked_streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1129,
+            "sha256": "5a6cc90e12c5df9ce3d47e5ad9d48568284c17d396c723c9b74522927268694b"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22354,
+            "sha256": "1b416a0d4a10e1b4dd06ffdbbce6518caf9aff1e2aa9bb0a5a9b5b3a05983009"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 577,
+            "sha256": "605fc4335680fd74db1b6ca512bb07d2599d73f9b9023ee6ee2650a0eed24020"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17915,
+            "sha256": "561eef3f7555c579f87efa180e1097e83aae8c5c4a925d747fdba6991e5b1361"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 577,
+            "sha256": "650799fe86ee3a8b38126ea37f7fe90ebf6f53ecdc9f7edb6bb3672354d3a5b4"
+          }
+        },
+        "loaded_geometry_payloads": 0,
+        "native_body_label": "Body",
+        "role": "initial",
+        "sha256": "bdc403f12027c23936409a7a7343f3def1b0c277a3094aca65d957e14c44093d"
+      },
+      {
+        "driver_owners": {
+          "Height": {
+            "id": "sldprt:parameter:21:Height",
+            "millimetres": 13.999999999999998,
+            "owner": "sldprt:feature:21"
+          },
+          "Length": {
+            "id": "sldprt:parameter:18:Length",
+            "millimetres": 20.0,
+            "owner": "sldprt:feature:18"
+          },
+          "Width": {
+            "id": "sldprt:parameter:18:Width",
+            "millimetres": 30.0,
+            "owner": "sldprt:feature:18"
+          }
+        },
+        "linked_streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3991,
+            "sha256": "c5d0d607f334e4a0c260a457662d7e432a3402e22510b0679da8345996c5ef83"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "f8cde0da4cf82c1dfe8de2f9b318c25d46e9418db41b98b6ad510e9eec95fbe7"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 26089,
+            "sha256": "ff5fb02b7ff45147ba6e63dd5dca2280fc325d9824779342377776840c509109"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1055,
+            "sha256": "dc2d501eb39723682cd11db7f7c9d22c3a7935b21eebdc867234305beaa2f642"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 19599,
+            "sha256": "afea97ed564f905707f4beafe7ce1b1fac4e3f3d50dd09cace789f5f36c45b6d"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1055,
+            "sha256": "dc2d501eb39723682cd11db7f7c9d22c3a7935b21eebdc867234305beaa2f642"
+          }
+        },
+        "loaded_geometry_payloads": 3,
+        "native_body_label": "Body",
+        "role": "native_saved",
+        "sha256": "3ab4b61d9ad9a400f7c771d22fcb739845445af3ece431eb7159cdaafbdbc849"
+      }
+    ],
+    "schema": "kit.sw2026.freecad-named-box-readback.v1",
+    "whole_legacy_and_labelled_outputs_reproduced": true
+  },
+  "typed_readback_sha256": "5fdcf1506ecc5b3c95b47813d49edeb9d0a501906faf588197b2984cffc72dd6"
+}

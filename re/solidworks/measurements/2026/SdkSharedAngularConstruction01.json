@@ -1,0 +1,61 @@
+{
+  "angular_graphs": 8,
+  "angular_source_graphs": 4,
+  "annotation_cases": 2,
+  "annotation_source_catalogs": 6,
+  "complete_reproduced_receipts": {
+    "AngleGraph.json": "98fd4f377f78129aeb32d419dc7522ddf731e818570459f1b1a64eeeab77762f",
+    "AnnotationCatalog.json": "c80fcd8f8d24a7f1a570c89c916e8bedc7acf19fc45410c8ed2e7f90251b122b",
+    "PatternRead.json": "80dbdab94d67fff4c85f2c66f37b78d810869d6cddafe03c9826e8c1157f39f3"
+  },
+  "generated_pattern_file_sha256": {
+    "ColdRaisedPatternA": {
+      "count_only": "8f3910ab68135056024b306ab797f3feec998fe2ced3180d459e7e4d22ac64e0",
+      "original": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+      "pitch_only": "51f37725e0f58184bc34f16480f58d06a5cf265cef5027219174f00586ecb1f7"
+    },
+    "ColdRaisedPatternB": {
+      "count_only": "0e125b9bb41ffa8ab117e588f1e85e1493c79559a01c828b1b2a0ac1cb278522",
+      "original": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+      "pitch_only": "0b0827b042644568419ce6aea6454c9a21a02b00947c4dc2896d883a24e0c460"
+    }
+  },
+  "guarded_processes": 20,
+  "guarded_runtime_file_reads": 0,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "previous_receipts": {
+    "LocalLinearPatternAngularPlaneGraph01.json": "0ba8f907a811fcec28a9cff9d0aef1651e98fb1587b5dd2991d87c6c8647427c",
+    "LocalLinearPatternAnnotationCatalog01.json": "6d763f146c13b64014a73fe5c07c830664742b9bf5401a248352bf94740aab68",
+    "SdkPortableAngularDatums01.json": "041fa6ef87a5af7b11075486eb6ce94bb37984c7566f32a4ef26fab43902a474"
+  },
+  "previous_revision": "f0ec26e293a20ed6ecb1d2834b994bafe6956b70",
+  "public_pattern_writer_qualified": false,
+  "schema": "kit.sw2026.shared-angular-construction.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/linear_pattern/MakePatternAngularPlane.py": "250be817b755f9e6b39f156f1139dc7acbcce51889e2917c65e981e3337f9572",
+    "re/tooling/sw2026/linear_pattern/MakePatternAnnotationCatalog.py": "de4241d5d4867fefe0e36bbc4cc04e043dbd7a1c8bd2b6f667909f2fe1dfd149",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/AngleGeometry.py": "567d2b236fe768073016464039507100183d6dfbd1602f75c0a8d0c535905eae",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/AngleHeaders.py": "342646ff94e3f146862caf199c1e4c1492b667034c10ccdc72e328f6aaa2d0ce",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/AnglePlaneInput.py": "5560be8931f07b424dd10255d13ffecc94c9eda9ee2bb9b84e558b66dfdcf29f",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/CheckAngleHinge.py": "d3e0b7546b3eb67b2e61b81d2bad186b2a868f186ee6c6a2ed16d1e5d0961538",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/DatumLine.py": "35d058e4eadca904d02ee37319a156ee03ccfea3b3663c22b50d21fe352d073b",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/DatumVector.py": "430284a06c2ec1df732c15d1746c87c2ffd16f3b27c4e70c4ccc805d744b6eba",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/MakeAngleArc.py": "445ceebe539e84b1a67c5fed228b1b96eb2101091c0c492fa0bcaa111229e0e7",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/MakeAngleData.py": "345a3a59d9a728e1c44ebce05540e0577395e50d427d2cfcee31a0afbc82a352",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/MakeAngleDrive.py": "a745529d089b52ca7428df7585364747c9ecdf4944f132ee82a628fa9324c28d",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/MakeAngleGeom.py": "2ff98e1b932ac004ba2266ac44f38f3cfc9fbd405b3c3b70302662f062280009",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/MakeAngleLine.py": "075e44ee706059d74c05409d51adb04f617b6ec7bff9d54051f6f940897d4115",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/MakeAnglePlane.py": "4881f60f0f1556c864caa0a7c9d1a5c81cdf84121f37137a3e87430eef5abdec",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/ReadAngleAnno.py": "83c445aa5cc8a50ff18b6b7767bf2e52e5d4ac580639ec2e41d9e32ee89a005d",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/Angles/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireDisplay.py": "0a4f90d0c671dfa0fda254d265881249b0e9021948af2c905a1bf887fa9e25fb",
+    "src/convert/adapters/solidworks/Archive/Construction/Model/MakeModelSeeds.py": "e7929120ca266cc9a69625501f11e0316420a2e0ffb7079bcae9a7947ebed0ef",
+    "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/WrapperFields.py": "f1de9c3e93e62f71613b4cc71e75c4923bb3264d9aabe6a3203ad817b70a3553",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/Annotations/AnnoViewInput.py": "a225a95e678606d9a5cd469556dd34e32b55f9e92c6cd86886cd8900fdbd7f6b",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/Annotations/MakeAnnoView.py": "5b141245b1771fdc2b8e1a241aef48eff900bf6914949e60ca4d7d0267978b62",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/Annotations/PutAnnoCatalog.py": "f13eafeb6147fad77be4c3a146b47878c93740f0079dd7c29f90e82ef40796eb",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/Annotations/ReadAnnoView.py": "a93cb35a4ee006c32b6d0d77ddc382170949918a790645807381f1713dfebd77",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/Annotations/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  }
+}

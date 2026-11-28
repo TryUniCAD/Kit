@@ -1,0 +1,368 @@
+{
+  "attestation": {
+    "heldout_acceptance": false,
+    "hidden_inputs_read": 0,
+    "native_execution_by_worker": false,
+    "new_reconstructed_bytes_native_qualified": false,
+    "original_source_conversion_qualified": false,
+    "product_execution_by_worker": false,
+    "public_drawing_writer_enabled": false,
+    "public_strict_drawing_reader_changed": false,
+    "shared_sdk_changed": false,
+    "writer_changed": false
+  },
+  "delivery_pr": 121,
+  "guarded_reconstruction": {
+    "cases": [
+      {
+        "actual_parameter_and_geometry_identity_checked": true,
+        "case": "OriginConstructorAlpha",
+        "child_bytes": 8897,
+        "child_sha256": "425d552769b3913663c42575a8dbe883af06c3644c1f47dfdc3c1eea8727b7b7",
+        "complete_separate_typed_preparation": true,
+        "completed_processes": 3,
+        "drawing_bytes": 7331,
+        "drawing_sha256": "f3c0ba60a231227400ecf386c6aebafed1f4d2c12b0bfd59e429a8d6c13c0762",
+        "passed": true,
+        "repeat_output_equal": true,
+        "sdk_research_imports": [],
+        "zero_runtime_input_reads": true
+      },
+      {
+        "actual_parameter_and_geometry_identity_checked": true,
+        "case": "OriginConstructorBetaΩ",
+        "child_bytes": 8902,
+        "child_sha256": "d1ef334e69cd0478e361bb3a286f1e87c7ab4a13af9c4a031b69835ddad7f6a6",
+        "complete_separate_typed_preparation": true,
+        "completed_processes": 3,
+        "drawing_bytes": 7401,
+        "drawing_sha256": "81b9ad4f00d3b921a09c6fb1bf55a3e95ef70ef3e7ff1033b1cfdf62844d7b0c",
+        "passed": true,
+        "repeat_output_equal": true,
+        "sdk_research_imports": [],
+        "zero_runtime_input_reads": true
+      },
+      {
+        "actual_parameter_and_geometry_identity_checked": true,
+        "case": "OriginCenterGamma",
+        "child_bytes": 8973,
+        "child_sha256": "e05697b40506bcd8398858a84049e9e4ce6f1e636e661946a1af9f33b8aecaac",
+        "complete_separate_typed_preparation": true,
+        "completed_processes": 3,
+        "drawing_bytes": 7328,
+        "drawing_sha256": "41ddba560e86004980546be1f1eb4843579cf88ed2e577335d241ebe719fc319",
+        "passed": true,
+        "repeat_output_equal": true,
+        "sdk_research_imports": [],
+        "zero_runtime_input_reads": true
+      },
+      {
+        "actual_parameter_and_geometry_identity_checked": true,
+        "case": "OriginCenterDeltaΩ",
+        "child_bytes": 8995,
+        "child_sha256": "1d01d8afa09205f1947b8dec291253e8989f6298b0c92df45669c901ac04532d",
+        "complete_separate_typed_preparation": true,
+        "completed_processes": 3,
+        "drawing_bytes": 7311,
+        "drawing_sha256": "74b483313c49d11bbb63dab0ceea460d62a2a60e5960e150350587e08f2b0cdf",
+        "passed": true,
+        "repeat_output_equal": true,
+        "sdk_research_imports": [],
+        "zero_runtime_input_reads": true
+      }
+    ],
+    "completed_processes": 12,
+    "controller_manifest_sha256": "8836ca53c12c8995c07d8685dda1c62dafc75a2568331cded2d2666a0d24bc46",
+    "controller_sha256": "c3e9d93c9b93652763687481b5f7d0893c4df540b3e6127f20acc110bd07d111",
+    "guarded_builds": 8,
+    "passed": true,
+    "prior_input_container_byte_identity_claimed": false,
+    "repeat_outputs_identical": true,
+    "result_sha256": "2721247051a81cd941f2e27a95853916ef7720fdc256c9b292e5fd671d93a11c",
+    "runtime_input_read_attempts": 0,
+    "runtime_read_and_research_import_audit_scope": "eight guarded build workers; four separate preparation workers consume the supplied generated in-memory pair",
+    "sdk_research_imports": [],
+    "separate_preparations": 4
+  },
+  "independent_artifact_audit": {
+    "completed_workers_rehashed": 12,
+    "generated_payloads_rehashed": 8,
+    "inverse_wire_hash_pairs_checked": 16,
+    "scope": "stdlib source/tool/capture/artifact custody inspection only",
+    "sha256": "9ec08fb6dbdb7edb21364c4fc17fb9d47900c3ea0bcd86e3b063c1f9b715ab80",
+    "source_paths_rehashed": 5037,
+    "worker_capture_files_rehashed": 36
+  },
+  "intake_sha256": "a25475ec393ded731ec197a03db54863973841230be0c870b862753d5fa807df",
+  "native_sources": [
+    {
+      "case": "D01",
+      "current_rejection": [
+        {
+          "diagnostic": "constructor has one creation epoch but source header history and model log differ",
+          "exception": "ValueError",
+          "phase": "complete source-owned constructor metadata"
+        }
+      ],
+      "geometry_observed": true,
+      "known_constructor_boundaries": [
+        {
+          "field": "child.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "child.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "drawing.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "drawing.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "child.configuration_manager.f18",
+          "rule": "ManagerInput currently requires a nonempty authored node name"
+        },
+        {
+          "field": "child.body_atom[58].name",
+          "rule": "actual kernel-managed body name remains outside this source-only observation; the public Solid Bodies folder label is not a body-name proof"
+        },
+        {
+          "field": "child.display[230].f6a0.f38",
+          "rule": "frozen RectDimInput accepts two planar coordinates and MakeRectDisplay writes z=0; the actual source text point is retained without projection"
+        },
+        {
+          "field": "child.Header2.self_file.path",
+          "rule": "MakeSelfFile emits the single output path from SelfFileInput; the separate source Header2 self record is retained and is not an alias-resolution gate"
+        }
+      ],
+      "public_wire_inverse_equal": true,
+      "request_emitted": false
+    },
+    {
+      "case": "D02",
+      "current_rejection": [
+        {
+          "diagnostic": "constructor has one creation epoch but source header history and model log differ",
+          "exception": "ValueError",
+          "phase": "complete source-owned constructor metadata"
+        }
+      ],
+      "geometry_observed": true,
+      "known_constructor_boundaries": [
+        {
+          "field": "child.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "child.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "drawing.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "drawing.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "child.configuration_manager.f18",
+          "rule": "ManagerInput currently requires a nonempty authored node name"
+        },
+        {
+          "field": "child.body_atom[58].name",
+          "rule": "actual kernel-managed body name remains outside this source-only observation; the public Solid Bodies folder label is not a body-name proof"
+        },
+        {
+          "field": "child.display[234].f6a0.f38",
+          "rule": "frozen RectDimInput accepts two planar coordinates and MakeRectDisplay writes z=0; the actual source text point is retained without projection"
+        },
+        {
+          "field": "child.Header2.self_file.path",
+          "rule": "MakeSelfFile emits the single output path from SelfFileInput; the separate source Header2 self record is retained and is not an alias-resolution gate"
+        }
+      ],
+      "public_wire_inverse_equal": true,
+      "request_emitted": false
+    },
+    {
+      "case": "D03",
+      "current_rejection": [
+        {
+          "diagnostic": "constructor has one creation epoch but source header history and model log differ",
+          "exception": "ValueError",
+          "phase": "complete source-owned constructor metadata"
+        }
+      ],
+      "geometry_observed": true,
+      "known_constructor_boundaries": [
+        {
+          "field": "child.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "child.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "drawing.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "drawing.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "child.configuration_manager.f18",
+          "rule": "ManagerInput currently requires a nonempty authored node name"
+        },
+        {
+          "field": "child.body_atom[58].name",
+          "rule": "actual kernel-managed body name remains outside this source-only observation; the public Solid Bodies folder label is not a body-name proof"
+        },
+        {
+          "field": "child.display[230].f6a0.f38",
+          "rule": "frozen RectDimInput accepts two planar coordinates and MakeRectDisplay writes z=0; the actual source text point is retained without projection"
+        },
+        {
+          "field": "child.Header2.self_file.path",
+          "rule": "MakeSelfFile emits the single output path from SelfFileInput; the separate source Header2 self record is retained and is not an alias-resolution gate"
+        }
+      ],
+      "public_wire_inverse_equal": true,
+      "request_emitted": false
+    },
+    {
+      "case": "D04",
+      "current_rejection": [
+        {
+          "diagnostic": "constructor has one creation epoch but source header history and model log differ",
+          "exception": "ValueError",
+          "phase": "complete source-owned constructor metadata"
+        }
+      ],
+      "geometry_observed": true,
+      "known_constructor_boundaries": [
+        {
+          "field": "child.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "child.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "drawing.model.fae0.f10",
+          "rule": "MakeDetails admits only independently recovered standard 1"
+        },
+        {
+          "field": "drawing.version_history.states[0].date_codes[0]",
+          "rule": "fresh HistoryInput requires explicit truthful nonnative originating writer provenance"
+        },
+        {
+          "field": "child.configuration_manager.f18",
+          "rule": "ManagerInput currently requires a nonempty authored node name"
+        },
+        {
+          "field": "child.body_atom[58].name",
+          "rule": "actual kernel-managed body name remains outside this source-only observation; the public Solid Bodies folder label is not a body-name proof"
+        },
+        {
+          "field": "child.display[234].f6a0.f38",
+          "rule": "frozen RectDimInput accepts two planar coordinates and MakeRectDisplay writes z=0; the actual source text point is retained without projection"
+        },
+        {
+          "field": "child.Header2.self_file.path",
+          "rule": "MakeSelfFile emits the single output path from SelfFileInput; the separate source Header2 self record is retained and is not an alias-resolution gate"
+        }
+      ],
+      "public_wire_inverse_equal": true,
+      "request_emitted": false
+    }
+  ],
+  "normalization": {
+    "case_count": 8,
+    "inverse_scope": "complete public neutral document wires only; typed presentation and unprojected state remain in the hash-bound intake",
+    "native_source_request_count": 0,
+    "request_count": 4,
+    "result_sha256": "1e84cfff3060480937e706edcd00e0262032e26a82c3d878c56445a458d61d09",
+    "reversible_public_neutral_wire_count": 8,
+    "source_wire_pairs_checked": 16,
+    "tool_manifest_sha256": "9bfda97d7577c0d9fc604b30afd89c3f4e2d2d1cd5d33a5fbdcc547a000f31b0"
+  },
+  "owner": "/root/flag_ownership",
+  "pair_manifest_sha256": "ad4b2e32ef47bd8cb042937a79fdb76b7e7a372cc821495cb91b15dbffebe20e",
+  "preserved_predecessors": [
+    {
+      "artifact": "OriginPortableNormalizationRoot03/Result.json",
+      "request_count": 0,
+      "reversible_source_normalization_count": 0,
+      "sha256": "fd8c0118414da24027fc9a2adb8c405ae91d00b856032445627815539826b2b8"
+    },
+    {
+      "artifact": "OriginPortableNormalizationRoot04/Result.json",
+      "request_count": 0,
+      "reversible_source_normalization_count": 0,
+      "sha256": "f6fdb7621b03dfd26ee9abe67ad535318250c998c342eeeebc2680302ad4e1ab"
+    },
+    {
+      "artifact": "OriginPortableNormalizationRoot05/Result.json",
+      "request_count": 0,
+      "reversible_source_normalization_count": 0,
+      "sha256": "52a93d3f67d7d6eff7e6bdc7e7c299dd14d86a8e4a62070c1188c74c3c09355f"
+    },
+    {
+      "artifact": "OriginPortableNormalizationRoot06/Result.json",
+      "request_count": 0,
+      "reversible_source_normalization_count": 8,
+      "sha256": "f9adf11d3d874f4e4977fccbc80614053274680036382349b5d213a86fc9e92a"
+    },
+    {
+      "artifact": "OriginPortableNormalizationRoot07/Result.json",
+      "request_count": 4,
+      "reversible_source_normalization_count": 8,
+      "sha256": "82da0049461ba1c6020050003e7997926a6c32da77420b20d3a3cca8769e6524"
+    },
+    {
+      "artifact": "OriginPortableReconstructionRoot01/Result.json",
+      "diagnostic": "guarded reconstruction worker failed: 0Build0",
+      "passed": false,
+      "process_count": 0,
+      "sha256": "15f8383603950a7143671d09c55743d04d1b3ad9558cb1c66642e275e244c3f4"
+    },
+    {
+      "artifact": "OriginPortableNormalizationRoot08/Result.json",
+      "request_count": 4,
+      "reversible_source_normalization_count": 8,
+      "sha256": "3d4f4f8ce4e789ccca9126de12fe9ad18b0f489c8c5a2cf7fc9dcf304cb7edc4"
+    },
+    {
+      "artifact": "OriginPortableReconstructionRoot02/Result.json",
+      "diagnostic": "guarded reconstruction worker failed: 0Build0",
+      "passed": false,
+      "process_attempt_count": 1,
+      "process_count": 1,
+      "sha256": "a41127e92d92f463dc7782d32acceef7b16217e99f3b6defc0b7db1c49a448f4"
+    }
+  ],
+  "product_and_native_owner": "/root",
+  "schema": "kit.sw2026.origin-portable-projection-receipt.v1",
+  "scope": "private reversible public-neutral projection and generated-only guarded reconstruction; native source conversion remains rejected",
+  "separate_disclosed_native_lifecycle": {
+    "acceptance_transferred_to_reconstructed_bytes": false,
+    "native_result_sha256": "ac0440f44281df7d485500b50910551b4c17a5a68c5c991a5c758ae952d39b84",
+    "new_execution_in_this_tranche": false,
+    "receipt": "SdkOriginDrawingDisclosedNative01.json",
+    "typed_host_result_sha256": "bf6476d8a0c35d55ecda0ead8cf7b91aba8a5e1bc153221edc2705101ebfcd77"
+  },
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "writer_source": {
+    "changed": false,
+    "manifest_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc",
+    "source_files": 5037
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "delivery_pr": 121,
+  "disclosed_sources": 3,
+  "distinct_original_native_states_compared": 6,
+  "distinct_original_numeric_fields_compared": 30,
+  "exact_truth_logical_stream_roundtrips": 6,
+  "extra_runtime_file_process_network_attempts": 0,
+  "generated_writer_qualification": false,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "native_solver_status_measured": false,
+  "numeric_check_visits": 40,
+  "owner": "configuration_header",
+  "passed": true,
+  "positive_source_workers": 3,
+  "presentation_cache_variant_workers": 1,
+  "prior_false_process_proof": {
+    "cause": "observer exact metre tuple comparison after millimetre conversion",
+    "failed_worker": "RevolveFull-truth",
+    "observer_change": "isclose coordinate comparison rel_tol 1e-12 abs_tol 1e-14",
+    "passed": false,
+    "passed_workers": 19,
+    "processes": 20,
+    "prototype_changed_for_retry": false,
+    "sha256": "bda65544eab6cce3b9bd71702e7d557e7e358a69997a8ee886ecd019175476c3"
+  },
+  "process_proof_sha256": "ed16a35d590ad0748ca0bd76a97d80c96e9e3aa691997e7f7cdb3eae8be283e4",
+  "process_records": {
+    "RevolveFull-truth": {
+      "native_record_sha256": "35795ccd5a42ad297a187d516e6a36c9d4e089a6eabce1558b6c669c505908bc",
+      "numeric_checks": 10,
+      "record_sha256": "60c66e33f736b8dad957ba25cc0e031e1cae7f798453e8026241dc2e7f7bb5c0",
+      "rejected": null,
+      "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-axis_index_outside": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "df5ce5459d72d29f13f2929d2b7b34c4eb5f13306360fb9a8051d6ec0248ac7e",
+      "rejected": "axis or sketch array counts are inconsistent",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-axis_mark_mismatch": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "8db2129366b3a0a7f6ebf69408add914cf753b5db15f39ed7425f4b0b168e32e",
+      "rejected": "selected construction line identity or unanchored relation state differs",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-axis_profile_mismatch": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "9043ee9f99cd40dce950d4c540f4c71489d0422ba5158ac67d408285417c26bb",
+      "rejected": "axis is not the retained same-profile self-component selection",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-axis_relation": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "e22f81725ade07542274fba12d881c76420b0a4b2e60ffc469ab155113b7d9c5",
+      "rejected": "ordinary rectangular revolve requires its four actual unary relations",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-boundary_selected": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "4c1544735971fc84b9b2428484868d26e5fc5fbb8d930c1732758eebeb8304e4",
+      "rejected": "typed line ring has unqualified entity ownership or geometry",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-degenerate_axis": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "178e7fca7fad757001e79997934fd2e0a32c75a9d8e9d74a3b4050022066da7d",
+      "rejected": "only disclosed upward planar construction axes are qualified",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-invalid_reverse": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "a9795d70959807187646ef81eec43ce70ee682835fff05f90c2b7f36a98b9000",
+      "rejected": "revolve legacy, two-sided or invalid direction mode is outside this profile",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-legacy_type": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "94b233cc58cbbcb0b8c49f50b56f7468e28f9e0b1b019e9056b638fb4c9ddd4d",
+      "rejected": "revolve legacy, two-sided or invalid direction mode is outside this profile",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-missing_forward": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "ca632c70d16ee1cffeadca649d8495ee87fdd4f641ee95dae51e0c2e150e6b36",
+      "rejected": "typed model expected concrete schema one moDisplayAngularDim_c",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-negative_angle": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "352df861a4908caa096bdc2d7203fa3b77f1a113d65e7a1d48838affe495a208",
+      "rejected": "ordinary revolve angle must be positive and at most one turn",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-nonfinite_angle": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "48ef74d8cd99d51600406d470bb3f9c2c75f88c3f9b0d334557956e1c741f275",
+      "rejected": "finite native scalar required",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-over_full_turn": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "1a85209fe1fd3bad0c7578056190bb7e7f4e331a24ced169cf24d5632df066cc",
+      "rejected": "ordinary revolve angle must be positive and at most one turn",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-parameter_expression": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "0e3fd2da14f874e6d1907b3cd0fd1c286859afab9ecfbf61539608e0b84a4033",
+      "rejected": "alternate angular parameter state or expression is unqualified",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-presentation_cache": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 10,
+      "record_sha256": "7d51c8f095cab18049fe66769d1b23f478a8fedd432cd5d582e4137d47666f9c",
+      "rejected": null,
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-region_selects_axis": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "832dd0cb3515ce6f089f3f9072acf9fd473f143cfea00ed6040c3a2110359052",
+      "rejected": "typed line region does not bind the complete actual active contour",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-second_angle": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "51b59717aa9d918c5a18eac31c8724521ecf26f2b6a7270741c886a52526ab29",
+      "rejected": "revolve requires the single active blind angular owner",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-truth": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 10,
+      "record_sha256": "6d557ed3bfa2f7ace36c9155a6fb73855c9fe38d4b0f423239c1e58a58f1d17d",
+      "rejected": null,
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialForward-wrong_relation_geometry": {
+      "native_record_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "numeric_checks": 0,
+      "record_sha256": "3ef1d72a2b6ea93de95f546bd9ec47aa97a43088d163c45ca0cbd48faad4e4f7",
+      "rejected": "actual unary solver direction and line coordinates disagree",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "wire_reparsed": true
+    },
+    "RevolvePartialReverse-truth": {
+      "native_record_sha256": "27c5496ffd5f0ed868fe1d043a2e3e7a63bfe82652f64490ad08122dc8da591c",
+      "numeric_checks": 10,
+      "record_sha256": "907c27bf4fcd396246e1d5cce60550ce549ee238e41a1db32d25dd4363f0d930",
+      "rejected": null,
+      "source_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "wire_reparsed": true
+    }
+  },
+  "processes": 20,
+  "public_registration_changed": false,
+  "schema": "kit.sw2026.ordinary-revolve-semantic-process-evidence.v1",
+  "scope": "private ordinary modern single blind boss canonical Front upward selected construction axis rectangular profile only",
+  "sdk_source_changed": false,
+  "source_files": 4454,
+  "source_manifest_sha256": "20c018a8fbc033a1fb10a0343cefb5654289aeb01780cde63e37a1c9503a70f8",
+  "task_id": "B04-SW2026-REVOLVE-SEMANTIC-OWNERSHIP",
+  "tools_sha256": {
+    "AuditRevolveSemantics02.py": "e8c40a3641ce22140eaa8e38b8a1c8ecb965705d68133d4d7a1281c7007c68b5",
+    "ReadOrdinaryRevolve01.py": "df17bc4525281a95a0e750632be0545dfbff17a50b0bbfd2146d345cae3c031a",
+    "RunRevolveSemantics02.py": "2c6eb511d04ce386da0344f4a3708260f30e7044211062ec0aa86ab49b1ed9a8"
+  },
+  "unexpected_sdk_origins": 0,
+  "wire_reparsed_rejection_workers": 16
+}

@@ -1,0 +1,299 @@
+{
+  "archive_name_native_pins_sha256": "19532a7052059d595b137cc8ffc87fb6b7bd2b48c57dffa63d4375115a8378bc",
+  "archive_name_native_proof": {
+    "bytes": 46536280,
+    "helper_sha256": "ffa6f015b152d2aa0ce869afc94665e5f01f5089d23298fa19681ff2ac7dc7b9",
+    "image_base": "0x4b140000",
+    "imports": {
+      "0x4cd34e40": {
+        "module": "mfc140u.dll",
+        "symbol": "#2903"
+      },
+      "0x4cd34ec0": {
+        "module": "mfc140u.dll",
+        "symbol": "#280"
+      },
+      "0x4cd386d8": {
+        "module": "sldgcu.dll",
+        "symbol": "?setAtomId@gcBody_w@@QEAAXH@Z"
+      },
+      "0x4cd39ec0": {
+        "module": "sldgcu.dll",
+        "symbol": "?setSWImplicitBodyName@gcBody_w@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+      },
+      "0x4cd39ec8": {
+        "module": "sldgcu.dll",
+        "symbol": "?setLastModifyingFeatureID@gcBody_w@@QEAAXH@Z"
+      }
+    },
+    "module": "sldmodu.dll",
+    "rtti": ".?AVmoAtom_c@@",
+    "runtime_execution_observed": false,
+    "schema": "kit.sw2026.atom-name-native-pins.v1",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "slots": {
+      "0x28": "0x4bcefbb0",
+      "0x3a8": "0x4bcf10e0",
+      "0x88": "0x4c03e5c0"
+    },
+    "static_only": true,
+    "tool_sha256": "be54e65e7add981f20a1926b2e157b9879a4797706500d4d4dfbabaa3e158f45",
+    "vtable": "0x4cff1620",
+    "windows": [
+      {
+        "end_exclusive": "0x4b293567",
+        "file_offset": 1386848,
+        "name": "setNameDerived",
+        "sha256": "799994ee76d7ef4505f9eafed113449c3d844fd82a06ea2eed006605c9fccb0c",
+        "start": "0x4b293560"
+      },
+      {
+        "end_exclusive": "0x4c03e5d7",
+        "file_offset": 15718848,
+        "name": "moNode::name",
+        "sha256": "39844f5a8121579e8955cce70a6341ebc989ed3a52e7d29669a8a000892c46bf",
+        "start": "0x4c03e5c0"
+      },
+      {
+        "end_exclusive": "0x4bcee024",
+        "file_offset": 12243568,
+        "name": "moAtom constructor inspected window",
+        "sha256": "c14db58f3b7acd07a7154a57c2aa5a995b4938569ae99a9828ac72764159a76a",
+        "start": "0x4bcede70"
+      },
+      {
+        "end_exclusive": "0x4bcf2f7e",
+        "file_offset": 12264144,
+        "name": "getAtomFromName inspected window",
+        "sha256": "1b6c19089dfff50b502100986f60cb1be1854d1324d46f5f01f68f4932414fea",
+        "start": "0x4bcf2ed0"
+      },
+      {
+        "end_exclusive": "0x4bcfb63b",
+        "file_offset": 12298080,
+        "name": "setBody inspected window",
+        "sha256": "aced2594e89a888f36911f9ed3518603d7d6d3d498c83256505715bbb4f43c18",
+        "start": "0x4bcfb360"
+      },
+      {
+        "end_exclusive": "0x4bcfba91",
+        "file_offset": 12299168,
+        "name": "setBody name helper inspected window",
+        "sha256": "7aa5974d52ab940d8e1b2e66b722d3efb581d033da123a32ef079f634271eb58",
+        "start": "0x4bcfb7a0"
+      },
+      {
+        "end_exclusive": "0x4bcf12c5",
+        "file_offset": 12256902,
+        "name": "atom name calculator authored-name branch",
+        "sha256": "1bf053992d715545251275812b6e838f6e7aa6e56e83add5d01fead5aa395d09",
+        "start": "0x4bcf1286"
+      }
+    ]
+  },
+  "delivery_pr": 121,
+  "getter": {
+    "absent_fallback_key": "SDL/TYSA_UNAME",
+    "entry": "0x43890a30",
+    "evidence_id": "ev_f3c83907744a20a6441ddd6152e4ebbafbdca53e97f2ca91ad103758885b1170",
+    "fallback_field": 0,
+    "fallback_operation": "getUnicodeString",
+    "first_field": 0,
+    "first_key": "SDL/TYSA_NAME",
+    "first_operation": "getString",
+    "inspected_end_exclusive": "0x43890b46",
+    "literal_locations": [
+      {
+        "ascii": "SDL/TYSA_NAME",
+        "file_offset": 8551048,
+        "va": "0x43f69488"
+      },
+      {
+        "ascii": "SDL/TYSA_UNAME",
+        "file_offset": 8551064,
+        "va": "0x43f69498"
+      }
+    ],
+    "module": "sldgcu.dll",
+    "original_range_sha256": "d413c4252d70cf1261d8f412f8c1e39e7049e1b043ab3b04c1a412cea21931bb"
+  },
+  "hidden_input_reads": 0,
+  "named_writer_change": false,
+  "native_calls": 0,
+  "native_modules": {
+    "sldgciParau.dll": {
+      "bytes": 1875032,
+      "image_base": "0x32f70000",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    },
+    "sldgcu.dll": {
+      "bytes": 10893912,
+      "image_base": "0x43740000",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    "sldmodu.dll": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "next_rule": [
+    "select the actual configuration active solid partition",
+    "resolve a registered definition through actual reciprocal body-owned attributes",
+    "join native BODY_MATCH, ATOM_ID and last feature to the actual archive objects",
+    "prove decoded face, edge and vertex inventory equality with the typed live body",
+    "bind all B-rep bodies nonemptily and bijectively to neutral design bodies",
+    "retain unknown scopes or fail closed; do not replace arbitrary folder rows"
+  ],
+  "observation_sha256": "04ea7d9a1026886d134fa5130c5db6c7f1000d8b08588c046d5d4e221cb924d9",
+  "observations": [
+    {
+      "active_body_count": 1,
+      "all_measured_name_owners_agree": true,
+      "archive_authored_atom_name": null,
+      "archive_name_derived_state": 1,
+      "archive_name_holder_class": null,
+      "body_to_atom_to_feature_join_exact": true,
+      "case": "NamedCorner",
+      "complete_native_topology_inventory": true,
+      "complete_typed_roundtrip": true,
+      "explicit_label": null,
+      "file_sha256": "a441e79bc94219c4c0bb4390cc6d13643ca8c56cb0ff69abdb1fa694e82d2778",
+      "ghost_partition_present": true,
+      "implicit_label": "AnchorBoss",
+      "internal_body_name_present": false,
+      "partition_bytes": 3740,
+      "partition_sha256": "dcabaaccd9926de6cc290a6b9b313a559c18eca2d0c64de397a2ed1cca11a8b9",
+      "source_immutable": true,
+      "state": "baseline",
+      "topology_counts": {
+        "curves": 12,
+        "edges": 12,
+        "faces": 6,
+        "fins": 24,
+        "loops": 6,
+        "points": 8,
+        "surfaces": 6,
+        "vertices": 8
+      },
+      "void_shell_direct_body_is_null": true
+    },
+    {
+      "active_body_count": 1,
+      "all_measured_name_owners_agree": true,
+      "archive_authored_atom_name": "Body",
+      "archive_name_derived_state": 0,
+      "archive_name_holder_class": "moNodeName_c",
+      "body_to_atom_to_feature_join_exact": true,
+      "case": "NamedCorner",
+      "complete_native_topology_inventory": true,
+      "complete_typed_roundtrip": true,
+      "explicit_label": "Body",
+      "file_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774",
+      "ghost_partition_present": true,
+      "implicit_label": "Body",
+      "internal_body_name_present": false,
+      "partition_bytes": 3786,
+      "partition_sha256": "d543c0c3a140457311881710c90184e1d709c14fe7d6b6420cf207f942d11faf",
+      "source_immutable": true,
+      "state": "renamed",
+      "topology_counts": {
+        "curves": 12,
+        "edges": 12,
+        "faces": 6,
+        "fins": 24,
+        "loops": 6,
+        "points": 8,
+        "surfaces": 6,
+        "vertices": 8
+      },
+      "void_shell_direct_body_is_null": true
+    },
+    {
+      "active_body_count": 1,
+      "all_measured_name_owners_agree": true,
+      "archive_authored_atom_name": null,
+      "archive_name_derived_state": 1,
+      "archive_name_holder_class": null,
+      "body_to_atom_to_feature_join_exact": true,
+      "case": "NamedCenter",
+      "complete_native_topology_inventory": true,
+      "complete_typed_roundtrip": true,
+      "explicit_label": null,
+      "file_sha256": "9a619f233088d4c26d767642b02ec6dfbdfd25baad7686cd2265210da78f0f00",
+      "ghost_partition_present": true,
+      "implicit_label": "AnchorBoss",
+      "internal_body_name_present": false,
+      "partition_bytes": 3747,
+      "partition_sha256": "15734d5edd25d3e75bcc41c3735f44244b8eaecb5db5f051bf04202ae6fb7da4",
+      "source_immutable": true,
+      "state": "baseline",
+      "topology_counts": {
+        "curves": 12,
+        "edges": 12,
+        "faces": 6,
+        "fins": 24,
+        "loops": 6,
+        "points": 8,
+        "surfaces": 6,
+        "vertices": 8
+      },
+      "void_shell_direct_body_is_null": true
+    },
+    {
+      "active_body_count": 1,
+      "all_measured_name_owners_agree": true,
+      "archive_authored_atom_name": "Centered Solid",
+      "archive_name_derived_state": 0,
+      "archive_name_holder_class": "moNodeName_c",
+      "body_to_atom_to_feature_join_exact": true,
+      "case": "NamedCenter",
+      "complete_native_topology_inventory": true,
+      "complete_typed_roundtrip": true,
+      "explicit_label": "Centered Solid",
+      "file_sha256": "03f6756e214fd2a96975030143590d8e14643147470df86ee21123c59afd503b",
+      "ghost_partition_present": true,
+      "implicit_label": "Centered Solid",
+      "internal_body_name_present": false,
+      "partition_bytes": 3821,
+      "partition_sha256": "666cf9ecf1a5db9e72b3a66c7b4cbaeb8399a7974526fe29f20705255c2e9f15",
+      "source_immutable": true,
+      "state": "renamed",
+      "topology_counts": {
+        "curves": 12,
+        "edges": 12,
+        "faces": 6,
+        "fins": 24,
+        "loops": 6,
+        "points": 8,
+        "surfaces": 6,
+        "vertices": 8
+      },
+      "void_shell_direct_body_is_null": true
+    }
+  ],
+  "owned_provider_closed": true,
+  "owner": "PR121 configuration/header research lane",
+  "product_verification_executed": false,
+  "provider_cleanup_pending": false,
+  "public_reader_change": false,
+  "qualified_text_scope": "disclosed nonempty ASCII only",
+  "schema": "kit.sw2026.named-body-owner-research.v1",
+  "source_closure_files": 4284,
+  "source_closure_sha256": "5a57e4cf4857ad6ef49d465a192c7c336029d37423bd699e773d4082e2019eaf",
+  "source_receipt_sha256": "802341bf2c4eec2884d9d7761cdac7f04ee005f8b679f971a4d6f88bf59e360e",
+  "status": "disclosed archive and kernel name owners proved; public projection, no-cache name regeneration and writer remain open",
+  "task": "B04-SW2026-NAMED-BODY-READ",
+  "tool_sha256": "8e48a80ebe127aee32fb7b1b9a7278e0a5f272bc1ebfc5fc9da986564e9cfe1b",
+  "unqualified": [
+    "non-ASCII or embedded-NUL names",
+    "conflicting explicit/unicode/implicit names",
+    "multiple active solids",
+    "alternate configurations",
+    "other transmit schemas",
+    "public complete body binding",
+    "generated named native lifecycle",
+    "held-out named construction",
+    "no-cache preservation of authored atom name during native regeneration"
+  ]
+}

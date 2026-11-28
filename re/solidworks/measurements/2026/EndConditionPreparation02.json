@@ -1,0 +1,162 @@
+{
+  "schema": "kit.sw2026.end-source-preparation-summary.v1",
+  "source_lock_sha256": "4df0938264f7761ada1f6fbc10f2335227459e6f03960ab1baa27a0395d395fe",
+  "owner_verification_sha256": "128134df5a77d52e84ca6e8bd2cd491b9a59ebd48c1f8458b79ca22b88e7573d",
+  "source_evidence_sha256": "79f3dbd717c361d27fe4e98d840bff5623e221579c7e926eaee911f63b91b192",
+  "manifest_sha256": "37a8726fa154bd2c19c9b3062d2cb0073b0abe4d430668bc343251cb713f7c50",
+  "privacy_ledger_sha256": "9c8f120a5afcea3b92bad0b4c680aee26f80a84cbca7149f58c6087900779042",
+  "preparer_sha256": "2754087a01cd1f8f9af15350bf1ef4f240f4f056943744b80da0452f168c23b0",
+  "privacy_helper_sha256": "18105df07ce8652c1455b0e7f7a5e9e575ae4bbf94beb0bbf0c5b76ef980285f",
+  "file_count": 14,
+  "stream_count": 560,
+  "stream_redactions": 154,
+  "archive_schemas_executed": false,
+  "container_outputs_reparsed": false,
+  "heldout_native_payloads_read": false,
+  "is_writer_output": false,
+  "native_acceptance_inherited": false,
+  "preview_count": 14,
+  "previews": [
+    {
+      "file": "ControlCircle.SLDPRT.png",
+      "sha256": "b42cd1d6decf473e90647ce69af509278937a14b0061237f7348cf4368e2ef0a",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "ControlRectangle.SLDPRT.png",
+      "sha256": "cc446c466b7b7a1d5fdb31a8533f429d940768677c7dddf0d056e7bc2187395d",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D01Forward.SLDPRT.png",
+      "sha256": "7801c469867227e83f49f929e49bf6fdfb1d97029e6035a6fe00b6defc281f4d",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D02Forward.SLDPRT.png",
+      "sha256": "c85d6df20ac7a7ce5de6c4d387713e08535bd07eb689d930cf5048c4dcbbe004",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D03Forward.SLDPRT.png",
+      "sha256": "0cb184f43281a7244a7888325ebb0b94ef6ea26c6e0f4219e9f4ac15724c7501",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D04Reverse.SLDPRT.png",
+      "sha256": "1dae8d25de4dc088722e89cc5c8851ac8aeb2296344989b1e6e977b26e07e8fc",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D05Reverse.SLDPRT.png",
+      "sha256": "52acea52b4f805661e7d18943fa1e5ea2ce6180c2afab940dec5d4a0289cc8c9",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D06Reverse.SLDPRT.png",
+      "sha256": "e127dcdee31848a574ffe6f1c39de217b8379306bb90d2bfce2ec601994826ea",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D07MidPlane.SLDPRT.png",
+      "sha256": "7801c469867227e83f49f929e49bf6fdfb1d97029e6035a6fe00b6defc281f4d",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D08MidPlane.SLDPRT.png",
+      "sha256": "fa487b2e76609b754c3751c1ccd3b508ae3951b5e0a2cfb7f12b60d3cf9b6173",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D09MidPlane.SLDPRT.png",
+      "sha256": "0cb184f43281a7244a7888325ebb0b94ef6ea26c6e0f4219e9f4ac15724c7501",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D10TwoDirections.SLDPRT.png",
+      "sha256": "9c3e0abe5404cb47d3949432028b184941f96711a544fb62b84b322bd8a28973",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D11TwoDirections.SLDPRT.png",
+      "sha256": "2d1d82a6ebc685342839b4dfd9cfc036458a28d186f4410acf676eddb9cf3d51",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    },
+    {
+      "file": "D12TwoDirections.SLDPRT.png",
+      "sha256": "d02db4c6410632a82958d3d22a15703b1796b241d5785d3ad89d2793fe132c74",
+      "size_px": [
+        640,
+        480
+      ],
+      "visually_reviewed": true,
+      "visible_content": "shaded source solid only; no names, home paths or other visible text"
+    }
+  ],
+  "scope": "Container-only research reader fixture preparation; complete parametric archive and prepared-native acceptance remain pending"
+}

@@ -1,0 +1,822 @@
+{
+  "artifact": {
+    "bytes": 10189,
+    "sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "5a6cc90e12c5df9ce3d47e5ad9d48568284c17d396c723c9b74522927268694b"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+      },
+      "Contents/Config-0": {
+        "bytes": 22354,
+        "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 629,
+        "sha256": "a6326740ff92f4e961780db5188582c1dceea1b209acf36291d6a84c3ceab330"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 17987,
+        "sha256": "583fc198011a2e44fd736f6a5f8bff25a7e471f15a277c43b28992254bf0715f"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 629,
+        "sha256": "c9705f78e9fd9b87158c44c34277e00ade5df57840d3795609b1dad4c05e77dc"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+      },
+      "docProps/core.xml": {
+        "bytes": 490,
+        "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+      },
+      "docProps/custom.xml": {
+        "bytes": 5202,
+        "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1503,
+        "sha256": "393e431d53a7919e72764f78f39cade1029965c85929dee3d474edb4a27903b3"
+      }
+    }
+  },
+  "benchmark_conversion_credits": 0,
+  "creation_epoch": 1793214309,
+  "editable_bindings": {
+    "freecad:parameter:AdditiveBox:Height": "Height@AdditiveBox",
+    "freecad:parameter:AdditiveBox:Length": "Length@AdditiveBox Profile",
+    "freecad:parameter:AdditiveBox:Width": "Width@AdditiveBox Profile"
+  },
+  "fresh_workers": {
+    "guarded_build": 2,
+    "guarded_readback": 2
+  },
+  "historical_benchmark_membership_verified": false,
+  "native_processes_started": 0,
+  "origin_contrast_source_sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d",
+  "original_neutral_preserved": true,
+  "passed": true,
+  "prior_native_comparison": {
+    "fresh_reopen_snapshots": 4,
+    "independent_edits_mm": [
+      27.000000000000004,
+      36.9,
+      15.0
+    ],
+    "signed_geometry_checks": 25
+  },
+  "prior_native_receipt_sha256": "3b16c1abb7dd6240c4adb46e340f7b1167531a750553420bfc03b9f7139d2a89",
+  "prior_origin_receipt_sha256": "a28e15c906255d21bc2b7304539c1a3cd5445b2092c1570c897f73636750baa6",
+  "projected_properties": {
+    "document": {
+      "FreeCAD Attachment Map Mode": "5",
+      "FreeCAD Attachment Support Id": "freecad:plane:XZ_Plane",
+      "FreeCAD Body Label": "Body",
+      "FreeCAD CreationDate": "2026-10-28T19:05:09Z",
+      "FreeCAD Feature Id": "freecad:feature:AdditiveBox",
+      "FreeCAD Height Parameter": "freecad:parameter:AdditiveBox:Height",
+      "FreeCAD LastModifiedDate": "2026-10-28T19:05:09Z",
+      "FreeCAD Length Parameter": "freecad:parameter:AdditiveBox:Length",
+      "FreeCAD License": "CC0-1.0",
+      "FreeCAD LicenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "FreeCAD Show Hidden": "false",
+      "FreeCAD Source Schema": "4",
+      "FreeCAD Source Version": "0.21R33771 (Git)",
+      "FreeCAD Uid": "0cf8f695-e2b5-44f5-83cc-7cd070edf859",
+      "FreeCAD Width Parameter": "freecad:parameter:AdditiveBox:Width"
+    },
+    "summary": {
+      "comments": "CC0-1.0; CAD Fixture Recipes v1.23; generated with FreeCAD 0.21.2",
+      "title": "F14c"
+    }
+  },
+  "public_write": {
+    "missing_static_caps": [
+      "native_payloads"
+    ],
+    "published_bytes": 0,
+    "refusals": {
+      "direct_path": "native-only feature definitions cannot be exported: {actual source locator}: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+      "direct_stream": "native-only feature definitions cannot be exported: {actual source locator}: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+      "explicit_path": "native-only feature definitions cannot be exported: {actual source locator}: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+      "explicit_stream": "native-only feature definitions cannot be exported: {actual source locator}: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
+      "inferred_import_profile": "bare local import requires a neutral millimetre B-rep",
+      "inferred_path": "no writer supports the destination",
+      "plain_route_for_projected_source_identity": "plain part preparation does not admit unresolved or extended source state"
+    },
+    "sink_state_preserved": true
+  },
+  "public_writer_qualified": false,
+  "retained_neutral_basename_sha256": "c1c47584688f7a53bd7d2e40b303a75e7b0500447b5c4cb242a43463c10c1a8e",
+  "retained_source": {
+    "data": 5288,
+    "parameters": 11,
+    "payloads": 5,
+    "source_object_count": 9
+  },
+  "runtime_data_file_reads": 0,
+  "same_native_locator": "C:\\KitAttachedTopBoxGenerated01\\recipe-0.21.2-F14c\\F14c.SLDPRT",
+  "schema": "kit.sw2026.intact-freecad-attached-plan.v1",
+  "sdk_base": "1e19fb4268e5e689402d0ffbf82ae3e4d4084058",
+  "source": {
+    "body_id": "freecad:body:Body",
+    "body_name": "Body",
+    "configuration": "Default",
+    "datums": {
+      "XY_Plane": {
+        "basis": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_id": "freecad:plane:XY_Plane",
+        "target_name": "Front Plane"
+      },
+      "XZ_Plane": {
+        "basis": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_id": "freecad:plane:XZ_Plane",
+        "target_name": "Top Plane"
+      },
+      "YZ_Plane": {
+        "basis": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "source_id": "freecad:plane:YZ_Plane",
+        "target_name": "Right Plane"
+      }
+    },
+    "document_xml_sha256": "9c867c35e25e3285f3771ca0076d975f0f2ab57ad0adcd151b53b4a08b4c047e",
+    "drivers": {
+      "Height": {
+        "source_id": "freecad:parameter:AdditiveBox:Height",
+        "value_mm": 10.0
+      },
+      "Length": {
+        "source_id": "freecad:parameter:AdditiveBox:Length",
+        "value_mm": 20.0
+      },
+      "Width": {
+        "source_id": "freecad:parameter:AdditiveBox:Width",
+        "value_mm": 30.0
+      }
+    },
+    "feature_id": "freecad:feature:AdditiveBox",
+    "feature_name": "AdditiveBox",
+    "incidence": {
+      "counts": [
+        1,
+        1,
+        6,
+        12,
+        8,
+        24
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "faces": [
+        [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            4,
+            5
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        ],
+        [
+          [
+            2,
+            3,
+            6,
+            7
+          ],
+          [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ]
+        ],
+        [
+          [
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ]
+        ]
+      ]
+    },
+    "local_corners": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        10.0
+      ],
+      [
+        0.0,
+        30.0,
+        0.0
+      ],
+      [
+        0.0,
+        30.0,
+        10.0
+      ],
+      [
+        20.0,
+        0.0,
+        0.0
+      ],
+      [
+        20.0,
+        0.0,
+        10.0
+      ],
+      [
+        20.0,
+        30.0,
+        0.0
+      ],
+      [
+        20.0,
+        30.0,
+        10.0
+      ]
+    ],
+    "native_binding_sha256": "411eacc147d69b6605e289df250465d0593c5c9e0bda3b2f61a897bac2afe371",
+    "object_owners": {
+      "AdditiveBox": {
+        "dependencies": [
+          "Body",
+          "XZ_Plane"
+        ],
+        "object_id": "1784",
+        "type_id": "PartDesign::AdditiveBox"
+      },
+      "Body": {
+        "dependencies": [
+          "AdditiveBox",
+          "Origin",
+          "AdditiveBox"
+        ],
+        "object_id": "1776",
+        "type_id": "PartDesign::Body"
+      },
+      "Origin": {
+        "dependencies": [
+          "X_Axis",
+          "Y_Axis",
+          "Z_Axis",
+          "XY_Plane",
+          "XZ_Plane",
+          "YZ_Plane"
+        ],
+        "object_id": "1777",
+        "type_id": "App::Origin"
+      },
+      "XY_Plane": {
+        "dependencies": [],
+        "object_id": "1781",
+        "type_id": "App::Plane"
+      },
+      "XZ_Plane": {
+        "dependencies": [],
+        "object_id": "1782",
+        "type_id": "App::Plane"
+      },
+      "X_Axis": {
+        "dependencies": [],
+        "object_id": "1778",
+        "type_id": "App::Line"
+      },
+      "YZ_Plane": {
+        "dependencies": [],
+        "object_id": "1783",
+        "type_id": "App::Plane"
+      },
+      "Y_Axis": {
+        "dependencies": [],
+        "object_id": "1779",
+        "type_id": "App::Line"
+      },
+      "Z_Axis": {
+        "dependencies": [],
+        "object_id": "1780",
+        "type_id": "App::Line"
+      }
+    },
+    "parsed_body_id": "freecad:occ:9f0529dc4037ba793b30:body:1",
+    "placement_quaternion": [
+      0.7071067811865476,
+      0.0,
+      0.0,
+      0.7071067811865475
+    ],
+    "shape_owners": {
+      "freecad:brep:AdditiveBox:AddSubShape": {
+        "bytes": 8717,
+        "coordinates": "feature-local",
+        "decoded_solid_id": "freecad:brep:AdditiveBox:AddSubShape:body:1",
+        "sha256": "e9b62e37300706d75df899a85944f4be846813449bbf3a89c189cd41ff07abf8",
+        "stream": "PartShape1.brp"
+      },
+      "freecad:brep:AdditiveBox:Shape": {
+        "bytes": 8941,
+        "coordinates": "model",
+        "decoded_solid_id": "freecad:brep:AdditiveBox:Shape:body:1",
+        "sha256": "042faea9316b0924bf0f9e90bcc2b8ca6f48b5de1d175ebc057effe97695ec1b",
+        "stream": "PartShape2.brp"
+      },
+      "freecad:brep:Body:Shape": {
+        "bytes": 6075,
+        "coordinates": "model",
+        "decoded_solid_id": "freecad:brep:Body:Shape:body:1",
+        "sha256": "8cb4ab10312732235fee57033c87621fa257892a8014c5e54af82aecc250a005",
+        "stream": "PartShape.brp"
+      }
+    },
+    "source_provenance_owners": [
+      "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+      "AdditiveBox",
+      "AdditiveBox.AddSubShape",
+      "AdditiveBox.Shape",
+      "Body",
+      "Body.Shape",
+      "Document.xml"
+    ],
+    "support_plane_id": "freecad:plane:XZ_Plane",
+    "world_corners": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -10.0,
+        -1.7763568394002505e-15
+      ],
+      [
+        0.0,
+        -3.552713678800501e-15,
+        30.0
+      ],
+      [
+        0.0,
+        -10.0,
+        30.0
+      ],
+      [
+        20.0,
+        0.0,
+        0.0
+      ],
+      [
+        20.0,
+        -10.0,
+        -1.7763568394002505e-15
+      ],
+      [
+        20.0,
+        -3.552713678800501e-15,
+        30.0
+      ],
+      [
+        20.0,
+        -10.0,
+        30.0
+      ]
+    ]
+  },
+  "source_payload_carrier_emitted": false,
+  "source_refusals": {
+    "actual_origin_fixed_F14a": "FreeCAD primitive uses another attachment engine or owner",
+    "altered_document_bytes": "FreeCAD attached box has no exact retained document binding",
+    "coherent_foreign_driver_id": "FreeCAD attached box neutral owners disagree with its archive",
+    "equal_incidence_crossed_cache_owner": "FreeCAD attached box neutral owners disagree with its archive",
+    "independent_driver_caption": "FreeCAD attached box neutral owners disagree with its archive",
+    "independent_visibility": "FreeCAD attached box neutral owners disagree with its archive",
+    "missing_verification_binding": "FreeCAD attached box has no exact retained document binding"
+  },
+  "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "target": {
+    "area_mm2": 2200.0,
+    "body_atom_manager_id": 101,
+    "body_boundary_id": "sldprt:body:1-prism-body",
+    "body_id": "sldprt:body:1",
+    "boss_feature_id": 21,
+    "bounds_mm": [
+      [
+        0.0,
+        -10.0,
+        0.0
+      ],
+      [
+        20.0,
+        0.0,
+        30.0
+      ]
+    ],
+    "centre_mm": [
+      10.0,
+      -5.000000000000001,
+      15.0
+    ],
+    "datum_owners": {
+      "freecad:plane:XY_Plane": "sldprt:plane:14",
+      "freecad:plane:XZ_Plane": "sldprt:plane:15",
+      "freecad:plane:YZ_Plane": "sldprt:plane:16"
+    },
+    "driver_owners": {
+      "Height": {
+        "sketch_point_indices": null,
+        "source_id": "freecad:parameter:AdditiveBox:Height",
+        "target_dimension_id": 22,
+        "target_id": "sldprt:parameter:21:Height",
+        "target_parameter_index": 213,
+        "value_mm": 10.0
+      },
+      "Length": {
+        "sketch_point_indices": [
+          0,
+          1
+        ],
+        "source_id": "freecad:parameter:AdditiveBox:Length",
+        "target_dimension_id": 19,
+        "target_id": "sldprt:parameter:18:Length",
+        "target_parameter_index": 175,
+        "value_mm": 20.0
+      },
+      "Width": {
+        "sketch_point_indices": [
+          0,
+          3
+        ],
+        "source_id": "freecad:parameter:AdditiveBox:Width",
+        "target_dimension_id": 20,
+        "target_id": "sldprt:parameter:18:Width",
+        "target_parameter_index": 180,
+        "value_mm": 30.0
+      }
+    },
+    "feature_tree": [
+      [
+        "Comments",
+        "reference",
+        1
+      ],
+      [
+        "Favorites",
+        "native",
+        2
+      ],
+      [
+        "History",
+        "native",
+        3
+      ],
+      [
+        "Selection Sets",
+        "native",
+        4
+      ],
+      [
+        "Sensors",
+        "native",
+        5
+      ],
+      [
+        "Design Binder",
+        "native",
+        6
+      ],
+      [
+        "Annotations",
+        "native",
+        13
+      ],
+      [
+        "Surface Bodies",
+        "reference",
+        7
+      ],
+      [
+        "Solid Bodies",
+        "reference",
+        8
+      ],
+      [
+        "Lights and Cameras",
+        "native",
+        9
+      ],
+      [
+        "Markups",
+        "native",
+        10
+      ],
+      [
+        "Equations",
+        "native",
+        11
+      ],
+      [
+        "Material <not specified>",
+        "native",
+        12
+      ],
+      [
+        "Front Plane",
+        "reference",
+        14
+      ],
+      [
+        "Top Plane",
+        "reference",
+        15
+      ],
+      [
+        "Right Plane",
+        "reference",
+        16
+      ],
+      [
+        "Origin",
+        "native",
+        17
+      ],
+      [
+        "AdditiveBox Profile",
+        "reference",
+        18
+      ],
+      [
+        "AdditiveBox",
+        "extrusion",
+        21
+      ]
+    ],
+    "incidence_matches_all_source_shapes": true,
+    "origin_feature_id": 17,
+    "plane_feature_id": 15,
+    "profile_feature_id": 18,
+    "runtime_data_file_reads": 0,
+    "volume_mm3": 6000.0
+  },
+  "tool_and_changed_source_sha256": {
+    "re/tooling/sw2026/attached_top_box_source/BoxIncidence.py": "1cf049fabebd1d3332d302a89a7fc26deee42be1e48d921feaeded0ef415b9f1",
+    "re/tooling/sw2026/attached_top_box_source/VerifyIntactAttachedPlan.py": "33e4cf72b5479540b41377becb03d78324b6efd3722893098f147adb10cef8c1",
+    "re/tooling/sw2026/attached_top_box_source/VerifyOriginalFcstdAttachedBox.py": "01ae6f1560941a2c08188e07485cce4f5fd5dd68292d7438814ca08e9fa2fd5c",
+    "src/convert/adapters/freecad/Native.py": "c70421d6ea8442cb018f821fb9633101814e611c9e4ef067fa0588cf585a6490",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/PlanAttachedBox.py": "4ab34d1a7baf0ebf8498d9cd62929a265b3fbb9bfbb924d6e51c3fc8c53f5fc3"
+  }
+}

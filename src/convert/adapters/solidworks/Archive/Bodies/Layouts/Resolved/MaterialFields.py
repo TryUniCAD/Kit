@@ -25,9 +25,7 @@ KMaterialFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "f298", "rf.suObArray"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -40,9 +38,7 @@ KMaterialFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "f288", "rf.suObList"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -58,9 +54,7 @@ KMaterialFields = MappingProxyType(
                 "Array",
                 "f2b0",
                 "i32",
-                BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize f2b0"),
-                ),
+                BodyValue=(NativeField("Scalar", "v", "i32"),),
                 CountValue="n2b0",
                 ModeValue="Positive",
             ),
@@ -68,9 +62,7 @@ KMaterialFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "f2c0", "mgVector_c.restore"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -84,9 +76,7 @@ KMaterialFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "f2d0", "mgXform_c.restore"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -99,9 +89,7 @@ KMaterialFields = MappingProxyType(
                 "Array",
                 "f3c0",
                 "i32",
-                BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize f3c0"),
-                ),
+                BodyValue=(NativeField("Node", "o"),),
                 CountValue="n3d0",
                 ModeValue="Positive",
             ),
@@ -112,7 +100,8 @@ KMaterialFields = MappingProxyType(
                 "f2e0",
                 "u32",
                 BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize f2e0"),
+                    NativeField("Scalar", "k", "i32"),
+                    NativeField("Node", "v", "moArrowSize_c"),
                 ),
                 CountValue="n2e8",
             ),
@@ -130,9 +119,7 @@ KMaterialFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize Branch"),
-                ),
+                BodyValue=(NativeField("Embed", "f4a0", "rf.suObArray"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -151,7 +138,8 @@ KMaterialFields = MappingProxyType(
                 "f4a8",
                 "u32",
                 BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize f4a8"),
+                    NativeField("Scalar", "k", "i32"),
+                    NativeField("Node", "v", "moSplineLeaderData_c"),
                 ),
                 CountValue="n4a8",
             ),
@@ -245,8 +233,18 @@ KMaterialFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
+                    NativeField("Scalar", "n138", "i32"),
                     NativeField(
-                        "Fail", "alternate moDisplayObject_c.FUN_4ba4d3c0 Branch"
+                        "Branch",
+                        "",
+                        BodyValue=(NativeField("Embed", "f138", "rf.suObList"),),
+                        ModeValue="Expression",
+                        ExpressionValue=(
+                            "compare",
+                            ("GtE",),
+                            ("lookup", ("scope",), ("literal", "n138")),
+                            ("literal", 1),
+                        ),
                     ),
                 ),
                 ModeValue="Expression",

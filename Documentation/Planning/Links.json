@@ -745,6 +745,19 @@
       "Source": "Documentation/Planning/README.md",
       "Area": "UI/UX",
       "Exit": "Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client"
+    },
+    {
+      "Id": "PrReaderWriterReadiness",
+      "Name": "SOLIDWORKS PR121 current-main readiness repair",
+      "Status": "blocked",
+      "Owner": "Codex swarm root 01a22333-c91a-7753-a913-6ea8091aebc5",
+      "Dependencies": ["AccountReviewer"],
+      "Source": "Documentation/Maintenance/ConversionBacklog.md",
+      "Area": "SDK",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/121",
+      "Branch": "codex/solidworks-2026-native",
+      "Exit": "No conflicts, preserved fixture modes, passing affected process regressions and current-head CI plus configured approval; broader CAD qualification and merge-group acceptance remain separate",
+      "Blocker": "Trusted full-review coverage and the authenticated runtime failure remain unresolved; credential-free hosted Node reachability passed at b940314f169c7e97f42c0723033dbd2ea6fea269; project sync pending"
     }
   ],
   "Dependencies": {

@@ -1,6 +1,13 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-from convert.adapters.solidworks.Archive.Bodies.PartScopeOwner import PartScopeOwner
+from convert.adapters.solidworks.Archive.Bodies.PartScopeOwner import (
+    PartScopeOwner,
+    HasPartOwner,
+)
 from convert.adapters.solidworks.Archive.Bodies.ReadRuleValue import ReadRuleValue
+from convert.adapters.solidworks.Archive.Bodies.RequireHistRef import (
+    KHistRefMode,
+    RequireHistRef,
+)
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Bodies.Writing.EncodeBodyText import (
     EncodeBodyText,
@@ -15,7 +22,9 @@ def WriteValueMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     Value = ReadRuleValue(FrameValue.ScopeValue, RuleValue)
     WriterValue = FrameValue.WriterValue
     if RuleValue.KindValue == "Node":
-        if RuleValue.ModeValue == "FrameOwner":
+        if RuleValue.ModeValue == KHistRefMode:
+            Value = RequireHistRef(Value)
+        if HasPartOwner(WriterValue.ContextValue, FrameValue.NodeValue, RuleValue):
             OwnerValue = PartScopeOwner(WriterValue.ContextValue, FrameValue.NodeValue)
             if (
                 Value is not OwnerValue

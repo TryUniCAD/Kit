@@ -1,0 +1,204 @@
+{
+  "com_namespace": "SldWorks.Application.34",
+  "native_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "packets": [
+    {
+      "canonical_summary_sha256": "357676fc10ac02da1bc3b19241d0b6174c419788ec9a5ac9a2e4d21d2903b4c4",
+      "oracle_tool_revision": "1ec5f45c315c5293c44367ae3017812510c91534",
+      "packet": "SceneLightCounts01",
+      "result": {
+        "api_sha256": "0d33346cc27cbcc9b5e65a05860f8026e0bf38b71e14c67b1ad283647461e525",
+        "distinct_processes": 3,
+        "freeze_sha256": "cdeec78467d7ce418023adaf16202d6c86c2d19d5604b639c1aba862e7cccd28",
+        "healthy_bracket": true,
+        "heldout_coverage": 0,
+        "outcomes": {},
+        "passed": false,
+        "phase_receipts": {
+          "After": "1921f21abce91dcd217797122374518d67f409a153bacf11d6a427ded55eda3a",
+          "Before": "b0ab3543edb16435a109e91f023df942b9049076068066960f4a82a5d12c77cc",
+          "OneAuthor": "4cf065ef2f725c77ebfbeeb5c323314dfa9df653abea95def9b29e56cf3063ae"
+        },
+        "phase_status": {
+          "After": true,
+          "Before": true,
+          "OneAuthor": false
+        },
+        "production_coverage": 0,
+        "schema": "kit.sw2026.disclosed-scene-light-counts.v1",
+        "sealed_payloads_read": 0,
+        "serial": true
+      }
+    },
+    {
+      "canonical_summary_sha256": "d39f69ab0f969a4828918bb6e0e4dd00e80d4710864075ecbf1da3a08a7deb89",
+      "oracle_tool_revision": "14e2eabc867c5ac8420a3f6d3cb487cd3e80260a",
+      "packet": "SceneLightCounts02",
+      "result": {
+        "api_sha256": "a1689753b97b9b23c49e0ffa751eece20100bec55a8eb70784c3bede343631d9",
+        "distinct_processes": 5,
+        "freeze_sha256": "c09a138c0dfec945439b017686312c1de9ea4142c89ccc0e241ae89dd1e77ecb",
+        "healthy_bracket": true,
+        "heldout_coverage": 0,
+        "outcomes": {},
+        "passed": false,
+        "phase_receipts": {
+          "After": "72c4bc4dc0871c9ba945ecf045a3243f82c61e4f905a6a083220266cd6d676ee",
+          "Before": "22d94e9872367f2affb0cf6c125e2a1cfd274f6fc9cd8a3cb2ed32c08cda29ef",
+          "OneAuthor": "6a8cbfcf635fc1a3e73e8d70405c340452fb2b1db1e16d7c821e19660b6c1fe0",
+          "PropertiesAuthor": "3496b1b4a119952d666db3323c82e3c4d8ba87f2cbdb3bbb33a3227f31da001a",
+          "TwoAuthor": "fe5c1264e272436cf04384f93e4826c7221e32462ad9daec4143e23923cfc1c7"
+        },
+        "phase_status": {
+          "After": true,
+          "Before": true,
+          "OneAuthor": false,
+          "PropertiesAuthor": false,
+          "TwoAuthor": false
+        },
+        "production_coverage": 0,
+        "schema": "kit.sw2026.disclosed-scene-light-counts.v1",
+        "sealed_payloads_read": 0,
+        "serial": true
+      }
+    },
+    {
+      "canonical_summary_sha256": "e716b46e72d8f37081cdf5bf7ca7832d5a3445532bed7a840e631d497b305081",
+      "oracle_tool_revision": "7f0e0ba21f6c80c63992dc07e0f353b58fa88ef4",
+      "packet": "SceneLightCounts03",
+      "result": {
+        "api_sha256": "84582cba463deddf3e4e45fcb1fe69634dc30d94a9e4caceda446e6140e5c31b",
+        "distinct_processes": 8,
+        "freeze_sha256": "f6598214aac389db6579b8345a9210c373830aa32874c286a231ac7b0cf5729a",
+        "healthy_bracket": true,
+        "heldout_coverage": 0,
+        "outcomes": {
+          "One": {
+            "candidate_numeric_checks": [
+              14,
+              14
+            ],
+            "property_getter_snapshots": [
+              [],
+              [],
+              [],
+              [],
+              []
+            ],
+            "property_getters_match": true,
+            "scene": {
+              "directional_count": 1,
+              "names": [
+                "Ambient-1",
+                "Directional-1"
+              ],
+              "properties": [],
+              "property_getters_match": true
+            },
+            "source_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7"
+          },
+          "Properties": {
+            "candidate_numeric_checks": [
+              14,
+              14
+            ],
+            "property_getter_snapshots": [
+              [
+                -73,
+                -73,
+                -73
+              ],
+              [
+                -73,
+                -73,
+                -73
+              ],
+              [
+                -73,
+                -73,
+                -73
+              ],
+              [
+                -73,
+                -73,
+                -73
+              ],
+              [
+                -73,
+                -73,
+                -73
+              ]
+            ],
+            "property_getters_match": false,
+            "scene": {
+              "directional_count": 2,
+              "names": [
+                "Ambient-1",
+                "Directional-1",
+                "Directional-1"
+              ],
+              "properties": [
+                -73,
+                -73,
+                -73
+              ],
+              "property_getters_match": false
+            },
+            "source_sha256": "e9100de35950b69eb0397ae86d28b800809c2bcfdc440a7f2a54c6b80c8db1c5"
+          },
+          "Two": {
+            "candidate_numeric_checks": [
+              14,
+              14
+            ],
+            "property_getter_snapshots": [
+              [],
+              [],
+              [],
+              [],
+              []
+            ],
+            "property_getters_match": true,
+            "scene": {
+              "directional_count": 2,
+              "names": [
+                "Ambient-1",
+                "Directional-1",
+                "Directional-1"
+              ],
+              "properties": [],
+              "property_getters_match": true
+            },
+            "source_sha256": "287f64869f8d037ebf3c92712453440e3f162beb6d1ac9226afd215d965b7dba"
+          }
+        },
+        "passed": false,
+        "phase_receipts": {
+          "After": "645afbfb9ea1678705f2d818b6c8cb973460f80514c40de4b6029f96bdaccc83",
+          "Before": "13a6b8b5b30cb52ff113a51612763da6bcf826c1c83bd457b4465d4d699d34a2",
+          "OneAuthor": "798472fe1ce0cf13bd13d81e4e84972daa4060324ce80dd14c956a5c40c0c73d",
+          "OneReopen": "3278fe6e71bd3f99c8bf699ec85d064e99f998f6361c5aab46a7ff1448790f8c",
+          "PropertiesAuthor": "a0b19c27cba339a93efbc15f712a5f2c94e19ae6f51ddd2cace0846bf69e471e",
+          "PropertiesReopen": "fce8f29f265017e3be1698a41202161bf4542f927f3ab70069b9a76a160b1e4e",
+          "TwoAuthor": "34861d2b038a74441f22baee67ce8d96114a30c222e78e24ec1b4436b143b55c",
+          "TwoReopen": "3d547ac3ecd9e0f283aa3bf9d2a90a87c6fa3ad1c4582e4a95fefd467ef46cb6"
+        },
+        "phase_status": {
+          "After": true,
+          "Before": true,
+          "OneAuthor": true,
+          "OneReopen": true,
+          "PropertiesAuthor": true,
+          "PropertiesReopen": true,
+          "TwoAuthor": true,
+          "TwoReopen": true
+        },
+        "production_coverage": 0,
+        "schema": "kit.sw2026.disclosed-scene-light-counts.v1",
+        "sealed_payloads_read": 0,
+        "serial": true
+      }
+    }
+  ]
+}

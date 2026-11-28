@@ -1,0 +1,527 @@
+{
+  "cases": [
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "child_sha256": "fff454f2176008332b82078cf63f94b7f43ffce6bb8e24bef1f13d1d9213b2ab",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "9f8ed3b43aaeeb57e4b6b8fea870c54a92ed3be34155f0a6a375295b78b50318",
+      "phase": "constructed",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "child_sha256": "ed897029abdb14250e812bd89012adab3a3033bb0a1ef0e53847b658f86e9f1e",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "2ad96398aebcd724755eecac1ffa308c6ad5017536720454dbd0a33636181bd6",
+      "native_record_sha256": "c1a487d68787362c476a31f09da33af9cee960e35f8215280101401695c3d02f",
+      "numeric_checks": 303,
+      "phase": "open-save",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "child_sha256": "ed897029abdb14250e812bd89012adab3a3033bb0a1ef0e53847b658f86e9f1e",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "2ad96398aebcd724755eecac1ffa308c6ad5017536720454dbd0a33636181bd6",
+      "native_record_sha256": "e2a159068e7167efdc2e9730ff69cb68d4072d0163ef0f71c4c97dd9f28bd2a7",
+      "numeric_checks": 140,
+      "phase": "reopen",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "child_sha256": "94dd1a8356ea4fb08595ade1376326df8aee46651449c128e8049615c44068cf",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "d2ed1a4a2a2bfd1fc6ac1e6ef74e27156f0d73eec03104977a3dff7bf01db695",
+      "native_record_sha256": "eba33f7896efd098a59875f03179510f20f0a6d0ab0bd723745ba315122d038b",
+      "numeric_checks": 342,
+      "phase": "edit-move-save",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeIsoInitialized",
+      "child_sha256": "94dd1a8356ea4fb08595ade1376326df8aee46651449c128e8049615c44068cf",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "d2ed1a4a2a2bfd1fc6ac1e6ef74e27156f0d73eec03104977a3dff7bf01db695",
+      "native_record_sha256": "91aba2632f39522523773e5a8803643c3d42256701591faa675e8d23070d76f7",
+      "numeric_checks": 140,
+      "phase": "reopen-edited",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "child_sha256": "ca392c9cda2e341bc897beb6f02e29f79568ae7dd7c06c186ce7e45fa937251c",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "e4bf3ac77c4918f259887c9898da346ef2f4cc10cef7bc0f186140ce3954bb18",
+      "phase": "constructed",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "child_sha256": "c9aba15eb3bbf82ea21a14910b2bc1f1443cfcc995e654c437fdfeadd8940073",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "8d07b26a1b7e9fbee01cb0bc7c7978e484d3a80c82661174005831ee3c79e568",
+      "native_record_sha256": "333465b161e6c6630ae2a9e763e7620bdbf9504f84fa21dd82636629e2ce606e",
+      "numeric_checks": 303,
+      "phase": "open-save",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "child_sha256": "c9aba15eb3bbf82ea21a14910b2bc1f1443cfcc995e654c437fdfeadd8940073",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "8d07b26a1b7e9fbee01cb0bc7c7978e484d3a80c82661174005831ee3c79e568",
+      "native_record_sha256": "9ace94bfd245f681235926104bd9c1df02d10c72dcefffed5d697b10c10ad9ab",
+      "numeric_checks": 140,
+      "phase": "reopen",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "child_sha256": "70fa15b767ac2768f1f65626bae15a6d6ad08a64c20c51b154dcd43aaa2ed141",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "b22f46ed6c93f93bc4b0a0e65ac92ed0989aae0c10bfe1641a88710a2feb2d70",
+      "native_record_sha256": "70dbfb538d1502fa0d6be3cd7dfe20e2d74962bbaffdb92ac0a5791ccdeefa03",
+      "numeric_checks": 342,
+      "phase": "edit-move-save",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCornerPrecisionThreeAnsiInitialized",
+      "child_sha256": "70fa15b767ac2768f1f65626bae15a6d6ad08a64c20c51b154dcd43aaa2ed141",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "b22f46ed6c93f93bc4b0a0e65ac92ed0989aae0c10bfe1641a88710a2feb2d70",
+      "native_record_sha256": "f12459918515eab0ccce0795dddf7facc3a0f814209a937f85a3a78c320aae8a",
+      "numeric_checks": 140,
+      "phase": "reopen-edited",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "child_sha256": "f1ad8f2e7bedcadc5c6b955894837bd53eecbeaf76436b9f178e7df6aafc93b0",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "f4c1af87dbf8afebf03f165d9e7b93926f9d01e379a1247415ef8d17281050ff",
+      "phase": "constructed",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "child_sha256": "7f5cdc55bc3630f2c211bfe8c3decae327cd34b5a229d7cd6e923ba102c34e6e",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "7e49f7601b148caad2b945111d3a5e5cb4b7689ce6b4fb48bee82e7e8e404009",
+      "native_record_sha256": "c9fa8ece3008d811fd4a9228aa8ea943fcc70c92c4762386f97904deb2aca31e",
+      "numeric_checks": 303,
+      "phase": "open-save",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "child_sha256": "7f5cdc55bc3630f2c211bfe8c3decae327cd34b5a229d7cd6e923ba102c34e6e",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "7e49f7601b148caad2b945111d3a5e5cb4b7689ce6b4fb48bee82e7e8e404009",
+      "native_record_sha256": "d109dddc5b4905b1aba3c70c6ad161d9e3e9c5cb3d37fb9c709a7bcdae730b90",
+      "numeric_checks": 140,
+      "phase": "reopen",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "child_sha256": "7316aafde7bf6033470a45634118391c0cab949cf74ec8d8ca9b8672de8b3968",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "da95ab9f78f49c269b5b5b237b686ffb3ebf6b64b70dca61da7000c8d69aac92",
+      "native_record_sha256": "82785fd4dac7c13d133f069e40b6f57e5746ddf811a004b58a160eb659809869",
+      "numeric_checks": 342,
+      "phase": "edit-move-save",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveIsoInitialized",
+      "child_sha256": "7316aafde7bf6033470a45634118391c0cab949cf74ec8d8ca9b8672de8b3968",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "da95ab9f78f49c269b5b5b237b686ffb3ebf6b64b70dca61da7000c8d69aac92",
+      "native_record_sha256": "7dabd1116cd8f6b280b50f43b8825871423806550ca906791e803ece86810436",
+      "numeric_checks": 140,
+      "phase": "reopen-edited",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "iso"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "child_sha256": "8d9787faa206db87cb92220a280750985c476d87ec36ecaff95ac6a7193bfa67",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "da8cef4b9e55a6dbc66534bcd53de5538a98200832ac652c6297db627d9d6fb6",
+      "phase": "constructed",
+      "presentation_differences": [],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "child_sha256": "029121953b3ee1b1a3178f4fbd0391d05b8dba019aa6a21f8e84a8c0ccc141c8",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "2787864650dba37349b32cf897cfbe562b80f6c27ea4fc8a12e528e742f30502",
+      "native_record_sha256": "ad0708b944f95dbdccaf94da74fcbe9f70b1ed7ff777f60d56df649a1bc4fd61",
+      "numeric_checks": 303,
+      "phase": "open-save",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "child_sha256": "029121953b3ee1b1a3178f4fbd0391d05b8dba019aa6a21f8e84a8c0ccc141c8",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "2787864650dba37349b32cf897cfbe562b80f6c27ea4fc8a12e528e742f30502",
+      "native_record_sha256": "83fd1464b6f1748cc5cd40b9e43f35665709715d4ae019169b201d23257f75a4",
+      "numeric_checks": 140,
+      "phase": "reopen",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "child_sha256": "102defc6d7a858a806a4df546edf15ae20705da6d3860b11f2142a21659f23a9",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "d765d89727cb18c3894403396f5f0cba807c7c6c89c89e94c764a8f45cdf9cd9",
+      "native_record_sha256": "e8cfe881ba1aff82cb567b774c7796eed15fe6d62cc36da91846040424182b5b",
+      "numeric_checks": 342,
+      "phase": "edit-move-save",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    },
+    {
+      "actual_child_file_alias": true,
+      "actual_configuration_selection": true,
+      "actual_detail_selectors": true,
+      "actual_display_folder_view_aliases": true,
+      "actual_matching_ui_owners": true,
+      "actual_origin_profile_link": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "AnsiNormalizedCenteredPrecisionFiveAnsiInitialized",
+      "child_sha256": "102defc6d7a858a806a4df546edf15ae20705da6d3860b11f2142a21659f23a9",
+      "complete_child_byte_identity": true,
+      "complete_definition_byte_identity": true,
+      "drawing_sha256": "d765d89727cb18c3894403396f5f0cba807c7c6c89c89e94c764a8f45cdf9cd9",
+      "native_record_sha256": "d06ba1c0dc9219311d92920e492a31a0b6697f586bf30059f10f2a13896450b8",
+      "numeric_checks": 140,
+      "phase": "reopen-edited",
+      "presentation_differences": [
+        {
+          "left": 278528,
+          "path": "/drawing_details/f20",
+          "right": 1327104
+        }
+      ],
+      "stored_normal_coordinate_preserved": true,
+      "style_mode": "ansi"
+    }
+  ],
+  "centreline_followup": {
+    "cases": 2,
+    "exact_presentation_joins": 10,
+    "expected_phases": 10,
+    "packet_sha256": "ba0c52215d5eaa82f2eccc18490ac494cb2ded12dad6060f5bbb076f8a773b63",
+    "receipt_sha256": "eeca7ff8e4d75c6dcafa7afef0709679b89ae6204220052cc23577a38d45267a",
+    "status": "disclosed_native_persistence_passed",
+    "tool_sha256": {
+      "guest_observer": [
+        "re/tooling/sw2026/InspectAnsiDrawingLifecycle.py",
+        "c4c2869c545e0a90ed3f3fe553192685aa117a07f45a5adc450c8989b32ee0fe"
+      ],
+      "host_qualifier": [
+        "re/tooling/sw2026/ansi_pair/QualifyAnsiLifecycle.py",
+        "3c37b11d0401ceffb98e383bdcf4802f24943aa8a75c8df57d1e1865899981e7"
+      ],
+      "packet_preparer": [
+        "re/tooling/sw2026/ansi_load_init/PrepareNative.py",
+        "64520d33df44149c7a08413d445fb2d67f98b95dfcb3997994f4ebd0776aad2a"
+      ]
+    }
+  },
+  "clean_native_phases": 18,
+  "complete_style_retention_passed": false,
+  "complete_unchanged_constructed_ansi_joins": 2,
+  "complete_unchanged_iso_joins": 10,
+  "controls_healthy": true,
+  "final_transport_observer_sha256": "3b70b63ebf6c199bbe31a59926b41b96659319cac52168154bc69eb9c65843ae",
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "native_acceptance": false,
+  "native_lifecycle_passed": true,
+  "native_report_sha256": "4e47bcae5ba0c431fc5dd86816db26fcfad567d2fda552caaa6620bb85419900",
+  "numeric_checks": 3700,
+  "packet_sha256": "6593627727b39d619a60c609b79e0848084f94b6038d7e7b72a17f5d2a03f25c",
+  "root_transport_sha256": "7161b4f8edf627d8fff815a92843883edf6e57df9fe19847e6e05c6492019bca",
+  "saved_ansi_joins_with_centreline_residual": 8,
+  "schema": "kit.sw2026.drawing-detail-initialization-native-receipt.v1",
+  "source_host_report_sha256": "9820b4ec37403bcc1e67333e160a026fb2465c8c3e403a89d0b05111f6b61410",
+  "source_manifest_sha256": "8a72047d19750a4b9230de23a440b1c7280736c6b1b691b2945083dac58b5b19",
+  "source_original_admission": false,
+  "typed_joins": 20,
+  "typed_report_sha256": "bdc60d93de9c7aefafb36171181705510a08e13b87d8940c4d0463e37bc960a0"
+}

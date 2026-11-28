@@ -4,6 +4,7 @@ from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Units.UnitVocabulary import (
     KAngleCodes,
     KLengthCodes,
+    KMassCodes,
     KSystemCodes,
 )
 
@@ -15,6 +16,7 @@ class UnitInput:
     AngleUnit: str
     UnitSystem: str
     DecimalPlaces: int
+    MassUnit: str | None = None
 
     # unsupported names or precision must fail without native preference lookup or clamping
     def __post_init__(self) -> None:
@@ -35,3 +37,14 @@ class UnitInput:
             raise ValueError(
                 "native unit precision must be an integer from zero through sixteen"
             )
+        if self.UnitSystem == "custom":
+            if (
+                (self.LengthUnit, self.AngleUnit) != ("mm", "degree")
+                or type(CastValue(object, self.MassUnit)) is not str
+                or self.MassUnit not in KMassCodes
+            ):
+                raise ValueError(
+                    "custom units require millimetres degrees and an explicit gram or kilogram mass"
+                )
+        elif self.MassUnit is not None:
+            raise ValueError("an explicit mass unit requires the custom system")

@@ -1,0 +1,220 @@
+{
+  "base": "fecc574bad42189dbbc2c66c997b7e71e9005972",
+  "designs": {
+    "tall": {
+      "actual_owner": {
+        "D1": {
+          "display_id": 10,
+          "display_index": 177,
+          "driving_value_m": 0.028375,
+          "group_slot": 0,
+          "handle_index": 179,
+          "parameter_index": 162,
+          "selected_point_indices": [
+            0,
+            1
+          ],
+          "sketch_index": 149,
+          "value_id": 19,
+          "value_index": 160
+        },
+        "D2": {
+          "display_id": 11,
+          "display_index": 182,
+          "driving_value_m": 0.045625,
+          "group_slot": 1,
+          "handle_index": 183,
+          "parameter_index": 167,
+          "selected_point_indices": [
+            1,
+            2
+          ],
+          "sketch_index": 149,
+          "value_id": 20,
+          "value_index": 166
+        }
+      },
+      "changed_child_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "default_child_sha256": "5f670dcac5a56562f44bd19973849758a965212ff42dcc2bc3d036727ba54a10",
+      "default_parent_sha256": "dc1ea75ba1bc65e69430856750039136d202f42f27d6535cb0fef612e5792707",
+      "intent": {
+        "D1": {
+          "route_centerline": false,
+          "text_point_m": [
+            0.004872,
+            -0.03411,
+            -0.000392
+          ]
+        },
+        "D2": {
+          "route_centerline": true,
+          "text_point_m": [
+            0.02398,
+            -0.00729,
+            0.000908
+          ]
+        }
+      },
+      "legacy_default_identity": true,
+      "presentation_child_sha256": "aa723940f1b2ffbfe630af387a350202e2691cbea919f63b62781253e8da6eaa",
+      "request_sha256": {
+        "baseline": "d4bfa5e702dbbba67ea985dc66261e7b06564905e45f47fb99d3ca07bcd97337",
+        "default": "d4bfa5e702dbbba67ea985dc66261e7b06564905e45f47fb99d3ca07bcd97337",
+        "explicit_default": "67eb7db3167afb8bc6064b0151cdacf1cccfbe0355d67f97f25d03db1702857b",
+        "planar": "76b6a9249a606e9d22cc0e7c04d9a0fa5e8de044d876825a1eb042973aa253e0",
+        "repeat": "8d1a053555c462047d6280e6903a44d43f1cb18dc967a0361f56eae4211152f7",
+        "research": "8d1a053555c462047d6280e6903a44d43f1cb18dc967a0361f56eae4211152f7",
+        "spatial": "8d1a053555c462047d6280e6903a44d43f1cb18dc967a0361f56eae4211152f7"
+      },
+      "research_spatial_identity": true
+    },
+    "wide": {
+      "actual_owner": {
+        "D1": {
+          "display_id": 10,
+          "display_index": 177,
+          "driving_value_m": 0.051750000000000004,
+          "group_slot": 0,
+          "handle_index": 179,
+          "parameter_index": 162,
+          "selected_point_indices": [
+            0,
+            1
+          ],
+          "sketch_index": 149,
+          "value_id": 19,
+          "value_index": 160
+        },
+        "D2": {
+          "display_id": 11,
+          "display_index": 182,
+          "driving_value_m": 0.036125,
+          "group_slot": 1,
+          "handle_index": 183,
+          "parameter_index": 167,
+          "selected_point_indices": [
+            1,
+            2
+          ],
+          "sketch_index": 149,
+          "value_id": 20,
+          "value_index": 166
+        }
+      },
+      "changed_child_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "default_child_sha256": "9acc5f08ad805d9f8d02ee4338934e2cc87ffb60f7d181ec450e8006d775ab60",
+      "default_parent_sha256": "d10fc12d9d46ee16f3ec4e7faf5464b6242dace8f2bcfc36dd6e57e429ed9218",
+      "intent": {
+        "D1": {
+          "route_centerline": true,
+          "text_point_m": [
+            -0.00815,
+            -0.02685,
+            0.000293
+          ]
+        },
+        "D2": {
+          "route_centerline": false,
+          "text_point_m": [
+            0.03529,
+            0.00473,
+            -0.000711
+          ]
+        }
+      },
+      "legacy_default_identity": true,
+      "presentation_child_sha256": "8eea81c76f238753e3d652278284f70e4a3d28dbdae116281c0f9518d31f2036",
+      "request_sha256": {
+        "baseline": "550e932a70ecd21660e96f526bef9098abda24b11f4945a2a9ecd3dd990d0ec5",
+        "default": "550e932a70ecd21660e96f526bef9098abda24b11f4945a2a9ecd3dd990d0ec5",
+        "explicit_default": "d22893e8efa52aeb2524966d375309df594dfcbe1d3a342d21d42743fda479e2",
+        "planar": "f19f69838a5ae434cfe4537f0d7c2eb3221bbb8ecc97729fd822f5e2f94a5ad3",
+        "repeat": "f705cb12fa5204c8494296d4aa62ec105b36e6c1d66a592e55c08de4caa59912",
+        "research": "f705cb12fa5204c8494296d4aa62ec105b36e6c1d66a592e55c08de4caa59912",
+        "spatial": "f705cb12fa5204c8494296d4aa62ec105b36e6c1d66a592e55c08de4caa59912"
+      },
+      "research_spatial_identity": true
+    }
+  },
+  "file_sha256": {
+    "re/tooling/sw2026/planar_registry/PlanarRegistryBuild.py": "21afc289a9657bda6664b7baaf9591aa6ddbe2decbddd42f5cb018c5b63beb0b",
+    "re/tooling/sw2026/planar_registry/ProvePlanarLabelHandoff.py": "ef443e65748022676ca2d9aa796834bdd3ac49fa3c5e44fb82dd03f978dfa4e9",
+    "re/tooling/sw2026/planar_registry/ProveSketchLabelIntent.py": "7da9bdaad09b15af3329d64c97239e7d9788776aebcd41dc7f4d6a29e9f273c2",
+    "re/tooling/sw2026/planar_registry/SketchLabelIntent.py": "769c519ec62ac23d3ce5999aa2529f1009e282f8b5153e6266394dddcd2d6155",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectDimsMut.py": "338ee60b3b38a1c9c9e4b221828b841917a6788cc17b0168be3d1d9318a3ca25",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectDisplay.py": "9ca950983e88d43fdbd8ce184f25b3d76ee0f0ab280288ae0f628d8fb3718d41",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/ReadRectPlace.py": "459f6be61b09a145ad5ddebb772d222c91099709f6d2b492220c98a700f0263f",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/RectDimInput.py": "38f8b78a8d7294f650bc3c14d35a5df0bab52bfa47920b096560f2439a278f98",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Children/BindRectLabels.py": "705e92a5cbbf941eff426a4b241745f1e9be3ff39deb93e9f7dfd34fe039d438",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Children/SketchLabelIn.py": "88a07db7e4f6af438ec1b0b2e744640cdfa097b40558b369426f184f0a423dd6",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/PlanAsmWrite.py": "fc323b66a78ce57cf10b673378fd53dbb20628109391e7abd8e157b02f6b0219",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/PrepareAssembly.py": "362cb0923574144ffb8f62f85514da713310b9e557359657df88fdef9e40ca40",
+    "tests/Convert/Solidworks/Research/Construction/Assembly/SketchLabelHandoffTests.py": "e6f8b2ab1f53561d539dd443481b0a284503fa9887102aead7a34edad4e3536d",
+    "tests/Convert/Solidworks/Research/ConstructionGuard.py": "f31598bb5ee9811819fd5a7040674e5601a23dcd326d21ba8a76c50edff4e6bf"
+  },
+  "heldout_credit": 0,
+  "independently_authored_models": 2,
+  "linked_round_trips": 28,
+  "native_processes": 0,
+  "processes": 24,
+  "raw_receipt_sha256": "9d8f5ecac32a533ca178cd5a38919b15c343653361d798ba4681c17ff90fcbb9",
+  "refusals": {
+    "boolean_point": {
+      "error": "view coordinate or scale must be a real numeric value",
+      "prepared_children": 0,
+      "request_sha256": "470640a9ff10f08c9d60e1e50af7c60fa7cd389973aff6188d9623fabb4cd240"
+    },
+    "duplicate_driver": {
+      "error": "rectangle labels require both actual owned sketch drivers",
+      "prepared_children": 0,
+      "request_sha256": "29c145137a7ac620ab49ed983d633483a71a44992573e45a84885e614dca24f8"
+    },
+    "foreign_sketch": {
+      "error": "rectangle labels require both actual owned sketch drivers",
+      "prepared_children": 0,
+      "request_sha256": "c500419e220e23f8fa7350b77ecdd460b2e962469859dd6f0278900186d2f738"
+    },
+    "implicit_route": {
+      "error": "sketch label routing requires an explicit boolean",
+      "prepared_children": 0,
+      "request_sha256": "dcd25ba7b3e7226ef0fb002d96bc36ffc1bda2c892d5628a4ee00461a26f1e3d"
+    },
+    "missing_driver": {
+      "error": "rectangle requires two typed sketch labels",
+      "prepared_children": 0,
+      "request_sha256": "125602c5ef9b4f1a41292086b90870b172f2af299a10587c3675d0db38342b18"
+    },
+    "outside_witness": {
+      "error": "rectangle dimension text must lie outside beside its dimensioned edge",
+      "prepared_children": 0,
+      "request_sha256": "2d973b625ca7d1728da0d08b32ae90aa41a8c391933a5628de221ef9a3ce3622"
+    },
+    "parent_driver": {
+      "error": "rectangle labels require both actual owned sketch drivers",
+      "prepared_children": 0,
+      "request_sha256": "dae23fba51d4a37e265c4cdb395914dedb647456beba13f887077f3f432b5317"
+    },
+    "shifted_support": {
+      "error": "boss support must be a canonical principal frame at origin",
+      "prepared_children": 0,
+      "request_sha256": "f7ccad53beab88ffc3d8360378e29b3b0116780e3ae5f4876e95a9999e029f37"
+    },
+    "short_point": {
+      "error": "sketch label requires three finite sketch frame coordinates",
+      "prepared_children": 0,
+      "request_sha256": "ad14dfc1298c2d3299047002cf6c58059488d81b2d9749314ec7da74c37ec1ee"
+    },
+    "unprojected_root": {
+      "error": "assembly root contains unprojected model content",
+      "prepared_children": 0,
+      "request_sha256": "643b92c9632dd202442c68020df710acdb75a4af6084bbc984e4129c65d1dbe7"
+    }
+  },
+  "reserved_sources_read": 0,
+  "runtime_reads": 0,
+  "schema": "kit.sw2026.planar-label-shared-handoff.v1"
+}

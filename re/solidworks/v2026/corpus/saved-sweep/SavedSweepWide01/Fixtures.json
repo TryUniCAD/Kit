@@ -1,0 +1,63 @@
+{
+  "author_revision": "038a8fc7aaf0ad3ba8541c325a23ef70646e9ba6",
+  "author_tree": "b016df607bb39d9c1c233070e0fef8b4cabfae38",
+  "authored_spec_sha256": "e62d1d09ac26cc0ae9538a846b0800023441403b5d04ac432a8f6b1da8e71023",
+  "cases": {
+    "original": {
+      "archive_bytes": 50672,
+      "archive_sha256": "46a8faf1e54be5e312c0ab9f0e739c60cd4cd473bca09ae72369a552ef41675c",
+      "file": "SweepArcWide.SLDPRT",
+      "native_phase": "author",
+      "native_phase_receipt_sha256": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0",
+      "omitted_streams": [
+        "Contents/Definition",
+        "Contents/DisplayLists"
+      ],
+      "original_archive_bytes": 76387,
+      "original_archive_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "scrubbed_streams": [
+        "Contents/Config-0-ModelHeader",
+        "Header2",
+        "_MO_VERSION_19000/Biography",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/core.xml"
+      ],
+      "semantic_projection_equal": true,
+      "unchanged_streams": 34
+    },
+    "section": {
+      "archive_bytes": 52110,
+      "archive_sha256": "2e1db56ec1100add9c8f086a8a77d48e52bc573827972b194bde64261f5cfa37",
+      "file": "SweepArcWideSectionEdit.SLDPRT",
+      "native_phase": "section-reopen",
+      "native_phase_receipt_sha256": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40",
+      "omitted_streams": [
+        "Contents/Definition",
+        "Contents/DisplayLists"
+      ],
+      "original_archive_bytes": 79449,
+      "original_archive_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "scrubbed_streams": [
+        "Contents/Config-0-ModelHeader",
+        "Header2",
+        "_MO_VERSION_19000/Biography",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/core.xml"
+      ],
+      "semantic_projection_equal": true,
+      "unchanged_streams": 34
+    }
+  },
+  "fixture_native_observations": 0,
+  "healthy_controls": {
+    "after": "153d209162df7aa964082c3b3aa53a464615b82da933f4b8c6efcece7139dcca",
+    "before": "959b5ccefa657a6f51c08077e4cddd113911d0a7fe867d78b43e8552646983d3"
+  },
+  "heldout_credits": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.saved-sweep-scrubbed-regression.v1",
+  "source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "source_slot": 2,
+  "writer_acceptance_credits": 0
+}

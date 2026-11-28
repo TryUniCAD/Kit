@@ -1,0 +1,564 @@
+{
+  "chain": {
+    "actual_measured_returns": [
+      "0x4bb516e5",
+      "0x4bda6384",
+      "0x4b493612"
+    ],
+    "actual_measured_store": "0x4c03ee0e",
+    "not_proven": "first observed event is not independently phase-ordered after replaceBody by these separate invocation traces",
+    "part_propagation": "feature+b8 propagates nonzero request to actual owner+b8 when flag2 is clear; model wrapper tail-jumps node update",
+    "state11_owner": "moConcept::addFeature nonzero fifth argument requests receiver+b8(11,0,actual_added_feature)",
+    "wrapper_child_request": "after insertion wrapper calls actual child+b8(0,1,null); ambient concrete slot resolves to ret0 no mutation"
+  },
+  "conditional_stack": {
+    "base": "actual RSP at Node update store",
+    "dword_120": "addFeature fifth dirty-enable; observed1",
+    "dword_128": "addFeature sixth name-registration; observed0",
+    "if_138_is_4bda6757": "qword[RSP+0x2c8] is addNewFeature caller",
+    "if_2c8_is_4c019fb4": "qword[RSP+0x4e8] is createDefaultLights caller",
+    "not_general_unwind": "all stack offsets require the exact preceding return chain and current original prologues",
+    "qword_138": "next wrapper caller; unmeasured",
+    "qword_28": "0x4bb516e5 immediate feature propagation return",
+    "qword_c8": "0x4bda6384 addFeature state11 return",
+    "qword_f8": "0x4b493612 environment wrapper direct base return",
+    "site": "0x4c03ee0e"
+  },
+  "data_windows": [
+    {
+      "bound": "original typed RTTI or UTF16 vocabulary",
+      "bytes": 24,
+      "end_exclusive": "0x4d2ee260",
+      "module": "sldmodu.dll",
+      "name": "ambient concrete complete object locator",
+      "sha256": "170556421ffb9b72c2a4c6d6c80b729dda93921f5e101fe7ed5ec516086d9116",
+      "start": "0x4d2ee248"
+    },
+    {
+      "bound": "original typed RTTI or UTF16 vocabulary",
+      "bytes": 38,
+      "end_exclusive": "0x4db122ee",
+      "module": "sldmodu.dll",
+      "name": "ambient concrete type descriptor",
+      "sha256": "9866978a2d338b35d47062875aba89d2b020aa7b3fadd3879413a774662b0e5a",
+      "start": "0x4db122c8"
+    },
+    {
+      "bound": "original typed RTTI or UTF16 vocabulary",
+      "bytes": 16,
+      "end_exclusive": "0x4ce2ab20",
+      "module": "sldmodu.dll",
+      "name": "session default lookup vocabulary",
+      "sha256": "39cde5d97c338f448e46adee70f771f513ab5706fce8b13870c5e3a5f9d31db0",
+      "start": "0x4ce2ab10"
+    },
+    {
+      "bound": "original typed RTTI or UTF16 vocabulary",
+      "bytes": 24,
+      "end_exclusive": "0x334d4c70",
+      "module": "sldprtu.dll",
+      "name": "uiPartDoc concrete complete object locator",
+      "sha256": "3eb7f8ee8b52460ef2e820de26a48f48560fb9021df2ef5e3b347c3d765bd1f9",
+      "start": "0x334d4c58"
+    },
+    {
+      "bound": "original typed RTTI or UTF16 vocabulary",
+      "bytes": 32,
+      "end_exclusive": "0x3359cb50",
+      "module": "sldprtu.dll",
+      "name": "uiPartDoc concrete type descriptor",
+      "sha256": "a7e49d9e54d41210d8fca914c13ac2a87b1f15613408e291d60ecc517d6a6080",
+      "start": "0x3359cb30"
+    }
+  ],
+  "execution": {
+    "claims_native_acceptance": false,
+    "heldout_inputs": 0,
+    "shared_mutations": false,
+    "worker_codec_or_schema": false,
+    "worker_native": false,
+    "worker_tests": false,
+    "worker_vm": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 681,
+      "end_exclusive": "0x4bb51869",
+      "module": "sldmodu.dll",
+      "name": "FeatureSetNeedsUpdate01",
+      "sha256": "fae726e8633456879305c04780e2182dc1eacf227a7fa07427c3a8f40f9250e5",
+      "start": "0x4bb515c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 681,
+          "end_exclusive": "0x4bb51869",
+          "sha256": "fae726e8633456879305c04780e2182dc1eacf227a7fa07427c3a8f40f9250e5",
+          "start": "0x4bb515c0",
+          "unwind_rva": "0x238b2cc"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4bb45da8",
+      "module": "sldmodu.dll",
+      "name": "FeatureGetOwner02",
+      "sha256": "cd753b8aeb8b2bcf0ce1e4d32e51025cd6ae1f7e0893d61735a797ee2d472b5b",
+      "start": "0x4bb45da0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 422,
+      "end_exclusive": "0x4bda6446",
+      "module": "sldmodu.dll",
+      "name": "ActualDirtyUpstream01",
+      "sha256": "1ec661516498b04be16df6ed222270037cac73013bcd510e950bddacca14e580",
+      "start": "0x4bda62a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 422,
+          "end_exclusive": "0x4bda6446",
+          "sha256": "1ec661516498b04be16df6ed222270037cac73013bcd510e950bddacca14e580",
+          "start": "0x4bda62a0",
+          "unwind_rva": "0x224928c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 75,
+      "end_exclusive": "0x4b49363b",
+      "module": "sldmodu.dll",
+      "name": "MeasuredEnvironmentInsertion01",
+      "sha256": "7513cb505cd5e3992c695ffb4854b2621aa499d24848d04e4f6c1f48b5d267da",
+      "start": "0x4b4935f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 75,
+          "end_exclusive": "0x4b49363b",
+          "sha256": "7513cb505cd5e3992c695ffb4854b2621aa499d24848d04e4f6c1f48b5d267da",
+          "start": "0x4b4935f0",
+          "unwind_rva": "0x2245bbc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1745,
+      "end_exclusive": "0x4bda6d91",
+      "module": "sldmodu.dll",
+      "name": "EnvFolderInsertFd001",
+      "sha256": "328432fedf12e478d598736cc60c6811c21dcea2c717af3f0efe6d2dca27e89f",
+      "start": "0x4bda66c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1745,
+          "end_exclusive": "0x4bda6d91",
+          "sha256": "328432fedf12e478d598736cc60c6811c21dcea2c717af3f0efe6d2dca27e89f",
+          "start": "0x4bda66c0",
+          "unwind_rva": "0x23e05f0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 89,
+      "end_exclusive": "0x4c028fb9",
+      "module": "sldmodu.dll",
+      "name": "ModelHasLights01",
+      "sha256": "35a97898bcbce64e95cd6da73ad1555fcb018ccc55285683f054a1def7544396",
+      "start": "0x4c028f60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 89,
+          "end_exclusive": "0x4c028fb9",
+          "sha256": "35a97898bcbce64e95cd6da73ad1555fcb018ccc55285683f054a1def7544396",
+          "start": "0x4c028f60",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 8968,
+      "end_exclusive": "0x4979b908",
+      "module": "slduiu.dll",
+      "name": "UiPostLoadDefaultLights01",
+      "sha256": "740685ecc352bee34e80bbe06df0dd4690b8da37aebe7eee33e316d9eb25e85a",
+      "start": "0x49799600",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 8968,
+          "end_exclusive": "0x4979b908",
+          "sha256": "740685ecc352bee34e80bbe06df0dd4690b8da37aebe7eee33e316d9eb25e85a",
+          "start": "0x49799600",
+          "unwind_rva": "0x1bc87d0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 982,
+      "end_exclusive": "0x4c01a036",
+      "module": "sldmodu.dll",
+      "name": "ModelCreateDefaultLights01",
+      "sha256": "4d4726fcc4730c1e02a2585dc8b66e7a5a3f7ee4b3c57c708d702df2dd3b054f",
+      "start": "0x4c019c60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 982,
+          "end_exclusive": "0x4c01a036",
+          "sha256": "4d4726fcc4730c1e02a2585dc8b66e7a5a3f7ee4b3c57c708d702df2dd3b054f",
+          "start": "0x4c019c60",
+          "unwind_rva": "0x24394f8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 548,
+      "end_exclusive": "0x4bc0ca24",
+      "module": "sldmodu.dll",
+      "name": "LightCreateByType01",
+      "sha256": "2a95adb4d6f9d26b7c12124a2412b44ee7d13a4ea47813caafee004c4d8ac421",
+      "start": "0x4bc0c800",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 548,
+          "end_exclusive": "0x4bc0ca24",
+          "sha256": "2a95adb4d6f9d26b7c12124a2412b44ee7d13a4ea47813caafee004c4d8ac421",
+          "start": "0x4bc0c800",
+          "unwind_rva": "0x23a4b44"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 284,
+      "end_exclusive": "0x4c03eeac",
+      "module": "sldmodu.dll",
+      "name": "NodeSetNeedsUpdate01",
+      "sha256": "d441aeedacf219b7cfeac0298109606c454ad5b67ead1aeffcd93c0ecc60e8b6",
+      "start": "0x4c03ed90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 284,
+          "end_exclusive": "0x4c03eeac",
+          "sha256": "d441aeedacf219b7cfeac0298109606c454ad5b67ead1aeffcd93c0ecc60e8b6",
+          "start": "0x4c03ed90",
+          "unwind_rva": "0x22477f0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 98,
+      "end_exclusive": "0x4c036422",
+      "module": "sldmodu.dll",
+      "name": "ModelSetNeedsUpdate01",
+      "sha256": "1675a79190e3a6897b4126debc887c5be3df79195c7ca411d053f05690768fca",
+      "start": "0x4c0363c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 98,
+          "end_exclusive": "0x4c036422",
+          "sha256": "1675a79190e3a6897b4126debc887c5be3df79195c7ca411d053f05690768fca",
+          "start": "0x4c0363c0",
+          "unwind_rva": "0x2245b80"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 18,
+      "end_exclusive": "0x4c022272",
+      "module": "sldmodu.dll",
+      "name": "moModel getLightsAndCameras",
+      "sha256": "4c0b7ef26f25bdfd2b54df6ba43ba14b8510a9da1bb03bd85fe5aa77d6e5b1ec",
+      "start": "0x4c022260",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x4b27e123",
+      "module": "sldmodu.dll",
+      "name": "ambient actual b8 no mutation leaf",
+      "sha256": "b6cbececf1b07e74f37d57710c68c31f0b92cb08d51093252b321b07542e177b",
+      "start": "0x4b27e120",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x48ee4c03",
+      "module": "slduiu.dll",
+      "name": "uiModelDoc isDrawingDoc false leaf",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x48ee4c00",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x3343566f",
+      "module": "sldprtu.dll",
+      "name": "uiPartDoc isDrawingDoc import thunk",
+      "sha256": "d6b7f3034a1bfeb84b58707bfcfd751193dd9a91f1915f3e14b766555fa44f38",
+      "start": "0x33435669",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4a452138",
+      "module": "SLDMODU.dll",
+      "name": "?hasLights@moModel_c@@QEAA_NXZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a452880",
+      "module": "SLDMODU.dll",
+      "name": "?createDefaultLights@moModel_c@@QEAAXXZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a45d740",
+      "module": "SLDMODU.dll",
+      "name": "?getLightsAndCameras@moModel_c@@QEAAPEAVmoNodeList_c@@XZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x33472588",
+      "module": "slduiu.dll",
+      "name": "?isDrawingDoc@uiModelDoc_c@@UEBAHXZ",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x4cd3c498",
+      "module": "sldsessionu.dll",
+      "name": "?Environment@SldSession_c@@SAPEAVSldEnvironment_c@@XZ",
+      "source_module": "sldmodu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "bounded instruction window inside complete parent",
+      "bytes": 75,
+      "end_exclusive": "0x4b49363b",
+      "module": "sldmodu.dll",
+      "name": "actual environment insertion wrapper full call and child request",
+      "sha256": "7513cb505cd5e3992c695ffb4854b2621aa499d24848d04e4f6c1f48b5d267da",
+      "start": "0x4b4935f0"
+    },
+    {
+      "bound": "bounded instruction window inside complete parent",
+      "bytes": 62,
+      "end_exclusive": "0x4bda639a",
+      "module": "sldmodu.dll",
+      "name": "state11 insertion guard and actual call return",
+      "sha256": "834566d264ca4f6dcf20d6c9b4b3facd721137a9f5b784a2b35fd06b2e7857a4",
+      "start": "0x4bda635c"
+    },
+    {
+      "bound": "bounded instruction window inside complete parent",
+      "bytes": 67,
+      "end_exclusive": "0x4bb516e5",
+      "module": "sldmodu.dll",
+      "name": "feature owner propagation and actual immediate return",
+      "sha256": "ba31200561ba91631837b9bda444540803aea2203f927ef21c545205040d81b4",
+      "start": "0x4bb516a2"
+    },
+    {
+      "bound": "bounded instruction window inside complete parent",
+      "bytes": 68,
+      "end_exclusive": "0x4c019fcf",
+      "module": "sldmodu.dll",
+      "name": "default light registration and folder clear request",
+      "sha256": "514ff7a66df7382e7f9723c688a02513c3da035f9442d0a1f5adefba1ada0319",
+      "start": "0x4c019f8b"
+    },
+    {
+      "bound": "bounded instruction window inside complete parent",
+      "bytes": 37,
+      "end_exclusive": "0x4bda6757",
+      "module": "sldmodu.dll",
+      "name": "addNewFeature translates fourth argument to dirty fifth",
+      "sha256": "3c352ddee222c3863b82c8714f2eea96f4433dc93b515df3ad6f41e170b36952",
+      "start": "0x4bda6732"
+    },
+    {
+      "bound": "bounded instruction window inside complete parent",
+      "bytes": 83,
+      "end_exclusive": "0x4bc0c867",
+      "module": "sldmodu.dll",
+      "name": "type1 creates ambient concrete vtable",
+      "sha256": "46c500302494d287e883e6fd94ac20511bc0bb80986eee0e1ec1a524d50be34b",
+      "start": "0x4bc0c814"
+    },
+    {
+      "bound": "bounded instruction window inside complete parent",
+      "bytes": 55,
+      "end_exclusive": "0x49799fa8",
+      "module": "slduiu.dll",
+      "name": "ordinary non-drawing and hasLights reconstruction gate",
+      "sha256": "30822340274c3f0f467faa3efc2d29e2e8768370a2d251afccf0f3004afdfe3a",
+      "start": "0x49799f71"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 36036696,
+      "exception_directory_bytes": 880608,
+      "exception_directory_rva": "0x20bf000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 3340888,
+      "exception_directory_bytes": 110988,
+      "exception_directory_rva": "0x322000",
+      "machine": "0x8664",
+      "name": "sldprtu.dll",
+      "preferred_base": "0x332a0000",
+      "sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494"
+    }
+  ],
+  "observed_first_dirty_event": {
+    "added_child_concrete_class": "moAmbientLight_c",
+    "added_child_feature_id": 27,
+    "added_child_vtable_rva": "0x1c645d0",
+    "bytes": 3010,
+    "insertion_registers_name": 0,
+    "insertion_requests_update": 1,
+    "native_acceptance": false,
+    "new_part_f0c": 1,
+    "old_part_f0c": 0,
+    "open_errors": 0,
+    "open_warnings": 32,
+    "originating_feature_class": "moEnvFolder_c",
+    "originating_feature_id": 9,
+    "public_bodies_before_rebuild": 0,
+    "request_state": 11,
+    "runtime_trace_complete": false,
+    "sha256": "b830931e6b268d6e220864401d032738bf3dca2c6dbd5fdcfd0e08f6541139ff",
+    "source": "GeneratedFirstDirtyEnvironmentInsertion01.json"
+  },
+  "owner": "flag_ownership; root owns runtime and publication",
+  "post_load_reconstruction_gate": {
+    "ambient_specific": false,
+    "call": "0x49799fa2",
+    "call_bytes": 6,
+    "default_light_inputs": "SldSession::Environment virtual0x188 queried with native Default vocabulary, then type-specific createByType; concrete attribute vector remains session input, not a format constant",
+    "hasLights": "false when folder/list absent or signed count<=0; otherwise traverses existing list and returns true on any actual child vslot0x1ed0 true",
+    "parent": "uiModelDoc::iPostLoadModel",
+    "requirements": [
+      "actual document is not a drawing",
+      "actual environment node-list pointer exists",
+      "actual moModel::hasLights returns false"
+    ],
+    "return": "0x49799fa8",
+    "scope": "independently proven source branch; deeper runtime caller unmeasured"
+  },
+  "prior_observation": {
+    "bytes": 2479,
+    "sha256": "8f67d69fab10efade2954f2859d57c81f22950d3bf11033ac83842300b847daf",
+    "source": "GeneratedFirstDirtyDirtyStore02.json"
+  },
+  "release": [
+    34,
+    5,
+    2,
+    604
+  ],
+  "schema": "part-environment-dirty-propagation-2026-v1",
+  "scope_limits": [
+    "no original source/default-light parity or generated acceptance",
+    "no need to alter partition receive, active marks or kernel attributes is established by this record",
+    "no evidence that f2b8 alone causes the observed dirty transition",
+    "no writer change, suppression hack, VM action or vendor code in delivery"
+  ],
+  "task": "B04-SW2026-PART-COLD-ADMISSION",
+  "vtable_cells": [
+    {
+      "cell": "0x4d04a588",
+      "module": "sldmodu.dll",
+      "name": "environment feature update",
+      "slot": "0xb8",
+      "table": "0x4d04a4d0",
+      "target": "0x4bb515c0"
+    },
+    {
+      "cell": "0x4d04b488",
+      "module": "sldmodu.dll",
+      "name": "environment insert wrapper",
+      "slot": "0xfb8",
+      "table": "0x4d04a4d0",
+      "target": "0x4b4935f0"
+    },
+    {
+      "cell": "0x4d04b4a0",
+      "module": "sldmodu.dll",
+      "name": "environment addNewFeature",
+      "slot": "0xfd0",
+      "table": "0x4d04a4d0",
+      "target": "0x4bda66c0"
+    },
+    {
+      "cell": "0x4cda4688",
+      "module": "sldmodu.dll",
+      "name": "ambient update no mutation",
+      "slot": "0xb8",
+      "table": "0x4cda45d0",
+      "target": "0x4b27e120"
+    },
+    {
+      "cell": "0x4cda64a0",
+      "module": "sldmodu.dll",
+      "name": "ambient is light true",
+      "slot": "0x1ed0",
+      "table": "0x4cda45d0",
+      "target": "0x4b27e150"
+    },
+    {
+      "cell": "0x4d125390",
+      "module": "sldmodu.dll",
+      "name": "part update",
+      "slot": "0xb8",
+      "table": "0x4d1252d8",
+      "target": "0x4c0363c0"
+    },
+    {
+      "cell": "0x3349f2c8",
+      "module": "sldprtu.dll",
+      "name": "actual part isDrawingDoc",
+      "slot": "0x1260",
+      "table": "0x3349e068",
+      "target": "0x33435669"
+    }
+  ]
+}

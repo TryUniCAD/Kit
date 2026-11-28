@@ -77,6 +77,8 @@ def run_refusals(doc, target, request, audit, writer, write_document, WriteOptio
         ("bad_build", lambda receipt: receipt["oracle"].update(build="34.0.0.0"), "exact passing SOLIDWORKS"),
         ("failed_control", lambda receipt: receipt["phases"][0].update(passed=False), "failed an oracle phase"),
         ("missing_digests", lambda receipt: receipt.update(native_result_sha256=""), "canonical SHA-256"),
+        ("unbound_packet", lambda receipt: receipt.update(packet_sha256=receipt["native_result_sha256"]), "authenticated standalone part evidence"),
+        ("unbound_terminal", lambda receipt: receipt.update(native_result_sha256=receipt["packet_sha256"]), "authenticated standalone part evidence"),
         ("missing_reopen", lambda receipt: next(row for row in receipt["phases"] if row["role"] == request["role"] + "Reopen").update(role="UnownedReopen"), "matched candidate lifecycle"),
         ("unclean_generated", lambda receipt: next(row for row in receipt["phases"] if row["role"] == request["role"] + "Generated")["states"][0].update(warnings=1), "unclean solid observation"),
     ):

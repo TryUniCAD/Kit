@@ -1,0 +1,71 @@
+{
+  "schema": "kit.sw2026.ordinary-assembly-specs.v1",
+  "scope": "Independent planar mate sources with a private synchronized native rectangular child. Native holdout archives and observations stay sealed until generated predictions are committed.",
+  "synchronize_owned_children": true,
+  "placement_units": "metres and degrees",
+  "cases": [
+    {
+      "name": "A17PlaneCoincident",
+      "split": "discovery",
+      "fixed_occurrence": 0,
+      "placements": [
+        {"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]},
+        {"axis": "y", "angle_deg": 31.71, "translation_m": [0.08271, 0.0, 0.01521]}
+      ],
+      "mates": [
+        {"kind": "coincident", "planes": [[0, "Top Plane"], [1, "Top Plane"]]}
+      ]
+    },
+    {
+      "name": "A18PlaneDistance",
+      "split": "discovery",
+      "fixed_occurrence": 0,
+      "placements": [
+        {"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]},
+        {"axis": "x", "angle_deg": -63.27, "translation_m": [0.06323, -0.01929, 0.02731]}
+      ],
+      "mates": [
+        {"kind": "distance", "planes": [[0, "Right Plane"], [1, "Right Plane"]], "distance_m": 0.06323}
+      ]
+    },
+    {
+      "name": "A19PlaneParallel",
+      "split": "discovery",
+      "fixed_occurrence": 0,
+      "placements": [
+        {"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]},
+        {"axis": "z", "angle_deg": 72.173, "translation_m": [0.07113, 0.02891, -0.01597]}
+      ],
+      "mates": [
+        {"kind": "parallel", "planes": [[0, "Front Plane"], [1, "Front Plane"]]}
+      ]
+    },
+    {
+      "name": "A20HeldoutPlaneCoincidentDistance",
+      "split": "heldout",
+      "fixed_occurrence": 0,
+      "placements": [
+        {"axis": "z", "angle_deg": 0.0, "translation_m": [0.0211, -0.01233, 0.00871]},
+        {"axis": "z", "angle_deg": 0.0, "translation_m": [0.12347, -0.01233, 0.02891]}
+      ],
+      "mates": [
+        {"kind": "coincident", "planes": [[0, "Top Plane"], [1, "Top Plane"]]},
+        {"kind": "distance", "planes": [[0, "Right Plane"], [1, "Right Plane"]], "distance_m": 0.10237}
+      ]
+    },
+    {
+      "name": "A21HeldoutPlaneParallelDistance",
+      "split": "heldout",
+      "fixed_occurrence": 0,
+      "placements": [
+        {"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]},
+        {"axis": "y", "angle_deg": -123.217, "translation_m": [-0.08647, 0.03147, 0.02231]},
+        {"axis": "x", "angle_deg": 44.581, "translation_m": [0.08317, -0.02913, 0.03671]}
+      ],
+      "mates": [
+        {"kind": "parallel", "planes": [[0, "Top Plane"], [1, "Top Plane"]]},
+        {"kind": "distance", "planes": [[0, "Right Plane"], [2, "Right Plane"]], "distance_m": 0.08317}
+      ]
+    }
+  ]
+}

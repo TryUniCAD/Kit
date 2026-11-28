@@ -1,0 +1,121 @@
+{
+  "base_revision": "45e4f8b83a674913d7a9c0349290a26fd10e0773",
+  "checked_refusals": {
+    "absent_outline": "closed line loop",
+    "changed_configuration": "unsupported configuration state",
+    "crossed_seed": "exact local body owner",
+    "crossed_style_owner": "presentation is not bound",
+    "duplicate_shown": "actual Back catalog",
+    "excess_instances": "two to eight instances",
+    "extra_metadata": "ordinary neutral part name",
+    "invalid_back_frame": "actual Back catalog",
+    "no_axis": "typed finite plane intersection axis",
+    "no_finite_trim": "directed first plane trim",
+    "nonlocal_target": "exact authored native basename",
+    "shifted_angle_label": "zero shifted point",
+    "wrong_body": "final neutral body",
+    "wrong_count": "drivers disagree",
+    "wrong_pitch_style": "unassigned pitch profile",
+    "wrong_topology": "final neutral body"
+  },
+  "disclosed_authority": {
+    "NativeResult/Result.json": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b",
+    "Packet/Build.json": "b04e279af46524b69a3198c50e2ba06a89702327be1885eb5e2283d82f2d84a3",
+    "Packet/Packet.json": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1"
+  },
+  "footprint_check": "owned by later shared geometry before complete construction",
+  "heldout_inputs_read": 0,
+  "historical_proof_unchanged": true,
+  "isolated_processes": 22,
+  "native_processes_started": 0,
+  "new_native_acceptance": 0,
+  "proof_sha256": "12f1fdca70f733b83fff675e27d2c02ab4a3d1de00cc3fac85e3ab03c3d3992e",
+  "public_writer_registered": false,
+  "schema": "kit.sw2026.shared-oblique-pattern-plan.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Input/LinPatternInput.py": "7d6db19228122615314dbc38742b030bf65c9d82fe7f96f7fc137f07cc1055d9",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Input/PatAngleStyle.py": "a59ed666195f5a29ac1a1a78f0b2f0642ef86598ae5576d4ec7b9afc4a9f0ddb",
+    "src/convert/adapters/solidworks/Archive/Construction/Patterns/Input/PatPresentInput.py": "e4303ae143e6f7154f0fbf4cca18930aeacd3a8fd2c424ef0cee732b5f125367",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/CheckPatHinge.py": "259d066cec680a781904b0a245dd8f36dafec305d37e103eb1494090d2fb379e",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/CheckPatHistory.py": "dc66873851df9487bdd5bd243e843a3420e25e24aab6e2fefdcdecba3726308c",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/CheckPatNames.py": "ff0effb34ccf21a7361935a063431e634769e90e90f8b27d37a877b25571e004",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/CheckPatPick.py": "1ac422fbc1d9e92115d5b8a7110608474e8d358f2ef83e0a55bc094d4f271c8d",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/CheckPatResult.py": "c377e4731e4d570b9866744dfe9c89c92127cdec54b5bdfe42f3b2e2addb5d27",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/CheckPatScope.py": "0698d3bde2d3348db98eae621a26ba020edc0931de66b4fa89e4f6cec2089d99",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/PlanLinPattern.py": "64aa925972017e7cfacd9560a345551faad2a1e4b5f48f7ca13fbdede7800f16",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatAngle.py": "7976997c270e96818fefc94a9bd3528efa8ea2f877981ef433853cadec7404ad",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatBox.py": "64c4d563c75083aa6002e4a77e5a1cd27515af7a06b391f3f8b252d9903f9885",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatMap.py": "19c4431ad1f7695c1edd31838d0afff8ed7ca757b9dba4135435547d94003f0e",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatPlanes.py": "92578ef7928805f28088d70869f18476fd03ace288260bd8a7f2296fb516f4df",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatPresent.py": "1e5949e0f97eb164757aaf493f99ef2f119d0ae21df5239628531f793524f0ba",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatStocks.py": "c342a36630373bad902b3218165a844f0308c53af006381cf7ff289659722141",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatTarget.py": "ebdfb1a568244fec413f290b3beb03119d7cfebfefce5d8f22dad7650e42d92e",
+    "src/convert/adapters/solidworks/Core/Preparation/Patterns/ReadPatValues.py": "0b51f38bc8ce4e9baaf7327ba6dd4a05eaa7ac266b5bc8623ced31ad1b73dd83"
+  },
+  "typed_projection_cases": {
+    "ColdRaisedPatternA": {
+      "count_only": {
+        "created_native_files": 0,
+        "guarded_input_reads": 0,
+        "imported_cad_modules": 0,
+        "portable_doc_sha256": "d82c618ddb3bfa22ec23478e4f83ac137fac3532de9d9f3f0ecc58856f8f2e55",
+        "prior_complete_file_sha256": "8f3910ab68135056024b306ab797f3feec998fe2ced3180d459e7e4d22ac64e0",
+        "public_axis_type": true,
+        "recipe_sha256": "55227e9dc61e84cbf6234b5ad11eeed20f52467ba30b7f23945b1833bf292b5c",
+        "request_sha256": "bdb8a0645597a434d0a940842fb04b0a39cef57224e0ba3d5584ccbf251fe871"
+      },
+      "original": {
+        "created_native_files": 0,
+        "guarded_input_reads": 0,
+        "imported_cad_modules": 0,
+        "portable_doc_sha256": "e9abb5bbcf7ce355c72fb58e84c967a38b5e110bd9df1eda33eedbc4a980f7d6",
+        "prior_complete_file_sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+        "public_axis_type": true,
+        "recipe_sha256": "151f46f06c2e9c7ab32b9e1ad42f1fbc4af8e80e70f2c83f3f06b0a9cc9d570b",
+        "request_sha256": "88d383b1b47a1541a19bdb3c7a9628560d6c546b2135aecb1d08a4cd3363376a"
+      },
+      "pitch_only": {
+        "created_native_files": 0,
+        "guarded_input_reads": 0,
+        "imported_cad_modules": 0,
+        "portable_doc_sha256": "cf8177c1015e39e0ce77a60e7e519e820a3899e8f6fde551e496cb911d9e764a",
+        "prior_complete_file_sha256": "51f37725e0f58184bc34f16480f58d06a5cf265cef5027219174f00586ecb1f7",
+        "public_axis_type": true,
+        "recipe_sha256": "80f04644216cafc5d2e625621ab254d0932c8744cdc4ddfaec0ea14f1ce85d87",
+        "request_sha256": "bad6205d9c53cc5b3d5a34b45185bcb5ca2d7693c0e0f3656328c46473d1a966"
+      }
+    },
+    "ColdRaisedPatternB": {
+      "count_only": {
+        "created_native_files": 0,
+        "guarded_input_reads": 0,
+        "imported_cad_modules": 0,
+        "portable_doc_sha256": "8a9f4f0dc857f8d38c30b75317a648ccf760f65a0ee85237075fa6333d9cf1c4",
+        "prior_complete_file_sha256": "0e125b9bb41ffa8ab117e588f1e85e1493c79559a01c828b1b2a0ac1cb278522",
+        "public_axis_type": true,
+        "recipe_sha256": "341234daeb944d51d55c32065478ff33708fefeb84d14fdb4951684f7823b682",
+        "request_sha256": "61bdc506af0bbb9bb69fffb6e6e29a2d839b84eae723e4555caf680c84f5be1d"
+      },
+      "original": {
+        "created_native_files": 0,
+        "guarded_input_reads": 0,
+        "imported_cad_modules": 0,
+        "portable_doc_sha256": "aff69aa07f27d7849a58c539b8b25777bac16c56ef8093177b122db6bbf04ab7",
+        "prior_complete_file_sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+        "public_axis_type": true,
+        "recipe_sha256": "4f976097b0f5fd952a426fcfbfc5fb44564925f619813b7a1f491db153a9b941",
+        "request_sha256": "4a8b7fddfe9671d743b909ee9354013b6081cdea0ef8951180a3540448469a9f"
+      },
+      "pitch_only": {
+        "created_native_files": 0,
+        "guarded_input_reads": 0,
+        "imported_cad_modules": 0,
+        "portable_doc_sha256": "72a89b34675fd8e839deb2ad00cc19f393ae66c9089acc2bbd8883944b624777",
+        "prior_complete_file_sha256": "0b0827b042644568419ce6aea6454c9a21a02b00947c4dc2896d883a24e0c460",
+        "public_axis_type": true,
+        "recipe_sha256": "657fc059d9efd30327b70f6d385f82d789d92dead216f6f9c17dd47e476d09de",
+        "request_sha256": "b0eb1650af716233b4ee0409bdc395cc15e329cf1508859c3f45531679153b42"
+      }
+    }
+  }
+}

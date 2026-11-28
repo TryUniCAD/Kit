@@ -1,0 +1,1159 @@
+{
+  "acceptance": {
+    "application_usable": false,
+    "fresh_neutral_cache_construction": false,
+    "heldout": false,
+    "saved_stream_replay": false,
+    "selected_live_ui_route": false,
+    "static_part_store_entry": true,
+    "vendor_loadable": false
+  },
+  "archive_setup": {
+    "actual_context_member": "helper+0x38 receives ModelContext; archive pointers are helper+0x08/+0x7d8",
+    "archive": "suFileStorage::getArchive() from that newly attached stream",
+    "auxiliary": "UI helper registers a separate archive-pointer->helper mapping in su_CMapPtrToPtr and updates static allowCorrupt from UI state; that registry is not the class/object tag map",
+    "contents_attach": "mode1, name Contents, isStream0, compression0",
+    "downstream_flag": "setSerializingDownstreamIdData(1) before body; clear0 after",
+    "helper": "UI moArchiveHelperObject_c(archive, actual uiBaseDoc ModelContext)",
+    "stream_attach": "mode1, actual config storage-name+suffix, isStream1, compression=getDefaultCompression() when getStreamCompression()==1, otherwise0",
+    "template_branch": "when getIsTemplate()!=0, writes helper+0x2c=1; template profile not admitted here",
+    "version": "caller overrides helper+0x7c0 with current native file version; target ordinary19000",
+    "wrapper": "suFileStorage::createStorage(actual IStorage from storage virtual+0x80, actual UI ModelContext, actual ZIP from virtual+0xa0)"
+  },
+  "attachment_context": {
+    "entry": "0x1800269b0",
+    "status": "separate assembly/attachment source owner located and hashed; its full construction/store profile not admitted by this ordinary part record"
+  },
+  "complete_owners": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1373,
+      "end_exclusive": "0x18002ffbd",
+      "module": "doccplu.dll",
+      "name": "SolidStorage_c::SaveDownstreamIdDataForPart",
+      "sha256": "79b4772324c75cb2be0eb1bdc7d0c5e00a6ec6ca316f6ed97c49e5f6921e4736",
+      "start": "0x18002fa60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1373,
+          "end_exclusive": "0x18002ffbd",
+          "sha256": "79b4772324c75cb2be0eb1bdc7d0c5e00a6ec6ca316f6ed97c49e5f6921e4736",
+          "start": "0x18002fa60",
+          "unwind_rva": "0xd7558"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 779,
+      "end_exclusive": "0x180026cbb",
+      "module": "doccplu.dll",
+      "name": "SolidStorage_c::SaveDownstreamIdDataForAttachment, separate context not admitted",
+      "sha256": "e91e2c1f4c1c243615ab5c8f9eb0aab128725b586da6b5ab839a4972d1dc4d49",
+      "start": "0x1800269b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 779,
+          "end_exclusive": "0x180026cbb",
+          "sha256": "e91e2c1f4c1c243615ab5c8f9eb0aab128725b586da6b5ab839a4972d1dc4d49",
+          "start": "0x1800269b0",
+          "unwind_rva": "0xd3e98"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 4663,
+      "end_exclusive": "0x18001e987",
+      "module": "doccplu.dll",
+      "name": "SolidStorage_c::SaveToStorage, selected guard analyzed",
+      "sha256": "c8613dde587163c2a56efcbe4ca26bff6d127815af0c5daf55768818b55dcf9e",
+      "start": "0x18001d750",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 4663,
+          "end_exclusive": "0x18001e987",
+          "sha256": "c8613dde587163c2a56efcbe4ca26bff6d127815af0c5daf55768818b55dcf9e",
+          "start": "0x18001d750",
+          "unwind_rva": "0xd12e8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 142,
+      "end_exclusive": "0x18001d63e",
+      "module": "doccplu.dll",
+      "name": "SolidStorage_c constructor",
+      "sha256": "04d89b7d3961e9c145da1988e22ce38a5321dbb37249ab73e5231063a273b139",
+      "start": "0x18001d5b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 142,
+          "end_exclusive": "0x18001d63e",
+          "sha256": "04d89b7d3961e9c145da1988e22ce38a5321dbb37249ab73e5231063a273b139",
+          "start": "0x18001d5b0",
+          "unwind_rva": "0xd1000"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 47,
+      "end_exclusive": "0x180044e2f",
+      "module": "doccplu.dll",
+      "name": "SolidStorageMFC_c constructor",
+      "sha256": "73fec91b75f03961135651f4f3404261a7106f07afd859634c6bf9d8ae052416",
+      "start": "0x180044e00",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 47,
+          "end_exclusive": "0x180044e2f",
+          "sha256": "73fec91b75f03961135651f4f3404261a7106f07afd859634c6bf9d8ae052416",
+          "start": "0x180044e00",
+          "unwind_rva": "0xddb58"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 98,
+      "end_exclusive": "0x180044cf2",
+      "module": "doccplu.dll",
+      "name": "SolidStorageManager_c constructor",
+      "sha256": "c951387f5d5f73b35e1d6930cf730641a7ed5f85e8b21424ccfd143a69fba957",
+      "start": "0x180044c90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 98,
+          "end_exclusive": "0x180044cf2",
+          "sha256": "c951387f5d5f73b35e1d6930cf730641a7ed5f85e8b21424ccfd143a69fba957",
+          "start": "0x180044c90",
+          "unwind_rva": "0xddad0"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 5,
+      "end_exclusive": "0x180044d65",
+      "module": "doccplu.dll",
+      "name": "SolidStorageManager_c::getSolidStorage",
+      "sha256": "01b97d2da374096b4359dfb781da44ea9eb61ba0541de9f2d557cfad9adef8d3",
+      "start": "0x180044d60",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2092,
+      "end_exclusive": "0x496f5eac",
+      "module": "slduiu.dll",
+      "name": "UI moArchiveHelperObject_c constructor, complete initialization",
+      "sha256": "82386034628af145501c498f14cb7ab2a7287acf2e2f8ab6afa2edd6f8d2cb34",
+      "start": "0x496f5680",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2092,
+          "end_exclusive": "0x496f5eac",
+          "sha256": "82386034628af145501c498f14cb7ab2a7287acf2e2f8ab6afa2edd6f8d2cb34",
+          "start": "0x496f5680",
+          "unwind_rva": "0x1bb6f20"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 491,
+      "end_exclusive": "0x458e73db",
+      "module": "sldappu.dll",
+      "name": "uiBaseDoc_c::OnSaveDocument, returned receiver still conditional",
+      "sha256": "fe6c6713f51f2d7b831557f017530b3216e17a7000cefcfb1bef968c69f64a94",
+      "start": "0x458e71f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 491,
+          "end_exclusive": "0x458e73db",
+          "sha256": "fe6c6713f51f2d7b831557f017530b3216e17a7000cefcfb1bef968c69f64a94",
+          "start": "0x458e71f0",
+          "unwind_rva": "0xcc7080"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 8614,
+      "end_exclusive": "0x4b522086",
+      "module": "sldmodu.dll",
+      "name": "moDownstreamIdData_c::Serialize, reused canonical body",
+      "sha256": "977c09d21a6eb6da82d60df71897d6c229edeba4126fd85f62ac1ff56e36e261",
+      "start": "0x4b51fee0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 8614,
+          "end_exclusive": "0x4b522086",
+          "sha256": "977c09d21a6eb6da82d60df71897d6c229edeba4126fd85f62ac1ff56e36e261",
+          "start": "0x4b51fee0",
+          "unwind_rva": "0x22ac91c"
+        }
+      ]
+    }
+  ],
+  "concrete_storage_node_tables": [
+    {
+      "kind": "structured",
+      "slots": [
+        {
+          "meaning": "attachToNode",
+          "slot": "0xa0",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e998",
+            "sha256": "cbe92c9eeecc2bfd48d0aa93cb558728011743f1cfd391f76b1ac9f60b27147e",
+            "start": "0x3cc7e990"
+          },
+          "target": "0x3c8b3fe0"
+        },
+        {
+          "meaning": "releaseStream",
+          "slot": "0xa8",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e9a0",
+            "sha256": "86dfcb07ee7c605f9054a4082f5648d4e09e45b48a4859d71b2f1b7d3a9c8b89",
+            "start": "0x3cc7e998"
+          },
+          "target": "0x3c8bd500"
+        },
+        {
+          "meaning": "releaseChildStorage",
+          "slot": "0xb0",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e9a8",
+            "sha256": "e05be385848fae7e4f42dea2fa4b2874129988894357bb5e38b2c0ad60ed3b7b",
+            "start": "0x3cc7e9a0"
+          },
+          "target": "0x3c8bd460"
+        },
+        {
+          "meaning": "destroyNode",
+          "slot": "0xb8",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e9b0",
+            "sha256": "6bd1935ccc54eb6e11e6267b194b3a064a6d83377c8b4edb0c10b610e5bb33bd",
+            "start": "0x3cc7e9a8"
+          },
+          "target": "0x3c8b5f40"
+        }
+      ],
+      "table": "0x3cc7e8f0"
+    },
+    {
+      "kind": "zip",
+      "slots": [
+        {
+          "meaning": "attachToNode",
+          "slot": "0xa0",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e728",
+            "sha256": "61a27cfa2f2b467b29a4e23d27d4df03f1c1a0cb3e1583e1910add07844692ce",
+            "start": "0x3cc7e720"
+          },
+          "target": "0x3c8b4140"
+        },
+        {
+          "meaning": "releaseStream",
+          "slot": "0xa8",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e730",
+            "sha256": "2cab3efcfae9c511ac4aadfb480a6c7e68adcf0cb869a7ac36435c07df8ce75f",
+            "start": "0x3cc7e728"
+          },
+          "target": "0x3c8bd6a0"
+        },
+        {
+          "meaning": "releaseChildStorage",
+          "slot": "0xb0",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e738",
+            "sha256": "5a42188268674deb417da6cb005d36e1108550164d96393b6cfdc07bb0bbfa91",
+            "start": "0x3cc7e730"
+          },
+          "target": "0x3c8bd4b0"
+        },
+        {
+          "meaning": "destroyNode",
+          "slot": "0xb8",
+          "span": {
+            "bound": "actual previously bound concrete storage table slot",
+            "bytes": 8,
+            "end_exclusive": "0x3cc7e740",
+            "sha256": "48f4b76ed59d5e2345715d1e272c7759b6d17e9798d2ae1e1bc765d7c40975cd",
+            "start": "0x3cc7e738"
+          },
+          "target": "0x3c8b6000"
+        }
+      ],
+      "table": "0x3cc7e680"
+    }
+  ],
+  "concrete_store_tables": [
+    {
+      "class": "SolidStorage_c",
+      "slots": [
+        {
+          "meaning": "saveDoc",
+          "slot": "0x10",
+          "span": {
+            "bound": "constructor-bound concrete primary table slot",
+            "bytes": 8,
+            "end_exclusive": "0x1800f9fe0",
+            "sha256": "b21ddc8d34aa010ec2b66f37f27a8846e2642f902f66a863e9e1f9b16134a717",
+            "start": "0x1800f9fd8"
+          },
+          "target": "0x18001b810"
+        },
+        {
+          "meaning": "SaveToStorage",
+          "slot": "0x138",
+          "span": {
+            "bound": "constructor-bound concrete primary table slot",
+            "bytes": 8,
+            "end_exclusive": "0x1800fa108",
+            "sha256": "60f13d3abcb3b514bbf6422ae7abba2d7ea4afd2e1e4ce51f29829b4cfefb305",
+            "start": "0x1800fa100"
+          },
+          "target": "0x18001d750"
+        },
+        {
+          "meaning": "SaveDownstreamIdDataForPart",
+          "slot": "0x2a0",
+          "span": {
+            "bound": "constructor-bound concrete primary table slot",
+            "bytes": 8,
+            "end_exclusive": "0x1800fa270",
+            "sha256": "2a9534ddf76adc2140ef7c398aca618f856992b93e3c0deebdb1d48d967452f9",
+            "start": "0x1800fa268"
+          },
+          "target": "0x18002fa60"
+        }
+      ],
+      "table": "0x1800f9fc8"
+    },
+    {
+      "class": "SolidStorageMFC_c",
+      "slots": [
+        {
+          "meaning": "saveDoc",
+          "slot": "0x10",
+          "span": {
+            "bound": "constructor-bound concrete primary table slot",
+            "bytes": 8,
+            "end_exclusive": "0x1800fc358",
+            "sha256": "b21ddc8d34aa010ec2b66f37f27a8846e2642f902f66a863e9e1f9b16134a717",
+            "start": "0x1800fc350"
+          },
+          "target": "0x18001b810"
+        },
+        {
+          "meaning": "SaveToStorage",
+          "slot": "0x138",
+          "span": {
+            "bound": "constructor-bound concrete primary table slot",
+            "bytes": 8,
+            "end_exclusive": "0x1800fc480",
+            "sha256": "60f13d3abcb3b514bbf6422ae7abba2d7ea4afd2e1e4ce51f29829b4cfefb305",
+            "start": "0x1800fc478"
+          },
+          "target": "0x18001d750"
+        },
+        {
+          "meaning": "SaveDownstreamIdDataForPart",
+          "slot": "0x2a0",
+          "span": {
+            "bound": "constructor-bound concrete primary table slot",
+            "bytes": 8,
+            "end_exclusive": "0x1800fc5e8",
+            "sha256": "2a9534ddf76adc2140ef7c398aca618f856992b93e3c0deebdb1d48d967452f9",
+            "start": "0x1800fc5e0"
+          },
+          "target": "0x18002fa60"
+        }
+      ],
+      "table": "0x1800fc340"
+    }
+  ],
+  "configuration_selection": {
+    "cache": "actual opened model getDownstreamIdData()",
+    "else_for_opened_selected_model": "attach Contents, request destroyNode(actual storage-name+suffix), release stream and child storage; no replacement cache is generated",
+    "manager": "receiver virtual+0xf88, then typed getConfigurationsList(list,IncludeConfigTypes_e(2),1)",
+    "receiver": "optional CObject override when nonnull, otherwise storage actual UI document at+0x10",
+    "skip_without_touching_existing_stream": [
+      "needsRebuild()==true and isCurrent()==false",
+      "getOpenedModel()==NULL"
+    ],
+    "write_cache_guard": "cache!=NULL && isUpdateNeeded()==0"
+  },
+  "delivery_pr": 121,
+  "direct_body": {
+    "archive_argument": "actual just-created stream su_CArchive pointer",
+    "autosave_gate": "actual UI document+0x3d0 must be0 for the direct body call; nonzero skips that Serialize call and is not modeled as an ordinary saved body",
+    "callsite": "0x18002fe70",
+    "dispatch": "actual cache vtable+0x28; canonical constructor table0x4ce16e78 ->0x4b51fee0",
+    "initial_maps": "fresh stream archive; no Header/Config/Resolved map snapshot seed or explicit MapObject in this store method; reuse prior native factory and lazy null-reservation rule",
+    "new_source_framing_bytes": false,
+    "outer_map_count_word": false,
+    "outer_root_class_or_object_tag": false,
+    "raw_field_values": "serializer uses actual cache state; no sampled/default cache words or field programs are introduced",
+    "root_object_or_class_registration": false,
+    "scope": "ordinary non-template, non-autosave, canonical moDownstreamIdData_c runtime class"
+  },
+  "immediate_caller": {
+    "additional_context": "earlier save/storage checks must already pass; optional CObject override is forwarded",
+    "callsite": "0x18001e501",
+    "conjunction": [
+      "actual UI document isDrawingDoc virtual+0x1260 returns0",
+      "getSaveDisplayListOnly returns0",
+      "getSaveOnlyQuickViewData returns0",
+      "isPartDoc virtual+0x1250 returnsnonzero"
+    ],
+    "direct_isEnabled_call_in_this_selected_guard": false,
+    "owner": "SolidStorage_c::SaveToStorage",
+    "slot": "0x2a0"
+  },
+  "instruction_windows": [
+    {
+      "bound": "reviewed instruction boundaries in complete original owner",
+      "bytes": 83,
+      "end_exclusive": "0x18001e507",
+      "module": "doccplu.dll",
+      "name": "immediate not-drawing/preview/quick-view/part guard and actual dispatch",
+      "sha256": "322c3b6ada0747864a4920ca7fb9780a1c115f2f37c542a5c65d7227e8ff8e01",
+      "start": "0x18001e4b4"
+    },
+    {
+      "bound": "reviewed instruction boundaries in complete original owner",
+      "bytes": 228,
+      "end_exclusive": "0x18002fbef",
+      "module": "doccplu.dll",
+      "name": "configuration enumeration and cache validity",
+      "sha256": "ab8005ef6c526ae21f11743c0ede582c037736cd8f4ece8dd70e5fa2f2fd7414",
+      "start": "0x18002fb0b"
+    },
+    {
+      "bound": "reviewed instruction boundaries in complete original owner",
+      "bytes": 67,
+      "end_exclusive": "0x18002fc44",
+      "module": "doccplu.dll",
+      "name": "contents create/attach arguments",
+      "sha256": "f1aad92c63889375561bb8b4eb03aa8a0f5273e32b31b61b4f1b85a8935adef0",
+      "start": "0x18002fc01"
+    },
+    {
+      "bound": "reviewed instruction boundaries in complete original owner",
+      "bytes": 254,
+      "end_exclusive": "0x18002fd94",
+      "module": "doccplu.dll",
+      "name": "stream attach and compression selector",
+      "sha256": "d751b381c3e35094c4164c5a8fded00b7ca249521251e2b3c2ec87c010aa3808",
+      "start": "0x18002fc96"
+    },
+    {
+      "bound": "reviewed instruction boundaries in complete original owner",
+      "bytes": 186,
+      "end_exclusive": "0x18002fe4e",
+      "module": "doccplu.dll",
+      "name": "scope/helper/current-version/downstream-flag setup",
+      "sha256": "5c14018db82c97b75c273efde37a0d3ef966999c4836952e92486b8a39fdf3fd",
+      "start": "0x18002fd94"
+    },
+    {
+      "bound": "reviewed instruction boundaries in complete original owner",
+      "bytes": 48,
+      "end_exclusive": "0x18002fe7e",
+      "module": "doccplu.dll",
+      "name": "autosave gate, direct Serialize and flag reset",
+      "sha256": "2df995b47720fb83128939894be25b74eac411cae41a5cf1e150d979755f658a",
+      "start": "0x18002fe4e"
+    },
+    {
+      "bound": "reviewed instruction boundaries in complete original owner",
+      "bytes": 45,
+      "end_exclusive": "0x18002ff66",
+      "module": "doccplu.dll",
+      "name": "missing or stale cache destroy-node branch",
+      "sha256": "b551d6dab94614bbf9ea1859d9ebc918ceff4b39b56000e466f890da4fe37f5b",
+      "start": "0x18002ff39"
+    }
+  ],
+  "managed_name_rule_proof": {
+    "called_helper_identities": [
+      {
+        "declared_name": "ATL.CSimpleStringT<wchar_t,1>.GetLength",
+        "signature_sha256": "c81df15542853f209e5726bf9fa85690e06abca485ce40afe34a9e370aed48e9",
+        "token": "0x060006ce"
+      },
+      {
+        "declared_name": "ATL.CSimpleStringT<wchar_t,1>..PEB_W",
+        "signature_sha256": "de982d01ceb76b238f8f47a4a88357b3453d4f2ec76e8e3f7fbb7b727f83ae64",
+        "token": "0x060006cf"
+      },
+      {
+        "declared_name": "ATL.CSimpleStringT<wchar_t,1>.Concatenate",
+        "signature_sha256": "558fe03dbb75d9cdf6b474f811753709d469ee9997c4165d22486c2b2e616807",
+        "token": "0x060006d3"
+      },
+      {
+        "declared_name": "ATL.CSimpleStringT<wchar_t,1>.StringLength",
+        "signature_sha256": "9e288a5ac758b500904815e8652291a1bcdaac056fca67714f1aa382ec26ec63",
+        "token": "0x060006d4"
+      }
+    ],
+    "cell": {
+      "bound": "exact native entry cell containing build-local MethodDef identity",
+      "bytes": 8,
+      "end_exclusive": "0x1800f95a0",
+      "sha256": "1004c75ab1f55aa8e82e8efb6e2ed7f05e845703835138e140ecdc3e784f1618",
+      "start": "0x1800f9598"
+    },
+    "cli_fixup": {
+      "count": 1,
+      "flags": "0xa",
+      "record": {
+        "bound": "exact CLI VTableFixups record covering native entry cell",
+        "bytes": 8,
+        "end_exclusive": "0x1800cc820",
+        "sha256": "4298ac90f6711ed8c870d70687b8ad46051c24cd508d34e8d37b40ab668bd5a1",
+        "start": "0x1800cc818"
+      },
+      "rva": "0xf9598",
+      "stride": 8
+    },
+    "coverage_limit": "module-only metadata inventory has partial native-body coverage; exact selected IL method is present and fully decoded, while native helper declarations are not universal runtime behavior claims",
+    "declared_name": "ATL.+",
+    "exception_region_count": 1,
+    "il_bytes": 79,
+    "il_sha256": "319b55a472fce50246863d9566e6c95536d6743b7bdf5b3e4f95e9f99f36e5ba",
+    "method_rva": "0x12420",
+    "method_token": "0x0600014a",
+    "mvid": "efef066b-8a65-4c5b-8536-b2da6f34e06a",
+    "native_entry": {
+      "bound": "complete mixed-mode native entry stub through token cell dispatch",
+      "bytes": 16,
+      "end_exclusive": "0x180050180",
+      "sha256": "42e7ca6cf687aacfb8c813b2d4153e5f73efe7e841a37741b736b3dcbf15bcc3",
+      "start": "0x180050170"
+    },
+    "operation": "construct result using actual source CString manager; get source length and pointer; get suffix length; call the exact wide CSimpleStringT.Concatenate operation with both actual pointers/lengths",
+    "rea_evidence_ids": [
+      "ev_a7ec4c578cac79259fafc1d1425feec78893a9cb1907cc0586f9651c08256504",
+      "ev_fdf8bfb0ff33b8c714c15e77dc9aa43f7da77aa1a77298cd8de5501c99585ded",
+      "ev_151b8ed579ecdd2b33e6aebf26c8c4013b63260411091bd66e5627acdd318433"
+    ],
+    "rea_mode": "stateless explicit-path managed metadata; no binary/provider/Hopper target opened and no managed assembly loaded or executed",
+    "reason": "native entry helper dispatch cell contains a CLI MethodDef token, not a native virtual address",
+    "resolved_signature_sha256": "3fc81ace831730dbef29541b40b60518595de8490a69881724e39b2c72f0ec04",
+    "selected_il_check": "all79 original IL bytes independently decoded as41 instructions; normal path passes result, source pointer/length and suffix pointer/length to Concatenate in order",
+    "signature_sha256": "519a122f2af1663df02d688dc917de86bca4717d1db27bafac8405f1c69439c2",
+    "vendor_il_or_listing_copied_to_publication": false
+  },
+  "modules": [
+    {
+      "base": "0x180000000",
+      "bytes": 1052248,
+      "machine": "0x8664",
+      "name": "doccplu.dll",
+      "sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8"
+    },
+    {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "base": "0x453f0000",
+      "bytes": 16519768,
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "base": "0x3c720000",
+      "bytes": 8274520,
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    }
+  ],
+  "owner": "/root/flag_ownership",
+  "part_store_import_thunks": [
+    {
+      "iat": "0x180052990",
+      "module": "sldappu.dll",
+      "name": "?ModelContext@uiBaseDoc_c@@QEAAPEAVSldModelContext_c@@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180044e89",
+        "sha256": "56f25c2693bf7506dd71199ecb80f13f5c835971707ed4ff91ccfaba858e4783",
+        "start": "0x180044e83"
+      },
+      "thunk": "0x180044e83"
+    },
+    {
+      "iat": "0x180052e08",
+      "module": "sldappu.dll",
+      "name": "?iGetCriticalSection@uiBaseDoc_c@@QEAAPEAVsuCriticalSection_c@@W4uiCriticalSection_e@@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800451c5",
+        "sha256": "a5e58133693c3257574b740bdd9bb16ff3a6169117997d3ffdc15f25cd1ded0a",
+        "start": "0x1800451bf"
+      },
+      "thunk": "0x1800451bf"
+    },
+    {
+      "iat": "0x180051608",
+      "module": "SLDMFCU.dll",
+      "name": "?getIsTemplate@uiMfcDoc_c@@QEAAHXZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045543",
+        "sha256": "deb4cc53cdd01930029afa0dc3800b14583576c26ad7ae42a64f55e0d3147b69",
+        "start": "0x18004553d"
+      },
+      "thunk": "0x18004553d"
+    },
+    {
+      "iat": "0x180051558",
+      "module": "SLDMFCU.dll",
+      "name": "??0suSingleLock_c@@QEAA@PEAVCSyncObject@@H@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800455c7",
+        "sha256": "d4df8ba78c16326197d560014380252e23b47a4ce0d9927c3c5bcad1053caa13",
+        "start": "0x1800455c1"
+      },
+      "thunk": "0x1800455c1"
+    },
+    {
+      "iat": "0x1800514c0",
+      "module": "SLDMFCU.dll",
+      "name": "?get@moVersionManager_c@@SAAEAV1@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x18004563f",
+        "sha256": "aabf0cdd65e9cd3a5d4d8717513b5d33b5c2841333245d7ed2ca7b13457a5915",
+        "start": "0x180045639"
+      },
+      "thunk": "0x180045639"
+    },
+    {
+      "iat": "0x1800514b8",
+      "module": "SLDMFCU.dll",
+      "name": "?getCurrentFileVerion@moVersionManager_c@@CAKXZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045645",
+        "sha256": "f2a802abfa0c333569d4b8b183c9cfd06921dcafb9058b8349e18eab11348b31",
+        "start": "0x18004563f"
+      },
+      "thunk": "0x18004563f"
+    },
+    {
+      "iat": "0x180051488",
+      "module": "SLDMFCU.dll",
+      "name": "??0EnsureCleanupStreamAndChildStorage@suFileStorage@@QEAA@PEAV1@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045669",
+        "sha256": "653e0fb9a5e8b689ea6c20124e6c874e4f6b683d4ff5e4296aaea1014be6f362",
+        "start": "0x180045663"
+      },
+      "thunk": "0x180045663"
+    },
+    {
+      "iat": "0x180051480",
+      "module": "SLDMFCU.dll",
+      "name": "??1EnsureCleanupStreamAndChildStorage@suFileStorage@@QEAA@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x18004566f",
+        "sha256": "3a1f01c9eea4754d9ad59b15061c13021f26a3e116f55596cc580fcf33c0a045",
+        "start": "0x180045669"
+      },
+      "thunk": "0x180045669"
+    },
+    {
+      "iat": "0x180051478",
+      "module": "SLDMFCU.dll",
+      "name": "?getArchive@suFileStorage@@QEAAPEAVsu_CArchive@@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045675",
+        "sha256": "8bc50da64ce3f7ab89c1f01dc8b790c46755213984ab308782f34309a9a1ce84",
+        "start": "0x18004566f"
+      },
+      "thunk": "0x18004566f"
+    },
+    {
+      "iat": "0x180051468",
+      "module": "SLDMFCU.dll",
+      "name": "?getDefaultCompression@suFileStorage@@SA?AW4suStorageCompression_e@@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045681",
+        "sha256": "026e9154fb7d727b3f2ade2c940e4c98c9fe9dab3f87a24477e806c7aa813285",
+        "start": "0x18004567b"
+      },
+      "thunk": "0x18004567b"
+    },
+    {
+      "iat": "0x180051460",
+      "module": "SLDMFCU.dll",
+      "name": "??1moArchiveHelperObject_c@@QEAA@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045687",
+        "sha256": "035acd9612622d19d0d89c84ab4413da4ad58c135a48102a9c19ad7ac5915c2d",
+        "start": "0x180045681"
+      },
+      "thunk": "0x180045681"
+    },
+    {
+      "iat": "0x180051448",
+      "module": "SLDMFCU.dll",
+      "name": "??0moArchiveHelper_c@@QEAA@PEAVsu_CArchive@@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045699",
+        "sha256": "6bf2c1caed983267397d7ff360b0ca997a09b580fe5a681ef10948ffd5c2fc60",
+        "start": "0x180045693"
+      },
+      "thunk": "0x180045693"
+    },
+    {
+      "iat": "0x180051438",
+      "module": "SLDMFCU.dll",
+      "name": "?getStreamCompression@suFileStorage@@SAHXZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800456a5",
+        "sha256": "831668f769ae3a655c00af3da1af0bfda0f00992a859804f484ca5c8d517f0f4",
+        "start": "0x18004569f"
+      },
+      "thunk": "0x18004569f"
+    },
+    {
+      "iat": "0x1800513b8",
+      "module": "SLDMFCU.dll",
+      "name": "?setSerializingDownstreamIdData@moArchiveHelper_c@@QEAAXH@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045705",
+        "sha256": "db9b4a35560d0166d2bce21e4c9d18d019616bcd2da6d133b20f299166333acd",
+        "start": "0x1800456ff"
+      },
+      "thunk": "0x1800456ff"
+    },
+    {
+      "iat": "0x1800522b0",
+      "module": "SLDMODU.dll",
+      "name": "?getOpenedModel@moBaseConfiguration_c@@QEBAPEAVmoModel_c@@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045b01",
+        "sha256": "fbc0a574cef7d1ed3f2988ee7a41877501f21317f8b93b9a479213ae18471024",
+        "start": "0x180045afb"
+      },
+      "thunk": "0x180045afb"
+    },
+    {
+      "iat": "0x180051980",
+      "module": "SLDMODU.dll",
+      "name": "?getStorageName@moBaseConfiguration_c@@QEBA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045e07",
+        "sha256": "25b4a5efc3ac8e16fd5d0df3cc3eaf25673e7f6ba36ee6c0e7acefeaece6f0ae",
+        "start": "0x180045e01"
+      },
+      "thunk": "0x180045e01"
+    },
+    {
+      "iat": "0x180051978",
+      "module": "SLDMODU.dll",
+      "name": "??0AutoSavingScope@moModel_c@@QEAA@PEAV1@H@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045e0d",
+        "sha256": "c99982fc0f50a57819c47a7bab0d0e5593e7370d43b2d9ff59672a7d1d927057",
+        "start": "0x180045e07"
+      },
+      "thunk": "0x180045e07"
+    },
+    {
+      "iat": "0x180051930",
+      "module": "SLDMODU.dll",
+      "name": "??1AutoSavingScope@moModel_c@@QEAA@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045e43",
+        "sha256": "e47aa9ede15479b502a3300d7c3f8d233e815ca86bf1238fcd7e23393cfda247",
+        "start": "0x180045e3d"
+      },
+      "thunk": "0x180045e3d"
+    },
+    {
+      "iat": "0x1800518f0",
+      "module": "SLDMODU.dll",
+      "name": "?isUpdateNeeded@moDownstreamIdData_c@@QEAAHXZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045e73",
+        "sha256": "e1fd7a9f567514e5c25b050401ae3d576e19a8c1a16452c954adb0a0fd6014b2",
+        "start": "0x180045e6d"
+      },
+      "thunk": "0x180045e6d"
+    },
+    {
+      "iat": "0x180053510",
+      "module": "slduiu.dll",
+      "name": "??0moArchiveHelperObject_c@@QEAA@PEAVsu_CArchive@@PEAVSldModelContext_c@@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180046737",
+        "sha256": "7d6716b8a4582a457ce6f068cc7dd258aa96da9d4c4c6c4ee6da68018df7df96",
+        "start": "0x180046731"
+      },
+      "thunk": "0x180046731"
+    },
+    {
+      "iat": "0x180053468",
+      "module": "slduiu.dll",
+      "name": "??0ConfigurationScope@uiModelDoc_c@@QEAA@AEAV1@PEAVmoBaseConfiguration_c@@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800467b5",
+        "sha256": "370e36cccb3270b0dc86a6aef3d41d957f69cdec3984bfaf5566837a66ea236e",
+        "start": "0x1800467af"
+      },
+      "thunk": "0x1800467af"
+    },
+    {
+      "iat": "0x180053460",
+      "module": "slduiu.dll",
+      "name": "??1ConfigurationScope@uiModelDoc_c@@QEAA@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800467bb",
+        "sha256": "057c408aee7f332e648ccfe7f7e9764e811cc2e42aed9faaa3d8ac7e00b22b8f",
+        "start": "0x1800467b5"
+      },
+      "thunk": "0x1800467b5"
+    },
+    {
+      "iat": "0x180052618",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1033",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x18004697d",
+        "sha256": "a3ebe45f69bd798a2309a9098a6a87575a31053899e3a2efae3b904ede723f32",
+        "start": "0x180046977"
+      },
+      "thunk": "0x180046977"
+    },
+    {
+      "iat": "0x180052758",
+      "module": "mfc140u.dll",
+      "name": "ordinal:286",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800469b9",
+        "sha256": "d8800eb86ad1b60d24a368c01e4d339c368e79f26c4cf21beef31718b673ee6b",
+        "start": "0x1800469b3"
+      },
+      "thunk": "0x1800469b3"
+    },
+    {
+      "iat": "0x1800526b0",
+      "module": "mfc140u.dll",
+      "name": "ordinal:14073",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180046abb",
+        "sha256": "a80fec7fc48f551f0dcf944c2febabc5b018cd824e4249a96b756d730f65c8f5",
+        "start": "0x180046ab5"
+      },
+      "thunk": "0x180046ab5"
+    },
+    {
+      "iat": "0x180051658",
+      "module": "SLDMFCU.dll",
+      "name": "??0suObList@@QEAA@H@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045507",
+        "sha256": "5dfc74553b5d1523e17f6be07c8e0128fd6623e7ef58e9f00aff8f8ab340a90e",
+        "start": "0x180045501"
+      },
+      "thunk": "0x180045501"
+    },
+    {
+      "iat": "0x180051650",
+      "module": "SLDMFCU.dll",
+      "name": "??1suObList@@UEAA@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x18004550d",
+        "sha256": "b0c141f8a90f39a2eed27b96fbe73f1ee39c9bfdafc7828600fa1953b0de00dd",
+        "start": "0x180045507"
+      },
+      "thunk": "0x180045507"
+    },
+    {
+      "iat": "0x180051568",
+      "module": "SLDMFCU.dll",
+      "name": "??0suStorageCleaner@@QEAA@PEAVsuFileStorage@@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800455bb",
+        "sha256": "5ec5bfa367353a20cfb2e09a5e91aea7e8e9b406f2b9761c600d684869d9b4fe",
+        "start": "0x1800455b5"
+      },
+      "thunk": "0x1800455b5"
+    },
+    {
+      "iat": "0x180051560",
+      "module": "SLDMFCU.dll",
+      "name": "??1suStorageCleaner@@QEAA@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800455c1",
+        "sha256": "4db4b0f25790b3dd76fca4362e0eac339b5dd93f6d7596830bb76f89d9d0edb4",
+        "start": "0x1800455bb"
+      },
+      "thunk": "0x1800455bb"
+    },
+    {
+      "iat": "0x180051260",
+      "module": "SLDMFCU.dll",
+      "name": "?createStorage@suFileStorage@@SAPEAV1@PEAUIStorage@@PEAVSldModelContext_c@@PEAVZipStorage@@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x1800455cd",
+        "sha256": "44e40b42d5cc88003f1c5f171cde5c2cfc6ff1ee4c87ee6f0f0ecdce56b1b56f",
+        "start": "0x1800455c7"
+      },
+      "thunk": "0x1800455c7"
+    },
+    {
+      "iat": "0x180053a68",
+      "module": "swccu.dll",
+      "name": "?GetHeadPosition@su_CObList@@QEBAPEAU__POSITION@@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045915",
+        "sha256": "e37991eb94b94cd66654a66119bed375f18ec57dc0d7a3bb2d91796f5e7d2673",
+        "start": "0x18004590f"
+      },
+      "thunk": "0x18004590f"
+    },
+    {
+      "iat": "0x180053a70",
+      "module": "swccu.dll",
+      "name": "?GetNext@su_CObList@@QEAAAEAPEAVCObject@@AEAPEAU__POSITION@@@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x18004591b",
+        "sha256": "bfd563d4b1c7a3472620bc4742e0611145316af1666f051aedb081e8553c2507",
+        "start": "0x180045915"
+      },
+      "thunk": "0x180045915"
+    },
+    {
+      "iat": "0x1800520f8",
+      "module": "SLDMODU.dll",
+      "name": "?getConfigurationsList@moConfigurationMgr_c@@QEBAXPEAVsuObList@@W4IncludeConfigTypes_e@@H@Z",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045afb",
+        "sha256": "4a659c11c0085bf6142da795aa382058da56828c45ef0920553265e649ae3d82",
+        "start": "0x180045af5"
+      },
+      "thunk": "0x180045af5"
+    },
+    {
+      "iat": "0x180051b28",
+      "module": "SLDMODU.dll",
+      "name": "?needsRebuild@moBaseConfiguration_c@@QEAAHXZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045cc9",
+        "sha256": "5f51e6c84fe277769dae8fb3256354ef46fc0efb1858eaeb0cd659064eb54bba",
+        "start": "0x180045cc3"
+      },
+      "thunk": "0x180045cc3"
+    },
+    {
+      "iat": "0x180051ab0",
+      "module": "SLDMODU.dll",
+      "name": "?isCurrent@moBaseConfiguration_c@@QEAAHXZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180045d23",
+        "sha256": "e8829458e1304c649405ed34ec0d6654c72ca3fe70eb4a283a6b74c7ede72b72",
+        "start": "0x180045d1d"
+      },
+      "thunk": "0x180045d1d"
+    },
+    {
+      "iat": "0x180051670",
+      "module": "SLDMODU.dll",
+      "name": "?getDownstreamIdData@moModel_c@@QEAAPEAVmoDownstreamIdData_c@@XZ",
+      "span": {
+        "bound": "complete native import tail thunk",
+        "bytes": 6,
+        "end_exclusive": "0x180046053",
+        "sha256": "c27d75f5dbf32ce2de5a4137d27ca602185f60d2d524a9764b010e6d714d911f",
+        "start": "0x18004604d"
+      },
+      "thunk": "0x18004604d"
+    }
+  ],
+  "prior_packets": [
+    {
+      "manifest_sha256": "de49be0855f4efd18d949aee0c0a00da2c1dfed695fda15bf5ac3327b8071f90",
+      "stageable_files_unchanged": true
+    },
+    {
+      "manifest_sha256": "c23237dde0016a8787424381d29c39706bec5ad0b1fe14de085121b6d0388cbf",
+      "stageable_files_unchanged": true
+    },
+    {
+      "manifest_sha256": "d557bcd165770b8e89f774ff2b7b402b7455e4f65aa60ed6a5eae92cf469047e",
+      "stageable_files_unchanged": true
+    },
+    {
+      "manifest_sha256": "8e7e393cd5b68c979e48e89a5493a269ecee74dca49cf677cce9e6aa2d67c17c",
+      "stageable_files_unchanged": true
+    }
+  ],
+  "remaining": [
+    "actual CAmApp+0x464 constructor/default and exact internal setting0x5f2 name",
+    "UI document+0x4a8 concrete manager installation and any alternate storage policy",
+    "selected runtime activation, cache freshness and saved standalone control with full recursive class/map/alias replay",
+    "nonordinary template/autosave/attachment modes and populated neutral cache construction"
+  ],
+  "schema": "solidworks-downstream-standalone-part-store-2026-v1",
+  "status": "exact conditional part standalone stream store is statically bound; active document-manager installation, runtime selection and saved-stream replay remain unmeasured",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "stream_vocabulary": {
+    "name_rule": "actual configuration getStorageName() + suffix, never a captured configuration name",
+    "parent": "Contents",
+    "parent_span": {
+      "bound": "complete UTF16 Contents vocabulary",
+      "bytes": 18,
+      "end_exclusive": "0x180057212",
+      "sha256": "a5a368dc480f22eb196a4e14d2722815898167d8255f7908d0829f70d73e3388",
+      "start": "0x180057200"
+    },
+    "suffix": "-DownstreamIdData",
+    "suffix_span": {
+      "bound": "complete UTF16 suffix with terminator",
+      "bytes": 36,
+      "end_exclusive": "0x18005837c",
+      "sha256": "5d79bf3844dec433e8997e32132f817e653dabfccf4eaeb273894dd9d128db26",
+      "start": "0x180058358"
+    }
+  },
+  "task": "B04-SW2026-DOWNSTREAM-ID-DATA",
+  "ui_top_join": {
+    "bound": "uiBaseDoc_c::OnSaveDocument gets document+0x4a8 virtual+8 result and calls its virtual+0x10 with filename and argument0",
+    "manager": "SolidStorageManager_c constructor stores supplied MFC pointer at+0x10; getSolidStorage returns that member; its table is0x1800fc328",
+    "manager_getter_slot": {
+      "bound": "actual manager primary slot+8 ->getSolidStorage",
+      "bytes": 8,
+      "end_exclusive": "0x1800fc338",
+      "sha256": "123b45dfb2c8a2c1980e1da287c20f325af93c453af7d16fd3275b1521a5a8a4",
+      "start": "0x1800fc330"
+    },
+    "unclosed": "installation of this concrete manager at the selected live UI document+0x4a8 is not independently bound by this packet; do not substitute a measured endpoint for that constructor join"
+  },
+  "verification": {
+    "method": "pinned original PE, bounded LLVM, stateless managed metadata only",
+    "provider_or_hopper_target_opened": false,
+    "repo_or_git_mutations": false,
+    "saved_cad_or_hidden_payload_reads": false,
+    "tests_schema_codec_or_product_execution": false,
+    "vendor_bytes_or_listings_in_publication": false,
+    "vm_cad_com_preferences_or_license_actions": false
+  }
+}

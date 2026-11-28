@@ -22,7 +22,7 @@ from tests.Research.Archives.Comparison.SemanticComparisonTests import (
 )
 
 # the issue inventory seal preserves every existing path and reason including the native owner definition
-KIssueSha = "f16942ef8814b6fb53b45a98cd9414f53665d40f2de1ab864f37deae7a74fb5c"
+KIssueSha = "17e69a4ab049d41653a39a5348750a0a4c7a48b3b9241cd74a17fbee901886f9"
 
 
 # comparison must retain all preexisting issues while withholding the unsupported ownership observation
@@ -35,7 +35,7 @@ def CheckOwnerLink(TmpPath: FilePath, ModeName: str) -> None:
     for Source in Sources.values():
         assert Source["source_sha256"] == KSourceSha
         Issues = CastValue(list[dict[str, object]], Source["unresolved"])
-        assert len(Issues) == 191
+        assert len(Issues) == 190
         assert sum(Issue["reason"] == "native_only_record" for Issue in Issues) == 25
         IssueBytes = EncodeJson(
             [(Issue["path"], Issue["reason"]) for Issue in Issues],

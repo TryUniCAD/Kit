@@ -1,5 +1,8 @@
 from typing import cast as CastValue
 
+from convert.adapters.solidworks.Archive.Construction.Units.BindCustomDensityMut import (
+    BindDensityMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Units.MakeUnitNode import (
     MakeUnitNode,
 )
@@ -7,6 +10,7 @@ from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import Uni
 from convert.adapters.solidworks.Archive.Construction.Units.UnitVocabulary import (
     KAngleCodes,
     KLengthCodes,
+    KMassCodes,
     KSystemCodes,
     KUnitClasses,
 )
@@ -27,14 +31,19 @@ def MakeUnitTable(InputValue: UnitInput) -> ArchiveNode:
         "energy": 0,
         "time": 0,
     }
-    RowsValue = tuple(
-        {
-            "o": MakeUnitNode(
-                KindValue, CodesValue.get(KindValue), InputValue.DecimalPlaces
-            )
-        }
+    UnitValues = {
+        KindValue: MakeUnitNode(
+            KindValue, CodesValue.get(KindValue), InputValue.DecimalPlaces
+        )
         for KindValue in KUnitClasses
-    )
+    }
+    if InputValue.MassUnit is not None:
+        BindDensityMut(
+            UnitValues["density"],
+            UnitValues["length"],
+            KMassCodes[InputValue.MassUnit],
+        )
+    RowsValue = tuple({"o": UnitValue} for UnitValue in UnitValues.values())
     return ArchiveNode(
         RuntimeClass("moUnitsTable_c", 1), {"n": len(RowsValue), "items": RowsValue}
     )

@@ -1,0 +1,55 @@
+{
+  "cache_consumer_measured": false,
+  "controls_healthy": false,
+  "distinct_processes": 2,
+  "encoded_slots_unchanged": true,
+  "generated_phases_started": 0,
+  "heldout_inputs_read": 0,
+  "inputs_unchanged": true,
+  "native_acceptance": false,
+  "outcome": "unit-root admission refuted on both original drawing controls before parent/model/edge calls",
+  "passed": false,
+  "phases": {
+    "ControlAfterOpenEditSave": {
+      "annotation_created": false,
+      "cleanup_errors": [],
+      "component_is_root_observed": false,
+      "component_model_observed": false,
+      "component_occurrence_configuration": "",
+      "first_failure": {
+        "error": "RuntimeError('visible component must be the actual standalone part root')",
+        "pending_capability": false,
+        "stage": "IsRoot",
+        "type": "RuntimeError"
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "parent_observed": false,
+      "passed": false,
+      "save_model_data_before": true,
+      "source_record_sha256": "abbb7816762febf4e5a39cc650b5af5a4066c94ddb205a26152f47da05f7a389"
+    },
+    "ControlBeforeOpenEditSave": {
+      "annotation_created": false,
+      "cleanup_errors": [],
+      "component_is_root_observed": false,
+      "component_model_observed": false,
+      "component_occurrence_configuration": "",
+      "first_failure": {
+        "error": "RuntimeError('visible component must be the actual standalone part root')",
+        "pending_capability": false,
+        "stage": "IsRoot",
+        "type": "RuntimeError"
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "parent_observed": false,
+      "passed": false,
+      "save_model_data_before": true,
+      "source_record_sha256": "f218588aefafb0d67d14eeb63f07bd3201d27dcd0c5dc430b28186e7009664b2"
+    }
+  },
+  "schema": "kit.sw2026.drawing-projection-root-observer-negative.v1",
+  "source_sha256": "ec4fb7e13afe41bb7906c28973f699be380f67fac17c7d6b59dabbaab6caadb3",
+  "trial_sha256": "90f6ddf5543712f32a6d93ffe997872d9be1c76e480497715fd1db1ea3334a40"
+}

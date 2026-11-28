@@ -1,0 +1,152 @@
+{
+  "schema": "kit.sw2026.oblique-cylinder-sign-evidence.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "owner": "assembly_occurrence",
+  "delivery_pr": 121,
+  "scope": "exact-build ordinary perpendicular plane/hinge sign; preserved disclosed partial failure; separately frozen disclosed flip source pair",
+  "static_pin": {
+    "sha256": "023381546a7e9bed481309fc17274daf80a6f3f9cf5b9161c489fbe126c22364",
+    "matching_independent_processes": 2,
+    "function_count": 16,
+    "code_bytes": 6821,
+    "vendor_code_executed": false
+  },
+  "numeric_replay": {
+    "sha256": "f944cea6075f1c4478385c52a633932d3ece79670964fdd80aa4b0ed4b3efb18",
+    "matching_independent_processes": 2,
+    "source": {
+      "schema": "kit.sw2026.oblique-cylinder-sign-replay.v1",
+      "passed": true,
+      "disclosed_author_sha256": "a37ee38c396be766b8de364994d6d21913087b1372b6cf41249fedc1fc5e3c3a",
+      "static_pin_sha256": "023381546a7e9bed481309fc17274daf80a6f3f9cf5b9161c489fbe126c22364",
+      "native_partial_rows": {
+        "angle_a": {
+          "ordered_hinge_parent_names": ["Right Plane", "Front Plane"],
+          "observed_directed_hinge": [0.0, -1.0, 0.0],
+          "constructed_directed_hinge": [0.0, -1.0, 0.0],
+          "actual_input_arguments": [16, 0.2173, 4, 0.0, 0, 0.0],
+          "observed_normal": [0.97648311145298, 0.0, 0.2155939077226142],
+          "independently_rotated_normal": [
+            0.97648311145298, 0.0, 0.2155939077226142
+          ],
+          "max_normal_residual": 0.0,
+          "preserved_original_predicted_normal": [
+            0.97648311145298, 0.0, -0.2155939077226142
+          ],
+          "observed_minus_original_prediction": [0.0, 0.0, 0.4311878154452284]
+        },
+        "angle_b": {
+          "ordered_hinge_parent_names": ["Top Plane", "Front Plane"],
+          "observed_directed_hinge": [1.0, 0.0, 0.0],
+          "constructed_directed_hinge": [1.0, 0.0, 0.0],
+          "actual_input_arguments": [16, 0.4879, 4, 0.0, 0, 0.0],
+          "observed_normal": [0.0, 0.8833192267056318, 0.4687719528002552],
+          "independently_rotated_normal": [
+            0.0, 0.8833192267056318, 0.4687719528002552
+          ],
+          "max_normal_residual": 0.0,
+          "preserved_original_predicted_normal": [
+            0.0, 0.8833192267056318, -0.4687719528002552
+          ],
+          "observed_minus_original_prediction": [0.0, 0.0, 0.9375439056005104]
+        }
+      },
+      "observed_final_axis": [
+        0.19141832711339932, 0.46010367736252455, -0.8669853690360579
+      ],
+      "ordered_plane_cross_axis": [
+        0.19141832711339932, 0.4601036773625246, -0.8669853690360578
+      ],
+      "native_driver_owners": {
+        "angle_a": "TiltPlaneA",
+        "angle_b": "TiltPlaneB",
+        "limit": "HeightLimit",
+        "sketch": "CylinderSketch"
+      },
+      "new_independent_prediction_sha256": "4ab176c84d293c5239c044a876541da0803d0e58bf6916a22eea7df4dff52cdc",
+      "new_independent_case_count": 2,
+      "new_independent_state_count": 10,
+      "new_native_execution_attempted": false,
+      "original_source_save_measured": false,
+      "original_geometry_acceptance": false,
+      "writer_output_count": 0,
+      "heldout_reads": 0
+    }
+  },
+  "host_verification": {
+    "sha256": "532483d32abf15e110d29e467299ff036f118cd3aa2342a4f70e6f16ee985049",
+    "packet_verify_passes": 2,
+    "tampered_packet_refusals": 4,
+    "syntax_checked_files": 6,
+    "comments": 0,
+    "docstrings": 0,
+    "legacy_argument_delta_exact": true
+  },
+  "new_source_packet": {
+    "protocol_sha256": "0cc67981af46bcee916354bdf90b7204c9a6bf74d89fb8104636e2728c3034d8",
+    "recipe_sha256": "632ef609315674ad5cbfbfd7f06afe7cd3d55645a4816c749dc3398be1508596",
+    "disclosed_sha256": "8f0acd77c0b7b9dfaeb38eef0f0861c21b6886810cd83f812a070ee489a9f1ab",
+    "predictions_sha256": "17dac606d4e090dd743a5b0b2607be803adab41292292dbe72fe11cb28d8c174",
+    "tools_sha256": {
+      "ObliqueCylinderPlan.py": "6385a0a956604fc70eb2e101e2acd38d9c91cafd1b605565ee2575e25a3461f0",
+      "ObliqueCylinderApi.py": "6f627afbc5f446f000a36d0c5a222c8cdff9676f72c14a02b396acec9fc21ed8",
+      "AuthorObliqueCylinder.py": "1fe33c4a7a16675c17b734b5340f5f2f22bcea0bb93bc4226133d15ad05dd7ea",
+      "ObliqueFlipPlan.py": "3f8058c9e2d8f67e62f80433c8b90de658a4ac7ba6cf85b59ec3a6b4fa1e2882",
+      "AuthorObliqueFlip.py": "3e4997c1e1627a899d0bcfdbd0a7139d7b380cc131ca8b9211c53545dc8386cb",
+      "ObliqueFlipSources.py": "3207f712150d44815dfd87ae055a0e7b0a432e8de93b625710f2a23d1d942ec1",
+      "ObliqueCylinderInvoke.py": "e53e405220d3457e5ebf64ae4049fb02781afa26065130f96e50da653f8de39b",
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+      "InspectCircleSketch.py": "deffc8fb5522b0d75b082345b14ed2e92528bac184997af011f186a43e02d6e4",
+      "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+      "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+      "ReferencePlaneDimensions.py": "ada024b7a43428ca599ad14356adaeb4080b273559ea6214393691135f370504",
+      "ReferencePlaneSourcePlan.py": "9d878376609503827881a729f8e96c157c4066699eb9e772db7a33f0a08fd880"
+    },
+    "independently_authored_cases": 2,
+    "independent_geometry_states": 10,
+    "required_distinct_native_processes": 10,
+    "required_healthy_controls": 4,
+    "heldout_execution_enabled": false,
+    "native_execution_attempted_at_freeze": false
+  },
+  "predecessor_identities_unchanged": {
+    "ObliqueCylinderSourcePacket01": {
+      "Protocol.json": "423856991be575744880808a71e8e9ea6f107a9aba90f53656cdcb6b425dcc88",
+      "Recipe.json": "f1ca9c7ace7208b0db0f969cae239d1e24c104fd379a4dca940339b428817ca4",
+      "Disclosed.json": "b3919683cc330f68dd5bb2f93622b6890c4e227a0172e0adbe2272aea1cf7a8b",
+      "Predictions.json": "623ef03083a810e67eaa6ae1c7eff99f75efe59455a74549d6577a54fdd64c8b",
+      "Control.SLDPRT": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+    },
+    "ObliqueCylinderSourcePacket02": {
+      "Protocol.json": "1c702425bc77dac5d5d831228650d681be4df9706e865411728be6bdbf6895b4",
+      "Recipe.json": "ade67ccd808fe01b6e1e0a7c8e6ae2e4ec2322081a75ac9846e225e4dfdb16a3",
+      "Disclosed.json": "b3919683cc330f68dd5bb2f93622b6890c4e227a0172e0adbe2272aea1cf7a8b",
+      "Predictions.json": "623ef03083a810e67eaa6ae1c7eff99f75efe59455a74549d6577a54fdd64c8b",
+      "Control.SLDPRT": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+    }
+  },
+  "stageable_tool_sha256": {
+    "re/tooling/sw2026/oblique/AuthorObliqueCylinder.py": "1fe33c4a7a16675c17b734b5340f5f2f22bcea0bb93bc4226133d15ad05dd7ea",
+    "re/tooling/sw2026/oblique/AuthorObliqueFlip.py": "3e4997c1e1627a899d0bcfdbd0a7139d7b380cc131ca8b9211c53545dc8386cb",
+    "re/tooling/sw2026/oblique/ObliqueFlipPlan.py": "3f8058c9e2d8f67e62f80433c8b90de658a4ac7ba6cf85b59ec3a6b4fa1e2882",
+    "re/tooling/sw2026/oblique/ObliqueFlipSources.py": "3207f712150d44815dfd87ae055a0e7b0a432e8de93b625710f2a23d1d942ec1",
+    "re/tooling/sw2026/oblique/PinObliqueCylinderSign.py": "dc996df2a1ab0e7eb41b462112f714775c2b234300191e4c4920c0d42420bedb",
+    "re/tooling/sw2026/oblique/ReplayObliqueCylinderSign.py": "156978a427bf119b6dc305d2117edaadcf21c818fd553b655dcee3e6f1811056"
+  },
+  "limitations": [
+    "original D01 failed before mass, save, driver edit or reopen; non-null extrusion is not geometry acceptance",
+    "GetParents arrays are dependency observations, not directly observed serialized f80/f88",
+    "public selection-to-native-owner ordering is not statically generalized; the new probe checks actual directed hinges",
+    "the new flip pair is disclosed discovery, not held-out qualification",
+    "no skew, projected, degenerate, multi-plane, foreign-frame or angle-zero-crossing admission",
+    "the complete source-preserving FreeCAD primitive lowering remains unfinished"
+  ],
+  "new_native_launches": 0,
+  "writer_output_count": 0,
+  "heldout_reads": 0,
+  "native_acceptance": false,
+  "production_writer_changed": false
+}

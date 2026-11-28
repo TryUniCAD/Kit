@@ -1,0 +1,343 @@
+{
+  "body_published_in_uninstrumented_open": false,
+  "checked_in_tool_sha256": {
+    "InspectPrismAdmissionMatrix.py": "c46dea398c55de254fe59eb22ba956b53e628e2c0e8ec06908d64e6de0128f4c",
+    "ProbePrismOpenBoundary.py": "70b81a0db3fa023fb0d59e4a5b7362ce482c532e15cf5ac8d42c9b7d1a83a3e0"
+  },
+  "distinct_measured_processes": 20,
+  "healthy_bracketing_controls": 6,
+  "heldout_inputs_read": 0,
+  "matrix_raw_sha256": "f70156b289191f3aae426ba9d9785f9e765bbb23fcafdc27d179708ef21950f5",
+  "native_interventions": {
+    "Boundary01": {
+      "ActiveBodyInventory": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "interrupted_open_rpc_failed": true,
+        "raw_receipt_sha256": "e30da89e2c5d8a34e1c235e1aab6b374e31106af9dc5f1e845571b0fb5734b00",
+        "result": null,
+        "site": "model_body_inventory",
+        "trace_hits": [
+          {
+            "eax": 1,
+            "site": "model_body_inventory",
+            "source_address": "0x4c23edeb",
+            "thread": 0
+          }
+        ],
+        "writable": true
+      },
+      "ApiWarning": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "interrupted_open_rpc_failed": true,
+        "raw_receipt_sha256": "54ac38cb1f9589f771cbcbddcd263988856e56834c7b95adaff37926fece165c",
+        "result": null,
+        "site": "api_error_128",
+        "trace_hits": [
+          {
+            "caller": {
+              "image_sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494",
+              "module": "sldprtu",
+              "return_rva": 991721
+            },
+            "internal_error": 128,
+            "site": "api_error_128",
+            "source_address": "0x458a1760",
+            "thread": 0
+          }
+        ],
+        "writable": true
+      },
+      "ControlAfter": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "e9234a2de238d5a12d91b7978a200c73c2dd78380e8ad97258e7b875e8093863",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "no_debugger",
+        "trace_hits": [],
+        "writable": true
+      },
+      "ControlBefore": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "044ec92b8eb4790c50063a0195e99285ec53beae4d7de578fe7a7d95f6b5dc50",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "no_debugger",
+        "trace_hits": [],
+        "writable": true
+      },
+      "KernelAskBodies": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "a3add91a7e7080cb48bfd56d2774f9341e36fe3e96cd0901e53b9b84613c36b5",
+        "result": [
+          0,
+          32,
+          0
+        ],
+        "site": "ask_bodies_return",
+        "trace_hits": [
+          {
+            "eax": 0,
+            "returned_body_tag_count": 1,
+            "site": "ask_bodies_return",
+            "source_address": "0x3305af1c",
+            "tag_array_present": true,
+            "thread": 0
+          }
+        ],
+        "writable": true
+      },
+      "ReceiveCall": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "848348818b619e8a547950299b0fcbea36b66c482b888dc25b450c99d4f5bea7",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "receive_call",
+        "trace_hits": [
+          {
+            "returned_partition_tag": 0,
+            "site": "receive_call",
+            "source_address": "0x3305aea7",
+            "thread": 0
+          }
+        ],
+        "writable": true
+      },
+      "ReceiveResume": {
+        "cold": true,
+        "continued_while_attached": true,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "a0bd4a58e8989fd38a097540894e158d5cba6f684b0dda526247fcfc7a3b3d9f",
+        "result": [
+          0,
+          32,
+          0
+        ],
+        "site": "receive_return",
+        "trace_hits": [
+          {
+            "eax": 0,
+            "returned_partition_tag": 406,
+            "site": "receive_return",
+            "source_address": "0x3305aeac",
+            "thread": 0
+          }
+        ],
+        "writable": true
+      },
+      "ReceiveWrapComplete": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "0507391af439632e125a45d9083dba585e165b254993387d46170499c432f6a4",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "receive_after_wrap",
+        "trace_hits": [
+          {
+            "returned_partition_tag": 406,
+            "site": "receive_after_wrap",
+            "source_address": "0x3305aec5",
+            "thread": 0
+          }
+        ],
+        "writable": true
+      }
+    },
+    "Intervention01": {
+      "ControlAfter": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "42905e11f4aa2cad0386716fb0eec9d398838bdaf6c0bbb3911b8ce2abe790f3",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "no_debugger",
+        "trace_hits": [],
+        "writable": true
+      },
+      "ControlBefore": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "09ede80ad5f003b8c3993e8d388f3fd99d88dd3f560377adc73e2bd8f85d2759",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "no_debugger",
+        "trace_hits": [],
+        "writable": true
+      },
+      "GeneratedAttachOnly": {
+        "cold": false,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "b9c25e9c837027635278e8519da0d227de36c0f45ef24bad42a0ef12f113ca2c",
+        "result": [
+          0,
+          32,
+          0
+        ],
+        "site": "attach_only",
+        "trace_hits": [],
+        "writable": false
+      },
+      "GeneratedDelay": {
+        "cold": false,
+        "continued_while_attached": false,
+        "delay_seconds": 15,
+        "raw_receipt_sha256": "c979a40c25bae7fdcdabb2d132b065cb347e36317c250076a9c5b7e68ccabcbb",
+        "result": [
+          0,
+          32,
+          0
+        ],
+        "site": "no_debugger",
+        "trace_hits": [],
+        "writable": false
+      },
+      "GeneratedReceiveCold": {
+        "cold": true,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "acc144057d504a0579f4074bef9c603a6b3c95afb333f321ec8c7fff234a822c",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "receive_return",
+        "trace_hits": [
+          {
+            "eax": 0,
+            "returned_partition_tag": 406,
+            "site": "receive_return",
+            "source_address": "0x3305aeac",
+            "thread": 0
+          }
+        ],
+        "writable": true
+      },
+      "GeneratedReceiveRepeat": {
+        "cold": false,
+        "continued_while_attached": false,
+        "delay_seconds": 0,
+        "raw_receipt_sha256": "8d11fec2f9fa7aaf425dc1237f45c41e28238674deb4493b85c9fa9b82223678",
+        "result": [
+          0,
+          0,
+          1
+        ],
+        "site": "receive_return",
+        "trace_hits": [
+          {
+            "eax": 0,
+            "returned_partition_tag": 569,
+            "site": "receive_return",
+            "source_address": "0x3305aeac",
+            "thread": 0
+          }
+        ],
+        "writable": false
+      }
+    }
+  },
+  "native_or_heldout_acceptance_added": false,
+  "oracle": {
+    "build": "34.5.2.0604",
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "machine": "0x8664"
+  },
+  "ordinary_open_matrix": {
+    "after": {
+      "read_only": false,
+      "result": [
+        0,
+        0,
+        1
+      ],
+      "warmup": false
+    },
+    "before": {
+      "read_only": false,
+      "result": [
+        0,
+        0,
+        1
+      ],
+      "warmup": false
+    },
+    "cold_read_only": {
+      "read_only": true,
+      "result": [
+        0,
+        32,
+        0
+      ],
+      "warmup": false
+    },
+    "cold_writable": {
+      "read_only": false,
+      "result": [
+        0,
+        32,
+        0
+      ],
+      "warmup": false
+    },
+    "warm_read_only": {
+      "read_only": true,
+      "result": [
+        0,
+        32,
+        0
+      ],
+      "warmup": true
+    },
+    "warm_writable": {
+      "read_only": false,
+      "result": [
+        0,
+        32,
+        0
+      ],
+      "warmup": true
+    }
+  },
+  "schema": "kit.sw2026.disclosed-prism-partition-open-boundary.v1",
+  "source_part_sha256": "3c6e2216c9ecaff27c8a5897b87653cffa5681df71940c9b7104d27a9eaddd03",
+  "unobserved_transport": {
+    "exit": 255,
+    "native_receipt": false,
+    "site": "receive_after_status_store",
+    "transport_stderr_sha256": "55d9d8d810f971073dbdcb34d7b3a17467111ba0c0d707e9da57ca752e8ad232"
+  }
+}

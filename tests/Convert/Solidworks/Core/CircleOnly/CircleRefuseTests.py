@@ -29,7 +29,8 @@ def CheckRefusal(ModeValue: str) -> None:
         Entry.code == "sldprt.circular_sketch_unresolved"
         for Entry in Document.diagnostics
     )
-    assert all(len(Sketch.constraints) == 1 for Sketch in Document.sketches)
+    (SketchValue,) = Document.sketches
+    assert len(SketchValue.constraints) == 1
 
 
 # contradictory principal support must fail before either public read mode can return a guessed sketch

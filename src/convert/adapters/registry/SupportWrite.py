@@ -1,11 +1,10 @@
+from convert.adapters.base.NativeEvidence import KRefSupportSource
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentWalk import WalkDocuments
 
 
 # ambiguous support evidence cannot choose an editable sketch plane for the target
 def CheckSupports(Document: CadDocument) -> None:
-    from convert.adapters.solidworks.Core.Native import KRefSupportSource
-
     Findings = sorted(
         {
             f"{PartValue.source.path}: {Sketch.id}"

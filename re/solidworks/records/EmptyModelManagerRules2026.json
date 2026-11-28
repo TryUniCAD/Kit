@@ -1,0 +1,278 @@
+{
+  "bounded_source_ranges": [
+    {
+      "code_sha256": "4e597b251497db59dee840e37c2ee3864f434a1d6b1cc019b0196f98d2bb103c",
+      "end_exclusive": "0x497852a1",
+      "export_prefix": "?getBomInfoMgr_c@uiModelDoc_c@@",
+      "module": "slduiu.dll",
+      "role": "bom_lazy_getter",
+      "start": "0x49785260",
+      "verified_operand_facts": [
+        "0xab8(%rcx)",
+        "0x4978529b",
+        "0x58",
+        "0x4a451b68",
+        "0xab8(%rbx)"
+      ]
+    },
+    {
+      "code_sha256": "eba76648fbe61b977f31a3f8aa86dedd05befaad5e0b92235ffbd8680139b4fa",
+      "end_exclusive": "0x48ee88d8",
+      "export_prefix": "?setBomInfoMgr_c@uiModelDoc_c@@",
+      "module": "slduiu.dll",
+      "role": "bom_pointer_setter",
+      "start": "0x48ee88d0",
+      "verified_operand_facts": [
+        "0xab8(%rcx)",
+        "retq"
+      ]
+    },
+    {
+      "code_sha256": "9fd6f419b8e02c7bbfc2eb538b92e1ba6f15e7f6004aa6abbf5548d85fe8a37e",
+      "end_exclusive": "0x48ee74b8",
+      "export_prefix": "?getPWMaterialManager@uiModelDoc_c@@",
+      "module": "slduiu.dll",
+      "role": "appearance_pointer_getter",
+      "start": "0x48ee74b0",
+      "verified_operand_facts": [
+        "0x1110(%rcx)",
+        "retq"
+      ]
+    },
+    {
+      "code_sha256": "767a698799e9de6595c46eef87b7986af5e8d08528c59a197818c946b9f3e5e4",
+      "end_exclusive": "0x4c1f1652",
+      "export_prefix": "??0PWMaterialManager_c@@",
+      "module": "sldmodu.dll",
+      "role": "appearance_constructor",
+      "start": "0x4c1f15f0",
+      "verified_operand_facts": [
+        "0x1, 0x8(%rbx)",
+        "0x18(%rbx)",
+        "0x28(%rbx)"
+      ]
+    },
+    {
+      "code_sha256": "2b6d1e0866a2cbb57078f532702157e8c931256b25628a3f63a17389a7dcca2f",
+      "end_exclusive": "0x4c1ffb4d",
+      "export_prefix": "?getNewApperanceID@PWMaterialManager_c@@",
+      "module": "sldmodu.dll",
+      "role": "appearance_allocate",
+      "start": "0x4c1ffb40",
+      "verified_operand_facts": [
+        "0x8(%rcx)"
+      ]
+    },
+    {
+      "code_sha256": "02b8eaa15c837ecc43c90d99c7291271b0baddcf58c9be0eea774c77ffc0240f",
+      "end_exclusive": "0x49748c23",
+      "export_prefix": null,
+      "module": "slduiu.dll",
+      "role": "ui_bom_null_seed",
+      "start": "0x49748c1c",
+      "verified_operand_facts": [
+        "0xab8(%rdi)"
+      ]
+    },
+    {
+      "code_sha256": "5b2a3595123b18cb15ab256d538e1ed29112636da9dfc8ccfd2cedf15d294185",
+      "end_exclusive": "0x497491d6",
+      "export_prefix": null,
+      "module": "slduiu.dll",
+      "role": "ui_appearance_allocation",
+      "start": "0x497491ad",
+      "verified_operand_facts": [
+        "0x50",
+        "0x4a452208",
+        "0x1110(%rdi)"
+      ]
+    },
+    {
+      "code_sha256": "71d5116059d37d04577381546aef0ef9738ee8885cddd766a50b75e33ef21f2a",
+      "end_exclusive": "0x49701aa9",
+      "export_prefix": null,
+      "module": "slduiu.dll",
+      "role": "ui_appearance_presence_store",
+      "start": "0x49701a7e",
+      "verified_operand_facts": [
+        "0x1110("
+      ]
+    },
+    {
+      "code_sha256": "fb6bed88141baa412ffd2baf9852b51a5ae0936085e765716b530444da9d03ff",
+      "end_exclusive": "0x49703eb5",
+      "export_prefix": null,
+      "module": "slduiu.dll",
+      "role": "ui_appearance_presence_read",
+      "start": "0x49703e83",
+      "verified_operand_facts": [
+        "0xf1e",
+        "0x1110("
+      ]
+    }
+  ],
+  "constructor_imports": {
+    "appearance": {
+      "cell": "0x4a452208",
+      "module": "SLDMODU.dll",
+      "symbol": "??0PWMaterialManager_c@@QEAA@XZ"
+    },
+    "bom": {
+      "cell": "0x4a451b68",
+      "module": "SLDMODU.dll",
+      "symbol": "??0moBomInfoMgr_c@@QEAA@XZ"
+    }
+  },
+  "full_source_functions": {
+    "appearance_restore": {
+      "code_sha256": "2ddc59c8d20a57c2d9c21f0f977a18acde69f7f8b5d04b51d722dfc2a8b10019",
+      "end_rva_exclusive": "0x10c4a8f",
+      "end_va_exclusive": "0x4c204a8f",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?restore@PWMaterialManager_c@@QEAAXAEAVsu_CArchive@@@Z"
+      ],
+      "module": "sldmodu.dll",
+      "start_rva": "0x10c4830",
+      "start_va": "0x4c204830",
+      "unwind_rva": "0x247e4bc"
+    },
+    "appearance_save": {
+      "code_sha256": "59f05ebb5de173c5f66d9fc44a49846665629feb550d3f5d6c8a552baa7273b0",
+      "end_rva_exclusive": "0x10c7180",
+      "end_va_exclusive": "0x4c207180",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?save@PWMaterialManager_c@@QEAAXAEAVsu_CArchive@@@Z"
+      ],
+      "module": "sldmodu.dll",
+      "start_rva": "0x10c7050",
+      "start_va": "0x4c207050",
+      "unwind_rva": "0x247e490"
+    },
+    "bom_constructor": {
+      "code_sha256": "6b430baf9d6916a3dd7e4176961496da16b6e12480258ede73326bfadd3bfdf2",
+      "end_rva_exclusive": "0xc3be9f",
+      "end_va_exclusive": "0x4bd7be9f",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0moBomInfoMgr_c@@QEAA@XZ"
+      ],
+      "module": "sldmodu.dll",
+      "start_rva": "0xc3be60",
+      "start_va": "0x4bd7be60",
+      "unwind_rva": "0x23d9d5c"
+    },
+    "bom_serializer": {
+      "code_sha256": "faa2e94141d5aace0126e560b7966d36acfe0d290de261a1bd2a56d73a2bbfad",
+      "end_rva_exclusive": "0xc3d04a",
+      "end_va_exclusive": "0x4bd7d04a",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "module": "sldmodu.dll",
+      "start_rva": "0xc3cf40",
+      "start_va": "0x4bd7cf40",
+      "unwind_rva": "0x224be9c"
+    },
+    "bom_typed_read": {
+      "code_sha256": "053c91347d21a0736a74c02d65dc1c10b5a94709a612fb18b7859a6c32da145f",
+      "end_rva_exclusive": "0xc3ca62",
+      "end_va_exclusive": "0x4bd7ca62",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??5@YAAEAVsu_CArchive@@AEAV0@AEAPEAVmoBomInfoMgr_c@@@Z"
+      ],
+      "module": "sldmodu.dll",
+      "start_rva": "0xc3ca10",
+      "start_va": "0x4bd7ca10",
+      "unwind_rva": "0x2245bd8"
+    },
+    "bom_typed_store": {
+      "code_sha256": "ca2dc28d56d1d8d8b04a3377c655a96fa22f2381b7c9054d22c19e7687d4404b",
+      "end_rva_exclusive": "0xc3cbdf",
+      "end_va_exclusive": "0x4bd7cbdf",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??6@YAAEAVsu_CArchive@@AEAV0@AEAPEAVmoBomInfoMgr_c@@@Z"
+      ],
+      "module": "sldmodu.dll",
+      "start_rva": "0xc3cb90",
+      "start_va": "0x4bd7cb90",
+      "unwind_rva": "0x2245bd8"
+    },
+    "ui_constructor": {
+      "code_sha256": "bf5c4e74fb9831332234ac17884d67d733990bdc38fe933eb1240314a06d90b0",
+      "end_rva_exclusive": "0x8aa371",
+      "end_va_exclusive": "0x4974a371",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0uiModelDoc_c@@QEAA@XZ"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x8a86b0",
+      "start_va": "0x497486b0",
+      "unwind_rva": "0x1bc1728"
+    },
+    "ui_model_serializer": {
+      "code_sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e",
+      "end_rva_exclusive": "0x864a43",
+      "end_va_exclusive": "0x49704a43",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?Serialize@uiModelDoc_c@@UEAAXAEAVsu_CArchive@@@Z"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x8611e0",
+      "start_va": "0x497011e0",
+      "unwind_rva": "0x1bbc7d4"
+    }
+  },
+  "heldout_inputs_read": 0,
+  "modules": [
+    {
+      "image_base": "0x48ea0000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "native_launches": 0,
+  "persistent_analysis_target_opened": false,
+  "prior_records": {
+    "appearance": "re/solidworks/records/DrawingEmptyAppearanceAdmission2026.md",
+    "bom": "re/solidworks/records/DrawingBomManagerArchive2026.md",
+    "material_wire": "re/solidworks/records/MaterialDisplayArchive2026.md"
+  },
+  "rules": {
+    "absent_state": "no manager body can communicate a nondefault allocator; constructor seed1 is the only retained allocator for this component absent branch.",
+    "appearance_counter": "native u64+8 starts1. getNewApperanceID returns the old value and increments modulo2**64. Wire f08/f0c are the low/high signed32 halves; reconstruct with unsigned masks. Saved empty manager counter6 is source-owned allocation state, never a fresh constructor constant.",
+    "appearance_presence": "UI constructor independently constructs an80-byte manager. Common UI store emits pointer!=null then the direct embedded save body; version19000 read restores the already constructor-owned manager only for nonzero presence. This is independent of adjacent UI scalar words.",
+    "appearance_rows": "the empty constructor has no runtime associations. Store filters runtime material entries through property+0x2f0 and emits a temporary reference list; any transmitted populated row is outside this construction profile.",
+    "bom_presence": "UI constructor initializes +0xab8 null. The named getter tests this pointer only and lazily allocates the exact empty manager. The setter only assigns the supplied pointer. Generic ordinary object tags represent its null/non-null wire presence. No populated child grammar is generated.",
+    "ui_scalar_limit": "fad0/fad4/fb00/fb04 are separately stored unresolved UI words; these pointer constructor/getter/serializer branches do not derive manager presence from them. The full application caller policy is not claimed."
+  },
+  "schema": "kit.sw2026.empty-model-manager-native-rules.v1",
+  "static_only": true,
+  "tools": {
+    "collector_sha256": "3dc52723063c97739801a0b13cbc58848292c3deb555f0b81bb7623888dcf38a",
+    "image_reader_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+    "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c"
+  },
+  "typed_bom_runtime": {
+    "body": "signed32 list count and that many ordinary tagged moBomInfo_c rows; source helper+0x838 is runtime state, no extra wire bytes",
+    "class": "moBomInfoMgr_c",
+    "descriptor": "0x4dae4880",
+    "object_size": 88,
+    "primary": "0x4d00c420",
+    "schema": 1,
+    "serializer": "0x4bd7cf40",
+    "serializer_slot": "0x28"
+  },
+  "vendor_bytes_or_listing_in_delivery": false
+}

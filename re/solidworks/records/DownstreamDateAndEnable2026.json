@@ -1,0 +1,683 @@
+{
+  "acceptance": {
+    "application_usable": false,
+    "generated_writer": false,
+    "heldout": false,
+    "new_native_execution": false,
+    "standalone_save_route": false,
+    "vendor_loadable": false
+  },
+  "complete_amd64_owners": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 53,
+      "end_exclusive": "0x3d0107e5",
+      "module": "sldutu.dll",
+      "name": "FullDateCode",
+      "sha256": "f94d4ced8922d22b33a46acbb97d7337cde0a6bf4e65baca39f72aa03a8fe7eb",
+      "start": "0x3d0107b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 53,
+          "end_exclusive": "0x3d0107e5",
+          "sha256": "f94d4ced8922d22b33a46acbb97d7337cde0a6bf4e65baca39f72aa03a8fe7eb",
+          "start": "0x3d0107b0",
+          "unwind_rva": "0x2fe6f8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 139,
+      "end_exclusive": "0x3d0145ab",
+      "module": "sldutu.dll",
+      "name": "TaggedDateCode",
+      "sha256": "c3d522fb52757d409a4a4f729aa047e2480199304c44ee9e2c7c8084c2685208",
+      "start": "0x3d014520",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 139,
+          "end_exclusive": "0x3d0145ab",
+          "sha256": "c3d522fb52757d409a4a4f729aa047e2480199304c44ee9e2c7c8084c2685208",
+          "start": "0x3d014520",
+          "unwind_rva": "0x3149dc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 24,
+      "end_exclusive": "0x4a26ba78",
+      "module": "slduiu.dll",
+      "name": "ConcreteAppSlot550",
+      "sha256": "f64925241dd770c8675cc8c0d6c97ca4435c7a4db222d3a4adcb4aa6e0b7b8f3",
+      "start": "0x4a26ba60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 24,
+          "end_exclusive": "0x4a26ba78",
+          "sha256": "f64925241dd770c8675cc8c0d6c97ca4435c7a4db222d3a4adcb4aa6e0b7b8f3",
+          "start": "0x4a26ba60",
+          "unwind_rva": "0x1ab48a0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 18,
+      "end_exclusive": "0x45857f82",
+      "module": "sldappu.dll",
+      "name": "GetConcreteAmApp",
+      "sha256": "ef176c5d8683c1df75c90930932fc96fbeac8e379ef7535698ef592480d3a11b",
+      "start": "0x45857f70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 18,
+          "end_exclusive": "0x45857f82",
+          "sha256": "ef176c5d8683c1df75c90930932fc96fbeac8e379ef7535698ef592480d3a11b",
+          "start": "0x45857f70",
+          "unwind_rva": "0xc6cb44"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2409,
+      "end_exclusive": "0x49e7fdd9",
+      "module": "slduiu.dll",
+      "name": "AppRegisterOwner",
+      "sha256": "2ed4b5bb9b1493f50a0438b907cdff9b3147790cfba1e072a3b127f8b8186f1a",
+      "start": "0x49e7f470",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2409,
+          "end_exclusive": "0x49e7fdd9",
+          "sha256": "2ed4b5bb9b1493f50a0438b907cdff9b3147790cfba1e072a3b127f8b8186f1a",
+          "start": "0x49e7f470",
+          "unwind_rva": "0x1cad340"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 191,
+      "end_exclusive": "0x49e7cd0f",
+      "module": "slduiu.dll",
+      "name": "AppResetOwner",
+      "sha256": "22308c08e2bcfd02e6d91358463aa8dd5cea5c0d1632705c85486dfabf1993ed",
+      "start": "0x49e7cc50",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 191,
+          "end_exclusive": "0x49e7cd0f",
+          "sha256": "22308c08e2bcfd02e6d91358463aa8dd5cea5c0d1632705c85486dfabf1993ed",
+          "start": "0x49e7cc50",
+          "unwind_rva": "0x1ab4aac"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x45813b87",
+      "module": "sldappu.dll",
+      "name": "EnableDownstreamAppGetter",
+      "sha256": "cdb3a690322f05e332c109293d2aefceb4ba09fe2cccede754bcdf44ec0fa3e4",
+      "start": "0x45813b80",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x45822327",
+      "module": "sldappu.dll",
+      "name": "EnableDownstreamAppSetter",
+      "sha256": "21919a67eefb64b2b9564afa69bf21901c20573037b64fde04baa7095edf1d80",
+      "start": "0x45822320",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x31989f68",
+      "module": "sldsessionu.dll",
+      "name": "SessionAppGetter",
+      "sha256": "3190b468a334b910ef300a85181158fc6e12bf07442e695fc9fb930f062e2f18",
+      "start": "0x31989f60",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 22,
+      "end_exclusive": "0x3198a666",
+      "module": "sldsessionu.dll",
+      "name": "SessionAppSetter",
+      "sha256": "3d8bc258b4523ac9da0164b02a430ee670eadefb9900f6fb6b2607a149eeb3b0",
+      "start": "0x3198a650",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x31986463",
+      "module": "sldsessionu.dll",
+      "name": "SessionFallback550",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x31986460",
+      "unwind_fragments": []
+    }
+  ],
+  "date_code": {
+    "cache": {
+      "date_cache": {
+        "file_backed": false,
+        "initial_raw_u32_claimed": false
+      },
+      "scope": "selected direct RIP-relative DWORD MOV forms in original utility .text; aliases and external writes not closed",
+      "selected_direct_rip_refs": [
+        {
+          "opcode_class": "load_i32",
+          "site": "0x3d014524"
+        },
+        {
+          "opcode_class": "store_i32",
+          "site": "0x3d01458f"
+        },
+        {
+          "opcode_class": "load_i32",
+          "site": "0x3d0145a0"
+        }
+      ]
+    },
+    "computed_original_literal_full_value": 2026306,
+    "computed_original_literal_tagged_value": 2026306,
+    "constant_scope": "successful cache-miss conversion in this exact pinned original build; no claim about externally modified warm cache, other releases, saved f10 or generated native provenance",
+    "downstream_constructor_import": "sldmodu.dll IAT0x4cd3d580 -> sldutu.dll!su_getFullDateCode -> constructor f10",
+    "full_code_rule": "t=u32(su_getTaggedDateCode()); if 1<=t<=99999: t+(2000000 if t<9600 else 1900000); otherwise t",
+    "literal": {
+      "full_literal_or_vendor_code_copied": false,
+      "narrow_characters": 59,
+      "prefix_discarded_characters": 14,
+      "remaining_decimal_characters": 7,
+      "span": {
+        "bound": "complete original narrow build-metadata literal including terminator",
+        "bytes": 60,
+        "end_exclusive": "0x3d319284",
+        "sha256": "6cbbca2a0fb5312ad3a2fcb0a9a7b781d8a5e78e9d25a5d7148cc8c5b0608bf8",
+        "start": "0x3d319248"
+      },
+      "trailing_ascii_spaces": 38
+    },
+    "live_clock_or_calendar_call_in_selected_producer": false,
+    "runtime_value_measured": false,
+    "source_conversion_rule": "preserve actual archive f10; do not replace source history/date values with this constructor result",
+    "tagged_rule": "return nonzero cached u32; on cache miss construct Unicode CString from pinned narrow build-metadata literal, remove trailing iswspace characters, take Right(max(length-14,0)), parse via _wtol, assign/return u32 cache"
+  },
+  "date_imports": [
+    {
+      "iat": "0x3d1e27b8",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1033"
+    },
+    {
+      "iat": "0x3d1e2840",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1501"
+    },
+    {
+      "iat": "0x3d1e28d8",
+      "module": "mfc140u.dll",
+      "name": "ordinal:14039"
+    },
+    {
+      "iat": "0x3d1e28f8",
+      "module": "mfc140u.dll",
+      "name": "ordinal:12600"
+    },
+    {
+      "iat": "0x3d1e2958",
+      "module": "mfc140u.dll",
+      "name": "ordinal:290"
+    },
+    {
+      "iat": "0x3d1e2260",
+      "module": "api-ms-win-crt-convert-l1-1-0.dll",
+      "name": "_wtol"
+    }
+  ],
+  "delivery_pr": 121,
+  "enable": {
+    "actual_runtime_value_or_fresh_default": "unresolved and unmeasured; raw getter/setter rule is not a universal constant",
+    "app_runtime_member": "CAmApp i32+0x464",
+    "application_preference_license_or_process_changed": false,
+    "base_descriptor": {
+      "bound": "SldApp_c direct base descriptor, mdisp0/pdisp-1",
+      "bytes": 24,
+      "end_exclusive": "0x4a935438",
+      "sha256": "c5abb6c928ebece2e98e31a0bf34dccd28fa4a26c9f99d6843987606a998df09",
+      "start": "0x4a935420"
+    },
+    "base_displacement": 0,
+    "base_type_descriptor": {
+      "bound": "complete actual SldApp_c type descriptor and name",
+      "bytes": 31,
+      "end_exclusive": "0x4af2493f",
+      "sha256": "d9a8b48f03ee30f4b40f3a9da5255ec03a5a3dfb781319fe764af32be8829ad5",
+      "start": "0x4af24920"
+    },
+    "complete_object_locator": {
+      "bound": "validated MSVC complete-object locator",
+      "bytes": 24,
+      "end_exclusive": "0x4a935550",
+      "sha256": "9637e49ad284ff3c544e048143240f5a89cb1edf25063323f511e363c4b6962f",
+      "start": "0x4a935538"
+    },
+    "concrete_ui_class": "App_c",
+    "derived_type_descriptor": {
+      "bound": "complete actual App_c type descriptor and name",
+      "bytes": 28,
+      "end_exclusive": "0x4af249cc",
+      "sha256": "5fb4a8d9812e05d25d9408ae44b87b0e4df52432dffc94993fff6926ab8cec81",
+      "start": "0x4af249b0"
+    },
+    "fallback": {
+      "object_table_pointer": {
+        "bound": "actual static fallback primary table",
+        "bytes": 8,
+        "end_exclusive": "0x319b10f0",
+        "sha256": "5bda253ce5136207278f4e4cf5d6555b948b1f2682b85e9e7104363bfe3fd3a3",
+        "start": "0x319b10e8"
+      },
+      "predicate_when_this_fallback_is_selected": "bool(downstream_dump_option_global_i32_4db56810)",
+      "setApp_null_rule": "session setter stores address0x319b10e8 instead of NULL",
+      "slot550_pointer": {
+        "bound": "actual fallback slot0x550 pointer",
+        "bytes": 8,
+        "end_exclusive": "0x31999450",
+        "sha256": "a403ab06508aaa3d8adc728409dff162541aeec0bd83e0d22454e4905967ba51",
+        "start": "0x31999448"
+      },
+      "slot550_return": 0,
+      "slot550_target": "0x31986460",
+      "vtable": "0x31998ef8"
+    },
+    "getter": "0x45813b80 reads i32 at actual CAmApp+0x464 and returns it",
+    "primary_vtable": "0x4a7a9460",
+    "registered_static_receiver": {
+      "address": "0x4aef55c8",
+      "callsite": "0x49e7f564",
+      "primary_table_word": {
+        "bound": "original primary table at actual registration receiver",
+        "bytes": 8,
+        "end_exclusive": "0x4aef55d0",
+        "sha256": "1d7ffd81a66b03ab651f3d2139348ce51a1844df7c7765b189bcc7b586da53a9",
+        "start": "0x4aef55c8"
+      },
+      "session_setter_iat": "0x4a471f68"
+    },
+    "registered_ui_predicate": "bool(actual_CAmApp.i32_464 || downstream_dump_option_global_i32_4db56810)",
+    "required_base": "SldApp_c",
+    "session_getter_storage": "global pointer0x319b2938; no live pointer value inspected",
+    "setter": "0x45822320 writes incoming EDX to actual CAmApp+0x464 without normalization",
+    "slot550": {
+      "bound": "actual primary table function pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4a7a99b8",
+      "sha256": "c7590c80a24dceb5953a574be16b6d75b6ec583b49196d9f03a26fb7bec05223",
+      "start": "0x4a7a99b0"
+    },
+    "slot_route": "App_c+0x550 ->0x4a26ba60 -> am_GetApp() -> CAmApp::isEnableDownstreamstreamIds()",
+    "table_locator_pointer": {
+      "bound": "actual concrete table complete-object locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4a7a9460",
+      "sha256": "930e576ee8b0b3e760add7f2acacc17d4ac236cf4006d4a9f328cf97d68823e9",
+      "start": "0x4a7a9458"
+    }
+  },
+  "framework_support": {
+    "analysis_view": {
+      "change": "only raw export directory cleared for LLVM parser; instruction bytes unchanged; never loaded or executed",
+      "changed_file_offsets": [
+        416,
+        417,
+        418,
+        420,
+        421,
+        422
+      ],
+      "runtime_or_original_identity_claimed": false,
+      "sha256": "956c50d0f491c52f510f2af29d8dc4cf757f1353d3ccaffb11e4a52e520ec729"
+    },
+    "chpe_code_map": {
+      "bound": "existing validated CHPE code map, unchanged original bytes",
+      "bytes": 24,
+      "rva": "0x890230",
+      "sha256": "970b5db8680e06a0a639103ce2970ac3a3640c0a46ea9aabc8a9907c71faaa5c"
+    },
+    "complete_arm64_owners": [
+      {
+        "body": {
+          "bound": "complete ARM64 pdata/xdata function length",
+          "bytes": 172,
+          "rva": "0x552180",
+          "sha256": "8a888dcc680082529f9ba72bd24b130d54024f78bf79a192ed63d4812bc32977"
+        },
+        "end_rva_exclusive": "0x55222c",
+        "interior_pdata_starts": [],
+        "label": "MfcCtorFromNarrow",
+        "pdata": {
+          "bound": "exact ARM64 runtime-function record",
+          "bytes": 8,
+          "rva": "0x9e6270",
+          "sha256": "b0c2900b934ad6584a95b02b18cf3a6c5957a772733a52b84e4a3abfefc5a1d0"
+        },
+        "start_rva": "0x552180",
+        "unwind_kind": 0,
+        "xdata_header": {
+          "header": "0x1070002b",
+          "header_sha256": "5d471443f5e7502c5603070b15c98f2344f5e84dcb8dd3172ee5817619e5a49d",
+          "rva": "0x92d84c"
+        }
+      },
+      {
+        "body": {
+          "bound": "complete ARM64 pdata/xdata function length",
+          "bytes": 196,
+          "rva": "0x350310",
+          "sha256": "2a35472749dc055c639a803f761c2e3bc9f6aa7712011b853efb2d966dc36a00"
+        },
+        "end_rva_exclusive": "0x3503d4",
+        "interior_pdata_starts": [],
+        "label": "MfcNoArg14039",
+        "pdata": {
+          "bound": "exact ARM64 runtime-function record",
+          "bytes": 8,
+          "rva": "0x9d9e78",
+          "sha256": "36a630bb0f4d1e932c638eb93967b79ae5e66c84b3a8c668a3e46bb0b70b15a0"
+        },
+        "start_rva": "0x350310",
+        "unwind_kind": 0,
+        "xdata_header": {
+          "header": "0x10400031",
+          "header_sha256": "57a5d9921873cca5b8dc19cefb5f2204df2bdd23e831c40d4a751eeb51932e04",
+          "rva": "0x8f1e20"
+        }
+      },
+      {
+        "body": {
+          "bound": "complete ARM64 pdata/xdata function length",
+          "bytes": 132,
+          "rva": "0x37f000",
+          "sha256": "4bd7ec2b5d3ef6394b92832530bae2d87e78109c6d0af3bccc95fce21446528c"
+        },
+        "end_rva_exclusive": "0x37f084",
+        "interior_pdata_starts": [],
+        "label": "MfcSubstring12600",
+        "pdata": {
+          "bound": "exact ARM64 runtime-function record",
+          "bytes": 8,
+          "rva": "0x9db230",
+          "sha256": "4d712d71becd0905afa48a36de0c6e6571bf4689471bc535d5f831bcc7925767"
+        },
+        "start_rva": "0x37f000",
+        "unwind_kind": 1,
+        "xdata_header": null
+      },
+      {
+        "body": {
+          "bound": "complete ARM64 pdata/xdata function length",
+          "bytes": 44,
+          "rva": "0x34a880",
+          "sha256": "1badc045e6820650f1382a195bd184fc230f9ee99e9c79cb5d8d276029ed22df"
+        },
+        "end_rva_exclusive": "0x34a8ac",
+        "interior_pdata_starts": [],
+        "label": "MfcAssign1501",
+        "pdata": {
+          "bound": "exact ARM64 runtime-function record",
+          "bytes": 8,
+          "rva": "0x9d9b00",
+          "sha256": "0e3ef010f97c70bac8b5ebc582ad17bd10bbdce334c6e5fbd1a82020e50c9fff"
+        },
+        "start_rva": "0x34a880",
+        "unwind_kind": 1,
+        "xdata_header": null
+      },
+      {
+        "bound": "complete ARM64 pdata/xdata function length",
+        "bytes": 220,
+        "end_rva_exclusive": "0x55217c",
+        "interior_pdata_starts": [],
+        "name": "MfcNarrowConversion",
+        "pdata_rva": "0x9e6268",
+        "sha256": "eb9a10e3c0dc7d27c8f2ab0f8a56ed38a2249a467f556704b2b4a9e076cf6e17",
+        "start_rva": "0x5520a0",
+        "unwind_word": "0x92d83c"
+      },
+      {
+        "bound": "complete ARM64 pdata/xdata function length",
+        "bytes": 188,
+        "end_rva_exclusive": "0x34a87c",
+        "interior_pdata_starts": [],
+        "name": "MfcAssignCore",
+        "pdata_rva": "0x9d9af8",
+        "sha256": "90020181f69317ea92b71a9bbe4375753106cc7c0e44912b0bc2c6c0be7c1265",
+        "start_rva": "0x34a7c0",
+        "unwind_word": "0x1c300bd"
+      },
+      {
+        "bound": "complete ARM64 pdata/xdata function length",
+        "bytes": 208,
+        "end_rva_exclusive": "0x350640",
+        "interior_pdata_starts": [],
+        "name": "MfcSubstringCopy",
+        "pdata_rva": "0x9d9e90",
+        "sha256": "8c38119dc2fcb89c32e9825925e3e38ef144a50ab9c598a7b73b0865375f761c",
+        "start_rva": "0x350570",
+        "unwind_word": "0x8f1e40"
+      }
+    ],
+    "complete_import_thunks": [
+      {
+        "bound": "complete ARM64EC import tail thunk, three reviewed instructions",
+        "bytes": 12,
+        "name": "iswspace import tail thunk",
+        "rva": "0x3384d8",
+        "sha256": "a5f78a5a8446c5ce8a80afd28c741457f5a7648ee0af9e94deb90e5ec56c1941"
+      },
+      {
+        "bound": "complete ARM64EC import tail thunk, three reviewed instructions",
+        "bytes": 12,
+        "name": "MultiByteToWideChar import tail thunk",
+        "rva": "0x337e34",
+        "sha256": "ea91b4a9387e5d11495f51b686cc5228692cf71585d44d02087ca5bf95bd7f11"
+      }
+    ],
+    "effective_ordinal_bindings": [
+      {
+        "effective_address_preferred": "0x1806902f0",
+        "effective_rva": "0x6902f0",
+        "ordinal": 290,
+        "raw_14byte_sha256": "b5ccf998e69a5ce223d39f5b2678ec02ad18292411f4211525959dca8d35894f",
+        "rel32_at": 9,
+        "thunk_target_rva": "0x552180"
+      },
+      {
+        "effective_address_preferred": "0x1806c44f0",
+        "effective_rva": "0x6c44f0",
+        "ordinal": 14039,
+        "raw_14byte_sha256": "90ef52220dd5f23755016fbe6f4731d9448da67d46b77b05375318fce6c54f04",
+        "rel32_at": 9,
+        "thunk_target_rva": "0x350310"
+      },
+      {
+        "effective_address_preferred": "0x1806beaa0",
+        "effective_rva": "0x6beaa0",
+        "ordinal": 12600,
+        "raw_14byte_sha256": "55faa63339ab3bde7d8cc08fdeac15c063c72f37d1b0b8f04d54be679db2ae15",
+        "rel32_at": 9,
+        "thunk_target_rva": "0x37f000"
+      },
+      {
+        "effective_address_preferred": "0x180694e30",
+        "effective_rva": "0x694e30",
+        "ordinal": 1501,
+        "raw_14byte_sha256": "ff2d70e20deb240b15a0b6364900ef124cbd95767278542b560002e2d090cbb9",
+        "rel32_at": 9,
+        "thunk_target_rva": "0x34a880"
+      }
+    ],
+    "effective_thunk_isa": "AMD64",
+    "fast_forward_prefix_sha256": "1c825d50311f134f7176f8efee7a91af064e6641f0cbe86fdf0481037f418ac8",
+    "fresh_runtime_action_performed": false,
+    "new_date_helper_bodies_mapped_equality_measured": false,
+    "reached_body_isa": "ARM64 instructions in ARM64EC range",
+    "retained_runtime03_inventory_sha256": "6907f9bcf6255b0025193f04a4eb773d8914b1917fe5f169fc0539710fe8df1d",
+    "retained_runtime03_mapped_exports_sha256": "f7ea2e7ba8bb9db475b41f53d1b5101a7f90e5c80497017f4a1b4c1b183b22e9",
+    "selected_imports": [
+      {
+        "iat_rva": "0x6c7760",
+        "module": "KERNEL32.dll",
+        "name": "MultiByteToWideChar"
+      },
+      {
+        "iat_rva": "0x6c8800",
+        "module": "api-ms-win-crt-string-l1-1-0.dll",
+        "name": "iswspace"
+      }
+    ]
+  },
+  "instruction_windows": [
+    {
+      "bound": "reviewed native instruction boundaries in complete owner",
+      "bytes": 103,
+      "end_exclusive": "0x3d014595",
+      "module": "sldutu.dll",
+      "name": "downstream date literal reference through decimal parse/cache store",
+      "sha256": "4b8b46c995c6f5c1836b42222be3d201bcdd01b0861789d78a974ce34310d5fe",
+      "start": "0x3d01452e"
+    },
+    {
+      "bound": "reviewed native instruction boundaries in complete owner",
+      "bytes": 13,
+      "end_exclusive": "0x49e7f56a",
+      "module": "slduiu.dll",
+      "name": "static actual App_c registration argument",
+      "sha256": "fc5567acfd66eebc4751eca0d9e029d2a8de392db2c2376c94d0682cd2b79c4d",
+      "start": "0x49e7f55d"
+    },
+    {
+      "bound": "reviewed native instruction boundaries in complete owner",
+      "bytes": 8,
+      "end_exclusive": "0x49e7ccd4",
+      "module": "slduiu.dll",
+      "name": "null App registration argument",
+      "sha256": "e47a4cc39e4d09f6bc54ceb7d16f0789e19319a1a50dc29469a733b633b7a945",
+      "start": "0x49e7cccc"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 4061272,
+      "machine": "0x8664",
+      "name": "sldutu.dll",
+      "preferred_base": "0x3cf80000",
+      "sha256": "dbc147c10b658544e44a7c13d3ae656c26a0778e9241fe74d6ca9ecae8730933"
+    },
+    {
+      "bytes": 229464,
+      "machine": "0x8664",
+      "name": "sldsessionu.dll",
+      "preferred_base": "0x31980000",
+      "sha256": "c53d42d0b7bcfd9abf78cfd71ca6f71645cb8da16ea29c155f63172eaa17f421"
+    },
+    {
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 16519768,
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "bytes": 12118600,
+      "effective_machine_from_retained03": "0x8664",
+      "name": "mfc140u.dll",
+      "preferred_base": "0x180000000",
+      "raw_machine": "0xaa64",
+      "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1"
+    }
+  ],
+  "owner": "/root/flag_ownership",
+  "prior_deliveries": [
+    {
+      "all_stageable_files_unchanged": true,
+      "manifest_sha256": "8e7e393cd5b68c979e48e89a5493a269ecee74dca49cf677cce9e6aa2d67c17c"
+    },
+    {
+      "all_stageable_files_unchanged": true,
+      "manifest_sha256": "d557bcd165770b8e89f774ff2b7b402b7455e4f65aa60ed6a5eae92cf469047e"
+    },
+    {
+      "all_stageable_files_unchanged": true,
+      "manifest_sha256": "4a191550b830bb8e27ab693ecb939ba1b20e327664ef48657da627faf1bcdbed"
+    }
+  ],
+  "remaining": [
+    "actual CAmApp+0x464 construction/configuration and selected runtime value",
+    "actual standalone configuration stream save caller/context",
+    "fresh exact helper-body execution/value corroboration if required for native claims"
+  ],
+  "schema": "solidworks-downstream-date-code-and-concrete-enable-2026-v1",
+  "status": "confirmed static date-code cache-miss formula and concrete registered-UI enable receiver; actual runtime flag and standalone save caller unmeasured",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "task": "B04-SW2026-DOWNSTREAM-ID-DATA",
+  "ui_imports": [
+    {
+      "iat": "0x4a4655e8",
+      "module": "sldappu.dll",
+      "name": "?am_GetApp@@YAPEAVCAmApp@@XZ"
+    },
+    {
+      "iat": "0x4a4659b0",
+      "module": "sldappu.dll",
+      "name": "?isEnableDownstreamstreamIds@CAmApp@@QEAAHXZ"
+    },
+    {
+      "iat": "0x4a471f68",
+      "module": "sldsessionu.dll",
+      "name": "?setApp@SldSession_c@@SAXPEAVSldApp_c@@@Z"
+    },
+    {
+      "iat": "0x4a472178",
+      "module": "sldsessionu.dll",
+      "name": "?App@SldSession_c@@SAPEAVSldApp_c@@XZ"
+    }
+  ],
+  "verification": {
+    "complete_owner_hash_scope": "complete function/leaf hashes bind the cited selected instructions; unrelated behavior in registration/reset owners is not claimed",
+    "method": "pinned original PE and bounded LLVM only; retained03 mapped export metadata consumed read-only",
+    "rea_hopper_opened": false,
+    "repo_or_git_mutations": false,
+    "saved_cad_or_hidden_payload_reads": false,
+    "tests_schema_codec_or_product_execution": false,
+    "vendor_bytes_or_listings_in_publication": false,
+    "vm_cad_com_services_or_license_actions": false
+  }
+}

@@ -1,0 +1,438 @@
+{
+  "cases": [
+    {
+      "bytes": 8168,
+      "case": "BridgeAlpha",
+      "file_sha256": "1203710d33e39047fe1a50b90ff150e8066a270fe177cef9b5b062c5e1feb2ce",
+      "negative_case_names": [
+        "wrong_configuration",
+        "assembly_format",
+        "public_enable_knob",
+        "wrong_overwrite_type",
+        "wrong_policy_type",
+        "unnamed_stream",
+        "text_stream",
+        "relative_path",
+        "unproven_host_locator",
+        "drive_relative_path",
+        "assembly_suffix",
+        "different_final_name",
+        "different_model_name",
+        "windows_device",
+        "relative_segment",
+        "source_extensions",
+        "record_provenance",
+        "supplied_topology",
+        "unknown_neutral_version",
+        "nonplain_boss",
+        "missing_recipe"
+      ],
+      "negative_cases": 21,
+      "public_read": {
+        "boss_name": "Boss-Extrude1",
+        "depth_m": 0.012750000000000001,
+        "driving_name": "D1",
+        "driving_owner": true,
+        "entity_count": 4,
+        "profile_name": "Sketch1"
+      },
+      "public_save_rejected": true,
+      "public_writer_available": false,
+      "request_sha256": "b9715c05bb13069ba781ebbee34a803ea604499bca5b8090f42f9b52cddcbb81",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "44307ef0568219f7f466e3960f3e1eefe9bcef560dfdcf4d616f32d22b63a6ee",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+        },
+        "Contents/Config-0": {
+          "bytes": 22128,
+          "sha256": "f1cb5d6b6e3ba89fe4401d6c9f4d76b1154da08af270bd69b96aaabf25fdb4fc"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 741,
+          "sha256": "fd8c9b005e9ca21b545f3645053fc1fc0853a62b10724509ce6138e7d8308245"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "f71147b061e3e810a4ed7bc1e70c71b01420af0974bed6f06211d63e097e5c4e"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 741,
+          "sha256": "ffe4daa7bdf2e9daaa457173a782c29dc359eab31d7378a89c53bfd92b4aa86a"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1421,
+          "sha256": "0799a13d8efec1b7edb3822c00c2ee2d4156e2c9088773ac47205d136d31f5b6"
+        }
+      },
+      "windows_previous_container_and_streams_identical": true
+    },
+    {
+      "bytes": 8256,
+      "case": "BridgeBeta",
+      "file_sha256": "18c9dd5497720be8fa8367a1837b99a019a988459fa83aac2de30dbb37e73346",
+      "negative_case_names": [
+        "wrong_configuration",
+        "assembly_format",
+        "public_enable_knob",
+        "wrong_overwrite_type",
+        "wrong_policy_type",
+        "unnamed_stream",
+        "text_stream",
+        "relative_path",
+        "unproven_host_locator",
+        "drive_relative_path",
+        "assembly_suffix",
+        "different_final_name",
+        "different_model_name",
+        "windows_device",
+        "relative_segment",
+        "source_extensions",
+        "record_provenance",
+        "supplied_topology",
+        "unknown_neutral_version",
+        "nonplain_boss",
+        "missing_recipe"
+      ],
+      "negative_cases": 21,
+      "public_read": {
+        "boss_name": "Boss-Extrude1",
+        "depth_m": 0.018625,
+        "driving_name": "D1",
+        "driving_owner": true,
+        "entity_count": 4,
+        "profile_name": "Sketch1"
+      },
+      "public_save_rejected": true,
+      "public_writer_available": false,
+      "request_sha256": "296168bcf996f5b7941e1032791854d855e4c71b29c805fac7fa3ec3c42f0672",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "45700de8453ba1c77fc21003d735a74767bdc73bb687a18542e5ab30539cdc88",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "8f3d3dfe37c2e5134ea041ef9235be762daf74b8167c3dfcb0680044ef497521"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+        },
+        "Contents/Config-0": {
+          "bytes": 22700,
+          "sha256": "592f8411d9a81fd2ff1a4c4b59803e3be4a0cfcc1b9548a3fb9e608e7ec2b40d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 807,
+          "sha256": "a3986474868326b55bfc48008a057a5c02c58136aea7def3efeb464912d9b760"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "40346795f2977069196975f89db71b7c31e77ea17c5dbef661e668dc31d6a5db"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 807,
+          "sha256": "1e341d717983293ab5c10392819384ab6ef57b21dd13361254ae41dd46d3c2c6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1437,
+          "sha256": "0e9b40e37f157cb5a1dad24bf0875d7a611ad76bfaaf201181a3d19d054ed793"
+        }
+      },
+      "windows_previous_container_and_streams_identical": true
+    },
+    {
+      "bytes": 8177,
+      "case": "HostAlpha",
+      "checks": {
+        "exact_basename": true,
+        "exact_direct_candidate": true,
+        "memory_sink_unchanged": true,
+        "no_filesystem_mapping_claim": true,
+        "staging_and_memory_bytes_equal": true,
+        "windows_bytes_preserved": true
+      },
+      "file_sha256": "15e83250b66d2484ae817a184d8d32eedf72538ee0a5c53743bc3fdbb18476d2",
+      "final_host_path": "/tmp/kit-standalone-host/sdk host alpha.SLDPRT",
+      "native_self_locator": "C:\\KitSdkCandidates\\sdk host alpha.SLDPRT",
+      "negative_case_names": [
+        "unmeasured_locator_parent",
+        "other_locator_basename",
+        "assembly_locator",
+        "renamed_host_target",
+        "case_changed_neutral_basename",
+        "relative_host_target",
+        "host_parent_traversal",
+        "unnamed_memory_target",
+        "linked_option",
+        "bundle_option",
+        "multiple_bodies",
+        "additional_configuration",
+        "external_support"
+      ],
+      "negative_cases": 13,
+      "neutral_name": "sdk host alpha",
+      "request_sha256": "a3a39304d7f0cbf796e7d8e6ce85e9192a092181d4b1c51972f6e9d2089d1c74",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "18fd84740ccdc043e755051dc5661ec78bcb6f5474f104eacab8f00dbee22a2a",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+        },
+        "Contents/Config-0": {
+          "bytes": 22024,
+          "sha256": "09db81491cc936c95c0a7a134d86abfe813e65fa8b87f083c7277c2cc71e0356"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 729,
+          "sha256": "8ac7ecbfeface001282e7360311657baf4ece1f405156d94cf0145f9c92f03cd"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "f71147b061e3e810a4ed7bc1e70c71b01420af0974bed6f06211d63e097e5c4e"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 729,
+          "sha256": "c1dabccd6c89a4bbd242711eea2dcf95beed9b1b4ba25688f717703c3ab8bdc4"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1419,
+          "sha256": "b96344e3c459b4ac4b961cd2c7cd160d45eac1af82d635db9b75dedc6efa35d6"
+        }
+      }
+    },
+    {
+      "bytes": 8259,
+      "case": "HostBeta",
+      "checks": {
+        "exact_basename": true,
+        "exact_direct_candidate": true,
+        "memory_sink_unchanged": true,
+        "no_filesystem_mapping_claim": true,
+        "staging_and_memory_bytes_equal": true,
+        "windows_bytes_preserved": true
+      },
+      "file_sha256": "8e8aedad649d719f42dbb1bc199cb5a8f72c86729cbe94abdd6c0b7be5064a1f",
+      "final_host_path": "/tmp/kit-standalone-host/sdk \u90e8\u54c1 host beta extended.SLDPRT",
+      "native_self_locator": "C:\\KitSdkCandidates\\sdk \u90e8\u54c1 host beta extended.SLDPRT",
+      "negative_case_names": [
+        "unmeasured_locator_parent",
+        "other_locator_basename",
+        "assembly_locator",
+        "renamed_host_target",
+        "case_changed_neutral_basename",
+        "relative_host_target",
+        "host_parent_traversal",
+        "unnamed_memory_target",
+        "linked_option",
+        "bundle_option",
+        "multiple_bodies",
+        "additional_configuration",
+        "external_support"
+      ],
+      "negative_cases": 13,
+      "neutral_name": "sdk \u90e8\u54c1 host beta extended",
+      "request_sha256": "54fd0224a2993ca007e33b2ae59bedc3033112e0c3230fdb35d028b47e0ea6a3",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "28a5995d3b4b876871038141bc062dfdb9c396e56b68114aa7f187d3045cd111",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "8f3d3dfe37c2e5134ea041ef9235be762daf74b8167c3dfcb0680044ef497521"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+        },
+        "Contents/Config-0": {
+          "bytes": 22596,
+          "sha256": "dc72b924ef4e0ab2c238d8cad370cfd671ec6371fdb09c80508aace9602175d2"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 795,
+          "sha256": "6cd044e783863b99e0f44be5ced71dbebed5dcab49a015599c5efaa59dcedc3b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "40346795f2977069196975f89db71b7c31e77ea17c5dbef661e668dc31d6a5db"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 795,
+          "sha256": "3a5d6c8bba301398578d914ac2301e9d95984ea945a355448fe331e1b8dcbd11"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1435,
+          "sha256": "a5f63149668432a8d56f37e62af73b974df1727bdf08273fc6e8299dd9eaa1e7"
+        }
+      }
+    }
+  ],
+  "delivery_pr": 121,
+  "independent_source": {
+    "base": "a1dabeb81a9bbe1139ea5242e86720bdc58c8b50",
+    "manifest_sha256": "aeba0d7f57d85616d2b5ecfe2e40dcb4d996b999ba4f676aa73516764e4ed386",
+    "owned_hashes_verified": true,
+    "source_count": 4643
+  },
+  "limits": {
+    "actual_drive_mapping_claimed": false,
+    "assembly_or_drawing_paths_admitted": false,
+    "heldout_inputs_read": false,
+    "locator_file_reads": 0,
+    "native_evidence_scope": "standalone relocation of existing generated Alpha/Beta only; absent locator proved by Beta",
+    "new_host_case_native_acceptance": false,
+    "public_writer_enabled": false,
+    "shared_part_or_layout_edits": false,
+    "unnamed_streams_admitted": false
+  },
+  "native_rule_evidence": {
+    "absent_locator_case": "Beta",
+    "path": "re/solidworks/measurements/2026/SdkPartRelocation01.json",
+    "sha256": "a2826d45fe5f278fd2ae45e862cfb744e4eef51fd3d304a688a9a2f8bd7a2362",
+    "standalone_only": true
+  },
+  "parent_bridge_commit": "f7ddea40bc2ce699e41bf259ecda0fdb7ecb23b9",
+  "root_process_proof": {
+    "TestPartBridge": "passed on exact snapshot as reported by root",
+    "TestPartHost": "passed on exact snapshot as reported by root",
+    "atomic_rejections": 68,
+    "guarded_workers": 4,
+    "host_variants": 2,
+    "passed": true,
+    "previous_windows_variants_preserved": 2,
+    "python_version": "not recorded in raw proof",
+    "relative_path": "SdkHostPrepRootVerify01/Proof/HostPreparationResults.json",
+    "runtime_input_file_reads": 0,
+    "sdk_runtime_research_imports": 0,
+    "sha256": "11ba5f21b33791fcf011316956f784b76fa7383b1aea7798dd40f90edee1e7fd"
+  },
+  "schema": "kit.sw2026.sdk-standalone-host-preparation.v1",
+  "source": {
+    "executable_count": 8,
+    "files": [
+      {
+        "bytes": 10807,
+        "path": "re/tooling/sw2026/SdkPartBridgeProcess.py",
+        "sha256": "d05c860c7ed43b061ac6a1ad39c59334612f5d3cd971fe8d5e7c001f990f4117"
+      },
+      {
+        "bytes": 6675,
+        "path": "re/tooling/sw2026/SdkPartHostProcess.py",
+        "sha256": "48e405c26db41b3c9cfda70779f8125c0807fc38a089a1f0189a91fc52fceb89"
+      },
+      {
+        "bytes": 1759,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/FinalPartPath.py",
+        "sha256": "b642b6b6b382fc442726114a4d198f59eb7a7524dc7e954af77b9c2e8258ccef"
+      },
+      {
+        "bytes": 2099,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/PreparePart.py",
+        "sha256": "5ee5929f7fd33bdb8e28aec26ddc6193a8efa4f5acabfb40d85ed12e5c0021e1"
+      },
+      {
+        "bytes": 2129,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/SelectPartSelf.py",
+        "sha256": "1a0fd1d0bd452148a09c41356bfea94cc8f3ebec0aa7432771817dde1fd8e447"
+      },
+      {
+        "bytes": 1239,
+        "path": "tests/Convert/Solidworks/Research/AdapterBridge/AssertHostPath.py",
+        "sha256": "fddf7ebd941a4688ccbe973b9229c7519f78ba3094b69dfab50fb06a3ec716bf"
+      },
+      {
+        "bytes": 716,
+        "path": "tests/Convert/Solidworks/Research/AdapterBridge/PartHostFlowTests.py",
+        "sha256": "6712d8693153d15a25064e47b29d0fbe31ed2d423c3d0875d1f3df260ad8ea71"
+      },
+      {
+        "bytes": 1194,
+        "path": "tests/Convert/Solidworks/Research/AdapterBridge/RunHostPhase.py",
+        "sha256": "f072561dad9dcd82ad16928871c25b726547b098f768ef512a1620ec1ac60149"
+      }
+    ],
+    "owned_manifest_sha256": "b9c4a30219228d3a54a904ef7fb07284b056483228584477e036dc026d9c0928",
+    "permanent_integration_module_count": 3,
+    "research_transport_count": 2,
+    "sdk_count": 3
+  },
+  "static_checks": {
+    "ast": "passed8 frozen executable sources",
+    "black": "26.10.1 passed13",
+    "donor_scan": "no recorded payloads in3957 production files",
+    "links_and_density": "passed owned paths",
+    "mypy": "2.4.1 strict passed13",
+    "pyright": "1.1.414 passed13",
+    "ruff": "0.17.4 passed13",
+    "steering": "passed13 after lowercase rationale repair",
+    "worker_product_execution": false,
+    "worker_vm_access": false
+  },
+  "task": "B04-SW2026-CONSTRUCTION"
+}

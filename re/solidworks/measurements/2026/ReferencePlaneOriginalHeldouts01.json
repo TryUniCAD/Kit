@@ -1,0 +1,89 @@
+{
+  "code_manifest_sha256": "fc4947b624fd5697cbc9942fa9ceda925b3b9de791a6a70024ff4fe6342d15bf",
+  "distinct_original_native_processes": 8,
+  "exact_source_feature_tree_rows_per_holdout": 26,
+  "generated_fresh_reopens_passing_at_zero_errors_and_warnings": 2,
+  "generated_saves_passing_at_zero_errors_and_warnings": 2,
+  "guarded_writer_processes": 4,
+  "healthy_original_controls": 4,
+  "heldout_numeric_recorded_checks": 162,
+  "host_private_source_or_observation_payloads_read": 0,
+  "method_release_sha256": "570232439e846ce3331fb9c1f9ff97bc008ef70c1e06b17252e10e2f590ba11e",
+  "method_sha256": "95e6085afdad4acb870b5a1bb3b247e0960be66514f315bfb11fe777633b683a",
+  "native_acceptance": true,
+  "oracle": {
+    "build": "34.5.2.0604",
+    "com_progid": "SldWorks.Application.34",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "original_guest_receipt_sha256": "4deccaea999bf71f9dc300fb62f032a7225a664bbd774a0ab4ed2c28e6b252d8",
+  "originals": [
+    {
+      "build_record_sha256": "5abccfadb2f353ae38742414945cc2442eb8307eb0ea7f4bcabd06a5d4bd9402",
+      "custody_sha256": "b82e42489a6afbde6cfcb9ae7d98df91110dc540732bb38250dc5f25c8be6656",
+      "freeze_sha256": "da95f25a1534c0b201f0150efd8303f37214f6dd15eadb41a58b0ab6025cc665",
+      "generated_sha256": "210626b0dc7d76357e3414c00a4c9f1711a97d458ab1c3b3d68f3507cdaf5951",
+      "host_report_sha256": "f7d5a0c6aafe4a518be4a75e141714ea182812e6b816e60733689014a3d56469",
+      "native_record_sha256": "0deafdbd2c9c86ba72b356f861bea94a71147c40112a21b7bbea552135fced94",
+      "packet_sha256": "3430e6c288f7b151950468edb45e6f9261606be5c9787470acb2b84dc6db90a5",
+      "passed": true,
+      "phase_sha256": {
+        "ControlAfter": "15133badfc1b5c49ff008a52f03b3ee83cc0e8e68db28aa604c4cd6a5393305d",
+        "ControlBefore": "4b06f91ecbfab76eb0a413cc967e10e76efb89c8b3f19fc401d83242a2cc805e",
+        "Generated": "e9f4bb928ee9e069f4ab4fb72772d8e6ccd2d4572b985c0ec968b77edcda1119",
+        "Reopen": "dcf6653963de2bb7beb8f369036cf2bd3dedaf77baca6f47375a0eafd3b53772"
+      },
+      "private_observation_sha256": "2724f90201d6eece7eb46e0136f4d7e6a0b678573405158fa74a8a838c622306",
+      "saved_sha256": "f56df8a772489f23e0d51d039953e8c2a1199ab33832e662451f31c5966c2e11",
+      "slot": "H01"
+    },
+    {
+      "build_record_sha256": "dc0162247fdf0ddbdc87c0751c13fc2130336b0c975adde3909ea3efbf3bdbc6",
+      "custody_sha256": "c8ba65512e7b5c004548c4dc52347c20f21bb7baef8c8e926005f9830d2d8561",
+      "freeze_sha256": "1548d81c2cf8b734d1de869340e4584985b49cf04899d09a14c3322db1960e7c",
+      "generated_sha256": "200d3dfba753d0120e60bcc6481248bd7362dc6fd7f606bd1708451b43328b7e",
+      "host_report_sha256": "3f43642a9a0a2771a72a43877a423485792d58257aff0184efa6812a61f9000c",
+      "native_record_sha256": "36e118b69bb3f8d75d27f78f513be3ad34ed1acad61a2894cf0c0e3c2c7a63d7",
+      "packet_sha256": "c59d5b9e5f3ce17a8a397b653b14cee05891759056d5098bea33f8c67592f7a3",
+      "passed": true,
+      "phase_sha256": {
+        "ControlAfter": "26bf4e14bd949710c7d9efd521399f757caa0212fee0f665343c3bc0537fb670",
+        "ControlBefore": "2b885654b2314baea2602eaa035651b4386bfc47c676c4ad2551158d6fdb6aba",
+        "Generated": "2f33b2e25ea4ba183f732e4fea8da674acc11bc41f0c6512b18808ddcba99994",
+        "Reopen": "edab4c172e90f3225fd31255f989d8db92d2bcccc2d4757f52c153c9552da531"
+      },
+      "private_observation_sha256": "6065d70704522511903c07ef040be0cb407db571f7a6ab101521db947c8e33f5",
+      "saved_sha256": "e1319edaffe22ca77d93e58f5e9397df257dd54ea0f65ec1f94b30d0942792ee",
+      "slot": "H02"
+    }
+  ],
+  "passed": true,
+  "post_measure_audit_tool_sha256": "0aec5dd359a010ced2a016b9201e355db9ebf7601972d84e5b2e1596ea94e727",
+  "profiles_tested": 2,
+  "public_writer_qualified": false,
+  "recipe_sha256": "ad4f6c38d2a593b186c2f0f3a0554c472d1728977fcd24385443f914d27d2ef9",
+  "schema": "kit.sw2026.offset-plane-original-native-acceptance.v1",
+  "scope": "ordinary principal offset plane with driving distance, centered radius-driven circle and forward blind boss",
+  "source_lock_sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703",
+  "windows_disclosed_qualification": {
+    "config_view_coefficients_differing": 8,
+    "distinct_native_processes": 4,
+    "generated_build_receipt_sha256": "41f7a8d6d24c77741f4f597ad633b43b069393a4a4a358db47b061294b880b69",
+    "generated_sha256": "98986fb814e5b1b7742bc676f0a36dd6068d3833263446d08eb0ecf984ca4137",
+    "host_report_sha256": "d54cd82bb4c126644fd5849271b9fbbacce13434aa1e57810f9b487c2c0541bf",
+    "logical_streams_identical": 9,
+    "native_evidence_sha256": "3636d224acfa474e254107d434bde79bbc5eac8487df593b20e944eeb1ff5fc7",
+    "numeric_recorded_checks": 81,
+    "passed": true,
+    "phase_sha256": {
+      "ControlAfter": "11dc328d351d2df7b0d342b41de1f2f621213b04a6ca70f92e0685bc314c7b00",
+      "ControlBefore": "9b3bc195e9bbea16e5193c09351a173397a0b11d9afbc4e9012a8bb8474c76fb",
+      "Generated": "626911d466073dc71181f9ff453b89acad8c137f5dd875e5cf490cf0900079c2",
+      "Reopen": "7b7d866268ea5c90827febd9ace5c5b54632168e3c9285546d859c5bdeface9a"
+    },
+    "prior_bound_cross_runtime_diff_sha256": "f3c42efdd77d471a3750aa922809e61ac5575aaa5e06d5c01449b05c97cf95e1",
+    "slot": "D03"
+  },
+  "writer_revision": "377d385ca8373e1efdbf7deb2cbbf2b95eb7f9c7",
+  "writer_runtime_file_reads": 0
+}

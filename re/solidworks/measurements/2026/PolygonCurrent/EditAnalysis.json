@@ -1,0 +1,1330 @@
+{
+  "schema": 1,
+  "authority": "derived analysis of completed native depth edits and saved-copy reopening; no CAD execution",
+  "source_revision": "b23e72c609caca0d0ca4acf871e9680a325f0548",
+  "original_native_report_sha256": "136484f02e546679352db915731e99e0947f7b1801034ee982e639f756586f82",
+  "published_inputs_sha256": {
+    "EditReport.json": "c32ef9c9b425925748a58b051c4f4efe50588064acc6f87abc0a4c444ec64fa7",
+    "EditJob.json": "e77e358b5709b5d78d7b03dea671cf035b5e62858ef1c74eb5f31e3addeb8a77",
+    "Provenance.json": "1c48ae50582640923e20690b980e1185fdea7f1ff1cc8f69a800d4f351685c29",
+    "BaselineInputs.json": "ae55efc0bc5f71164bfecb0437fe2ead8ce9efdaadb4de69764d81598d4275e9",
+    "Analyze.py": "e17d836df444d4dc716b31def6472a88d08c643709a0c8f66e4b92c47abd363f",
+    "AnalyzeEdits.py": "5b7c0ead248325e07ce7c3e28af1f133b28d7d8e516d6a83119156fba9c8ddb1"
+  },
+  "measurement_window_utc": {
+    "started_at": "2026-11-15T21:12:25.107166+00:00",
+    "finished_at": "2026-11-15T21:17:54.287320+00:00"
+  },
+  "native_job_hash_matches_original": true,
+  "native_inspector_hash_matches_staged_tool": true,
+  "counts": {
+    "candidates": 3,
+    "controls": 2,
+    "native_process_lifetimes": 11,
+    "distinct_native_process_lifetimes": 11,
+    "baseline_edit_reopen_snapshots": 9
+  },
+  "fresh_process_lifetime_per_snapshot": true,
+  "controls_healthy": true,
+  "control_mass_properties_identical": true,
+  "tolerances": {
+    "relative_geometry": 1e-9,
+    "m3": 1e-15,
+    "m2": 1e-12,
+    "m": 1e-12,
+    "kg": 1e-15
+  },
+  "controls": [
+    {
+      "phase": "before",
+      "status": {
+        "opened": true,
+        "zero_load_errors": true,
+        "zero_load_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "zero_whats_wrong": true,
+        "features_clean_and_unsuppressed": true,
+        "no_measurement_exception": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "exact_oracle_identity": true,
+        "recorded_control_hash_matches": true
+      },
+      "status_passed": true,
+      "mass_properties": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "process_id": 2424,
+      "process_creation_filetime": 134392507497435725
+    },
+    {
+      "phase": "after",
+      "status": {
+        "opened": true,
+        "zero_load_errors": true,
+        "zero_load_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "zero_whats_wrong": true,
+        "features_clean_and_unsuppressed": true,
+        "no_measurement_exception": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "exact_oracle_identity": true,
+        "recorded_control_hash_matches": true
+      },
+      "status_passed": true,
+      "mass_properties": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "process_id": 1612,
+      "process_creation_filetime": 134392510539346759
+    }
+  ],
+  "cases": [
+    {
+      "name": "H3_scalene",
+      "parameter": "D1@Boss-Extrude1",
+      "source_sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+      "edited_copy_sha256": "e391a9a01bb9fa6c2ee0ac97153ccf53b73854c9ac4e45cf5a3daded44d13630",
+      "source_unchanged": true,
+      "edited_copy_digest_matches_fresh_reopen_input": true,
+      "saved_without_errors_or_warnings": true,
+      "parameter_and_readback_match_requested_depth": true,
+      "depth_factor": 1.25,
+      "measured_volume_factor": 1.2499999999999998,
+      "volume_factor_comparison": {
+        "measured": 1.2499999999999998,
+        "expected": 1.25,
+        "absolute_difference": 2.220446049250313e-16,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      },
+      "feature_name_and_type_order_preserved_through_edit_and_reopen": false,
+      "feature_type_order_preserved_through_edit_and_reopen": true,
+      "feature_tree_changes_from_baseline": {
+        "edit": [],
+        "reopened": [
+          {
+            "index": 12,
+            "baseline": {
+              "name": "authored material",
+              "type": "MaterialFolder"
+            },
+            "measured": {
+              "name": "Material <not specified>",
+              "type": "MaterialFolder"
+            }
+          }
+        ]
+      },
+      "native_result_flags": {
+        "baseline_match": true,
+        "edit_match": true,
+        "reopen_match": true
+      },
+      "phases": {
+        "baseline": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 2296,
+          "process_creation_filetime": 134392507811871472,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 9.932000000000002e-6,
+            "area": 0.003166276360558158,
+            "com": [0.006666666666666669, 0.007000000000000002, 0.0065],
+            "mass": 9.932000000000002e-6
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 9.932000000000002e-6,
+              "expected": 9.931999999999999e-6,
+              "absolute_difference": 3.3881317890172014e-21,
+              "tolerance": 9.932e-15,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.003166276360558158,
+              "expected": 0.0031662763605581575,
+              "absolute_difference": 4.336808689942018e-19,
+              "tolerance": 3.1662763605581576e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.006666666666666669,
+                "expected": 0.006666666666666667,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 6.666666666666668e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.007000000000000002,
+                "expected": 0.007,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 7.000000000000001e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0065,
+                "expected": 0.0065,
+                "absolute_difference": 0.0,
+                "tolerance": 6.5e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 9.932000000000002e-6,
+              "expected": 9.931999999999999e-6,
+              "absolute_difference": 3.3881317890172014e-21,
+              "tolerance": 9.932e-15,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 9.932000000000002e-6,
+              "expected": 9.932000000000002e-6,
+              "absolute_difference": 0.0,
+              "tolerance": 9.932000000000003e-15,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.003166276360558158,
+              "expected": 0.003166276360558158,
+              "absolute_difference": 0.0,
+              "tolerance": 3.166276360558158e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.006666666666666669,
+                "expected": 0.006666666666666669,
+                "absolute_difference": 0.0,
+                "tolerance": 6.6666666666666695e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.007000000000000002,
+                "expected": 0.007000000000000002,
+                "absolute_difference": 0.0,
+                "tolerance": 7.0000000000000025e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0065,
+                "expected": 0.0065,
+                "absolute_difference": 0.0,
+                "tolerance": 6.5e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.013,
+            "expected": 0.013,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "edit": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 5184,
+          "process_creation_filetime": 134392508135221452,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 1.2415e-5,
+            "area": 0.003575845450697697,
+            "com": [
+              0.006666666666666669, 0.006999999999999999, 0.008125000000000002
+            ],
+            "mass": 1.2415e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.003575845450697697,
+              "expected": 0.0035758454506976973,
+              "absolute_difference": 4.336808689942018e-19,
+              "tolerance": 3.5758454506976975e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.006666666666666669,
+                "expected": 0.006666666666666667,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 6.666666666666668e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.006999999999999999,
+                "expected": 0.007,
+                "absolute_difference": 8.673617379884035e-19,
+                "tolerance": 7.000000000000001e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.008125000000000002,
+                "expected": 0.008125,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 8.125000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 1.2415e-5,
+              "expected": 1.2414999999999999e-5,
+              "absolute_difference": 1.6940658945086007e-21,
+              "tolerance": 1.2415e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.003575845450697697,
+              "expected": 0.003575845450697697,
+              "absolute_difference": 0.0,
+              "tolerance": 3.575845450697697e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.006666666666666669,
+                "expected": 0.006666666666666669,
+                "absolute_difference": 0.0,
+                "tolerance": 6.6666666666666695e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.006999999999999999,
+                "expected": 0.007000000000000001,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 7.000000000000002e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.008125000000000002,
+                "expected": 0.008125,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 8.125000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.01625,
+            "expected": 0.01625,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "reopened": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 2500,
+          "process_creation_filetime": 134392508585389242,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 1.2415e-5,
+            "area": 0.003575845450697697,
+            "com": [
+              0.006666666666666669, 0.006999999999999999, 0.008125000000000002
+            ],
+            "mass": 1.2415e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.003575845450697697,
+              "expected": 0.0035758454506976973,
+              "absolute_difference": 4.336808689942018e-19,
+              "tolerance": 3.5758454506976975e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.006666666666666669,
+                "expected": 0.006666666666666667,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 6.666666666666668e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.006999999999999999,
+                "expected": 0.007,
+                "absolute_difference": 8.673617379884035e-19,
+                "tolerance": 7.000000000000001e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.008125000000000002,
+                "expected": 0.008125,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 8.125000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 1.2415e-5,
+              "expected": 1.2414999999999999e-5,
+              "absolute_difference": 1.6940658945086007e-21,
+              "tolerance": 1.2415e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.003575845450697697,
+              "expected": 0.003575845450697697,
+              "absolute_difference": 0.0,
+              "tolerance": 3.575845450697697e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.006666666666666669,
+                "expected": 0.006666666666666669,
+                "absolute_difference": 0.0,
+                "tolerance": 6.6666666666666695e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.006999999999999999,
+                "expected": 0.007000000000000001,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 7.000000000000002e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.008125000000000002,
+                "expected": 0.008125,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 8.125000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.01625,
+            "expected": 0.01625,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        }
+      },
+      "bounded_geometry_depth_edit_reopen_passed": true
+    },
+    {
+      "name": "H5_irregular",
+      "parameter": "D1@Boss-Extrude1",
+      "source_sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+      "edited_copy_sha256": "1246ef608511c2093e73b4d13ac8cc5156cab51b02c0382c5dfbc904674cdb68",
+      "source_unchanged": true,
+      "edited_copy_digest_matches_fresh_reopen_input": true,
+      "saved_without_errors_or_warnings": true,
+      "parameter_and_readback_match_requested_depth": true,
+      "depth_factor": 1.25,
+      "measured_volume_factor": 1.25,
+      "volume_factor_comparison": {
+        "measured": 1.25,
+        "expected": 1.25,
+        "absolute_difference": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      },
+      "feature_name_and_type_order_preserved_through_edit_and_reopen": false,
+      "feature_type_order_preserved_through_edit_and_reopen": true,
+      "feature_tree_changes_from_baseline": {
+        "edit": [],
+        "reopened": [
+          {
+            "index": 12,
+            "baseline": {
+              "name": "authored material",
+              "type": "MaterialFolder"
+            },
+            "measured": {
+              "name": "Material <not specified>",
+              "type": "MaterialFolder"
+            }
+          }
+        ]
+      },
+      "native_result_flags": {
+        "baseline_match": true,
+        "edit_match": true,
+        "reopen_match": true
+      },
+      "phases": {
+        "baseline": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 2804,
+          "process_creation_filetime": 134392508872623647,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 1.31635e-5,
+            "area": 0.004932190747600379,
+            "com": [0.005411149516972432, 0.0033525658069662317, 0.0035],
+            "mass": 1.31635e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 1.31635e-5,
+              "expected": 1.31635e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.3163500000000002e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.004932190747600379,
+              "expected": 0.0049321907476003795,
+              "absolute_difference": 8.673617379884035e-19,
+              "tolerance": 4.9321907476003796e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.005411149516972432,
+                "expected": 0.005411149516972434,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 5.4111495169724344e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0033525658069662317,
+                "expected": 0.0033525658069662326,
+                "absolute_difference": 8.673617379884035e-19,
+                "tolerance": 3.352565806966233e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0035,
+                "expected": 0.0035,
+                "absolute_difference": 0.0,
+                "tolerance": 3.5000000000000004e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 1.31635e-5,
+              "expected": 1.31635e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.3163500000000002e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 1.31635e-5,
+              "expected": 1.31635e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.3163500000000002e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.004932190747600379,
+              "expected": 0.004932190747600379,
+              "absolute_difference": 0.0,
+              "tolerance": 4.932190747600379e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.005411149516972432,
+                "expected": 0.005411149516972432,
+                "absolute_difference": 0.0,
+                "tolerance": 5.411149516972433e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0033525658069662317,
+                "expected": 0.003352565806966232,
+                "absolute_difference": 4.336808689942018e-19,
+                "tolerance": 3.3525658069662325e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0035,
+                "expected": 0.0035,
+                "absolute_difference": 0.0,
+                "tolerance": 3.5000000000000004e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.007,
+            "expected": 0.007,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "edit": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 8936,
+          "process_creation_filetime": 134392509141781533,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 1.6454375e-5,
+            "area": 0.005224988434500474,
+            "com": [0.005411149516972433, 0.00335256580696623, 0.004375],
+            "mass": 1.6454375e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_difference": 8.673617379884035e-19,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.005411149516972433,
+                "expected": 0.005411149516972434,
+                "absolute_difference": 8.673617379884035e-19,
+                "tolerance": 5.4111495169724344e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.00335256580696623,
+                "expected": 0.0033525658069662326,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 3.352565806966233e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.004375,
+                "expected": 0.004375,
+                "absolute_difference": 0.0,
+                "tolerance": 4.375000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_difference": 8.673617379884035e-19,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.005411149516972433,
+                "expected": 0.005411149516972436,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 5.411149516972436e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.00335256580696623,
+                "expected": 0.0033525658069662326,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 3.352565806966233e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.004375,
+                "expected": 0.004375,
+                "absolute_difference": 0.0,
+                "tolerance": 4.375000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.00875,
+            "expected": 0.00875,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "reopened": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 1216,
+          "process_creation_filetime": 134392509422513762,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 1.6454375e-5,
+            "area": 0.005224988434500474,
+            "com": [0.005411149516972433, 0.00335256580696623, 0.004375],
+            "mass": 1.6454375e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_difference": 8.673617379884035e-19,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.005411149516972433,
+                "expected": 0.005411149516972434,
+                "absolute_difference": 8.673617379884035e-19,
+                "tolerance": 5.4111495169724344e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.00335256580696623,
+                "expected": 0.0033525658069662326,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 3.352565806966233e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.004375,
+                "expected": 0.004375,
+                "absolute_difference": 0.0,
+                "tolerance": 4.375000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_difference": 8.673617379884035e-19,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.005411149516972433,
+                "expected": 0.005411149516972436,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 5.411149516972436e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.00335256580696623,
+                "expected": 0.0033525658069662326,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 3.352565806966233e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.004375,
+                "expected": 0.004375,
+                "absolute_difference": 0.0,
+                "tolerance": 4.375000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.00875,
+            "expected": 0.00875,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        }
+      },
+      "bounded_geometry_depth_edit_reopen_passed": true
+    },
+    {
+      "name": "H7_irregular",
+      "parameter": "D1@Boss-Extrude1",
+      "source_sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+      "edited_copy_sha256": "58e28269f04521bc3b36333b1d4f004835547cf6f1e808286e533e0742b94b2b",
+      "source_unchanged": true,
+      "edited_copy_digest_matches_fresh_reopen_input": true,
+      "saved_without_errors_or_warnings": true,
+      "parameter_and_readback_match_requested_depth": true,
+      "depth_factor": 1.25,
+      "measured_volume_factor": 1.2500000000000002,
+      "volume_factor_comparison": {
+        "measured": 1.2500000000000002,
+        "expected": 1.25,
+        "absolute_difference": 2.220446049250313e-16,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      },
+      "feature_name_and_type_order_preserved_through_edit_and_reopen": false,
+      "feature_type_order_preserved_through_edit_and_reopen": true,
+      "feature_tree_changes_from_baseline": {
+        "edit": [],
+        "reopened": [
+          {
+            "index": 12,
+            "baseline": {
+              "name": "authored material",
+              "type": "MaterialFolder"
+            },
+            "measured": {
+              "name": "Material <not specified>",
+              "type": "MaterialFolder"
+            }
+          }
+        ]
+      },
+      "native_result_flags": {
+        "baseline_match": true,
+        "edit_match": true,
+        "reopen_match": true
+      },
+      "phases": {
+        "baseline": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 9060,
+          "process_creation_filetime": 134392509739069798,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 5.3796500000000006e-5,
+            "area": 0.009896349327158964,
+            "com": [
+              0.0014406699320587766, 0.006562595460051614, 0.008499999999999999
+            ],
+            "mass": 5.3796500000000006e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 5.3796500000000006e-5,
+              "expected": 5.37965e-5,
+              "absolute_difference": 6.776263578034403e-21,
+              "tolerance": 5.37965e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.009896349327158964,
+              "expected": 0.009896349327158962,
+              "absolute_difference": 1.734723475976807e-18,
+              "tolerance": 9.896349327158962e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.0014406699320587766,
+                "expected": 0.0014406699320587764,
+                "absolute_difference": 2.168404344971009e-19,
+                "tolerance": 1.4406699320587766e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.006562595460051614,
+                "expected": 0.006562595460051614,
+                "absolute_difference": 0.0,
+                "tolerance": 6.5625954600516146e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.008499999999999999,
+                "expected": 0.0085,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 8.500000000000001e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 5.3796500000000006e-5,
+              "expected": 5.37965e-5,
+              "absolute_difference": 6.776263578034403e-21,
+              "tolerance": 5.37965e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 5.3796500000000006e-5,
+              "expected": 5.3796500000000006e-5,
+              "absolute_difference": 0.0,
+              "tolerance": 5.379650000000001e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.009896349327158964,
+              "expected": 0.009896349327158964,
+              "absolute_difference": 0.0,
+              "tolerance": 9.896349327158964e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.0014406699320587766,
+                "expected": 0.001440669932058777,
+                "absolute_difference": 4.336808689942018e-19,
+                "tolerance": 1.4406699320587772e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.006562595460051614,
+                "expected": 0.006562595460051613,
+                "absolute_difference": 8.673617379884035e-19,
+                "tolerance": 6.562595460051614e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.008499999999999999,
+                "expected": 0.008499999999999999,
+                "absolute_difference": 0.0,
+                "tolerance": 8.5e-12,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.017,
+            "expected": 0.017,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "edit": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 4964,
+          "process_creation_filetime": 134392510014671833,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 6.724562500000002e-5,
+            "area": 0.010788186658948706,
+            "com": [
+              0.001440669932058777, 0.0065625954600516114, 0.010624999999999999
+            ],
+            "mass": 6.724562500000002e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_difference": 2.710505431213761e-20,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_difference": 3.469446951953614e-18,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.001440669932058777,
+                "expected": 0.0014406699320587764,
+                "absolute_difference": 6.505213034913027e-19,
+                "tolerance": 1.4406699320587766e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0065625954600516114,
+                "expected": 0.006562595460051614,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 6.5625954600516146e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.010624999999999999,
+                "expected": 0.010625,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 1.0625000000000002e-11,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_difference": 2.710505431213761e-20,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_difference": 2.710505431213761e-20,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_difference": 3.469446951953614e-18,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.001440669932058777,
+                "expected": 0.0014406699320587764,
+                "absolute_difference": 6.505213034913027e-19,
+                "tolerance": 1.4406699320587766e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0065625954600516114,
+                "expected": 0.006562595460051614,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 6.5625954600516146e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.010624999999999999,
+                "expected": 0.010625,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 1.0625000000000002e-11,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.02125,
+            "expected": 0.02125,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "reopened": {
+          "native_status": {
+            "opened": true,
+            "zero_load_errors": true,
+            "zero_load_warnings": true,
+            "rebuilt": true,
+            "one_body": true,
+            "zero_whats_wrong": true,
+            "features_clean_and_unsuppressed": true,
+            "no_measurement_exception": true,
+            "no_controller_diagnostics": true,
+            "no_dialogs_or_progress_windows": true,
+            "exact_oracle_identity": true
+          },
+          "native_status_passed": true,
+          "process_id": 10628,
+          "process_creation_filetime": 134392510281354537,
+          "body_count": 1,
+          "feature_count": 20,
+          "measured_mass_properties": {
+            "volume": 6.724562500000002e-5,
+            "area": 0.010788186658948706,
+            "com": [
+              0.001440669932058777, 0.0065625954600516114, 0.010624999999999999
+            ],
+            "mass": 6.724562500000002e-5
+          },
+          "neutral_model_comparison": {
+            "volume": {
+              "measured": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_difference": 2.710505431213761e-20,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_difference": 3.469446951953614e-18,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.001440669932058777,
+                "expected": 0.0014406699320587764,
+                "absolute_difference": 6.505213034913027e-19,
+                "tolerance": 1.4406699320587766e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0065625954600516114,
+                "expected": 0.006562595460051614,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 6.5625954600516146e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.010624999999999999,
+                "expected": 0.010625,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 1.0625000000000002e-11,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true,
+            "mass_kg": {
+              "measured": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_difference": 2.710505431213761e-20,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume": {
+              "measured": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_difference": 2.710505431213761e-20,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "area": {
+              "measured": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_difference": 3.469446951953614e-18,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "center_of_mass_m": [
+              {
+                "measured": 0.001440669932058777,
+                "expected": 0.0014406699320587764,
+                "absolute_difference": 6.505213034913027e-19,
+                "tolerance": 1.4406699320587766e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.0065625954600516114,
+                "expected": 0.006562595460051614,
+                "absolute_difference": 2.6020852139652106e-18,
+                "tolerance": 6.5625954600516146e-12,
+                "within_tolerance": true
+              },
+              {
+                "measured": 0.010624999999999999,
+                "expected": 0.010625,
+                "absolute_difference": 1.734723475976807e-18,
+                "tolerance": 1.0625000000000002e-11,
+                "within_tolerance": true
+              }
+            ],
+            "within_tolerance": true
+          },
+          "depth_readback_m": {
+            "measured": 0.02125,
+            "expected": 0.02125,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        }
+      },
+      "bounded_geometry_depth_edit_reopen_passed": true
+    }
+  ],
+  "native_geometry_edit_reopen_passed_flag": true,
+  "three_polygon_depth_edit_save_reopen_passed": true,
+  "all_native_feature_names_and_type_orders_preserved_within_each_case": false,
+  "all_native_feature_type_orders_preserved_within_each_case": true,
+  "full_cad_acceptance_established": false,
+  "acceptance_limits": [
+    "three named polygon parts and one depth multiplication by 1.25 only",
+    "native saved-copy reopening changes the material-folder label in all three cases; full feature-name preservation is not established",
+    "no sketch driving-dimension edit",
+    "no broader feature-family, assembly, source-conversion or production writer acceptance",
+    "saved-copy fingerprints are recorded; native CAD file streams were not read during this publication"
+  ]
+}

@@ -1,0 +1,5 @@
+# Generate recursive SOLIDWORKS assembly research bundles
+
+The research stdin process accepts a neutral definition DAG and emits one generated part or assembly per definition. Subassembly placements use their actual file kind, configuration, recursive stamp state and local bounds. Repeated placements share their definition, while headers count expanded paths and binary directories retain direct targets.
+
+The first three-file candidate passed 28 object-stream round trips under the runtime-read guard and validated through the normal SDK history entrypoint. Two repeated mixed builds produced identical bytes with four definitions and seven expanded placements. Existing flat empty, parent and child bytes were preserved. The native trial remains pending. The first profile admits visible resolved rigid subassemblies and forward blind polygon parts. [Construction and usage](../../../../../../../re/solidworks/records/GeneratedNestedAssembly2026.md) · [Generation receipt](../../../../../../../re/solidworks/measurements/2026/GeneratedNestedAssemblyBundle01.json)

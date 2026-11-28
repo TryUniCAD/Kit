@@ -1,0 +1,29 @@
+# Store the model-to-sketch transform in generated profiles
+
+The research writer now transposes the rigid sketch placement and maps the
+model origin into sketch space before serializing `pd_ff0`. That is the
+direction stored by SOLIDWORKS 2026. The previous output used the world
+placement directly; identity hid the error on Front, but Right and Top have
+different forward and inverse matrices. The [field trace and native
+measurements](../../../../../re/solidworks/records/ProfileTransformDirection2026.md)
+establish which transform the profile owns.
+
+The fresh construction processes expose the decoded persisted matrix,
+translation and scale. The pinned comparison continues to require exact
+historical hashes. For current output it requires the expected model-to-sketch
+values, complete Front file identity and only a `Config-0-ResolvedFeatures`
+payload change on Right and Top. Stream order and uncompressed sizes must
+remain unchanged. The existing native measurements stay attached to the
+previous emitter hashes.
+
+The [remote discovery receipt](../../../../../re/solidworks/measurements/2026/ProfileFrameDiscoveryProcesses6fc.json)
+records 64 complete current archive comparisons. The two Front files remain
+byte identical. The other six change only the resolved profile stream, with
+each expected transform present. All eight original hashes reproduce from
+the pinned historical code.
+
+The [independent source lock](../../../../../re/solidworks/v2026/heldout/FrameSourceLock.json)
+predates the correction. The [paired native result](SolidworksProfileFrameNativeParity.md)
+demonstrates exact model-to-sketch values and editable geometry for the two
+corrected predictions. Displaced planes and arbitrary frames are outside
+this measurement. The public adapter remains read-only.

@@ -1,0 +1,82 @@
+{
+  "accepted_conversions": 0,
+  "actual_destination_formats": {
+    "solidworks.sldasm": 2,
+    "solidworks.sldprt": 169
+  },
+  "all_full_neutral_documents_unchanged_after_attempt": true,
+  "all_input_hashes_unchanged": true,
+  "all_sdk_snapshot_hashes_unchanged": true,
+  "cad_runtime_imports": 0,
+  "carrier_allowed": false,
+  "diagnostic_code_path_counts": {
+    "freecad.native_features_preserved": 50,
+    "none": 121
+  },
+  "distinct_sources_attempted": 162,
+  "distinct_sources_with_retained_payloads": 162,
+  "distinct_typed_source_domains": {
+    "has_assembly": 2,
+    "has_brep": 50,
+    "has_drawing": 0,
+    "meshes": 1
+  },
+  "earlier_28_paths_matched": true,
+  "earlier_comparison_sha256": "c7fc0105d0e59fcecc2ff0ee8286f542cf1e7434890964fdb720f123a5852326",
+  "earlier_failed_box_reads_now_strictly_readable": 2,
+  "earlier_full_neutral_hashes_unchanged": 26,
+  "family_blockers_sha256": "cce96a64834c1b50d496ba576141be36e4c37f05c68877da5e75201cbe73983e",
+  "forbidden_external_reads": 0,
+  "generated_outputs": 0,
+  "heldout_inputs_read": 0,
+  "historical_165_plus_5_roster_membership_verified": false,
+  "independent_readbacks_run": 0,
+  "independent_replay": {
+    "differences": "per-process elapsed times, recipe paths and their enclosing hashes",
+    "exact_semantic_result_match": true,
+    "fresh_workers": 171,
+    "raw_report_sha256": "7874b442422195e331809912468f8c6d585d5d9e79a2b78fb67ab116485da064"
+  },
+  "inventory_sha256": "db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c",
+  "metadata_keys_all_paths": [
+    "freecad"
+  ],
+  "method_sha256": "5ddfcf811f8a1904a9d859562dfef16b9eecfb19d6776060f5e155c672ddb24b",
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "nearby_four_line_single_boss_sources": 9,
+  "nearby_geometry_owners_sha256": "d004e25a4cb37d851c8ecff0d9d4a61155953352097eaf33803a0d3e1910eb2b",
+  "nearby_sources_are_not_admitted": true,
+  "nested_process_calls": 0,
+  "normal_registry_unchanged": true,
+  "original_paths_attempted": 171,
+  "original_sanitized_summary_sha256": "c7a316256a025ab53208bba56c01d04300763d62febf8208186b6b96ae3dee9d",
+  "public_part_plan_first_refusal": "plain part preparation does not admit unresolved or extended source state",
+  "public_refusal_counts": {
+    "solidworks.sldprt does not support the destination": 171
+  },
+  "public_write_returns": 0,
+  "raw_result_sha256": "4d97f21fd8674360407682bd605d1ed25f4744b21840fd9025541e66b4ffd27c",
+  "required_independent_readbacks": 0,
+  "retained_source_payload_types": [
+    "freecad.fcstd document",
+    "freecad.fcstd.sha256 verification",
+    "opencascade brep where present"
+  ],
+  "schema": "kit.sw2026.public-fcstd-writer-census-summary.v1",
+  "sdk_source_manifest_sha256": "24b090548c73c8745636c5be3888d9268f2ca6ec5473ada762213e1e1df248be",
+  "shared_source_mutations": false,
+  "source_attribute_keys_all_paths": [
+    "freecad_schema_version"
+  ],
+  "status": "NO_RETAINED_SOURCE_ADMITTED",
+  "strict_source_reads": 171,
+  "task_id": "B04-SW2026-CORPUS/PUBLIC-FCSTD-ADMISSION",
+  "timeouts": 0,
+  "underlying_unchanged_owner_grammar_refusals": {
+    "plain boss candidate does not admit assemblies drawings or native boundary payloads": 55,
+    "plain boss candidate does not admit extra mesh payload material or selection semantics": 116
+  },
+  "worker_failures_without_result": 0,
+  "writer_source_file_reads": 0
+}

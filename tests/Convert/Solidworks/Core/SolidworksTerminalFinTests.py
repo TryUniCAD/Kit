@@ -28,7 +28,10 @@ def TestFinWinding() -> None:
         for PayloadValue in Document.brep_payloads
     )
     ModelValue = Document.brep
-    assert ModelValue is not None and not ModelValue.validate()
+    assert ModelValue is not None
+    DesignBodyIds = frozenset(BodyValue.id for BodyValue in Document.bodies)
+    assert not ModelValue.validate(DesignBodyIds)
+    assert {BodyValue.design_body_id for BodyValue in ModelValue.bodies} == DesignBodyIds
     assert (
         len(ModelValue.bodies),
         len(ModelValue.vertices),

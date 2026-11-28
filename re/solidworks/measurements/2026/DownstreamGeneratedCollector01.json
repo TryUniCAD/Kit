@@ -1,0 +1,910 @@
+{
+  "archive_version": 19000,
+  "delivery_pr": 121,
+  "fresh_checks": [
+    {
+      "check": "Collector",
+      "fresh_processes": 2,
+      "result": {
+        "cache_bytes": 736,
+        "cache_sha256": "733c697d5c81b9fdee2aea3f78b893650501f8a16fb95c168f838d830ffbf13e",
+        "container_sha256": "a8a66212402fad02f1aca93905a5217ef57764a28095949175e0d2ccc92355b2",
+        "counts": {
+          "collected": 3,
+          "edge": 2,
+          "face": 3
+        },
+        "invalid_inputs_refused": 4,
+        "map_counter": 17,
+        "mapped_roles": [
+          [
+            74,
+            20,
+            2592000,
+            0,
+            1
+          ],
+          [
+            40,
+            20,
+            2592000,
+            0,
+            1,
+            0
+          ],
+          [
+            40,
+            20,
+            2592000,
+            0,
+            0,
+            0
+          ]
+        ],
+        "native_runs": 0,
+        "next_downstream_id": 6,
+        "owner": "37cdc7a0-6b5c-5691-bf70-05e9fda5f267",
+        "owner_hash": [
+          296160800,
+          969631758
+        ],
+        "passed": true,
+        "preserved_part_streams": 11,
+        "runtime_io_attempts": 0,
+        "scope": "generated ordinary collector prefix and members in a typed cache-body witness",
+        "variant": 1
+      },
+      "stdout_sha256": "a1f7c9d8b6a5f919db4acec9a2da41268259059f101e79b4938f02adb1616f10",
+      "variant": 1
+    },
+    {
+      "check": "Collector",
+      "fresh_processes": 2,
+      "result": {
+        "cache_bytes": 736,
+        "cache_sha256": "99b252757056aafd69c7d4098af923f22d3c291865e2d3be5fd9ab058d3dc7ff",
+        "container_sha256": "733a128b003a1a1fdbc11195dc0bad69d4128968f20fa69a3caa178f65b200fe",
+        "counts": {
+          "collected": 3,
+          "edge": 2,
+          "face": 3
+        },
+        "invalid_inputs_refused": 4,
+        "map_counter": 17,
+        "mapped_roles": [
+          [
+            74,
+            20,
+            2592000,
+            0,
+            1
+          ],
+          [
+            40,
+            20,
+            2592000,
+            0,
+            1,
+            0
+          ],
+          [
+            40,
+            20,
+            2592000,
+            0,
+            0,
+            0
+          ]
+        ],
+        "native_runs": 0,
+        "next_downstream_id": 6,
+        "owner": "f834bf85-4321-575c-a0f5-d4cc87eb1bff",
+        "owner_hash": [
+          72431117,
+          492634170
+        ],
+        "passed": true,
+        "preserved_part_streams": 11,
+        "runtime_io_attempts": 0,
+        "scope": "generated ordinary collector prefix and members in a typed cache-body witness",
+        "variant": 2
+      },
+      "stdout_sha256": "8b43f7334f20615a8a7292abde86b7c383db54cef27c8f7a06330de1474213a9",
+      "variant": 2
+    },
+    {
+      "check": "Face",
+      "fresh_processes": 2,
+      "result": {
+        "edges": 12,
+        "face_operands": {
+          "1": [
+            [
+              1,
+              6,
+              5,
+              4,
+              3,
+              null
+            ],
+            []
+          ],
+          "2": [
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              null
+            ],
+            []
+          ],
+          "3": [
+            [
+              3,
+              1,
+              4,
+              2,
+              6,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ]
+          ],
+          "4": [
+            [
+              4,
+              1,
+              5,
+              2,
+              3,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                3
+              ]
+            ]
+          ],
+          "5": [
+            [
+              5,
+              1,
+              6,
+              2,
+              4,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                4
+              ]
+            ]
+          ],
+          "6": [
+            [
+              6,
+              1,
+              3,
+              2,
+              5,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                5
+              ]
+            ]
+          ]
+        },
+        "faces": 6,
+        "invalid_inputs_refused": 2,
+        "native_runs": 0,
+        "partition_sha256": "410991cab44c2ef071192f149c79d9e561caa4e842630e1b49fb8dd3468b03c9",
+        "passed": true,
+        "prefix_role_values": 12,
+        "runtime_io_attempts": 0,
+        "scope": "ordinary one-loop face operands and initial role maps from generated topology",
+        "slots": 36,
+        "variant": 1
+      },
+      "stdout_sha256": "6545c93857e9829f18dfe82c3a4a7bf991d00ba8887079ccd86b0375ec75d7f9",
+      "variant": 1
+    },
+    {
+      "check": "Face",
+      "fresh_processes": 2,
+      "result": {
+        "edges": 12,
+        "face_operands": {
+          "1": [
+            [
+              1,
+              6,
+              5,
+              4,
+              3,
+              null
+            ],
+            []
+          ],
+          "2": [
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              null
+            ],
+            []
+          ],
+          "3": [
+            [
+              3,
+              1,
+              4,
+              2,
+              6,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ]
+          ],
+          "4": [
+            [
+              4,
+              1,
+              5,
+              2,
+              3,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                3
+              ]
+            ]
+          ],
+          "5": [
+            [
+              5,
+              1,
+              6,
+              2,
+              4,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                4
+              ]
+            ]
+          ],
+          "6": [
+            [
+              6,
+              1,
+              3,
+              2,
+              5,
+              null
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                5
+              ]
+            ]
+          ]
+        },
+        "faces": 6,
+        "invalid_inputs_refused": 2,
+        "native_runs": 0,
+        "partition_sha256": "ae9d75fb442a8f2615f05bdce24f5c6cffcbc17df51586139e46b56488c4d766",
+        "passed": true,
+        "prefix_role_values": 12,
+        "runtime_io_attempts": 0,
+        "scope": "ordinary one-loop face operands and initial role maps from generated topology",
+        "slots": 36,
+        "variant": 2
+      },
+      "stdout_sha256": "680f8230bca1dbe8abe4c6973018fe44588811493bc82ec6b85c3324e0dc9b04",
+      "variant": 2
+    }
+  ],
+  "fresh_guarded_processes": 16,
+  "generated_permanent_edge_inventory": {
+    "receipt_sha256": "ec32e89980ea2e67d66e240e1bbcd5431cde4269227132d54b3224a54400e82d",
+    "result": {
+      "results": [
+        {
+          "edge_attribute_names": [],
+          "edge_topology_count": 2,
+          "faces_with_primary": [
+            {
+              "native_face_node_id": 6,
+              "primary": [
+                40,
+                20,
+                2592000,
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "native_face_node_id": 7,
+              "primary": [
+                40,
+                20,
+                2592000,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "native_face_node_id": 5,
+              "primary": [
+                74,
+                20,
+                2592000,
+                0,
+                1
+              ]
+            }
+          ],
+          "partition_sha256": "c69711dc9a288fbf967c38febf4b8b3bd772c653ac45b69f1d79bbd46bf00bd2",
+          "variant": 1
+        },
+        {
+          "edge_attribute_names": [],
+          "edge_topology_count": 2,
+          "faces_with_primary": [
+            {
+              "native_face_node_id": 6,
+              "primary": [
+                40,
+                20,
+                2592000,
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "native_face_node_id": 7,
+              "primary": [
+                40,
+                20,
+                2592000,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "native_face_node_id": 5,
+              "primary": [
+                74,
+                20,
+                2592000,
+                0,
+                1
+              ]
+            }
+          ],
+          "partition_sha256": "6633fe199b259e6633d67cb29b3dc80110f0c693485c242b3a7e4d4cd77adb66",
+          "variant": 2
+        }
+      ],
+      "runtime_io_attempts": 0,
+      "schema": "kit.sw2026.generated-collector-input-inventory.v1",
+      "scope": "generated partition before native or modeled cache preparation",
+      "vendor_runs": 0
+    }
+  },
+  "guarded_runtime_io_attempts": 0,
+  "heldout_input_reads": 0,
+  "native_runs": 0,
+  "parent_revision": "f625d1135195cf13b3e7d1f87443005cc67fb0ce",
+  "qualified_corpus_assemblies": 0,
+  "qualified_corpus_parts": 0,
+  "qualified_heldout_cases": 0,
+  "regressions": [
+    {
+      "check": "Surface",
+      "fresh_processes": 1,
+      "prior_stdout_sha256": "37cbcf2f5fbd27252be38471241aeba213a9b568c09cb1374ef0e30221718eae",
+      "result": {
+        "arc_marker": 1,
+        "cache_body_bytes": 514,
+        "cache_body_sha256": "edc0032797993ed918429f4d721a9f24ae2f48c7e4537657d8a0adbe32e538dc",
+        "container_sha256": "fa6473d32837a5f790562077890bda8c702866c183933e4d60b498fd628a1725",
+        "feature_creation": 2592000,
+        "feature_id": 20,
+        "finalized_prefix": {
+          "f08": 1,
+          "f0c": 19000,
+          "f10": 2026306,
+          "f14": 19000,
+          "f18": 2026306,
+          "f1c": 104,
+          "f20": 102,
+          "f28": 1818199685
+        },
+        "generated_part_streams_preserved": 11,
+        "native_runs": 0,
+        "object_map_counter": 15,
+        "passed": true,
+        "rejected_file_owners": 2,
+        "runtime_io_attempts": 0,
+        "scope": "actual generated surface and file owners inside a scoped raw cache-body witness",
+        "surface_node_ids": [
+          5,
+          6,
+          7
+        ],
+        "variant": 1
+      },
+      "stdout_sha256": "37cbcf2f5fbd27252be38471241aeba213a9b568c09cb1374ef0e30221718eae",
+      "variant": 1
+    },
+    {
+      "check": "Surface",
+      "fresh_processes": 1,
+      "prior_stdout_sha256": "d4b4673dd8cba0cf6f5a61a990584f2d430f13477e765028fc47a914cee130e6",
+      "result": {
+        "arc_marker": 1,
+        "cache_body_bytes": 514,
+        "cache_body_sha256": "eaadcf4fe92053efe9a7fa80509d10fe0d9d0eed35cd25a222938cf39493c082",
+        "container_sha256": "9c28b6d876395c794c4da8e46863a56f3975aa37d24ca0b2aae9173347d6697e",
+        "feature_creation": 2592000,
+        "feature_id": 20,
+        "finalized_prefix": {
+          "f08": 1,
+          "f0c": 19000,
+          "f10": 2026306,
+          "f14": 19000,
+          "f18": 2026306,
+          "f1c": 105,
+          "f20": 103,
+          "f28": 1818199915
+        },
+        "generated_part_streams_preserved": 11,
+        "native_runs": 0,
+        "object_map_counter": 15,
+        "passed": true,
+        "rejected_file_owners": 2,
+        "runtime_io_attempts": 0,
+        "scope": "actual generated surface and file owners inside a scoped raw cache-body witness",
+        "surface_node_ids": [
+          5,
+          6,
+          7
+        ],
+        "variant": 2
+      },
+      "stdout_sha256": "d4b4673dd8cba0cf6f5a61a990584f2d430f13477e765028fc47a914cee130e6",
+      "variant": 2
+    },
+    {
+      "check": "Clone",
+      "fresh_processes": 1,
+      "prior_stdout_sha256": "84dc6e3bb4d37dca9742d292892a47dd198f75294ea79cc9d020a6050dd1e208",
+      "result": {
+        "cache_bytes": 664,
+        "cache_sha256": "d9bc7eb1b2f5f76c10c7a04cb67665710d7cb739591edbfe7f1843e3d304a507",
+        "cloned_file_slots": [
+          6,
+          13,
+          16
+        ],
+        "container_sha256": "d8ba5c74e6d9273554760c6daaf27410a9de271e725e58172daca3052e17c42b",
+        "map_counter": 17,
+        "native_runs": 0,
+        "passed": true,
+        "preserved_part_streams": 11,
+        "runtime_io_attempts": 0,
+        "saved_copy_epoch": 0,
+        "saved_file_index": -1,
+        "scope": "collector clone semantics in a scoped typed cylinder cache",
+        "source_file_index": 11,
+        "variant": 1
+      },
+      "stdout_sha256": "84dc6e3bb4d37dca9742d292892a47dd198f75294ea79cc9d020a6050dd1e208",
+      "variant": 1
+    },
+    {
+      "check": "Clone",
+      "fresh_processes": 1,
+      "prior_stdout_sha256": "d33fd659863e86b0de92740661411c1e632a9ddc72265681a0bfc1d5318ed11c",
+      "result": {
+        "cache_bytes": 664,
+        "cache_sha256": "7b412d1821d6c5e6d796973bb67bc964150691c2dd50a92a815e31db5f6e5a9a",
+        "cloned_file_slots": [
+          6,
+          13,
+          16
+        ],
+        "container_sha256": "920e9a03a7aa34cda5275e6d86bc7c83bea3f1e9a17ef72f952e06d4fbfce49e",
+        "map_counter": 17,
+        "native_runs": 0,
+        "passed": true,
+        "preserved_part_streams": 11,
+        "runtime_io_attempts": 0,
+        "saved_copy_epoch": 0,
+        "saved_file_index": -1,
+        "scope": "collector clone semantics in a scoped typed cylinder cache",
+        "source_file_index": 22,
+        "variant": 2
+      },
+      "stdout_sha256": "d33fd659863e86b0de92740661411c1e632a9ddc72265681a0bfc1d5318ed11c",
+      "variant": 2
+    },
+    {
+      "check": "Boundaries",
+      "fresh_processes": 1,
+      "result": {
+        "boundary_roles_read_back": 24,
+        "edge_role_rows": 12,
+        "native_runs": 0,
+        "negative_refusals": 3,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated partition without any installed permanent edge identifier",
+        "selected_persistent_edge_attributes": 0,
+        "shape": "prism",
+        "variant": 1
+      },
+      "stdout_sha256": "1987bd0ca4b62b1d3fd63edbe18f46076404680aa0e5a0474cafcc4dac275ed9",
+      "variant": "prism"
+    },
+    {
+      "check": "Boundaries",
+      "fresh_processes": 1,
+      "result": {
+        "boundary_roles_read_back": 4,
+        "edge_role_rows": 2,
+        "native_runs": 0,
+        "negative_refusals": 3,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated partition without any installed permanent edge identifier",
+        "selected_persistent_edge_attributes": 0,
+        "shape": "cylinder",
+        "variant": 1
+      },
+      "stdout_sha256": "495ee2c1e58b6643ea11d970a3034ffd7bbd9001e1b0a73d50f0f5651a6cd77f",
+      "variant": "cylinder"
+    },
+    {
+      "check": "Partition",
+      "fresh_processes": 1,
+      "result": {
+        "active_and_rollback_round_trip_exact": true,
+        "allocated_edge_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "baseline_sha256": "c342ea457e967619457fc0f54ca43d1bca2b951252a01e5b1822695fb90ddb1a",
+        "case": "prism",
+        "edge_count": 12,
+        "edge_node_ids": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "face_count": 6,
+        "filetime": 134626717170843165,
+        "independent_of_topology_storage_order": true,
+        "independent_word_comparisons": 18,
+        "native_launches": 0,
+        "neutral_shape_name": "DownstreamPrism1",
+        "next_id": 19,
+        "owner_guid": "52f73b42-8528-5edf-9439-0da5efc42cc3",
+        "owner_hash": 3321780445243731266,
+        "partition_bytes": 3996,
+        "partition_sha256": "1607232f01344b670ba1d6988478351b3194f54eca6e8876f25fd15f8fe2d536",
+        "rejected_cyclic_chain": true,
+        "rejected_foreign_edge": true,
+        "rejected_reordered_edge_table": true,
+        "runtime_io_attempts": 0,
+        "same_process_repeat_exact": true,
+        "scope": "generated single-body partition using explicit linked topology",
+        "variant": 1
+      },
+      "stdout_sha256": "87a447520c6c1cc81065b5b189d331e9ac172db57ecbb1fb089037fb2df0f822",
+      "variant": "prism"
+    },
+    {
+      "check": "Partition",
+      "fresh_processes": 1,
+      "result": {
+        "active_and_rollback_round_trip_exact": true,
+        "allocated_edge_ids": [
+          4,
+          5
+        ],
+        "baseline_sha256": "53de2b08825a8e3dbc7e39575b3cbfa695055ec83196004266bafb21c3171abd",
+        "case": "cylinder",
+        "edge_count": 2,
+        "edge_node_ids": [
+          12,
+          16
+        ],
+        "face_count": 3,
+        "filetime": 134626717170843165,
+        "independent_of_topology_storage_order": true,
+        "independent_word_comparisons": 5,
+        "native_launches": 0,
+        "neutral_shape_name": "DownstreamCylinder1",
+        "next_id": 6,
+        "owner_guid": "5f7c7abe-8b60-50e9-8654-a5e294936b88",
+        "owner_hash": 2440046414011100315,
+        "partition_bytes": 1806,
+        "partition_sha256": "2348583e34958cb35886cfecfd1c24b49ea09115f58c4e4b49823f0b0ed8f68c",
+        "rejected_cyclic_chain": true,
+        "rejected_foreign_edge": true,
+        "rejected_reordered_edge_table": true,
+        "runtime_io_attempts": 0,
+        "same_process_repeat_exact": true,
+        "scope": "generated single-body partition using explicit linked topology",
+        "variant": 1
+      },
+      "stdout_sha256": "0d56dd8940b357106075f935ce0640e745ca8f8ac625e99e6884fcf0cfe02f8a",
+      "variant": "cylinder"
+    }
+  ],
+  "schema": "kit.sw2026.generated-downstream-collector-replay.v1",
+  "scope": "generated collector prefix and members, and ordinary one-loop face constructor operands",
+  "separate_disclosed_inventory": {
+    "containers": 152,
+    "downstream_streams": 0,
+    "parsed_container_versions": {
+      "4": 152
+    },
+    "receipt_sha256": "a15f579982e426cb8f13a56e22367f670f1f1a051c02fbc5a09c8d949f6004b3",
+    "runtime_cad_launches": 0,
+    "source_paths": [
+      "re/solidworks/examples",
+      "re/solidworks/v2026/corpus/assemblies",
+      "re/solidworks/v2026/corpus/assembly-discovery",
+      "re/solidworks/v2026/corpus/assembly-synchronized",
+      "re/solidworks/v2026/corpus/circle-saves",
+      "re/solidworks/v2026/corpus/curves-discovery",
+      "re/solidworks/v2026/corpus/end-conditions",
+      "re/solidworks/v2026/corpus/ladder",
+      "re/solidworks/v2026/corpus/tree-parity-saves",
+      "re/solidworks/v2026/corpus/tree-saves",
+      "re/solidworks/v2026/corpus/view-probes"
+    ]
+  },
+  "source_file_sha256": {
+    "re/tooling/sw2026/downstream/CacheInputs.py": "0d8bfc645e93f8b0339f4a83cca26cee9f9d441aaccb08aea642df7e8ab89b89",
+    "re/tooling/sw2026/downstream/CheckCollectorProjection.py": "838b0fa97a46aaabd055bafd24030294eccd64b72fb9d74ae63a56e970e01ea3",
+    "re/tooling/sw2026/downstream/CheckFaceOperands.py": "b8434154d0232e73013729b0300edbacf582a091508cf96849701417cf96b708",
+    "re/tooling/sw2026/downstream/CheckSurfaceIdentities.py": "2ee96d3104a36e1f1e076ccd9930a12144608786a93d0efbdf79df13a019f93c",
+    "re/tooling/sw2026/downstream/CollectorProjection.py": "b729d8c445b52605b81c9f6bc823de264f8ba570052b446be577c1209de5f26a",
+    "re/tooling/sw2026/downstream/FaceOperands.py": "f02c08cfb632f2907b672df27d503aacd67ce82fa9a5a3163bcb82611c9ab3ac",
+    "re/tooling/sw2026/para/DownstreamIds.py": "33d5695a631fe5e0fd92c2ca576c34544e9290f20ec224f844950402b87ef481",
+    "re/tooling/sw2026/para/cylinder/CylinderAttachment.py": "40146d0aead91f8a294cf7269658fce7c371c3c26948d37990ef0abc9a853c4f"
+  },
+  "task": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "vendor_build": "34.5.2.0604",
+  "verified_edge_query_source": {
+    "receipt_sha256": "207058db83bff15cedc249b9c12467e81983ec00b7344b8a033fc1ecb5d46f2f",
+    "result": {
+      "edge_attribute_definition": {
+        "name": "EDGE_PERM_ID_2001",
+        "runtime_address": "0x3312d718"
+      },
+      "functions": [
+        {
+          "entry": "0x4be81980",
+          "fragments": [
+            {
+              "bytes": 342,
+              "end_exclusive": "0x4be81ad6",
+              "file_offset": 13897088,
+              "name": "complete unwind fragment",
+              "sha256": "f5bd0417d757b649554f25c258f2655516013070fe017479d3954be05cdaf7f0",
+              "start": "0x4be81980"
+            }
+          ],
+          "module": "sldmodu.dll",
+          "name": "model multi-edge ID query"
+        },
+        {
+          "entry": "0x43b38cd0",
+          "fragments": [
+            {
+              "bytes": 5,
+              "end_exclusive": "0x43b38cd5",
+              "file_offset": 4161744,
+              "name": "complete leaf",
+              "sha256": "e108378ab5ed9af5f904b863a80e08fa8bf9d2da3a4cc3bf92dd9e05362abe32",
+              "start": "0x43b38cd0"
+            }
+          ],
+          "module": "sldgcu.dll",
+          "name": "class getter thunk"
+        },
+        {
+          "entry": "0x43e80f50",
+          "fragments": [
+            {
+              "bytes": 46,
+              "end_exclusive": "0x43e80f7e",
+              "file_offset": 7603024,
+              "name": "complete unwind fragment",
+              "sha256": "7ca61b8edda357441b939ac6bbb9399e50d89d1e200080f8f96bb668ea4eef63",
+              "start": "0x43e80f50"
+            }
+          ],
+          "module": "sldgcu.dll",
+          "name": "selected kernel dispatch"
+        },
+        {
+          "entry": "0x32fa26d0",
+          "fragments": [
+            {
+              "bytes": 121,
+              "end_exclusive": "0x32fa2749",
+              "file_offset": 203472,
+              "name": "complete unwind fragment",
+              "sha256": "8d7059e89f44595deb8176723fbb8b95ebd4af8c48f3e5d669fd944e59696f4d",
+              "start": "0x32fa26d0"
+            }
+          ],
+          "module": "sldgciParau.dll",
+          "name": "get all permanent edge ID attributes"
+        },
+        {
+          "entry": "0x330384d0",
+          "fragments": [
+            {
+              "bytes": 352,
+              "end_exclusive": "0x33038630",
+              "file_offset": 817360,
+              "name": "complete unwind fragment",
+              "sha256": "dc5fbe59608275edca039b8d8371707b4f652efd721b65f0f933260ae23b21e9",
+              "start": "0x330384d0"
+            }
+          ],
+          "module": "sldgciParau.dll",
+          "name": "get all of an actual attribute definition"
+        }
+      ],
+      "generated_inventory_sha256": "ec32e89980ea2e67d66e240e1bbcd5431cde4269227132d54b3224a54400e82d",
+      "images": [
+        {
+          "bytes": 46536280,
+          "name": "sldmodu.dll",
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+        },
+        {
+          "bytes": 10893912,
+          "name": "sldgcu.dll",
+          "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+        },
+        {
+          "bytes": 1875032,
+          "name": "sldgciParau.dll",
+          "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+        }
+      ],
+      "kernel_import": {
+        "module": "sldgciParau.dll",
+        "name": "?getAllFromEntity@gciEdgeIdAttrib_w@GCP@@SAHPEAVgciEdge_w@2@PEAPEAPEAV12@@Z"
+      },
+      "model_import": {
+        "module": "sldgcu.dll",
+        "name": "?getAllFromEntity@gcEdgeIdAttrib_w@@SAHPEAVgcEdge_w@@PEAPEAPEAV1@@Z"
+      },
+      "native_runs": 0,
+      "schema": "kit.sw2026.collector-edge-empty-attributes.v1",
+      "scope": "direct edge membership query, before any later native mutation",
+      "zero_attribute_behavior": "model returns zero without adding a representation if the actual native query returned zero"
+    }
+  },
+  "writer_cad_input_reads": 0
+}

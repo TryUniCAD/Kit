@@ -1,0 +1,82 @@
+{
+  "case_id": "D01",
+  "controls_healthy": true,
+  "correction_has_native_proof": false,
+  "diagnosis": "resizing a rectangle with free XY translation does not enforce an authored zero center",
+  "distinct_native_processes": 3,
+  "first_failure": {
+    "actual_m": 0.0010499999999999993,
+    "expected_m": 0.0,
+    "quantity": "child center of mass X",
+    "stage": "measure independent child geometry"
+  },
+  "generated_writer_outputs": 0,
+  "heldout_acceptance": false,
+  "heldout_payloads_read": 0,
+  "native_acceptance": false,
+  "observed_child_geometry": {
+    "area": 0.0022595799999999997,
+    "com": [
+      0.0010499999999999993,
+      -0.0016500000000000017,
+      0.00455
+    ],
+    "volume": 5.759662999999999e-06
+  },
+  "passed": false,
+  "phases": [
+    {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "passed": true,
+      "phase": "before",
+      "process_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394700259475318,
+        "process_id": 8936,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "raw_sha256": "949e36676740cde1627613f44aa7ec2c9428224b5240bad0e3813e474d9b865e",
+      "rebuilt": true,
+      "whats_wrong": 0
+    },
+    {
+      "passed": false,
+      "phase": "author",
+      "process_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394700841988845,
+        "process_id": 5816,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "raw_sha256": "2cbd932cbcc5fd8728c7788494a55484ff841dadbabd2038bc42c6bd815de477"
+    },
+    {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "passed": true,
+      "phase": "after",
+      "process_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394702144397146,
+        "process_id": 6296,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "raw_sha256": "ecefcf50b06aa748dbab344d6ff872a59cee438dece3a21556efa2fc8812dd74",
+      "rebuilt": true,
+      "whats_wrong": 0
+    }
+  ],
+  "prediction_or_tolerance_changed": false,
+  "proposed_source_correction": "explicitly set one active-sketch corner to its independently authored coordinates and verify all four corners before existing geometry checks",
+  "requested_child_dimensions_m": [
+    0.0379,
+    0.0167,
+    0.0091
+  ],
+  "schema": "kit.sw2026.perpendicular-source-disclosed-attempt.v1",
+  "source_packet_sha256": "540ceba39f084563e3e3c0244f215388f50605c5892c4c8c5f7dd89a8a0f6ac8",
+  "source_saved_native_pair": false
+}

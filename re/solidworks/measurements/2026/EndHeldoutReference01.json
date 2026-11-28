@@ -1,0 +1,2691 @@
+{
+  "schema": "kit.sw2026.end-heldout-reference-comparison.v1",
+  "writer_freeze_sha256": "fb208a5b8dd8cf9e033ad8450fd466e9754cf6374dc88bce68ee1bcd709a2918",
+  "generator_revision": "55d0912a36748e3c6b4829471b59dc9620c15b9a",
+  "source_author_revision": "29b5cba98dd402e1eb855358862c036e30e6f648",
+  "source_lock_sha256": "4df0938264f7761ada1f6fbc10f2335227459e6f03960ab1baa27a0395d395fe",
+  "reference_metadata_inspected_only_after_writer_freeze": true,
+  "heldout_native_payloads_parsed_or_copied": false,
+  "generated_receipt_sha256": "6a5f7ce87bec1cae234b0cc47eff6dd195f60418672ac6af7cbcfb9363f7fadf",
+  "cases": [
+    {
+      "name": "H01Forward",
+      "source_manifest_sha256": "f9f7aaf2ac8375422d28af13f1cda88befe9a00090ded0928c9dd71f1e1e16a2",
+      "source_native_sha256": "617a7972e40fbfa708d21fdf37356a72439745436858ed2e048814a4b3c63d81",
+      "source_original_api_receipt_passed": true,
+      "numeric_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "center 0",
+          "actual": 0.0037189999999999996,
+          "reference": 0.0037189999999999996,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "center 1",
+          "actual": -0.005983,
+          "reference": -0.005983,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "radius",
+          "actual": 0.006817,
+          "reference": 0.006817,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving radial value",
+          "actual": 0.013634,
+          "reference": 0.013634,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "blind definition depth",
+          "actual": 0.013193,
+          "reference": 0.013193,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving blind depth",
+          "actual": 0.013193,
+          "reference": 0.013193,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid volume",
+          "actual": 1.926105286038775e-06,
+          "reference": 1.926105286038775e-06,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid area",
+          "actual": 0.0008570778095232553,
+          "reference": 0.0008570778095232553,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 0",
+          "actual": 0.0065965,
+          "reference": 0.0065965,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 1",
+          "actual": -0.005983,
+          "reference": -0.005983,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 2",
+          "actual": -0.003719,
+          "reference": -0.003719,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 0",
+          "actual": 0.0037189999999999996,
+          "reference": 0.0037189999999999996,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 1",
+          "actual": -0.005983,
+          "reference": -0.005983,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "radius",
+          "actual": 0.006817,
+          "reference": 0.006817,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving radial value",
+          "actual": 0.013634,
+          "reference": 0.013634,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "blind definition depth",
+          "actual": 0.013193,
+          "reference": 0.013193,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving blind depth",
+          "actual": 0.013193,
+          "reference": 0.013193,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid volume",
+          "actual": 1.926105286038775e-06,
+          "reference": 1.926105286038775e-06,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid area",
+          "actual": 0.0008570778095232553,
+          "reference": 0.0008570778095232553,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 0",
+          "actual": 0.0065965,
+          "reference": 0.0065965,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 1",
+          "actual": -0.005983,
+          "reference": -0.005983,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 2",
+          "actual": -0.003719,
+          "reference": -0.003719,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        }
+      ],
+      "exact_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "end condition",
+          "actual": 0,
+          "reference": 0,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "both directions",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "reverse direction",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "end condition",
+          "actual": 0,
+          "reference": 0,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "both directions",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "reverse direction",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        }
+      ],
+      "design_feature_names_and_types_equal": true,
+      "source_recursive_feature_tree": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Ambient",
+          "type": "AmbientLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional1",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional2",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional3",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ],
+      "generated_top_level_feature_tree": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveSketch@H01Forward.Part",
+              "value": 0.013634
+            }
+          ]
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveBoss@H01Forward.Part",
+              "value": 0.013193
+            },
+            {
+              "name": "D1@CurveSketch@H01Forward.Part",
+              "value": 0.013634
+            }
+          ]
+        }
+      ],
+      "source_recursive_count": 25,
+      "source_top_level_count": 19,
+      "generated_top_level_count": 20,
+      "generated_extra_top_level_types": {
+        "NotesAreaFtrFolder": 1
+      },
+      "missing_top_level_types": {},
+      "full_tree_parity": false,
+      "tree_observation_limit": "Source observer walks subfeatures recursively; generated observer records top-level nodes only. Top-level count/type differences and declared authored presentation names remain explicit; recursive parity cannot be inferred"
+    },
+    {
+      "name": "H02Reverse",
+      "source_manifest_sha256": "48c788688ef225755fffd89d6549a388d61129369531cd3e22fc84d341dbd54c",
+      "source_native_sha256": "873bc4bea8b527ffcd67f6d3592054adba305ebec7e0637418523e9e14701466",
+      "source_original_api_receipt_passed": true,
+      "numeric_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "center 0",
+          "actual": -0.007136999999999999,
+          "reference": -0.007136999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "center 1",
+          "actual": 0.002617,
+          "reference": 0.002617,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "radius",
+          "actual": 0.009137000000000001,
+          "reference": 0.009137000000000001,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving radial value",
+          "actual": 0.018274000000000002,
+          "reference": 0.018274000000000002,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "blind definition depth",
+          "actual": 0.027617,
+          "reference": 0.027617,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving blind depth",
+          "actual": 0.027617,
+          "reference": 0.027617,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid volume",
+          "actual": 7.24325245789494e-06,
+          "reference": 7.24325245789494e-06,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid area",
+          "actual": 0.0021100274454315775,
+          "reference": 0.0021100274454315775,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 0",
+          "actual": -0.007136999999999999,
+          "reference": -0.007136999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 1",
+          "actual": -0.013808500000000001,
+          "reference": -0.013808500000000001,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 2",
+          "actual": -0.0026169999999999995,
+          "reference": -0.0026169999999999995,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 0",
+          "actual": -0.007136999999999999,
+          "reference": -0.007136999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 1",
+          "actual": 0.002617,
+          "reference": 0.002617,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "radius",
+          "actual": 0.009137000000000001,
+          "reference": 0.009137000000000001,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving radial value",
+          "actual": 0.018274000000000002,
+          "reference": 0.018274000000000002,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "blind definition depth",
+          "actual": 0.027617,
+          "reference": 0.027617,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving blind depth",
+          "actual": 0.027617,
+          "reference": 0.027617,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid volume",
+          "actual": 7.24325245789494e-06,
+          "reference": 7.24325245789494e-06,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid area",
+          "actual": 0.0021100274454315775,
+          "reference": 0.0021100274454315775,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 0",
+          "actual": -0.007136999999999999,
+          "reference": -0.007136999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 1",
+          "actual": -0.013808500000000001,
+          "reference": -0.013808500000000001,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 2",
+          "actual": -0.0026169999999999995,
+          "reference": -0.0026169999999999995,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        }
+      ],
+      "exact_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "end condition",
+          "actual": 0,
+          "reference": 0,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "both directions",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "reverse direction",
+          "actual": true,
+          "reference": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "end condition",
+          "actual": 0,
+          "reference": 0,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "both directions",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "reverse direction",
+          "actual": true,
+          "reference": true,
+          "passed": true
+        }
+      ],
+      "design_feature_names_and_types_equal": true,
+      "source_recursive_feature_tree": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Ambient",
+          "type": "AmbientLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional1",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional2",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional3",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ],
+      "generated_top_level_feature_tree": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveSketch@H02Reverse.Part",
+              "value": 0.018274000000000002
+            }
+          ]
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveBoss@H02Reverse.Part",
+              "value": 0.027617
+            },
+            {
+              "name": "D1@CurveSketch@H02Reverse.Part",
+              "value": 0.018274000000000002
+            }
+          ]
+        }
+      ],
+      "source_recursive_count": 25,
+      "source_top_level_count": 19,
+      "generated_top_level_count": 20,
+      "generated_extra_top_level_types": {
+        "NotesAreaFtrFolder": 1
+      },
+      "missing_top_level_types": {},
+      "full_tree_parity": false,
+      "tree_observation_limit": "Source observer walks subfeatures recursively; generated observer records top-level nodes only. Top-level count/type differences and declared authored presentation names remain explicit; recursive parity cannot be inferred"
+    },
+    {
+      "name": "H03MidPlane",
+      "source_manifest_sha256": "96ee86d73ecee312ebb5aee29e64f986bd823143256457e1de5375eedb916883",
+      "source_native_sha256": "5edfc5ccd7163fdcec4132e053a7dc0ee42603833af9028d8d8cc89cd4f373df",
+      "source_original_api_receipt_passed": true,
+      "numeric_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "center 0",
+          "actual": 0.004971,
+          "reference": 0.004971,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "center 1",
+          "actual": -0.009313,
+          "reference": -0.009313,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "radius",
+          "actual": 0.007918999999999999,
+          "reference": 0.007918999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving radial value",
+          "actual": 0.015837999999999998,
+          "reference": 0.015837999999999998,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "blind definition depth",
+          "actual": 0.033970999999999994,
+          "reference": 0.033970999999999994,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving blind depth",
+          "actual": 0.033970999999999994,
+          "reference": 0.033970999999999994,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid volume",
+          "actual": 6.692661963068751e-06,
+          "reference": 6.692661963068751e-06,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid area",
+          "actual": 0.002084301646908084,
+          "reference": 0.002084301646908084,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 0",
+          "actual": 0.0,
+          "reference": 0.0,
+          "nonzero_relative_error": null,
+          "zero_absolute_error": 0.0,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 1",
+          "actual": -0.009313,
+          "reference": -0.009313,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 2",
+          "actual": -0.004971,
+          "reference": -0.004971,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 0",
+          "actual": 0.004971,
+          "reference": 0.004971,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 1",
+          "actual": -0.009313,
+          "reference": -0.009313,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "radius",
+          "actual": 0.007918999999999999,
+          "reference": 0.007918999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving radial value",
+          "actual": 0.015837999999999998,
+          "reference": 0.015837999999999998,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "blind definition depth",
+          "actual": 0.033970999999999994,
+          "reference": 0.033970999999999994,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving blind depth",
+          "actual": 0.033970999999999994,
+          "reference": 0.033970999999999994,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid volume",
+          "actual": 6.692661963068751e-06,
+          "reference": 6.692661963068751e-06,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid area",
+          "actual": 0.002084301646908084,
+          "reference": 0.002084301646908084,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 0",
+          "actual": 0.0,
+          "reference": 0.0,
+          "nonzero_relative_error": null,
+          "zero_absolute_error": 0.0,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 1",
+          "actual": -0.009313,
+          "reference": -0.009313,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 2",
+          "actual": -0.004971,
+          "reference": -0.004971,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        }
+      ],
+      "exact_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "end condition",
+          "actual": 6,
+          "reference": 6,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "both directions",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "reverse direction",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "end condition",
+          "actual": 6,
+          "reference": 6,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "both directions",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "reverse direction",
+          "actual": false,
+          "reference": false,
+          "passed": true
+        }
+      ],
+      "design_feature_names_and_types_equal": true,
+      "source_recursive_feature_tree": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Ambient",
+          "type": "AmbientLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional1",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional2",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional3",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ],
+      "generated_top_level_feature_tree": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveSketch@H03MidPlane.Part",
+              "value": 0.015837999999999998
+            }
+          ]
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveBoss@H03MidPlane.Part",
+              "value": 0.033970999999999994
+            },
+            {
+              "name": "D1@CurveSketch@H03MidPlane.Part",
+              "value": 0.015837999999999998
+            }
+          ]
+        }
+      ],
+      "source_recursive_count": 25,
+      "source_top_level_count": 19,
+      "generated_top_level_count": 20,
+      "generated_extra_top_level_types": {
+        "NotesAreaFtrFolder": 1
+      },
+      "missing_top_level_types": {},
+      "full_tree_parity": false,
+      "tree_observation_limit": "Source observer walks subfeatures recursively; generated observer records top-level nodes only. Top-level count/type differences and declared authored presentation names remain explicit; recursive parity cannot be inferred"
+    },
+    {
+      "name": "H04TwoDirections",
+      "source_manifest_sha256": "112bc6bbc7ba80c033b72ee948793e7aa4d06f8febae5c9409dd40f34d6118b2",
+      "source_native_sha256": "0dd4ffe69b16248dda5ebd7e468563a45c4a8e5b80a8fe0bff5e12da02c584d0",
+      "source_original_api_receipt_passed": true,
+      "numeric_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "center 0",
+          "actual": -0.006193,
+          "reference": -0.006193,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "center 1",
+          "actual": 0.008723000000000002,
+          "reference": 0.008723000000000002,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "radius",
+          "actual": 0.011231,
+          "reference": 0.011231,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving radial value",
+          "actual": 0.022462,
+          "reference": 0.022462,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "blind definition depth",
+          "actual": 0.021389,
+          "reference": 0.021389,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving blind depth",
+          "actual": 0.021389,
+          "reference": 0.021389,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid volume",
+          "actual": 1.2009235076848397e-05,
+          "reference": 1.2009235076848397e-05,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid area",
+          "actual": 0.0029311188074796005,
+          "reference": 0.0029311188074796005,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 0",
+          "actual": -0.006193000000000001,
+          "reference": -0.006193000000000001,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 1",
+          "actual": -0.006235999999999999,
+          "reference": -0.006235999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "solid center of mass 2",
+          "actual": -0.008723000000000002,
+          "reference": -0.008723000000000002,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "second definition depth",
+          "actual": 0.008917,
+          "reference": 0.008917,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "driving second depth",
+          "actual": 0.008917,
+          "reference": 0.008917,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 0",
+          "actual": -0.006193,
+          "reference": -0.006193,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "center 1",
+          "actual": 0.008723000000000002,
+          "reference": 0.008723000000000002,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "radius",
+          "actual": 0.011231,
+          "reference": 0.011231,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving radial value",
+          "actual": 0.022462,
+          "reference": 0.022462,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "blind definition depth",
+          "actual": 0.021389,
+          "reference": 0.021389,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving blind depth",
+          "actual": 0.021389,
+          "reference": 0.021389,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid volume",
+          "actual": 1.2009235076848397e-05,
+          "reference": 1.2009235076848397e-05,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid area",
+          "actual": 0.0029311188074796005,
+          "reference": 0.0029311188074796005,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 0",
+          "actual": -0.006193000000000001,
+          "reference": -0.006193000000000001,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 1",
+          "actual": -0.006235999999999999,
+          "reference": -0.006235999999999999,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "solid center of mass 2",
+          "actual": -0.008723000000000002,
+          "reference": -0.008723000000000002,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "second definition depth",
+          "actual": 0.008917,
+          "reference": 0.008917,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "driving second depth",
+          "actual": 0.008917,
+          "reference": 0.008917,
+          "nonzero_relative_error": 0.0,
+          "zero_absolute_error": null,
+          "six_digit_text_identical": true,
+          "passed": true
+        }
+      ],
+      "exact_comparisons": [
+        {
+          "phase": "open-save",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "end condition",
+          "actual": 0,
+          "reference": 0,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "both directions",
+          "actual": true,
+          "reference": true,
+          "passed": true
+        },
+        {
+          "phase": "open-save",
+          "quantity": "reverse direction",
+          "actual": true,
+          "reference": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "body count",
+          "actual": 1,
+          "reference": 1,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "end condition",
+          "actual": 0,
+          "reference": 0,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "both directions",
+          "actual": true,
+          "reference": true,
+          "passed": true
+        },
+        {
+          "phase": "fresh-reopen",
+          "quantity": "reverse direction",
+          "actual": true,
+          "reference": true,
+          "passed": true
+        }
+      ],
+      "design_feature_names_and_types_equal": true,
+      "source_recursive_feature_tree": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Ambient",
+          "type": "AmbientLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional1",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional2",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Directional3",
+          "type": "DirectionLight",
+          "parent": "Lights and Cameras",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "parent": null,
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ],
+      "generated_top_level_feature_tree": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "CurveSketch",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveSketch@H04TwoDirections.Part",
+              "value": 0.022462
+            }
+          ]
+        },
+        {
+          "name": "CurveBoss",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@CurveBoss@H04TwoDirections.Part",
+              "value": 0.021389
+            },
+            {
+              "name": "D2@CurveBoss@H04TwoDirections.Part",
+              "value": 0.008917
+            },
+            {
+              "name": "D1@CurveSketch@H04TwoDirections.Part",
+              "value": 0.022462
+            }
+          ]
+        }
+      ],
+      "source_recursive_count": 25,
+      "source_top_level_count": 19,
+      "generated_top_level_count": 20,
+      "generated_extra_top_level_types": {
+        "NotesAreaFtrFolder": 1
+      },
+      "missing_top_level_types": {},
+      "full_tree_parity": false,
+      "tree_observation_limit": "Source observer walks subfeatures recursively; generated observer records top-level nodes only. Top-level count/type differences and declared authored presentation names remain explicit; recursive parity cannot be inferred"
+    }
+  ],
+  "numeric_count": 92,
+  "all_numeric_comparisons_passed": true,
+  "maximum_nonzero_relative_error": 0.0,
+  "all_six_digit_text_identical": true,
+  "exact_comparison_count": 32,
+  "all_exact_comparisons_passed": true,
+  "design_feature_names_and_types_equal": true,
+  "bounded_heldout_body_dimension_direction_comparison_passed": true,
+  "full_heldout_acceptance": false,
+  "production_acceptance": false,
+  "scope": "Compare original source API baseline with generated open-save and fresh-reopen baselines, before edits. Original native payloads remain sealed; full presentation/hierarchy parity and the broader family remain incomplete"
+}

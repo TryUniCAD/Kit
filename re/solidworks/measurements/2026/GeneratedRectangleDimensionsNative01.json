@@ -1,0 +1,743 @@
+{
+  "schema": "kit.sw2026.generated-rectangle-dimensions-native.v1",
+  "scope": "Two independent front-plane rectangular blind bosses with separate driving width and height",
+  "source_revision": "51feac2762d1d308ba1d13a9545b9a8f5e477e1c",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "job_sha256": "379a43d9c3cf8879c1d07593e2b8cb58518e5642e63c71aea82be6ad912a1ec8",
+  "tool_sha256": {
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectEdit.py": "6155ebff445ca8a363b9e2d0c4009ddfa4b5795fa5fab7a3c7eb77ffaf7c5264",
+    "Author.py": "860525d39f4da77d495898969a89120064af91d8ffce0b30bdf0f1dd493742c6",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "InspectRectangleDimensions.py": "7bef3ae6346053f6e0ee09f5f418d723fae2345fbeb14c8c371209bf7c906a76"
+  },
+  "private_inspection_sha256": "b8f35493bb17eb9731154c38a5ea2a78646e298b1549158ad6bf9520dc1e367d",
+  "private_transport_sha256": "9848242eb992466052290265b48e89ac5cc2d235c01bbbecb196401a46371af4",
+  "frozen_receipt_sha256": "d99723857f23c511eb022b7d95d92edae83dd40c52ec6876157063c4b92220de",
+  "source_manifest_sha256": "b4e2d7a888e05ac9383e6f31ee38b9a5737937ee816f7548b6de592a84330266",
+  "distinct_processes": 22,
+  "controls_healthy": true,
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "sources_unchanged": true,
+  "cases": [
+    {
+      "source": "SourceWidthHeightCentered.SLDPRT",
+      "generated": "GeneratedWidthHeightCentered.SLDPRT",
+      "baseline": {
+        "source": {
+          "sha256": "26bb34d183b621ed651ba4c3fd10f8e58810c1e4dfe4a7df5b75eed2bf9416e1",
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 1.2635999999999996e-05,
+            "area": 0.003815999999999999,
+            "com": [
+              -1.5836620274519512e-18,
+              0.0,
+              0.006500000000000001
+            ],
+            "mass": 1.2635999999999996e-05
+          },
+          "parameters_m": {
+            "D1@Sketch1": 0.054,
+            "D2@Sketch1": 0.018,
+            "D1@Boss-Extrude1": 0.013
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "tree_nodes": 19,
+          "checks": {
+            "healthy": true,
+            "dimensions_match": true,
+            "body_count_matches": true,
+            "mass_properties_match": true,
+            "center_matches": true,
+            "source_bound": true
+          }
+        },
+        "generated": {
+          "sha256": "1ec55a10cf59b865ba02cecff167382305afe636e6ab7768dbf4e1853258da01",
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 1.2635999999999996e-05,
+            "area": 0.003815999999999999,
+            "com": [
+              -1.5836620274519512e-18,
+              0.0,
+              0.006500000000000001
+            ],
+            "mass": 1.2635999999999996e-05
+          },
+          "parameters_m": {
+            "D1@Sketch1": 0.054,
+            "D2@Sketch1": 0.018,
+            "D1@Boss-Extrude1": 0.013
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "tree_nodes": 20,
+          "checks": {
+            "healthy": true,
+            "dimensions_match": true,
+            "body_count_matches": true,
+            "mass_properties_match": true,
+            "center_matches": true,
+            "source_bound": true
+          }
+        }
+      },
+      "dimension_edits": [
+        {
+          "parameter": "D1@Sketch1",
+          "value_m": 0.063,
+          "center_matches": {
+            "edit": true,
+            "reopen": true
+          },
+          "lanes": {
+            "source": {
+              "derivative_sha256": "f1a77228e01f88a2b553ea6d9230f814c853f0ed316e369142c3ece942c1afea",
+              "before_m": 0.054,
+              "written_m": 0.063,
+              "read_back_m": 0.063,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.4741999999999992e-05,
+                  "area": 0.0043739999999999985,
+                  "com": [
+                    -0.004500000000000002,
+                    -1.3314484582526775e-18,
+                    0.0065
+                  ],
+                  "mass": 1.4741999999999992e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.063,
+                  "D2@Sketch1": 0.018,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.4741999999999992e-05,
+                  "area": 0.0043739999999999985,
+                  "com": [
+                    -0.004500000000000002,
+                    -1.3314484582526775e-18,
+                    0.0065
+                  ],
+                  "mass": 1.4741999999999992e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.063,
+                  "D2@Sketch1": 0.018,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            },
+            "generated": {
+              "derivative_sha256": "33ccf739e3758f433a77a1cf0c9b9f88e5bcf72ea27924fba09074ed34412832",
+              "before_m": 0.054,
+              "written_m": 0.063,
+              "read_back_m": 0.063,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.4741999999999992e-05,
+                  "area": 0.0043739999999999985,
+                  "com": [
+                    -0.004500000000000002,
+                    -1.3314484582526775e-18,
+                    0.0065
+                  ],
+                  "mass": 1.4741999999999992e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.063,
+                  "D2@Sketch1": 0.018,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.4741999999999992e-05,
+                  "area": 0.0043739999999999985,
+                  "com": [
+                    -0.004500000000000002,
+                    -1.3314484582526775e-18,
+                    0.0065
+                  ],
+                  "mass": 1.4741999999999992e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.063,
+                  "D2@Sketch1": 0.018,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "parameter": "D2@Sketch1",
+          "value_m": 0.025,
+          "center_matches": {
+            "edit": true,
+            "reopen": true
+          },
+          "lanes": {
+            "source": {
+              "derivative_sha256": "32de728e64d696825e29fb709b283093b404c95ad976826c62b2bde0efe94ca7",
+              "before_m": 0.018,
+              "written_m": 0.025,
+              "read_back_m": 0.025,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.7549999999999993e-05,
+                  "area": 0.004753999999999999,
+                  "com": [
+                    3.1225022567582536e-19,
+                    0.0034999999999999983,
+                    0.006500000000000001
+                  ],
+                  "mass": 1.7549999999999993e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.054,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.7549999999999993e-05,
+                  "area": 0.004753999999999999,
+                  "com": [
+                    3.1225022567582536e-19,
+                    0.0034999999999999983,
+                    0.006500000000000001
+                  ],
+                  "mass": 1.7549999999999993e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.054,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            },
+            "generated": {
+              "derivative_sha256": "215005e1b2c96ca23732c56e0eceba9aae9516a38dfda38b74357b34b923014c",
+              "before_m": 0.018,
+              "written_m": 0.025,
+              "read_back_m": 0.025,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.7549999999999993e-05,
+                  "area": 0.004753999999999999,
+                  "com": [
+                    3.1225022567582536e-19,
+                    0.0034999999999999983,
+                    0.006500000000000001
+                  ],
+                  "mass": 1.7549999999999993e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.054,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.7549999999999993e-05,
+                  "area": 0.004753999999999999,
+                  "com": [
+                    3.1225022567582536e-19,
+                    0.0034999999999999983,
+                    0.006500000000000001
+                  ],
+                  "mass": 1.7549999999999993e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.054,
+                  "D2@Sketch1": 0.025,
+                  "D1@Boss-Extrude1": 0.013
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "SourceWidthHeightTranslated.SLDPRT",
+      "generated": "GeneratedWidthHeightTranslated.SLDPRT",
+      "baseline": {
+        "source": {
+          "sha256": "6911967be467c3cc02ef54cfb2d17bb351616bc504c02e8b33213534482ea2be",
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 8.7986e-06,
+            "area": 0.0032284,
+            "com": [
+              0.0235,
+              0.0015000000000000002,
+              0.0040999999999999995
+            ],
+            "mass": 8.7986e-06
+          },
+          "parameters_m": {
+            "D1@Sketch1": 0.037000000000000005,
+            "D2@Sketch1": 0.028999999999999998,
+            "D1@Boss-Extrude1": 0.008199999999999999
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "tree_nodes": 19,
+          "checks": {
+            "healthy": true,
+            "dimensions_match": true,
+            "body_count_matches": true,
+            "mass_properties_match": true,
+            "center_matches": true,
+            "source_bound": true
+          }
+        },
+        "generated": {
+          "sha256": "2550eee2061284ed8121697d8fc0c4de727c3ee82ee6e1ed1c7675bc1903e001",
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 8.7986e-06,
+            "area": 0.0032284,
+            "com": [
+              0.0235,
+              0.0015000000000000002,
+              0.0040999999999999995
+            ],
+            "mass": 8.7986e-06
+          },
+          "parameters_m": {
+            "D1@Sketch1": 0.037000000000000005,
+            "D2@Sketch1": 0.028999999999999998,
+            "D1@Boss-Extrude1": 0.008199999999999999
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "tree_nodes": 20,
+          "checks": {
+            "healthy": true,
+            "dimensions_match": true,
+            "body_count_matches": true,
+            "mass_properties_match": true,
+            "center_matches": true,
+            "source_bound": true
+          }
+        }
+      },
+      "dimension_edits": [
+        {
+          "parameter": "D1@Sketch1",
+          "value_m": 0.046,
+          "center_matches": {
+            "edit": true,
+            "reopen": true
+          },
+          "lanes": {
+            "source": {
+              "derivative_sha256": "188b56e4f4a7aefbf7aea0d1c7adba3c533499de2f3cf530795b2d72e746820d",
+              "before_m": 0.037000000000000005,
+              "written_m": 0.046,
+              "read_back_m": 0.046,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.0938799999999998e-05,
+                  "area": 0.0038979999999999996,
+                  "com": [
+                    0.019,
+                    0.001499999999999999,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.0938799999999998e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.046,
+                  "D2@Sketch1": 0.028999999999999998,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.0938799999999998e-05,
+                  "area": 0.0038979999999999996,
+                  "com": [
+                    0.019,
+                    0.001499999999999999,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.0938799999999998e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.046,
+                  "D2@Sketch1": 0.028999999999999998,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            },
+            "generated": {
+              "derivative_sha256": "4335b863ab858833ad6a6f2466411943dea07124a02c889ba8008f3e23fe1e50",
+              "before_m": 0.037000000000000005,
+              "written_m": 0.046,
+              "read_back_m": 0.046,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.0938799999999998e-05,
+                  "area": 0.0038979999999999996,
+                  "com": [
+                    0.019,
+                    0.001499999999999999,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.0938799999999998e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.046,
+                  "D2@Sketch1": 0.028999999999999998,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.0938799999999998e-05,
+                  "area": 0.0038979999999999996,
+                  "com": [
+                    0.019,
+                    0.001499999999999999,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.0938799999999998e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.046,
+                  "D2@Sketch1": 0.028999999999999998,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "parameter": "D2@Sketch1",
+          "value_m": 0.036,
+          "center_matches": {
+            "edit": true,
+            "reopen": true
+          },
+          "lanes": {
+            "source": {
+              "derivative_sha256": "e4fedf3b67b0efbd0b6f6af983548224f2fc4d8475c7100df745bc1a395c07bc",
+              "before_m": 0.028999999999999998,
+              "written_m": 0.036,
+              "read_back_m": 0.036,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.09224e-05,
+                  "area": 0.0038611999999999995,
+                  "com": [
+                    0.0235,
+                    0.005,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.09224e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.037000000000000005,
+                  "D2@Sketch1": 0.036,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.09224e-05,
+                  "area": 0.0038611999999999995,
+                  "com": [
+                    0.0235,
+                    0.005,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.09224e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.037000000000000005,
+                  "D2@Sketch1": 0.036,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 19,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            },
+            "generated": {
+              "derivative_sha256": "a91bd5e51f50e284e6c3c07465c586a546e6cd862cd78cebdafce8b8b5122686",
+              "before_m": 0.028999999999999998,
+              "written_m": 0.036,
+              "read_back_m": 0.036,
+              "save_status": [
+                true,
+                0,
+                0
+              ],
+              "edited": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.09224e-05,
+                  "area": 0.0038611999999999995,
+                  "com": [
+                    0.0235,
+                    0.005,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.09224e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.037000000000000005,
+                  "D2@Sketch1": 0.036,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              },
+              "reopened": {
+                "body_count": 1,
+                "mass_properties": {
+                  "volume": 1.09224e-05,
+                  "area": 0.0038611999999999995,
+                  "com": [
+                    0.0235,
+                    0.005,
+                    0.0040999999999999995
+                  ],
+                  "mass": 1.09224e-05
+                },
+                "parameters_m": {
+                  "D1@Sketch1": 0.037000000000000005,
+                  "D2@Sketch1": 0.036,
+                  "D1@Boss-Extrude1": 0.008199999999999999
+                },
+                "open_errors": 0,
+                "open_warnings": 0,
+                "tree_nodes": 20,
+                "checks": {
+                  "healthy": true,
+                  "dimensions_match": true,
+                  "body_count_matches": true,
+                  "mass_properties_match": true,
+                  "center_matches": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "source_tree_parity": false,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0
+}

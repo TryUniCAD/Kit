@@ -1,0 +1,75 @@
+{
+  "blocked_runtime_calls": 0,
+  "codec_baseline": "5ed14c72bbd78f93caab1a94a3f0ca92d6979e88",
+  "input_refusals": [
+    "path radius exceeds the measured positive quarter-arc range",
+    "path radius exceeds the measured positive quarter-arc range",
+    "path radius exceeds the measured positive quarter-arc range",
+    "path radius exceeds the measured positive quarter-arc range",
+    "path radius exceeds the measured positive quarter-arc range",
+    "path radius exceeds the measured positive quarter-arc range"
+  ],
+  "model_only_wires": [
+    {
+      "geometry": {
+        "arc_points_end_start_m": [
+          [
+            0.023201,
+            0.023201,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "body": 1,
+        "edge": 9,
+        "radius_m": 0.023201
+      },
+      "metres": 0.023201,
+      "resident_nodes": 11,
+      "transmit_bytes": 862,
+      "transmit_sha256": "50553f8cbd911454e8b63002c3e35779c7ab0bddc9ac8e5036ca3d4bc85adf18"
+    },
+    {
+      "geometry": {
+        "arc_points_end_start_m": [
+          [
+            0.054087,
+            0.054087,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "body": 1,
+        "edge": 9,
+        "radius_m": 0.054087
+      },
+      "metres": 0.054087,
+      "resident_nodes": 11,
+      "transmit_bytes": 862,
+      "transmit_sha256": "abf42ad69c930a1e63860bb20a06fff1b3b917b9edd2469f5d318309955281f8"
+    }
+  ],
+  "native_processes_started": 0,
+  "private_sources_accessed": 0,
+  "schema": "kit.sw2026.ordinary-sweep-ghost-ownership.v1",
+  "sdk_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "tool_sha256": {
+    "AuditSweepArchive.py": "42b4934924fae2ea680fab48457bb5b3f852814fc9c6b074eff0d74ae2be4421",
+    "AuditSweepGhosts.py": "177d292a30a82dfa18b3f2dc3370d3586a7b355d6255627a580caaa5a06e0086",
+    "SweepArchiveLayout.py": "1fb2b6d9850b4754872d7ce0ef162efeee4a4ac27f065fe3cee16f14905b28c6",
+    "SweepArchiveOwners.py": "43d66024f02391d7377319a98470257f72b4deb6e6583da0a22794ff340bbf99",
+    "SweepGhostGraph.py": "8ddb6dcfe7a40e7d9f3c53d28cff82ad3b09b69d0f24ef064df4cbe707f780bd",
+    "SweepPathWire.py": "55c36279a9b2dc45d359f735b5f4aa68365b6d6cbbf11726328d829659ec1e91",
+    "SweepReplay.py": "68bdd12a59240fc22dcfd4fff8fd467de81963f5c5c3dd82e7e904ef7cf70f23",
+    "SweepSectionTransport.py": "24c36a61dfeab28f43f00b7aea9afb234f5e726b18de820f074bdfa03d90939e"
+  },
+  "whole_sweep_candidates": 0
+}

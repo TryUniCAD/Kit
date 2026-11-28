@@ -1,0 +1,41 @@
+{
+  "schema": "kit.sw2026.drawing-source-specs.v1",
+  "cases": [
+    {
+      "name": "D00ScaledFront",
+      "split": "discovery",
+      "view": {
+        "orientation": "*Front",
+        "position_m": [0.08143, 0.06871],
+        "scale": 0.375
+      }
+    },
+    {
+      "name": "D01ScaledTop",
+      "split": "discovery",
+      "view": {
+        "orientation": "*Top",
+        "position_m": [0.11361, 0.09429],
+        "scale": 1.25
+      }
+    },
+    {
+      "name": "D02ScaledRight",
+      "split": "discovery",
+      "view": {
+        "orientation": "*Right",
+        "position_m": [0.14983, 0.11713],
+        "scale": 0.625
+      }
+    },
+    {
+      "name": "D03ScaledIsometric",
+      "split": "discovery",
+      "view": {
+        "orientation": "*Isometric",
+        "position_m": [0.19267, 0.13253],
+        "scale": 0.8
+      }
+    }
+  ]
+}

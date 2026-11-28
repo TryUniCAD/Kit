@@ -1,0 +1,209 @@
+{
+  "cases": {
+    "Concave": {
+      "attributes": 0,
+      "bare_body_owner": 0,
+      "decoded_si": {
+        "area_m2": 0.002068,
+        "bounds_m": [
+          [
+            0.007,
+            -0.012,
+            -0.004
+          ],
+          [
+            0.033,
+            0.008,
+            0.011
+          ]
+        ],
+        "centroid_m": [
+          0.01744186046511628,
+          -0.004302325581395349,
+          0.0034999999999999996
+        ],
+        "volume_m3": 0.0000051600000000000006
+      },
+      "expected_si": {
+        "area_m2": 0.002068,
+        "centroid_m": [
+          0.01744186046511628,
+          -0.004302325581395349,
+          0.0035
+        ],
+        "volume_m3": 0.00000516
+      },
+      "neutral_xy_mm": [
+        [
+          7,
+          -12
+        ],
+        [
+          33,
+          -12
+        ],
+        [
+          33,
+          -3
+        ],
+        [
+          17,
+          -3
+        ],
+        [
+          17,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "neutral_z_mm": [
+        -4,
+        11
+      ],
+      "nonresident_links": 0,
+      "raw": {
+        "bytes": 5193,
+        "sha256": "2b362a362328962192cffbfa0b420c897d9f50dc4c018d37f42a595b944102ef"
+      },
+      "resident_node_kinds": {
+        "BODY": 1,
+        "EDGE": 18,
+        "FACE": 8,
+        "HALFEDGE": 36,
+        "LINE": 18,
+        "LOOP": 8,
+        "PLANE": 8,
+        "POINT": 12,
+        "REGION": 2,
+        "SHELL": 2,
+        "VERTEX": 12
+      },
+      "typed_roundtrip_exact": true,
+      "wrapper": {
+        "bytes": 2231,
+        "sha256": "a880b2c7f26f76e4d51acde7f0cda105022d46e042be785c17c2efd9d7f800d3"
+      },
+      "wrapper_roundtrip_exact": true
+    },
+    "Rectangular": {
+      "attributes": 0,
+      "bare_body_owner": 0,
+      "decoded_si": {
+        "area_m2": 0.0011499999999999998,
+        "bounds_m": [
+          [
+            -0.009,
+            0.005,
+            0.003
+          ],
+          [
+            0.004,
+            0.023,
+            0.014
+          ]
+        ],
+        "centroid_m": [
+          -0.0024999999999999996,
+          0.014000000000000004,
+          0.0085
+        ],
+        "volume_m3": 0.000002574
+      },
+      "expected_si": {
+        "area_m2": 0.00115,
+        "centroid_m": [
+          -0.0025,
+          0.014,
+          0.0085
+        ],
+        "volume_m3": 0.000002574
+      },
+      "neutral_xy_mm": [
+        [
+          -9,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          23
+        ],
+        [
+          -9,
+          23
+        ]
+      ],
+      "neutral_z_mm": [
+        3,
+        14
+      ],
+      "nonresident_links": 0,
+      "raw": {
+        "bytes": 3759,
+        "sha256": "a7c77e2d2f1e4768e52b286df77d979098a4f4bef51000d593c30c27506b56ab"
+      },
+      "resident_node_kinds": {
+        "BODY": 1,
+        "EDGE": 12,
+        "FACE": 6,
+        "HALFEDGE": 24,
+        "LINE": 12,
+        "LOOP": 6,
+        "PLANE": 6,
+        "POINT": 8,
+        "REGION": 2,
+        "SHELL": 2,
+        "VERTEX": 8
+      },
+      "typed_roundtrip_exact": true,
+      "wrapper": {
+        "bytes": 1666,
+        "sha256": "be5573358deec72b572cbe94c0f70ee243f70608a3a430aff518d36d76a0840e"
+      },
+      "wrapper_roundtrip_exact": true
+    }
+  },
+  "construction_denied_io_events": 0,
+  "construction_source_file_reads": 0,
+  "externally_supplied_model_inputs": 0,
+  "kernel_artifacts": 2,
+  "native_acceptance": false,
+  "native_solidworks_outputs": 0,
+  "owning_sources_sha256": {
+    "re/tooling/sw2026/imported_body_source/BuildLocalBodyKernel.py": "e738c2e96719c3e6164efa38f8dfd7d3f6221fea194382db3cba66677036e247",
+    "re/tooling/sw2026/imported_body_source/LocalBodyKernel.py": "e1a9bb70e0cbf76ff13327574e713e03e4a2701f782ce48cb0f5f9241cff46d6",
+    "re/tooling/sw2026/para/rectangle/Geometry.py": "53a148116e5025a534eea663ca1a1c0a931b4884a68ceecef9cf1b11f0e85395",
+    "re/tooling/sw2026/para/rectangle/RectanglePartition.py": "471a8920b86ba4f206d17421c5aa5551cc61baa2c28c86931660f7739755c0d4",
+    "src/convert/Geometry/Extrude/Polygon/PolygonExtrude.py": "f10468888132e6018a80b113d09cd47501b4b0b1fd563f1745a7a08ee4c99d8b",
+    "tests/Convert/Solidworks/Research/ConstructionGuard.py": "f31598bb5ee9811819fd5a7040674e5601a23dcd326d21ba8a76c50edff4e6bf"
+  },
+  "runtime": {
+    "python": "3.13.15",
+    "zlib": "1.2.12"
+  },
+  "schema": "kit.sw2026.generated-local-body-kernel.v1",
+  "reproduction": {
+    "distinct_offline_processes": 2,
+    "identical_measurements_and_artifact_hashes": true,
+    "external_artifact_hash_readback_passed": true
+  },
+  "marked_topology_baseline": {
+    "baseline_commit": "01134e1e2582e42af1f60de71e8d609485e1f2db",
+    "cases": {
+      "Rectangular": {
+        "draft_nodes": 88,
+        "marked_draft_and_completed_topology_identical": true
+      },
+      "Concave": {
+        "draft_nodes": 126,
+        "marked_draft_and_completed_topology_identical": true
+      }
+    }
+  }
+}

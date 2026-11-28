@@ -1,0 +1,160 @@
+{
+  "base_revision": "7a3317f65ac2c4f37f2c95b89a01ddf6ffae6a81",
+  "guarded_processes": 10,
+  "held_out_cases": 0,
+  "implementation_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckStockMode.py": "105c5ee43d50eaece0b9f176cb86d98e71beee6ad2b590ea9b717ee60dc5c30e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadStockOps.py": "7aba6899264b38fa6dd37f3ce3c32dbb0fa6723372e04a432a3840c51deaaaff",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/ReadTwoStockCut.py": "c1d490f6bf1dd2c63eeb767f00b4b1f72f08851e80b098f7f9a257a52a26d131",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/StockOpsMap.py": "4230a86fd9e6bf5b744dae7ded2cb99793eaf94ae81920df36b76acd447cc9fd"
+  },
+  "no_brep": {
+    "body_count": 1,
+    "d1_mm": [
+      12.0,
+      29.0
+    ],
+    "has_brep": false,
+    "runtime_data_file_reads": 0,
+    "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+  },
+  "refusals": {
+    "build-date": {
+      "refused": "two stock lineage has an alternate profile or extrusion mode",
+      "runtime_data_file_reads": 0,
+      "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+    },
+    "cold": {
+      "refused": "two stock lineage has an alternate profile or extrusion mode",
+      "runtime_data_file_reads": 0,
+      "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+    },
+    "first-stock": {
+      "refused": "two stock lineage has an alternate profile or extrusion mode",
+      "runtime_data_file_reads": 0,
+      "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+    },
+    "retry": {
+      "refused": "two stock lineage has an alternate profile or extrusion mode",
+      "runtime_data_file_reads": 0,
+      "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+    },
+    "update-version": {
+      "refused": "two stock lineage has an alternate profile or extrusion mode",
+      "runtime_data_file_reads": 0,
+      "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+    }
+  },
+  "schema": "kit.sw2026.disclosed-saved-two-stock-sdk-read.v1",
+  "script_sha256": "277d47cc6f4cf14855f7af81f25f960c87571fb1a712a9f4434732423a0156eb",
+  "strict_reads": {
+    "moving": {
+      "body_owners": {
+        "MovingStock": "sldprt:feature:22",
+        "ThroughFeature": "sldprt:feature:25"
+      },
+      "brep_bodies": 2,
+      "d1_mm": [
+        12.0,
+        29.0
+      ],
+      "lineage": {
+        "binding": "saved_two_stock_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 25,
+        "feature_scope_code": 1,
+        "native_independent_stock_merge_tolerance_m": 1e-05,
+        "producer_feature_id": 19,
+        "result_atom_id": 103,
+        "untouched_atom_id": 102,
+        "untouched_producer_feature_id": 22
+      },
+      "row_count": 31,
+      "runtime_data_file_reads": 0,
+      "selection_id": "sldprt:feature:25:stock-body",
+      "selection_producer": "sldprt:feature:19",
+      "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+    },
+    "original": {
+      "body_owners": {
+        "MovingStock": "sldprt:feature:40",
+        "ThroughFeature": "sldprt:feature:47"
+      },
+      "brep_bodies": 2,
+      "d1_mm": [
+        12.0,
+        10.0
+      ],
+      "lineage": {
+        "binding": "saved_two_stock_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 47,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 103,
+        "untouched_atom_id": 102,
+        "untouched_producer_feature_id": 40
+      },
+      "row_count": 30,
+      "runtime_data_file_reads": 0,
+      "selection_id": "sldprt:feature:47:stock-body",
+      "selection_producer": "sldprt:feature:32",
+      "sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3"
+    },
+    "selected": {
+      "body_owners": {
+        "MovingStock": "sldprt:feature:22",
+        "ThroughFeature": "sldprt:feature:25"
+      },
+      "brep_bodies": 2,
+      "d1_mm": [
+        18.0,
+        10.0
+      ],
+      "lineage": {
+        "binding": "saved_two_stock_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 25,
+        "feature_scope_code": 1,
+        "native_independent_stock_merge_tolerance_m": 1e-05,
+        "producer_feature_id": 19,
+        "result_atom_id": 103,
+        "untouched_atom_id": 102,
+        "untouched_producer_feature_id": 22
+      },
+      "row_count": 31,
+      "runtime_data_file_reads": 0,
+      "selection_id": "sldprt:feature:25:stock-body",
+      "selection_producer": "sldprt:feature:19",
+      "sha256": "ea319dcac01a5fb41bafcc734a6fee17ed9cf4c8cefda44fe36cc437fa95bcef"
+    },
+    "unchanged": {
+      "body_owners": {
+        "MovingStock": "sldprt:feature:22",
+        "ThroughFeature": "sldprt:feature:25"
+      },
+      "brep_bodies": 2,
+      "d1_mm": [
+        12.0,
+        10.0
+      ],
+      "lineage": {
+        "binding": "saved_two_stock_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 25,
+        "feature_scope_code": 1,
+        "native_independent_stock_merge_tolerance_m": 1e-05,
+        "producer_feature_id": 19,
+        "result_atom_id": 103,
+        "untouched_atom_id": 102,
+        "untouched_producer_feature_id": 22
+      },
+      "row_count": 31,
+      "runtime_data_file_reads": 0,
+      "selection_id": "sldprt:feature:25:stock-body",
+      "selection_producer": "sldprt:feature:19",
+      "sha256": "5384a4b39c129fc2c9de41a52137796e089bef0651ab093a4e18b22981a08cad"
+    }
+  },
+  "tolerance_receipt_sha256": "e64e9a2713a152809968c610cee57699d58fb69b8c7bf016d63983464f5f6c0a"
+}

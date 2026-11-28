@@ -1,0 +1,215 @@
+{
+  "candidate_receipt_sha256": "8ecf462e9de7139cf2c157984b8a39b2ff3fd15e5a75a4712efd8593e982d46b",
+  "cases": [
+    {
+      "edited_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "fresh_reopen_record_sha256": "a2883997d8d3e2da35edb1c5d1fd87d53decc723528968e2e2c7a12011e31f43",
+      "input_immutable": true,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "input_stream_count": 29,
+      "live_tree_rows": 10,
+      "name": "ControlBefore",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "open_record_sha256": "51916a5a490278b2167974d8f288fc4cadca31a3db7488cb00eed2368344bb2f",
+      "passed": true,
+      "rebuild_problem_count": 0,
+      "reopened_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "save_artifact_bytes": 18332,
+      "save_artifact_sha256": "5ff4b134aabf104051a31306530e35f0618eb2e8cfa4166b046e2e2ffd364c9b",
+      "save_artifact_stream_count": 29,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_kind": "locked-control",
+      "started_sheet_ratio": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "edited_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "fresh_reopen_record_sha256": "dac88a67df497bab1cba20bdfdf862ce0ac7c3d241dd0a36ecf427c7628a2777",
+      "input_immutable": true,
+      "input_sha256": "7344be42ffa72325dc4883a768cb4656f8d2319b2ee214c23de9f96bd5f4feb5",
+      "input_stream_count": 29,
+      "live_tree_rows": 10,
+      "name": "Repacked",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "open_record_sha256": "3422fcad0e818aad8ff2a062daaced8fc6a7c655f305026a54ee5dba2d4df5c8",
+      "passed": true,
+      "rebuild_problem_count": 0,
+      "reopened_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "save_artifact_bytes": 18412,
+      "save_artifact_sha256": "6b36ce23fd02e03afcdc76423c4a74d296daccf9c5365d1e71dbe010fd17668a",
+      "save_artifact_stream_count": 29,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_kind": "repacked-control",
+      "started_sheet_ratio": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "edited_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "fresh_reopen_record_sha256": "7edea0768244e5cd788cb26d26ddf90952fb6927d99ed471510bfe7135d480e9",
+      "input_immutable": true,
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "input_stream_count": 7,
+      "live_tree_rows": 10,
+      "name": "ReducedNative",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "open_record_sha256": "ea3cd8cf04b47d454f0da2e5e3ae97e91af4de2ea7556a024d1a49718f97b96f",
+      "passed": true,
+      "rebuild_problem_count": 0,
+      "reopened_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "save_artifact_bytes": 17607,
+      "save_artifact_sha256": "b0a8957e6e43aa8b0fe9532f9188e073cf78789cf79aaf4d12c6584fb22eec8d",
+      "save_artifact_stream_count": 28,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_kind": "native-stream-reduction",
+      "started_sheet_ratio": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "edited_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "fresh_reopen_record_sha256": null,
+      "input_immutable": true,
+      "input_sha256": "5d188f8d270ca7de00e54589bcee8083f9a4f46165badb2fb1ef111aa33cdcba",
+      "input_stream_count": 7,
+      "live_tree_rows": 10,
+      "name": "GeneratedBlank",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "open_record_sha256": "5c91c70426f4599a0a2df0d5b577d21f6134e53d48eefd0851944bb6ba6607d8",
+      "passed": false,
+      "rebuild_problem_count": 0,
+      "reopened_sheet_ratio": null,
+      "save_artifact_bytes": 0,
+      "save_artifact_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "save_artifact_stream_count": 0,
+      "save_success_errors_warnings": [
+        false,
+        1,
+        0
+      ],
+      "source_kind": "generated",
+      "started_sheet_ratio": [
+        2.0,
+        3.0
+      ]
+    },
+    {
+      "edited_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "fresh_reopen_record_sha256": "cb1a9dadbc80547e056240cbe05f84467b9d9c06cb6cf4f8e03ffa90ca40075d",
+      "input_immutable": true,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "input_stream_count": 29,
+      "live_tree_rows": 10,
+      "name": "ControlAfter",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "open_record_sha256": "5b69fe289bc91a1bf3454ce9fd9dad52c4cafa8010a2fb64624a331692de7851",
+      "passed": true,
+      "rebuild_problem_count": 0,
+      "reopened_sheet_ratio": [
+        3.0,
+        2.0
+      ],
+      "save_artifact_bytes": 18950,
+      "save_artifact_sha256": "c78a186c8670318e920ca8e606b54d78fca575f2da19f8f00a320262040ddd24",
+      "save_artifact_stream_count": 29,
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_kind": "locked-control",
+      "started_sheet_ratio": [
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "construction_revision": "abb0164e3c58baa519a09ad64e6eec44258d58e2",
+  "control_results": [
+    true,
+    true
+  ],
+  "distinct_processes": 9,
+  "generated_fresh_reopen_attempted": false,
+  "generated_open_rebuild_edit_passed": true,
+  "generated_save_passed": false,
+  "heldout_inputs_tested": 0,
+  "host_transport_sha256": "89bec921be916a9355aaebacf2870e265e4aa8322878d545749f0f6dd938cbb6",
+  "matched_stream_roles": [
+    "Contents/Definition",
+    "Header2",
+    "ModelStamps",
+    "_MO_VERSION_19000/Biography",
+    "_MO_VERSION_19000/History",
+    "docProps/ISolidWorksInformation.xml",
+    "swXmlContents/KeyWords"
+  ],
+  "native_acceptance": false,
+  "native_result_sha256": "2686d23e802c1d2b66ac6f9a51c2f37861409f1951349b898172cb5093243484",
+  "oracle": {
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "packet_sha256": "d6bd3554200c8c7b4f45e2fa13dd86b51721daab5d7b15ec4a8036d8756f60ba",
+  "removed_native_stream_count": 22,
+  "repacked_control_passed": true,
+  "save_error_symbol": "swGenericSaveError",
+  "schema": "kit.sw2026.generated-blank-drawing-native.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "transport_exit_code": 0
+}

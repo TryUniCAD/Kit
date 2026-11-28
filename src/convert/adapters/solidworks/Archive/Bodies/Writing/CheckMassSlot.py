@@ -3,7 +3,7 @@ from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.MassCacheFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Caches.MassCacheFields import (
     KMassCacheFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.GeometryFields import (

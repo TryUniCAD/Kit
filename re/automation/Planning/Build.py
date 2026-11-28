@@ -15,7 +15,7 @@ def read_tables(root, relative):
     rows = []
     headers = []
     section = ""
-    for number, line in enumerate((root / relative).read_text().splitlines(), 1):
+    for number, line in enumerate((root / relative).read_text(encoding="utf-8").splitlines(), 1):
         if line.startswith("#"):
             section = line.lstrip("# ")
         if not line.startswith("|"):
@@ -35,7 +35,7 @@ def read_tables(root, relative):
 
 def load_scopes(root):
     relative = "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json"
-    plan = json.loads((root / relative).read_text())
+    plan = json.loads((root / relative).read_text(encoding="utf-8"))
     scopes = []
     for family in plan["families"]:
         for feature in family["subfeatures"]:
@@ -164,11 +164,11 @@ def make_svg(tasks, levels):
 
 def make_outputs(root):
     source = root / "Documentation/Planning"
-    links = json.loads((source / "Links.json").read_text())
-    snapshot = json.loads((source / "PullRequests.json").read_text())
+    links = json.loads((source / "Links.json").read_text(encoding="utf-8"))
+    snapshot = json.loads((source / "PullRequests.json").read_text(encoding="utf-8"))
     rows = read_tables(root, "Documentation/Maintenance/ConversionBacklog.md") + read_tables(root, "Documentation/Reference/Research/AutomationSteps.md")
-    rows = identify_rows(rows, json.loads((source / "TaskIdentities.json").read_text()))
-    sdk_tasks = json.loads((source / "SdkScopes.json").read_text())["Tasks"]
+    rows = identify_rows(rows, json.loads((source / "TaskIdentities.json").read_text(encoding="utf-8")))
+    sdk_tasks = json.loads((source / "SdkScopes.json").read_text(encoding="utf-8"))["Tasks"]
     claims = read_claims(root, "Documentation/Maintenance/ConversionBacklog.md") + read_claims(root, "Documentation/Reference/Research/AutomationSteps.md")
     tasks = build_tasks(rows, links)
     scopes, native_inventory = load_scopes(root)
@@ -179,7 +179,7 @@ def make_outputs(root):
                "Documentation/Maintenance/ConversionBacklog.md", "Documentation/Reference/Research/AutomationSteps.md",
                "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json", "re/Fusion/PlannerCatalog/Data/Catalog.sqlite",
                "re/automation/Planning/Board/Board.jsx", "re/automation/Planning/Board/Board.css"]
-    bundle = json.loads((source / "BundleManifest.json").read_text())
+    bundle = json.loads((source / "BundleManifest.json").read_text(encoding="utf-8"))
     for path, digest in bundle.items():
         if hashlib.sha256((root / path).read_bytes()).hexdigest() != digest:
             raise ValueError("Rebuild stale board asset: " + path)
@@ -245,7 +245,7 @@ def main():
     output = root / "Documentation/Planning/Generated"
     contents = make_outputs(root)
     if args.check:
-        stale = [name for name, content in contents.items() if not (output / name).is_file() or (output / name).read_text() != content]
+        stale = [name for name, content in contents.items() if not (output / name).is_file() or (output / name).read_text(encoding="utf-8") != content]
         if stale:
             parser.exit(1, "Stale planning views: " + ", ".join(stale) + "\n")
         print("Planning views match all recorded sources")

@@ -1,0 +1,61 @@
+{
+  "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\sldworks.tlb",
+  "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+  "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+  "library_identity": {
+    "name": "SldWorks",
+    "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+    "locale_id": 0,
+    "system_kind": 3,
+    "major_version": 34,
+    "minor_version": 0,
+    "flags": 8
+  },
+  "tool": {
+    "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SketchStatusTypes01\\InspectTypeLib.py",
+    "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+    "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+  },
+  "interface": "*Sketch",
+  "method": "GetConstrainedStatus",
+  "types": [
+    {
+      "name": "ISketch",
+      "guid": "{83A33D51-27C5-11CE-BFD4-00400513BB57}",
+      "type_kind": 4,
+      "type_index": 26
+    },
+    {
+      "name": "Sketch",
+      "guid": "{83A33D52-27C5-11CE-BFD4-00400513BB57}",
+      "type_kind": 5,
+      "type_index": 511
+    }
+  ],
+  "methods": [
+    {
+      "names": [
+        "GetConstrainedStatus"
+      ],
+      "member_id": 48,
+      "invoke_kind": 1,
+      "arguments": "()",
+      "return_type": "(3, 0, None)",
+      "declaring_type": {
+        "name": "ISketch",
+        "guid": "{83A33D51-27C5-11CE-BFD4-00400513BB57}",
+        "type_kind": 4,
+        "type_index": 26
+      }
+    }
+  ],
+  "constants": [],
+  "scope": "Static installed type-library metadata; no CAD application launched or attached",
+  "source_receipt": {
+    "file": "SketchStatus.stdout.json",
+    "bytes": 1651,
+    "sha256": "235e440c91b732585bcb46a0c5d77c0168a760f60597b8972a4bd8451d10fde5",
+    "frozen_tool_manifest_sha256": "af060f9d146e21e8abc5ecb83484098401e09a700e5c2e03b8b17421d9346f3d",
+    "native_application_activated": false
+  }
+}

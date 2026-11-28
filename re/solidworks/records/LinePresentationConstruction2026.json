@@ -1,0 +1,557 @@
+{
+  "bounded_ranges": [
+    {
+      "bytes": 111,
+      "end_exclusive": "0x3c8702ff",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x20(",
+        "0x28(",
+        "0x3c870950"
+      ],
+      "role": "named_pattern_constructor",
+      "semantic_export_prefix": "??0moLineStyle_c@@QEAA@PEB_W0@Z",
+      "sha256": "51f15f23289477e30f0868627a7ec971cbe0a6eb5e57a7346b49ef9836b1e225",
+      "start": "0x3c870290"
+    },
+    {
+      "bytes": 92,
+      "end_exclusive": "0x3c87035c",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x20(",
+        "0x28(",
+        "0x3c870950"
+      ],
+      "role": "empty_pattern_constructor",
+      "semantic_export_prefix": "??0moLineStyle_c@@QEAA@XZ",
+      "sha256": "e48f54324482dc34a0c6d5669a7f42b7ed40ae21193d4238c7a324ad5e3cef85",
+      "start": "0x3c870300"
+    },
+    {
+      "bytes": 57,
+      "end_exclusive": "0x3c8704a9",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x18(",
+        "0x28(",
+        "0x3cb24aa0"
+      ],
+      "role": "append_signed_segment",
+      "semantic_export_prefix": "?addSegment@moLineStyle_c@@",
+      "sha256": "734185d11a264d20dd05de7a48996fa473b7d0c4e452908c11d33dd68ce447cc",
+      "start": "0x3c870470"
+    },
+    {
+      "bytes": 75,
+      "end_exclusive": "0x3c8709eb",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x18(",
+        "0x20(",
+        "0x28("
+      ],
+      "role": "clear_pattern_segments",
+      "semantic_export_prefix": "?initSegment@moLineStyle_c@@",
+      "sha256": "f49a84a3adc6538b75ac0c4dcc696c02121bab21768d48c58b76eccbd84179eb",
+      "start": "0x3c8709a0"
+    },
+    {
+      "bytes": 8,
+      "end_exclusive": "0x3c7fa968",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x20("
+      ],
+      "role": "enable_thick_thin",
+      "semantic_export_prefix": "?setThickThin@moLineStyle_c@@",
+      "sha256": "54acf92d77abcf3bc553bebb2527f573a8c02705760a885871aec803a7b177c3",
+      "start": "0x3c7fa960"
+    },
+    {
+      "bytes": 112,
+      "end_exclusive": "0x3c848680",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x18(",
+        "0x1c("
+      ],
+      "role": "font_explicit_constructor",
+      "semantic_export_prefix": "??0uiLFConfig_c@@QEAA@AEBV",
+      "sha256": "9f56cd2d6a53d6cd6687ba80c8d1cf5fe1eed33fe6116c6ef7c5d58c2c32426d",
+      "start": "0x3c848610"
+    },
+    {
+      "bytes": 125,
+      "end_exclusive": "0x3c8486fd",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x18(%rdi)",
+        "movq",
+        "0x3c84a8f0"
+      ],
+      "role": "font_copy_or_null_constructor",
+      "semantic_export_prefix": "??0uiLFConfig_c@@QEAA@PEAV0@@Z",
+      "sha256": "bb4e65a41d0924cb56d654a9837a5bba9de22dddb05f3c87e7c0e7753c86f048",
+      "start": "0x3c848680"
+    },
+    {
+      "bytes": 20,
+      "end_exclusive": "0x3c84a904",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0xbf800000",
+        "0x6("
+      ],
+      "role": "preset_width_constructor",
+      "semantic_export_prefix": "??0utLineWidth_c@@QEAA@W4swLineWeights_e@@@Z",
+      "sha256": "f951312561b74f61b6f696015b52afea00078d53968bd1fc9430e75b9901412f",
+      "start": "0x3c84a8f0"
+    },
+    {
+      "bytes": 17,
+      "end_exclusive": "0x3c84a921",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0xbf800000",
+        "0xffff"
+      ],
+      "role": "unselected_width_constructor",
+      "semantic_export_prefix": "??0utLineWidth_c@@QEAA@XZ",
+      "sha256": "0cedab978583c395470c58ee8c64776964c90c461864e219b4e22f47786dc950",
+      "start": "0x3c84a910"
+    },
+    {
+      "bytes": 4,
+      "end_exclusive": "0x3c74f9d4",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x18("
+      ],
+      "role": "font_end_cap_getter",
+      "semantic_export_prefix": "?getEndCap@uiLFConfig_c@@",
+      "sha256": "38058506e8e859d5be73a33baa621352c08ea01f2224ee170173253757193941",
+      "start": "0x3c74f9d0"
+    },
+    {
+      "bytes": 4,
+      "end_exclusive": "0x3c7a5974",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x18("
+      ],
+      "role": "font_end_cap_setter",
+      "semantic_export_prefix": "?setEndCap@uiLFConfig_c@@",
+      "sha256": "61c0057b461fa7383c0683f7603ad1454f0c40a6fcdf98cba1a1a51da1d1c61f",
+      "start": "0x3c7a5970"
+    },
+    {
+      "bytes": 4,
+      "end_exclusive": "0x3c74f9f4",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x1c("
+      ],
+      "role": "font_runtime_emphasis_getter",
+      "semantic_export_prefix": "?isEmphasizedOutline@uiLFConfig_c@@",
+      "sha256": "0b78473b3a56c63ff2a64431fb600078066cbe407d3dee7ea8fd7575bd7f82d5",
+      "start": "0x3c74f9f0"
+    },
+    {
+      "bytes": 172,
+      "end_exclusive": "0x3c8496cc",
+      "module": "sldmfcu.dll",
+      "operand_facts": [
+        "0x3cb19c60",
+        "0xffffffff"
+      ],
+      "role": "ordered_style_prefix_lookup",
+      "semantic_export_prefix": "?getLineIndex@apLineStyleMgr_c@@",
+      "sha256": "636cbb78fd07291ab70099c527ec9e182a14cb0b89fe1ed523f2ad5bd6f8949b",
+      "start": "0x3c849620"
+    },
+    {
+      "bytes": 183,
+      "end_exclusive": "0x49d4c007",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x10, %rcx",
+        "0x20, %ecx",
+        "0x4a449bd8",
+        "0x4a447b50",
+        "0x48("
+      ],
+      "role": "category_copy_ownership",
+      "semantic_export_prefix": "?setLineFont@uiLineFontMgr_c@@",
+      "sha256": "91f46d67ae62814ee81c5eef296b23277c513868f43acc05e9f04c6e7532d147",
+      "start": "0x49d4bf50"
+    },
+    {
+      "bytes": 46,
+      "end_exclusive": "0x49ce4d4e",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x80",
+        "0x49d4b640"
+      ],
+      "role": "manager_factory",
+      "semantic_export_prefix": null,
+      "sha256": "71a7c33c9a4f981f45b563dfae5cf058cf5ae15e698000bd12954767106a5910",
+      "start": "0x49ce4d20"
+    },
+    {
+      "bytes": 110,
+      "end_exclusive": "0x49d4b6ae",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x4a773008",
+        "0x10(",
+        "0x48(",
+        "0x4a3215e1"
+      ],
+      "role": "manager_constructor",
+      "semantic_export_prefix": null,
+      "sha256": "05be495f0932844dddc87aa3ad631504f6a8d70bd8d19dbd4c132df5ed7cb487",
+      "start": "0x49d4b640"
+    },
+    {
+      "bytes": 276,
+      "end_exclusive": "0x49ce4f44",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x4a460c80",
+        "0x4a5d3028",
+        "0x4a32176d"
+      ],
+      "role": "current_manager_store",
+      "semantic_export_prefix": null,
+      "sha256": "de5589a9f96cac878d6db4eb72d5611eda55bb11cb825fd36b1f4b07dbf21fbf",
+      "start": "0x49ce4e30"
+    }
+  ],
+  "collector_sha256": "b4fe6154f4570b37514fbf47b9436648cafa45345fab6257a0f225b2ac6d795d",
+  "construction_scope": {
+    "categories": "nonempty valid UTF16 without NUL or star; distinct case-sensitive keys",
+    "endcaps": [
+      0,
+      2
+    ],
+    "full_source_admission": false,
+    "native_execution": false,
+    "parts_only": true,
+    "patterns": "finite signed doubles with positive finite absolute period; immutable authored order",
+    "preset_weights": [
+      0,
+      1,
+      2
+    ],
+    "schema": 1,
+    "version": 19000
+  },
+  "full_serializer": {
+    "code_sha256": "2c64e93d5dad5d943af9c7eb47cd5a91c8602c6c10c33fa6e43297cbbc38bbed",
+    "end_rva_exclusive": "0xe46d7a",
+    "end_va_exclusive": "0x49ce6d7a",
+    "exact_export_alias_count": 0,
+    "exact_exports": [],
+    "start_rva": "0xe44de0",
+    "start_va": "0x49ce4de0",
+    "unwind_rva": "0x1c76808"
+  },
+  "hash": {
+    "bucket_count": 17,
+    "equality": "case-sensitive wcscmp",
+    "initial": 2166136261,
+    "insert": "prepend new unique key to selected bucket chain",
+    "multiplier": 16777619,
+    "source_inverse": "reverse compatible transmitted rows, then recompute hash, bucket and head insertion; reject if walk differs",
+    "stride": "floor(utf16_unit_count / 10)+1",
+    "stride_multiplier": 3435973837,
+    "stride_shift": 35,
+    "unit": "unsigned UTF16 code unit",
+    "update": "((hash * multiplier) xor unit) mod 2**32",
+    "walk": "bucket indices ascending, each chain head to next"
+  },
+  "heldout_inputs_read": 0,
+  "limits": [
+    "custom physical-width units and additional weight/endcap modes remain unqualified",
+    "wider renderer/global resolution of names missing from local catalog remains separate",
+    "constructor-compatible inverse map order preserves this wire representation without claiming original call chronology",
+    "no per-case row/default table, runtime source file read or native launch in construction",
+    "runtime reset/load normalization is separate from this complete typed component",
+    "full through-all original and public acceptance gates remain closed"
+  ],
+  "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c",
+  "manager_runtime": {
+    "class": "uiLineFontMgr_c",
+    "constructor": "0x49d4b640",
+    "descriptor": "0x4aef4b78",
+    "factory": "0x49ce4d20",
+    "primary": "0x4a773008",
+    "schema": 1,
+    "serializer_slot": "0x28",
+    "size": 128
+  },
+  "map_insertion_range": {
+    "bytes": 24,
+    "code_unchanged_from_original": true,
+    "end": "0x1805cbe78",
+    "original_sha256": "200c71b318a43c44abe87000955fcfee184ac0ea3788e07f78362730657b788b",
+    "sha256": "200c71b318a43c44abe87000955fcfee184ac0ea3788e07f78362730657b788b",
+    "start": "0x1805cbe60"
+  },
+  "map_lookup_range": {
+    "bytes": 268,
+    "code_unchanged_from_original": true,
+    "end": "0x1805cbd3c",
+    "original_sha256": "2b120479366f04bbb2f71dc9c775fb3db1deaea6fc6b5608a89c999a42e7b62c",
+    "sha256": "2b120479366f04bbb2f71dc9c775fb3db1deaea6fc6b5608a89c999a42e7b62c",
+    "start": "0x1805cbc30"
+  },
+  "map_numeric_stores": {
+    "allocation_block_count_default": 10,
+    "allocation_count_member_offset": "0x30",
+    "allocation_default_site": "0x1805cc2cc",
+    "chain_next_site": "0x1805cc014",
+    "count_member_offset": "0x10",
+    "count_member_store_site": "0x1805cc2c8",
+    "count_value_site": "0x1805cc2c0",
+    "first_bucket_site": "0x1805cbff4",
+    "initial_bucket_count": 17,
+    "multiply_site": "0x1805cbc94",
+    "next_bucket_remainder_site": "0x1805cc030",
+    "sampled_hash_load_site": "0x1805cbc90",
+    "xor_site": "0x1805cbca0"
+  },
+  "map_ordinals": {
+    "1636": {
+      "arm64ec_body": "0x1805cbde0",
+      "bounded_source": {
+        "bytes": 176,
+        "code_unchanged_from_original": true,
+        "end": "0x1805cbe90",
+        "original_sha256": "082be27123d92e1625651fdc7f9b403d39d0707cd04d9a0d90a379be0a3b060c",
+        "sha256": "082be27123d92e1625651fdc7f9b403d39d0707cd04d9a0d90a379be0a3b060c",
+        "start": "0x1805cbde0"
+      },
+      "effective_export": {
+        "address": "0x180695640",
+        "forward": null,
+        "ordinal": 1636,
+        "rva": 6903360
+      },
+      "raw_export": {
+        "address": "0x18027f230",
+        "forward": null,
+        "ordinal": 1636,
+        "rva": 2617904
+      }
+    },
+    "4511": {
+      "arm64ec_body": "0x1803b12b0",
+      "bounded_source": {
+        "bytes": 92,
+        "code_unchanged_from_original": true,
+        "end": "0x1803b130c",
+        "original_sha256": "7096b0161306c0da304dd7140e921b72aed6adfd731adcdbc8d2a89c7507f003",
+        "sha256": "7096b0161306c0da304dd7140e921b72aed6adfd731adcdbc8d2a89c7507f003",
+        "start": "0x1803b12b0"
+      },
+      "effective_export": {
+        "address": "0x1806a03c0",
+        "forward": null,
+        "ordinal": 4511,
+        "rva": 6947776
+      },
+      "raw_export": {
+        "address": "0x1802e23c0",
+        "forward": null,
+        "ordinal": 4511,
+        "rva": 3023808
+      }
+    },
+    "542": {
+      "arm64ec_body": "0x1805cc2b0",
+      "bounded_source": {
+        "bytes": 44,
+        "code_unchanged_from_original": true,
+        "end": "0x1805cc2dc",
+        "original_sha256": "35e9af07544d7a445e2034936ba0560866dc347c479687b885eb42aac83472b3",
+        "sha256": "35e9af07544d7a445e2034936ba0560866dc347c479687b885eb42aac83472b3",
+        "start": "0x1805cc2b0"
+      },
+      "effective_export": {
+        "address": "0x180692130",
+        "forward": null,
+        "ordinal": 542,
+        "rva": 6889776
+      },
+      "raw_export": {
+        "address": "0x18027fd20",
+        "forward": null,
+        "ordinal": 542,
+        "rva": 2620704
+      }
+    },
+    "5960": {
+      "arm64ec_body": "0x1805cbfc0",
+      "bounded_source": {
+        "bytes": 200,
+        "code_unchanged_from_original": true,
+        "end": "0x1805cc088",
+        "original_sha256": "9d7a31afd929d59fb1ad09d05d4000d10fcbffcb67603b250a7447e9c5f006af",
+        "sha256": "9d7a31afd929d59fb1ad09d05d4000d10fcbffcb67603b250a7447e9c5f006af",
+        "start": "0x1805cbfc0"
+      },
+      "effective_export": {
+        "address": "0x1806a5740",
+        "forward": null,
+        "ordinal": 5960,
+        "rva": 6969152
+      },
+      "raw_export": {
+        "address": "0x180226b50",
+        "forward": null,
+        "ordinal": 5960,
+        "rva": 2255696
+      }
+    },
+    "8205": {
+      "arm64ec_body": "0x1805cbd40",
+      "bounded_source": {
+        "bytes": 72,
+        "code_unchanged_from_original": true,
+        "end": "0x1805cbd88",
+        "original_sha256": "60527ebb06948406288f96832ab76879c18c889570cfeb6f0d414f3bf4cd0007",
+        "sha256": "60527ebb06948406288f96832ab76879c18c889570cfeb6f0d414f3bf4cd0007",
+        "start": "0x1805cbd40"
+      },
+      "effective_export": {
+        "address": "0x1806ae3f0",
+        "forward": null,
+        "ordinal": 8205,
+        "rva": 7005168
+      },
+      "raw_export": {
+        "address": "0x1800bf580",
+        "forward": null,
+        "ordinal": 8205,
+        "rva": 783744
+      }
+    }
+  },
+  "mfc_effective_view": {
+    "binary_written": false,
+    "dynamic_table_version": 1,
+    "fixup_counts": {
+      "0": 4,
+      "1": 1697,
+      "2": 34
+    },
+    "fixups": 1735,
+    "header_machine_after": "0x8664",
+    "header_machine_before": "0xaa64",
+    "hybrid_sha256": "364d5bb2e7c7cb62bb8987047e71c848de3c8967a4d3b93bcf6611550fe0895f",
+    "native_execution": false,
+    "original_sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1"
+  },
+  "modules": [
+    {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "base": "0x3c720000",
+      "bytes": 8274520,
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    },
+    {
+      "base": "0x180000000",
+      "bytes": 12118600,
+      "machine": "0xaa64",
+      "name": "mfc140u.dll",
+      "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1"
+    }
+  ],
+  "native_processes": 0,
+  "persistent_analysis_target_opened": false,
+  "rules": {
+    "count_widths": "font count u16, styles signed32, segments u16; counts derive from actual constructed collections",
+    "font": "each category creates a distinct uiLFConfig copy even for the same font name; explicit input selects preset width, named font and endcap; emphasis+0x1c and width print cache+0x04 are not wire fields",
+    "font_store_filter": "both count and write passes skip keys containing wide star, so this persistent component refuses them instead of losing categories",
+    "font_width": "preset constructor initializes f00=-1 and explicit f06; custom width mode remains outside this component",
+    "style": "named constructor owns explicit strings and empty segments; addSegment preserves each signed f64 and increments runtime period by absolute magnitude; setThickThin sets f20=1; runtime period+0x28 is not serialized",
+    "style_lookup": "ordered case-insensitive prefix lookup by UTF16 query length, may return -1; serialized font name is independent of an object link or local-row existence"
+  },
+  "schema": "kit.sw2026.line-presentation-construction-rules.v1",
+  "static_only": true,
+  "tool_hashes": {
+    "re/tooling/sw2026/CollectDrawingViewSupportEvidence.py": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+    "re/tooling/sw2026/freecad_cylinder/NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+    "re/tooling/sw2026/freecad_cylinder/PinCylinderNameResource.py": "6c1a1294c92a001d695760e5b285846cecaa0730eb48460e89a90c7ba5942ad1"
+  },
+  "ui_map_imports": {
+    "constructor": {
+      "module": "mfc140u.dll",
+      "slot": "0x4a461a78",
+      "symbol": "#542",
+      "thunk": "0x4a3215e1"
+    },
+    "lookup": {
+      "module": "mfc140u.dll",
+      "slot": "0x4a460c20",
+      "symbol": "#8205",
+      "thunk": "0x4a320a8f"
+    },
+    "subscript": {
+      "module": "mfc140u.dll",
+      "slot": "0x4a460c18",
+      "symbol": "#1636",
+      "thunk": "0x4a320a95"
+    },
+    "walk": {
+      "module": "mfc140u.dll",
+      "slot": "0x4a461c90",
+      "symbol": "#5960",
+      "thunk": "0x4a32176d"
+    }
+  },
+  "vendor_bytes_or_listing_in_delivery": false,
+  "wide_imports": {
+    "key_equality": {
+      "auxiliary_slot": "0x180994840",
+      "import": {
+        "module": "api-ms-win-crt-string-l1-1-0.dll",
+        "name": "wcscmp",
+        "ordinal": null
+      },
+      "normal_slot": "0x1806c8840",
+      "thunk": "0x1803384b4"
+    },
+    "star_search": {
+      "auxiliary_slot": "0x1809944b8",
+      "import": {
+        "module": "VCRUNTIME140.dll",
+        "name": "wcsstr",
+        "ordinal": null
+      },
+      "normal_slot": "0x1806c84b8",
+      "thunk": "0x1803383e8"
+    },
+    "wide_length": {
+      "auxiliary_slot": "0x180994860",
+      "import": {
+        "module": "api-ms-win-crt-string-l1-1-0.dll",
+        "name": "wcslen",
+        "ordinal": null
+      },
+      "normal_slot": "0x1806c8860",
+      "thunk": "0x180338478"
+    }
+  }
+}

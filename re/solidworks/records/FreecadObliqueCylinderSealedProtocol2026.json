@@ -1,0 +1,47 @@
+{
+  "schema": "kit.sw2026.oblique-cylinder-sealed-preregistration.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "status": "preregistered-design-only-disabled",
+  "prerequisites": [
+    "exact registered metadata passes",
+    "both independent disclosed source layouts pass their five fresh native processes and healthy controls",
+    "actual hinge/plane sign and typed reference ownership are bound independently",
+    "a future guest-only sealer and source runner extension are frozen before any sealed source is generated",
+    "independent sealed native sources are hash-locked before any oblique-cylinder writer code"
+  ],
+  "future_opaque_slots": ["Slot01", "Slot02"],
+  "design_domain": {
+    "profile": "one full circle on actual local Front plane, fixed actual center and one driving radius",
+    "radius_m": {
+      "min": 0.002,
+      "max": 0.02
+    },
+    "vertical_height_m": {
+      "min": 0.01,
+      "max": 0.08
+    },
+    "absolute_tilt_radians": {
+      "min": 0.04,
+      "max": 0.55
+    },
+    "signs": "independently chosen ordinary signs; exact native sign convention must be qualified before source lock",
+    "edit_inputs": "fresh independent radius, height and both nonzero angular magnitudes, distinct from originals",
+    "placement": "local identity only",
+    "selected_end": 4,
+    "direction": "actual intersection axis of actual angle planes"
+  },
+  "future_custody": "guest-only independent secrets generation; store private neutral input and detailed source observations outside the mounted checkout; host receives only method/input/phase/file hashes and public status; no reuse or opening of existing hidden specimens",
+  "native_measurements": [
+    "actual ordered tree and selected owners",
+    "actual angular/radial/linear editable parameters",
+    "one real solid with independently predicted volume, area and COM",
+    "each driver edit and rebuild",
+    "source/edited save and separate fresh reopen",
+    "healthy controls and unique source process identities"
+  ],
+  "current_packet_hidden_execution_enabled": false,
+  "heldout_designs_materialized": 0,
+  "heldout_bytes_read": 0,
+  "heldout_native_sources_created": 0,
+  "writer_outputs": 0
+}

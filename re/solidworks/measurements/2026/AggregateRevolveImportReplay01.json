@@ -1,0 +1,850 @@
+{
+  "native_measurement_build": "34.5.2.0604",
+  "new_held_out_credit": 0,
+  "new_native_processes": 0,
+  "ordinary_end_modes": [
+    {
+      "bytes": 8079,
+      "candidate_sha256": "8147cdc67c6fd3a760cc3c80e8fca490d97f709f5468abfc32abcaf6f5dee862",
+      "drivers": [
+        "D1"
+      ],
+      "measured_sha256": "8147cdc67c6fd3a760cc3c80e8fca490d97f709f5468abfc32abcaf6f5dee862",
+      "name": "EndSingle",
+      "native_measurement_exact": true,
+      "native_processes": 0,
+      "publications": 3,
+      "refusals": 20,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "streams": {
+        "Contents/CMgr": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "ab52b7f6458f6ab208454ebbdde161a42b9452e5142c03567bd3a27a9c433ae0",
+        "Contents/Config-0-ModelHeader": "9eff7dbb865aa285322a4784395f236806ad9a4dbe2c6de58a076fc36e63622a",
+        "Contents/Config-0-ResolvedFeatures": "088e64f84b0f4938541054242de89f66fa6a9690e407479e0cde6149902d2355",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "e6560a3d59fa92a806839b928df75f2d931edad0abc47c1e6201d80a95e17f80",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "25627f9377738f6f87741e9204dd7bf9cc3f032f1ef852e1f1c6ba89d5a22501"
+      },
+      "strict_reader_packaged_layout_reads": 0,
+      "whole_archive_independently_compared": true
+    },
+    {
+      "bytes": 8091,
+      "candidate_sha256": "d4a942574936ee1ac580aae5f6f33c3e2213be89fce211231b913b5521b8adb4",
+      "drivers": [
+        "D1"
+      ],
+      "measured_sha256": "d4a942574936ee1ac580aae5f6f33c3e2213be89fce211231b913b5521b8adb4",
+      "name": "EndMidplane",
+      "native_measurement_exact": true,
+      "native_processes": 0,
+      "publications": 3,
+      "refusals": 20,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "streams": {
+        "Contents/CMgr": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "6dbc6b868b1bc061a45d16eb91f110e7f9d11dbbf2042298a4a5d8d3ac3d0b55",
+        "Contents/Config-0-ModelHeader": "18b8080659e2504ee889970e1a425d8877e09e61ebc115632d5e2d8e6103f5bd",
+        "Contents/Config-0-ResolvedFeatures": "b3a1f7121f02d45662b60ca2a5d8c5d8b71830068f17791ac8154d559c8d2d98",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "1e33e4cc639e5e1425cc30142ff7d2304e1cb7cdfa4b9dd687e99451db783ec2",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "79fc5ca824245d338f5dad4a9116cb8f63cee701987f543707a1cb80e0978782"
+      },
+      "strict_reader_packaged_layout_reads": 0,
+      "whole_archive_independently_compared": true
+    },
+    {
+      "bytes": 8196,
+      "candidate_sha256": "6d8d020e57daf676b9f0315475d92e268ac177dfaa4e74c31df2de53a4c78b77",
+      "drivers": [
+        "D1",
+        "D2"
+      ],
+      "measured_sha256": "6d8d020e57daf676b9f0315475d92e268ac177dfaa4e74c31df2de53a4c78b77",
+      "name": "EndTwo",
+      "native_measurement_exact": true,
+      "native_processes": 0,
+      "publications": 3,
+      "refusals": 20,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "streams": {
+        "Contents/CMgr": "22933e1e8a443606d81571b9babc2748ee1208b38628bef91be3cc84bd02d56a",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "5b640c26100568e5e8f59d74258a3d7efed37df02aa5426a6a226b0d6623328f",
+        "Contents/Config-0-ModelHeader": "d413bb57391cd4c4d8c3d74315a2aa68656caa174ec4431dc7d63989e64d3365",
+        "Contents/Config-0-ResolvedFeatures": "c977db2b6b74999faaa26c36527f72530f848b6ed2df1cf646718f9a4ab9ffdb",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "279389e2c3aa09a35d1b62ae96d40ecc3f03939f1e09f57f7ebde5e64e5c8745",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "af69e1ca5808314e63ccf955df6a1be17bb5b656863e737dbaf13de82260e3b0"
+      },
+      "strict_reader_packaged_layout_reads": 0,
+      "whole_archive_independently_compared": true
+    },
+    {
+      "bytes": 8217,
+      "candidate_sha256": "65f21b513348454d05a88a3c473a43062146b110e2161bc2db13900f50f8e7ab",
+      "drivers": [
+        "D1",
+        "D2"
+      ],
+      "measured_sha256": "65f21b513348454d05a88a3c473a43062146b110e2161bc2db13900f50f8e7ab",
+      "name": "EndTwoReverse",
+      "native_measurement_exact": true,
+      "native_processes": 0,
+      "publications": 3,
+      "refusals": 20,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "streams": {
+        "Contents/CMgr": "22933e1e8a443606d81571b9babc2748ee1208b38628bef91be3cc84bd02d56a",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "97c89320ea6bc1538e11d2d7738ef5d58cfe8cac9f75e5475d4eb7f70454d818",
+        "Contents/Config-0-ModelHeader": "6db575f6093643541ab33eb827cd1bf809bddbb26e7c319529a0e6057e719bc8",
+        "Contents/Config-0-ResolvedFeatures": "5a329158e0191d9dd8571b77b61a5ec0d8b45729f8a53d89e5568faf893e76d8",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "7f4d02e863f425231dec773c7181941d355363d14b3ff6a14ca03649cb2e00c5",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "380fafbce38401e18ab40d611b86f4b735636805e972a107287dc85f6c38ea69"
+      },
+      "strict_reader_packaged_layout_reads": 0,
+      "whole_archive_independently_compared": true
+    }
+  ],
+  "planar_imports": {
+    "concave": {
+      "exact_publications": 2,
+      "logical_streams": 12,
+      "runtime_file_reads": 0,
+      "same_published_receipt_sha256": "5cea29c5f2b6e79f21a6cfa483a034c7bfa7b7b70fe81235b59b7540018ed4fc"
+    },
+    "rectangle": {
+      "exact_publications": 2,
+      "logical_streams": 12,
+      "runtime_file_reads": 0,
+      "same_published_receipt_sha256": "f5052cec97e37c7fab8fde82db35aa6231a429f9c2a45d8d7ec40d359b5e0b01"
+    }
+  },
+  "principal": {
+    "fresh_workers": 4,
+    "native_summary_sha256": "3dcfbcbdde51d4987ead88fb6fbfc61a26632edadbbc45092c65ed260444473f",
+    "new_heldout_credit": 0,
+    "new_native_processes": 0,
+    "records": [
+      {
+        "bytes": 8174,
+        "case": "revolve_0",
+        "generated_sha256": "dfbefdfc55e8b2354f277a2bfa0192874fb40792f75124596250c11bc26812a7",
+        "macos_original_windows_locator": {
+          "bytes": 8104,
+          "sha256": "1012d3dd414946b3f6269593da75cc1b2f877a0747b088a4fd088e2ff8507c8f"
+        },
+        "oracle_launches": 0,
+        "positive_paths": [
+          "authored_direct",
+          "authored_registry",
+          "full_path_json_direct",
+          "full_path_json_registry",
+          "full_stream_json_direct",
+          "full_stream_json_registry",
+          "design_path_json_direct",
+          "design_path_json_registry",
+          "design_stream_json_direct",
+          "design_stream_json_registry"
+        ],
+        "protected_inputs": 0,
+        "refusals": {
+          "changed_driver_one_ulp": "regenerated SOLIDWORKS revolve has no matching native measurement",
+          "changed_source_metadata": "SOLIDWORKS cold readback differs from its regenerated part",
+          "direct_populated_stream": "standalone native output requires an empty seekable binary stream at position zero",
+          "direct_wrong_physical_locator": "measured revolve filesystem destination differs from its inspected locator",
+          "edited_job": "measured revolve requires authenticated offline evidence",
+          "edited_native_terminal": "measured revolve requires authenticated offline evidence",
+          "edited_summary": "measured revolve requires authenticated offline evidence",
+          "missing_receipt": "SOLIDWORKS publication requires an offline native measurement receipt",
+          "original_windows_locator_from_mac": "measured revolve stream requires its exact inspected self locator",
+          "registry_populated_stream": "standalone native output requires an empty seekable binary stream at position zero",
+          "registry_wrong_physical_locator": "measured revolve filesystem destination differs from its inspected locator",
+          "stale_epoch": "regenerated SOLIDWORKS revolve has no matching native measurement"
+        },
+        "runtime": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "stream_sha256": {
+          "Contents/CMgr": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c",
+          "Contents/CMgrHdr2": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb",
+          "Contents/Config-0": "b97a20f58228301f3afd9086f69f2add23d538cfdb925b6f4d2364fd210b8ccc",
+          "Contents/Config-0-ModelHeader": "83856a5654a34fee31033c26a381f9c074fbe0a56955fb345268fa9feb43e94a",
+          "Contents/Config-0-ResolvedFeatures": "98ca785f98118c6a87f1e5b97419ea3d45d7cef8476bf96dbabf0021ebf827b8",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "e3cf0ccef14c2464857914c80cab37128fa2427bdb97be94259296d670a7b605",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44",
+          "swXmlContents/KeyWords": "32ab4857b028724f9dd2efb2e217cde9d26ca70642d71a78443236f673755398"
+        },
+        "strict_modes": 4
+      },
+      {
+        "bytes": 8174,
+        "case": "revolve_1",
+        "generated_sha256": "08c42819d33e9796c3090e06daa82025a483796161e37546911d78e715d4f864",
+        "macos_original_windows_locator": {
+          "bytes": 8105,
+          "sha256": "d1c7810f9ff91ca2f5756172575d76ca9d9b95f1f28a5890edb85d643935c3fc"
+        },
+        "oracle_launches": 0,
+        "positive_paths": [
+          "authored_direct",
+          "authored_registry",
+          "full_path_json_direct",
+          "full_path_json_registry",
+          "full_stream_json_direct",
+          "full_stream_json_registry",
+          "design_path_json_direct",
+          "design_path_json_registry",
+          "design_stream_json_direct",
+          "design_stream_json_registry"
+        ],
+        "protected_inputs": 0,
+        "refusals": {
+          "changed_driver_one_ulp": "regenerated SOLIDWORKS revolve has no matching native measurement",
+          "changed_source_metadata": "SOLIDWORKS cold readback differs from its regenerated part",
+          "direct_populated_stream": "standalone native output requires an empty seekable binary stream at position zero",
+          "direct_wrong_physical_locator": "measured revolve filesystem destination differs from its inspected locator",
+          "edited_job": "measured revolve requires authenticated offline evidence",
+          "edited_native_terminal": "measured revolve requires authenticated offline evidence",
+          "edited_summary": "measured revolve requires authenticated offline evidence",
+          "missing_receipt": "SOLIDWORKS publication requires an offline native measurement receipt",
+          "original_windows_locator_from_mac": "measured revolve stream requires its exact inspected self locator",
+          "registry_populated_stream": "standalone native output requires an empty seekable binary stream at position zero",
+          "registry_wrong_physical_locator": "measured revolve filesystem destination differs from its inspected locator",
+          "stale_epoch": "regenerated SOLIDWORKS revolve has no matching native measurement"
+        },
+        "runtime": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "stream_sha256": {
+          "Contents/CMgr": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c",
+          "Contents/CMgrHdr2": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb",
+          "Contents/Config-0": "307a989282d721357dbf2703f63f89ef8246849aca572ba4f9be27318fd015cd",
+          "Contents/Config-0-ModelHeader": "58c06785dee6705df5431fd9cd5b0983b11bf97b8d6e5ec8d27ffdc3279a7308",
+          "Contents/Config-0-ResolvedFeatures": "e81bfa9f08022ed23d45a8b8a353564e7ab1d460a6016b6d4953363732ce23de",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "cbb8e661697b7cbacd13dda11358335b8447fc30318e1a069364ce9217ab04ed",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44",
+          "swXmlContents/KeyWords": "b29829aa655ae66834ca10effa27a2c597a1ace10523e6be2d8fab97a39ee63a"
+        },
+        "strict_modes": 4
+      },
+      {
+        "bytes": 8094,
+        "case": "Skew",
+        "generated_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+        "oracle_launches": 0,
+        "positive_paths": [
+          "inferred_registry_file",
+          "strict_readback_direct_stream"
+        ],
+        "runtime": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 1
+        },
+        "stream_sha256": {
+          "Contents/CMgr": "2d50cd50cc7520444ad1d818930677c363ab7308863da47816d65a13567730bd",
+          "Contents/CMgrHdr2": "f0e87e094fb3f04ca1d901fb4fddb21a7dbf50a9432e3f1ca9326438b39f25f8",
+          "Contents/Config-0": "67ed420c7f3687ead74df8374ba75bc9f88025ee0a0737182148258f3e8ae8b4",
+          "Contents/Config-0-ModelHeader": "29a8688bef96a91d019c9fd6558d4cf1c6f5c8a935d3bfa75bf302a092382fc8",
+          "Contents/Config-0-ResolvedFeatures": "8e6f6d0cfb36458c87fbaf9cec6f63f5e5d0f4fee0a2e332a1c2d6f2fed9238c",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "e2b3d83b8c5117cd719311b6840b62c53340e44e140c6c7693541473e7ef2b06",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "3128ed047232c860fa6050b25d761ba1c42bce42acf3278417ae3d6669bb4bbe",
+          "swXmlContents/KeyWords": "a51f4b84c45cabb7716222b4fa01609ef23512797d2376aa47a77105a9befbbf"
+        }
+      },
+      {
+        "bytes": 8180,
+        "case": "Step",
+        "generated_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+        "oracle_launches": 0,
+        "positive_paths": [
+          "inferred_registry_file",
+          "strict_readback_direct_stream"
+        ],
+        "runtime": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 1
+        },
+        "stream_sha256": {
+          "Contents/CMgr": "2d50cd50cc7520444ad1d818930677c363ab7308863da47816d65a13567730bd",
+          "Contents/CMgrHdr2": "f0e87e094fb3f04ca1d901fb4fddb21a7dbf50a9432e3f1ca9326438b39f25f8",
+          "Contents/Config-0": "c194c08a97e4676ed892daffe3f6ad002b71f2c2cb9cc1985dd227e1f783ed0d",
+          "Contents/Config-0-ModelHeader": "e47aaa854a4bc33a2952d646ca2a42f3ea5f573271c20764e9a474a84f38d189",
+          "Contents/Config-0-ResolvedFeatures": "87924c2d06b6df1c53c33d9d749949565ab7868a3601cd74791f1038f3fba11d",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "8367d3000b8c4d3e3e73c9a3426d33ad7c2880192c78add7c7b06c4afe98aea0",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "3128ed047232c860fa6050b25d761ba1c42bce42acf3278417ae3d6669bb4bbe",
+          "swXmlContents/KeyWords": "d2197399c12142a6075ab7dc79dd593e2e0e80cb8c39172e7a2092b62025d0f9"
+        }
+      }
+    ],
+    "schema": "kit.sw2026.measured-principal-revolve-public.v1",
+    "script_sha256": "5be518029f99b198cbfd8f74141bb1fb7c1a16dc355927bab3e21ea33ed2165f",
+    "source_fingerprint": {
+      "files": 6464,
+      "sha256": "8168500d5ec6eaff0b4b3973b22e0290d415f87d33afa14d0412fc6ba4bccaa9"
+    }
+  },
+  "production_source_tree": "c95cef093e31b8b8cd8cafd65a61e1918d57cca3",
+  "schema": "kit.sw2026.aggregate-revolve-and-import-replay.v1",
+  "source_revision": "1ea4987cd999b3770a2415e6a652040880258877",
+  "thin_macos": [
+    {
+      "case": "ThinOne",
+      "expected_sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7",
+      "generated_sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7",
+      "native_processes": 0,
+      "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+      "path_publications": 0,
+      "platform": "darwin",
+      "protected_inputs": 0,
+      "publications": 6,
+      "read_runtime_input_reads": 0,
+      "readback": {
+        "design": {
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "feature_count": 19
+        },
+        "full": {
+          "area_mm2": 3111.725195797006,
+          "centroid_m_from_model": [
+            0.029614491624400253,
+            0.002930000000000001,
+            -0.01826072876818886
+          ],
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 2464.5371812727994
+        }
+      },
+      "reader_layout_opens": 0,
+      "refusals": 30,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "status": "exact",
+      "streams": 10
+    },
+    {
+      "case": "ThinUnequal",
+      "expected_sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "generated_sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "native_processes": 0,
+      "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+      "path_publications": 0,
+      "platform": "darwin",
+      "protected_inputs": 0,
+      "publications": 6,
+      "read_runtime_input_reads": 0,
+      "readback": {
+        "design": {
+          "drivers": [
+            "D1",
+            "D4",
+            "D3"
+          ],
+          "feature_count": 19
+        },
+        "full": {
+          "area_mm2": 3461.9614951887647,
+          "centroid_m_from_model": [
+            0.028369584039948974,
+            0.002930000000000001,
+            -0.01734792476142675
+          ],
+          "drivers": [
+            "D1",
+            "D4",
+            "D3"
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 6969.255961843151
+        }
+      },
+      "reader_layout_opens": 0,
+      "refusals": 30,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "status": "exact",
+      "streams": 10
+    },
+    {
+      "case": "ThinOpposite",
+      "expected_sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9",
+      "generated_sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9",
+      "native_processes": 0,
+      "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+      "path_publications": 0,
+      "platform": "darwin",
+      "protected_inputs": 0,
+      "publications": 6,
+      "read_runtime_input_reads": 0,
+      "readback": {
+        "design": {
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "feature_count": 19
+        },
+        "full": {
+          "area_mm2": 2954.943342467846,
+          "centroid_m_from_model": [
+            0.028310888240345992,
+            0.002930000000000001,
+            -0.017304887220546697
+          ],
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 2335.4725733236005
+        }
+      },
+      "reader_layout_opens": 0,
+      "refusals": 30,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "status": "exact",
+      "streams": 10
+    },
+    {
+      "case": "ThinMidplane",
+      "expected_sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b",
+      "generated_sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b",
+      "native_processes": 0,
+      "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+      "path_publications": 0,
+      "platform": "darwin",
+      "protected_inputs": 0,
+      "publications": 6,
+      "read_runtime_input_reads": 0,
+      "readback": {
+        "design": {
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "feature_count": 19
+        },
+        "full": {
+          "area_mm2": 3033.3342691324265,
+          "centroid_m_from_model": [
+            0.02896268570463358,
+            0.002930000000000001,
+            -0.01778280489446089
+          ],
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 2400.004877298203
+        }
+      },
+      "reader_layout_opens": 0,
+      "refusals": 30,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "status": "exact",
+      "streams": 10
+    },
+    {
+      "case": "ThinTopOppositeControl",
+      "expected_sha256": "7cbe6b2b3c5426d8cb601d2a9d653998e5de9bc08ccdd98b414afe4bc65604b4",
+      "generated_sha256": "7cbe6b2b3c5426d8cb601d2a9d653998e5de9bc08ccdd98b414afe4bc65604b4",
+      "native_processes": 0,
+      "native_result_sha256": "f0cae9a898ea4ed54a7e181b8631da6ff17569eca430558c4c77004b36d37127",
+      "path_publications": 0,
+      "platform": "darwin",
+      "protected_inputs": 0,
+      "publications": 6,
+      "read_runtime_input_reads": 0,
+      "readback": {
+        "design": {
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "feature_count": 19
+        },
+        "full": {
+          "area_mm2": 6439.292880654907,
+          "centroid_m_from_model": [
+            0.032731592098010936,
+            -0.025771592004402197,
+            -0.0035350000000000017
+          ],
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 4637.22924756325
+        }
+      },
+      "reader_layout_opens": 0,
+      "refusals": 30,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "status": "exact",
+      "streams": 10
+    },
+    {
+      "case": "ThinRightCenterControl",
+      "expected_sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+      "generated_sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+      "native_processes": 0,
+      "native_result_sha256": "f0cae9a898ea4ed54a7e181b8631da6ff17569eca430558c4c77004b36d37127",
+      "path_publications": 0,
+      "platform": "darwin",
+      "protected_inputs": 0,
+      "publications": 6,
+      "read_runtime_input_reads": 0,
+      "readback": {
+        "design": {
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "feature_count": 19
+        },
+        "full": {
+          "area_mm2": 16962.978477335622,
+          "centroid_m_from_model": [
+            -0.0461416515033028,
+            0.006045,
+            -0.026937235965957672
+          ],
+          "drivers": [
+            "D3",
+            "D1"
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 31281.450581072397
+        }
+      },
+      "reader_layout_opens": 0,
+      "refusals": 30,
+      "runtime": "1.2.12",
+      "runtime_input_reads": 0,
+      "status": "exact",
+      "streams": 10
+    }
+  ],
+  "thin_windows": {
+    "architecture": "ARM64",
+    "cases": [
+      {
+        "case": "ThinOne",
+        "expected_sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7",
+        "generated_sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7",
+        "native_processes": 0,
+        "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+        "path_publications": 0,
+        "platform": "win32",
+        "protected_inputs": 0,
+        "publications": 6,
+        "read_runtime_input_reads": 0,
+        "readback": {
+          "design": {
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "feature_count": 19
+          },
+          "full": {
+            "area_mm2": 3111.725195797006,
+            "centroid_m_from_model": [
+              0.029614491624400253,
+              0.002930000000000001,
+              -0.01826072876818886
+            ],
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8,
+            "volume_mm3": 2464.5371812727994
+          }
+        },
+        "reader_layout_opens": 0,
+        "refusals": 30,
+        "runtime": "1.3.1",
+        "runtime_input_reads": 0,
+        "status": "exact",
+        "streams": 10
+      },
+      {
+        "case": "ThinUnequal",
+        "expected_sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+        "generated_sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+        "native_processes": 0,
+        "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+        "path_publications": 0,
+        "platform": "win32",
+        "protected_inputs": 0,
+        "publications": 6,
+        "read_runtime_input_reads": 0,
+        "readback": {
+          "design": {
+            "drivers": [
+              "D1",
+              "D4",
+              "D3"
+            ],
+            "feature_count": 19
+          },
+          "full": {
+            "area_mm2": 3461.9614951887647,
+            "centroid_m_from_model": [
+              0.028369584039948974,
+              0.002930000000000001,
+              -0.01734792476142675
+            ],
+            "drivers": [
+              "D1",
+              "D4",
+              "D3"
+            ],
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8,
+            "volume_mm3": 6969.255961843151
+          }
+        },
+        "reader_layout_opens": 0,
+        "refusals": 30,
+        "runtime": "1.3.1",
+        "runtime_input_reads": 0,
+        "status": "exact",
+        "streams": 10
+      },
+      {
+        "case": "ThinOpposite",
+        "expected_sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9",
+        "generated_sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9",
+        "native_processes": 0,
+        "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+        "path_publications": 0,
+        "platform": "win32",
+        "protected_inputs": 0,
+        "publications": 6,
+        "read_runtime_input_reads": 0,
+        "readback": {
+          "design": {
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "feature_count": 19
+          },
+          "full": {
+            "area_mm2": 2954.943342467846,
+            "centroid_m_from_model": [
+              0.028310888240345992,
+              0.002930000000000001,
+              -0.017304887220546697
+            ],
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8,
+            "volume_mm3": 2335.4725733236005
+          }
+        },
+        "reader_layout_opens": 0,
+        "refusals": 30,
+        "runtime": "1.3.1",
+        "runtime_input_reads": 0,
+        "status": "exact",
+        "streams": 10
+      },
+      {
+        "case": "ThinMidplane",
+        "expected_sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b",
+        "generated_sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b",
+        "native_processes": 0,
+        "native_result_sha256": "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+        "path_publications": 0,
+        "platform": "win32",
+        "protected_inputs": 0,
+        "publications": 6,
+        "read_runtime_input_reads": 0,
+        "readback": {
+          "design": {
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "feature_count": 19
+          },
+          "full": {
+            "area_mm2": 3033.3342691324265,
+            "centroid_m_from_model": [
+              0.02896268570463358,
+              0.002930000000000001,
+              -0.01778280489446089
+            ],
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8,
+            "volume_mm3": 2400.004877298203
+          }
+        },
+        "reader_layout_opens": 0,
+        "refusals": 30,
+        "runtime": "1.3.1",
+        "runtime_input_reads": 0,
+        "status": "exact",
+        "streams": 10
+      },
+      {
+        "case": "ThinTopOppositeControl",
+        "expected_sha256": "7cbe6b2b3c5426d8cb601d2a9d653998e5de9bc08ccdd98b414afe4bc65604b4",
+        "generated_sha256": "7cbe6b2b3c5426d8cb601d2a9d653998e5de9bc08ccdd98b414afe4bc65604b4",
+        "native_processes": 0,
+        "native_result_sha256": "f0cae9a898ea4ed54a7e181b8631da6ff17569eca430558c4c77004b36d37127",
+        "path_publications": 0,
+        "platform": "win32",
+        "protected_inputs": 0,
+        "publications": 6,
+        "read_runtime_input_reads": 0,
+        "readback": {
+          "design": {
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "feature_count": 19
+          },
+          "full": {
+            "area_mm2": 6439.292880654907,
+            "centroid_m_from_model": [
+              0.032731592098010936,
+              -0.025771592004402197,
+              -0.0035350000000000017
+            ],
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8,
+            "volume_mm3": 4637.22924756325
+          }
+        },
+        "reader_layout_opens": 0,
+        "refusals": 30,
+        "runtime": "1.3.1",
+        "runtime_input_reads": 0,
+        "status": "exact",
+        "streams": 10
+      },
+      {
+        "case": "ThinRightCenterControl",
+        "expected_sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+        "generated_sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+        "native_processes": 0,
+        "native_result_sha256": "f0cae9a898ea4ed54a7e181b8631da6ff17569eca430558c4c77004b36d37127",
+        "path_publications": 0,
+        "platform": "win32",
+        "protected_inputs": 0,
+        "publications": 6,
+        "read_runtime_input_reads": 0,
+        "readback": {
+          "design": {
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "feature_count": 19
+          },
+          "full": {
+            "area_mm2": 16962.978477335622,
+            "centroid_m_from_model": [
+              -0.0461416515033028,
+              0.006045,
+              -0.026937235965957672
+            ],
+            "drivers": [
+              "D3",
+              "D1"
+            ],
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8,
+            "volume_mm3": 31281.450581072397
+          }
+        },
+        "reader_layout_opens": 0,
+        "refusals": 30,
+        "runtime": "1.3.1",
+        "runtime_input_reads": 0,
+        "status": "exact",
+        "streams": 10
+      }
+    ],
+    "python": "3.12.7",
+    "snapshot_sha256": "13018026f6c614b10c4fc310c1eab80332db2ad96dcb31eaf99846b65141bfb5",
+    "zlib": "1.3.1"
+  }
+}

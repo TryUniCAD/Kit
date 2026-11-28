@@ -21,7 +21,11 @@ from convert.adapters.solidworks.Archive.Construction.Views.MakeStdViews import 
 
 # neutral presentation inputs must generate independently owned document dependencies before the actual model root receives their references
 def MakePartRefs(
-    StyleValue: StyleInput, DocumentValue: UnitInput, AnalysisValue: UnitInput
+    StyleValue: StyleInput,
+    DocumentValue: UnitInput,
+    AnalysisValue: UnitInput,
+    *,
+    PlatformViewMath: bool = False,
 ) -> PartRootRefs:
     if type(StyleValue) is not StyleInput:
         raise TypeError("model presentation requires explicit typed style inputs")
@@ -40,5 +44,5 @@ def MakePartRefs(
         MakeUnitTable(DocumentValue),
         MakeUnitTable(AnalysisValue),
         MakeModelVisual(),
-        MakeStdViews(StyleValue.StandardValue),
+        MakeStdViews(StyleValue.StandardValue, PlatformMath=PlatformViewMath),
     )

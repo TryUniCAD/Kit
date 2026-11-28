@@ -1,0 +1,51 @@
+{
+  "com_imports": [],
+  "control_files_sha256": {
+    "child": "b46e1e0f066db55730ce765cb2547b97ad1416e1ea0ceaa588bb8e819f727321",
+    "parent": "fac5708432e569e787dfc00aa87fe08e5ef2d6830ec88f2d69525f8030d9fd1f"
+  },
+  "delivery_pr": 121,
+  "fixture_sha256": "916924328bef48c5923a83ae34d6af685550a596e4757906129b6119cd7190d2",
+  "heldout_inputs_read": 0,
+  "host_preflight_result_sha256": "08e755082458f975ffec77d9cc9e996815f8a6b24f20c41ace1ec445bcbdab03",
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "neutral_request_sha256": "21546423cc5844fbf5690a2c4985b70ddd69b5d92cce750e022e1d2a48d5da79",
+  "owner": "assembly_occurrence",
+  "packet_sha256": "c2f397de848cc8f1df65dfed15362758570b6b0476895efa3fdeea9be374e525",
+  "passed": true,
+  "prediction_sha256": "be595dd9364eb2adc4db59de408ef60ea6b51595d1c50e1f01e5dbc19ec1e26c",
+  "public_writer_qualified": false,
+  "recipe_sha256": "324a22938b68842b9a7c1db43bdbdd07400efe2c39b96312096066a28a9f205d",
+  "schema": "kit.sw2026.sdk-ordered-observer-preflight.v1",
+  "scope": "disclosed fully SDK generated rotated mixed mate observation readiness",
+  "source_manifest_sha256": "2c540bca6cf921ed507c4ef0b7bcc9d1e34a299cd89cbc593d10c8001a2918e4",
+  "source_process_result_sha256": "5493223761bfe60d898a63710a9a08c03760ba432bd0b3d902741e4b74e02857",
+  "task": "B04-SW2026-MATES",
+  "tool_sources_sha256": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectCombinedPlanarMates.py": "496d598d645e9faeee80bd71bd6717f4c260fd1e72370fe7b44bd8d3ce00956b",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectSdkOrderedMates.py": "541f6fdb3111d92e7c60d8725712945e62bce288e66180442a0cd5afdc652887",
+    "InspectSdkSingleMate.py": "e00760bd5666e1f90dc4be978b78d25b035b766a1fd97636d37036ddd339a492",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PlanarMateEdit.py": "61f99e2e8ecd075b4c7d3c5732db35bc18563b3999ad1b06fcf01e9ee4198466",
+    "PrepareDimensionedAssemblyPredictions.py": "639dbf7f80f594d4e7da459638bfe3037f8ad9116e36755d02a38bebc2dc48a7",
+    "PrepareSdkAssemblyNative.py": "ca99618a4461b8418edff4e02297d8534a10636bbb86230c7af3df877345bf5b",
+    "PrepareSdkOrderedMateTrial.py": "09e6a468eaf74ab7c8e5e4bb4cea1baeca2a23a434412ec5f23dfb424621c1bc",
+    "SdkOrderedMateExpectations.py": "9ae44fd8ad81bbd02046ac35fd5ddc0cb9ba223f441a156c18ca89247a44aa6c",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "tools_manifest_sha256": "9530fb47dceed2de82832fe0fc93f3b8205242630c2b4c347493273d50e61f0d",
+  "verify": {
+    "python_version": "3.11.16",
+    "syntax_checked_sources": 16,
+    "verify_exit_code": 0,
+    "verify_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verify_stdout_sha256": "3967cacd93926b53a59306d36e478927275f94bde34d0569bf237a9965acdc85"
+  }
+}

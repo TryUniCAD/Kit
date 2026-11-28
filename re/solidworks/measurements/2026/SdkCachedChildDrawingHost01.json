@@ -1,0 +1,26 @@
+{
+  "actual_generated_child_identity": true,
+  "body_atom_id": 101,
+  "child_filename": "CachedChildDrawingChild.SLDPRT",
+  "definition_round_trip": true,
+  "drawing_sha256": "2366a9c9810ec67dfd990ccc5b40239a21fa32dc8bc5f78d3f7fa3fe2051a8db",
+  "edge_downstream_count": 12,
+  "encoded_leaf_hashes_match": true,
+  "face_downstream_count": 6,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "neutral_request_sha256": "230e705fb43ce3d67b772f5ea4ec3ce35575e57e6f0ee3a45096d851a5dbb7a1",
+  "part_cache_sha256": "20f21b60340f1b083d0c39e582186d5e52897088fcfda53fa0bc86be4bf75086",
+  "part_sha256": "176045d06b8277b4785534b17eaf463697bab94df2eb56e3e030781b5ba50828",
+  "partial_child_reference_matches": true,
+  "raw_proof_sha256": "1a91e3bbb903400d5c753be84a0b8a96e671375fedca7d6bbb9cb4d140fce858",
+  "runtime_io_attempts": 0,
+  "schema": "kit.sw2026.sdk-drawing-cached-child-host.v1",
+  "separate_guarded_host_builds": 2,
+  "view_id": 11,
+  "view_orientation": "*Front",
+  "view_origin": [
+    0.1217,
+    0.0873
+  ]
+}

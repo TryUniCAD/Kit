@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 
+from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KLocalBodyStream
 from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeFeature
@@ -19,12 +20,13 @@ from interchange.Records.RecordDiagnostic import Diagnostic
 # an identified source solid is required geometry at the strict part boundary
 def ReadLocalImport(
     Payloads: Sequence[BrepPayload],
-    GroupData: bytes,
+    Archive: SldprtArchive,
     OwnerValue: NativeFeature,
     *,
     Strict: bool,
 ) -> tuple[BrepModel | None, NativeFeature | None, Diagnostic | None]:
-    if not any(
+    GroupData = Archive.get(KLocalBodyStream)
+    if GroupData is None or not any(
         Payload.source_stream == KLocalBodyStream
         and Payload.kind == "unknown"
         and Payload.data is not None
@@ -33,7 +35,10 @@ def ReadLocalImport(
     ):
         return None, None, None
     try:
-        return ReadLocalBrep(Payloads, GroupData, OwnerValue.name), OwnerValue, None
+        BrepValue = ReadLocalBrep(
+            Payloads, GroupData, OwnerValue.name, Archive=Archive, OwnerValue=OwnerValue
+        )
+        return BrepValue, OwnerValue, None
     except (KeyError, OverflowError, ValueError) as ErrorInfo:
         Message = f"SLDPRT local geometry rejected: {ErrorInfo}"
         if Strict:

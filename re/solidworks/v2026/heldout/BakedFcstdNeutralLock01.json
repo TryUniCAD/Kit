@@ -1,0 +1,45 @@
+{
+  "host_protected_source_reads": 0,
+  "native_processes_started": 0,
+  "passed": true,
+  "process_python": [
+    3,
+    12,
+    7
+  ],
+  "schema": "kit.freecad.locked-baked-strict-neutral.v1",
+  "sdk_revision": "96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb",
+  "sdk_tree": "4f00d8b078ea956ccfa2883c043093a964ae2237",
+  "slots": [
+    {
+      "baked_source": true,
+      "body_count": 1,
+      "complete_strict_read": true,
+      "neutral_sha256": "0577c78ad083f7b383587c6a1d3079ad5730ab9b51ba4898433fe78f71223527",
+      "slot": 1,
+      "source_file_sha256": "b7a7bd2097a2a9a7d530508406efa014721e089b47f8db3dc11a23b3fa380378",
+      "source_shape_sha256": "a72134fe88d54ea08e3041b69a62c6f358fe041db326562d7c2ae078e008c128"
+    },
+    {
+      "baked_source": true,
+      "body_count": 1,
+      "complete_strict_read": true,
+      "neutral_sha256": "8d75b181f41cd67a28ad79456d1f16d62c48c84264b72f59a2a77871e1ed8d8d",
+      "slot": 2,
+      "source_file_sha256": "7dede76e6904637d1cf5e56ce5d3bebc6090c30e2f5cb03e8f35d7bb455d953b",
+      "source_shape_sha256": "84159477e30430cf442a47b5f753eab8098c10ade65d30c1121e40438ac8cac5"
+    },
+    {
+      "baked_source": false,
+      "body_count": 1,
+      "complete_strict_read": true,
+      "neutral_sha256": "15a5106f0030767d1ed41f8910725192e41edac6b0ef57b026a4bc71cd80de4a",
+      "slot": 3,
+      "source_file_sha256": "69e2271455d48f53b617489327e36c374e2185912a3e0d77d2ceb7527be73083",
+      "source_shape_sha256": "4c6c6855e7ee1c085ef1dcf3750fbe188ae2d9f0352678cd8056f19abe713e7e"
+    }
+  ],
+  "snapshot_sha256": "71f02b4e6ba3cc4671af95010d035ff64c2ee0cabebda3cc6e41605bfa8c6ffc",
+  "source_lock_sha256": "835639970c900159d33d2ca5caff0f552a367ea8db71902684824bfdcd6a71d9",
+  "writer_outputs": 0
+}

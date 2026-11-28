@@ -1,0 +1,105 @@
+{
+  "schema": "kit.sw2026.unseen-tree-source-lock.v1",
+  "passed": true,
+  "source_revision": "6c19485d41705a5315063f1fab90a755bb677b84",
+  "job_sha256": "d19aa9cf82c0c7ebbafa1234db32b856ea7af9975b1b4171c1c6f4e0e86ac177",
+  "specs_sha256": "cfd695e43374abcafbce3b11214cc37638731951fb4184c2fbf8731b0641f25a",
+  "private_inspection_sha256": "31d48ba9ee176411c1fed778937177545d08da52fb5f89c4b9654c31b1206682",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "started_at": 1794869795.6687052,
+  "finished_at": 1794869992.0114362,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "payload_and_api_observations_sealed_until_writer_freeze": true,
+  "cases": [
+    {
+      "name": "P03FrontFolders",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "P03FrontFolders\\author\\P03FrontFolders.SLDPRT",
+      "native_sha256": "a1fa6dbc75f1b5d8e12d79e00de0530c495fb18100e281def93c48fa80a122e6",
+      "native_bytes": 70393,
+      "record_sha256": [
+        "87819057822e1ebd03416cc1c2ac60dc2279996964f6d362fb4db40f69430b6f",
+        "033ec69ae59f1fa2f7075c3f694c38b34786cf8933f0365fe18b797e32adff32"
+      ],
+      "numeric_check_count": 96
+    },
+    {
+      "name": "P04RightFolders",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "P04RightFolders\\author\\P04RightFolders.SLDPRT",
+      "native_sha256": "2c3dbbb1afe1b1e8af1b75321d1a427b0e5442b3bf3d2ed158f82bfe6bce175a",
+      "native_bytes": 68427,
+      "record_sha256": [
+        "d4c42bd4086d8a1f55ded744ad06e5811b14561c2423e3da79cc20d44516d1fb",
+        "88f9fdcebd59fa415e072cbaae5bbf61fedbfd5422ea4fc61f8f9c790c2355d7"
+      ],
+      "numeric_check_count": 96
+    }
+  ],
+  "scope": "Independent native source creation for ordinary blind system-folder tree parity only; no generated writer output",
+  "raw_source_lock_sha256": "eaccbe146e789bbc3ebbc65f2cb22cd9f9b8fafdb34fed77d91029ea160fad54",
+  "source_manifest_sha256": "7dac11ea3e826465d3b42a6d2929a7237f5079458156108481ad1d2d3d0d8c97",
+  "postflight_no_cad_process": true,
+  "license_process_ids_unchanged": true,
+  "tool_hashes_unchanged": true,
+  "source_hashes_rechecked": true,
+  "private_model_observations_inspected_before_writer_freeze": false,
+  "presentation_writer_started_before_lock": false,
+  "numeric_check_count": 192,
+  "native_phases": 4,
+  "inventories": {
+    "pre": {
+      "created_at_utc": "2026-11-16T22:56:18.066278+00:00",
+      "returncode": 0,
+      "stdout_sha256": "4d76d349a1614a34f9652e1d0941f45168e813191e6bbec0b4a5144ef4a62fdc",
+      "stdout_bytes": 7412,
+      "row_count": 151,
+      "selected": [
+        {
+          "name": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "name": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "name": "sw_d.exe",
+          "pid": 3088
+        }
+      ],
+      "no_cad_process": true
+    },
+    "post": {
+      "created_at_utc": "2026-11-16T23:01:03.827034+00:00",
+      "returncode": 0,
+      "stdout_sha256": "a92c42d7032eb2d5ccabe9615cd638f1d6dc512641d7ec4098cb897da2b536f5",
+      "stdout_bytes": 7314,
+      "row_count": 149,
+      "selected": [
+        {
+          "name": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "name": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "name": "sw_d.exe",
+          "pid": 3088
+        }
+      ],
+      "no_cad_process": true
+    }
+  }
+}

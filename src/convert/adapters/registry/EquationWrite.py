@@ -1,11 +1,10 @@
+from convert.adapters.base.NativeEvidence import KUnresolvedEqTargets
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentWalk import WalkDocuments
 
 
 # retained equation failures must survive public conversion and nested assembly exports
 def CheckEquations(Document: CadDocument) -> None:
-    from convert.adapters.solidworks.Core.EquationTarget import KUnresolvedEqTargets
-
     Findings: set[str] = set()
     for PartValue in WalkDocuments(Document):
         Targets = PartValue.metadata.get(KUnresolvedEqTargets)

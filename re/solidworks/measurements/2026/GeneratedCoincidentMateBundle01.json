@@ -1,0 +1,456 @@
+{
+  "cases": [
+    {
+      "assembly": {
+        "bytes": 9162,
+        "sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2436,
+            "sha256": "08f68f0debbb5a5c96e90316ee2bb760931cecdd93d68d91f79b05f3d7a5eb71"
+          },
+          "Contents/Config-0": {
+            "bytes": 21433,
+            "sha256": "c138d02d0c65a549a536d1da99a503a62db57b2867366c93b0bef34c8a9d50fc"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 2776,
+            "sha256": "72b21f11445155387ed750a101f153027709da0bc76b2dd5d3ea9c51fb61bbaf"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1267,
+            "sha256": "42163cc445df8d86e5e4f84c932578425da7fd17650ac121a31528359480bb70"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 567,
+            "sha256": "131676d181fe94d9888e78e80e7e903518312375104e6fd1cbf5e3f39fb475c1"
+          },
+          "Header2": {
+            "bytes": 1267,
+            "sha256": "b6d4aa92dbf7b6d0403f5cd0fea03292c2c62726a7a381fba5952b82a252836b"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2064,
+            "sha256": "d674457ca19a3720c3bd1b738305e391d911acabd008999d0afab71b51f92b59"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1134,
+            "sha256": "bf23490d670864ebae804c54b6ae76648608fbca2974d9241896cbc7c9cfb569"
+          }
+        }
+      },
+      "authored_prediction_sha256": "091ede6c19cfc09009c8c5addb1d5121d04db69bff07fc7c02c41e99493af335",
+      "child": {
+        "bytes": 8653,
+        "sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "bb4192ed168d22ce2fb2f85ec030ebbfcdd6a6074e302351c69402d58a69ef02"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+          },
+          "Contents/Config-0": {
+            "bytes": 21126,
+            "sha256": "8976b87473f706db4c55406504fc4c8df5d35a1d41417ddceb9ebaf38427a469"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 797,
+            "sha256": "ce1f00de20fd2defcf0bf379b18f4a617e5aed433daa0643b2c7656c4b3870a4"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17486,
+            "sha256": "52454f17ce9a1b1a7a3489c21c91acd15a4c22c10989ef8ef68adc9b0383522a"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 797,
+            "sha256": "4959da4c310491949460a14636da5dedd86384e5c51e8b1ecec75c692d1d50c3"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1563,
+            "sha256": "7ca58f11187dca1544672eae7bfb7e9c17806b9bbb13436a2589cb85631b7a3a"
+          }
+        }
+      },
+      "heldout_inputs_tested": 0,
+      "input_runtime_file_access_attempts": 0,
+      "inspection": {
+        "config_map_next_index": 76,
+        "configuration_highest_id": 19,
+        "creation_logs": [
+          {
+            "name": "Coincident1",
+            "object_id": 19,
+            "timestamp": 1794700043
+          },
+          {
+            "name": "Coincident1",
+            "object_id": 19,
+            "timestamp": 1794700043
+          }
+        ],
+        "fixed_occurrence": 0,
+        "group_id": 16,
+        "logical_round_trips": [
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgr"
+        ],
+        "mate_fields": {
+          "f0c": 1,
+          "f2a0": 2124969856,
+          "f2a4": 31290514,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f3b4": 1,
+          "f3b8": 0
+        },
+        "mate_id": 19,
+        "mate_list_bytes": 2776,
+        "mate_map_next_index": 161,
+        "mate_name": "Coincident1",
+        "next_wrapper_id": 2,
+        "resolved_map_next_index": 133,
+        "wrappers": [
+          {
+            "detached": {
+              "anonymous_datum": {
+                "f00": -1,
+                "f08": 2592000
+              },
+              "assembly_configuration_id": 0,
+              "assembly_update_stamp": 101,
+              "original_datum_id": 15,
+              "world_normal": {
+                "x": -0.0,
+                "y": 1.0,
+                "z": 0.0
+              },
+              "world_origin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            "resolved": {
+              "configuration_id": 0,
+              "datum": {
+                "f00": 15,
+                "f08": 2592000
+              },
+              "initial_rigid_status": 0,
+              "occurrence_id": 17,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "detached": {
+              "anonymous_datum": {
+                "f00": -1,
+                "f08": 2592000
+              },
+              "assembly_configuration_id": 0,
+              "assembly_update_stamp": 101,
+              "original_datum_id": 15,
+              "world_normal": {
+                "x": -0.0,
+                "y": 1.0,
+                "z": 0.0
+              },
+              "world_origin": {
+                "x": 0.1074,
+                "y": 0.0,
+                "z": 0.0123
+              }
+            },
+            "resolved": {
+              "configuration_id": 0,
+              "datum": {
+                "f00": 15,
+                "f08": 2592000
+              },
+              "initial_rigid_status": 0,
+              "occurrence_id": 18,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "native_acceptance": false,
+      "request_sha256": "07d1dfc46f338195745a7536d05ebf2a5d25f2a5284cf21b9fac0644c82ec948",
+      "schema": "kit.sw2026.generated-coincident-mate-bundle.v1",
+      "writer_output_count": 2
+    },
+    {
+      "assembly": {
+        "bytes": 9199,
+        "sha256": "066d9f767b65cbebb1a53e6306e1501643632c63e51d6ce5196124ff4c961a47",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2330,
+            "sha256": "e195af7d951f440e00132fd1010d6e56374d86603bc6703b6bb19ec9972d9633"
+          },
+          "Contents/Config-0": {
+            "bytes": 21395,
+            "sha256": "403f8532162324242a7b736f3b90fad61c9939fd65c6943b10bc6af0e737e0fb"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 2946,
+            "sha256": "c475af7fecdf6c125e689648fdea043b1fb01d4baa8d4db77bc22a5280dd4cb6"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1085,
+            "sha256": "8b5833fa00bd97517db316aa6fa4c5549708094f332a75d717d7121c31150170"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 567,
+            "sha256": "131676d181fe94d9888e78e80e7e903518312375104e6fd1cbf5e3f39fb475c1"
+          },
+          "Header2": {
+            "bytes": 1085,
+            "sha256": "708c74574e14a94c7de56989b26c77e6016e6a269b6829abae91adbe60e048fe"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2058,
+            "sha256": "2935edd2d1b9723732899e12b0f0402086169bfab3d78e87445f71cd50d86532"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1130,
+            "sha256": "9b131e2e2f37e0364bee5b8c6f89accf40e478ebaaa47497899dae3f7a34b1c4"
+          }
+        }
+      },
+      "child": {
+        "bytes": 8582,
+        "sha256": "59b68b60ca27aaa697ce783d5b94098d1979b9a1605959c823e3c189e968e64c",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "bb4192ed168d22ce2fb2f85ec030ebbfcdd6a6074e302351c69402d58a69ef02"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+          },
+          "Contents/Config-0": {
+            "bytes": 21124,
+            "sha256": "0eb2f0419e3882167675d7544c0d12df5eda038e88460997b33ef608b5a99f90"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 689,
+            "sha256": "54b5d0170d185d0575a90955f5b4d3145a1398830e3c6cb4cbdd23b5a9e93aa5"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17486,
+            "sha256": "41c3b4776c28cdd408191737abf4e88ea92ba62f6834f29bb2575bbaad68b08c"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 689,
+            "sha256": "c44f63f187a3af05a19042d15e3a9aa15162e4c2623380b88fdd2513a564253f"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1576,
+            "sha256": "1a9ff71a656d128ee8ecc6866d620be6d002789b164b5a0225278d82a81be709"
+          }
+        }
+      },
+      "heldout_inputs_tested": 0,
+      "input_runtime_file_access_attempts": 0,
+      "inspection": {
+        "config_map_next_index": 76,
+        "configuration_highest_id": 19,
+        "creation_logs": [
+          {
+            "name": "Aligned Plane Constraint",
+            "object_id": 19,
+            "timestamp": 1794700055
+          },
+          {
+            "name": "Aligned Plane Constraint",
+            "object_id": 19,
+            "timestamp": 1794700055
+          }
+        ],
+        "fixed_occurrence": 1,
+        "group_id": 16,
+        "logical_round_trips": [
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgr"
+        ],
+        "mate_fields": {
+          "f0c": 1,
+          "f2a0": -2049997440,
+          "f2a4": 31290514,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f3b4": 1,
+          "f3b8": 0
+        },
+        "mate_id": 19,
+        "mate_list_bytes": 2946,
+        "mate_map_next_index": 161,
+        "mate_name": "Aligned Plane Constraint",
+        "next_wrapper_id": 2,
+        "resolved_map_next_index": 133,
+        "wrappers": [
+          {
+            "detached": {
+              "anonymous_datum": {
+                "f00": -1,
+                "f08": 2592000
+              },
+              "assembly_configuration_id": 0,
+              "assembly_update_stamp": 101,
+              "original_datum_id": 15,
+              "world_normal": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0
+              },
+              "world_origin": {
+                "x": 0.1391,
+                "y": 0.0,
+                "z": -0.0177
+              }
+            },
+            "resolved": {
+              "configuration_id": 0,
+              "datum": {
+                "f00": 15,
+                "f08": 2592000
+              },
+              "initial_rigid_status": 0,
+              "occurrence_id": 18,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "detached": {
+              "anonymous_datum": {
+                "f00": -1,
+                "f08": 2592000
+              },
+              "assembly_configuration_id": 0,
+              "assembly_update_stamp": 101,
+              "original_datum_id": 15,
+              "world_normal": {
+                "x": -0.0,
+                "y": 1.0,
+                "z": 0.0
+              },
+              "world_origin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            "resolved": {
+              "configuration_id": 0,
+              "datum": {
+                "f00": 15,
+                "f08": 2592000
+              },
+              "initial_rigid_status": 0,
+              "occurrence_id": 17,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "native_acceptance": false,
+      "request_sha256": "4c856e7cf32915549545f6cdb21ec396ffdd056986b67ec61d215c1e85b2cc44",
+      "schema": "kit.sw2026.generated-coincident-mate-bundle.v1",
+      "writer_output_count": 2
+    }
+  ],
+  "guards": {
+    "missing_datum": {
+      "rejected": true,
+      "request_sha256": "58fdfdd21bf01aa0765d93d20665585ca808f1933adb562eb6d5e8ddc9684af3"
+    },
+    "same_occurrence": {
+      "rejected": true,
+      "request_sha256": "9d73872a75258277b2b6e0c62224aa9e55bfef98f9b6cd5b9fb72c22798f13bb"
+    },
+    "unsupported_alignment": {
+      "rejected": true,
+      "request_sha256": "d5be71b06202c77e703979a80714d456a6d9dde2700fc727c59b497d4b71ba87"
+    }
+  },
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "schema": "kit.sw2026.generated-coincident-mates.v1"
+}

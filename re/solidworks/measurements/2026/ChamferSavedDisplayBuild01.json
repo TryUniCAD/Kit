@@ -1,0 +1,751 @@
+{
+  "angular_static_evidence_sha256": "7a696419144538fb6e876e568d633ce9f05a8cc3d57c0bcacf06ce7204e2f2f0",
+  "base": "4f3fe8ee989b7df7b15c9b87c29793617047e1aa",
+  "cases": [
+    {
+      "case": "ChamferDistanceAxialA",
+      "generated_scope": {
+        "analytic_mass_and_area_checks": 5,
+        "analytic_vertices": 10,
+        "archive_sha256": "99673253252ad8ba880ad1921fdd27ccd657eebcc156789454a10a590738e43d",
+        "cold_cache_absent": true,
+        "comparison": {
+          "D1": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              25
+            ],
+            "max_difference": 1.3877787807814457e-17,
+            "source_ids": [
+              35,
+              33
+            ],
+            "vector_and_scalar_checks": 14
+          },
+          "D2": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              26
+            ],
+            "max_difference": 3.742373919797964e-15,
+            "source_ids": [
+              35,
+              34
+            ],
+            "vector_and_scalar_checks": 18
+          }
+        },
+        "exact_typed_roles": [
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            1,
+            null
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            0,
+            0
+          ]
+        ],
+        "linked_stream_sha256": {
+          "Contents/Config-0": "1483119bba332105ec5e7276ddbd8493c2625c8a99186370c69d0640d18c967c",
+          "Contents/Config-0-ResolvedFeatures": "09cca0ab33c68f68e5841df20f1e5f8a30396ea9ac6a0a0b955ecd4d76955758"
+        },
+        "map_owned_driver_ids": [
+          25,
+          26
+        ],
+        "refused": [
+          "missing_view",
+          "turned_view",
+          "swapped_view_alias",
+          "wrong_clearance_side",
+          "interior_text",
+          "boundary_text",
+          "linear_mode"
+        ]
+      },
+      "intent_sha256": "1414dab6b20f03704f488c8e5f6af9abc2d7b9f4e2fa7bf3191e4fe9865687c7",
+      "phase": "original",
+      "runtime_accesses": 0,
+      "source_exterior_scores": [
+        0.08087228631777924,
+        0.29895948502874425
+      ],
+      "source_flags_outside_projection": [
+        2147484711,
+        2147484711
+      ],
+      "source_linked_sha256": {
+        "Contents/Config-0": "91e3a30a1a20d19ff46d9526f50146ad6314f52944bfef48b066d6f2c6c0993d",
+        "Contents/Config-0-ResolvedFeatures": "a538060ba62d87b387b3e31d71219aa20c71149df5f759797c68afa1752f55a4"
+      },
+      "source_sha256": "836084659fbd2875467c3e74c342f3ef5c6863cc1cc385431f046c5cc829d2b2",
+      "source_stations": [
+        1.2499999999999993,
+        1.5
+      ],
+      "source_still_refuses_publication": true,
+      "source_view": {
+        "AngleText": [
+          0.004771414788104143,
+          -0.003785785326777279
+        ],
+        "CatalogValue": [
+          {
+            "BasisValue": [
+              [
+                1.0,
+                0.0,
+                -0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              [
+                0.0,
+                1.0,
+                -0.0
+              ]
+            ],
+            "NameValue": "*Top"
+          },
+          {
+            "BasisValue": [
+              [
+                -1.0,
+                0.0,
+                -0.0
+              ],
+              [
+                -0.0,
+                1.0,
+                -0.0
+              ],
+              [
+                -0.0,
+                0.0,
+                -1.0
+              ]
+            ],
+            "NameValue": "*Back"
+          }
+        ],
+        "DesignIntent": true,
+        "DistanceText": [
+          1.2499999999999993,
+          -0.004125
+        ],
+        "DriverView": "*Back",
+        "LeadersValue": [
+          6029357,
+          0
+        ],
+        "WitnessLength": 0.009999999999999998
+      },
+      "source_warm_state": {
+        "active_payload_sha256": "7ee250ed76156459e15799a870b96ecbd4f4ae4caf37f826c2fb255c9bdf8530",
+        "area_m2": 0.008377567428350097,
+        "centroid_m": [
+          0.00669078491294771,
+          -0.008458616934676947,
+          0.011875000000000002
+        ],
+        "mark_ids": [
+          13,
+          11,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          222,
+          48
+        ],
+        "volume_m3": 4.8205552037948316e-05
+      }
+    },
+    {
+      "case": "ChamferDistanceAxialA",
+      "generated_scope": {
+        "analytic_mass_and_area_checks": 5,
+        "analytic_vertices": 10,
+        "archive_sha256": "52c027b3d270fc65ad19bd1da247352a496b1cdbec56a74533071035a16e3a8e",
+        "cold_cache_absent": true,
+        "comparison": {
+          "D1": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              25
+            ],
+            "max_difference": 1.1102230246251565e-16,
+            "source_ids": [
+              35,
+              33
+            ],
+            "vector_and_scalar_checks": 14
+          },
+          "D2": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              26
+            ],
+            "max_difference": 3.884194229483362e-15,
+            "source_ids": [
+              35,
+              34
+            ],
+            "vector_and_scalar_checks": 18
+          }
+        },
+        "exact_typed_roles": [
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            1,
+            null
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            0,
+            0
+          ]
+        ],
+        "linked_stream_sha256": {
+          "Contents/Config-0": "1483119bba332105ec5e7276ddbd8493c2625c8a99186370c69d0640d18c967c",
+          "Contents/Config-0-ResolvedFeatures": "606c7a158f348e6ba3f8b5f654f8e625ddcb036db09c066fb99ae413ff5113b8"
+        },
+        "map_owned_driver_ids": [
+          25,
+          26
+        ],
+        "refused": [
+          "missing_view",
+          "turned_view",
+          "swapped_view_alias",
+          "wrong_clearance_side",
+          "interior_text",
+          "boundary_text",
+          "linear_mode"
+        ]
+      },
+      "intent_sha256": "8c7d0c642b45802ca3d5ae7ca9c4b1a25952f05c3189b5c261dc1ddc03bd9168",
+      "phase": "edited",
+      "runtime_accesses": 0,
+      "source_exterior_scores": [
+        0.0808722863177793,
+        0.29895948502874414
+      ],
+      "source_flags_outside_projection": [
+        2181039143,
+        2147484711
+      ],
+      "source_linked_sha256": {
+        "Contents/Config-0": "eb33f8d8108e68b1348fcf380abfd6a34461f011f532f5ccb42964870ffa802c",
+        "Contents/Config-0-ResolvedFeatures": "caeec2c343eb574968d4be11572e2aa692e3242826659a37980405f0cdb741e8"
+      },
+      "source_sha256": "1da486887e30e7e33fab8e482c8bd170302a75126bd106980a2baeb492a94d2b",
+      "source_stations": [
+        1.2499999999999993,
+        1.5
+      ],
+      "source_still_refuses_publication": true,
+      "source_view": {
+        "AngleText": [
+          0.004771414788104143,
+          -0.0037857853267772787
+        ],
+        "CatalogValue": [
+          {
+            "BasisValue": [
+              [
+                1.0,
+                0.0,
+                -0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              [
+                0.0,
+                1.0,
+                -0.0
+              ]
+            ],
+            "NameValue": "*Top"
+          },
+          {
+            "BasisValue": [
+              [
+                -1.0,
+                0.0,
+                -0.0
+              ],
+              [
+                -0.0,
+                1.0,
+                -0.0
+              ],
+              [
+                -0.0,
+                0.0,
+                -1.0
+              ]
+            ],
+            "NameValue": "*Back"
+          }
+        ],
+        "DesignIntent": true,
+        "DistanceText": [
+          1.2499999999999993,
+          -0.004125
+        ],
+        "DriverView": "*Back",
+        "LeadersValue": [
+          6029357,
+          0
+        ],
+        "WitnessLength": 0.01
+      },
+      "source_warm_state": {
+        "active_payload_sha256": "2043764a90af1a8ea0653ed0c206a8128f7b7f704d42afd6614e5bd987c15b06",
+        "area_m2": 0.008355008431283423,
+        "centroid_m": [
+          0.006641813539125903,
+          -0.008424070929417314,
+          0.011874999999999998
+        ],
+        "mark_ids": [
+          21,
+          19,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          221,
+          46
+        ],
+        "volume_m3": 4.8110272384614645e-05
+      }
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "generated_scope": {
+        "analytic_mass_and_area_checks": 5,
+        "analytic_vertices": 10,
+        "archive_sha256": "d898e1920eb8e08744c286271e3e5f1bad1ef397581c6984e41b2a67572755e7",
+        "cold_cache_absent": true,
+        "comparison": {
+          "D1": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              25
+            ],
+            "max_difference": 1.0417371955916405e-17,
+            "source_ids": [
+              35,
+              33
+            ],
+            "vector_and_scalar_checks": 14
+          },
+          "D2": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              26
+            ],
+            "max_difference": 3.554447978966673e-15,
+            "source_ids": [
+              35,
+              34
+            ],
+            "vector_and_scalar_checks": 18
+          }
+        },
+        "exact_typed_roles": [
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            3,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            4,
+            null
+          ]
+        ],
+        "linked_stream_sha256": {
+          "Contents/Config-0": "17d13b7c5ed082f38315b07a88a7c01e79ca466cbb42e138d0ce0e78acdd96c6",
+          "Contents/Config-0-ResolvedFeatures": "989b5d0ed08ea4a4786b8aece78433ab3dddead92eab119afaabd97b8456a07b"
+        },
+        "map_owned_driver_ids": [
+          25,
+          26
+        ],
+        "refused": [
+          "missing_view",
+          "turned_view",
+          "swapped_view_alias",
+          "wrong_clearance_side",
+          "interior_text",
+          "boundary_text",
+          "linear_mode"
+        ]
+      },
+      "intent_sha256": "f400b543c973376c7ecc3168560847422037cddd2f6606eac4e890fc37120786",
+      "phase": "original",
+      "runtime_accesses": 0,
+      "source_exterior_scores": [
+        0.08705744372276618,
+        0.40427970430238136
+      ],
+      "source_flags_outside_projection": [
+        2147484711,
+        2147484711
+      ],
+      "source_linked_sha256": {
+        "Contents/Config-0": "48756c6afc5291fcf751c386c71ffc03364ba422eb1b0db9de7dda0b67e29b79",
+        "Contents/Config-0-ResolvedFeatures": "2626e5f5edc53c6a45dba23cca529fd3f6655c11970086e3baa71d672599c8fb"
+      },
+      "source_sha256": "feeca66dd548eb6361c7626385302d6bf4a64ca22c027504d0f8bf8b9a58ee15",
+      "source_stations": [
+        1.2500000000000002,
+        1.5
+      ],
+      "source_still_refuses_publication": true,
+      "source_view": {
+        "AngleText": [
+          -0.004926819359767142,
+          0.004778112547889842
+        ],
+        "CatalogValue": [
+          {
+            "BasisValue": [
+              [
+                1.0,
+                0.0,
+                -0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              [
+                0.0,
+                1.0,
+                -0.0
+              ]
+            ],
+            "NameValue": "*Top"
+          },
+          {
+            "BasisValue": [
+              [
+                -0.0,
+                0.0,
+                1.0
+              ],
+              [
+                -0.0,
+                1.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "NameValue": "*Left"
+          }
+        ],
+        "DesignIntent": true,
+        "DistanceText": [
+          1.2500000000000002,
+          0.0033749999999999995
+        ],
+        "DriverView": "*Left",
+        "LeadersValue": [
+          6029357,
+          0
+        ],
+        "WitnessLength": 0.009999999999999997
+      },
+      "source_warm_state": {
+        "active_payload_sha256": "7ed6db2013a0208b1779d6c1dbb5f6ddf01998195532756dd795bfdee7f016d7",
+        "area_m2": 0.006924986158140645,
+        "centroid_m": [
+          -0.01225,
+          0.007806332988457015,
+          0.014067445612964236
+        ],
+        "mark_ids": [
+          13,
+          11,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          227,
+          48
+        ],
+        "volume_m3": 3.888303825277104e-05
+      }
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "generated_scope": {
+        "analytic_mass_and_area_checks": 5,
+        "analytic_vertices": 10,
+        "archive_sha256": "fc90a0d4fa7df0206b6125e9ad053928e55567dfe728ca5d04e49dc9f0c8dcf3",
+        "cold_cache_absent": true,
+        "comparison": {
+          "D1": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              25
+            ],
+            "max_difference": 1.0417371955916405e-17,
+            "source_ids": [
+              35,
+              33
+            ],
+            "vector_and_scalar_checks": 14
+          },
+          "D2": {
+            "generated_flags_outside_projection": 2147484775,
+            "generated_ids": [
+              27,
+              26
+            ],
+            "max_difference": 3.526596831064619e-15,
+            "source_ids": [
+              35,
+              34
+            ],
+            "vector_and_scalar_checks": 18
+          }
+        },
+        "exact_typed_roles": [
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            3,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            4,
+            null
+          ]
+        ],
+        "linked_stream_sha256": {
+          "Contents/Config-0": "17d13b7c5ed082f38315b07a88a7c01e79ca466cbb42e138d0ce0e78acdd96c6",
+          "Contents/Config-0-ResolvedFeatures": "bc3bbe21c89e9835aea2d09751b0cb3c42e0be27e01988efbf2142e2a87cd401"
+        },
+        "map_owned_driver_ids": [
+          25,
+          26
+        ],
+        "refused": [
+          "missing_view",
+          "turned_view",
+          "swapped_view_alias",
+          "wrong_clearance_side",
+          "interior_text",
+          "boundary_text",
+          "linear_mode"
+        ]
+      },
+      "intent_sha256": "868062baf439acaab5f6fd1dbd9e1f9254befedcc6435ce7fef382cda52c0d96",
+      "phase": "edited",
+      "runtime_accesses": 0,
+      "source_exterior_scores": [
+        -0.25820050332283223,
+        0.6103685715142991
+      ],
+      "source_flags_outside_projection": [
+        2181039143,
+        2147484711
+      ],
+      "source_linked_sha256": {
+        "Contents/Config-0": "0bb90eeedced15f5122d2218edfd67ad8cdcd2f5f963fe80bf523d6e29e736c4",
+        "Contents/Config-0-ResolvedFeatures": "de2076219e8212f12d72adcc09b93e35e4b15af4793a1a8b013eb1b4f755c566"
+      },
+      "source_sha256": "e82b727876b1db00a986372a7fdc7efb897185ebf46add9acab3b2677f2fd197",
+      "source_stations": [
+        1.2500000000000002,
+        -0.5
+      ],
+      "source_still_refuses_publication": true,
+      "source_view": {
+        "AngleText": [
+          -0.004926819359767143,
+          0.004778112547889843
+        ],
+        "CatalogValue": [
+          {
+            "BasisValue": [
+              [
+                1.0,
+                0.0,
+                -0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              [
+                0.0,
+                1.0,
+                -0.0
+              ]
+            ],
+            "NameValue": "*Top"
+          },
+          {
+            "BasisValue": [
+              [
+                -0.0,
+                0.0,
+                1.0
+              ],
+              [
+                -0.0,
+                1.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "NameValue": "*Left"
+          }
+        ],
+        "DesignIntent": true,
+        "DistanceText": [
+          1.2500000000000002,
+          0.0033749999999999995
+        ],
+        "DriverView": "*Left",
+        "LeadersValue": [
+          6029357,
+          0
+        ],
+        "WitnessLength": 0.009999999999999997
+      },
+      "source_warm_state": {
+        "active_payload_sha256": "c5caa0e60f8d0948f0eb8cad4cf9fa78172e33a313ec574dbcd67b756df6da03",
+        "area_m2": 0.006875344419912582,
+        "centroid_m": [
+          -0.01225,
+          0.007712529448625695,
+          0.01397690487991854
+        ],
+        "mark_ids": [
+          21,
+          19,
+          3,
+          1
+        ],
+        "matches_stored_brep": true,
+        "numerical_checks": 5,
+        "physical_slots": [
+          2,
+          226,
+          46
+        ],
+        "volume_m3": 3.861528092714349e-05
+      }
+    }
+  ],
+  "disclosed_lock_sha256": "a696a97d73129ef7ffd7e829dfff7d1729000309e1273c0bef70b5f2ceedddb8",
+  "guarded_model_processes": 8,
+  "guarded_source_processes": 4,
+  "new_heldout_cases": 0,
+  "new_native_processes": 0,
+  "oracle_build": "34.5.2.0604",
+  "published_cad_files": 0,
+  "saved_sdk_sha256": "4912e9b409b2d4d8ccd443c83fa5a690ea3b5eb03f82330f827c77120372fc73",
+  "schema": "kit.sw2026.chamfer-explicit-driver-display.v1",
+  "sources": {
+    "re/tooling/sw2026/edge_chamfer_source/CheckSavedChmfView.py": "0b3600f0b37219495d635ccba0c173f5a27177d619b0e9e608786dadc9a8a595",
+    "re/tooling/sw2026/edge_chamfer_source/SavedChmfDisplay.py": "c80945a66a80b46952f38ef4bf4309e8e6e5b6b1748b33add7e8ee2cdb1348aa",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfEdgeRoles.py": "f1ed22368f8753ddb050071702c0822331490ac6147474cd53c90c6471d8fd80",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfFrame.py": "a0eb1fca46e52030804c1440b45bce81cdd2448d4d6ee372dcb39ae60d7ba5f0",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfPlan.py": "97c935061dae724c964b4abb5a7e75beb6eb4de255a0df4db5d0d4f57fd057af",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfRefOwners.py": "4a5cf1527788eab10b81a5ed5fb7e42a333d388c8a743c3ca1c8e1532714a5db",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/ChmfStockGeom.py": "6074eb5aa33a54bf18f191a1aeac77ff897546dbae83cec578575a3f97fb8ac7",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/EmitChmfPart.py": "bfd03864d8c72ff0f77d60582d1d7ba486242ad03ed2462c822d8a9b7f3e748b",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfAngle.py": "b7038a52895d9ebd2a277b3c6413ec51e1f45a157ad14cb9d00a695b90e6ef34",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfDist.py": "488a8c13add22b9108e761aa024034d261e1cbea6be4ab5fe5f10696f5204468",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfDrivers.py": "83d162b205964a397d9e3f24c24de717a5b127c4f64353045b011ba20df74d82",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfGraph.py": "d82bd4b244d6732cf60b8262fdd4620b5aa08a05df0e4773e364ba4809945404",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfRefs.py": "003c802f0db7623d20d3625364547e46f4c31feb46d1262117fb1720b902ccce",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/MakeChmfView.py": "2ece54e168de45a9ec07949c8a98998ecdbe6d9cba7706a9fec0a3d73d8debd6",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/Views/ChmfViewInput.py": "39c1d288141d697ee76c930714c17a1f261b10e1968550e8531744a3bdac1e2f",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/Views/PickArcStation.py": "5a4f4f82636e09190c1edc1de297c765f0559467158810c3dda2e94e45e043a4",
+    "src/convert/adapters/solidworks/Archive/Construction/Chamfers/Views/PickChmfView.py": "6472e66c8c0742070f1acefef1dc42a8203434379eac4d1b1753aa2e3e238fdb"
+  },
+  "typed_archive_sha256": "7be3756016025093a917c74bc1b2480da140e2d19d1eab67f7c55c53f23f602e"
+}

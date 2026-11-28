@@ -341,3 +341,69 @@ revisions. The transfers list only body structure, B-rep and configurations.
 This equality covers the unavailable-property diagnostic and actual
 imported feature.
 [Exact transport contrast](../measurements/2026/LiteralPartTextOwners01.json)
+
+## Aggregate reader repair
+
+The hosted [aggregate run](https://github.com/TryUniCAD/Kit/actions/runs/45056066090)
+exposed three independent regressions. The local property test fixtures
+called publication without an exact native measurement. The integration
+of [the scoped literal reader](https://github.com/TryUniCAD/Kit/commit/a3f014640)
+also replaced the earlier modern empty-owner shape proof from
+[`1dc466807`](https://github.com/TryUniCAD/Kit/commit/1dc4668078b7bf71f5bae8666bb7d87400291af5).
+Finally, the previous fallback comparison treated the active body atom and
+cached Parasolid as one physical proof.
+
+The fixture now prepares the same authored triangular blind boss in memory
+and places its explicitly authored text streams in a scratch control. It
+makes no native publication claim. The actual version-19000 empty-owner
+check accepts just the observed 33-, 102- and 138-byte manager profiles by
+complete graph shape. The 102-byte file-only layout retains SHA-256
+`22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e`.
+The 138-byte control retains the digest recorded above. The modern
+reader checks these states with the bounded owner-depth parser. The
+legacy keyed layout continues to require both child owners. The genuine
+697-byte populated control refuses at the file owner's first nested
+property at offset 103.
+
+The tracked version-19000 L1 opens with complete text. Its binary-only
+variant retains its exact manager and reaches the existing native-only
+feature gate at ProfileFeature 26. A generated typed policy control
+changes only the signed `moCusPropMgr_c.f08` value from 1 to 2. Its manager
+SHA-256 is
+`68ddf954035f094bc198fef05d289ca8550eb929d30c2d057944b1dbd48b7e91`.
+The binary-only and XML-present variants both withhold all text and
+preserve the geometry and history. Ordinary conversion, the compatibility
+route, direct and registry writes, linked documents and JSON copies
+retain their refusals before any destination mutation.
+
+The physical failure cases compare the whole public document to a read of
+the same input with only text projection disabled. They separately
+verify the cached B-rep and the loss of its unproven body-atom join,
+the closed profile, the 22.95 mm diameter and the 17.825 mm blind depth.
+The fallback after a rejected Config-0 has 27 rows. A ModelHeader
+name disagreement leaves the typed model and its 19 rows intact. A
+stale `CMgr` cache name and a stale cached text value remain positive
+contrasts. A changed same-ID `CMgrHdr2` name refuses with the saved-owner
+diagnostic.
+
+On CPython 3.14.7, run the focused commands above with
+`-I -B`. The table hashes each worker's complete stdout. The five
+`part_text` workers and six disclosed reads completed with zero native
+processes. Newly prepared property source files have no matching
+current output receipt and remain outside public SOLIDWORKS writing.
+
+| Worker | Stdout SHA-256 | Checked boundary |
+| --- | --- | --- |
+| `CheckPhysicalPartText.py` | `cc23c7c56e1b44a367eb2f46c3443708defb4ed65854dc7f36ad385ee3f59436` | Five corrupt Config-0 inputs and zero typed external accesses |
+| `CheckPartTextOwners.py` | `ab0a7b4732e0a8019eb6223902ab9a65db8eaf2738324d158bed7976907efa29` | Two physical owner contrasts and zero typed external accesses |
+| `CheckBinaryPartText.py` | `6191c3ca1549cea1db62faaf32859de8f667975d8fc493445a33f1740e5a04e2` | Legacy malformed, modern binary-only empty and unknown policy variants |
+| `CheckLiteralTextWrite.py` | `f531c26e881a79acd0b399eebfe286d4f3db0b4083f15dd9df27652d9e399094` | Whole circular JSON inspection and both carrier refusal settings |
+| `CheckWritePartText.py` | `e058d17d26995b942fb61042f89f8029f3edc4b85929d0afdbc9cb5b7610e6f5` | Strict and relaxed read, all entry routes and unchanged destinations |
+| `VerifyLiteralPartText.py` | `67d272fc1358597e40e1f9faed2150398e226b464a047856a89b29e98cb20a69` | 23 native-backed values, 15 disclosed generated design-only values and twelve owner/XML refusals |
+
+The two older generated disclosures keep their verified strict full
+geometry refusal for the absent readable Parasolid payload. Their
+normal strict design-only reads now retain the actual sketch, editable
+dimensions and body producer. The prior native text lifecycle receipt
+covers its exact historical artifacts. It supplies no authority for
+newly generated output.

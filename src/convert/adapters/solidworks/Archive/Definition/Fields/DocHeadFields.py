@@ -3,8 +3,8 @@ from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
     MakeScalarRows,
 )
 
-# the current document owners share their ui state after the native identity and model selection
-KDocHeadFields: tuple[NativeField, ...] = (
+# document view owners share their exact fields after the native root identity
+KDocViewFields: tuple[NativeField, ...] = (
     NativeField("Node", "fac0"),
     *MakeScalarRows("u8", "fac8"),
     NativeField("Embed", "fae8", "mgXform_c.restore"),
@@ -24,6 +24,11 @@ KDocHeadFields: tuple[NativeField, ...] = (
     ),
     NativeField("Embed", "basedoc", "uiBaseDoc_c.Serialize"),
     NativeField("Embed", "fbf0", "uoModelData_c.restore"),
+)
+
+# notebook preferences and renderer presence follow the shared document view
+KDocHeadPrefix: tuple[NativeField, ...] = (
+    *KDocViewFields,
     NativeField("Node", "fb20"),
     *MakeScalarRows("i32", "fb54 fb3c fb40 fd68"),
     *MakeScalarRows("u8", "f850"),
@@ -39,21 +44,18 @@ KDocHeadFields: tuple[NativeField, ...] = (
     NativeField("Embed", "expand_vals", "su_CWordArray"),
     *MakeScalarRows("u16", "f7b8"),
     *MakeScalarRows("u8", "has_pwmaterial"),
+)
+
+# both renderer paths use the same embedded manager owner after their marker check
+KDefRenderer = NativeField("Embed", "f1110", "PWMaterialManager_c.restore")
+
+# the aggregate profile retains the measured classic appearance manager
+KDocHeadFields = (
+    *KDocHeadPrefix,
     NativeField(
         "Branch",
         "has_pwmaterial",
-        BodyValue=(
-            NativeField(
-                "Branch",
-                "has_pwmaterial",
-                BodyValue=(NativeField("Fail", "alternate renderer marker"),),
-                OtherValue=(
-                    NativeField("Embed", "f1110", "PWMaterialManager_c.restore"),
-                ),
-                ModeValue="NotEquals",
-                MaskValue=1,
-            ),
-        ),
+        BodyValue=(KDefRenderer,),
         ModeValue="Nonzero",
     ),
 )

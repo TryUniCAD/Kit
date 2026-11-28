@@ -1,0 +1,647 @@
+{
+  "control_identity_preserved": true,
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "distinct_processes": 3,
+  "heldout_inputs_read": 0,
+  "immutable_inputs_unchanged": true,
+  "native_acceptance": false,
+  "native_storage_writes": false,
+  "observer_sha256": "f947591fd534f18b5e83854bc61b8ee58f6231db2431e9098b04775daf1e5f06",
+  "owner": "assembly_occurrence",
+  "packet_sha256": "e05bd22ff715c41c1c6de1e71448cfa368bd2dc84441075657ec9569dc85d9f2",
+  "passed": true,
+  "phases": [
+    {
+      "numeric_checks": 74,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394456495070225,
+      "record_sha256": "b5a92c94fe25fca68f6abbc2391e697d219020ed94b9c796f4ffc413f0a7031c",
+      "recorded_equality_calls": 84,
+      "role": "ControlBefore",
+      "snapshots": {
+        "initial_options": [
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          }
+        ],
+        "rebuilt_options": [
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "numeric_checks": 76,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394457130374743,
+      "record_sha256": "e84aeeece859271f74054401376a878487b68a79353e474c26234fab3a06ffd1",
+      "recorded_equality_calls": 84,
+      "role": "Generated",
+      "snapshots": {
+        "initial_options": [
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 0,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "CoincidentY",
+            "occurrence": "SdkDatumPlateBeta-1",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "CoincidentY",
+            "occurrence": "SdkDatumPlateBeta-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 0,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "DistanceX",
+            "occurrence": "SdkDatumPlateBeta-1",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "DistanceX",
+            "occurrence": "SdkDatumPlateBeta-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 0,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "ParallelZ",
+            "occurrence": "SdkDatumPlateBeta-1",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "ParallelZ",
+            "occurrence": "SdkDatumPlateBeta-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          }
+        ],
+        "rebuilt_options": [
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 0,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "CoincidentY",
+            "occurrence": "SdkDatumPlateBeta-1",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "CoincidentY",
+            "occurrence": "SdkDatumPlateBeta-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 0,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "DistanceX",
+            "occurrence": "SdkDatumPlateBeta-1",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "DistanceX",
+            "occurrence": "SdkDatumPlateBeta-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 0,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "ParallelZ",
+            "occurrence": "SdkDatumPlateBeta-1",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "ParallelZ",
+            "occurrence": "SdkDatumPlateBeta-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "numeric_checks": 74,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394457758692484,
+      "record_sha256": "f42fdcbdd64cf72d4d007fca34e45bdf860185c84452f87af1325b2f61132dad",
+      "recorded_equality_calls": 84,
+      "role": "ControlAfter",
+      "snapshots": {
+        "initial_options": [
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          }
+        ],
+        "rebuilt_options": [
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Front Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Parallel1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Top Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Distance1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-1",
+            "other_context_specific_plane_equality": 1,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          },
+          {
+            "datum": "Right Plane",
+            "expected_specific_plane_equality": 1,
+            "feature_equality_codes": [
+              0,
+              0
+            ],
+            "mate": "Coincident1",
+            "occurrence": "CohortChild-2",
+            "other_context_specific_plane_equality": 0,
+            "repeated_reference_equality": 1,
+            "repeated_specific_plane_equality_codes": [
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "public_writer_qualified": false,
+  "raw_result_sha256": "f61c2576bc956c2f31eff18fdda05a1d558ae930e31d95e4c00ca5c310a32fa4",
+  "recorded_equality_calls": 252,
+  "schema": "kit.sw2026.sdk-ordered-mate-reference-probe-native.v1",
+  "scope": "matched read-only principal-plane object identity on disclosed A22 and unchanged SDK-generated ordered pair",
+  "task": "B04-SW2026-MATES",
+  "writer_output_count": 0
+}

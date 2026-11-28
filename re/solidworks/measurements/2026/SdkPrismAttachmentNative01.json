@@ -1,0 +1,265 @@
+{
+  "all_disclosed_cases_passed_own_check": true,
+  "artifact_reads_during_generation": 0,
+  "cases": [
+    {
+      "case": "SdkPrismRectangle",
+      "cold": {
+        "before_rebuild_bodies": 1,
+        "force_rebuilt_bodies": 1,
+        "input_sha256": "fbc55140007ffbb9fc01264246f3754d16df076f96d23e616dc99e87e0a68a7f",
+        "open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 0
+        },
+        "process_creation_filetime": 134395703961065297,
+        "stage": "cold open"
+      },
+      "cold_geometry": {
+        "area": {
+          "expected": 0.0029934000000000002,
+          "observed": 0.0029934000000000002
+        },
+        "com_x": {
+          "expected": 0.01575,
+          "observed": 0.015750000000000004
+        },
+        "com_y": {
+          "expected": 0.00305,
+          "observed": 0.00305
+        },
+        "com_z": {
+          "expected": 0.0063750000000000005,
+          "observed": 0.006375000000000001
+        },
+        "volume": {
+          "expected": 9.6217875e-06,
+          "observed": 9.6217875e-06
+        }
+      },
+      "edited_depth_m": 0.01024,
+      "edited_geometry": {
+        "area": {
+          "expected": 0.002701236,
+          "observed": 0.0027012359999999997
+        },
+        "com_x": {
+          "expected": 0.01575,
+          "observed": 0.01575
+        },
+        "com_y": {
+          "expected": 0.00305,
+          "observed": 0.00305
+        },
+        "com_z": {
+          "expected": 0.00512,
+          "observed": 0.00512
+        },
+        "volume": {
+          "expected": 7.727616e-06,
+          "observed": 7.727615999999999e-06
+        }
+      },
+      "fresh_reopen": {
+        "before_rebuild_bodies": 1,
+        "force_rebuilt_bodies": 1,
+        "input_sha256": "f40f194392f0a9fbb26fdd74e660f342c13af0f49249b7095f1f9e53253f41ab",
+        "open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 0
+        },
+        "process_creation_filetime": 134395704271983906,
+        "stage": "fresh reopen after editable depth change"
+      },
+      "initial_depth_m": 0.012750000000000001,
+      "owns_actual_output_atom": true,
+      "rebuilt_geometry": {
+        "area": {
+          "expected": 0.0029934000000000002,
+          "observed": 0.0029934000000000002
+        },
+        "com_x": {
+          "expected": 0.01575,
+          "observed": 0.01575
+        },
+        "com_y": {
+          "expected": 0.00305,
+          "observed": 0.00305
+        },
+        "com_z": {
+          "expected": 0.0063750000000000005,
+          "observed": 0.006375000000000001
+        },
+        "volume": {
+          "expected": 9.6217875e-06,
+          "observed": 9.6217875e-06
+        }
+      },
+      "reopen_geometry": {
+        "area": {
+          "expected": 0.002701236,
+          "observed": 0.0027012359999999997
+        },
+        "com_x": {
+          "expected": 0.01575,
+          "observed": 0.01575
+        },
+        "com_y": {
+          "expected": 0.00305,
+          "observed": 0.00305
+        },
+        "com_z": {
+          "expected": 0.00512,
+          "observed": 0.00512
+        },
+        "volume": {
+          "expected": 7.727616e-06,
+          "observed": 7.727615999999999e-06
+        }
+      },
+      "save": {
+        "errors": 0,
+        "success": true,
+        "warnings": 0
+      }
+    },
+    {
+      "case": "SdkPrismConcave",
+      "cold": {
+        "before_rebuild_bodies": 1,
+        "force_rebuilt_bodies": 1,
+        "input_sha256": "35321e35f19b624cb5b76bae566197ce3f632d4c5eed94bc50c7f538d8108c1f",
+        "open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 0
+        },
+        "process_creation_filetime": 134395704509567319,
+        "stage": "cold open"
+      },
+      "cold_geometry": {
+        "area": {
+          "expected": 0.002839,
+          "observed": 0.0028390000000000004
+        },
+        "com_x": {
+          "expected": 0.010271618625277161,
+          "observed": 0.010271618625277161
+        },
+        "com_y": {
+          "expected": 0.010264966740576496,
+          "observed": 0.010264966740576498
+        },
+        "com_z": {
+          "expected": 0.0093125,
+          "observed": 0.0093125
+        },
+        "volume": {
+          "expected": 8.399875e-06,
+          "observed": 8.399875e-06
+        }
+      },
+      "edited_depth_m": 0.022125,
+      "edited_geometry": {
+        "area": {
+          "expected": 0.0032029999999999997,
+          "observed": 0.003203
+        },
+        "com_x": {
+          "expected": 0.010271618625277161,
+          "observed": 0.010271618625277161
+        },
+        "com_y": {
+          "expected": 0.010264966740576496,
+          "observed": 0.010264966740576496
+        },
+        "com_z": {
+          "expected": 0.0110625,
+          "observed": 0.0110625
+        },
+        "volume": {
+          "expected": 9.978374999999999e-06,
+          "observed": 9.978375e-06
+        }
+      },
+      "fresh_reopen": {
+        "before_rebuild_bodies": 1,
+        "force_rebuilt_bodies": 1,
+        "input_sha256": "92fb5d8c5b2427a80d14275732af61d4158baa3d02e006f011df2ebba66607ac",
+        "open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 0
+        },
+        "process_creation_filetime": 134395704767258263,
+        "stage": "fresh reopen after editable depth change"
+      },
+      "initial_depth_m": 0.018625,
+      "owns_actual_output_atom": true,
+      "rebuilt_geometry": {
+        "area": {
+          "expected": 0.002839,
+          "observed": 0.002839
+        },
+        "com_x": {
+          "expected": 0.010271618625277161,
+          "observed": 0.010271618625277163
+        },
+        "com_y": {
+          "expected": 0.010264966740576496,
+          "observed": 0.010264966740576498
+        },
+        "com_z": {
+          "expected": 0.0093125,
+          "observed": 0.0093125
+        },
+        "volume": {
+          "expected": 8.399875e-06,
+          "observed": 8.399875e-06
+        }
+      },
+      "reopen_geometry": {
+        "area": {
+          "expected": 0.0032029999999999997,
+          "observed": 0.003203
+        },
+        "com_x": {
+          "expected": 0.010271618625277161,
+          "observed": 0.010271618625277161
+        },
+        "com_y": {
+          "expected": 0.010264966740576496,
+          "observed": 0.010264966740576496
+        },
+        "com_z": {
+          "expected": 0.0110625,
+          "observed": 0.0110625
+        },
+        "volume": {
+          "expected": 9.978374999999999e-06,
+          "observed": 9.978375e-06
+        }
+      },
+      "save": {
+        "errors": 0,
+        "success": true,
+        "warnings": 0
+      }
+    }
+  ],
+  "cold_geometry_absolute_tolerance": 1e-12,
+  "cold_geometry_relative_tolerance": 5e-07,
+  "distinct_native_processes": 6,
+  "healthy_controls": 2,
+  "heldout_inputs_read": 0,
+  "job_sha256": "3d12d797574fb11c84d28937cd6a03a30a9bb811752e67c0ecded4309036c33f",
+  "linked_capsule_cold_body_admitted_before_rebuild": true,
+  "oracle_build": "34.5.2.0604",
+  "preparation_sha256": "61a0a97e81e6b06f7f8588eff37e149e49461b67749145f910b94ec0ff96e527",
+  "proven_public_writer_families_added": 0,
+  "raw_native_result_sha256": "20b56a4a33aee9143d52d1c8e7d1be63481f1172a84e8df9d1e5673fe9943d3a",
+  "schema": "kit.sw2026.sdk-prism-attachment-native.v1",
+  "source_sha": "eee5cff0e9ceafba7785e4fec24ba68a01f05662"
+}

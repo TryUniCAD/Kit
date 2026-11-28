@@ -150,6 +150,17 @@ The published review records the selected model and reasoning alongside its revi
 The pinned image exports its Node binary's public certificate authorities to a PEM file and supplies it through `CODEX_CA_CERTIFICATE` and `SSL_CERT_FILE`.
 This restores native-client TLS trust without disabling certificate verification or downloading another authority bundle.
 
+## Probe hosted connectivity
+
+Use the `Account review` workflow on a reviewed ref containing the probe.
+Set only the `connectivity_probe` input to `true`.
+The job builds the review image from the pinned trusted source on the same runner type.
+It reports DNS and TLS reachability and the HTTP status from a credential-free HEAD request to each fixed service host.
+A response such as `401` or `405` still establishes HTTP reachability for this request.
+The job does not use the protected environment or run account review.
+It does not exercise the Rust Codex client, authenticate an account, run a model, or establish review approval.
+See the [reviewer connectivity change entry](../Changes/Review/ReviewerConnectivityProbe.md).
+
 ## If the task fails
 
 If token refresh fails, reseed the environment secret using a new dedicated login.

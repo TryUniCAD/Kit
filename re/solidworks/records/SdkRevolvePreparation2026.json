@@ -1,0 +1,70 @@
+{
+  "schema": "kit.sw2026.sdk-revolve-preparation-record.v1",
+  "scope": "internal ordinary canonical Front rectangular one-sided boss revolve only",
+  "source_layer": {
+    "manifest": "SourceStageable02.json",
+    "sha256": "c0a50d157bccceed36f90f0446f88492d729c4e46f3658983cc7b9ed924c63ed",
+    "paths": 28,
+    "new_modules": 25,
+    "annotation_only_consumers": 3
+  },
+  "closure": {
+    "manifest": "Source03.json",
+    "sha256": "76728cdbd332d6b9b00c19d873ce56eb746d4a9e7e12b00a4616e50257c59584",
+    "files": 4515,
+    "python_files": 4498
+  },
+  "baseline": {
+    "manifest": "BaseSource01.json",
+    "sha256": "ead445cfd87f174fcc3e62e48883aa3e6e7a823c0dd3fba8c8b5ec98677993c5"
+  },
+  "tools": {
+    "manifest": "ToolsFinal02.json",
+    "sha256": "0743fd9e8117f69bdc0ab3b60d4a654af9b7413d6b7ded1235deac8a40673a3e",
+    "files": 10,
+    "prior_failed_method_files_retained": true
+  },
+  "inputs": {
+    "manifest": "Inputs01.json",
+    "sha256": "ed2dd83b79191a3b50c6f597f49a441e001b33459fe9d65284e8d86dd81dc3ad",
+    "generated_designs": 4,
+    "read_states": 11,
+    "original_heldouts": 0
+  },
+  "proof": {
+    "raw_sha256": "ebb0f245f80f6d2a300dfcec81f301b5235731799591e48df2698fb951a7a966",
+    "sanitized": "../measurements/2026/SdkRevolvePreparationProcess01.json",
+    "sanitized_sha256": "6ce060bf3136be251b4378d894ac436dba13bbc273ec42aa376baeb41f9a6d5b",
+    "fresh_processes": 60,
+    "paired_reader_modes": 55,
+    "critical_model_stream_comparison_visits": 176,
+    "runtime_external_attempts": 0,
+    "metadata_qualification_complete": false
+  },
+  "native": {
+    "raw_sha256": "52833c66d1dd3f279d518217f6796f0df9338ebac565e9b5fd85d5c7a3433c51",
+    "lifecycle_adjudication_sha256": "25af072fc6d1122a593c12474c532a35f0b1b3987f519af39bedc3e91f5c27f9",
+    "fresh_processes": 10,
+    "candidate_numeric_checks": 340,
+    "healthy_controls": 2,
+    "original_heldout_credit": false
+  },
+  "unchanged_native_candidates": {
+    "SdkRevolveFullAlpha": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+    "SdkRevolveForwardBeta": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+    "SdkRevolveReverseBeta": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+    "SdkRevolvePartialGamma": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84"
+  },
+  "limitations": [
+    "populated native Biography remains outside fresh-only codec",
+    "the 60-process reader snapshot predates independent cache-free revolve geometry",
+    "public writer registration remains disabled",
+    "original held-out equivalence remains unmeasured"
+  ],
+  "later_reader_receipt": "../measurements/2026/SdkColdRevolveGeometry01.json",
+  "preserved_false_report": {
+    "sha256": "36515245792a3b275e6baaa24cbf7933151eaff0d1d02f6d01521f59c3ff2179",
+    "processes": 31,
+    "constructor_bytes_changed": false
+  }
+}

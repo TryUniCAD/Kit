@@ -11,29 +11,24 @@ from pathlib import Path as FilePath
 from subprocess import TimeoutExpired as ProcessTimeout, run as RunProcess
 from time import perf_counter as ClockTime
 
-from tests.Research.SupervisorClient import KRepoRoot
-
 # cold runner startup needs headroom beyond the observed censored warmup while later processes load the same assembly
 KColdCompileSeconds = 360
 
 
 # the first managed compiler start of a runner must not consume a fixture deadline meant for warm runs
 @OncePerProcess
-def WarmProgress() -> None:
+def WarmProgress(SourcePath: FilePath, ShellPath: FilePath) -> None:
     Started = ClockTime()
     try:
         Result = RunProcess(
             [
-                "powershell.exe",
+                str(ShellPath),
                 "-NoProfile",
                 "-NonInteractive",
                 "-File",
                 str(FilePath(__file__).with_name("ProgressFixture.ps1")),
                 "-Source",
-                str(
-                    KRepoRoot
-                    / "re/automation/CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs"
-                ),
+                str(SourcePath),
                 "-CompileOnly",
             ],
             capture_output=True,

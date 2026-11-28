@@ -1,0 +1,66 @@
+{
+  "control_author_sha256": "9b4b1f3da116761ff27781fedaabc64e89c88bd385868085f4f5204c9686d330",
+  "files": {
+    "module": {
+      "bytes": 8781,
+      "file": "OffsetModule.SLDASM",
+      "sha256": "f5bd894b220677e7c36b9601937bbce7da62fd94f242719aeea0a5bb1a074c6a"
+    },
+    "plate": {
+      "bytes": 8641,
+      "file": "LinkPlate.SLDPRT",
+      "sha256": "41805711f0fd60a7d8fb29eeed580afaf010a6493cb8a98538fdaf6604ea5680"
+    },
+    "root": {
+      "bytes": 8976,
+      "file": "TiltFrame.SLDASM",
+      "sha256": "0f7c9757a015617748722c059a5f470991b3db2a2a3a3326fe99aa5e0c78e939"
+    }
+  },
+  "generator_report_sha256": "09383a01155b220b423367fcdd5326091d39a78e131c9cac16e5b0aed0e5c1ae",
+  "heldout_inputs_read": 0,
+  "host_verification": {
+    "host_native_entry_rejected": true,
+    "modified_frozen_file_rejected": true,
+    "packet_verified_in_separate_process": true
+  },
+  "native_acceptance": false,
+  "native_execution": "pending",
+  "observer_sha256": "80cace6237aae82b1b9fc4ec223540e37b9e7f0a36f6b5796bee01d59ee89bf9",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "efc1cae76b8c7b0b6c0a9913e759248e32aa5ac4a15f0591a11aefd798dded53",
+  "prediction_sha256": "d22736293463d60315e038b8ebb86319a9f13a58da73fc03925260b83140f170",
+  "request_sha256": "51a7b7f90261584e0cf233a5fae5db82582f27c53b87284ceba99d4c2fa64691",
+  "schema": "kit.sw2026.generated-nested-assembly-native-trial-lock.v1",
+  "source_lock_sha256": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+  "tool_sha256": {
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectGeneratedNestedAssembly.py": "80cace6237aae82b1b9fc4ec223540e37b9e7f0a36f6b5796bee01d59ee89bf9",
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "ReplayIndexedAssemblyProgress.py": "4e7fe3c9b159ee5e0eabf96c08d1b27b64d4fd8187b22b39e8df0716739324a7",
+    "ReplayNestedAssemblyReopen.py": "60c8797a27b1179e61fd1ab38f1191a5371e3e49fb2c6c1136a104e5d6b01d92",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "writer_evidence_sha256": "2539defed11f4fffd6c84d4caf0297895b5f24d1fb1cb6f123b83dd1b5840560",
+  "writer_revision": "aa245b58e0dc9857f07e68aafa9727925ec52386",
+  "writer_tool_sha256": {
+    "NestedAssemblyBundleProcess.py": "c2cdcbdb42990a21453a4d2e1753ced794ae5f591c05aa28d71dd05ecbeeaad0",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMetadata.py": "583b7761943284dbeb9b655bd740a65856892132c614f046c6a113bdf58299fb",
+    "builders/AssemblyOccurrences.py": "4daf8beb31a85aa3f00fbd1092239e369797a22acc7611cac5c210850640988f",
+    "builders/AssemblyTargetState.py": "c6f40ce995779fd4451e25bd2a3801119c151fd45df6a18b145f247ab2d4dfe1",
+    "builders/ConfigurationHeader.py": "87197b7d9b108135d006cdd5053c7af60ae02ddd0d9c1661ca3cb292bc7e9906",
+    "builders/NestedAssembly.py": "a81270bf9cfbfb014d2dfad9b2bb4cf1ad5f2508d2ea0cf74d52b2b8d610acb3",
+    "builders/NestedAssemblyMetadata.py": "4c0c32570006b8a6b66610d0bb4cfa7cfc3ed62d60536c854dbc81e8be35d767",
+    "builders/Part.py": "b82c0dd08099e7c53f33dca6eb9a3f2dfbfaf6d8c156b41f80976f1afbcd1a3f"
+  }
+}

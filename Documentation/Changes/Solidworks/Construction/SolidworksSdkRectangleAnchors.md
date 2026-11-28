@@ -1,0 +1,9 @@
+# SDK rectangle origin anchor
+
+The internal SOLIDWORKS SDK graph constructor can attach a native model-origin coincidence to a fresh positive Front Plane rectangle that already has two driving lengths and four axis relations. It retains the actual origin and part ownership, emits a separate external point row and computes point handles, counters and relation use counts from the generated graph. Four schema-one reference codecs and the inline binary coincidence codec use the shared typed executors.
+
+Call `MakeCornerMut(profile, origin)` after `MakeRectDimsMut` and before the ordinary part composer. Unsupported frames, other origins, prior anchors and malformed point/line slots fail before publishing mutations. This internal API does not register another public writer path.
+
+The [field record](../../../../re/solidworks/records/SdkRectangleCornerAnchor2026.md) distinguishes computed geometry/ownership, native constructor defaults and still-open native/source-admission scope. The [source-only evidence](../../../../re/solidworks/measurements/2026/SdkRectangleCornerAnchor01.json) covers three independent designs, two builds per design, separate typed preparation, all ten streams compared with independent mathematical construction, fourteen rejected scopes per build and zero runtime input reads. The existing native cached Config boundary is documented [separately](../../../Gotchas/Conversion/Solidworks/Archive/Resolved/NativeAnchorConfigCachePrecedesResolved.md).
+
+An eight-process controlled native packet is prepared for independent width, height and leaf-depth edit/save/reopen with a fixed real origin corner. It has not yet qualified this SDK candidate. The `20×30×10 mm` fixture matches f14a's dimensions only; it is not a full FCStd conversion or a held-out acceptance result.

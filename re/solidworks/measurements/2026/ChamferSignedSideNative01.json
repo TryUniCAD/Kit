@@ -1,0 +1,131 @@
+{
+  "disclosed_source_comparisons": [
+    {
+      "passed": true,
+      "phases": [
+        {
+          "numeric_checks": 23,
+          "passed": true,
+          "phase": "open"
+        },
+        {
+          "numeric_checks": 23,
+          "passed": true,
+          "phase": "edited"
+        },
+        {
+          "numeric_checks": 23,
+          "passed": true,
+          "phase": "reopen"
+        }
+      ],
+      "slot": 0
+    },
+    {
+      "passed": true,
+      "phases": [
+        {
+          "numeric_checks": 23,
+          "passed": true,
+          "phase": "open"
+        },
+        {
+          "numeric_checks": 23,
+          "passed": true,
+          "phase": "edited"
+        },
+        {
+          "numeric_checks": 23,
+          "passed": true,
+          "phase": "reopen"
+        }
+      ],
+      "slot": 1
+    }
+  ],
+  "healthy_controls": true,
+  "heldout_credit": 0,
+  "lifecycle_slots": [
+    0,
+    1
+  ],
+  "manifest_sha256": "8db08a479cd2b3e29dd4d5ad38eec3e96631e0aec15f71868a37aea51d423f49",
+  "orchestration_failure": null,
+  "passed": true,
+  "phases": [
+    {
+      "exit_code": 0,
+      "lifetime": [
+        5780,
+        134397946269179027
+      ],
+      "phase_passed": true,
+      "receipt_sha256": "68cf95f278ed401bd087c4110e4bb51212c935a0d0e147d854d5494bc6711a34",
+      "role": "before",
+      "slot": null,
+      "timed_out": false
+    },
+    {
+      "exit_code": 0,
+      "lifetime": [
+        5852,
+        134397946557096927
+      ],
+      "phase_passed": true,
+      "receipt_sha256": "d6be95cc3b543357e10ba74b4118607e5b3c2aeabc497592fb982d3d2d7f35cc",
+      "role": "edit",
+      "slot": 0,
+      "timed_out": false
+    },
+    {
+      "exit_code": 0,
+      "lifetime": [
+        8076,
+        134397947461549863
+      ],
+      "phase_passed": true,
+      "receipt_sha256": "711d595d848c169d6fc9762a74578076a35cc753a9a343be8ce27db16612d323",
+      "role": "reopen",
+      "slot": 0,
+      "timed_out": false
+    },
+    {
+      "exit_code": 0,
+      "lifetime": [
+        6980,
+        134397947949419344
+      ],
+      "phase_passed": true,
+      "receipt_sha256": "59425864ce7e5ac506d7b0cdd0c84110987203a8cc6318c67cb87781701e7459",
+      "role": "edit",
+      "slot": 1,
+      "timed_out": false
+    },
+    {
+      "exit_code": 0,
+      "lifetime": [
+        1700,
+        134397948862447595
+      ],
+      "phase_passed": true,
+      "receipt_sha256": "8f5ce7873229979a41e43c476d40d91c962907bc6cf4a40c9b50c2078d50a9ab",
+      "role": "reopen",
+      "slot": 1,
+      "timed_out": false
+    },
+    {
+      "exit_code": 0,
+      "lifetime": [
+        2076,
+        134397949379716955
+      ],
+      "phase_passed": true,
+      "receipt_sha256": "9f019fd8be08c3db216f0d1c1ac46f934029fdb95d819b47f617fc915a937c88",
+      "role": "after",
+      "slot": null,
+      "timed_out": false
+    }
+  ],
+  "proper_distinct_lifetimes": true,
+  "schema": "kit.sw2026.chamfer-cold-candidate-trial.v1"
+}

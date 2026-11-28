@@ -4,8 +4,8 @@ The SDK archive codec reads and emits the version-19000 assembly Definition.
 Call `ReadModelDef(data, 19000, Assembly=True)` to inspect the complete stream.
 Use `MakeAssemblyDef(settings, preferences)` and
 `WriteModelDef(graph, Assembly=True)` to construct a stream from explicit
-presentation settings and all ten native save-as-part preferences. The part
-codec remains the default selection.
+presentation settings and all ten native save-as-part preferences. In the
+aggregate codec, `OrdinaryOnly=True` selects the strict part profile.
 
 Eight hash-pinned disclosed assemblies replay three distinct Definition
 streams exactly. Two fresh, guarded construction cases reproduce the

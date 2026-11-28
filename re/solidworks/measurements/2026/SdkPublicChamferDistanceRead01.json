@@ -1,0 +1,185 @@
+{
+  "compiled_manifest_sha256": "f8b77a00518ea5e8918fbb4dbebc466611c9c38f6e676f09da1f9f3b09a026fb",
+  "fresh_guarded_workers": 4,
+  "heldout_credit": 0,
+  "native_processes": 0,
+  "reader_base": "9e939d42ca5eaa9e71c1c253c255010c9ef9c99e",
+  "results": [
+    {
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "area_mm2": 10013.564833435667,
+      "bevel_normal": [
+        0.7071067811865476,
+        0.7071067811865476,
+        -0.0
+      ],
+      "centroid_mm": [
+        11.125425038639875,
+        -8.209891808346214,
+        9.375
+      ],
+      "comparison_count": 12,
+      "distance_axis": 0,
+      "drivers": [
+        [
+          "D1",
+          4.875,
+          25,
+          "sldprt:parameter:26:D1"
+        ]
+      ],
+      "exact_model_regeneration": true,
+      "exact_vertex_count": 10,
+      "feature_id": "sldprt:feature:26",
+      "mode_word": 18,
+      "neutral_sha256": "001a7a009a25202ee98120ab700cc9af6de597e085b19aab1638ad628efd77cd",
+      "ordinary_strict_reads": 2,
+      "refusals": [
+        "mode_word",
+        "alternate_flags",
+        "inactive_angle",
+        "stock_atom",
+        "edge_order"
+      ],
+      "runtime_reads": 0,
+      "stock_id": "sldprt:feature:19",
+      "topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "unmeasured_ordinary_writes_refused": true,
+      "volume_mm3": 55443.60351562501
+    },
+    {
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "area_mm2": 9983.306694781073,
+      "bevel_normal": [
+        0.5030687855502549,
+        0.8642463751760789,
+        -0.0
+      ],
+      "centroid_mm": [
+        11.043444938169543,
+        -8.271261754676036,
+        9.375
+      ],
+      "comparison_count": 12,
+      "distance_axis": 1,
+      "drivers": [
+        [
+          "D1",
+          4.875,
+          25,
+          "sldprt:parameter:27:D1"
+        ],
+        [
+          "D3",
+          8.375,
+          26,
+          "sldprt:parameter:27:D3"
+        ]
+      ],
+      "exact_model_regeneration": true,
+      "exact_vertex_count": 10,
+      "feature_id": "sldprt:feature:27",
+      "mode_word": 2,
+      "neutral_sha256": "21f5f6cb71555b448b670e1e0f647bc5ea147d139d27c3550591c3bf76957b4c",
+      "ordinary_strict_reads": 2,
+      "refusals": [
+        "mode_word",
+        "alternate_flags",
+        "inactive_angle",
+        "stock_atom",
+        "edge_order",
+        "secondary_name",
+        "secondary_persistent_id",
+        "secondary_alias",
+        "missing_secondary",
+        "secondary_signed_frame",
+        "secondary_label_view",
+        "secondary_catalog_frame"
+      ],
+      "runtime_reads": 0,
+      "stock_id": "sldprt:feature:19",
+      "topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "unmeasured_ordinary_writes_refused": true,
+      "volume_mm3": 55283.64257812501
+    },
+    {
+      "archive_sha256": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a",
+      "baseline_documents": [
+        "cc5ce7ed9c4406af627a6f56ff9a67aa76f8c403f71c5a2fc18df61ab072d124",
+        "1b79d94ae2a21eaa68dcbbf241b885035f334c8b61307b274a232f13472618f4"
+      ],
+      "coordinates_match": true,
+      "edges": 15,
+      "exact_model_regeneration": true,
+      "faces": 7,
+      "mode_word": 1,
+      "runtime_reads": 0,
+      "saved_signed_control": "8c02615d96eb306626eae24f3e9803d76fb6a701fa61c4106e33d2720fc1f86e",
+      "six_significant_figure_checks": 12,
+      "solids": 1,
+      "vertices": 10
+    },
+    {
+      "archive_sha256": "77d7292d2ccb45807479612f8f55e6f934e65a855d34213ffe4ed199193281ad",
+      "baseline_documents": [
+        "a2e872a54261e848856ed4a180efd0bd7a8b9a996a564a816a9350aa18239cf3",
+        "57d7b7a775de8a470e7f833db7778c36704e1c8391d6de8b171e72c3be798c44"
+      ],
+      "coordinates_match": true,
+      "edges": 15,
+      "exact_model_regeneration": true,
+      "faces": 7,
+      "mode_word": 1,
+      "runtime_reads": 0,
+      "saved_signed_control": "3dde6b2c0c6595dd661ea5fad981a3b3b44074c32934a6115cca1842c7f5f032",
+      "six_significant_figure_checks": 12,
+      "solids": 1,
+      "vertices": 10
+    }
+  ],
+  "schema": "kit.sw2026.cold-distance-chamfer-readback.v2",
+  "signed_trial_sha256": "8db08a479cd2b3e29dd4d5ad38eec3e96631e0aec15f71868a37aea51d423f49",
+  "source_sha256": {
+    "re/tooling/sw2026/edge_chamfer_source/ChamferModel.py": "073b680ce8a1ec568adc36167be070a16c20b4868d33caa0a703b7cfd07cc7fd",
+    "re/tooling/sw2026/edge_chamfer_source/ProvePublicChamferRead.py": "17b3eb8d0d587816b3e62b3d479a673c3b20d9ab7b270a538f3e64fec759bca7",
+    "re/tooling/sw2026/edge_chamfer_source/ProvePublicChamferWrite.py": "5d34e00338c286c5716f9b6e8b55102ed598ac0eec6075deae3897c74ac99dbb",
+    "re/tooling/sw2026/edge_chamfer_source/distance_pair/ObservePairArchives.py": "7e99d5881f5349c46833209358b524d6ba1e119e855e2daa3221207644cbd934",
+    "re/tooling/sw2026/edge_chamfer_source/distance_pair/ProvePairRead.py": "ddfa9a5de8035f730254cda05dfa3832e9bb153b03e8e51b87da8eea36fec138",
+    "re/tooling/sw2026/edge_fillet_source/FilletModel.py": "47d224eb44afcda2916d1990116c3944cbf9c46d30da6ea85539b53e33fa8730",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "ebf131c0b35ccee0755faf1fcd377712ff98e7ddc13b32683a345c081ea0d10d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfDoc.py": "6b0eae8e606eb0f50060add66fa287abf71960d3d5cb4c002901baceb8242bba",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfModel.py": "813627f74f78ebc3652b372b4683b926acdea6c94245401e3c7e751c87631678",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BuildChmfGeom.py": "c33624c802eb4bb4756c2853de2fa5671b2552b45f93e9e80171fc827821d086",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfCold.py": "ab9b01cd54de95eba6982edb02828addc28b86d233e081758263d452472882d0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfDist.py": "ea8f74622253149df548184b1636c55dbdf5537f95acd7806c37d753b4dba88f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfMode.py": "b4b0f1454fb1a9156dacfd2850cb9e79d733dcf381439ba7a3afcabfb6eb6cdf",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfView.py": "f28cb247864e29c649afeb5ff63aa89e29e947c19b8879ae67c85381e554d9cb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfDriver.py": "e6f9066a7b620f3bd9b3810886e47c9f761c2857e49d54b20de394bfead9baf1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfOwners.py": "00d03868dec53f64c4d2224b6154870e4ea03daf043f7a7179b65e7bcbfc23a3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfPartRead.py": "8289fc90531254bf03104054f4a986cb10f886d976573400481a33f0109a5f3e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfViewAxes.py": "62007eb50e073ac9c756eee3293b5a982c4aba7df45df9882360556009a1859b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/JoinChmfEdge.py": "e1439263f1bb6d4a71626342574fefd456dc6ba48e1af371629c88e3e0cebd56",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDef.py": "b1987c9d4ca73d286237cf7fc10ef16f18dcb9333fe6a21a1c3a90fbf6cf495c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDim.py": "cd9355aec40b4a8cfe251b8b8d6492b7cbe5cfab6b3c6337f97d7f7dcedb77c0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDrives.py": "08777d3941cfb8bdec62b8070f26718ba26d9f69c5d7fcf34758fbcbb82df7e3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfOwn.py": "16b21293fc2243c4b2d05f524bef47deb301bffdd58a9a430de14480c35934d0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfPick.py": "be416194331cba6bf3f5a1f21dbaf009d000c28c8adf676cb3dce926b75688df",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfRoots.py": "b567f908e58be2984d1843967274842023912f3af93b63b22ef2a159c71091ec",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfRows.py": "abf824d019d0503b67dae254abef6db0b5ee9d74305038e1a9a92607addde694",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfStock.py": "e70cf2bbab150ff50a529eeaab76f37cfe646295c9da480bbbe9aa908ed20092",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfViews.py": "9b432fb5819f2483bda7f464bfda9f6b68001970bf3586385826e02f7bdc68de",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/TryColdChmf.py": "c01d4d729305240a4f33a01f5e546e346f26bb544a79ab62a9a1ae9e7552e3ca"
+  }
+}

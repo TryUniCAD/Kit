@@ -1,0 +1,111 @@
+{
+  "schema": "kit.sw2026.reference-plane-dimension-ownership-retry.v1",
+  "original_source_packet_sha256": "9aad0b09e29433e61d0be577667fba399ca0d52310835b20b2bccff52c7afd08",
+  "original_api_metadata_sha256": "fb37d7dcde62d33b33564fa4fddba6f9c37ffbf3f681e70bd0bd4925e917b010",
+  "raw_receipts_sha256": {
+    "author": "2dc9377ba402d9a2efa8fbda1f14bbd2f4f8dfad2f5be6a2ea55198903c1ed87",
+    "before": "1f3cc48d588b7d3901d5b02e9ee580ec7b01f658aa7d3202d6dd3915d321fdd3",
+    "after": "59bad1ada3de1771ee10e3d07133f8b3d27ba08b4bf9b7ec49e77ec49a13efcd"
+  },
+  "native_identities": [
+    {
+      "process_id": 5512,
+      "process_creation_filetime": 134394136136595419,
+      "file_version": "34.5.2.0604",
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+    },
+    {
+      "process_id": 9844,
+      "process_creation_filetime": 134394136626927372,
+      "file_version": "34.5.2.0604",
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+    },
+    {
+      "process_id": 5284,
+      "process_creation_filetime": 134394137482100454,
+      "file_version": "34.5.2.0604",
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+    }
+  ],
+  "controls_healthy": true,
+  "distinct_native_processes": 3,
+  "original_failure": {
+    "case_id": "D01",
+    "phase": "author",
+    "api_calls": 244,
+    "checks_passed": 9,
+    "checks_failed": 1,
+    "first_failure": {
+      "stage": "SystemValue",
+      "type": "EvidenceFailure",
+      "error": "EvidenceFailure('circle driving radius: 0.01379 differs from 0.00831')",
+      "pending_capability": false
+    },
+    "radius_at_creation_m": 0.00831,
+    "creation_full_name": "D1@Sketch1@Part1.Part",
+    "later_radius_read_m": 0.01379,
+    "plane_distance_m": 0.01379,
+    "body_count": 1,
+    "native_mass_properties": {
+      "volume": 1.4036415028027867e-06,
+      "area": 0.0007717121291613496,
+      "com": [
+        8.205263352965236e-20,
+        1.0895718255931566e-50,
+        0.017025
+      ],
+      "mass": 1.4036415028027867e-06
+    },
+    "independent_expected_geometry": {
+      "volume": 1.403641502802787e-06,
+      "area": 0.0007717121291613497,
+      "com": [
+        0.0,
+        0.0,
+        0.017025
+      ]
+    },
+    "geometry_matched_six_significant_figures": true,
+    "whats_wrong": 0,
+    "needs_rebuild": 0,
+    "dialogs": [],
+    "controller_diagnostics": [],
+    "cleanup_errors": [],
+    "native_artifacts_saved": 0,
+    "failed_display_parameter_identity_recorded": false,
+    "exact_binding_cause_qualified": false
+  },
+  "retry_packet_sha256": "c8adf64a7c6d44bc0cc9df66b7526dc4d1f49028ec2840888201f3ae298a99c0",
+  "retry_tools_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "RunSealedNestedSourcePhase.py": "b783cf04f7aa2118b1bc170590cb673eeec0c80d90b4d3914ebf631d4a323ae1",
+    "ReferencePlaneSourcePlan.py": "9d878376609503827881a729f8e96c157c4066699eb9e772db7a33f0a08fd880",
+    "ReferencePlaneDimensions.py": "ada024b7a43428ca599ad14356adaeb4080b273559ea6214393691135f370504",
+    "AuthorReferencePlaneSources.py": "a2df6c81c6f8366cd5da14fefa685c279ef26f2c4271c6536e0afff71593c6aa",
+    "ReferencePlaneSourcePhase.py": "67792e517b979a9d48c37a1870c3f8bb889868c386b5f65c5e831461d7c08aff"
+  },
+  "retry_recipe_sha256": "d844c99881e6d268758d2def8b6c0747a1d8e7a2215c39036e224d953ecfa0e0",
+  "offline_checks": {
+    "python_parsed": true,
+    "frozen_verifier_exit": 0,
+    "disclosed_spec_bytes_identical": true,
+    "control_bytes_identical": true,
+    "original_frozen_author_hash_unchanged": true
+  },
+  "limits": {
+    "retry_native_phase_executed_by_this_agent": false,
+    "retry_binding_qualified": false,
+    "source_cohort_locked": false,
+    "heldout_inputs_read": 0,
+    "writer_output_count": 0,
+    "generated_native_acceptance": false
+  }
+}

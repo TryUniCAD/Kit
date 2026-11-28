@@ -1,0 +1,11 @@
+{
+  "complete_functions": 15,
+  "instruction_windows": 12,
+  "modules": 4,
+  "native_runs": 0,
+  "passed": true,
+  "record_sha256": "2ba412886bd23bbc389339e3b18ae8419759b98f45ddaee9faef75ad5d578705",
+  "source_only": true,
+  "tool_sha256": "506594455ff92483f2f7ef924929073095dfa4e7b20fb1c02061059bcd20d7a8",
+  "verified_imports": 4
+}

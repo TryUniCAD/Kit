@@ -1,0 +1,124 @@
+{
+  "author_report_sha256": "71c6075a39636b95ea9819a0e5bd8fd67fdfe957004759444d9c93b94d1054dc",
+  "authored_native_sources": 0,
+  "cases": [
+    {
+      "case": "CylinderA",
+      "native_spec": {
+        "depth_mm": 24.619,
+        "dimension_kind": "radial",
+        "edit": {
+          "factor": 1.157,
+          "target": "curve-0"
+        },
+        "end_condition": "blind",
+        "expected_bodies": 1,
+        "export_siblings": true,
+        "name": "OriginCylinderD01",
+        "plane": "front",
+        "profile": {
+          "center_mm": [
+            0.0,
+            0.0
+          ],
+          "kind": "circle",
+          "radius_mm": 7.277
+        },
+        "reverse": false,
+        "split": "discovery"
+      },
+      "predicted_pristine": {
+        "area_mm2": 1458.3724984651112,
+        "bodies": 1,
+        "center_mm": [
+          0,
+          0,
+          12.3095
+        ],
+        "volume_mm3": 4095.6706965056496
+      },
+      "second_independent_edit": {
+        "factor": 0.827,
+        "target": "depth"
+      },
+      "source_driver_ids": {
+        "Height": "freecad:parameter:Cylinder:Height",
+        "Radius": "freecad:parameter:Cylinder:Radius"
+      },
+      "source_feature_id": "freecad:feature:Cylinder",
+      "source_feature_name": "CylinderA feature",
+      "source_format": "freecad.fcstd",
+      "source_sha256": "dae320f82c08ccb47056aaafb31f46ac0c7136c3024ed0dc2b1484825df02faa",
+      "source_type": "Part::Cylinder",
+      "strict_neutral_sha256": "d57ced05cf769cf3b3054238342c5a2d9f131060d677f18cbbfdb12bca60106a"
+    },
+    {
+      "case": "CylinderB",
+      "native_spec": {
+        "depth_mm": 6.413,
+        "dimension_kind": "radial",
+        "edit": {
+          "factor": 0.887,
+          "target": "curve-0"
+        },
+        "end_condition": "blind",
+        "expected_bodies": 1,
+        "export_siblings": true,
+        "name": "OriginCylinderD02",
+        "plane": "front",
+        "profile": {
+          "center_mm": [
+            0.0,
+            0.0
+          ],
+          "kind": "circle",
+          "radius_mm": 11.831
+        },
+        "reverse": false,
+        "split": "discovery"
+      },
+      "predicted_pristine": {
+        "area_mm2": 1356.192649796445,
+        "bodies": 1,
+        "center_mm": [
+          0,
+          0,
+          3.2065
+        ],
+        "volume_mm3": 2820.0319017886372
+      },
+      "second_independent_edit": {
+        "factor": 1.133,
+        "target": "depth"
+      },
+      "source_driver_ids": {
+        "Height": "freecad:parameter:Cylinder:Height",
+        "Radius": "freecad:parameter:Cylinder:Radius"
+      },
+      "source_feature_id": "freecad:feature:Cylinder",
+      "source_feature_name": "CylinderB feature",
+      "source_format": "freecad.fcstd",
+      "source_sha256": "ea39285f9b32d6f173eed57ccdeb8182d3ac1c0e7b7f13516f4f53635061891a",
+      "source_type": "Part::Cylinder",
+      "strict_neutral_sha256": "e96966ed288a56d47b15725447fff72d1adc9941af9fbb651f84b0d20c62747d"
+    }
+  ],
+  "deck_tool_sha256": "05ea9543e0adc239b66adb01705c4b1ff5b931c0404392fdc57789749cba7d14",
+  "freecad_application_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "heldout_inputs_read": 0,
+  "independent_exact_preparation_sha256": "f1b7c782c26dad59a8ea45a4486ca22595171347201279212920e1d4a50ad738",
+  "native_processes_started": 0,
+  "oracle_build": "34.5.2.0604",
+  "passed": true,
+  "schema": "kit.sw2026.freecad-cylinder-native-source-deck.v1",
+  "writer_outputs": 0
+}

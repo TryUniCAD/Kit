@@ -1,0 +1,3116 @@
+{
+  "baseline_all_eighteen_bundles_identical": true,
+  "baseline_process_result_sha256": "066cb39ef0b43cf0438a4022a33d0d8142e6e2766074615342cc136dc68432e7",
+  "distinct_worker_processes": 82,
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "limitations": [
+    "native acceptance for the assembled SDK pair is pending",
+    "no held-out source or output was inspected",
+    "the child is one generated plain Front-supported rectangular forward blind boss with no driving sketch dimensions",
+    "one independent configuration and one aligned two-principal-plane mate are admitted",
+    "ordered multiple mates and nested assembly construction are separate tranches",
+    "adapter writing remains disabled",
+    "the mathematical counterpart compares every logical stream and uses the explicitly declared generated stream order for complete container identity"
+  ],
+  "native_acceptance": false,
+  "native_fixture": {
+    "fixture_sha256": "2040c0fbb1106a45bd98ffc94756ccb26fadf44f51b018a22e5f7f3bb7450658",
+    "generated_file_count": 2,
+    "native_processes_started": 0,
+    "prediction_sha256": "09da68de7b13022db6e9d860e249b541104b9ea83fa70087871ec4db282c5802",
+    "prior_fixture_sha256": "477c8a622e6b1d270440e50ce14aae7534212de21619a363f8f82338d4870ea9",
+    "repeated_builds_identical": true,
+    "same_files_as_prior_fixture": true
+  },
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "case": "one_occurrence",
+      "child_bytes_unchanged": true,
+      "diagnostic": "complete ordinary assembly requires two explicit resolved part occurrences",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "16b79f88ae56cdd718c8cc4f694e69214a554860c41659116c035867f5e37143",
+        "exit_code": 0,
+        "request_bytes": 8521,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1226e7f49ffa59f795b45a457db812e39a8040cdd0d7344451cf87f36f758b35",
+        "worker_pid": 12835
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "three_occurrences",
+      "child_bytes_unchanged": true,
+      "diagnostic": "complete ordinary assembly requires two explicit resolved part occurrences",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "2c25b4941338e0d1664deef3e151c5fc937afb8e4f8b39356138626783eab708",
+        "exit_code": 0,
+        "request_bytes": 8524,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "27674ee0b8202d31cbc1024251377ac24dee4c8b42d1ccfa5ed890eb81e0ec25",
+        "worker_pid": 12840
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "duplicate_occurrence",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly occurrence names must be distinct",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "3d1d72ec5b6ea41889d670fd73ab69fe1f6a50da2a3773fa2f93bca724548d76",
+        "exit_code": 0,
+        "request_bytes": 8527,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8d9f40158a9900294ed4fabbbad6a76e75c87c241d2e6b73b2707c522c87f6b9",
+        "worker_pid": 12843
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "nonrigid_frame",
+      "child_bytes_unchanged": true,
+      "diagnostic": "mate placement matrix must be proper and orthonormal",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "3f058b36d9f9799ac643b4b8127b9c56fe3a16b13fd20b0d97cd77a00280b199",
+        "exit_code": 0,
+        "request_bytes": 8521,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "89284b87267f45cab1eb7064e3ecb43ac7ae0a9b205d363581344273c6fd16d7",
+        "worker_pid": 13241
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "feature_name_collision",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly features require distinct authored names",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "2edb1ea223ca12c44655058f56ebf6b2fbc935b336772ae81c8fc654e244748d",
+        "exit_code": 0,
+        "request_bytes": 8529,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6fc546e759e212683bc773124a714636bf581fbfbaea476fb1b982ac18408701",
+        "worker_pid": 13251
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "same_parent_child_path",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly and generated child must retain different ordinary file identities",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "e7248a8fa864abcaee5318fff4108e50f0c2780e0017a8c799b1435e3c793a97",
+        "exit_code": 0,
+        "request_bytes": 8529,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a558c8f0a735322b495c7b358455d625f335aadc102d90a8aceece4f799e1251",
+        "worker_pid": 13252
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_parent_kind",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly self filename must match its actual authored name and assembly kind",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "f0a668bfeb49a069c685faa141c20f97550a563cf9666ece92a46e97dfb220a0",
+        "exit_code": 0,
+        "request_bytes": 8524,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e8d6afd772166b91c357d1c6c7cdfcb58701a24665c5ca11260070b4001efb30",
+        "worker_pid": 13254
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "provenance_disagreement",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly provenance differs across system header history or presentation owners",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "1a84a6df9e50043138104fad353c5d61a80084682d391b6ffe39e97a408bbe21",
+        "exit_code": 0,
+        "request_bytes": 8530,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0f373cae4bef1f087f99f268840ae9730d98ad228cd8a5e393d694637bcb66a4",
+        "worker_pid": 13255
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_effective_standard",
+      "child_bytes_unchanged": true,
+      "diagnostic": "first complete assembly requires effective iso standard one and archive version 19000",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "89b22a212b5b2c6ee66ed053d6b47ccb15e01e8797763d1786271b0770c0b701",
+        "exit_code": 0,
+        "request_bytes": 8531,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6fed0f2b59212200e98bd901b59cbc837c22e1c08868483a61683e32cb1bb298",
+        "worker_pid": 13256
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_style_language",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly provenance differs across system header history or presentation owners",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "91a74e7dd03fdb3984f5051e57a5ed43fd8cd48ba24fca80060ab78399b6f198",
+        "exit_code": 0,
+        "request_bytes": 8527,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1aab05927ffe60850892fe55b8088def665d0525d8502a62881ea9f994ef77c6",
+        "worker_pid": 13257
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_child_manager_header",
+      "child_bytes_unchanged": true,
+      "diagnostic": "part root requires a concrete schema one dmConfigMgrHeader_c",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "c5695d7d339e42a34b785aa64c2cea69cc2b1a8c33fd795f8e0217f5e7f4d66e",
+        "exit_code": 0,
+        "request_bytes": 8533,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8d70f44fc4d5b0485e478b26fd025c766fe65aec4dbbc6534968367368206603",
+        "worker_pid": 13258
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_child_model_class",
+      "child_bytes_unchanged": true,
+      "diagnostic": "part root requires a concrete schema one moPart_c",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "9a7b4d97de8eb4946e69db07658aa812d88a1604cc6623461a3643f037ef18f0",
+        "exit_code": 0,
+        "request_bytes": 8530,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b56fc983bfaf78c167cec56045d94069928073e25519ff32a0602f2aa1a230f8",
+        "worker_pid": 13259
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_child_config_alias",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly child requires the actual complete single active part configuration",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "5440a1eb5624881845d3c1ec52ea8deb4b96e2fb1a7fd1a13389f77fea61ff8f",
+        "exit_code": 0,
+        "request_bytes": 8531,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ad3d7c7038d706715973ac252568b0f8f8fb75d46c7a013fbe8eb7978e7066cb",
+        "worker_pid": 13260
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_file_handle",
+      "child_bytes_unchanged": true,
+      "diagnostic": "native file handle requires a nonempty typed string value",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "93c9092244b514edb7de9271b55059dee679b14a6409f2cec7cece9a6b32ff1f",
+        "exit_code": 0,
+        "request_bytes": 8524,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9aa324acfce977daef8c21dbff29f164eee9b5e3b11329f691d7e9edea3820d5",
+        "worker_pid": 13261
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "singular_transform",
+      "child_bytes_unchanged": true,
+      "diagnostic": "mate placement matrix must be proper and orthonormal",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "73064eaf94aefd5d97ee8fa87bdddda268882e5893efd8a38a44ad4d7cc98b60",
+        "exit_code": 0,
+        "request_bytes": 8525,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "85222dfb17fb55e7bfd9c63eb6e225db70d1e7e017c35c7004801bf618f7c229",
+        "worker_pid": 13262
+      },
+      "passed": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_child_config_owner",
+      "child_bytes_unchanged": true,
+      "diagnostic": "assembly child requires the actual complete single active part configuration",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "73b2b2c5b5eddc4fd8b314f24e9f00e9402f81ccf201e53c2d9c91d5e295759e",
+        "exit_code": 0,
+        "request_bytes": 8531,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8c1202cebf30fe3711f4cb72a4029c4bdbfcd8e2254ead9e707b47e8a94c2d20",
+        "worker_pid": 13263
+      },
+      "passed": true,
+      "writer_output_count": 0
+    }
+  ],
+  "passed": true,
+  "positive_cases": [
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9300,
+        "sha256": "6d0c5e52433843437b65152be1b40d81c6a9bf4d1da4932ccdfbfa3ace787eea",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "x",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "5510866f3104958ebf5049feba721adf4e40bb82aba6d39e85064d812f056927",
+        "exit_code": 0,
+        "request_bytes": 8495,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c48841cf1b4a153ac6a6ce59de268034b5c4b4b6f89b43cab6a817aec35c0186",
+        "worker_pid": 12491
+      },
+      "case": "CoincidentXAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "24c5f0ee5edb7338b6c4b774bff9adec5f44d3a3c9792ec2f220591a4eb45a83",
+        "exit_code": 0,
+        "request_bytes": 153529,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c82f1715bc8bdc99c98e67f1fc61f6f1ff401214867fab2d98628388af933910",
+        "worker_pid": 12495
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "coincident",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "24c5f0ee5edb7338b6c4b774bff9adec5f44d3a3c9792ec2f220591a4eb45a83",
+        "exit_code": 0,
+        "request_bytes": 153529,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "aee0bbd586673726271a54eeee73d97b6e243540972e6238c3e4e4714a80d683",
+        "worker_pid": 12492
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2378,
+          "sha256": "f56fb5ca76ba3949a2b71ba7070a68db4616ca4f5ad771a72d75e5d684b46760"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21413,
+          "sha256": "0d60de4f06062897c76c71531a682845d264bec542808d2bc42e4153ae3ad8a1"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 2790,
+          "sha256": "58b5cde603ea8ab9f77649d36b3319a900365f61d9ca4c761f9025381f3d9173"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1063,
+          "sha256": "72bd3faa42fa16253302f0b271d07aa8d2c17cad6c4afa9291ea31a9cc66b98e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 567,
+          "sha256": "e12974160806d72013a56a28efbefe8bd2906d9aaeec06b7fc0d04cdcb8553dd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1063,
+          "sha256": "d6c6e23ef949501259009c421b04ee5d7d3f0dab982cf09978cfc01e13ed4d6d"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2045,
+          "sha256": "788e896338c5c4225689a3e6b130f6a6b0396f350fa6a6688e7780ee2034397f"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1169,
+          "sha256": "b33e2f44ef3beb15db19e098b7340aa22e3a65b24210a5c10f5c5a16e11b0eca"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9339,
+        "sha256": "00b02dc2bbd28f1804551c79ebaf9e17c6fd8f25fe7fea2a574422ff8ef67082",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "x",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "c8a542ebecb12b6f7727c2159c4b436a8fb4be5505459a0f37d217f776e3c9e0",
+        "exit_code": 0,
+        "request_bytes": 8529,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6c9a22bbd2a51fc9a0441e108aeea709cefec9d1a97c8410c512d9fd00331495",
+        "worker_pid": 12498
+      },
+      "case": "CoincidentXBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "5188dc1d6d8c92bf104b52f6e1dce0e1b7f7b30471077cccf01ecf22aeb35b7d",
+        "exit_code": 0,
+        "request_bytes": 154035,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ed342415a01f48d5e868ed70a93b6826cf07c8fcf451edec8b73b0b27b4dda0a",
+        "worker_pid": 12505
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "coincident",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "5188dc1d6d8c92bf104b52f6e1dce0e1b7f7b30471077cccf01ecf22aeb35b7d",
+        "exit_code": 0,
+        "request_bytes": 154035,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "296a92c3c5097e9b1fb67ed8e5c090a627ac8a0d636acf86dbb0f6bb02efefb4",
+        "worker_pid": 12504
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "c490ed992b204c03ad0cd115ceb1650cc8a701c024e0cf43f4567d5f50429ffd"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21543,
+          "sha256": "acc1dac93325bf2fea34e246640d11abca5c8717bf12c5ae79d260905877afd3"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 3078,
+          "sha256": "6f771dec84702d1f39c611e6fcbf06aef92f3ac69afe397f368808e6309d3ccb"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1053,
+          "sha256": "dda920b9a4d07126724013c89f04e43319748bf33d7d7b95c2537514b2b1d39b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 565,
+          "sha256": "a16b0b9593191c427b0542ce23b5f8da85ee74a280491209c8e72141c49a7f63"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1053,
+          "sha256": "9e0f73329b39859a33603058085c31dbd7407d843b374390d91cda8b95064f23"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2051,
+          "sha256": "407850a3178ff84e2a390c2499afc182557adb3c036fe80a82cc3062eb9d7eff"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1164,
+          "sha256": "555881df6f06d83ecfed4b8ca4c0eb140d1a5d4f7243ac39e53c9718487388bc"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9290,
+        "sha256": "dbd7b441df5a29666836e697c3d0407ddf75f36893344f6bdeddaf9e61959b56",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "y",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "60654d527ec0747d3e82d7d3d71125475b2ef295286bb02aef523cf3a84b5b86",
+        "exit_code": 0,
+        "request_bytes": 8496,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "68efbef50700ed5465cd30315b45204195c7d1fffecef80a1d9b2a574c24f9c1",
+        "worker_pid": 12506
+      },
+      "case": "CoincidentYAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "4abbe7d452d48ae5f33bdfbb8baf18d5c40354d4885c24bb7ff0530bfd4444c2",
+        "exit_code": 0,
+        "request_bytes": 153518,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "741e846125ab0c5310176d6f15800569fe2faf100c1391de0ad86ea712d7addf",
+        "worker_pid": 12516
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "coincident",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "4abbe7d452d48ae5f33bdfbb8baf18d5c40354d4885c24bb7ff0530bfd4444c2",
+        "exit_code": 0,
+        "request_bytes": 153518,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "86379bdfbdfce8a37a044734d5d286a1e06ae4ea1a7daad302735ce02a057226",
+        "worker_pid": 12515
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2378,
+          "sha256": "58d3c97b11a8c66978ca0d236c178020d78aad399d317595f6cddcaf765221fa"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21413,
+          "sha256": "d14fe434b0b53580f5dc15056360ea9dbbcb547ca46709a5821bc666c8e05587"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 2790,
+          "sha256": "610afbb0fb523089ab5ff56e171727908f76625b9cfbde10ed2655024adf8b07"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1063,
+          "sha256": "9319ff81c1e113b777b15bc7929da46c1ad8f0f83a298c0d2fb6f7e1b1df849e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 567,
+          "sha256": "7e75a8b3d053e6b2cfb1407e73040c2a24fdfd85e8cb1166fb73b8aaabf992ed"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1063,
+          "sha256": "5f8b7df04a82a8ed5ae96ae2109af1688db8bf46a59a43fc448615ee7b2658a3"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2046,
+          "sha256": "f3d332bf90d871351debe3ddd78def11ff63b6a51053bc70866484a2d66d8b9e"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1169,
+          "sha256": "9c7d16d9ebb1bfcf59c483ca765af819a5e4af4357b688e639a68dafe9934bbd"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9345,
+        "sha256": "40a1aad16ea507d010cb4f2e23f65e02cda9e0de92be4ce636f9363f4b3154b4",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "y",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "b6c27ca11b314c951562fbb5492d22415963a436d9747e3384e0370caf85862b",
+        "exit_code": 0,
+        "request_bytes": 8528,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c946c6f3193beddf55cb2926d1d9b2342554cc648669831ad58101f506b9601e",
+        "worker_pid": 12517
+      },
+      "case": "CoincidentYBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "f0fe2db0ee35ab51edd9e5f6e5968f0d5fa69a8913127f2798e06144b9daa19b",
+        "exit_code": 0,
+        "request_bytes": 154054,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "2894e14e7a3c25d4631c54bc6a39dfd84bdae5e10bba3f4f91d4a535860f65e7",
+        "worker_pid": 12682
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "coincident",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "f0fe2db0ee35ab51edd9e5f6e5968f0d5fa69a8913127f2798e06144b9daa19b",
+        "exit_code": 0,
+        "request_bytes": 154054,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d567abb325bf5b3c7d2391af3ea2eceaef3a4244abd5a056c3d09e2cedf51dea",
+        "worker_pid": 12525
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "7fc5735fc2419f8499641903e3eb9c07128fda99ab26bdf13d189ff92440d604"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21543,
+          "sha256": "4b6323da353b15684771eb5a46721bba6a127402aeabfbb02e99c3c2a52b75d0"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 3078,
+          "sha256": "648b90c50d9f2578a7fe776b459825804db38dc5d0d4dad8a17df627211591b4"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1053,
+          "sha256": "552df41f62e3e315162d64fa31f82d6fab55236e53c594e49e84d315ccf25e6c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 565,
+          "sha256": "11998748700b9342e16865edde1f5982f9f59e3832b5b512361cabf95419cdd4"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1053,
+          "sha256": "987c1581ce593d37603b8f0fd0d5521cd52da27904a33ad8b7c31fa95912e3e8"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2061,
+          "sha256": "432255f3f45327a3517c007e0b25ec4c62f3dd270febde951e72a828032db0a0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1164,
+          "sha256": "5f967c4ef639cfff0f04b9e114df3e4560297d1614672f0499cbcd761e2b523c"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9256,
+        "sha256": "05d2bf24b30beec18463651d462536a1e0cdfbf0db8136eede515bf6a196abd8",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "z",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "01312deeedbaa41cf00fe7af69bb21a70a0381983ed9a67dd46e07f38bc1bbc6",
+        "exit_code": 0,
+        "request_bytes": 8509,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9d7501ca4f05511366fc5ce41b23b61f0426641b6d458fc44997049c95bf34cb",
+        "worker_pid": 12683
+      },
+      "case": "CoincidentZAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "e41d1196c0a4c6638676c4b252f88577f6c6df8f019c7bb198eec3c999f18896",
+        "exit_code": 0,
+        "request_bytes": 153251,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "06021f42a4e6df011aaf7448aada3b17b5590f8cfed2826670b8e59efb860d28",
+        "worker_pid": 12685
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "coincident",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "e41d1196c0a4c6638676c4b252f88577f6c6df8f019c7bb198eec3c999f18896",
+        "exit_code": 0,
+        "request_bytes": 153251,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "592f327e59c7227e5bb870ca571debc2c62e9dec298b615ea5dd9dfb064b2761",
+        "worker_pid": 12684
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2378,
+          "sha256": "e8e90e289f8ba51ddc491a7d15e13d086bad5954a320eef8c054a3f120944979"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21413,
+          "sha256": "aa4900151d293eb4270e8ad7fddaa695e79433930998b7fbc90b74cb23dc9f5d"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 2646,
+          "sha256": "181a258a5a203073bbee4fbba5ce4743b97f16a5e8051f4b2376bb21fb8abfb1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1063,
+          "sha256": "daa2886b2dcdfb361a3d26bc516e878064350012666ad5bd1ef71e0885f2691e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 567,
+          "sha256": "34bcf2e643ac5abf59ca2906dcb238afd6849d7fe2c6fff6e701f943e90cd8ef"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1063,
+          "sha256": "b4c02d8b029b08bdd8aeb4ab1ddf47c88cdcb9b812839e3336c2dad5af2a840d"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2046,
+          "sha256": "485367f9085f3900b61458c7b99cbba19430b29b33a5ab01eb2e9191137b94f8"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1169,
+          "sha256": "bb41c89b9d7a735497fe5c86044fd3b1160ff3720e4e9127e2a07b937ff79995"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9354,
+        "sha256": "c8bec6229542374eb7cc475de9dec377016797323adfe9ba7d64dfd79ddc1d83",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "z",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "a6580b51d5eeb4f1daa62b28ad7b2acb32613cc6fbf9539e63d2006b4ba0cfc6",
+        "exit_code": 0,
+        "request_bytes": 8527,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "813938b255bbe23c79685198199987743541cd69ed9ddcd4a980b8da5480716c",
+        "worker_pid": 12687
+      },
+      "case": "CoincidentZBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "70ab14bf67dc3a6a9e4005ac0bb5d7e97e17499fa5b2da9e44fba5f3ceb1a337",
+        "exit_code": 0,
+        "request_bytes": 154065,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "71a764e9214bfd93170e7a5ebc52e5fa9e383c8cf9b17b56a2309339b1b1311b",
+        "worker_pid": 12689
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "coincident",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "70ab14bf67dc3a6a9e4005ac0bb5d7e97e17499fa5b2da9e44fba5f3ceb1a337",
+        "exit_code": 0,
+        "request_bytes": 154065,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d94889b9f0fd5c81b8335e930b227d41ebffb912908af49343c2bc30b3778b4b",
+        "worker_pid": 12688
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "9028b6bd877154cae8ee154b548825b80404aa64371bab24e8e3572865152f60"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21543,
+          "sha256": "0511d16ff2e12f930421d0155a6fe4ed9e25471d33971cbf793d1e0af3d8bb71"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 3078,
+          "sha256": "307c53dd3716126781430df27b0b04ccbd5e48a52e1df3ca4ef2dbe04b0b17a3"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1053,
+          "sha256": "9b3fb1b26125d69e366a210cfbbcdf941fdc775dccf7d8b474321f2c3d7108f1"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 565,
+          "sha256": "4189e563d924b114a7e768de0f0fbf778867d821cb8053b190519924586e6f65"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1053,
+          "sha256": "e2f9b943cd36477aa6b8f294d77574e566843b71e2b35256d2e28a874840bdc0"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2060,
+          "sha256": "e6429243231ea2744d87251142d78511e81b1b35af3944e291c93b331b2940ee"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1164,
+          "sha256": "a87fd6125f8f2028695bf4c5514d14abc5c7af401108acb5fa740c85344df6cb"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9295,
+        "sha256": "467c4b4a133a83175db0385178d2628e28ef7413cc56a084e9df67f53cbff630",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "x",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "bd65ab7b191ebe756f4a5c6a563baeceef53499d598dd77ef03a91e196a92f58",
+        "exit_code": 0,
+        "request_bytes": 8503,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "83e15d2e2e5815625778e739b04b417bb825a4a59d8f1fc2b3247337d5f8421b",
+        "worker_pid": 12690
+      },
+      "case": "ParallelXAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "a4ab0e26cb9e2cffceed2e292f7ae8072398d4bbe7e9fc4d483645900c34b326",
+        "exit_code": 0,
+        "request_bytes": 153441,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1d0e1c8725dc16d2bac056ef6096d0e1914fd53bd3cbf88cd6aef4e9ddd37588",
+        "worker_pid": 12692
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "parallel",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "a4ab0e26cb9e2cffceed2e292f7ae8072398d4bbe7e9fc4d483645900c34b326",
+        "exit_code": 0,
+        "request_bytes": 153441,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "fb29e70637af99151290e2a7e7ad04fa8b558b8a1dea0973c5d62a3ed766660d",
+        "worker_pid": 12691
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "74a9943bd92ecd0ed4ee988e7d57a420cb37d7dc59903f4ba39112c7b134584e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21401,
+          "sha256": "fe2db2234738dc0bee71a90de362d2b7347dcde87b44a3967d27c89c89dee98c"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 2784,
+          "sha256": "3d0bccd559448088c5b565707f5f3f59400e8d502912c22d49cef955d3e64300"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "cdb4d1e8563facc44284dac7f9110b994f1b488a29e775bbb7b52f7f22837ada"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "0409612a3a4fd1b449e53ecc3c9dd95860898e4c2c1c3001d233370b122c7a4c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "2bdaa16e8a38bb351090e3d91d73b5fd847f5d39ba2abb4bdc516a3a5cd25fe0"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2052,
+          "sha256": "95b7996df11568b01bdc7291d908205ab3f8f475a8ff352e3c50682030f581ac"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1167,
+          "sha256": "5a2a75c7c1aae17fca2043a4b982d8b7e5ab865cb8b24f3f4bdee26ca55b4289"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9333,
+        "sha256": "b7a095f854b2c9337091a6b2698f5f6cb9e857a3ad8993a4d4da31ebaa5fdedc",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "x",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "3a455d34fe3e59fe137d3563af2c6593b9d1cfe4067b08f10f4cecc462e27229",
+        "exit_code": 0,
+        "request_bytes": 8523,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "23df0a48dac3e3a5efb8da163002f684e34c98351756b57c864fd45607d42188",
+        "worker_pid": 12698
+      },
+      "case": "ParallelXBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "157bb4d878a43f1c5571b3b8db11fa2fbec153ca80c41779be51fe2fc2b6e5c8",
+        "exit_code": 0,
+        "request_bytes": 153921,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a606af378761895748c8d08b4e99817c0f2007c77d9375e793314e8107920308",
+        "worker_pid": 12701
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "parallel",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "157bb4d878a43f1c5571b3b8db11fa2fbec153ca80c41779be51fe2fc2b6e5c8",
+        "exit_code": 0,
+        "request_bytes": 153921,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0f6446050f19b58ebaa32a2f944b080f7a0599a39a02b94fdafb01dac33fb6f9",
+        "worker_pid": 12700
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2362,
+          "sha256": "d716e09c25382068d35a206245b26dbfbf613a08815e9c367eeea38aa4e94cbc"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21531,
+          "sha256": "28d9710645178cdc2bacd33ca8da0273cc92385e3ae5f6bf925097f188ea7e8f"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 3072,
+          "sha256": "824b01e42cb533275cae9cbeaa1432517880dbf04e21d72f586859b55e119f70"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "3b2175fa5bbdbd2b0e01433fe2334cc7cd31f1bf3894c154d0c7417c54479182"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "e16fe0fec7f2dbc0c5b4a2c8b32fbb6156c1549bb92e59610f2e85ee5f042fef"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "452c2e9348de68c2d32b272b2668a016cda9b15186cea64b61774254a25b8cce"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2043,
+          "sha256": "22c8f2291c5b7d3dd2a9ac51a79c6135c1861e3ada3abb40214c3161850ed032"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1162,
+          "sha256": "ccd2086fc8fd931c74165455915e64d1cd8b69a9946571e587fae67fdc5f4996"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9284,
+        "sha256": "327c9d2285d2ce2ef6704dfca5db8349eec9f01078f9303b2d7cfe3f4e2f5721",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "y",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "8527afbe21221990fed546de75cce9616fa52c2ee1b54b3ad2fa1cbdbb369577",
+        "exit_code": 0,
+        "request_bytes": 8490,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9152f9f522ca050e74f5c9eb7f63878090c0d0cd9206f1d2210f583ac6a33483",
+        "worker_pid": 12705
+      },
+      "case": "ParallelYAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "4ad4dcdea9eb2d002c6e13e3a984ff9dfca5efdc9e7b368e28f7a04897e2e944",
+        "exit_code": 0,
+        "request_bytes": 153396,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "2478d48ac2ec2b6d98905fbbafafe6a42e26a6006dc133c99ed56cdc03d31c56",
+        "worker_pid": 12711
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "parallel",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "4ad4dcdea9eb2d002c6e13e3a984ff9dfca5efdc9e7b368e28f7a04897e2e944",
+        "exit_code": 0,
+        "request_bytes": 153396,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3527928749c5115e96c470ca4d1a3b4f4e6ea241cbcef84f7adaef55f5149ea8",
+        "worker_pid": 12707
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "1ddf28408f3eee7f5e2ade3260336dbd84288bc1f449a9d83ac13a4cbd0483d9"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21401,
+          "sha256": "29e46cd45cfe4f7afa6af702ffccb8db21de4de1f29ccd6c98aa569cf6607aef"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 2784,
+          "sha256": "5ff9f8706a7475546b522bef9bd0ac11d8e887c67b5f387a1669b24d7ba2e87d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "3fce563c791a30f3fcf4f4f61a99242b30eeeaba707c48a924aa4ffa04b9bec4"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "98628e3c0039b5f9558f9d8df58351e989619bdfd6dbe7375a36aad4e9b75a61"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "9efb4992be9f3461e9283b339b68c13fec905b1c3741e1e50e9dc51a967323b8"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2039,
+          "sha256": "611d80bcdc42b123c67760d2833df459f4d106a37afb2b83963cc02d3fd12cf8"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1167,
+          "sha256": "b117ab950d4625530c9c53657b8f109c6aff9de7a57a0c2c8e42f299fb432f22"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9325,
+        "sha256": "779e9dd4ed82bbcab6cd389a798cc862a80beb97993b5218eb4d9361fe80515c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "y",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "fd342cb42bf604f35f1328a3c51383d1b43356c86312aef9fa6adebd1437c6b2",
+        "exit_code": 0,
+        "request_bytes": 8538,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0d149fce5cbf1d05658d0bcd9cdcb2f58bd1e82cc499360fefeac95634ab6564",
+        "worker_pid": 12724
+      },
+      "case": "ParallelYBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "94278104e7f3d4e90112912dac928853a1f0ac3a2a4b4b17803d3ecf51a8455a",
+        "exit_code": 0,
+        "request_bytes": 153932,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d6cfc358fcb282615587d2ecabd1437e0263e55814da989d0b3c626b4bbc5045",
+        "worker_pid": 12729
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "parallel",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "94278104e7f3d4e90112912dac928853a1f0ac3a2a4b4b17803d3ecf51a8455a",
+        "exit_code": 0,
+        "request_bytes": 153932,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "36b5091580a52cd0e02cb02ab23285f2a5b58d96a20c518e75f66c68bcfde1ad",
+        "worker_pid": 12728
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2362,
+          "sha256": "c155441887718d91bb4b78c558d3771a28f444225af7345ea60a8979d99a2a52"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21531,
+          "sha256": "138faf700ff21c61632932d73635f9ee086b2351950cb69fcba4275411df9ebb"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 3072,
+          "sha256": "d78699f238e0db55d6726b1694eac466362d4a6aa3f804f6873b5e260f63863b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "fbc54adab102061df6d0b31aeeaf1156370319fb69e53ff67ad71694501f02c4"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "2fb99e242350ca2324e06512c821382e0d97d3bb38c2d80eafd4032044f14268"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "7135e0843bf2c09949523bfa92cd2039d371861f876dde32768e4ff23db5d413"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "28b939d29b38ab28131e9674bb6db8cb8d9a24f0ea618e0b5a2cc5f39c1a29d8"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1162,
+          "sha256": "22e7b0fc3b1784127a305a7ff6d996c0d2e499383f44db886b2114f13f5c7cfc"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9251,
+        "sha256": "4c159ee17b94fa4f0315ef5a7ea50ced3f1eff337abb112c78eeba95e99ef1f1",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "z",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "50254c51cc3f54f66b8a06289f477ed4c63fc307dc85822b1c588b9404e2ebb9",
+        "exit_code": 0,
+        "request_bytes": 8517,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c30b6a74cb4de7e11cec15598ce6fe7e629e7e8642057c3ba6159b94f66b841c",
+        "worker_pid": 12730
+      },
+      "case": "ParallelZAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "1c8347ff13dbb5515a5fc5966936c774d891c524ea98ebe40bfaa5c431822ca0",
+        "exit_code": 0,
+        "request_bytes": 153143,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a5a3e92de07468b88f1a40e49210bc36f4b99ecddf6f91fba25696e979aacedd",
+        "worker_pid": 12732
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "parallel",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "1c8347ff13dbb5515a5fc5966936c774d891c524ea98ebe40bfaa5c431822ca0",
+        "exit_code": 0,
+        "request_bytes": 153143,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7a39dc7640643607332de8ed939e4153151d987791b833813a8c91be5b848aea",
+        "worker_pid": 12731
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "779e4174bc9b5a86a657c41df308796668f499cec93c1df8ce8d63e63d9b2449"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21401,
+          "sha256": "23c7e6c5a790f0ee24c614bd9d882229787443da8698e83331b33bde7a0df7c9"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 2640,
+          "sha256": "a421255a917f377ba446350c87fad346be25eadce3b218dcaccc881b753f35f1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "2f90416f7452e1a7296f13f1747fb891e299388aa0d40cec4a4b849125094a31"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "801dcfdd500b194f867f2b852b46cce09e0b9a3dacdf1a1fc59b3d5ff05c1422"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "0a2adf629c42f7f2ae1670d02102ade3be58072c3830ffd9536816e6a4cc7e6f"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2039,
+          "sha256": "0ff14c70b46123f52f016cddbdcc2eb248a9bbea94f7784e9a7723e02e3c4286"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1167,
+          "sha256": "cfa06210764339fa4e38af4d6f5180d03f3653e10c4a6b930a107237ad077561"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9340,
+        "sha256": "b91d428a19d1e0064fdfe6ec859a349de039be00f05ffa04b5e0a7369de009e2",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "z",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "5b9ec8a81d6c7052d22a2d1bf016e34f53baff889ca6dbc26759ebeb6919a353",
+        "exit_code": 0,
+        "request_bytes": 8535,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f374eb0ea1356c5971d89d04e57f9d7b1ea85b842f6b1b84c1d0a862162256a7",
+        "worker_pid": 12733
+      },
+      "case": "ParallelZBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 161,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "aeadeb3d554f708b99ab7cd45347c659d827da2088823474327ca39989c4dc5e",
+        "exit_code": 0,
+        "request_bytes": 153961,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "5e122f05df6db4e2bbe1b1e84183b4a2a34d0c13181a93bb7011a0d3b93ead34",
+        "worker_pid": 12740
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "parallel",
+      "next_id": 20,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "aeadeb3d554f708b99ab7cd45347c659d827da2088823474327ca39989c4dc5e",
+        "exit_code": 0,
+        "request_bytes": 153961,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3c4807ebdc8d867fd7828344ece9fdc485414df0f46dab8e825d928dc563fd99",
+        "worker_pid": 12734
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2362,
+          "sha256": "8bd5152712556e67370f0e8d69272e53733a35a0c13cc411a62178f93a32417d"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21531,
+          "sha256": "cd4424e14e5d15a610932390026049f423dd4928a907210a31a85c8cc37d7a7b"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 3072,
+          "sha256": "69416ad0e9b8302daf8e9bfb960ee7bdefe064829d1c02034f0677de4692b877"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "19128e06ff21249733e2612b024ef29745b7d840ddce8f53c5485b710cd30864"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "10324d53fc14e60b7f8f9ba09e32160a9119b2deee8dcb8cc29e07445aaa0e24"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "462e55cd998bffb2790903756b07d56f5d8b70d9a4ad32ed772c59ad08269016"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2053,
+          "sha256": "7900861ef9be231c59d95b81afc814b33ca772b30f09c0df8cdb83f22c24ba6e"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1162,
+          "sha256": "c62718b11a4c55d05241482f25c5c8c9e201359cc46dbef0dcf303a561902987"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9637,
+        "sha256": "521d576eaf1f7c46a48ecd5cd701a410b67c957c20ab1ee9eb95ad5fec38ce29",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "x",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "c02bd5de35a9be6d673d99ccedc28f6626fb29c0105264b7bb3f1d9563be0000",
+        "exit_code": 0,
+        "request_bytes": 8490,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0ff2ea03aed214eda600acf9d4ccc0e20295167fd52385d40b918d8d5f5d40c3",
+        "worker_pid": 12746
+      },
+      "case": "DistanceXAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 172,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "a25d92615aa38ef8154bd553816aa123e6cca3fc047be9db59c6cfc2108a329a",
+        "exit_code": 0,
+        "request_bytes": 157652,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1dfb45d3e3d32c0297bab37eeff0c716c8bee07e06211930c81e59c4b28efb9f",
+        "worker_pid": 12778
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "distance",
+      "next_id": 21,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "a25d92615aa38ef8154bd553816aa123e6cca3fc047be9db59c6cfc2108a329a",
+        "exit_code": 0,
+        "request_bytes": 157652,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "09997a9f113ed8b01633ee44d81f5d1b7dc47296b0ef839950a77982f0a6eb47",
+        "worker_pid": 12757
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "51c8c6357788a8d6c7703f16d3011064772a2b1ceef1ef3ad37086250e2f2848"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21401,
+          "sha256": "6bd10f3a186e4c66e5b3d21603a40ea256fa63a36080605cc71d5ac80c61213a"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 4513,
+          "sha256": "c8429689076ad2c6dac2ac516e1a23825be74165a130a6a234493c35015360be"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "9135a80b9b1ff9f672139910ee1a2fd680ef88d596c5b70ecc086a9864e73de0"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "c0ff0919faf2f534c3f0cf12b0992841f48a43b712337e448b8a40e9b45397f7"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "0d98fce0c564063bb86903022ea6b0dd7cf93330d2226efc9839c6e08fc636c3"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2039,
+          "sha256": "48361c4c82b875ab4be297474fbaffe8b928641886f331142c2fdfb25aaf978e"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1167,
+          "sha256": "21716013f7b12e68c4b117e794d5afe576dda8d67ee497e040b407e80686ea44"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9665,
+        "sha256": "fbc68bb51d1fe1fc573ea1666d1d38047c3b0da9cf461f06a08ea676a2b36f2a",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "x",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "90a35553c121c86209a0ed4daa2736a290b96d76caa5e6398241f1256f97fe8f",
+        "exit_code": 0,
+        "request_bytes": 8523,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "316f483a8b7f2469784a676ebb40870f6f1d2139f867083c21b18a53cfa49b2e",
+        "worker_pid": 12803
+      },
+      "case": "DistanceXBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 172,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "87640d12c0e3d112fba805996878028879b0d0eee58e4a33d87eebca59c2fc5e",
+        "exit_code": 0,
+        "request_bytes": 158149,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9eafb9e0d9162de439a3692dd15407bad47e1b09a1c10c11365c233bce97835c",
+        "worker_pid": 12807
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "distance",
+      "next_id": 21,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "87640d12c0e3d112fba805996878028879b0d0eee58e4a33d87eebca59c2fc5e",
+        "exit_code": 0,
+        "request_bytes": 158149,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "38ecc53878bd0427a254c485737cf3b4d8d4df23565780637c1fe73733279036",
+        "worker_pid": 12806
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2362,
+          "sha256": "c3f785b79e42379cfe15973fa7dc299d43f14e17ac3abe44b894a6cd0691bacd"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21531,
+          "sha256": "cb1c9c4145ddd18fc47603ea9f7f8ff99191cf3e60b94da8450763f552cf459b"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 4801,
+          "sha256": "157b9cea1cbf75e3dac2a9ad75f125d9ea8c0f8bc7051016299db6fea81e8089"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "4c27dfb498685bd8d154cac33e266dd9497848c93b11b066b0cdc082c6ed7c8c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "56ba41ad71323db569dedda90b1178d31843aedb0074e7bc2a92c7a104e0d01c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "da1bfbb3c6842b27d90313ce0a50d593d15390d2d6bf3dc405388b38a37c84b0"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2043,
+          "sha256": "b28f4018ce8b7fccc649abf5227b7c4f4c55c6b4e414f3285201701cc42480d9"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1162,
+          "sha256": "3e0200719766ab63985ecc16952e62c68271ebea4c2f879f5e79476f33e8d64e"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9635,
+        "sha256": "5c69819e1dc193d6b86b1f1124a3a5fb4c5949e1cf35426de07dbc02d3dc07c1",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "y",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "fc24804285410d3fcf0a9f1eef255a11aedf26dda21cc1f77defdd76361416e5",
+        "exit_code": 0,
+        "request_bytes": 8490,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "949339d557c3722de64f923b8aa47fbcc1f17b048d0fbc5b31a2888272b42ed3",
+        "worker_pid": 12808
+      },
+      "case": "DistanceYAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 172,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "e6ad2ec7d7ec4f8c578fef825236bcf6e83a1f348044e7c1c9758a268e0ee3aa",
+        "exit_code": 0,
+        "request_bytes": 157648,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "64803e0dbb9521db11a591019cf09e34720d2b5a3b4da3f9d23acbe38f41c0ca",
+        "worker_pid": 12810
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "distance",
+      "next_id": 21,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "e6ad2ec7d7ec4f8c578fef825236bcf6e83a1f348044e7c1c9758a268e0ee3aa",
+        "exit_code": 0,
+        "request_bytes": 157648,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3589655689ffb2b154bac5c8deb2cb33b99db9526d62501258c8b121dfebc782",
+        "worker_pid": 12809
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "9550828205486d25c1306c08eaf5203d11a883f459aa6f02b1ad3972c1b4a498"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21401,
+          "sha256": "b355b1097506a36f9098194c4fb1a31953eec2ee00acd44fbf64390700f2c8d0"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 4513,
+          "sha256": "430ebdc7b6bfe96edd737b9707f39c7851bfd27778df36829f98094c7a1d2a43"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "e9c6e2e5624c389b318b00131098cc971982bb5986710a2f29e413582d9431aa"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "bf6cf18487c88fed15b096635025cff7ea5d8aa8d8bb9cb2cdac21299e4efc6e"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "2c5264172cf9760e620b3b55af82782d28361cfb09b1059a33ff0b99089e4ebf"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2039,
+          "sha256": "6da2f9b9c814dc82648353b0eb10a73f4ee1df3ca6d0b908ee1beffaaaf1000d"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1167,
+          "sha256": "07fc2dfa34ed46b475524a06fbcfeb5a0502acf1833e48cd2677c3411bce2bfc"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9673,
+        "sha256": "d21abc17efd8b0f50e2dfd282d32f91bcdb373426b13c8ca97069d69b372b70e",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "y",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "4ac518ce774b92d6d8067755f6ad4b5d3d50977322b2c2a29d5005bd76b9f72c",
+        "exit_code": 0,
+        "request_bytes": 8524,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f7f440f9c920846f5c5375126baef8977b311a3c1cbd8334c5ecac91adf475e8",
+        "worker_pid": 12813
+      },
+      "case": "DistanceYBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 172,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "02e2a09501f68fb1ba89b317d401d2c23fc8f5ec5112ba21f8ebc444a2975cf6",
+        "exit_code": 0,
+        "request_bytes": 158166,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "34e97c0e3733fdc58725ec96ef706700b4b5dad40e376f4d3b2964eaad77f16f",
+        "worker_pid": 12823
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "distance",
+      "next_id": 21,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "02e2a09501f68fb1ba89b317d401d2c23fc8f5ec5112ba21f8ebc444a2975cf6",
+        "exit_code": 0,
+        "request_bytes": 158166,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6a30053fc09ef94b1dcfe5e0fe55d5d854f435c543222400fc51aec5095b6175",
+        "worker_pid": 12814
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2362,
+          "sha256": "490aa46946c6c23d6b7364a36f8760373e934d038dab0c325f411a9170b62e97"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21531,
+          "sha256": "71c5a38bbd2fe61a5913c441184dcd84d1a029ea44d2ceff26a12da48cdd9e43"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 4801,
+          "sha256": "0cce544cda088d230a3922cf27906d7b3a397971a74139a2e3d51e4fbbf2990a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "d13277596f9a3328b383f34c1bd461f813890769fc522535153f9bda404c7e16"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "e65439756b60b96415cb0582e2cefa844080d2d1d5b08289d464e15f41688f99"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "6170aa149dbc37e95b1da08ea24a393d30cae5aa2a35fc293616e020b926ff0c"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "a9b5b1e2a97dac83f72d5400dc666fbca81f2ca14bcb1496cb5a57f8813da757"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1162,
+          "sha256": "4b991db0f145af7429a93e8571788c55a88ede4ba39732cee57e0eaf4202abb2"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9611,
+        "sha256": "0e4777c09ca49c8ea63e34c81c04c8a17f9b24a5001d48e028d1cdcbab9ca519",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "z",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "938eca1f39a1515f23ea85c793afce97dc40e1efdcd580d20217a363cb1678fa",
+        "exit_code": 0,
+        "request_bytes": 8517,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "54171bfd97d70500d4e01dd427612f392c5f2b40c22a41c8e03cf6b7d9e3fcda",
+        "worker_pid": 12825
+      },
+      "case": "DistanceZAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 172,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "5d582f20cb60deaee75c1c4b383ed640b348384d277e257eb2acc15b81e6ecfa",
+        "exit_code": 0,
+        "request_bytes": 157423,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "de08f9667f3a3c9eef7828951fef853c846455741b73d0a49d8737ee86708903",
+        "worker_pid": 12830
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "distance",
+      "next_id": 21,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "5d582f20cb60deaee75c1c4b383ed640b348384d277e257eb2acc15b81e6ecfa",
+        "exit_code": 0,
+        "request_bytes": 157423,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7f8b8a1cb4aad3abe546d92c7b76fd893ade5cdac57459a630112a5bdfbf88f8",
+        "worker_pid": 12827
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2370,
+          "sha256": "7077e3bad093a25d7aee942620a22d1828b0fbb6ba10010e9b219d9aef50770a"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21401,
+          "sha256": "4888846acb53197a9f99dacfcb727bb28ea2090f15f0d2833df6907100dbe874"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 4369,
+          "sha256": "41215c65776918ece31accbc78e8dd102df258b5378380c75f901f97cd27f230"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "2c90a8cd70e70832fe9d3866358db658a9f7c7353288cd1359be62e975961d43"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "ed59bc050f2eb5db1e7a66d85a81a71c8c4f22733decc41a91b8d9c78f307db9"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1047,
+          "sha256": "9ed2b16f4a64d0694a948659044235f0e8537cab93b3faa0b3c0a7cbf933b8dd"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2051,
+          "sha256": "db43d69bc9ae1297e4381ae37ec03ac8a2f539cdb2f7ee1de2c8e6070f0c446a"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1167,
+          "sha256": "863443619542fb6b2265f7126b1bfee3ee42a008dd7e00de556ba2c681923a8b"
+        }
+      },
+      "wrapper_next_id": 2
+    },
+    {
+      "actual_child_identity": true,
+      "assembly": {
+        "bytes": 9685,
+        "sha256": "dc4f946d31637463dce85921374048320d1b3a397a8cc8e51f4bafbeb2681d69",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "axis": "z",
+      "build": {
+        "entrypoint": "SdkAssemblyProcess.py",
+        "exact_stdin_sha256": "4b05c23869ac04812cb66028640459e23da8bcefc7165d60ca4d9c5737d14e57",
+        "exit_code": 0,
+        "request_bytes": 8535,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b70198ad389198058dc403c34b93db8f716492ff18ece7298e0c97e8ca72f824",
+        "worker_pid": 12831
+      },
+      "case": "DistanceZBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 172,
+        "ordered_mate_occurrence_backlinks": true,
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "child_bytes_unchanged": true,
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "d686f55e9f2579a5137857078c7dd0e8964a620c80fa4978bc45514dd660eb9d",
+        "exit_code": 0,
+        "request_bytes": 158205,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ecc338b1e85f12fa18756b97e0c435bb937b4d81f696582757ec828511303815",
+        "worker_pid": 12833
+      },
+      "file_handles": {
+        "constructed_and_decoded": 4,
+        "malformed_rejected": 5
+      },
+      "kind": "distance",
+      "next_id": 21,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "d686f55e9f2579a5137857078c7dd0e8964a620c80fa4978bc45514dd660eb9d",
+        "exit_code": 0,
+        "request_bytes": 158205,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7ec825b7fa3ece929ecb2c5499544ed5d37b33c18ff57009e9788af354f7bd67",
+        "worker_pid": 12832
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2362,
+          "sha256": "20c547f63ddeda90f5140ee78460e90c0b29788330e517800f36a8db2c2597ce"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21531,
+          "sha256": "47ec60fe8fb740be7ba6b979e57545fc99617c18505a1195956e17b6fdd69820"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 4801,
+          "sha256": "2f611135b22844d33f405a9c240cf93a87f480173ebec77cad3779e9fd0995b6"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "2b865896fa3941db0a7d84f60cbb67753044858d0c096da18c1163bd0a4fb122"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "84002441d6bb2a57150eea5b8aadd42b49309d3012f02897013330332847f3df"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1037,
+          "sha256": "7ee0157ea7b72c302d9b082ca7cf24a0ed2f2bfb04f0a8d68d2d978ae8d90902"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2053,
+          "sha256": "4b96c247799d00d69f5c4100526ce277ba333ff6a961703cd13154d1d27b0bc9"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1162,
+          "sha256": "7e105327fe191b7b4ef80ccfa191e8b8104750f81d795abef495803bd855871f"
+        }
+      },
+      "wrapper_next_id": 2
+    }
+  ],
+  "public_writer_enabled": false,
+  "published_raw_proofs": {
+    "distance": "91ef6b7c59fb761113ca4bea4395ab8136d1d1be0f570a1ef261085737b93a8f",
+    "planar": "2b19bbc88fb912d8dafc0f4d13c19bd26900a00613ca18e09fe4607fa5b6b7b0"
+  },
+  "published_regression_counts": {
+    "distance": 6,
+    "planar": 6
+  },
+  "raw_process_result_sha256": "a69db2088711b7062d739b6d7f53de31af1122b460d21ca91c1802616e1656e1",
+  "retained_prior_proofs": [
+    {
+      "raw_result_sha256": "066cb39ef0b43cf0438a4022a33d0d8142e6e2766074615342cc136dc68432e7",
+      "reason": "initial complete bundle proof before type narrowing repair",
+      "source_manifest_sha256": "14b500e4f5d6bf7224ebb477df27d05fb30d9a3e5bad5d77d0845b44bbaa10d9"
+    },
+    {
+      "raw_result_sha256": "0f4012a789a4e8fe682ef12291d96602f94e6a04fcde17bd764711cb13c78588",
+      "reason": "intermediate type narrowing proof with unchanged bundle bytes",
+      "source_manifest_sha256": "c50a3951fbb8152e05fab09f37b651764d190ca6c6228b552ade588d66a69334"
+    }
+  ],
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.sdk-complete-assembly-construction.v1",
+  "scope": "complete SDK-only assembly of two direct rigid placements of one generated plain blind-boss child and one ordinary aligned coincident parallel or positive driving distance mate",
+  "source_files": 4706,
+  "source_locked_before_generation": true,
+  "source_manifest_sha256": "4c516990a5987ea87801b6e8a4e231cbb7ae005f67d6d6a6bc3e885733adb8fd",
+  "source_unchanged": true,
+  "typed_stream_round_trips": 396,
+  "verification": {
+    "black": true,
+    "donor_scan": true,
+    "donor_scan_files": 3956,
+    "pyright_existing_unknown_configuration_keys": 3,
+    "pyright_source_errors": 0,
+    "ruff": true,
+    "steering": true,
+    "strict_mypy": true
+  }
+}

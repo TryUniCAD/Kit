@@ -1,0 +1,31 @@
+{
+  "source_manifest_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "files": {
+    "InspectFresh.py": {
+      "bytes": 4187,
+      "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+      "executed_in_these_batches": false
+    },
+    "InspectEdit.py": {
+      "bytes": 7248,
+      "sha256": "730f09c4271b5a4d107ba9c2c78233c65504fd113572164addfe6a4529aba2d0",
+      "executed_in_these_batches": true
+    },
+    "InspectView.py": {
+      "bytes": 5841,
+      "sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314",
+      "executed_in_these_batches": true
+    },
+    "Swapp.py": {
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "executed_in_these_batches": true
+    },
+    "OracleIdentity.py": {
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "executed_in_these_batches": true
+    }
+  },
+  "scope": "Frozen inspector source hashes independently checked from the staged Python tools; InspectFresh.py is recorded but was not invoked in these two batches"
+}

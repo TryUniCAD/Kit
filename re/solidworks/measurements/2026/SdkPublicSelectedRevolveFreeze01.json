@@ -1,0 +1,14 @@
+{
+  "files": {
+    "Code.tar.gz": "3283edee20abbb3cef0e537dddd1989784afcf74cf93f71edb7df62e4104fa90",
+    "Disclosure.json": "ba8a9407b36ac17ca8f6ebae00b22c80e6a279b27927aef48d07ce6812286812",
+    "Observe.py": "8af69d9c32f3d6afae698acddb44426eb142053a79f057805d8ff688e6755993",
+    "ReaderResult.json": "0b041e7b5e75d3a6b06315174d631a6695c6cd5632aa6aca04bfa5c217c5398d"
+  },
+  "reader_result_sha256": "0b041e7b5e75d3a6b06315174d631a6695c6cd5632aa6aca04bfa5c217c5398d",
+  "revision": "f6010d913ef30336ff244f0f76c81e84460bcdb8",
+  "schema": "kit.sw2026.public-selected-revolve-freeze.v1",
+  "source_tree": "4d8cbd7cad9877cafcf3c628c51cf61392f96596",
+  "without_sealed_inputs": true,
+  "writer_freeze_sha256": "0cc19e4adcfca7bd55c0ebf0ebf97bf457e234ebe11dd045de07f08a5be43f17"
+}

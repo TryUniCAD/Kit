@@ -1,0 +1,81 @@
+{
+  "case_slots": [
+    0,
+    1
+  ],
+  "cohort": "heldout",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "controls": {
+    "after": "3e320f410503d4791c03de7ea3690a26b359ff7a14e855132d2fd116f6435de1",
+    "before": "3310d0522b4ff7ef5f243c3c67ce6606cf2677400cd725cd0579d10998c137da"
+  },
+  "disclosed_result_sha256": [
+    "d8ff6c2678c05c88f52a3d10e10e1ccdd84fb52a9b374bf7542be868f4215390",
+    "d1892bc383b88c4d0b4a48d2fa768c2274a70f755068e218a28ca6475fb45b51"
+  ],
+  "distinct_processes": 8,
+  "heldout_writer_acceptance": false,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "job_sha256": "31473099e2efb94820f4580e59648e47c783775e5210276edc728fe134692982",
+  "method_job_sha256": "7a0b036c39e5aaa82283e1f1dffa67549965dc3f2916c7b06f5baccbe17eb726",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "private_result_sha256": "42a343efb48020971424d5dac0e11a3c54297fd833329dd46c9a50955ad31846",
+  "registered_api_sha256": "e0d6ab1ea4be499999d10f3e01480e50fd071f0f8f60bd83d9ae984da1d6594d",
+  "schema": "kit.sw2026.chamfer-distance-source-probe.v3",
+  "slots": [
+    {
+      "edited_sha256": "c2bbbac4b60416a4e5dacf4e5e771aec39de539b531266c0b0cb80d09301e409",
+      "original_sha256": "a3fd3c71d9852defbd65805e6ff32953800e716cbd4829de45080b84112f0d65",
+      "passed": true,
+      "phases": [
+        {
+          "passed": true,
+          "phase": "author",
+          "record_sha256": "1f372768e36b96e75d1478ace5593575861ccc2255d0cdda561b9a431eaf74e7"
+        },
+        {
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "4c009984829fcd1fda475f4589f1541936ee3cdf54e66de4c0c8fe7067c3698c"
+        },
+        {
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "dc2fef8b7ba6704f0fec2906ed26dfe8767c72c9703035bd23786dc501ca19b9"
+        }
+      ],
+      "snapshots": 4,
+      "tree_rows": 26
+    },
+    {
+      "edited_sha256": "74a90d145147f37583a3edfcc762dfd620581587e52b586c0b37d7721acc44ce",
+      "original_sha256": "e3976ecd8bf268eac53cb7b42435b183fe7e22b2a7c66f9324de7a48c546220a",
+      "passed": true,
+      "phases": [
+        {
+          "passed": true,
+          "phase": "author",
+          "record_sha256": "2f2cd1c38523d4da548fa63ef59381aabe072a9b0b5d72057c59328a320caabb"
+        },
+        {
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "44640219f3cce217ff38ae7fe80468c43d360bf1ecc2325149173bc2e44010ac"
+        },
+        {
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "667587c5cbe631db19fe8da68f4c1f417ddff4c5140f09ba565c732d4472d526"
+        }
+      ],
+      "snapshots": 4,
+      "tree_rows": 26
+    }
+  ],
+  "source_revision": "079ab72df65dacc00be4b8518c487a9aeda019ee",
+  "source_tree": "91d76748db96984d122806e630db69a4e235efbc",
+  "writer_output_count": 0
+}

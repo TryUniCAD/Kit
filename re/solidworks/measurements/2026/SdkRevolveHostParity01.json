@@ -1,0 +1,63 @@
+{
+  "candidate_bytes": 8036,
+  "code_revision": "b35b5b4b1dff36a4b4de7acd1a494466ccdfe843",
+  "current": {
+    "body_label": "Body 1",
+    "payload_sha256": "7690e3132f2fc9b10ce0db4adab84a6865521a31bd3f337ae5f8de68e32c7727",
+    "runtime_external_attempts": 0,
+    "typed_angle": 0.8639379797371931
+  },
+  "current_writer_on_oracle_host": {
+    "body_label": "Body 1",
+    "payload_sha256": "a4e531d6f1a328eae589b01a4dcc029917dff40b1ac0a72ba1081ff1c213f74a",
+    "runtime_external_attempts": 0,
+    "typed_angle": 0.8639379797371931
+  },
+  "current_writer_oracle_host_comparison": {
+    "changed": {},
+    "stream_count": 10
+  },
+  "exact_current_writer_on_oracle_host": true,
+  "exact_old_writer_on_current_host": true,
+  "exact_previous_bytes": false,
+  "guarded_processes": 4,
+  "logical_comparison": {
+    "changed": {
+      "Contents/Config-0": {
+        "current_bytes": 22278,
+        "current_sha256": "3296b5b6b1d1eb8c26773a05c05ca93d8723124a362476f038309a2405458f56",
+        "first_difference": 20591,
+        "previous_bytes": 22278,
+        "previous_sha256": "0650306f56963a7850612145abbb789e06cd77c4798e17099f1fa498d3d0ed20"
+      }
+    },
+    "stream_count": 10
+  },
+  "neutral_request_sha256": "d8b315ee7eb5a6828423d60e88a52af1fdeb2e841b70a601a6311baab2b11a93",
+  "new_heldout_credit": 0,
+  "new_native_runs": 0,
+  "old_native_receipt_sha256": "b75858c3422bfcc9379a4262fd12fdeeaa20c44fb54a489d54b5a4a9f83f2a8c",
+  "old_writer_host_comparison": {
+    "changed": {
+      "Contents/Config-0": {
+        "current_bytes": 22278,
+        "current_sha256": "3296b5b6b1d1eb8c26773a05c05ca93d8723124a362476f038309a2405458f56",
+        "first_difference": 20591,
+        "previous_bytes": 22278,
+        "previous_sha256": "0650306f56963a7850612145abbb789e06cd77c4798e17099f1fa498d3d0ed20"
+      }
+    },
+    "stream_count": 10
+  },
+  "old_writer_on_current_host": {
+    "body_label": "Body 1",
+    "payload_sha256": "7690e3132f2fc9b10ce0db4adab84a6865521a31bd3f337ae5f8de68e32c7727",
+    "runtime_external_attempts": 0,
+    "typed_angle": 0.8639379797371931
+  },
+  "original_source_reads": 0,
+  "prior_candidate_sha256": "a4e531d6f1a328eae589b01a4dcc029917dff40b1ac0a72ba1081ff1c213f74a",
+  "production_source_tree": "f8f88d07e8c973fc7e2d0c61418ba4e6923b01ab",
+  "schema": "kit.sw2026.previously-consumed-revolve-replay.v1",
+  "tool_sha256": "b027c2c6d59a4246c02181ce1bc750f686827fe0622f23d20bebbe1e6c6daa9a"
+}

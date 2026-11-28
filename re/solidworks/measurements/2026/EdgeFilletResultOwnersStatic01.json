@@ -1,0 +1,381 @@
+{
+  "disclosed_archive_receipt_sha256": "e7573a71c5fb709a26ae512a332f3fe6eecca5fef949b8f98380ac7cbd1337f3",
+  "disclosed_warm_contrast": [
+    {
+      "case": "EdgeFilletAxial",
+      "edited": false,
+      "f81c": 0,
+      "f8dc": 1,
+      "f8ec": 0,
+      "n9b8": 1,
+      "nbf0": 1,
+      "observed_fbf0_scalars": {
+        "f00": 0,
+        "f04": 1,
+        "f08": 0.00437
+      },
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6"
+    },
+    {
+      "case": "EdgeFilletAxial",
+      "edited": true,
+      "f81c": 0,
+      "f8dc": 1,
+      "f8ec": 0,
+      "n9b8": 1,
+      "nbf0": 1,
+      "observed_fbf0_scalars": {
+        "f00": 0,
+        "f04": 1,
+        "f08": 0.00611
+      },
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a"
+    },
+    {
+      "case": "EdgeFilletTransverse",
+      "edited": false,
+      "f81c": 0,
+      "f8dc": 1,
+      "f8ec": 0,
+      "n9b8": 1,
+      "nbf0": 1,
+      "observed_fbf0_scalars": {
+        "f00": 0,
+        "f04": 1,
+        "f08": 0.00283
+      },
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e"
+    },
+    {
+      "case": "EdgeFilletTransverse",
+      "edited": true,
+      "f81c": 0,
+      "f8dc": 1,
+      "f8ec": 0,
+      "n9b8": 1,
+      "nbf0": 1,
+      "observed_fbf0_scalars": {
+        "f00": 0,
+        "f04": 1,
+        "f08": 0.0052699999999999995
+      },
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3"
+    }
+  ],
+  "fillet_vtable": {
+    "address": "0x180476830",
+    "validated_cells": {
+      "0x14d8": "0x1802997c0",
+      "0x23b0": "0x180299580",
+      "0x23b8": "0x1802b82d0",
+      "0x23c0": "0x1801042e0",
+      "0x25e8": "0x180289be0"
+    }
+  },
+  "fillet_writer_output_count": 0,
+  "heldout_sources_read": 0,
+  "initial_row_counts": {
+    "f820.f18": 0,
+    "f820.ff0": 0,
+    "f9b8": 0,
+    "fbf0": 0
+  },
+  "modules": {
+    "sldmfcu.dll": {
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "spans": [
+        {
+          "bytes": 44,
+          "end_exclusive": "0x3c7a90ac",
+          "file_offset": 558720,
+          "name": "default_pointer_map_constructor",
+          "sha256": "ad3cb779a16034500485b9cbd21ccb082a03b7d3238b9d69f320f0050df94dc4",
+          "start": "0x3c7a9080"
+        }
+      ]
+    },
+    "sldmodu.dll": {
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "spans": [
+        {
+          "bytes": 12610,
+          "end_exclusive": "0x4b71adf2",
+          "file_offset": 6123696,
+          "name": "native_feature_result_dispatch",
+          "sha256": "147f190518ae866358d1fc307e401da7f2164c6a05ed66cfd25744df0e110ce2",
+          "start": "0x4b717cb0"
+        },
+        {
+          "bytes": 225,
+          "end_exclusive": "0x4c6d6171",
+          "file_offset": 22631568,
+          "name": "edge_keeper_constructor",
+          "sha256": "926ae28d5ff9faa56ef16ce61e4316cab80ac53243c700f0db16b3e13a83a207",
+          "start": "0x4c6d6090"
+        },
+        {
+          "bytes": 134,
+          "end_exclusive": "0x4c6d6206",
+          "file_offset": 22631808,
+          "name": "base_surface_keeper_constructor",
+          "sha256": "93794eb3e690f850246b243d39ec73a2249e531dfe6016b492407f831b5c2c2b",
+          "start": "0x4c6d6180"
+        },
+        {
+          "bytes": 175,
+          "end_exclusive": "0x4bba990f",
+          "file_offset": 10914912,
+          "name": "edge_keeper_serializer",
+          "sha256": "7dfb10b9ac3fd02bd92848f3bd1083f3d973a0fe3f4996c49937b200a46bd433",
+          "start": "0x4bba9860"
+        },
+        {
+          "bytes": 379,
+          "end_exclusive": "0x4bbaac8b",
+          "file_offset": 10919696,
+          "name": "surface_id_array_serializer",
+          "sha256": "e9bf874152cad63aa5614bb9b68e1491b5fd34fccafe0c4ed6fc71f233375826",
+          "start": "0x4bbaab10"
+        },
+        {
+          "bytes": 2200,
+          "end_exclusive": "0x4c6d8998",
+          "file_offset": 22639872,
+          "name": "edge_keeper_reset",
+          "sha256": "8336ad75223aa6a302b1ee92b95651902c095a301e529999489208eb0bad61c0",
+          "start": "0x4c6d8100"
+        },
+        {
+          "bytes": 260,
+          "end_exclusive": "0x4c6d8aa4",
+          "file_offset": 22642080,
+          "name": "queue_selected_reference",
+          "sha256": "edb0e2a7495f7a265294f4762cf56807955d3cb62e329f5a93a0650a0a62e263",
+          "start": "0x4c6d89a0"
+        },
+        {
+          "bytes": 306,
+          "end_exclusive": "0x4c6d6e72",
+          "file_offset": 22634816,
+          "name": "publish_filleted_surface_id",
+          "sha256": "251f0da3a89e35e198dce9e04706949db66169a06febe56e5d68274609f4e264",
+          "start": "0x4c6d6d40"
+        }
+      ]
+    },
+    "sldmopartu.dll": {
+      "preferred_base": "0x180000000",
+      "sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+      "spans": [
+        {
+          "bytes": 40,
+          "end_exclusive": "0x180605a88",
+          "file_offset": 6304352,
+          "name": "fillet_runtime_class_record",
+          "sha256": "63094d1a3856697028d1eabdd389a25d9466bf9da495a86cec8468028a8ad0ee",
+          "start": "0x180605a60"
+        },
+        {
+          "bytes": 46,
+          "end_exclusive": "0x180268d5e",
+          "file_offset": 2523440,
+          "name": "fillet_archive_factory",
+          "sha256": "f70988a6441b9d888c4087a0d439ebde34047ac32d07368b654952911f2a9ae4",
+          "start": "0x180268d30"
+        },
+        {
+          "bytes": 795,
+          "end_exclusive": "0x180269cfb",
+          "file_offset": 2526688,
+          "name": "fillet_default_constructor",
+          "sha256": "85ed8017fe4c2ba4314eb6dc9b2fb41106248cdf63b6bd3755748e383b6a89d0",
+          "start": "0x1802699e0"
+        },
+        {
+          "bytes": 3279,
+          "end_exclusive": "0x18026a9cf",
+          "file_offset": 2527488,
+          "name": "fillet_feature_constructor",
+          "sha256": "6fe4f3c73683b3a575b7843b7d8f4eb0f41340b9632c4de49377fb4772b3a4ed",
+          "start": "0x180269d00"
+        },
+        {
+          "bytes": 7171,
+          "end_exclusive": "0x180271dd3",
+          "file_offset": 2553296,
+          "name": "fillet_serializer",
+          "sha256": "4ba6a9a6ca6b91b69d256003cf6420b82fc11b505a6aaef82afe74c8c0dab509",
+          "start": "0x1802701d0"
+        },
+        {
+          "bytes": 205,
+          "end_exclusive": "0x18027f0ed",
+          "file_offset": 2614304,
+          "name": "empty_corner_extractor",
+          "sha256": "d654379001b9759b2ffa4899c5b5ed1bf5d25c1294956f7edd989d2dae1881c6",
+          "start": "0x18027f020"
+        },
+        {
+          "bytes": 357,
+          "end_exclusive": "0x180289505",
+          "file_offset": 2656160,
+          "name": "empty_association_predicate",
+          "sha256": "96d3d79e15b3be76c89ff14e49034a548d312638ed6aba0a94fb641a815b9d1f",
+          "start": "0x1802893a0"
+        },
+        {
+          "bytes": 12735,
+          "end_exclusive": "0x1802a9e7f",
+          "file_offset": 2777280,
+          "name": "fillet_solve",
+          "sha256": "870090fa3b4fe040b3ed62df01a779a8a1882815f527633d1dc82cae3abe7fec",
+          "start": "0x1802a6cc0"
+        },
+        {
+          "bytes": 5278,
+          "end_exclusive": "0x1802ad86e",
+          "file_offset": 2799568,
+          "name": "selected_stock_collector",
+          "sha256": "b56124656064ae99a46f4eb7aca9486fcd26ffcfcfd3efb6d2f50a3296f5f618",
+          "start": "0x1802ac3d0"
+        },
+        {
+          "bytes": 1146,
+          "end_exclusive": "0x1802ae88a",
+          "file_offset": 2807824,
+          "name": "corner_map_cleanup",
+          "sha256": "718339c0a7add67a6cf453d72de9f22d3b6980e3a77941f6860d19eeb4c26025",
+          "start": "0x1802ae410"
+        },
+        {
+          "bytes": 596,
+          "end_exclusive": "0x1802b8b74",
+          "file_offset": 2850080,
+          "name": "rebuild_corners_from_live_edges",
+          "sha256": "fca207e6f843bc28fc8fd4a64e2dd452359b2c736650a097c8f04baf99944a0a",
+          "start": "0x1802b8920"
+        },
+        {
+          "bytes": 2959,
+          "end_exclusive": "0x180290c1f",
+          "file_offset": 2684048,
+          "name": "fill_scratch_face_associations",
+          "sha256": "b3ca9d70fda8e3073583a197298f2ec54384316d3af383208a3a249c01024a81",
+          "start": "0x180290090"
+        },
+        {
+          "bytes": 303,
+          "end_exclusive": "0x1802b83ff",
+          "file_offset": 2848464,
+          "name": "persist_face_associations",
+          "sha256": "f34a515b925dea1e0718517edf43015b8cebc0b8633ea92bbf9b776c3846e3c9",
+          "start": "0x1802b82d0"
+        },
+        {
+          "bytes": 13,
+          "end_exclusive": "0x18029958d",
+          "file_offset": 2722176,
+          "name": "ordinary_edge_mode_predicate",
+          "sha256": "106880d8701f4bf7914f4d9e169aeb130a17082aaa259f0b48cec6d66320fe89",
+          "start": "0x180299580"
+        },
+        {
+          "bytes": 25,
+          "end_exclusive": "0x1802997d9",
+          "file_offset": 2722752,
+          "name": "related_feature_predicate",
+          "sha256": "019699832345edbffbfa11f5328c2889d0c07135d6867df15cd942608a41f34a",
+          "start": "0x1802997c0"
+        },
+        {
+          "bytes": 7,
+          "end_exclusive": "0x1801042e7",
+          "file_offset": 1062624,
+          "name": "result_enable_getter",
+          "sha256": "d6a26e6b09d526f5a5a32062baa74e3d79f07ca31062378ab093b735c3befbb7",
+          "start": "0x1801042e0"
+        },
+        {
+          "bytes": 191,
+          "end_exclusive": "0x180289c9f",
+          "file_offset": 2658272,
+          "name": "assign_face_ids",
+          "sha256": "dfd173002fd1291fa9326438804c132242f0c013c89215b83456310af30eb8e2",
+          "start": "0x180289be0"
+        },
+        {
+          "bytes": 2450,
+          "end_exclusive": "0x18029cfb2",
+          "file_offset": 2734624,
+          "name": "assign_ordinary_edge_face_ids",
+          "sha256": "06f616053207528e06247db7e449e0959d6d3b2e8cc37cba5b57f4f2fac24c6f",
+          "start": "0x18029c620"
+        },
+        {
+          "bytes": 24,
+          "end_exclusive": "0x180478bf8",
+          "file_offset": 4682208,
+          "name": "actual_fillet_result_vtable_cells",
+          "sha256": "12f848f0e3c706e19085de71b5bea90bdc77c12391bbdcc28b8123cc4e3f2e9e",
+          "start": "0x180478be0"
+        },
+        {
+          "bytes": 8,
+          "end_exclusive": "0x180478e20",
+          "file_offset": 4682776,
+          "name": "actual_fillet_face_id_vtable_cell",
+          "sha256": "9910e2def12903d23d2ef5e97f979ceb9a2c4f2c66deb6728034941a7f3cb96c",
+          "start": "0x180478e18"
+        }
+      ]
+    },
+    "swccu.dll": {
+      "preferred_base": "0x31a30000",
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "spans": [
+        {
+          "bytes": 75,
+          "end_exclusive": "0x31a49c7b",
+          "file_offset": 102448,
+          "name": "pointer_map_base_constructor",
+          "sha256": "db8ac475afd6e3144d5b012a5ae9ad929f9f5d65e10ae2b2b64be9246cf46b6f",
+          "start": "0x31a49c30"
+        },
+        {
+          "bytes": 51,
+          "end_exclusive": "0x31a3cba3",
+          "file_offset": 49008,
+          "name": "object_array_base_constructor",
+          "sha256": "5580430a6e5e71f4fe31a58d139fbcf55bfd7096954850435c6cb46d7aafb663",
+          "start": "0x31a3cb70"
+        }
+      ]
+    }
+  },
+  "native_processes": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "ordinary_wire_count_zero_sites": {
+    "f820.f18": "0x4bbaaba6",
+    "f820.ff0_reference_loop": "0x4bba98bd",
+    "f9b8": "0x18027193a",
+    "fbf0": "0x180271ba1"
+  },
+  "panels": [
+    "Hopper via REA on sldmopartu.dll",
+    "Apple LLVM 21.0.0 exact PE disassembly",
+    "PE32+ original file-backed byte extraction"
+  ],
+  "schema": "kit.sw2026.fillet-result-owner-static.v1",
+  "sldmopartu_rea_evidence": {
+    "assign_face_ids": "ev_3c22b090ea69a4cec1a01d4ec766091c203e7d1b2cd24c717966905daa7cee38",
+    "constructor": "ev_e209d8e8537e1ca783ab9543238b7ff25eed4d0e9e740f9ddf615afcedde8bbe",
+    "corner_rebuild": "ev_640982c2774ddb2abb302b537a088a66b106c75c2cd71151951490cca91aaa8b",
+    "persist_result_map": "ev_e3ae6502cd1931a617255ca1eac9b966e123b17167819128111f64e210044ea4",
+    "serializer": "ev_34b8a02a2000365f3157eaeddf3005f524bbb871b55873fadca35561e5b3b3fa",
+    "solve": "ev_ec1cc2eb8074239fafda38a6cd0d9682a39d64142815486db156bc1d66ed0007"
+  },
+  "workspace_sdk_base": "5313b79072ad7b8dcc9dc0409ba74c809768ff3d"
+}

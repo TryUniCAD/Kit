@@ -1,0 +1,1153 @@
+{
+  "base_revision": "8219597dffd297e654b33647efaadffedde7c1e3",
+  "cases": [
+    {
+      "config": {
+        "bytes": 25840,
+        "sha256": "3d907c69875881895c1cddf1dcb328a9fa931952e12a9d745c962a02917bed2a"
+      },
+      "datum": {
+        "absolute_error_m": 0.0,
+        "config_self_component_object": 44,
+        "exact_binary64": true,
+        "line_object": 412,
+        "part_owner_object": 2,
+        "plane_ref_object": 413,
+        "projected_box_center_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "stored_line_point_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "unit_component_object": 414
+      },
+      "display_storage": {
+        "f1258": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1260": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1268": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1270": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1318": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1320": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        }
+      },
+      "drivers": {
+        "f1258": [
+          3,
+          3.0
+        ],
+        "f1260": [
+          0.027183,
+          0.027183
+        ],
+        "f1268": [
+          1,
+          0.0
+        ],
+        "f1270": [
+          0.0,
+          0.0
+        ],
+        "f1318": [
+          0.0,
+          0.0
+        ],
+        "f1320": [
+          0.0,
+          0.0
+        ]
+      },
+      "list_objects_and_counts": {
+        "f8d8": [
+          382,
+          0
+        ],
+        "f988": [
+          380,
+          1
+        ],
+        "f990": [
+          383,
+          0
+        ],
+        "f9d8": [
+          381,
+          0
+        ]
+      },
+      "name": "D01X.SLDPRT",
+      "public_typed_profile_refusal": "multiple operation histories are outside typed blind topology",
+      "resolved": {
+        "base": 112,
+        "bytes": 28879,
+        "next_counter": 427,
+        "opaque_bytes": 0,
+        "packed_values_per_direction": [
+          [
+            "moDisplayDistanceDim_c",
+            0.00637
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.01066
+          ],
+          [
+            "moDisplayDim_c",
+            3.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.027183
+          ],
+          [
+            "moDisplayDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ]
+        ],
+        "roots": 22,
+        "sha256": "e502cfbc9bcd027a1536d6f9d72b71d6c5aecae1632a8a059fc6101104418ca8"
+      },
+      "scope": {
+        "atom_ids": [
+          101,
+          102,
+          103
+        ],
+        "producer_ids": [
+          32,
+          40,
+          47
+        ],
+        "retired_consumed": true,
+        "wrapper": {
+          "archive_object": 366,
+          "class": "moCompSolidBody_c",
+          "name": null
+        },
+        "wrapper_base_producer": 32,
+        "wrapper_face_class": "moFaceRef_c",
+        "wrapper_lineage": [
+          102,
+          101
+        ],
+        "wrapper_remap": [
+          0,
+          0
+        ]
+      },
+      "source_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839"
+    },
+    {
+      "config": {
+        "bytes": 25846,
+        "sha256": "86f88d2fc620496eea28accbbc608123f36e3e6c219e9eed51186f2fc1cc1a3b"
+      },
+      "datum": {
+        "absolute_error_m": 0.0,
+        "config_self_component_object": 44,
+        "exact_binary64": true,
+        "line_object": 412,
+        "part_owner_object": 2,
+        "plane_ref_object": 413,
+        "projected_box_center_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "stored_line_point_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "unit_component_object": 414
+      },
+      "display_storage": {
+        "f1258": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1260": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1268": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1270": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1318": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1320": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        }
+      },
+      "drivers": {
+        "f1258": [
+          3,
+          3.0
+        ],
+        "f1260": [
+          0.031427,
+          0.031427
+        ],
+        "f1268": [
+          1,
+          0.0
+        ],
+        "f1270": [
+          0.0,
+          0.0
+        ],
+        "f1318": [
+          0.0,
+          0.0
+        ],
+        "f1320": [
+          0.0,
+          0.0
+        ]
+      },
+      "list_objects_and_counts": {
+        "f8d8": [
+          382,
+          0
+        ],
+        "f988": [
+          380,
+          1
+        ],
+        "f990": [
+          383,
+          0
+        ],
+        "f9d8": [
+          381,
+          0
+        ]
+      },
+      "name": "D01XSpacing.SLDPRT",
+      "public_typed_profile_refusal": "multiple operation histories are outside typed blind topology",
+      "resolved": {
+        "base": 112,
+        "bytes": 29089,
+        "next_counter": 427,
+        "opaque_bytes": 0,
+        "packed_values_per_direction": [
+          [
+            "moDisplayDistanceDim_c",
+            0.00637
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.01066
+          ],
+          [
+            "moDisplayDim_c",
+            3.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.031427
+          ],
+          [
+            "moDisplayDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ]
+        ],
+        "roots": 22,
+        "sha256": "ee62cefcc4dd8f0a270417a8f6e4bd3cbb96206669a9b2f2560708f2cdb62b6c"
+      },
+      "scope": {
+        "atom_ids": [
+          101,
+          102,
+          103
+        ],
+        "producer_ids": [
+          32,
+          40,
+          47
+        ],
+        "retired_consumed": true,
+        "wrapper": {
+          "archive_object": 366,
+          "class": "moCompSolidBody_c",
+          "name": null
+        },
+        "wrapper_base_producer": 32,
+        "wrapper_face_class": "moFaceRef_c",
+        "wrapper_lineage": [
+          102,
+          101
+        ],
+        "wrapper_remap": [
+          0,
+          0
+        ]
+      },
+      "source_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403"
+    },
+    {
+      "config": {
+        "bytes": 25846,
+        "sha256": "a3ba42e64644e62df2888f2e7ff6e2b91f198fea6d383ea5517f26d28018fdae"
+      },
+      "datum": {
+        "absolute_error_m": 0.0,
+        "config_self_component_object": 44,
+        "exact_binary64": true,
+        "line_object": 412,
+        "part_owner_object": 2,
+        "plane_ref_object": 413,
+        "projected_box_center_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "stored_line_point_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "unit_component_object": 414
+      },
+      "display_storage": {
+        "f1258": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1260": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1268": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1270": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1318": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1320": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        }
+      },
+      "drivers": {
+        "f1258": [
+          4,
+          4.0
+        ],
+        "f1260": [
+          0.027183,
+          0.027183
+        ],
+        "f1268": [
+          1,
+          0.0
+        ],
+        "f1270": [
+          0.0,
+          0.0
+        ],
+        "f1318": [
+          0.0,
+          0.0
+        ],
+        "f1320": [
+          0.0,
+          0.0
+        ]
+      },
+      "list_objects_and_counts": {
+        "f8d8": [
+          382,
+          0
+        ],
+        "f988": [
+          380,
+          1
+        ],
+        "f990": [
+          383,
+          0
+        ],
+        "f9d8": [
+          381,
+          0
+        ]
+      },
+      "name": "D01XInstances.SLDPRT",
+      "public_typed_profile_refusal": "multiple operation histories are outside typed blind topology",
+      "resolved": {
+        "base": 112,
+        "bytes": 29089,
+        "next_counter": 427,
+        "opaque_bytes": 0,
+        "packed_values_per_direction": [
+          [
+            "moDisplayDistanceDim_c",
+            0.00637
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.01066
+          ],
+          [
+            "moDisplayDim_c",
+            4.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.027183
+          ],
+          [
+            "moDisplayDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ]
+        ],
+        "roots": 22,
+        "sha256": "b460f235270e9de94ac62274274434f28ed6046999b8e07a2aeecc8bfb383ba1"
+      },
+      "scope": {
+        "atom_ids": [
+          101,
+          102,
+          103
+        ],
+        "producer_ids": [
+          32,
+          40,
+          47
+        ],
+        "retired_consumed": true,
+        "wrapper": {
+          "archive_object": 366,
+          "class": "moCompSolidBody_c",
+          "name": null
+        },
+        "wrapper_base_producer": 32,
+        "wrapper_face_class": "moFaceRef_c",
+        "wrapper_lineage": [
+          102,
+          101
+        ],
+        "wrapper_remap": [
+          0,
+          0
+        ]
+      },
+      "source_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600"
+    },
+    {
+      "config": {
+        "bytes": 26098,
+        "sha256": "99323ed45509bc433e6c649ca08375a21cd1ffefb5304af2492f7b6e69901abc"
+      },
+      "datum": {
+        "absolute_error_m": 1.3877787807814457e-17,
+        "config_self_component_object": 44,
+        "exact_binary64": false,
+        "line_object": 413,
+        "part_owner_object": 2,
+        "plane_ref_object": 414,
+        "projected_box_center_m": [
+          0.09674,
+          0.0,
+          0.0054199999999999995
+        ],
+        "stored_line_point_m": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "unit_component_object": 415
+      },
+      "display_storage": {
+        "f1258": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1260": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1268": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1270": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1318": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1320": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        }
+      },
+      "drivers": {
+        "f1258": [
+          4,
+          4.0
+        ],
+        "f1260": [
+          0.025163,
+          0.025163
+        ],
+        "f1268": [
+          1,
+          0.0
+        ],
+        "f1270": [
+          0.0,
+          0.0
+        ],
+        "f1318": [
+          0.0,
+          0.0
+        ],
+        "f1320": [
+          0.0,
+          0.0
+        ]
+      },
+      "list_objects_and_counts": {
+        "f8d8": [
+          383,
+          0
+        ],
+        "f988": [
+          381,
+          1
+        ],
+        "f990": [
+          384,
+          0
+        ],
+        "f9d8": [
+          382,
+          0
+        ]
+      },
+      "name": "D02Y.SLDPRT",
+      "public_typed_profile_refusal": "multiple operation histories are outside typed blind topology",
+      "resolved": {
+        "base": 113,
+        "bytes": 28879,
+        "next_counter": 428,
+        "opaque_bytes": 0,
+        "packed_values_per_direction": [
+          [
+            "moDisplayDistanceDim_c",
+            0.00413
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.010839999999999999
+          ],
+          [
+            "moDisplayDim_c",
+            4.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.025163
+          ],
+          [
+            "moDisplayDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ]
+        ],
+        "roots": 22,
+        "sha256": "8d90f9bd93ea45d25c334df76aa5ca6bdfa25edb1dbdf62630f4d923e4bcd7a9"
+      },
+      "scope": {
+        "atom_ids": [
+          101,
+          102,
+          103
+        ],
+        "producer_ids": [
+          32,
+          40,
+          47
+        ],
+        "retired_consumed": true,
+        "wrapper": {
+          "archive_object": 367,
+          "class": "moCompSolidBody_c",
+          "name": null
+        },
+        "wrapper_base_producer": 32,
+        "wrapper_face_class": "moFaceRef_c",
+        "wrapper_lineage": [
+          102,
+          101
+        ],
+        "wrapper_remap": [
+          0,
+          0
+        ]
+      },
+      "source_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371"
+    },
+    {
+      "config": {
+        "bytes": 26104,
+        "sha256": "1ca8efc48a357d9960a9aa8b745ecfe3c12c81a0a5c75b5e99be70371feab221"
+      },
+      "datum": {
+        "absolute_error_m": 1.3877787807814457e-17,
+        "config_self_component_object": 44,
+        "exact_binary64": false,
+        "line_object": 413,
+        "part_owner_object": 2,
+        "plane_ref_object": 414,
+        "projected_box_center_m": [
+          0.09674,
+          0.0,
+          0.0054199999999999995
+        ],
+        "stored_line_point_m": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "unit_component_object": 415
+      },
+      "display_storage": {
+        "f1258": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1260": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1268": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1270": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1318": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1320": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        }
+      },
+      "drivers": {
+        "f1258": [
+          4,
+          4.0
+        ],
+        "f1260": [
+          0.029173,
+          0.029173
+        ],
+        "f1268": [
+          1,
+          0.0
+        ],
+        "f1270": [
+          0.0,
+          0.0
+        ],
+        "f1318": [
+          0.0,
+          0.0
+        ],
+        "f1320": [
+          0.0,
+          0.0
+        ]
+      },
+      "list_objects_and_counts": {
+        "f8d8": [
+          383,
+          0
+        ],
+        "f988": [
+          381,
+          1
+        ],
+        "f990": [
+          384,
+          0
+        ],
+        "f9d8": [
+          382,
+          0
+        ]
+      },
+      "name": "D02YSpacing.SLDPRT",
+      "public_typed_profile_refusal": "multiple operation histories are outside typed blind topology",
+      "resolved": {
+        "base": 113,
+        "bytes": 29089,
+        "next_counter": 428,
+        "opaque_bytes": 0,
+        "packed_values_per_direction": [
+          [
+            "moDisplayDistanceDim_c",
+            0.00413
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.010839999999999999
+          ],
+          [
+            "moDisplayDim_c",
+            4.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.029173
+          ],
+          [
+            "moDisplayDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ]
+        ],
+        "roots": 22,
+        "sha256": "fe291652c8611a12eadc23f275b9157d87c583a8471a1ef3a8f25146e2d609cb"
+      },
+      "scope": {
+        "atom_ids": [
+          101,
+          102,
+          103
+        ],
+        "producer_ids": [
+          32,
+          40,
+          47
+        ],
+        "retired_consumed": true,
+        "wrapper": {
+          "archive_object": 367,
+          "class": "moCompSolidBody_c",
+          "name": null
+        },
+        "wrapper_base_producer": 32,
+        "wrapper_face_class": "moFaceRef_c",
+        "wrapper_lineage": [
+          102,
+          101
+        ],
+        "wrapper_remap": [
+          0,
+          0
+        ]
+      },
+      "source_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d"
+    },
+    {
+      "config": {
+        "bytes": 26104,
+        "sha256": "fa6710128ab29af93213a8df34933b69affb5a91eb86522dfb58d626b459cc49"
+      },
+      "datum": {
+        "absolute_error_m": 1.3877787807814457e-17,
+        "config_self_component_object": 44,
+        "exact_binary64": false,
+        "line_object": 413,
+        "part_owner_object": 2,
+        "plane_ref_object": 414,
+        "projected_box_center_m": [
+          0.09674,
+          0.0,
+          0.0054199999999999995
+        ],
+        "stored_line_point_m": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "unit_component_object": 415
+      },
+      "display_storage": {
+        "f1258": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1260": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1268": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1270": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1318": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        },
+        "f1320": {
+          "alloc_a": 16,
+          "alloc_b": 1,
+          "elem": 8,
+          "n": 1
+        }
+      },
+      "drivers": {
+        "f1258": [
+          5,
+          5.0
+        ],
+        "f1260": [
+          0.025163,
+          0.025163
+        ],
+        "f1268": [
+          1,
+          0.0
+        ],
+        "f1270": [
+          0.0,
+          0.0
+        ],
+        "f1318": [
+          0.0,
+          0.0
+        ],
+        "f1320": [
+          0.0,
+          0.0
+        ]
+      },
+      "list_objects_and_counts": {
+        "f8d8": [
+          383,
+          0
+        ],
+        "f988": [
+          381,
+          1
+        ],
+        "f990": [
+          384,
+          0
+        ],
+        "f9d8": [
+          382,
+          0
+        ]
+      },
+      "name": "D02YInstances.SLDPRT",
+      "public_typed_profile_refusal": "multiple operation histories are outside typed blind topology",
+      "resolved": {
+        "base": 113,
+        "bytes": 29089,
+        "next_counter": 428,
+        "opaque_bytes": 0,
+        "packed_values_per_direction": [
+          [
+            "moDisplayDistanceDim_c",
+            0.00413
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.010839999999999999
+          ],
+          [
+            "moDisplayDim_c",
+            5.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.025163
+          ],
+          [
+            "moDisplayDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ],
+          [
+            "moDisplayDistanceDim_c",
+            0.0
+          ]
+        ],
+        "roots": 22,
+        "sha256": "96500e6a76d9c4018254c3fddb6d2af3f7501937a10403a2d48f765892fc2a70"
+      },
+      "scope": {
+        "atom_ids": [
+          101,
+          102,
+          103
+        ],
+        "producer_ids": [
+          32,
+          40,
+          47
+        ],
+        "retired_consumed": true,
+        "wrapper": {
+          "archive_object": 367,
+          "class": "moCompSolidBody_c",
+          "name": null
+        },
+        "wrapper_base_producer": 32,
+        "wrapper_face_class": "moFaceRef_c",
+        "wrapper_lineage": [
+          102,
+          101
+        ],
+        "wrapper_remap": [
+          0,
+          0
+        ]
+      },
+      "source_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2"
+    }
+  ],
+  "controls": [
+    {
+      "line_owner": null,
+      "path": "ladder/L1_boss.SLDPRT",
+      "resolved_sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    {
+      "line_owner": "moCompSketchEntHandle_c",
+      "path": "principal-revolve-discovery/PrincipalRevolveTopForward.SLDPRT",
+      "resolved_sha256": "8ae01dea66fda2c0058ad4b5f82d797b90447e81a0d64387a5e68b8e83becd26",
+      "source_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0"
+    }
+  ],
+  "disclosed_intake_sha256": "07ac98da888fd8c2a7caaa0a513b73d9b81a33c2f522f51b0ed8e6dcf6c6bf63",
+  "disclosed_native_lock_sha256": "8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426",
+  "file_sha256": {
+    "re/tooling/sw2026/linear_pattern/AuditLinearPatternArchive.py": "d4b04459f61351a1709c3f73a886738ba8bb66ae4cc00695a63cee097f26479c",
+    "re/tooling/sw2026/linear_pattern/ProveTypedLinearPatternArchive.py": "55f9202f44d29e03f9e17ceef9740b1b3a0b1cce9477066fdaa70ea434de1af1",
+    "src/convert/adapters/solidworks/Archive/Bodies/CheckPacked.py": "e7d56bc4abec9faac62d5e8dcb069d01586e0fc51c3b17408a540d5cc828f3b5",
+    "src/convert/adapters/solidworks/Archive/Bodies/CheckPatDatum.py": "5b259f18f1df58fcb19966e6a04a8d7a3727326cba227bc5eccde32d231861c9",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/AnchorFields.py": "97c7ff78061905b9cf9bab074b1c65a26a8623b074700482339833bb4653b162",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/PatternBaseFields.py": "b6d76065002f29f5bec62e6e62c61e95c3cda5096716a25071d93ef9b4ad75cf",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/PatternDatumFields.py": "86332d5b95fb6ae17c0bbbdb78b3de9bdf68c61c012885719708b2250d46ebaa",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/PatternDimFields.py": "8b95b34e54a903b3f5b6fde1ae94ed6fc79c79bb9d6998da32b01d980899a304",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/PatternLayouts.py": "67a8176de40d57140e19f1f53cb6d670b91a96a024802e70beec230c42994ec1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/PatternOrigFields.py": "7fc13511db22ceccc066f640d5c0ca629072bf1d8afa34bda8944cc7d38307dc",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/PatternShapeFields.py": "7a8987ea3407bd1070f7afd24932c6d5a16c4276317c0d219262ef65f683aa83",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/PatternTailFields.py": "8a45043ee367cc5a3878d8773fb13ae6c339ecea545778cfe35e34378b7291dd",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedLayouts.py": "dbc41fd673c8c37530ac521f2a47380a5378909dc3d5cc54c139547e920bc84d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py": "ef5c294a752b27f3282a0b3a0645ac717a9da2f7de8346e7308ae551467a9692",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedVirtuals.py": "f13bb8747519fd3e1a19496e5fdb4ae5d97eb6184fe7a7c400a6add11f6d9a76",
+    "src/convert/adapters/solidworks/Archive/Bodies/ValidateFields.py": "e7f50e3ffa2c73279af86b6fe89046fb1f0cd472cd442dbb028812f38cab00c0"
+  },
+  "heldout_inputs_read": 0,
+  "linked_exact_streams": 16,
+  "malformed_model_refusals": [
+    {
+      "field": "f1288",
+      "reason": "linear pattern direction requires its local datum chain"
+    },
+    {
+      "field": "f58",
+      "reason": "linear pattern direction requires its local datum chain"
+    },
+    {
+      "field": "f820",
+      "reason": "linear pattern skip object"
+    },
+    {
+      "field": "nf30",
+      "reason": "linear pattern dimension increments"
+    },
+    {
+      "field": "f30",
+      "reason": "alternate linear pattern shape form"
+    },
+    {
+      "field": "elem",
+      "reason": "packed native values require the proven ordinary display binary64 owner"
+    }
+  ],
+  "native_files_written": 0,
+  "native_processes_started": 0,
+  "pattern_binary64_values_per_direction": 48,
+  "prewriter_lock_revision": "c533e1997bf4ff1212ad0e9bc28d87368796e0a9",
+  "prewriter_lock_sha256": "feae81f34fb0505753eebad0ab11588b6a18b5fdf72f6b4c5b9ad899084f1112",
+  "schema": "kit.sw2026.local-linear-pattern-typed-archive.v1"
+}

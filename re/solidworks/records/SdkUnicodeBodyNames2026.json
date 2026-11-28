@@ -1,0 +1,20 @@
+{
+  "all_sources_immutable": true,
+  "ascii_behavior_unchanged": true,
+  "cacheless_projection_included": false,
+  "closure_sha256": "c589bf20ed89c6aca3d77564d392bbc1a9ebbc8be52f9427d0ce180411b22637",
+  "heldout_inputs_read": 0,
+  "metadata_only_correlation_sha256": "194d1616504b78fd63638bb275751a57927fd0526f1ab8f0b1f608faef5d6b4d",
+  "native_source_processes": 8,
+  "native_source_result_sha256": "0575f02dcf7c68cf88211710ac3aab3f380164f37282542ea8b4b882e450b2d0",
+  "paired_mode_visits": 115,
+  "process_receipt_sha256": "9241c55931ed5fb24aa887c56068d202c004b3af1b81b24293b7ce0db8f12641",
+  "proprietary_code_included": false,
+  "public_writer_enabled": false,
+  "python_processes": 56,
+  "root_replay_sha256": "fbc67e97a4d904a2dcc006b942a6e4183ad12f564b52b0c1b6ba3e3f4d790a83",
+  "schema": "kit.sw2026.unicode-body-reader-evidence.v1",
+  "scope": "cache_backed_single_solid_authored_utf16_body_name_with_complete_ownership",
+  "source_manifest_sha256": "4edcd6c55bf296c92187bbb3cdc363b49cc4727a4efd5aeef1ab86a178a771f1",
+  "unicode_rule": "actual authored f18 and implicit strict UTF16 agree; preserve raw compatibility character bytes without selecting a codec"
+}

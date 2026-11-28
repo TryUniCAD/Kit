@@ -1,0 +1,755 @@
+{
+  "schema": "kit.sw2026.local-linear-pattern-native-ownership.v1",
+  "task_id": "B04-SW2026-LOCAL-LINEAR-PATTERN",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "module": {
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "bytes": 46536280,
+    "machine": "0x8664",
+    "preferred_base": "0x4b140000"
+  },
+  "secondary_module": {
+    "name": "swccu.dll",
+    "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+    "bytes": 252504,
+    "machine": "0x8664",
+    "preferred_base": "0x31a30000",
+    "functions": [
+      {
+        "start": "0x31a3f030",
+        "end_exclusive": "0x31a3f0c9",
+        "bytes": 153,
+        "sha256": "d064fda3876f5279a158324ef2252caeee3765c0638ff7c2afb4dbc333b3db77",
+        "bound": "all contiguous PE chained unwind fragments",
+        "name": "su_CObject::Serialize(su_CArchive&)",
+        "unwind_fragments": [
+          {
+            "start": "0x31a3f030",
+            "end_exclusive": "0x31a3f0c9",
+            "bytes": 153,
+            "sha256": "d064fda3876f5279a158324ef2252caeee3765c0638ff7c2afb4dbc333b3db77",
+            "bound": "PE exception directory and complete chained unwind group",
+            "unwind_rva": "0x26cd8"
+          }
+        ]
+      }
+    ]
+  },
+  "serialize_map": {
+    "path": "re/data/Serialization/SerializeMap2026.json",
+    "sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+  },
+  "functions": [
+    {
+      "start": "0x4bb152b0",
+      "end_exclusive": "0x4bb15951",
+      "bytes": 1697,
+      "sha256": "01e053b01f1c2da3f69adab1f85b5bfc59d5d58eecbb2e599fc0211f053ca34b",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moLPattern_c::Serialize",
+      "unwind_fragments": [
+        {
+          "start": "0x4bb152b0",
+          "end_exclusive": "0x4bb15951",
+          "bytes": 1697,
+          "sha256": "01e053b01f1c2da3f69adab1f85b5bfc59d5d58eecbb2e599fc0211f053ca34b",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2386850"
+        }
+      ]
+    },
+    {
+      "start": "0x4bb1aa00",
+      "end_exclusive": "0x4bb1bd71",
+      "bytes": 4977,
+      "sha256": "4c43d27e895606770f5313f98d436060c96836060f42659a7a660356515b6507",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moPattern_c::Serialize",
+      "unwind_fragments": [
+        {
+          "start": "0x4bb1aa00",
+          "end_exclusive": "0x4bb1bd71",
+          "bytes": 4977,
+          "sha256": "4c43d27e895606770f5313f98d436060c96836060f42659a7a660356515b6507",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2386740"
+        }
+      ]
+    },
+    {
+      "start": "0x4b4ed930",
+      "end_exclusive": "0x4b4edafe",
+      "bytes": 462,
+      "sha256": "0928609a363bb8b7720e1db92f3d23d11dab73e6569fe28d900558d94b3f00c7",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moLPatternData_c::Serialize",
+      "unwind_fragments": [
+        {
+          "start": "0x4b4ed930",
+          "end_exclusive": "0x4b4edafe",
+          "bytes": 462,
+          "sha256": "0928609a363bb8b7720e1db92f3d23d11dab73e6569fe28d900558d94b3f00c7",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245bbc"
+        }
+      ]
+    },
+    {
+      "start": "0x4b4ee120",
+      "end_exclusive": "0x4b4eea61",
+      "bytes": 2369,
+      "sha256": "9042051c5ea65f75ed23f0c8ad2070fa64ccbadff9462f2fadfa85971608c23e",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moPatternParam_c::Serialize",
+      "unwind_fragments": [
+        {
+          "start": "0x4b4ee120",
+          "end_exclusive": "0x4b4eea61",
+          "bytes": 2369,
+          "sha256": "9042051c5ea65f75ed23f0c8ad2070fa64ccbadff9462f2fadfa85971608c23e",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x22a3c18"
+        }
+      ]
+    },
+    {
+      "start": "0x4b4ed8a0",
+      "end_exclusive": "0x4b4ed92c",
+      "bytes": 140,
+      "sha256": "ec26d0c4e655a116ca5090bad93e0a9ca92bab647afee3ff90e3c237fb78769f",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moFeatureData_c::Serialize",
+      "unwind_fragments": [
+        {
+          "start": "0x4b4ed8a0",
+          "end_exclusive": "0x4b4ed92c",
+          "bytes": 140,
+          "sha256": "ec26d0c4e655a116ca5090bad93e0a9ca92bab647afee3ff90e3c237fb78769f",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "start": "0x4b4edce0",
+      "end_exclusive": "0x4b4ee111",
+      "bytes": 1073,
+      "sha256": "9565c95f4faf414998ad0d5685ca4f54ee4b5077700acbb346195e78731bea1c",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moPatternData_c::Serialize",
+      "unwind_fragments": [
+        {
+          "start": "0x4b4edce0",
+          "end_exclusive": "0x4b4ee111",
+          "bytes": 1073,
+          "sha256": "9565c95f4faf414998ad0d5685ca4f54ee4b5077700acbb346195e78731bea1c",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x22a3cb0"
+        }
+      ]
+    },
+    {
+      "start": "0x4b668730",
+      "end_exclusive": "0x4b668859",
+      "bytes": 297,
+      "sha256": "2da1e2f7de03bc3a9761bc66688764d5d6709f872b70b8c1a82a32dbca871ee7",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moLPatternItemId_c::Serialize",
+      "unwind_fragments": [
+        {
+          "start": "0x4b668730",
+          "end_exclusive": "0x4b668859",
+          "bytes": 297,
+          "sha256": "2da1e2f7de03bc3a9761bc66688764d5d6709f872b70b8c1a82a32dbca871ee7",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x224bde4"
+        }
+      ]
+    },
+    {
+      "start": "0x4b27cbe0",
+      "end_exclusive": "0x4b27cbe3",
+      "bytes": 3,
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "name": "LPattern boolean dispatch leaf",
+      "unwind_fragments": []
+    },
+    {
+      "start": "0x4bfd56e0",
+      "end_exclusive": "0x4bfd5717",
+      "bytes": 55,
+      "sha256": "8b55025892f0ed68aa1890ae6e5d815c3139301cc1b017bafbc5c0b6ed2f07eb",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "LPattern_getNum1",
+      "unwind_fragments": [
+        {
+          "start": "0x4bfd56e0",
+          "end_exclusive": "0x4bfd5717",
+          "bytes": 55,
+          "sha256": "8b55025892f0ed68aa1890ae6e5d815c3139301cc1b017bafbc5c0b6ed2f07eb",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "start": "0x4bfd84c0",
+      "end_exclusive": "0x4bfd84f5",
+      "bytes": 53,
+      "sha256": "7b1ae1d13bc932440fa74e77c995b8231ecc59c658b43a5ec16261a1895c9d9b",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "LPattern_getSpacing1",
+      "unwind_fragments": [
+        {
+          "start": "0x4bfd84c0",
+          "end_exclusive": "0x4bfd84f5",
+          "bytes": 53,
+          "sha256": "7b1ae1d13bc932440fa74e77c995b8231ecc59c658b43a5ec16261a1895c9d9b",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "start": "0x4bff72f0",
+      "end_exclusive": "0x4bff7338",
+      "bytes": 72,
+      "sha256": "475a3914fe85fffa178cd69e1fc82163d7539ae9b0fa276fdfa124bab4a4561e",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "LPattern_setNum1",
+      "unwind_fragments": [
+        {
+          "start": "0x4bff72f0",
+          "end_exclusive": "0x4bff7338",
+          "bytes": 72,
+          "sha256": "475a3914fe85fffa178cd69e1fc82163d7539ae9b0fa276fdfa124bab4a4561e",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245bc8"
+        }
+      ]
+    },
+    {
+      "start": "0x4bff7bf0",
+      "end_exclusive": "0x4bff7c3b",
+      "bytes": 75,
+      "sha256": "2d9567a3ea8c4e3842ad26d3dffc58f810af3656bf4e1c477d8e089ca9d2a3a3",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "LPattern_setSpacing1",
+      "unwind_fragments": [
+        {
+          "start": "0x4bff7bf0",
+          "end_exclusive": "0x4bff7c3b",
+          "bytes": 75,
+          "sha256": "2d9567a3ea8c4e3842ad26d3dffc58f810af3656bf4e1c477d8e089ca9d2a3a3",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x23dd3f0"
+        }
+      ]
+    },
+    {
+      "start": "0x4c1de890",
+      "end_exclusive": "0x4c1de8b5",
+      "bytes": 37,
+      "sha256": "9896731f45e48632e9dc2bb5d1633626b800d203080e62167cbddafeafae6b22",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "PatternParam_getNum",
+      "unwind_fragments": [
+        {
+          "start": "0x4c1de890",
+          "end_exclusive": "0x4c1de8b5",
+          "bytes": 37,
+          "sha256": "9896731f45e48632e9dc2bb5d1633626b800d203080e62167cbddafeafae6b22",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "start": "0x4c1df130",
+      "end_exclusive": "0x4c1df150",
+      "bytes": 32,
+      "sha256": "9e96cbe009f0663af227d3ff99247e3169f202fd0112c95cc2e689c55884b1d0",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "PatternParam_getSpacing",
+      "unwind_fragments": [
+        {
+          "start": "0x4c1df130",
+          "end_exclusive": "0x4c1df150",
+          "bytes": 32,
+          "sha256": "9e96cbe009f0663af227d3ff99247e3169f202fd0112c95cc2e689c55884b1d0",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "start": "0x4b367480",
+      "end_exclusive": "0x4b367487",
+      "bytes": 7,
+      "sha256": "493457707efeb0b3251f56e4ca16975b673aedb22403582645d1a3298b01050c",
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "name": "PatternParam_getInstancesType",
+      "unwind_fragments": []
+    },
+    {
+      "start": "0x4c077bc0",
+      "end_exclusive": "0x4c077be1",
+      "bytes": 33,
+      "sha256": "ad54894272e4b8e608fb7655d7512d7780b7e05705b97cd028d1d10344cd512a",
+      "bound": "all contiguous PE chained unwind fragments",
+      "name": "moPattern_c::isVaryInstanceSerializationEnabled",
+      "unwind_fragments": [
+        {
+          "start": "0x4c077bc0",
+          "end_exclusive": "0x4c077be1",
+          "bytes": 33,
+          "sha256": "ad54894272e4b8e608fb7655d7512d7780b7e05705b97cd028d1d10344cd512a",
+          "bound": "PE exception directory and complete chained unwind group",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    }
+  ],
+  "vtables": [
+    {
+      "class": "moLPattern_c",
+      "vtable": "0x4d0bc0a0",
+      "rtti": ".?AVmoLPattern_c@@",
+      "complete_object_locator": "0x4d34b490",
+      "bases": [
+        {
+          "name": ".?AVmoLPattern_c@@",
+          "descriptor": "0x4d34b538",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoPattern_c@@",
+          "descriptor": "0x4d2f8ff0",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoBodyFeature_c@@",
+          "descriptor": "0x4d2f13e8",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoAtomFeature_c@@",
+          "descriptor": "0x4d2f1488",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoModelFeature_c@@",
+          "descriptor": "0x4d2ec9c8",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoFeature_c@@",
+          "descriptor": "0x4d2eca58",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoConcept_c@@",
+          "descriptor": "0x4d2ecad8",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoLoggedNode_c@@",
+          "descriptor": "0x4d2ecb48",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoNode_c@@",
+          "descriptor": "0x4d2ecbb0",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVsu_CObject@@",
+          "descriptor": "0x4d2ea380",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVCObject@@",
+          "descriptor": "0x4d2ea358",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVutDisplayedEntity_c@@",
+          "descriptor": "0x4d2ecc10",
+          "mdisp": 144
+        }
+      ],
+      "slots": [
+        {
+          "slot": "0x28",
+          "target": "0x4bb152b0",
+          "start": "0x4d0bc0c8",
+          "end_exclusive": "0x4d0bc0d0",
+          "bytes": 8,
+          "sha256": "7a24ab7d6c96af69df3ce11614c54eb665ee4f8db2294210db895b404e69f5f0",
+          "bound": "one original vtable pointer"
+        },
+        {
+          "slot": "0x870",
+          "target": "0x4b27cbe0",
+          "start": "0x4d0bc910",
+          "end_exclusive": "0x4d0bc918",
+          "bytes": 8,
+          "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+          "bound": "one original vtable pointer"
+        },
+        {
+          "slot": "0x2678",
+          "target": "0x4b27cbe0",
+          "start": "0x4d0be718",
+          "end_exclusive": "0x4d0be720",
+          "bytes": 8,
+          "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+          "bound": "one original vtable pointer"
+        }
+      ]
+    },
+    {
+      "class": "moPattern_c",
+      "vtable": "0x4d0cbaa0",
+      "rtti": ".?AVmoPattern_c@@",
+      "complete_object_locator": "0x4d34c328",
+      "bases": [
+        {
+          "name": ".?AVmoPattern_c@@",
+          "descriptor": "0x4d2f8ff0",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoBodyFeature_c@@",
+          "descriptor": "0x4d2f13e8",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoAtomFeature_c@@",
+          "descriptor": "0x4d2f1488",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoModelFeature_c@@",
+          "descriptor": "0x4d2ec9c8",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoFeature_c@@",
+          "descriptor": "0x4d2eca58",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoConcept_c@@",
+          "descriptor": "0x4d2ecad8",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoLoggedNode_c@@",
+          "descriptor": "0x4d2ecb48",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoNode_c@@",
+          "descriptor": "0x4d2ecbb0",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVsu_CObject@@",
+          "descriptor": "0x4d2ea380",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVCObject@@",
+          "descriptor": "0x4d2ea358",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVutDisplayedEntity_c@@",
+          "descriptor": "0x4d2ecc10",
+          "mdisp": 144
+        }
+      ],
+      "slots": [
+        {
+          "slot": "0x28",
+          "target": "0x4bb1aa00",
+          "start": "0x4d0cbac8",
+          "end_exclusive": "0x4d0cbad0",
+          "bytes": 8,
+          "sha256": "ca899d89181950217e86ada4ee1859fe40319f1660e0954a04e80808fb2c92cb",
+          "bound": "one original vtable pointer"
+        }
+      ]
+    },
+    {
+      "class": "moLPatternData_c",
+      "vtable": "0x4d127518",
+      "rtti": ".?AVmoLPatternData_c@@",
+      "complete_object_locator": "0x4d3532f0",
+      "bases": [
+        {
+          "name": ".?AVmoLPatternData_c@@",
+          "descriptor": "0x4d353360",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoPatternData_c@@",
+          "descriptor": "0x4d2f6708",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVmoFeatureData_c@@",
+          "descriptor": "0x4d2f6648",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVsu_CObject@@",
+          "descriptor": "0x4d2ea380",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVCObject@@",
+          "descriptor": "0x4d2ea358",
+          "mdisp": 0
+        }
+      ],
+      "slots": [
+        {
+          "slot": "0x28",
+          "target": "0x4b4ed930",
+          "start": "0x4d127540",
+          "end_exclusive": "0x4d127548",
+          "bytes": 8,
+          "sha256": "05ce33745fe829fdf6490a2f1910abbd20b9e0a75ad8445c4ceccc71a86d1530",
+          "bound": "one original vtable pointer"
+        }
+      ]
+    },
+    {
+      "class": "moPatternParam_c",
+      "vtable": "0x4d127220",
+      "rtti": ".?AVmoPatternParam_c@@",
+      "complete_object_locator": "0x4d3531d8",
+      "bases": [
+        {
+          "name": ".?AVmoPatternParam_c@@",
+          "descriptor": "0x4d353238",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVsu_CObject@@",
+          "descriptor": "0x4d2ea380",
+          "mdisp": 0
+        },
+        {
+          "name": ".?AVCObject@@",
+          "descriptor": "0x4d2ea358",
+          "mdisp": 0
+        }
+      ],
+      "slots": [
+        {
+          "slot": "0x28",
+          "target": "0x4b4ee120",
+          "start": "0x4d127248",
+          "end_exclusive": "0x4d127250",
+          "bytes": 8,
+          "sha256": "7bba5542febb33bdb7ab7385d0bede2aaa1ec0f06575b8aa879e9126a3443234",
+          "bound": "one original vtable pointer"
+        }
+      ]
+    }
+  ],
+  "null_display_spacing_fallback": {
+    "start": "0x4cd9e308",
+    "end_exclusive": "0x4cd9e310",
+    "bytes": 8,
+    "sha256": "c738dd99fada954a0be83cb94069e65973256ed5a199cd293841c789ad3b0910",
+    "bound": "one original double loaded only by null-display spacing getter branch",
+    "decoded_double": 0.01
+  },
+  "imports": [
+    {
+      "iat": "0x4cd335a8",
+      "module": "SLDMFCU.dll",
+      "name": "??6@YAAEAVsu_CArchive@@AEAV0@AEAPEAVsuObArray@@@Z"
+    },
+    {
+      "iat": "0x4cd3d870",
+      "module": "swccu.dll",
+      "name": "?IsStoring@su_CArchive@@QEBAHXZ"
+    },
+    {
+      "iat": "0x4cd3d878",
+      "module": "swccu.dll",
+      "name": "?IsDBStream@su_CArchive@@QEBAHXZ"
+    },
+    {
+      "iat": "0x4cd3d880",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    },
+    {
+      "iat": "0x4cd3d888",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+    },
+    {
+      "iat": "0x4cd3da08",
+      "module": "swccu.dll",
+      "name": "??5@YAAEAVsu_CArchive@@AEAV0@AEAPEAVCObject@@@Z"
+    },
+    {
+      "iat": "0x4cd3da28",
+      "module": "swccu.dll",
+      "name": "??6@YAAEAVsu_CArchive@@AEAV0@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    {
+      "iat": "0x4cd3da30",
+      "module": "swccu.dll",
+      "name": "??5@YAAEAVsu_CArchive@@AEAV0@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    {
+      "iat": "0x4cd3da38",
+      "module": "swccu.dll",
+      "name": "??6@YAAEAVsu_CArchive@@AEAV0@PEBVCObject@@@Z"
+    },
+    {
+      "iat": "0x4cd3dd58",
+      "module": "swccu.dll",
+      "name": "?GetThisClass@su_CDWordArray@@SAPEAUCRuntimeClass@@XZ"
+    },
+    {
+      "iat": "0x4cd3dd60",
+      "module": "swccu.dll",
+      "name": "?GetThisClass@su_CObArray@@SAPEAUCRuntimeClass@@XZ"
+    },
+    {
+      "iat": "0x4cd33300",
+      "module": "SLDMFCU.dll",
+      "name": "?hasCondition@moArchiveHelper_c@@QEAAHH@Z"
+    },
+    {
+      "iat": "0x4cd33c58",
+      "module": "SLDMFCU.dll",
+      "name": "??6@YAAEAVsu_CArchive@@AEAV0@AEAPEAVsuObList@@@Z"
+    },
+    {
+      "iat": "0x4cd33cf8",
+      "module": "SLDMFCU.dll",
+      "name": "?getCurrentFileVerion@moVersionManager_c@@CAKXZ"
+    },
+    {
+      "iat": "0x4cd33d00",
+      "module": "SLDMFCU.dll",
+      "name": "?get@moVersionManager_c@@SAAEAV1@XZ"
+    },
+    {
+      "iat": "0x4cd3e1a0",
+      "module": "swccu.dll",
+      "name": "?WriteCount@su_CArchive@@QEAAXK@Z"
+    }
+  ],
+  "evidence_ids": [
+    "ev_7fc3ecfa02cbbd7d6067ca5c370b778582e5ddc85ae1940285a50b90bfc6ceec"
+  ],
+  "helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad",
+  "decoder": "Apple LLVM 21.0.0, bounded unchanged original PE instruction ranges",
+  "knowledge_scope": "independent static field order/dispatch and typed source-author protocol; no constructor defaults or writer recipe",
+  "source_disclosure": {
+    "native_saved_pattern_payloads_read": 0,
+    "known_qualified_v19000_part_pattern_source": false,
+    "root_confirmation": "no known qualified native part-feature linear pattern source available"
+  },
+  "refuted_attempts": [
+    {
+      "input": "preserved SerializeMap.json",
+      "reason": "2025-address map does not match actual 2026 native entries; rejected before grammar/source edits",
+      "replaced_by": "SerializeMap2026.json"
+    },
+    {
+      "input": "first short getNum1 disassembly window",
+      "reason": "ended before complete fallback tail; never treated as full-function hash",
+      "replaced_by": "complete pdata bound [0x4bfd56e0,0x4bfd5717)"
+    },
+    {
+      "input": "initial interpretation of moFeatureData_c.f08 type-check caller",
+      "reason": "caller alone proves a feature runtime-class predicate, not exact null semantics; the reached helper imports MFC ordinal7928 and its actual mapped body was not bound here",
+      "replacement": "f08 is an actual object reference; nullability remains explicit pending exact predicate implementation"
+    }
+  ],
+  "execution": {
+    "native_calls": false,
+    "cad_or_vm_calls": false,
+    "schema_codec_or_tests": false,
+    "heldout_payloads_read": 0,
+    "shared_checkout_mutated": false,
+    "hopper_session_opened": false
+  },
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "global_current_version_gate": {
+    "function": "0x4c077bc0",
+    "comparison": "moVersionManager_c::getCurrentFileVerion() >= 0x1438",
+    "api_instances_to_vary_boolean_is_separate": true,
+    "ordinary19000_expected": true,
+    "earlier_or_cross_version_contexts_admitted": false
+  },
+  "feature_owner_type_check": {
+    "wire_member": "moFeatureData_c.f08",
+    "wire_kind": "CObject reference",
+    "expected_runtime_class": "moFeature_c",
+    "predicate_and_failure_edges": [
+      {
+        "thunk": {
+          "start": "0x4cb9f3ef",
+          "end_exclusive": "0x4cb9f3f5",
+          "bytes": 6,
+          "sha256": "7d798595477e4cf9c88d81c0dc44ab6cb5f781eff0c1c13113b02cbe91ee6f70",
+          "bound": "complete imported JMP thunk"
+        },
+        "import": {
+          "iat": "0x4cd34ee8",
+          "module": "mfc140u.dll",
+          "name": "ordinal:7928"
+        }
+      },
+      {
+        "thunk": {
+          "start": "0x4cb9f3e3",
+          "end_exclusive": "0x4cb9f3e9",
+          "bytes": 6,
+          "sha256": "6e56b58f35faec4d1beff3f0e280034bf1913a6caf2f53b8976725232d657f79",
+          "bound": "complete imported JMP thunk"
+        },
+        "import": {
+          "iat": "0x4cd34ef8",
+          "module": "mfc140u.dll",
+          "name": "ordinal:2342"
+        }
+      }
+    ],
+    "nullability_status": "pending exact reached MFC ordinal7928 body; not inferred from another architecture or ordinal table",
+    "fresh_owner_default": "not established"
+  },
+  "retained_evidence01_sha256": "f921b4e625c6755a4feb29386519da3c3c930cc2008afb6aff8aad007f8d47cb",
+  "source_setup": {
+    "packet01_sha256": "ff99e80b7890f8324b8885adf548e206ed5452d6e9354db6291fdad43343a51c",
+    "source_lock_sha256": "be425818b774ec9a86da639e496e786dfb04a24802ef60bd8887a91ff8d0ff4f",
+    "source_lock_passed": false,
+    "native_pattern_files_created": 0,
+    "hidden_authoring_started": false,
+    "stage": "set D2Axis",
+    "com_error": -2147352571,
+    "controls_healthy": true,
+    "complete_native_processes": 3,
+    "next_packet_sha256": "5a1a9397655c8ac3f5208e1398d637232abc448209af9f4910e083ae267908f5",
+    "next_packet_execution": "pending"
+  }
+}

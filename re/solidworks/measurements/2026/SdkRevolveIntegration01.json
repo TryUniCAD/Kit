@@ -1,0 +1,847 @@
+{
+  "exact_streams": 110,
+  "fresh_guarded_workers": 12,
+  "heldout_inputs_read": 0,
+  "input_sha256": "ed2dd83b79191a3b50c6f597f49a441e001b33459fe9d65284e8d86dd81dc3ad",
+  "lifecycle_sha256": "25af072fc6d1122a593c12474c532a35f0b1b3987f519af39bedc3e91f5c27f9",
+  "method_sha256": "958fda02f9416c133a9bdd6765985fc070bff0a6d31621bf98117fdb54b84d83",
+  "native_processes": 0,
+  "passed": true,
+  "prepared_cases": [
+    {
+      "actual_header_alias": true,
+      "bytes": 8101,
+      "caller_target_untouched": true,
+      "case": "prepared-0",
+      "heldout_inputs_read": 0,
+      "named_path_and_stream_equal": true,
+      "native_angle_parameter": "D1",
+      "native_feature_id": 19,
+      "native_processes": 0,
+      "native_profile_id": 18,
+      "passed": true,
+      "rejected": false,
+      "request_sha256": "d1db439dbca36877daeeabeee6660cf1826eb5849499e0652ad91ae0e419b833",
+      "runtime_external_attempts": [],
+      "selected_axis_index": 4,
+      "sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380"
+    },
+    {
+      "actual_header_alias": true,
+      "bytes": 8118,
+      "caller_target_untouched": true,
+      "case": "prepared-1",
+      "heldout_inputs_read": 0,
+      "named_path_and_stream_equal": true,
+      "native_angle_parameter": "D1",
+      "native_feature_id": 19,
+      "native_processes": 0,
+      "native_profile_id": 18,
+      "passed": true,
+      "rejected": false,
+      "request_sha256": "6321e67c027ade9802d7cf4220393bccdb78e5c702a99532f1559f8c0679e6aa",
+      "runtime_external_attempts": [],
+      "selected_axis_index": 4,
+      "sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08"
+    },
+    {
+      "actual_header_alias": true,
+      "bytes": 8111,
+      "caller_target_untouched": true,
+      "case": "prepared-2",
+      "heldout_inputs_read": 0,
+      "named_path_and_stream_equal": true,
+      "native_angle_parameter": "D1",
+      "native_feature_id": 19,
+      "native_processes": 0,
+      "native_profile_id": 18,
+      "passed": true,
+      "rejected": false,
+      "request_sha256": "1939a48a226d8bc70747d4421111e91434dfe593dd7bd2fbf241d0bf1cf30cef",
+      "runtime_external_attempts": [],
+      "selected_axis_index": 4,
+      "sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9"
+    },
+    {
+      "actual_header_alias": true,
+      "bytes": 8125,
+      "caller_target_untouched": true,
+      "case": "prepared-3",
+      "heldout_inputs_read": 0,
+      "named_path_and_stream_equal": true,
+      "native_angle_parameter": "D1",
+      "native_feature_id": 19,
+      "native_processes": 0,
+      "native_profile_id": 18,
+      "passed": true,
+      "rejected": false,
+      "request_sha256": "8956c679a12d99c304098b8130bf315dbc242ab3c507c043a36cd568a864cc32",
+      "runtime_external_attempts": [],
+      "selected_axis_index": 4,
+      "sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84"
+    },
+    {
+      "case": "configuration",
+      "error_class": "ValueError",
+      "error_message": "requested revolve write configuration is unavailable",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "7f0aa2114cd631e3402289d26b4b95b7ba120f24a6b5f4733a60512116763f0f",
+      "runtime_external_attempts": []
+    },
+    {
+      "case": "unknown_option",
+      "error_class": "ValueError",
+      "error_message": "unsupported plain part preparation options",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "52294a41fe4971d0ef39bf354e5013bdb487e1b22981572d467d4804ff64e93a",
+      "runtime_external_attempts": []
+    },
+    {
+      "case": "unnamed_stream",
+      "error_class": "ValueError",
+      "error_message": "unnamed native streams require an explicit final destination",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "fa4d1cac28858daac1b553024ac7adbcf97f24930fad16c216b9f4c46a411f1d",
+      "runtime_external_attempts": []
+    },
+    {
+      "case": "wrong_suffix",
+      "error_class": "ValueError",
+      "error_message": "plain part preparation cannot target an assembly or drawing",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "545b29948ffcf1b766f7c93a030c0595773f1375049ef8e345f005e2cbb55cdc",
+      "runtime_external_attempts": []
+    },
+    {
+      "case": "wrong_basename",
+      "error_class": "ValueError",
+      "error_message": "native self filename must match the actual modeled part name",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "ba97e50d73cf3a10d7989560b0af3415c50a2518e3c25b2e81c71189cd3d2cb5",
+      "runtime_external_attempts": []
+    },
+    {
+      "case": "wrong_format",
+      "error_class": "ValueError",
+      "error_message": "plain part preparation requires a part destination format",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "5bfbd4fc3d110a11e2d783a54a66c8cc72fba5c2334c4fa007199bf717287bdf",
+      "runtime_external_attempts": []
+    },
+    {
+      "case": "bad_epoch",
+      "error_class": "ValueError",
+      "error_message": "feature creation time must fit unsigned unix seconds",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "8ccad412db8c0c62713336f3a47b0bf4e74ae432ebeedbfaadd28de5ec682997",
+      "runtime_external_attempts": []
+    },
+    {
+      "case": "wrong_stream_final",
+      "error_class": "ValueError",
+      "error_message": "plain part preparation cannot target an assembly or drawing",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "passed": true,
+      "rejected": true,
+      "request_sha256": "3a963f61b8ae9679aca34393c6989500b00b7f5225a70ad59d0380bbf646f20c",
+      "runtime_external_attempts": []
+    }
+  ],
+  "reader_cases": [
+    {
+      "case": "generated-SdkRevolveFullAlpha",
+      "exact_streams": 10,
+      "input_sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "reader_modes": 5,
+      "role": "generated",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "5cf3a4eda361b3a3bf16f9e7eac0cccfe0b72dcc9a14413f5968e5d060a0be4c"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22272,
+          "sha256": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 789,
+          "sha256": "4f04e4d3ac9653f897e4f6a831c4dfb3e562317316658100e2340a77dd4f1d64"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9859,
+          "sha256": "0f05375a3b379c345600223891f3a47e7d78a71acb3c9f7e3ddb189afe375097"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 789,
+          "sha256": "cb168b45c48485e04d5f5689452c8e157abfa4b25149176f1bb21a2dcbcf7295"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1399,
+          "sha256": "48ace6ff1046ca4880d93a9ef64c0def490419220bfd8d99daa93c9a22bea82f"
+        }
+      }
+    },
+    {
+      "case": "saved-SdkRevolveFullAlpha",
+      "exact_streams": 10,
+      "input_sha256": "963dce1db82760fc1941d9ce6b41410ee5b1b4b3c563594900cb30b12a635e6e",
+      "reader_modes": 5,
+      "role": "saved",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2527,
+          "sha256": "565f8844b540f391693638eb1c76a575837ad453c8d401f9f95ca0403be52917"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "ed6231281abe1fdc0bec621a0610755e7cc12e286a9cf884349ffcfdede1d399"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 26075,
+          "sha256": "642d83284b6eff16b0636e255ca348fd6e8e3d04ad1779ec1c81afbbd3807a7a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1267,
+          "sha256": "47f7067c16c6c07da5ddf8d8f919d40fa39f8a04c190b4c530a58aefe639fd71"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 11791,
+          "sha256": "45557333a9dcdef7da0e8891d6ce5f32dda6cd6d667af2745ec414b8b20b0d39"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1267,
+          "sha256": "47f7067c16c6c07da5ddf8d8f919d40fa39f8a04c190b4c530a58aefe639fd71"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1219,
+          "qualified": true,
+          "sha256": "af308e0d306e6f1b3a03f05a89983c41df874967e9fd838c3107de4d561b867e"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1694,
+          "sha256": "c64cde88c0d72a2e122b40361b10fefa1da0cfda477005ca7dc595de7a5a563c"
+        }
+      }
+    },
+    {
+      "case": "generated-SdkRevolveForwardBeta",
+      "exact_streams": 10,
+      "input_sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "reader_modes": 5,
+      "role": "generated",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "a799a477e7c7088cc782beda69e2125401e709bf0eb180d4fb8f4f9a38e4a5d7"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "a9a31979e6b2f2d155043441224a69f4ac12f6b42048378c889bd0dae3971b5a"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22276,
+          "sha256": "c9f8d310bbbe65ede56d71abe73093b91df60976770b2f3b9b01e566ccc0e1a3"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 801,
+          "sha256": "7a42efb050d649be541d7610bac4778ac006a0b2f6fb301bd3357cf8ce5524b5"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9859,
+          "sha256": "85abf2087dcc26d03eb684aab9f6315035cde431f854144ae471dfb2b32c80dd"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 801,
+          "sha256": "ae1b5d0a1f8a0e978a83e32fc3ec7cef465fbfd3a79fb6d93a9687a897dfa906"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1404,
+          "sha256": "4d77e59e2616673b814ea508ed920fc48aa89d6d21992a34b89646099681a90f"
+        }
+      }
+    },
+    {
+      "case": "saved-SdkRevolveForwardBeta",
+      "exact_streams": 10,
+      "input_sha256": "36667ae4b8ad9d0853af4b43a5d7386dd146b00e424bfe3760b9a7aab1c4a62b",
+      "reader_modes": 5,
+      "role": "saved",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2539,
+          "sha256": "db911883544b1483dcbb98c0e345e9b6b014cd8e9ef8dd36a1681b2a5816c12e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "f714c117754ac1ea778ba674953cdd588bc30a283706653727bbd619ce4312d1"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 26079,
+          "sha256": "f1566134275318a462fb8529eea4ee7f377bb2f90e51c5a15e14171a463da44b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1279,
+          "sha256": "0943885d6efb3f3f9dd14c54bcbf911bedb6d6f9f6751baeadcccc4b52c5ec4a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 11699,
+          "sha256": "c9e9c78ca1cbd1b0a3ea06c977a24430dfbb99d0bd073b12b081025368d9ad6f"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1279,
+          "sha256": "0943885d6efb3f3f9dd14c54bcbf911bedb6d6f9f6751baeadcccc4b52c5ec4a"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1227,
+          "qualified": true,
+          "sha256": "431c3ac212e1084ca70d8e9c5895f3b3a52a579e677fd7d2cb3e81edbec05819"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1696,
+          "sha256": "9a5050ea6a9cc865fbeb976ae9c72d1e273b407a26741a28cc4741ecf39e8c6e"
+        }
+      }
+    },
+    {
+      "case": "generated-SdkRevolveReverseBeta",
+      "exact_streams": 10,
+      "input_sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "reader_modes": 5,
+      "role": "generated",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "57a5c03a57f60181dfe01f1b8ec4c12d261121027416fd8efaab83f5edba03ab"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "5b4ce1a259b177f2a586df9b42c97f1b2e4caa9e75621ecef04e9ff888abca0b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22276,
+          "sha256": "094efdfc8af684aa3f4ed2bbd4720fffe145bb74550852905b863b4ac4654f20"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 801,
+          "sha256": "c679c10f041f2a47e5de712d5be6627fd27957d97e4c5a34fde0357ec17a2b7a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9859,
+          "sha256": "767c51d1633c5a0dd9e4c68c14f75c65f307ae16cbbb8593e5001012d94549be"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 801,
+          "sha256": "3956beaf5fbb07d687149d56554f0ed7c9505c32208b176f7d744d731d1ef702"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1404,
+          "sha256": "71ed907ee2f9ad10159f2f269c6537f8ba882bdaa2768abb0a5f94a506e2b705"
+        }
+      }
+    },
+    {
+      "case": "saved-SdkRevolveReverseBeta",
+      "exact_streams": 10,
+      "input_sha256": "451a54e66ed9f97cbf5bfc752cb59306f4fb7eb3f2be5fcbec70d3a33b3d699d",
+      "reader_modes": 5,
+      "role": "saved",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2539,
+          "sha256": "c0af995d5e4eda008d3a49d8cc5c14bfc3da938e03aceae3017e9a78ce7a77f7"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "1fc5612254802285c7eb629fb6668dbcf012541322b3cd8cdf085e8ca9031695"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 26079,
+          "sha256": "ed1d43c1f9c180b4af5ee24e75334438ef94e276af0039a78ad9aed6bf2a53bd"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1279,
+          "sha256": "c8362d2d4f99aa033c907525a719bacfb70fabcc7cd76efaa8fa7d567bc879fc"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 11699,
+          "sha256": "09e37f3d4a733df1a92dada0b95c6fee5904d4a2f3094b27ea938ab7f62e8ea8"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1279,
+          "sha256": "c8362d2d4f99aa033c907525a719bacfb70fabcc7cd76efaa8fa7d567bc879fc"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1227,
+          "qualified": true,
+          "sha256": "8f7bce5709ccc40c0518396e849e5e45ca0a1ff3a90f4e538875a7679c12c35a"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1696,
+          "sha256": "c344004fc554b070f289c7735b7a1b762142f36900c66d9506949c83ee84c449"
+        }
+      }
+    },
+    {
+      "case": "generated-SdkRevolvePartialGamma",
+      "exact_streams": 10,
+      "input_sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "reader_modes": 5,
+      "role": "generated",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "de49bddd73f30520d8da90f9501d82a1850822a4f53a71f13bf59f52dc2dced6"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22278,
+          "sha256": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 807,
+          "sha256": "85c60f411057e6c238beb7bfc39f43ce5e50e5f497b27b937a1f3913d853d4ed"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9859,
+          "sha256": "51873f6dfc519d70d51c6e0101ea457045f4a4a4b7c22a97c3238a857d1bcbed"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 807,
+          "sha256": "1c13598a312220190f370a58c2f0937eb54688e5bd07ff7da324e6ddd5eefa0c"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1406,
+          "sha256": "0ac12ebec4908115e8adf980b004d52fb4ec472c6c131ccf85f60e29e9a8da21"
+        }
+      }
+    },
+    {
+      "case": "saved-SdkRevolvePartialGamma",
+      "exact_streams": 10,
+      "input_sha256": "50cebaee7eb8dfd8c3f903af7db0e7bd78098935561fddcbc0ccaaaf370dbe57",
+      "reader_modes": 5,
+      "role": "saved",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2545,
+          "sha256": "e35cade29270e9afb7cfaa45cf2a111dc2cf44d6bec42a90c4c742094182c420"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "c9a26b12239a7b3f678d3ec342e83e8011e29b7668f11b213da4e5f2058eaa54"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 26081,
+          "sha256": "03fe16ac4a2cffa3d3eea4d3223203906d5a80a74af357adb65ec8d08e27fcf5"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1285,
+          "sha256": "b10af6b42bd9fe16b973c2c1443d86def058a91a977b7ae55de6cfd6484d3bfc"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 11703,
+          "sha256": "9327ab6a29a67b09da77a40f65464cee4cbf96ddcbca7d8e33515ced6314e284"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 855,
+          "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1285,
+          "sha256": "b10af6b42bd9fe16b973c2c1443d86def058a91a977b7ae55de6cfd6484d3bfc"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1231,
+          "qualified": true,
+          "sha256": "1cbd7af79e8c3cb3f25dce8e3a1443dac86bfaec20b9e0d2a059bd13f086b363"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1698,
+          "sha256": "11af24e84a9f421b0c8a67fc5d4240ad78e6c56d2557013e5455b08ae200bcc8"
+        }
+      }
+    },
+    {
+      "case": "control-RevolveFull",
+      "exact_streams": 10,
+      "input_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "reader_modes": 5,
+      "role": "native_control",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "7554382552fe45055073aff95e499abb74a9db17fedde925efb366de64825342"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "8fc8a5d15c0b405bde0ec62dee31eae9ec8050eeee872c0477dcaa875ad57f7e"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25476,
+          "sha256": "d5148de01dba03ef6ed203bf4d44cfb67044a69bb26367621319ef31d3260793"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12345,
+          "sha256": "bc11aac1af0a62306f3abec9ea05b99de7b5e30f7d1e63eb9dfa4d9d4f76ebb2"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 3672,
+          "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1603,
+          "qualified": true,
+          "sha256": "11655cae923e0cc6cc29eb382a825169bc0f8f31615e127e5b6eb513af42ca26"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 101,
+          "qualified": true,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1667,
+          "sha256": "8ff4f012b66f8a40c0b81be158eef8d9b4bfa3fb44c405791a0d053e94e16c64"
+        }
+      }
+    },
+    {
+      "case": "control-RevolvePartialForward",
+      "exact_streams": 10,
+      "input_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "reader_modes": 5,
+      "role": "native_control",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "d6c3371c33b4be612eb29e5190658e2ab843b9fcd3750d29eb6e7a24ae4f10b6"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "cc92bb29a5abf78b274ea7aaedc83d3d5635f0eefe74aeda3b9d4d960d04fde5"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25476,
+          "sha256": "b853b0865bf6b92587969c9cdcb80068a3f4c5e8e9c2c1eb8fb0db0596e2f8c3"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12465,
+          "sha256": "9eb4b47c1f8906c1eae5e2b218152fac2b18310957a2edc6f4b7dff6847142be"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 3672,
+          "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1643,
+          "qualified": true,
+          "sha256": "8d94837a1cfbbd5eca56c3412a363f5cb1c0eb2ca9fb929bbe1f8e0c2049a36a"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 101,
+          "qualified": true,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1667,
+          "sha256": "e133a3fd3192c755c0c8a9f82874890879bca45c57e3935b09d5771bda4d4cce"
+        }
+      }
+    },
+    {
+      "case": "control-RevolvePartialReverse",
+      "exact_streams": 10,
+      "input_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "reader_modes": 5,
+      "role": "native_control",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "d988c5b59ac3d4add7b07588bdebe89569d8b6d46918f2580faa3f230bfec3c5"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "e09afcbbdbed823b416c7afe48a53ac9ed0e0216e770f9f5d89fb7023b20cd11"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25482,
+          "sha256": "e1fbcfe71b5972443928e33e3595b1ee04db30c047fc4ade52d2fbaa7a47e1a8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12465,
+          "sha256": "de224a0d463df78e174e9da1493251862a2ab686e80f48c0f0812be3266968ef"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 3672,
+          "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1643,
+          "qualified": true,
+          "sha256": "bff5957ce37661cb3cfb99766642fbbdb41e9c51d8f87b15d1d513db2ee917c5"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 101,
+          "qualified": true,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1667,
+          "sha256": "a2e66be36baec686bee6870b665be0236396529ecd0b2b05522141d7f5435256"
+        }
+      }
+    }
+  ],
+  "reader_modes": 55,
+  "schema": "kit.sw2026.integrated-revolve-preparation-readback.v1"
+}

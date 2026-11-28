@@ -1,0 +1,90 @@
+{
+  "actual_build": "34.5.2.0604",
+  "assigned_material_writer_qualified": false,
+  "databases": [
+    {
+      "bytes": 1027850,
+      "material_count": 207,
+      "name": "solidworks din materials.sldmat",
+      "recorded_density_entries": 1,
+      "sha256": "1290afbb47e04e9900337722f8aa09eccdf5152288e66c101129f0a47aa0fff8",
+      "xml_parsed": true
+    },
+    {
+      "bytes": 895550,
+      "material_count": 259,
+      "name": "solidworks materials.sldmat",
+      "recorded_density_entries": 1,
+      "sha256": "636ef75ffb10e8abf7529c910a50dc2cb0d73ce5112c9721e7e4de1824cf57c5",
+      "xml_parsed": true
+    },
+    {
+      "bytes": 12804,
+      "material_count": 8,
+      "name": "sustainability extras.sldmat",
+      "recorded_density_entries": 1,
+      "sha256": "d2507b47ee22b62ec8001cf2e61e6fd68b1149d9a3f13b2688874aa725070cfb",
+      "xml_parsed": true
+    }
+  ],
+  "density_owner_observation": "physicalproperties/DENS/@value; no child value observed in the selected entries",
+  "density_si_unit_qualified": false,
+  "heldout_credit": 0,
+  "heldout_inputs_read": 0,
+  "idle_after": true,
+  "idle_before": true,
+  "installed_database_count": 3,
+  "interface_iids": {
+    "IBody2": "{3A075BFD-9962-4431-8321-7AF4903C55AD}",
+    "IDimension": "{83A33D3A-27C5-11CE-BFD4-00400513BB57}",
+    "IMassProperty": "{158BAD02-D515-4400-ADA4-F9941C974DC1}",
+    "IModelDoc2": "{B90793FB-EF3D-4B80-A5C4-99959CDB6CEB}",
+    "IPartDoc": "{83A33D32-27C5-11CE-BFD4-00400513BB57}",
+    "ISldWorks": "{83A33D22-27C5-11CE-BFD4-00400513BB57}"
+  },
+  "license_process_actions": 0,
+  "license_processes_unchanged": true,
+  "limits": [
+    "one model-free query is not explicit material-assignment acceptance",
+    "the first metadata reader deduplicates empty child raw_value, preserving one actual attribute entry per database",
+    "the installed schema hash is known but strict ET parse failed, so native validator behavior remains unknown",
+    "SI interpretation must be measured against native density and independent analytic mass response"
+  ],
+  "material_getters": {
+    "body": "BSTR return and database BSTR out; Python defaults PyOleEmpty/PyOleMissing",
+    "generated_return_annotation": false,
+    "part": "BSTR return and database BSTR out; Python defaults PyOleEmpty/PyOleMissing",
+    "runtime_return_shape_observed": false
+  },
+  "material_schema": {
+    "bytes": 20930,
+    "host_standard_xml_parse_succeeded": false,
+    "observed_error": "ParseError at line75 column2; exact cause and native validation remain open",
+    "sha256": "2afeff3c0983fc895ec724a20a84a96991f795f032e2d6ba73179ddfbaac7657"
+  },
+  "metadata_query_passed": true,
+  "model_documents_created": 0,
+  "model_documents_opened": 0,
+  "model_rebuilds": 0,
+  "model_saves": 0,
+  "native_processes": 1,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "owned_graceful_exit_confirmed": true,
+  "postflight_solidworks_processes": 0,
+  "preferences_written": 0,
+  "raw_evidence_sha256": {
+    "host_transport": "03753354b7cb197e51f38885b412fafc870aee734097e03e5443b2492306da7d",
+    "metadata_result": "9598ba4c5e9d103f4af11b802bc12c49a0160495e2fd3f184376e7d9b81d74b7",
+    "static_wrapper_shape": "04c5eb971a5fb7b1616b7d9f7ecab195fe037431999533b6cacae2cd761e7ce4"
+  },
+  "requested_member_metadata_complete": true,
+  "schema": "kit.sw2026.assigned-material-catalog-metadata-native.v1",
+  "source_model_lifecycle_qualified": false,
+  "task": "B04-SW2026-NAMED-MATERIAL",
+  "tools_sha256": {
+    "CaptureMaterialCatalog.py": "4c84dc492a80b3cfe6403d2e90c7f0e372aba4c33d21c323c92228c82bde61ae",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959",
+  "writer_outputs": 0
+}

@@ -1,0 +1,280 @@
+{
+  "schema": "kit.sw2026.linear-pattern-source-lock.v1",
+  "task_id": "B04-SW2026-LOCAL-LINEAR-PATTERN",
+  "source_revision": "d00e45fbc24b8da87c02999c914aa45dbfaa2f62",
+  "cohort": "disclosed",
+  "packet_sha256": "913426870bc64edb320e6a1508521c81da677a2ef4feef80b715c7859856c1bc",
+  "job_sha256": "1a88be0946c2a3a3aa7332c6e55d1b74adbf3847e8bb89704a7152764bab6692",
+  "specs_sha256": "6249601e081a83d7d9456cd694118dfa30ca7270d84c17ce4c5a574e7b0314d7",
+  "qualified_disclosed_lock_sha256": null,
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "installed_libraries": [
+    {
+      "name": "sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library_identity": {
+        "name": "SldWorks",
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "locale_id": 0,
+        "system_kind": 3,
+        "major_version": 34,
+        "minor_version": 0,
+        "flags": 8
+      },
+      "registered_library_identity_matches": true
+    },
+    {
+      "name": "swconst.tlb",
+      "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+      "library_identity": {
+        "name": "SwConst",
+        "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+        "locale_id": 0,
+        "system_kind": 3,
+        "major_version": 34,
+        "minor_version": 0,
+        "flags": 8
+      },
+      "registered_library_identity_matches": true
+    }
+  ],
+  "started_at": 1795236731.3454854,
+  "cases": [
+    {
+      "name": "D01X",
+      "split": "disclosed",
+      "phases": [
+        {
+          "phase": "author",
+          "record_sha256": "8753046c1b5620249afa70555b9bf8a636e946e801a733a0c8250bae2526ab54",
+          "passed": true,
+          "native_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+          "native_bytes": 68390,
+          "exports": [
+            {
+              "name": "D01X.x_t",
+              "sha256": "bd623274cc0093cbe24acbbfa62b589942bb231b810932fa2933409e5aa1ac1d",
+              "bytes": 21310
+            },
+            {
+              "name": "D01X.step",
+              "sha256": "b93fc04ac4461b1b254b1c4f0dcf6c6a1cffa4cc4e92edbf6863bd0cefe62743",
+              "bytes": 45087
+            }
+          ]
+        },
+        {
+          "phase": "pristine-reopen",
+          "record_sha256": "0d6241357e2465aa85ccd50ad10769d4a7d8fb964be10f352e72f4e96c262c22",
+          "passed": true,
+          "native_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+          "native_bytes": 68390,
+          "exports": []
+        },
+        {
+          "phase": "spacing-edit",
+          "record_sha256": "34e03d4d602cc74f9b027b334b3698e18aa0a3e18b72e97a28b994f9ad3bb66c",
+          "passed": true,
+          "native_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+          "native_bytes": 67999,
+          "exports": [
+            {
+              "name": "D01XSpacing.x_t",
+              "sha256": "7e2a2fa54b48e9e6dc465db79ab085fa0cbcd0cb85180b3a97272a96c58f7fe0",
+              "bytes": 21347
+            },
+            {
+              "name": "D01XSpacing.step",
+              "sha256": "a5398e63cc0af59307cf7d69dc99ebc08297c50abd2b1ebcbd51917dcb057a60",
+              "bytes": 45133
+            }
+          ]
+        },
+        {
+          "phase": "spacing-reopen",
+          "record_sha256": "3212c15962b82be4030d5050efe6b8830f98c7b2b92f66538028f42e8d16625e",
+          "passed": true,
+          "native_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+          "native_bytes": 67999,
+          "exports": []
+        },
+        {
+          "phase": "instances-edit",
+          "record_sha256": "b8277cb4e4f5b03c995605407a461d80acd2d21e8db22d88b9764d71c3e35603",
+          "passed": true,
+          "native_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+          "native_bytes": 71943,
+          "exports": [
+            {
+              "name": "D01XInstances.x_t",
+              "sha256": "3c23d0fa2f82965fc4229f72a71eda0ad92285e98710c71e0cee42a100638a7b",
+              "bytes": 26077
+            },
+            {
+              "name": "D01XInstances.step",
+              "sha256": "345583f1cd5f77913e4a4e9eb65327947b969befffcf739f703fc1bd48be8c76",
+              "bytes": 54886
+            }
+          ]
+        },
+        {
+          "phase": "instances-reopen",
+          "record_sha256": "f5d53ff881e3dee31212b15acdd05404f221b0b6e1090b94701414dc5462c977",
+          "passed": true,
+          "native_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+          "native_bytes": 71943,
+          "exports": []
+        }
+      ],
+      "native_sources": [
+        {
+          "name": "D01X.SLDPRT",
+          "sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+          "bytes": 68390
+        },
+        {
+          "name": "D01XSpacing.SLDPRT",
+          "sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+          "bytes": 67999
+        },
+        {
+          "name": "D01XInstances.SLDPRT",
+          "sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+          "bytes": 71943
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "D02Y",
+      "split": "disclosed",
+      "phases": [
+        {
+          "phase": "author",
+          "record_sha256": "8ada692da384d1c223b0dd69bf83d0b388d1452e30adc545e0cefbe4d30abb3c",
+          "passed": true,
+          "native_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+          "native_bytes": 66287,
+          "exports": [
+            {
+              "name": "D02Y.x_t",
+              "sha256": "87ec6242ea581efe8121b09a72e2d1e525212b1587b0954485f11ca516b97e70",
+              "bytes": 26064
+            },
+            {
+              "name": "D02Y.step",
+              "sha256": "c2c49ac18388ac809e0dd51860c87adc3b482caca903ed737216a1dc43734822",
+              "bytes": 54882
+            }
+          ]
+        },
+        {
+          "phase": "pristine-reopen",
+          "record_sha256": "d284791f3de576181c23f1618749d0db66f5b3f70bf502e370ec65d23c70e790",
+          "passed": true,
+          "native_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+          "native_bytes": 66287,
+          "exports": []
+        },
+        {
+          "phase": "spacing-edit",
+          "record_sha256": "21330d50e37bd6e31ec2cd11b37b7638ad6f75df063759395e39ee86c73595a1",
+          "passed": true,
+          "native_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+          "native_bytes": 67721,
+          "exports": [
+            {
+              "name": "D02YSpacing.x_t",
+              "sha256": "d225e16e1338d689335d8d9f7c006fe4dac77b0efd42b127455eb2dae600b554",
+              "bytes": 26063
+            },
+            {
+              "name": "D02YSpacing.step",
+              "sha256": "b4754c50451a30a257be1ee66ea5ffb2df4e9b12c26258795098b20e4df0fd0c",
+              "bytes": 54918
+            }
+          ]
+        },
+        {
+          "phase": "spacing-reopen",
+          "record_sha256": "b6ea3f49e37a95145613de137c33ac578ad5cc81b82fd91a468f7f2d12ca7d89",
+          "passed": true,
+          "native_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+          "native_bytes": 67721,
+          "exports": []
+        },
+        {
+          "phase": "instances-edit",
+          "record_sha256": "7fae367c4b528b14554c8fff7638328b5af424d1c7ed07ce56c4fd79a57453e3",
+          "passed": true,
+          "native_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+          "native_bytes": 70161,
+          "exports": [
+            {
+              "name": "D02YInstances.x_t",
+              "sha256": "fedc8d3d8a4b522ceb4fbf393a6372c77ef35058e1172250ec4af94464bf6ff9",
+              "bytes": 30827
+            },
+            {
+              "name": "D02YInstances.step",
+              "sha256": "30a98b9d4599bf6d8daf355abad06e0c034da5acdb704aa97b5bdba9f1fca7d2",
+              "bytes": 64691
+            }
+          ]
+        },
+        {
+          "phase": "instances-reopen",
+          "record_sha256": "3b944a6c05a543d82c24ee89b00f473d616effd0b25b1a526b3535f107caf97a",
+          "passed": true,
+          "native_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+          "native_bytes": 70161,
+          "exports": []
+        }
+      ],
+      "native_sources": [
+        {
+          "name": "D02Y.SLDPRT",
+          "sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+          "bytes": 66287
+        },
+        {
+          "name": "D02YSpacing.SLDPRT",
+          "sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+          "bytes": 67721
+        },
+        {
+          "name": "D02YInstances.SLDPRT",
+          "sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+          "bytes": 70161
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "controls": {
+    "before": {
+      "passed": true,
+      "record_sha256": "0efe4296e89b8c0376f1bdb2715cce0d455a4f1f5fdf6ddebdffbbdae5a4fab1"
+    },
+    "after": {
+      "passed": true,
+      "record_sha256": "07cb51be602d8785df87596d12afcf28668ca2654c37a0a49ad127d8e3f29a1f"
+    }
+  },
+  "writer_output_count": 0,
+  "source_writer_implemented": false,
+  "heldout_raw_remains_guest_private": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "passed": true,
+  "application_pids_before": [],
+  "packet_unchanged": true,
+  "inputs_unchanged": true,
+  "control_unchanged": true,
+  "completed_native_phases": 14,
+  "distinct_processes": 14,
+  "expected_native_phases": 14,
+  "application_pids_after": [],
+  "finished_at": 1795237392.5304036
+}

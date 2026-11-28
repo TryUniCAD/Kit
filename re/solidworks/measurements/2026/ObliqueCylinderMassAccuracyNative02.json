@@ -1,0 +1,943 @@
+{
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "heldout_reads": 0,
+  "independent_targets_unchanged": true,
+  "native_acceptance_added": false,
+  "oracle_build": "34.5.2.0604",
+  "packet_sha256": "585b7f475f757c8662234d7916a8c3b515d5c657eab9c4903e01ff30beaca414",
+  "phases": {
+    "ControlAfter": {
+      "body_properties_before_and_after_same": true,
+      "levels": [
+        {
+          "accuracy_argument": 0,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 0.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 8.000000000000001e-06,
+              "expected": 8.000000000000001e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0028,
+              "expected": 0.0028,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_0",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_1",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.005,
+              "expected": 0.005,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 1,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 1.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 8.000000000000001e-06,
+              "expected": 8.000000000000001e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0028,
+              "expected": 0.0028,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_0",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_1",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.005,
+              "expected": 0.005,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 2,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 2.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 8.000000000000001e-06,
+              "expected": 8.000000000000001e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0028,
+              "expected": 0.0028,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_0",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_1",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.005,
+              "expected": 0.005,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ]
+        }
+      ],
+      "process_birth_filetime": 134395637531921460,
+      "raw_sha256": "35f2496180bfe97626c4e84a638f38ead9984918c9b506646d17833ae4eec6de"
+    },
+    "ControlBefore": {
+      "body_properties_before_and_after_same": true,
+      "levels": [
+        {
+          "accuracy_argument": 0,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 0.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 8.000000000000001e-06,
+              "expected": 8.000000000000001e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0028,
+              "expected": 0.0028,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_0",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_1",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.005,
+              "expected": 0.005,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 1,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 1.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 8.000000000000001e-06,
+              "expected": 8.000000000000001e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0028,
+              "expected": 0.0028,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_0",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_1",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.005,
+              "expected": 0.005,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 2,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 2.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 8.000000000000001e-06,
+              "expected": 8.000000000000001e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0028,
+              "expected": 0.0028,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_0",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0,
+              "expected": 0.0,
+              "name": "com_1",
+              "relative_error": null,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.005,
+              "expected": 0.005,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ]
+        }
+      ],
+      "process_birth_filetime": 134395635803653602,
+      "raw_sha256": "91c042c66a37235db2dff493f6974a019b702de040639bb01cdf99656254295b"
+    },
+    "F01": {
+      "body_properties_before_and_after_same": true,
+      "levels": [
+        {
+          "accuracy_argument": 0,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 0.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 5.611074280887201e-06,
+              "expected": 5.611074280887201e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0018870288349126046,
+              "expected": 0.0018870288349126046,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 4.336808689942018e-19,
+              "actual": 0.003835821571700599,
+              "expected": 0.0038358215717005984,
+              "name": "com_0",
+              "relative_error": 2.220446049250313e-16,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 8.673617379884035e-19,
+              "actual": 0.006154252036096713,
+              "expected": 0.006154252036096712,
+              "name": "com_1",
+              "relative_error": 2.220446049250313e-16,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.013184967543010767,
+              "expected": 0.013184967543010767,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ],
+          "versus_unchanged_analytic": [
+            {
+              "absolute_error": -1.7642330457540595e-10,
+              "actual": 5.611074280887201e-06,
+              "expected": 5.611250704191777e-06,
+              "name": "volume",
+              "relative_error": -3.1440994864739835e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -6.423458022691148e-08,
+              "actual": 0.0018870288349126046,
+              "expected": 0.0018870930694928315,
+              "name": "area",
+              "relative_error": -3.4038904209499066e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 1.2493431079518141e-07,
+              "actual": 0.003835821571700599,
+              "expected": 0.0038356966373898037,
+              "name": "com_0",
+              "relative_error": 3.257147856206011e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 8.244516795305468e-08,
+              "actual": 0.006154252036096713,
+              "expected": 0.00615416959092876,
+              "name": "com_1",
+              "relative_error": 1.3396635685003488e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -3.2456989233417555e-08,
+              "actual": 0.013184967543010767,
+              "expected": 0.013185,
+              "name": "com_2",
+              "relative_error": -2.4616601618232536e-06,
+              "within_original_tolerance": false
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 1,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 1.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 5.611074280887201e-06,
+              "expected": 5.611074280887201e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0018870288349126046,
+              "expected": 0.0018870288349126046,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 4.336808689942018e-19,
+              "actual": 0.003835821571700599,
+              "expected": 0.0038358215717005984,
+              "name": "com_0",
+              "relative_error": 2.220446049250313e-16,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 8.673617379884035e-19,
+              "actual": 0.006154252036096713,
+              "expected": 0.006154252036096712,
+              "name": "com_1",
+              "relative_error": 2.220446049250313e-16,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.013184967543010767,
+              "expected": 0.013184967543010767,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ],
+          "versus_unchanged_analytic": [
+            {
+              "absolute_error": -1.7642330457540595e-10,
+              "actual": 5.611074280887201e-06,
+              "expected": 5.611250704191777e-06,
+              "name": "volume",
+              "relative_error": -3.1440994864739835e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -6.423458022691148e-08,
+              "actual": 0.0018870288349126046,
+              "expected": 0.0018870930694928315,
+              "name": "area",
+              "relative_error": -3.4038904209499066e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 1.2493431079518141e-07,
+              "actual": 0.003835821571700599,
+              "expected": 0.0038356966373898037,
+              "name": "com_0",
+              "relative_error": 3.257147856206011e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 8.244516795305468e-08,
+              "actual": 0.006154252036096713,
+              "expected": 0.00615416959092876,
+              "name": "com_1",
+              "relative_error": 1.3396635685003488e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -3.2456989233417555e-08,
+              "actual": 0.013184967543010767,
+              "expected": 0.013185,
+              "name": "com_2",
+              "relative_error": -2.4616601618232536e-06,
+              "within_original_tolerance": false
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 2,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 2.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 1.4795202592057831e-10,
+              "actual": 5.611222232913122e-06,
+              "expected": 5.611074280887201e-06,
+              "name": "volume",
+              "relative_error": 2.6367860861187253e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 5.610781205985828e-08,
+              "actual": 0.0018870849427246644,
+              "expected": 0.0018870288349126046,
+              "name": "area",
+              "relative_error": 2.973341531498086e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -1.1459207448910602e-07,
+              "actual": 0.0038357069796261093,
+              "expected": 0.0038358215717005984,
+              "name": "com_0",
+              "relative_error": -2.9874193141488092e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -8.951281118673576e-08,
+              "actual": 0.0061541625232855255,
+              "expected": 0.006154252036096712,
+              "name": "com_1",
+              "relative_error": -1.4544872498190031e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 8.558032754679701e-13,
+              "actual": 0.01318496754386657,
+              "expected": 0.013184967543010767,
+              "name": "com_2",
+              "relative_error": 6.490741277787038e-11,
+              "within_original_tolerance": true
+            }
+          ],
+          "versus_unchanged_analytic": [
+            {
+              "absolute_error": -2.847127865482764e-11,
+              "actual": 5.611222232913122e-06,
+              "expected": 5.611250704191777e-06,
+              "name": "volume",
+              "relative_error": -5.073963035284734e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -8.126768167053197e-09,
+              "actual": 0.0018870849427246644,
+              "expected": 0.0018870930694928315,
+              "name": "area",
+              "relative_error": -4.306500987372175e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 1.0342236305641711e-08,
+              "actual": 0.0038357069796261093,
+              "expected": 0.0038356966373898037,
+              "name": "com_0",
+              "relative_error": 2.696312373817733e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -7.0676432345484486e-09,
+              "actual": 0.0061541625232855255,
+              "expected": 0.00615416959092876,
+              "name": "com_1",
+              "relative_error": -1.1484316657650595e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -3.245613343014209e-08,
+              "actual": 0.01318496754386657,
+              "expected": 0.013185,
+              "name": "com_2",
+              "relative_error": -2.461595254521498e-06,
+              "within_original_tolerance": false
+            }
+          ]
+        }
+      ],
+      "process_birth_filetime": 134395636045405727,
+      "raw_sha256": "196bff57dc26bcd4187130e098c13f84e74300b6d0912d63194885aa882a8d7a"
+    },
+    "F02": {
+      "body_properties_before_and_after_same": false,
+      "levels": [
+        {
+          "accuracy_argument": 0,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 0.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 9.541649491561081e-06,
+              "expected": 9.541649491561081e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0026381085883833704,
+              "expected": 0.0026381085883833704,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": -0.005432748337376648,
+              "expected": -0.005432748337376648,
+              "name": "com_0",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 4.336808689942018e-19,
+              "actual": -0.0032871855429660183,
+              "expected": -0.0032871855429660187,
+              "name": "com_1",
+              "relative_error": -1.1102230246251565e-16,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.01644433716029815,
+              "expected": 0.01644433716029815,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ],
+          "versus_unchanged_analytic": [
+            {
+              "absolute_error": -8.143175779934804e-10,
+              "actual": 9.541649491561081e-06,
+              "expected": 9.542463809139074e-06,
+              "name": "volume",
+              "relative_error": -8.533619768236189e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -1.8560052315831285e-07,
+              "actual": 0.0026381085883833704,
+              "expected": 0.0026382941889065287,
+              "name": "area",
+              "relative_error": -7.034868360733526e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 5.294494774413586e-07,
+              "actual": -0.005432748337376648,
+              "expected": -0.005433277786854089,
+              "name": "com_0",
+              "relative_error": -9.744568531400155e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 1.8014726334628084e-07,
+              "actual": -0.0032871855429660183,
+              "expected": -0.0032873656902293645,
+              "name": "com_1",
+              "relative_error": -5.479988547718584e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -6.628397018516863e-07,
+              "actual": 0.01644433716029815,
+              "expected": 0.016445,
+              "name": "com_2",
+              "relative_error": -4.030645800257027e-05,
+              "within_original_tolerance": false
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 1,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 1.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 0.0,
+              "actual": 9.541649491561081e-06,
+              "expected": 9.541649491561081e-06,
+              "name": "volume",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.0026381085883833704,
+              "expected": 0.0026381085883833704,
+              "name": "area",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": -0.005432748337376648,
+              "expected": -0.005432748337376648,
+              "name": "com_0",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 4.336808689942018e-19,
+              "actual": -0.0032871855429660183,
+              "expected": -0.0032871855429660187,
+              "name": "com_1",
+              "relative_error": -1.1102230246251565e-16,
+              "within_original_tolerance": true
+            },
+            {
+              "absolute_error": 0.0,
+              "actual": 0.01644433716029815,
+              "expected": 0.01644433716029815,
+              "name": "com_2",
+              "relative_error": 0.0,
+              "within_original_tolerance": true
+            }
+          ],
+          "versus_unchanged_analytic": [
+            {
+              "absolute_error": -8.143175779934804e-10,
+              "actual": 9.541649491561081e-06,
+              "expected": 9.542463809139074e-06,
+              "name": "volume",
+              "relative_error": -8.533619768236189e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -1.8560052315831285e-07,
+              "actual": 0.0026381085883833704,
+              "expected": 0.0026382941889065287,
+              "name": "area",
+              "relative_error": -7.034868360733526e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 5.294494774413586e-07,
+              "actual": -0.005432748337376648,
+              "expected": -0.005433277786854089,
+              "name": "com_0",
+              "relative_error": -9.744568531400155e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 1.8014726334628084e-07,
+              "actual": -0.0032871855429660183,
+              "expected": -0.0032873656902293645,
+              "name": "com_1",
+              "relative_error": -5.479988547718584e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -6.628397018516863e-07,
+              "actual": 0.01644433716029815,
+              "expected": 0.016445,
+              "name": "com_2",
+              "relative_error": -4.030645800257027e-05,
+              "within_original_tolerance": false
+            }
+          ]
+        },
+        {
+          "accuracy_argument": 2,
+          "extension_tail": [
+            {
+              "equals_requested_accuracy": true,
+              "index": 12,
+              "semantic_role": "observed extension value; internal meaning not generalized",
+              "value": 2.0
+            }
+          ],
+          "status": 0,
+          "versus_original_default": [
+            {
+              "absolute_error": 7.626385837457278e-10,
+              "actual": 9.542412130144827e-06,
+              "expected": 9.541649491561081e-06,
+              "name": "volume",
+              "relative_error": 7.99273316862692e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 1.736982746130579e-07,
+              "actual": 0.0026382822866579834,
+              "expected": 0.0026381085883833704,
+              "name": "area",
+              "relative_error": 6.584197306280792e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -4.987332791186669e-07,
+              "actual": -0.005433247070655766,
+              "expected": -0.005432748337376648,
+              "name": "com_0",
+              "relative_error": 9.180128512253916e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -1.6801456610747792e-07,
+              "actual": -0.003287353557532126,
+              "expected": -0.0032871855429660187,
+              "name": "com_1",
+              "relative_error": 5.111198133223027e-05,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 6.205765954586662e-07,
+              "actual": 0.016444957736893608,
+              "expected": 0.01644433716029815,
+              "name": "com_2",
+              "relative_error": 3.773801214412842e-05,
+              "within_original_tolerance": false
+            }
+          ],
+          "versus_unchanged_analytic": [
+            {
+              "absolute_error": -5.1678994247752585e-11,
+              "actual": 9.542412130144827e-06,
+              "expected": 9.542463809139074e-06,
+              "name": "volume",
+              "relative_error": -5.415686690657395e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -1.1902248545254956e-08,
+              "actual": 0.0026382822866579834,
+              "expected": 0.0026382941889065287,
+              "name": "area",
+              "relative_error": -4.5113424406162395e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 3.071619832269168e-08,
+              "actual": -0.005433247070655766,
+              "expected": -0.005433277786854089,
+              "name": "com_0",
+              "relative_error": -5.653345830580747e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": 1.2132697238369239e-08,
+              "actual": -0.003287353557532126,
+              "expected": -0.0032873656902293645,
+              "name": "com_1",
+              "relative_error": -3.690705075665157e-06,
+              "within_original_tolerance": false
+            },
+            {
+              "absolute_error": -4.226310639302011e-08,
+              "actual": 0.016444957736893608,
+              "expected": 0.016445,
+              "name": "com_2",
+              "relative_error": -2.569966943921642e-06,
+              "within_original_tolerance": false
+            }
+          ]
+        }
+      ],
+      "process_birth_filetime": 134395636780886532,
+      "raw_sha256": "ef05b1cff9d593ccc89bdcc109120adee44a125bd25f4addca76d9bb4312add4"
+    }
+  },
+  "raw_summary_sha256": "e84248d78f25fe843d960b483681511fa970281c8a0329bb66ba53a3db350d4b",
+  "schema": "kit.sw2026.oblique-mass-accuracy-native.v1",
+  "unchanged_numeric_scale": "SI",
+  "writer_output_count": 0
+}

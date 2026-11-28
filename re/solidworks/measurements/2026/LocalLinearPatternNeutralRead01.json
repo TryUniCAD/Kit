@@ -1,0 +1,977 @@
+{
+  "archive_receipt_sha256": "85b4255dc79af7ea847b117fd5353bbf6dac7741177a77667efb2069e3883012",
+  "before_revision": "21ac76977b4f043b7e073b269de7a73fe70617f3",
+  "cases": {
+    "D01X.SLDPRT": {
+      "brep_ids": [
+        "sldprt:brep:body:derived:1"
+      ],
+      "design_ids": [
+        "sldprt:body:1"
+      ],
+      "document_sha256": "f03579f15f2824ec442974ab5b360bc2189a7b4204224baf9991d2cddbf75c7c",
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40",
+        "sldprt:feature:47"
+      ],
+      "final_feature_ids": [
+        "sldprt:feature:47"
+      ],
+      "general_features_sha256": "e5d4213247c234ee6f5f569056813f6fd1f827b1884c539285aa7b3e4ede7c20",
+      "geometry_sha256": "fcfc24052169440e3a27717667ccbccd97001cbc89a315f30bbac77b09980ebc",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          66.91268513519785,
+          31.055030530328153,
+          3.201299717826935
+        ],
+        "count": 3,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:47:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 41,
+              "dimension_index": 388,
+              "display_index": 385,
+              "end": 19806,
+              "field_span": false,
+              "handle_index": 386,
+              "object_index": 390,
+              "offset": 19743,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 3
+          },
+          "D3": {
+            "id": "sldprt:parameter:47:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 42,
+              "dimension_index": 395,
+              "display_index": 393,
+              "end": 21311,
+              "field_span": false,
+              "handle_index": 394,
+              "object_index": 396,
+              "offset": 21268,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 27.183
+          }
+        },
+        "face_count": 21,
+        "parameter_ids": [
+          "sldprt:parameter:47:D1",
+          "sldprt:parameter:47:D3"
+        ],
+        "parents": [
+          "SeedBoss",
+          "Right Plane"
+        ],
+        "physical_body_node": 2,
+        "plane": "Right Plane",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:4"
+        ],
+        "signed_direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "spacing_mm": 27.183,
+        "volume_mm3": 291363.01970099995,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      },
+      "payload_sha256": [
+        "7915aa9702ef284fbcf7a03ae3e185650b94d8da0c8e8145a66232fd63fe21ac",
+        "bcbe07afdaae79e2cac890594ddc2c829136095d6bf6fc997e9e635a110283c2"
+      ],
+      "sketches_and_planes_sha256": "7fdf7160ad7480ffc6e83f767adc58e5af9a506873a6a6821047f04a0691eafb"
+    },
+    "D01XInstances.SLDPRT": {
+      "brep_ids": [
+        "sldprt:brep:body:derived:1"
+      ],
+      "design_ids": [
+        "sldprt:body:1"
+      ],
+      "document_sha256": "2642c110670b45c206dd1529769b7f8ac44ce527ea4966717f36d52bfc9c4496",
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40",
+        "sldprt:feature:47"
+      ],
+      "final_feature_ids": [
+        "sldprt:feature:47"
+      ],
+      "general_features_sha256": "3641031bb1054ca116c1fd137e33e54ffaf6e1f077ec37d871ef8245b7acbb18",
+      "geometry_sha256": "c1ba07621dc7ee3b70476d1d74dfc02a12e3ee697f67119a11e6e11f15913326",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          66.99549718476453,
+          31.04342152111687,
+          3.2067108257496404
+        ],
+        "count": 4,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:47:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 41,
+              "dimension_index": 388,
+              "display_index": 385,
+              "end": 20016,
+              "field_span": false,
+              "handle_index": 386,
+              "object_index": 390,
+              "offset": 19953,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 4
+          },
+          "D3": {
+            "id": "sldprt:parameter:47:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 42,
+              "dimension_index": 395,
+              "display_index": 393,
+              "end": 21521,
+              "field_span": false,
+              "handle_index": 394,
+              "object_index": 396,
+              "offset": 21478,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 27.183
+          }
+        },
+        "face_count": 26,
+        "parameter_ids": [
+          "sldprt:parameter:47:D3",
+          "sldprt:parameter:47:D1"
+        ],
+        "parents": [
+          "SeedBoss",
+          "Right Plane"
+        ],
+        "physical_body_node": 2,
+        "plane": "Right Plane",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:4"
+        ],
+        "signed_direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "spacing_mm": 27.183,
+        "volume_mm3": 291660.02626799996,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      },
+      "payload_sha256": [
+        "b92fbe61f402579a2d9727d693ffece3bb52f21c5dd85556ca4913a846197d95",
+        "700ad01cf4188f9cb6e6670955da7f53c935ad94b2229aa03f0f798a6cce4198"
+      ],
+      "sketches_and_planes_sha256": "5810092f36fe4a184b4f6a876086e13641b20d3fbacab69ccfc7da4f22a15a26"
+    },
+    "D01XSpacing.SLDPRT": {
+      "brep_ids": [
+        "sldprt:brep:body:derived:1"
+      ],
+      "design_ids": [
+        "sldprt:body:1"
+      ],
+      "document_sha256": "ec010f728a6c3a22e9c288de67d7cae93a1ea3402be242865c7dfbc1dcf2b941",
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40",
+        "sldprt:feature:47"
+      ],
+      "final_feature_ids": [
+        "sldprt:feature:47"
+      ],
+      "general_features_sha256": "45e0fc30bc46946f9896743ccffb1477e1ec16bb2683e57003def32eeeba259a",
+      "geometry_sha256": "415f5f68e14d97d423000fe9b1e2b44f901844717a00aa91380207c8b1bcd8f3",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          66.92566374729122,
+          31.055030530328153,
+          3.2012997178269353
+        ],
+        "count": 3,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:47:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 41,
+              "dimension_index": 388,
+              "display_index": 385,
+              "end": 20016,
+              "field_span": false,
+              "handle_index": 386,
+              "object_index": 390,
+              "offset": 19953,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 3
+          },
+          "D3": {
+            "id": "sldprt:parameter:47:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 42,
+              "dimension_index": 395,
+              "display_index": 393,
+              "end": 21521,
+              "field_span": false,
+              "handle_index": 394,
+              "object_index": 396,
+              "offset": 21478,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 31.426999999999996
+          }
+        },
+        "face_count": 21,
+        "parameter_ids": [
+          "sldprt:parameter:47:D1",
+          "sldprt:parameter:47:D3"
+        ],
+        "parents": [
+          "SeedBoss",
+          "Right Plane"
+        ],
+        "physical_body_node": 2,
+        "plane": "Right Plane",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:4"
+        ],
+        "signed_direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "spacing_mm": 31.426999999999996,
+        "volume_mm3": 291363.01970099995,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      },
+      "payload_sha256": [
+        "1ee5431407d8a1cb3aa3e18cb67d2df984d4628fbd0a9eca3c88871709972111",
+        "439d5ca28f4b27cafb4551ec1d0a9d6ba3052b1ffe1a08655071c80499ede07d"
+      ],
+      "sketches_and_planes_sha256": "5810092f36fe4a184b4f6a876086e13641b20d3fbacab69ccfc7da4f22a15a26"
+    },
+    "D02Y.SLDPRT": {
+      "brep_ids": [
+        "sldprt:brep:body:derived:1"
+      ],
+      "design_ids": [
+        "sldprt:body:1"
+      ],
+      "document_sha256": "0e159e333aecf8b98e85502005870e35a82f2f1a5cd758b136df5bcf55a8b206",
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40",
+        "sldprt:feature:47"
+      ],
+      "final_feature_ids": [
+        "sldprt:feature:47"
+      ],
+      "general_features_sha256": "e365d5fde0426a7aae4d570222ae3eb5fb2d551f7f3c5c12563b746eb10e0e0e",
+      "geometry_sha256": "436933b87d8bafba301950659a8f938ba60bf8e5b15150fb52610b5d23b163fc",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          96.51360857178426,
+          61.35416550168293,
+          2.114447573682421
+        ],
+        "count": 4,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:47:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 41,
+              "dimension_index": 389,
+              "display_index": 386,
+              "end": 19806,
+              "field_span": false,
+              "handle_index": 387,
+              "object_index": 391,
+              "offset": 19743,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 4
+          },
+          "D3": {
+            "id": "sldprt:parameter:47:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 42,
+              "dimension_index": 396,
+              "display_index": 394,
+              "end": 21311,
+              "field_span": false,
+              "handle_index": 395,
+              "object_index": 397,
+              "offset": 21268,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 25.163
+          }
+        },
+        "face_count": 26,
+        "parameter_ids": [
+          "sldprt:parameter:47:D3",
+          "sldprt:parameter:47:D1"
+        ],
+        "parents": [
+          "SeedBoss",
+          "Top Plane"
+        ],
+        "physical_body_node": 2,
+        "plane": "Top Plane",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:3"
+        ],
+        "signed_direction": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "spacing_mm": 25.163,
+        "volume_mm3": 278007.30753199995,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      },
+      "payload_sha256": [
+        "74e8c67ea968ad9fb3390603843cbe87de7d30bdb1d976556d8175c379e73260",
+        "8e4324c3cb5e12e6abc876a0e70a029c038c5dfd5b721bffdc979e4defd97a67"
+      ],
+      "sketches_and_planes_sha256": "874190daf074637c622e907d753f0eaaacd771ff4502d11e005811be2608e0d7"
+    },
+    "D02YInstances.SLDPRT": {
+      "brep_ids": [
+        "sldprt:brep:body:derived:1"
+      ],
+      "design_ids": [
+        "sldprt:body:1"
+      ],
+      "document_sha256": "67b407638dffb765eef4f698c06bf1fe14ec4e13deaf757ba47183b15717cc96",
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40",
+        "sldprt:feature:47"
+      ],
+      "final_feature_ids": [
+        "sldprt:feature:47"
+      ],
+      "general_features_sha256": "eb57e27f94f4bb1808a1e97d7a1e00cc1705ffabd72fe6589e8c165373042c41",
+      "geometry_sha256": "a78e67df6cae8147caf05611abfa489ff557d811a05b1195ebc033ade1b2f2ae",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          96.45765468570508,
+          61.12059506337411,
+          2.126668813357988
+        ],
+        "count": 5,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:47:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 41,
+              "dimension_index": 389,
+              "display_index": 386,
+              "end": 20016,
+              "field_span": false,
+              "handle_index": 387,
+              "object_index": 391,
+              "offset": 19953,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 5
+          },
+          "D3": {
+            "id": "sldprt:parameter:47:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 42,
+              "dimension_index": 396,
+              "display_index": 394,
+              "end": 21521,
+              "field_span": false,
+              "handle_index": 395,
+              "object_index": 397,
+              "offset": 21478,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 25.163
+          }
+        },
+        "face_count": 31,
+        "parameter_ids": [
+          "sldprt:parameter:47:D1",
+          "sldprt:parameter:47:D3"
+        ],
+        "parents": [
+          "SeedBoss",
+          "Top Plane"
+        ],
+        "physical_body_node": 2,
+        "plane": "Top Plane",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:3"
+        ],
+        "signed_direction": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "spacing_mm": 25.163,
+        "volume_mm3": 278641.3844149999,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      },
+      "payload_sha256": [
+        "54c3f7e70f8ab89df855fe5ae83a9caeb111702456e5eda614233d23fe0c30d5",
+        "2683aa0183b7043199779c4f11a6e6cf4a72c5250572021db9f6b8784805ebc5"
+      ],
+      "sketches_and_planes_sha256": "4332a4e96b0da6f1d4c17b70fec283c90542c8843ca07956b3de892aa7f7e292"
+    },
+    "D02YSpacing.SLDPRT": {
+      "brep_ids": [
+        "sldprt:brep:body:derived:1"
+      ],
+      "design_ids": [
+        "sldprt:body:1"
+      ],
+      "document_sha256": "04c387f309084cfe610a0d1d926f5460110d99863efe461deca0f3e9a5c444c7",
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40",
+        "sldprt:feature:47"
+      ],
+      "final_feature_ids": [
+        "sldprt:feature:47"
+      ],
+      "general_features_sha256": "30748e6c3c09b81560699173c712fc1db5d619ebd68d69f28828fd729f81907a",
+      "geometry_sha256": "3a9a7034cb32c33ec4c7eab1fc50a6759cf2ac8f5e63dde63795d07eee765660",
+      "pattern": {
+        "atom_lineage": [
+          101,
+          102,
+          103
+        ],
+        "body_name": "LinearPattern",
+        "centroid_mm": [
+          96.51360857178426,
+          61.299289642697744,
+          2.114447573682421
+        ],
+        "count": 4,
+        "dormant_drivers": [
+          [
+            "D2",
+            1,
+            0.0
+          ],
+          [
+            "D4",
+            0.0,
+            0.0
+          ],
+          [
+            "D5",
+            0.0,
+            0.0
+          ],
+          [
+            "D6",
+            0.0,
+            0.0
+          ]
+        ],
+        "drivers": {
+          "D1": {
+            "id": "sldprt:parameter:47:D1",
+            "owner": {
+              "class": "moIntegerParameter_c",
+              "dimension_id": 41,
+              "dimension_index": 389,
+              "display_index": 386,
+              "end": 20016,
+              "field_span": false,
+              "handle_index": 387,
+              "object_index": 391,
+              "offset": 19953,
+              "slot": "f1258",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "",
+            "value": 4
+          },
+          "D3": {
+            "id": "sldprt:parameter:47:D3",
+            "owner": {
+              "class": "moLengthParameter_c",
+              "dimension_id": 42,
+              "dimension_index": 396,
+              "display_index": 394,
+              "end": 21521,
+              "field_span": false,
+              "handle_index": 395,
+              "object_index": 397,
+              "offset": 21478,
+              "slot": "f1260",
+              "stream": "Contents/Config-0-ResolvedFeatures",
+              "value_field": "f58"
+            },
+            "role": "driving",
+            "unit": "mm",
+            "value": 29.173000000000002
+          }
+        },
+        "face_count": 26,
+        "parameter_ids": [
+          "sldprt:parameter:47:D1",
+          "sldprt:parameter:47:D3"
+        ],
+        "parents": [
+          "SeedBoss",
+          "Top Plane"
+        ],
+        "physical_body_node": 2,
+        "plane": "Top Plane",
+        "selected_path": [
+          "support_plane",
+          "sldprt:plane:3"
+        ],
+        "signed_direction": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "spacing_mm": 29.173000000000002,
+        "volume_mm3": 278007.30753199995,
+        "write_refusal": "native-only feature definitions cannot be exported: <memory>: sldprt:feature:1 (solidworks.sldprt:Annotations); <memory>: sldprt:feature:10 (solidworks.sldprt:Surface Bodies); <memory>: sldprt:feature:11 (solidworks.sldprt:SOLIDWORKS Materials); <memory>: sldprt:feature:12 (solidworks.sldprt:Ambient); <memory>: sldprt:feature:13 (solidworks.sldprt:Directional); <memory>: sldprt:feature:14 (solidworks.sldprt:Directional); <memory>: sldprt:feature:15 (solidworks.sldprt:Directional); <memory>: sldprt:feature:16 (solidworks.sldprt:Equations); <memory>: sldprt:feature:17 (solidworks.sldprt:Notes); <memory>: sldprt:feature:18 (solidworks.sldprt:Notes); <memory>: sldprt:feature:19 (solidworks.sldprt:Exploded Views); <memory>: sldprt:feature:2 (solidworks.sldprt:Plane); <memory>: sldprt:feature:21 (solidworks.sldprt:Markups); <memory>: sldprt:feature:22 (solidworks.sldprt:Sensors); <memory>: sldprt:feature:23 (solidworks.sldprt:Favorites); <memory>: sldprt:feature:24 (solidworks.sldprt:History); <memory>: sldprt:feature:25 (solidworks.sldprt:Selection Sets); <memory>: sldprt:feature:26 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:3 (solidworks.sldprt:Plane); <memory>: sldprt:feature:33 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:4 (solidworks.sldprt:Plane); <memory>: sldprt:feature:5 (solidworks.sldprt:Sketch); <memory>: sldprt:feature:6 (solidworks.sldprt:Lights and Cameras); <memory>: sldprt:feature:7 (solidworks.sldprt:Design Binder); <memory>: sldprt:feature:8 (solidworks.sldprt:Comments); <memory>: sldprt:feature:9 (solidworks.sldprt:Solid Bodies)"
+      },
+      "payload_sha256": [
+        "3a3f13f33394b48599f54857b3e4a69e10dc237403efe9f032102433560bce36",
+        "c3f1fc8b3d63e292ee4195220a641af4f5ca18a5d7e11399c650430abc5b20fd"
+      ],
+      "sketches_and_planes_sha256": "4332a4e96b0da6f1d4c17b70fec283c90542c8843ca07956b3de892aa7f7e292"
+    }
+  },
+  "disclosed_lock_sha256": "8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426",
+  "heldout_inputs_read": 0,
+  "implementation_sha256": {
+    "re/tooling/sw2026/linear_pattern/ProveLinearPatternModelRead.py": "d44d117c54b9af6012168cfdb0f30e06b40be1404a1e505f99f403a5ecc3446d",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "e0b198c5214fe28b22d50352642c49e4158c135caac75dbb67c581b595acf089",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/ApplyPatDoc.py": "d9fc1cae9fccc790df20dd7f4f904bee98fe919fe4b6340f09fb3db0f2424174",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/BindPatBody.py": "94b5e68ff0c5d408e8fc5bd3a8094365a6de0f4d8204d6d38cf409a209f325c0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/BindPatStep.py": "f77b845f9af0514fb28512f8078f292690f429ececf6ecdc8f87012871f2e310",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/CheckPatMode.py": "f4936d4b4b31fc3c665c862ba881e82eab606db3b2dc8dac7fda3f5712a7fcca",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/CheckPatOrig.py": "f0494172122fb881b3e18f1590188c90e7b49d7e3df8442ac7ad23e76327f96b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/CheckPatPick.py": "51ed60e6ccc74a98a3bf1cd2eba97d6662003e473555d8596c1f6e86c2f92be2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/MakePatParam.py": "d3654bcfd2bbf4614c029206b3d7f9ce2cae28a548f8b57d5b6697934dbd832f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/MakePatSelect.py": "8f78a5c4ac98c9d0cd0cad1f6e575a2274c9972b31d79c7ab41b4dfd803b40a9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/PatternDatum.py": "2f74fe1f0ba88fe0e32818c6bf7c5bca39cc0a97303f5891b5dd2d84fb5c3ddd",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/PatternDim.py": "3695ae1c68da6ab874ec2230a2733b6f16f185d3ceebff196ee58a954bc20850",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/PatternOwner.py": "4d71655443b81517524c0d8bc1399d7a0ed65d0efff5e5a387dee26b36cbf1f9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/ReadPatBody.py": "8649b091e235e18955c46912e527c8c46ecc68105e69be3c044a85550bb83348",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/ReadPatChain.py": "7c72ce860d5ac4a91587c00faf6c5f77c7cb61aaf3dbd7140c783399840d9d2b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/ReadPatDatum.py": "b718b8bf30a733b75b0837273fd3ed9d2615c64b74f3dfde0d4b08e8df94684e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/ReadPatDim.py": "3b52e796d33d6101e4e566c2b7628c7a177ae90bd46997fa073830c654b5c457",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/ReadPatDrivers.py": "ecd5ed0a233350ed08e9edb404492d4a3a08c598222d3e04928f5057b6a77398",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/ReadPatOwner.py": "2d01bf09ceb204227b28afa3ee88a621d84a3ddbcbb43a6cf0f5b04f34e27f24",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Patterns/WithPatternDoc.py": "56dc27b7af8e1ee893876a98c55872286a6e4ed0c95189f87878607088b31c69"
+  },
+  "malformed": {
+    "fc8_point_independent": true,
+    "refusals": [
+      {
+        "field": "f1258",
+        "refusal": "pattern requires separate actual count and pitch and an inactive second direction"
+      },
+      {
+        "field": "f1290",
+        "refusal": "unsupported saved linear pattern mode or owner"
+      },
+      {
+        "field": "f08",
+        "refusal": "pattern direction does not bind its actual local datum and reversal"
+      },
+      {
+        "field": "ff0",
+        "refusal": "two stock face carrier has alternate surface representations"
+      },
+      {
+        "field": "o",
+        "refusal": "pattern history does not follow its actual joined seed and plate"
+      },
+      {
+        "field": "f20",
+        "refusal": "pattern carries an alternate original dimension record"
+      }
+    ]
+  },
+  "native_outputs_written": 0,
+  "native_processes_started": 0,
+  "schema": "kit.sw2026.linear-pattern-model-read.v1",
+  "unchanged_controls": {
+    "ladder/L1_boss.SLDPRT": "463debecbdc247f1f12e386a9d2951f26f7fb4b31d4de1ab9b1ece3e344ad891",
+    "principal-revolve-discovery/PrincipalRevolveTopForward.SLDPRT": "37d9c86bdce7513b02e7c12a938df00fcb79579585d6b12f482cac8c3c389dda"
+  },
+  "unchanged_nonprojecting_modes": [
+    "no-brep",
+    "raw"
+  ],
+  "worker_processes": 41
+}

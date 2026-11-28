@@ -1,0 +1,242 @@
+{
+  "documents": {
+    "module": {
+      "bytes": 8781,
+      "expanded_occurrences": 1,
+      "model_class": "moAssembly_c",
+      "model_name": "OffsetModule",
+      "roundtrips": 10,
+      "sha256": "f5bd894b220677e7c36b9601937bbce7da62fd94f242719aeea0a5bb1a074c6a",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2082,
+          "sha256": "2602eedcbb5e0ad5eb6b8658a3a75034644e2f538c08cdb926859c935e9eacda"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "4a92987fd40702b2b007c7067080bbfcafaa42f3cda1da7ee7a76587763ed9b6"
+        },
+        "Contents/Config-0": {
+          "bytes": 20959,
+          "sha256": "5e963ba31362daf51847eda757077ec77d9fda4bd23b630ff56ffb7087a24cf4"
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 6,
+          "sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1127,
+          "sha256": "d14e1363b569df8d39c4b1b17cb1501196d89ac92dad12ad4a04d034a57543e6"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 4839,
+          "sha256": "9e29848bb7787c98609a22f80cf299d5b2285b9d86e2dee0b6df4e6ade9283cc"
+        },
+        "Contents/Definition": {
+          "bytes": 553,
+          "sha256": "3af9e78b6d30abd61fa6407b088f68a31d72fd499423e46e7e299637023d6e6a"
+        },
+        "Header2": {
+          "bytes": 1127,
+          "sha256": "ba0d015783215b2408a0b4b8f0929ec2fdc6104eabd3931d237f1a2543d9a6cc"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 1808,
+          "sha256": "0c35e704903b15257f174e594f606b0828c5caaaae37a6bf5e4010888e0cec5d"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1069,
+          "sha256": "13d2f9275f902d22a93307a94ff9dc6ab77bbe096f0b338906fa2d0edcbe2761"
+        }
+      },
+      "target_geometry_stamp": 202,
+      "target_transform_stamp": 102
+    },
+    "plate": {
+      "bytes": 8641,
+      "expanded_occurrences": 0,
+      "model_class": "moPart_c",
+      "model_name": "LinkPlate",
+      "roundtrips": 8,
+      "sha256": "41805711f0fd60a7d8fb29eeed580afaf010a6493cb8a98538fdaf6604ea5680",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "bb4192ed168d22ce2fb2f85ec030ebbfcdd6a6074e302351c69402d58a69ef02"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9893e8b8231f95293b90e28dc503aec1136f84222ef73036daffc36235da7cda"
+        },
+        "Contents/Config-0": {
+          "bytes": 21124,
+          "sha256": "de017053ac3cba7b53889909c613078dc79de5c450c898a7f6391d888c2d7c51"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 791,
+          "sha256": "5ecc26c3d58f72384a9500e8aec62b0236502011e867223e6bfa63f358f9662a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17486,
+          "sha256": "452c0dcbb98ec49d39dfb3553c446ca13a4476227fb53987baa8cbc59b4f1e68"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 791,
+          "sha256": "9542b54f6a44b21bc689a16933c8f26f1107a49c52fd74ab417d7a7791a23481"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1562,
+          "sha256": "745d6668ff60e0cb9749abfd577d8617ba18867d8bdf661e97027abac4cb485a"
+        }
+      },
+      "target_geometry_stamp": 101,
+      "target_transform_stamp": 101
+    },
+    "root": {
+      "bytes": 8976,
+      "expanded_occurrences": 2,
+      "model_class": "moAssembly_c",
+      "model_name": "TiltFrame",
+      "roundtrips": 10,
+      "sha256": "0f7c9757a015617748722c059a5f470991b3db2a2a3a3326fe99aa5e0c78e939",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2076,
+          "sha256": "935c93df958b68fb5549d9340c469d35693f3c0637d1ddf7f3261b48889d11f1"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "86846636d61d1a3b20e66199c9c79264572ea34ab3e6d236fb06ec02ec8d582e"
+        },
+        "Contents/Config-0": {
+          "bytes": 20953,
+          "sha256": "d5d4c6261d146c76712952481b48aba2dba3afef7f1974dcaa00ace6701ac748"
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 6,
+          "sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1121,
+          "sha256": "5c1b73ecf9ee14e79e5acdb12eab4b17778f4229dfb7946c323d549e0bca94ca"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 4839,
+          "sha256": "9e29848bb7787c98609a22f80cf299d5b2285b9d86e2dee0b6df4e6ade9283cc"
+        },
+        "Contents/Definition": {
+          "bytes": 547,
+          "sha256": "181435bed16f17b563d1ffbbe614ec8fb60c0a7a63feb3c334ef413543a287bb"
+        },
+        "Header2": {
+          "bytes": 1121,
+          "sha256": "d8024262db2b56bd782311a0bf4482c0bd57e0331d45e694a535361763e69407"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2777,
+          "sha256": "6dd58696dc9d876c7f8860ef924244f4a2b8ac84035ddfe194326c7c21848d55"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1072,
+          "sha256": "5f813dbcc124a29109937d711f09109be4a6b47d55d05c79c134bbbab0bb77c9"
+        }
+      },
+      "target_geometry_stamp": 303,
+      "target_transform_stamp": 102
+    }
+  },
+  "flat_compatibility": {
+    "empty_byte_hashes": [
+      "cb6343837ee82aaab06194c7f1ef08c742a83477c20f86dc45cde3bbf2859d52",
+      "84103b7a427fd9b96a69f44e6f34249c157833f10a7f10d54e4496eb4191cc3f"
+    ],
+    "guarded_single_parent_and_child_preserved": true
+  },
+  "heldout_inputs_tested": 0,
+  "input_runtime_file_access_attempts": 0,
+  "native_acceptance": false,
+  "normal_sdk_history_read": {
+    "definitions": 3,
+    "entrypoint": "open_document(include_brep=False, include_tessellation=False)",
+    "instances": 2,
+    "validation_errors": []
+  },
+  "object_stream_round_trips": 28,
+  "prediction_sha256": "d22736293463d60315e038b8ebb86319a9f13a58da73fc03925260b83140f170",
+  "rejected_inputs": [
+    "cycle",
+    "unreachable_definition",
+    "duplicate_output_path",
+    "unsupported_suppression"
+  ],
+  "repeated_mixed_process_proof": {
+    "byte_identical": true,
+    "cmgr_reverse_direct_order": true,
+    "definition_count": 4,
+    "directory_kind_use_slot": [
+      [
+        3,
+        2,
+        4
+      ],
+      [
+        2,
+        1,
+        5
+      ]
+    ],
+    "fresh_processes": 2,
+    "request_sha256": "34fd59151d72b84f09e20dfe5299935841d2f2f6a1cda132ec07a7c23743e788",
+    "root_direct_occurrences": 3,
+    "root_expanded_occurrences": 7,
+    "target_geometry_stamp": 808,
+    "target_transform_stamp": 306,
+    "xml_definition_local_occurrences": 5,
+    "xml_expanded_paths": 7
+  },
+  "request_sha256": "51a7b7f90261584e0cf233a5fae5db82582f27c53b87284ceba99d4c2fa64691",
+  "schema": "kit.sw2026.generated-nested-assembly-bundle-evidence.v1",
+  "source_lock_sha256": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+  "writer_output_count": 3,
+  "writer_tool_sha256": {
+    "NestedAssemblyBundleProcess.py": "c2cdcbdb42990a21453a4d2e1753ced794ae5f591c05aa28d71dd05ecbeeaad0",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMetadata.py": "583b7761943284dbeb9b655bd740a65856892132c614f046c6a113bdf58299fb",
+    "builders/AssemblyOccurrences.py": "4daf8beb31a85aa3f00fbd1092239e369797a22acc7611cac5c210850640988f",
+    "builders/AssemblyTargetState.py": "c6f40ce995779fd4451e25bd2a3801119c151fd45df6a18b145f247ab2d4dfe1",
+    "builders/ConfigurationHeader.py": "87197b7d9b108135d006cdd5053c7af60ae02ddd0d9c1661ca3cb292bc7e9906",
+    "builders/NestedAssembly.py": "a81270bf9cfbfb014d2dfad9b2bb4cf1ad5f2508d2ea0cf74d52b2b8d610acb3",
+    "builders/NestedAssemblyMetadata.py": "4c0c32570006b8a6b66610d0bb4cfa7cfc3ed62d60536c854dbc81e8be35d767",
+    "builders/Part.py": "b82c0dd08099e7c53f33dca6eb9a3f2dfbfaf6d8c156b41f80976f1afbcd1a3f"
+  }
+}

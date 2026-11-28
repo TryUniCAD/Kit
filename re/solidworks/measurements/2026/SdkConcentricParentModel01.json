@@ -1,0 +1,446 @@
+{
+  "cases": [
+    {
+      "case": "persistence",
+      "files": {
+        "child": {
+          "bytes": 10839,
+          "sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 10760,
+          "sha256": "929c8e4260b62d8c16fd1a7369a46bebc9d0bcec104b36b8fbddfd3fb5b75bdd",
+          "streams": 12
+        }
+      },
+      "heldout_reads": 0,
+      "native_exact_pair": true,
+      "native_launches": 0,
+      "native_receipt_sha256": "b95d6e806fdb7f167a46cd3ebbbfbf669a0bd1ac7696ec6287ba72b01376d785",
+      "owner_readback": {
+        "active_intervals": [
+          [
+            0.0,
+            0.022819
+          ],
+          [
+            0.0,
+            0.022819
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 4018,
+        "mate_sha256": "99a50b5a4580b22c5b4a35349f894eaf024ffb3eb17620b4687a3559bd0b292c",
+        "occurrence_names": [
+          "NeutralCylinderAlphaDerived-1",
+          "NeutralCylinderAlphaDerived-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            -0.18065529823420404,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_origins": [
+          [
+            -0.015460606420462484,
+            0.014658111018034136,
+            0.007964246252471139
+          ],
+          [
+            -0.025165228386305687,
+            -0.012979273374909369,
+            0.052994527812958374
+          ]
+        ]
+      },
+      "refusals": [
+        "crossed_tag",
+        "off_axis_pose",
+        "repeated_selection",
+        "stale_archive_stamp",
+        "unproved_tag_high_word",
+        "wrong_alignment",
+        "wrong_axis"
+      ],
+      "repeat_pairs": 2,
+      "signed_reference_parity_at_alternate_epoch": false,
+      "trial_sha256": "9b7e52d198a7e2a70902b3794fff1987451bc6a599ca1d557493eddc75a580c9",
+      "writer_input_reads": 0
+    },
+    {
+      "case": "store",
+      "files": {
+        "child": {
+          "bytes": 10962,
+          "sha256": "b877a05784e23ae16c49e5ee74d01cc31ba62a87a24b21780c1327934c352970",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 11098,
+          "sha256": "55d998baba269aba1513fc599ffd08e7aaa44f0577ac5fd8da673f8eb4f9488d",
+          "streams": 13
+        }
+      },
+      "heldout_reads": 0,
+      "native_exact_pair": true,
+      "native_launches": 0,
+      "native_receipt_sha256": "d128bf6b61c69b3525743c596ee2d20a02f7b5d4b41c4d28ab088c0bc8300009",
+      "owner_readback": {
+        "active_intervals": [
+          [
+            0.0,
+            0.031369999999999995
+          ],
+          [
+            0.0,
+            0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "b877a05784e23ae16c49e5ee74d01cc31ba62a87a24b21780c1327934c352970",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3764,
+        "mate_sha256": "072407bc7c060fbb76e4b897a451fcdeb4121fd6521c43e77240bc19c00d9a87",
+        "occurrence_names": [
+          "DisclosedRadialSceneProbe-1",
+          "DisclosedRadialSceneProbe-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.2558
+          ]
+        ]
+      },
+      "refusals": [
+        "crossed_tag",
+        "off_axis_pose",
+        "repeated_selection",
+        "stale_archive_stamp",
+        "unproved_tag_high_word",
+        "wrong_alignment",
+        "wrong_axis"
+      ],
+      "repeat_pairs": 2,
+      "signed_reference_parity_at_alternate_epoch": false,
+      "trial_sha256": "ac2696da314b7e2d4939fd75664270acecfe0274a479eafb9c2c6d5440aaed4b",
+      "writer_input_reads": 0
+    },
+    {
+      "case": "aligned",
+      "files": {
+        "child": {
+          "bytes": 10828,
+          "sha256": "3f780b3e39122c1741864701e31b037af4261a2722ba6efd6c9fa4b4b9239d21",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 9932,
+          "sha256": "e63c7939da30e91af57954cb1b1089932d6f468a8441b1dc91288b934eff4b14",
+          "streams": 12
+        }
+      },
+      "heldout_reads": 0,
+      "native_exact_pair": false,
+      "native_launches": 0,
+      "native_receipt_sha256": "b37b7b0f38f268bbe7542bd99fa4c2e131a6a9cff8e60ea597e48e133702d2c6",
+      "owner_readback": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.031369999999999995
+          ],
+          [
+            0.0,
+            -0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "3f780b3e39122c1741864701e31b037af4261a2722ba6efd6c9fa4b4b9239d21",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3548,
+        "mate_sha256": "addb00c4c60912109f8561a534535dc2c4fe5e309a5f0c0729394439b55dcc7b",
+        "occurrence_names": [
+          "D01SignedChild-1",
+          "D01SignedChild-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ]
+        ]
+      },
+      "refusals": [
+        "crossed_tag",
+        "off_axis_pose",
+        "repeated_selection",
+        "stale_archive_stamp",
+        "unproved_tag_high_word",
+        "wrong_alignment",
+        "wrong_axis"
+      ],
+      "repeat_pairs": 2,
+      "signed_reference_parity_at_alternate_epoch": true,
+      "trial_sha256": "8e0feb327fdacd559f9a9a56bcbb24ecf679bb4a40e9bff29f23f3cf7b03ae45",
+      "writer_input_reads": 0
+    },
+    {
+      "case": "locked",
+      "files": {
+        "child": {
+          "bytes": 10850,
+          "sha256": "6577dffe814e0ae322a1fb060580fa7e1676db4b6f55fc0a544b5961c862489b",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 10403,
+          "sha256": "76026e9b313f4c4679961c4d156b5eae0d32cd873320fcf17afac831927ab093",
+          "streams": 12
+        }
+      },
+      "heldout_reads": 0,
+      "native_exact_pair": false,
+      "native_launches": 0,
+      "native_receipt_sha256": "b37b7b0f38f268bbe7542bd99fa4c2e131a6a9cff8e60ea597e48e133702d2c6",
+      "owner_readback": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.014763000000000004
+          ],
+          [
+            0.0,
+            -0.014763
+          ]
+        ],
+        "alignment": 2,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "6577dffe814e0ae322a1fb060580fa7e1676db4b6f55fc0a544b5961c862489b",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          false,
+          true
+        ],
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3802,
+        "mate_sha256": "bb1da8fb2acc9e63a7fc376a5cd86a3dea8b49e6ba047991773b96323909159b",
+        "occurrence_names": [
+          "SignedTiltedChild-2",
+          "SignedTiltedChild-1"
+        ],
+        "occurrences": [
+          18,
+          17
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": true,
+        "round_tripped_linked_streams": 3,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            0.18065529823420398,
+            0.5144806193887359,
+            -0.8382561395500145
+          ]
+        ],
+        "world_origins": [
+          [
+            -0.044225791065869546,
+            -0.009411588480897709,
+            0.05107639464879625
+          ],
+          [
+            -0.03452116910002634,
+            0.018225795912045796,
+            0.006046113088309022
+          ]
+        ]
+      },
+      "refusals": [
+        "crossed_tag",
+        "off_axis_pose",
+        "repeated_selection",
+        "stale_archive_stamp",
+        "unproved_tag_high_word",
+        "wrong_alignment",
+        "wrong_axis"
+      ],
+      "repeat_pairs": 2,
+      "signed_reference_parity_at_alternate_epoch": true,
+      "trial_sha256": "3ba299ea8e9413aaf82dc3313e5cf8f570ac89f3b50ceb0079a574f5a158d199",
+      "writer_input_reads": 0
+    }
+  ],
+  "fresh_host_processes": 4,
+  "generated_pair_count": 8,
+  "heldout_files_read": 0,
+  "linked_parent_replays": 12,
+  "native_exact_complete_pairs": 2,
+  "native_exact_logical_streams": 47,
+  "native_launches": 0,
+  "production_child_attachment": false,
+  "public_writer_qualified": false,
+  "refusals": 28,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.shared-concentric-parent-model.v1",
+  "signed_alternate_epoch": 1795303000,
+  "source_base": "133d616e82251e11ddd99c5b2e0376d8fb488830",
+  "source_patch_sha256": "5d95797a638c5413598eb207e99875b48971b30b8e25dbdfd452fbb000ea77cc",
+  "tool_sha256": "34b577d03f98074d4f558672777fbbfb1aa67f0d0be564c54ab68df3394b14c9"
+}

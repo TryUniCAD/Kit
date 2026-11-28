@@ -1,0 +1,68 @@
+{
+  "actual_roles": {
+    "ControlAfter": {
+      "diagnostic_count": 0,
+      "open": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    "ControlBefore": {
+      "diagnostic_count": 0,
+      "open": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    "GeneratedEdit": {
+      "diagnostic_count": 0,
+      "error": {
+        "message": "ordinary note text or name differs",
+        "type": "ValueError"
+      },
+      "open": [
+        0,
+        0
+      ],
+      "passed": false
+    },
+    "GeneratedOpen": {
+      "diagnostic_count": 0,
+      "error": {
+        "message": "ordinary note text or name differs",
+        "type": "ValueError"
+      },
+      "open": [
+        0,
+        0
+      ],
+      "passed": false
+    },
+    "GeneratedReopen": {
+      "passed": false,
+      "skipped": "native saved result absent"
+    },
+    "NativeNoteSource": {
+      "diagnostic_count": 0,
+      "open": [
+        0,
+        0
+      ],
+      "passed": true
+    }
+  },
+  "candidate_sha256": "95cbab771dd691a2efb433345dd3cc9230632450b3f995cec15f13950a73040d",
+  "comparison_passed": false,
+  "controls_healthy": true,
+  "fresh_processes": 5,
+  "heldout_source_credit": false,
+  "job_sha256": "83457f0d8066c2692e42ecb1e8906e55a594d5c5111d9d84923188b104d4e615",
+  "oracle_file_version": "34.5.2.0604",
+  "public_writer_qualified": false,
+  "raw_result_sha256": "6ef8b8ad8b459f38bea9e02d848255ed4fd2875c4e4360060712b3353a8cdcfc",
+  "schema": "kit.sw2026.fresh-plain-note-origin-native-summary.v1",
+  "source_commit": "6d91432df1d6fbd6a14b9aa82129633da521ed25",
+  "source_immutable": true
+}

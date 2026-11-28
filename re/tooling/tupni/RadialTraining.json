@@ -1,0 +1,54 @@
+{
+  "schema": "kit-sw2026-radial-training-specifications/1",
+  "authority": "training-only-native-authoring",
+  "source_specifications": {
+    "path": "re/tooling/sw2026/CurveSpecs.json",
+    "sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+    "case": "D04CircleRadius"
+  },
+  "heldout_payload_access": false,
+  "cases": [
+    {
+      "name": "TrainingD04Radius",
+      "split": "training",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          -3.719,
+          5.173
+        ],
+        "radius_mm": 7.391
+      }
+    },
+    {
+      "name": "TrainingD04Diameter",
+      "split": "training",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          -3.719,
+          5.173
+        ],
+        "radius_mm": 7.391
+      }
+    }
+  ]
+}

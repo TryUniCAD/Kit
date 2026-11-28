@@ -1,0 +1,318 @@
+{
+  "data_windows": [
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4d22f4c0",
+      "module": "sldmodu.dll",
+      "name": "selected text getter virtual cell",
+      "sha256": "ee63d0eff471907b888db992e67adc447156bd084e9f198f1246b445414821c4",
+      "start": "0x4d22f4b8"
+    }
+  ],
+  "functions": [
+    {
+      "bytes": 235,
+      "end_exclusive": "0x4568884b",
+      "module": "sldappu.dll",
+      "name": "COM model note wrapper",
+      "sha256": "55211872b7c0e41a50d7fbb5fa7df3cf7c31d5fddfa265073ece1776ec2b30ee",
+      "start": "0x45688760",
+      "unwind_fragments": [
+        {
+          "bytes": 235,
+          "end_exclusive": "0x4568884b",
+          "module": "sldappu.dll",
+          "name": "COM model note wrapper",
+          "sha256": "55211872b7c0e41a50d7fbb5fa7df3cf7c31d5fddfa265073ece1776ec2b30ee",
+          "start": "0x45688760",
+          "unwind_rva": "0xc6e068"
+        }
+      ]
+    },
+    {
+      "bytes": 427,
+      "end_exclusive": "0x419bc54b",
+      "module": "slddtlu.dll",
+      "name": "drawing detail note entry",
+      "sha256": "8f5f0ec03c2be47fe5ee78f0e2c12d11cf0c40c252a0888272e87c6c249e2167",
+      "start": "0x419bc3a0",
+      "unwind_fragments": [
+        {
+          "bytes": 427,
+          "end_exclusive": "0x419bc54b",
+          "module": "slddtlu.dll",
+          "name": "drawing detail note entry",
+          "sha256": "8f5f0ec03c2be47fe5ee78f0e2c12d11cf0c40c252a0888272e87c6c249e2167",
+          "start": "0x419bc3a0",
+          "unwind_rva": "0x968db0"
+        }
+      ]
+    },
+    {
+      "bytes": 510,
+      "end_exclusive": "0x418c09ae",
+      "module": "slddtlu.dll",
+      "name": "note command construction",
+      "sha256": "46f780b98cf5b3f3a90f9a986e4c1a19ad8d4630615dfee5ab803257b74555eb",
+      "start": "0x418c07b0",
+      "unwind_fragments": [
+        {
+          "bytes": 510,
+          "end_exclusive": "0x418c09ae",
+          "module": "slddtlu.dll",
+          "name": "note command construction",
+          "sha256": "46f780b98cf5b3f3a90f9a986e4c1a19ad8d4630615dfee5ab803257b74555eb",
+          "start": "0x418c07b0",
+          "unwind_rva": "0x946624"
+        }
+      ]
+    },
+    {
+      "bytes": 3358,
+      "end_exclusive": "0x418cf8be",
+      "module": "slddtlu.dll",
+      "name": "note dialog application",
+      "sha256": "ae2d2254b4ed508336d9735b278388d2fb6a68a13a73a846259e08dd08b0c740",
+      "start": "0x418ceba0",
+      "unwind_fragments": [
+        {
+          "bytes": 3358,
+          "end_exclusive": "0x418cf8be",
+          "module": "slddtlu.dll",
+          "name": "note dialog application",
+          "sha256": "ae2d2254b4ed508336d9735b278388d2fb6a68a13a73a846259e08dd08b0c740",
+          "start": "0x418ceba0",
+          "unwind_rva": "0x94644c"
+        }
+      ]
+    },
+    {
+      "bytes": 1783,
+      "end_exclusive": "0x4c7f1287",
+      "module": "sldmodu.dll",
+      "name": "display note constructor from explicit text and attachment",
+      "sha256": "09570f712c2be19016113058c4fd9e307b4d5c502cca53f6e9cdd4bf04dd37c1",
+      "start": "0x4c7f0b90",
+      "unwind_fragments": [
+        {
+          "bytes": 1783,
+          "end_exclusive": "0x4c7f1287",
+          "module": "sldmodu.dll",
+          "name": "display note constructor from explicit text and attachment",
+          "sha256": "09570f712c2be19016113058c4fd9e307b4d5c502cca53f6e9cdd4bf04dd37c1",
+          "start": "0x4c7f0b90",
+          "unwind_rva": "0x2556a24"
+        }
+      ]
+    },
+    {
+      "bytes": 120,
+      "end_exclusive": "0x4c7fc168",
+      "module": "sldmodu.dll",
+      "name": "display note text getter",
+      "sha256": "7c008f7f393f35c51bb027e7ab2ecbf6cb4e46a61d8388115a3e5ba22c3bb5ba",
+      "start": "0x4c7fc0f0",
+      "unwind_fragments": [
+        {
+          "bytes": 120,
+          "end_exclusive": "0x4c7fc168",
+          "module": "sldmodu.dll",
+          "name": "display note text getter",
+          "sha256": "7c008f7f393f35c51bb027e7ab2ecbf6cb4e46a61d8388115a3e5ba22c3bb5ba",
+          "start": "0x4c7fc0f0",
+          "unwind_rva": "0x24aff90"
+        }
+      ]
+    },
+    {
+      "bytes": 75,
+      "end_exclusive": "0x4c7f9e5b",
+      "module": "sldmodu.dll",
+      "name": "display note text owner getter",
+      "sha256": "95a06c813c12fc320dedf11a6ac408145697a34826b18cd2b4582b20e3d2bd2c",
+      "start": "0x4c7f9e10",
+      "unwind_fragments": [
+        {
+          "bytes": 75,
+          "end_exclusive": "0x4c7f9e5b",
+          "module": "sldmodu.dll",
+          "name": "display note text owner getter",
+          "sha256": "95a06c813c12fc320dedf11a6ac408145697a34826b18cd2b4582b20e3d2bd2c",
+          "start": "0x4c7f9e10",
+          "unwind_rva": "0x2556ee8"
+        }
+      ]
+    },
+    {
+      "bytes": 201,
+      "end_exclusive": "0x4ba6c1c9",
+      "module": "sldmodu.dll",
+      "name": "inherited display item note data accessor",
+      "sha256": "f821593b32e898f2bf7be4a73490429bf5ec6d11730683fccb69d0446c3d3236",
+      "start": "0x4ba6c100",
+      "unwind_fragments": [
+        {
+          "bytes": 201,
+          "end_exclusive": "0x4ba6c1c9",
+          "module": "sldmodu.dll",
+          "name": "inherited display item note data accessor",
+          "sha256": "f821593b32e898f2bf7be4a73490429bf5ec6d11730683fccb69d0446c3d3236",
+          "start": "0x4ba6c100",
+          "unwind_rva": "0x2245b80"
+        }
+      ]
+    },
+    {
+      "bytes": 5,
+      "end_exclusive": "0x4b288c55",
+      "module": "sldmodu.dll",
+      "name": "dimension text position leaf",
+      "sha256": "15339e5f42f2ebe914e6de52f3913b787c35a77e36a6082f8a587b0a27328abf",
+      "start": "0x4b288c50",
+      "unwind_fragments": []
+    },
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4b35d218",
+      "module": "sldmodu.dll",
+      "name": "generic text data list leaf",
+      "sha256": "dbadd643b275c8f5cb9489aac47c3eb022363432fcbaef0272b8f0544f316778",
+      "start": "0x4b35d210",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x3e1368b8",
+      "module": "slddtlu.dll",
+      "name": "?iInsertNote@dtlDoc_c@@UEAAPEAUIDispatch@@PEB_WPEAVmoFeature_c@@@Z",
+      "source_module": "slddrwu.dll"
+    },
+    {
+      "iat": "0x41f211d8",
+      "module": "sldappu.dll",
+      "name": "?run@uiBaseCommand_c@@QEAAHXZ",
+      "source_module": "slddtlu.dll"
+    },
+    {
+      "iat": "0x41f1c070",
+      "module": "SLDMODU.dll",
+      "name": "??0moDisplayNote_c@@QEAA@PEAVmoModel_c@@PEAVmoConcept_c@@HPEB_WPEAVmgPoint_c@@PEAVmoAttachPoint_c@@PEAVmoDrView@@@Z",
+      "source_module": "slddtlu.dll"
+    },
+    {
+      "iat": "0x4cd34ea8",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1501",
+      "source_module": "sldmodu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bytes": 19,
+      "end_exclusive": "0x4568880d",
+      "module": "sldappu.dll",
+      "name": "registered COM wrapper delegated virtual call",
+      "sha256": "a180232eab4b043da14d36e02d434ad5c994a7c1b89e034b12fc4af4bac45279",
+      "start": "0x456887fa"
+    },
+    {
+      "bytes": 6,
+      "end_exclusive": "0x3e0acff4",
+      "module": "slddrwu.dll",
+      "name": "detail note import thunk",
+      "sha256": "42dad199ebd1b1c0f639736fb3189bd5f6e783ddb5923190172ab6315f1898b1",
+      "start": "0x3e0acfee"
+    },
+    {
+      "bytes": 5,
+      "end_exclusive": "0x419bc3ff",
+      "module": "slddtlu.dll",
+      "name": "detail constructs the note command",
+      "sha256": "ca9c97b1adf43ebf05ed7c6abf4e77efdcc0aeeaa3afaa25d08512cbc2337d50",
+      "start": "0x419bc3fa"
+    },
+    {
+      "bytes": 14,
+      "end_exclusive": "0x419bc4b4",
+      "module": "slddtlu.dll",
+      "name": "detail applies dialog settings and runs the command",
+      "sha256": "c5a8e51bc1372ed2f11502e5aff2ab0035b1630a8c8bace40496d49323caf8ed",
+      "start": "0x419bc4a6"
+    },
+    {
+      "bytes": 50,
+      "end_exclusive": "0x4c7fc132",
+      "module": "sldmodu.dll",
+      "name": "active note text and CString owner",
+      "sha256": "df35de73799cced9e6833557efdd633c1c686f40a885b5e376b5a27b89b575de",
+      "start": "0x4c7fc100"
+    },
+    {
+      "bytes": 27,
+      "end_exclusive": "0x4c7f9e4d",
+      "module": "sldmodu.dll",
+      "name": "note data owner yields the generic text",
+      "sha256": "ebb89decaa2888cd7e960d6dfaf828ccb5737b03d6a0983ac196e1f90a9926fc",
+      "start": "0x4c7f9e32"
+    }
+  ],
+  "module_source": "original AMD64 executable modules from the licensed Windows installation",
+  "modules": [
+    {
+      "image_base": "0x4b140000",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "image_base": "0x453f0000",
+      "name": "sldappu.dll",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "image_base": "0x3dbc0000",
+      "name": "slddrwu.dll",
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47"
+    },
+    {
+      "image_base": "0x417e0000",
+      "name": "slddtlu.dll",
+      "sha256": "743af1c51a1dd79f33392b0873aa8f9a4b4b967711ef3e9612d74aa755091ce8"
+    }
+  ],
+  "oracle_build": "34.5.2.0604",
+  "rea_file_headers_record": "ev_90af72009e939152e72178355e4f6e1f3096b027aec8cdf0ff8e7fd259c342a1",
+  "schema": "kit.sw2026.drawing-plain-note-portable-owners.v1",
+  "selected_native_api": "IModelDoc2.InsertNote",
+  "unsupported": {
+    "complete_com_dispatch_to_factory": true,
+    "constructor_defaults_and_font_caches": true,
+    "native_writer_acceptance": true
+  },
+  "vtable_cells": [
+    {
+      "cell": "0x4d22f088",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x28",
+      "table": "0x4d22f060",
+      "target": "0x4c9540e0"
+    },
+    {
+      "cell": "0x4d22f4b8",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x458",
+      "table": "0x4d22f060",
+      "target": "0x4c7f9e10"
+    },
+    {
+      "cell": "0x4d22f710",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x6b0",
+      "table": "0x4d22f060",
+      "target": "0x4ba6c100"
+    }
+  ]
+}

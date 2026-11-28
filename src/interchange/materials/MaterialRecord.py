@@ -10,7 +10,7 @@ class MaterialRecord(ModelBase):
     EntityId: str
     EntityName: str
     Density: float
-    ColorValue: tuple[float, float, float, float]
+    ColorValue: tuple[float, float, float, float] | None
 
     # invalid material record state must fail at construction so interchange modeling never receives an inconsistent contract
     def __post_init__(self) -> None:
@@ -22,11 +22,14 @@ class MaterialRecord(ModelBase):
             or self.Density <= 0
         ):
             raise ValueError("material density must be positive finite kg/m³")
-        if len(CastValue(tuple[float, ...], self.ColorValue)) != 4 or any(
-            type(ChannelValue) not in (int, float)
-            or not IsFinite(ChannelValue)
-            or not 0 <= ChannelValue <= 1
-            for ChannelValue in self.ColorValue
+        if self.ColorValue is not None and (
+            len(CastValue(tuple[float, ...], self.ColorValue)) != 4
+            or any(
+                type(ChannelValue) not in (int, float)
+                or not IsFinite(ChannelValue)
+                or not 0 <= ChannelValue <= 1
+                for ChannelValue in self.ColorValue
+            )
         ):
             raise ValueError(
                 "material color must contain four finite channels between zero and one"

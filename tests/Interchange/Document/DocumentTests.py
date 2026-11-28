@@ -25,6 +25,7 @@ from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.Features.Offsets.FaceOffset import FaceOffset
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.serialization.Deserialize import FromData
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.TypeRegistry import KTypeRegistry
@@ -90,6 +91,7 @@ def CheckRegistry() -> None:
             FaceOffset,
             PlaneExtrude,
             PlaneRevolve,
+            ThinRevolve,
         )
     )
     assert set(KTypeRegistry.values()) == ExpectedValues

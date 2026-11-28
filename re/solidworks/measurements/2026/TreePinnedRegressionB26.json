@@ -1,0 +1,47 @@
+{
+  "schema": "kit.sw2026.tree-pinned-regression.v1",
+  "evaluation_revision": "b26aa662319d831bb101bf04cca594d3960ca0f3",
+  "tested_merge": "fabc81bfb2d29e010b46ddd3ba600a9b01a82935",
+  "tested_tree": "4d8b95c74a7248d0a69c45bde4a23e99996e3a9f",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "b26aa662319d831bb101bf04cca594d3960ca0f3"
+  ],
+  "run_id": 43993511137,
+  "job_id": 133739772370,
+  "native_format_passed": 205,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14288453780,
+    "bytes": 24393651,
+    "sha256": "8bc626bb7c66bfcfc53feaeaa3571ce8c08ed8cddb11d284c1afd83ac54826a6"
+  },
+  "writer_revision": "d5019da136433cf3b07dd8c53ee4a708950ad353",
+  "writer_freeze_sha256": "df4a70bb18a6ec7c58f3d975a86d0234f6b7508d086e4a36b4dffa199d2ac17a",
+  "constructor_dependency_count": 3435,
+  "original_prediction_receipt_sha256": "e42b686c83b56bf50db2cdf111de168a8587e78366cbd437b340e231c0a650b5",
+  "outputs": [
+    {
+      "name": "TreeP03FrontFolders.SLDPRT",
+      "bytes": 8066,
+      "sha256": "03149ae3acf61c4eb19e4465e6990f8e1ca7be62a485a9d568ec5c6c29d88b58",
+      "report_bytes": 1216136,
+      "report_sha256": "931337fd7634a0913268872ee6a90bbc77c7166da10964bf7c42a63ae59f9c6e",
+      "historical_output_identical": true
+    },
+    {
+      "name": "TreeP04RightFolders.SLDPRT",
+      "bytes": 8073,
+      "sha256": "f6c0aa340d789028b4c7dfa262f356d75c6872dc0c11492ecd76fcfb4316baaa",
+      "report_bytes": 1217654,
+      "report_sha256": "25b27c5777dbe0342a93d963dbff8e451648f2b77dc4c376ae4d101c7009258d",
+      "historical_output_identical": true
+    }
+  ],
+  "denied_reads": [],
+  "private_reference_observations_read": false,
+  "new_unseen_evidence": false,
+  "native_acceptance_inherited": false,
+  "new_generated_output_count": 0
+}

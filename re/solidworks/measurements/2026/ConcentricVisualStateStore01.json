@@ -1,0 +1,379 @@
+{
+  "cad_files_written": 0,
+  "disclosed_source_evidence": {
+    "child": {
+      "byte_identity": true,
+      "bytes": 1789,
+      "entity_rows": 6,
+      "has_populated_appearance": true,
+      "native_child_sha256": "8dd479a4f05a1baf8d0a4166e1f4247e82f3f125933173e0de964dc64e74ab22",
+      "opaque_bytes": 0,
+      "provisional_schemas": [
+        "moCompHolder_c",
+        "moDisplayedEntityTracker_c.Serialize"
+      ],
+      "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+      "stale_child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "state_names": [
+        "<Default>_Display State 1"
+      ],
+      "store_unchanged_by_child_sync": true,
+      "terminal_map": 26
+    },
+    "parents": {
+      "A12SyncedEmpty": {
+        "byte_identity": true,
+        "bytes": 597,
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [],
+        "native_parent_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+        "opaque_bytes": 0,
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "c4c1cc25419c807851dc6814e4ce4a6ffbf3c99cc0f0c942ddde3e75bb2e4ed9",
+        "state_count": 1,
+        "terminal_map": 15
+      },
+      "A13SyncedSingle": {
+        "byte_identity": true,
+        "bytes": 1055,
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [
+          {
+            "chain_mode": 1,
+            "chain_stamp": 203,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 24,
+            "file_flag": 0,
+            "path_alias": true,
+            "title_alias": true
+          }
+        ],
+        "native_parent_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+        "opaque_bytes": 0,
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "0ae3419e9e12f3e237e76835f6a7241f9c85b7eb7afda08bb2688d1cb423809e",
+        "state_count": 1,
+        "terminal_map": 32
+      },
+      "A14SyncedRepeat": {
+        "byte_identity": true,
+        "bytes": 1247,
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [
+          {
+            "chain_mode": 1,
+            "chain_stamp": 203,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 25,
+            "file_flag": 0,
+            "path_alias": true,
+            "title_alias": true
+          },
+          {
+            "chain_mode": 1,
+            "chain_stamp": 203,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 24,
+            "file_flag": 0,
+            "path_alias": true,
+            "title_alias": true
+          }
+        ],
+        "native_parent_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+        "opaque_bytes": 0,
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "05204284bb871770638d93f06f1746fbe327fcb8e1b57dfaed481c4327b6eb4e",
+        "state_count": 1,
+        "terminal_map": 38
+      },
+      "D01Sync": {
+        "byte_identity": true,
+        "bytes": 1593,
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [
+          {
+            "chain_mode": 1,
+            "chain_stamp": 101,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 25,
+            "file_flag": 8,
+            "path_alias": true,
+            "title_alias": false
+          },
+          {
+            "chain_mode": 1,
+            "chain_stamp": 101,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 24,
+            "file_flag": 8,
+            "path_alias": true,
+            "title_alias": false
+          }
+        ],
+        "native_parent_sha256": "1b5f9a87c6db9b6c22c9fd445338cd1d478045e1e3fbccbd2c8ac17ccb7f7ceb",
+        "opaque_bytes": 0,
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "0ffadf4a1b705a69a8bdc94086015732794a13e6eb4b990f5388f6432ed7782f",
+        "state_count": 3,
+        "terminal_map": 40
+      }
+    },
+    "sync_receipt_sha256": "e14c77749cd68ed554bbbdbf014d1360df9fa58a1524976329d93976b48e5d71"
+  },
+  "generated_models": [
+    {
+      "alias_object_counts": {
+        "detached_plane_components": 3,
+        "hidden": 0,
+        "label": 1,
+        "plane": 1,
+        "properties": 1,
+        "visible": 1
+      },
+      "byte_identity": true,
+      "bytes": 1393,
+      "clock_owner_stream_deltas": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "configuration_id": 0,
+      "configuration_name": "Default",
+      "container_sha256": "d87954cd84bfaeda8520db2361a8caed7dc62970804f9d6dcdf9cd10eb177e34",
+      "contexts": [
+        [
+          18,
+          203,
+          1,
+          0
+        ],
+        [
+          17,
+          203,
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "occurrences": 2,
+        "planes": 3,
+        "states": 1
+      },
+      "occurrence_feature_ids": [
+        17,
+        18
+      ],
+      "opaque_bytes": 0,
+      "plane_ids": [
+        14,
+        13,
+        12
+      ],
+      "plane_times_in_config": {},
+      "plane_times_in_resolved": {
+        "12": 1794800021,
+        "13": 1794800022,
+        "14": 1794800025
+      },
+      "plane_times_in_visual_store": {
+        "12": 1794800021,
+        "13": 1794800022,
+        "14": 1794800025
+      },
+      "plane_times_on_shared_nodes": {
+        "12": 1794800021,
+        "13": 1794800022,
+        "14": 1794800025
+      },
+      "provisional_schemas": [
+        "moDisplayedEntityTracker_c.Serialize",
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "sha256": "d6e61ea9819d57859bb4d67196a32a56354ea157e74da25a18afb89a97399499",
+      "state_keys": [
+        1
+      ],
+      "state_names": [
+        "Display State-1"
+      ],
+      "terminal_map": 38,
+      "unchanged_child_sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+      "visibility_by_occurrence": {
+        "17": [
+          1
+        ],
+        "18": [
+          1
+        ]
+      }
+    },
+    {
+      "alias_object_counts": {
+        "detached_plane_components": 3,
+        "hidden": 1,
+        "label": 1,
+        "plane": 1,
+        "properties": 1,
+        "visible": 1
+      },
+      "byte_identity": true,
+      "bytes": 1615,
+      "clock_owner_stream_deltas": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "configuration_id": 0,
+      "configuration_name": "Display fixture",
+      "container_sha256": "da66c5e264266d4fda70894fa90105deef832690d2e9266df8ab10127fa66464",
+      "contexts": [
+        [
+          19,
+          203,
+          1,
+          0
+        ],
+        [
+          18,
+          203,
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "occurrences": 2,
+        "planes": 3,
+        "states": 3
+      },
+      "occurrence_feature_ids": [
+        18,
+        19
+      ],
+      "opaque_bytes": 0,
+      "plane_ids": [
+        14,
+        13,
+        12
+      ],
+      "plane_times_in_config": {},
+      "plane_times_in_resolved": {
+        "12": 1794800211,
+        "13": 1794800213,
+        "14": 1794800217
+      },
+      "plane_times_in_visual_store": {
+        "12": 1794800211,
+        "13": 1794800213,
+        "14": 1794800217
+      },
+      "plane_times_on_shared_nodes": {
+        "12": 1794800211,
+        "13": 1794800213,
+        "14": 1794800217
+      },
+      "provisional_schemas": [
+        "moDisplayedEntityTracker_c.Serialize",
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "sha256": "1c1b1ef519018de89837133f4ed91bab8c120174e4a875d9d34bfbb30648a1a2",
+      "state_keys": [
+        1,
+        2,
+        3
+      ],
+      "state_names": [
+        "Display State-1",
+        "Gauge seat",
+        "Tool change"
+      ],
+      "terminal_map": 39,
+      "unchanged_child_sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+      "visibility_by_occurrence": {
+        "18": [
+          1,
+          1,
+          0
+        ],
+        "19": [
+          1,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "head": "eaf655afcd1ba39dd1d39eec1c4f8c82282ef5d5",
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "passed": true,
+  "public_writer_qualified": false,
+  "refusals": {
+    "context_flag_eight": "VisualStates supports the ordinary context-file flag 0 branch only",
+    "unset_actual_plane_clocks": "unset member creation is outside this source profile"
+  },
+  "runtime_input_io_attempts": 0,
+  "schema": "kit.sw2026.concentric-mode-zero-visual-store.v1",
+  "source_hashes": {
+    "re/tooling/sw2026/para/concentric/MakeDisplayTree.py": "6ad64f0ed92e127a96b05ddc7c3e75db7463a7bf0db2944c41565e0476af5ab6",
+    "re/tooling/sw2026/para/concentric/MakeVisualStateStore.py": "ccd5eebb7543d1021ebe41243984e5b4de59e1256aa3f02f62f1bf16259c0b24",
+    "re/tooling/sw2026/para/concentric/ProveVisualStateStore.py": "1815d946edf654f1b05882eb16abcbfee4db01a2264c88f11a2d110b03cd6265",
+    "re/tooling/sw2026/serial/defs/ResolvedComp.py": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946",
+    "re/tooling/sw2026/serial/defs/Visual.py": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001",
+    "re/tooling/sw2026/serial/defs/VisualRefs.py": "c607a62dca5d9d7a40c2df91cc1ddf059f39305cbafddeba56c017d0f51a9614",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/EmitAsmStreams.py": "3d6029afd6f03f47f7886ce6ce8f2b171217cd0fccc77e0b8cef7a63d565a6f4",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Occurrences/MakeOccConfig.py": "5545ad00a475819cbd9f78503b444e425e5089aa7eede62ae97befd7bdbdbbdc",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmPlane.py": "6cfc6c399b7b5aa6617a912bf1416307047fabda80ff980ac2e35c9e5f73401c",
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/FeatureTime.py": "9bf7f911632029b9a5e6e745e6f43e37d98ca3ad12af76fbe9a78659cf5f6e01",
+    "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CompRefFields.py": "c0c1f8abf6b7dcf77630f3dd85b5343216565fda461de0f4a61d58edadd0dab4"
+  }
+}

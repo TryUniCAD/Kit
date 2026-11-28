@@ -1,0 +1,11 @@
+# Compatibility offset-plane source readback
+
+[AuditReferencePlaneCompatibility.py](../../../../../re/tooling/sw2026/serial/AuditReferencePlaneCompatibility.py) adds a separate read-only source audit for the persistent `moFaceRefPlnData_c` distance-plane branch. It reuses exact source custody, native prerequisite receipts and the shared stream readers; the original constrained-only audit and failed receipt remain unchanged.
+
+[ReferencePlaneCompatibilityRead.py](../../../../../re/tooling/sw2026/serial/ReferencePlaneCompatibilityRead.py) checks the actual selected datum, distance display/handle/parameter graph, reverse/reference inputs, cached frame, profile support and boss depth. Its rules come from the already mapped managed compatibility factory, original native constructor/accessors and existing shared serializer. No generated field values are borrowed from the source.
+
+Use an absolute source packet and exact digest, an explicit disclosed `--case`, and an unused absolute output after healthy native author/reopen brackets. The [record](../../../../../re/solidworks/records/ReferencePlaneCompatibilityProjection2026.md) and [receipt](../../../../../re/solidworks/measurements/2026/ReferencePlaneCompatibilityCorrelation01.json) bind a fresh frozen process that passed twelve stream round-trips, linked-map checks, both thirteen-field projections and six edit checks for the disclosed Front source. Input hashes were unchanged; no held-out file or native CAD process was used.
+
+A separate unchanged-code replay passed all four disclosed source cases and their edited siblings: forty-eight stream round-trips, linked maps, thirteen checks per sibling and twenty-four edit checks. The [complete disclosed receipt](../../../../../re/solidworks/measurements/2026/ReferencePlaneOffsetCorpusCorrelation01.json) binds exact hashes. The [pre-writer lock](../../../../../re/solidworks/v2026/heldout/ReferencePlaneSourceLock01.json) records eighteen independent native source processes; both held-out payloads remain sealed.
+
+This is scoped source readback. Nine existing raw operations per sibling remain, cache-neutrality and complete field classification are unqualified, and no writer or production SDK behavior is enabled. Generative construction and generated native acceptance remain pending.

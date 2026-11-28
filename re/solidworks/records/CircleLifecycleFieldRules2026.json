@@ -1,0 +1,105 @@
+{
+  "scope": "Static ordinary local 2D circle lifecycle; no whole final-state defaults or native acceptance",
+  "fields": [
+    {
+      "owner": "sgPoint center",
+      "field": "pos",
+      "classification": "authored input, then solver-derived current coordinates",
+      "rule": "Read actual solver-side application data (x,y,0); require finite components; counted set when any absolute component change is at least native 1e-8; smaller set only when runtime option 0x4dafa0d4 is nonzero",
+      "evidence": ["sldmodu:0x4c516c4a..0x4c516db9", "sldsvu:0x318c33d0", "sldsvu:0x318c71b0"],
+      "confidence": "confirmed static conditional mutation",
+      "open": ["actual solved coordinate values", "point-journal and spatial-index receiver lifecycle"]
+    },
+    {
+      "owner": "sgPoint circle marker",
+      "field": "pos",
+      "classification": "authored seam input, then conditional geometric repair",
+      "rule": "Live type2 marker is skipped by ordinary point loop; repair when radius/normal errors are not both below native 1e-11, with +X provisional point and optional 17-degree collision search",
+      "evidence": ["sldmodu:0x4c516915", "sldmodu:0x4c516bd0", "sldmodu:0x4c516fb7..0x4c5170dc"],
+      "confidence": "confirmed static conditional mutation",
+      "open": ["actual solved center/radius", "complete collision and numerical domain for arbitrary graph"]
+    },
+    {
+      "owner": "sgPoint marker solver wrapper",
+      "field": "runtime +0x110",
+      "classification": "derived runtime solver-node ownership; not serialized",
+      "rule": "Seed null; selected equal-endpoint live type2 marker sets population skip and bypasses solvPoint binding; status loop skips null node",
+      "evidence": ["sldmodu:0x4c51145b", "sldmodu:0x4c511599..0x4c5115af", "sldmodu:0x4b284a40", "sldmodu:0x4c504381"],
+      "confidence": "confirmed static for this population/status pass",
+      "open": ["later constraints or callbacks allocating additional solver-node ownership"]
+    },
+    {
+      "owner": "solver geometric node",
+      "field": "runtime +0x1f8",
+      "classification": "derived solver status; not a file field or feature default",
+      "rule": "Actual status core reads node u32(+0x1f8); compatibility option key0x274 maps6..8 to5 exactly when option value0",
+      "evidence": ["dcu2d78:0x18024caf0", "dcu2d78:0x18021a2c0", "dcu2d78:0x1805fd250", "dcu2d78:0x1805fd2a0"],
+      "confidence": "confirmed static query rule; input remains unresolved",
+      "open": ["concrete node subtype and last evaluation writes", "actual compatibility option"]
+    },
+    {
+      "owner": "sgEntity",
+      "field": "f34",
+      "classification": "derived current constraint status",
+      "rule": "Native twelve-entry raw-status mapping, followed by handle/external/offset/geometric-validity and handle-visibility gates",
+      "evidence": ["sldmodu:0x4c5077f0", "sldmodu:0x4c5d5370"],
+      "confidence": "confirmed static conditional mutation",
+      "open": ["actual raw status input and validation outcomes", "later owner/listener mutation"]
+    },
+    {
+      "owner": "sgEntity",
+      "field": "f30",
+      "classification": "derived current constraint color",
+      "rule": "Native status/f54/third-argument color formula; status1 maps5 and status2 maps4 when f54 bit0x100 clear",
+      "evidence": ["sldmodu:0x4c3e15b0", "sldmodu:0x4c5d5260 complete five-fragment extent"],
+      "confidence": "confirmed static mapping",
+      "open": ["actual mapped status", "color-call third argument for status3/4", "later owner/listener mutation"]
+    },
+    {
+      "owner": "sgPoint marker",
+      "field": "f30/f34",
+      "classification": "constructor initial values preserved by selected null-node status pass",
+      "rule": "No raw-status query or status/color setter runs for selected null solver-node marker; this is pass-local preservation only",
+      "evidence": ["sldmodu:0x4c511340", "sldmodu:0x4c504353..0x4c5043a9"],
+      "confidence": "confirmed static pass-local preservation",
+      "open": ["later constraint and callback lifecycle", "native final-state acceptance remains root-owned"]
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f12c",
+      "classification": "derived current constrained status",
+      "rule": "Aggregate priority6,4,3,1 then nonzero2/empty1; store unless current getter returns special7; explicit error branches write6 or3",
+      "evidence": ["sldmodu:0x4c502b70", "sldmodu:0x4c507df1..0x4c507e16", "sldmodu:0x4b2a77c0"],
+      "confidence": "confirmed static conditional mutation",
+      "open": ["actual contributing solver states", "number/scheduling of evaluations", "owner/listener tails"]
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f128",
+      "classification": "separately saved constraint status, constructor initial value known",
+      "rule": "Independent field at +0x128; getter reads it; store emits it after f12c and does not copy current status into it",
+      "evidence": ["sldmodu:0x4b2a74f0", "sldmodu:0x4c5916f0", "sldmodu:0x4c5a6170"],
+      "confidence": "confirmed static field/store distinction",
+      "open": ["all other lifecycle writes and final owner/listener preservation"]
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f56c",
+      "classification": "derived operation/modification stamp",
+      "rule": "Each ordinary commit directly adds point/arc counted changes plus plane changes; plane count0 in selected2D; second block-helper addition0 for empty/local non-block constraint handles",
+      "evidence": ["sldmodu:0x4c51996e", "sldmodu:0x4c519efe", "sldmodu:0x4c8fdf30", "sldmodu:0x4c902790"],
+      "confidence": "confirmed static direct additions with selected block contribution excluded",
+      "open": ["actual coordinate/radius deltas", "constructor-internal evaluate/commit gate", "retry scheduling", "nonempty journal/spatial-index/listener effects"]
+    }
+  ],
+  "prohibited_inferences": [
+    "free circle implies raw status11",
+    "type-two marker has a solver node because a solvPoint wrapper exists",
+    "ordinary point skip preserves marker coordinates through arc repair",
+    "uncounted movement means no setter or bookkeeping ran",
+    "allocated block-support pointer contributes a nonzero stamp",
+    "f128 is an alias for f12c",
+    "point-type visibility is the status mapper's handle/entity visibility",
+    "successful free-sketch native rung establishes radial or held-out family acceptance"
+  ]
+}

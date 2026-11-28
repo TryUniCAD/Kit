@@ -1,0 +1,530 @@
+{
+  "acceptance": {
+    "fresh_native_writer": false,
+    "heldout_writer": false,
+    "mandatory_cold_open_refresh": false,
+    "orientation_preservation": false
+  },
+  "concrete_primary_tables": [
+    {
+      "class_name": "moConcentricMateMap_c",
+      "locator": {
+        "bound": "complete MSVC x64 primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d33b470",
+        "sha256": "7511ebd93dabc9729de8a4150c20283a1843a32113fa0e8916079c6c9c22c999",
+        "start": "0x4d33b458"
+      },
+      "slots": [
+        {
+          "bound": "one original concrete primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cfe9248",
+          "offset": "0xb0",
+          "sha256": "615a28b136af4d787f4ea1270e616ddc9de4bc3053ee100edc5afa5c66d22b02",
+          "start": "0x4cfe9240",
+          "target": "0x4bcc8090"
+        },
+        {
+          "bound": "one original concrete primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cfe9338",
+          "offset": "0x1a0",
+          "sha256": "491de4b165a65c51437ad528460e39f0f1d98afecb3a12068c563ac88375db12",
+          "start": "0x4cfe9330",
+          "target": "0x4bcc7be0"
+        }
+      ],
+      "type_descriptor": "0x4db38038",
+      "type_name": ".?AVmoConcentricMateMap_c@@",
+      "vtable": "0x4cfe9190"
+    },
+    {
+      "class_name": "moMateConcentric",
+      "locator": {
+        "bound": "complete MSVC x64 primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d338e08",
+        "sha256": "37e5bae4772ca5f5d2d616545439904f13927c8950a24314698109d3d8306bd7",
+        "start": "0x4d338df0"
+      },
+      "slots": [
+        {
+          "bound": "one original concrete primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cfaaeb0",
+          "offset": "0x1ef8",
+          "sha256": "f464342e8d2efc0040db6af7f2baafb47b2307c4a8b9f26f332a8f6d81bfaf05",
+          "start": "0x4cfaaea8",
+          "target": "0x4b289870"
+        },
+        {
+          "bound": "one original concrete primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cfaaeb8",
+          "offset": "0x1f00",
+          "sha256": "dd513403bfde46f03d0063142f6dfbcfc76e29d26d1263d591ed08e3ec153df7",
+          "start": "0x4cfaaeb0",
+          "target": "0x4bc44ed0"
+        }
+      ],
+      "type_descriptor": "0x4db10550",
+      "type_name": ".?AVmoMateConcentric@@",
+      "vtable": "0x4cfa8fb0"
+    },
+    {
+      "class_name": "moCylinderRef_w",
+      "locator": {
+        "bound": "complete MSVC x64 primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d2ec6d0",
+        "sha256": "910a8485585fa6a4e67986feca3df1e8cfbafe8cc5e744458c49ae9af66d94ad",
+        "start": "0x4d2ec6b8"
+      },
+      "slots": [
+        {
+          "bound": "one original concrete primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd93b28",
+          "offset": "0x260",
+          "sha256": "5080b4cbd3aff8a03c3c9929b3531709d543205d8f01d54af3de63fe2da5f987",
+          "start": "0x4cd93b20",
+          "target": "0x4c310580"
+        },
+        {
+          "bound": "one original concrete primary-vtable cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd93c88",
+          "offset": "0x3c0",
+          "sha256": "f400e7317805afe568a860e7505151f56baa156e417b31a4730296952cc64f1c",
+          "start": "0x4cd93c80",
+          "target": "0x4c323b70"
+        }
+      ],
+      "type_descriptor": "0x4db11af0",
+      "type_name": ".?AVmoCylinderRef_w@@",
+      "vtable": "0x4cd938c0"
+    }
+  ],
+  "confidence": {
+    "cold_open_map_invocation_and_effective_guards": "not found",
+    "complete_pre_solve_orientation_preservation": "partial and unqualified",
+    "conditional_ordinary_map_to_cylinder_getter": "confirmed static exact-build",
+    "optional_state_not_part_of_change_check_restore": "confirmed static exact-build"
+  },
+  "delivery_pr": 121,
+  "direct_call_instructions": [
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bcc8132",
+      "sha256": "fed705fc15fc705aaec2695474fb2d8c3a765f8cb03143e38e4587279e107c51",
+      "start": "0x4bcc812d",
+      "target": "0x4bcca300"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bcca367",
+      "sha256": "0c0d55c2d2c6bd6421948325ffc7dc6c6681c4fa31c39894c34a5c63d63195af",
+      "start": "0x4bcca362",
+      "target": "0x4b69d650"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bcca39f",
+      "sha256": "c710cd54b7bea51918c4744a3ec61b04d085a08f1148e2c9c12e55c8a579b2bb",
+      "start": "0x4bcca39a",
+      "target": "0x4b69d650"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c3105d0",
+      "sha256": "9193f5a808485bd78c50b59e1f4af6c4329614b68b8d8015e9cd9e8a72be65d6",
+      "start": "0x4c3105cb",
+      "target": "0x4c310e30"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c323cd2",
+      "sha256": "c9cc8053ac0806909a443907d34c60fd3b392776cc4bf16180dedc40edae0a9e",
+      "start": "0x4c323ccd",
+      "target": "0x4c313b70"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c313f37",
+      "sha256": "e8d5430f948f1185dee399243ab10f27711a31afc539242bba077982f254f2bf",
+      "start": "0x4c313f32",
+      "target": "0x4c309960"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bcc7c00",
+      "sha256": "b85d130dbe18777d944148f713ebdd9c5eeaa87a74d07aa867dd021e77a8c53c",
+      "start": "0x4bcc7bfb",
+      "target": "0x4bcb1d60"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bcb1d97",
+      "sha256": "9b38a194339ea6b6f5b7380f6689fad331154a0b143047de868efee3911ecbec",
+      "start": "0x4bcb1d92",
+      "target": "0x4bcb1c30"
+    },
+    {
+      "bound": "complete original direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bcb1de5",
+      "sha256": "50b93b92776255a5b7accd0243ce7579b69f514c56b3312af7edd99a2b8a99da",
+      "start": "0x4bcb1de0",
+      "target": "0x4c6f5120"
+    }
+  ],
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 297,
+      "end_exclusive": "0x4bcc81b9",
+      "name": "moConcentricMateMap_c virtual+0xb0",
+      "sha256": "e753db42293c01609cbd6931be8a0760c8f0da9d61cca0386836810e27c13c0e",
+      "start": "0x4bcc8090",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 297,
+          "end_exclusive": "0x4bcc81b9",
+          "sha256": "e753db42293c01609cbd6931be8a0760c8f0da9d61cca0386836810e27c13c0e",
+          "start": "0x4bcc8090",
+          "unwind_rva": "0x226161c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 381,
+      "end_exclusive": "0x4bcca47d",
+      "name": "ordinary common mate-wrapper loop",
+      "sha256": "5e31feeb4b0f2f74bd70f8a93aba9981daf959b73bf80e5d989dda2345ba0ee8",
+      "start": "0x4bcca300",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 57,
+          "end_exclusive": "0x4bcca339",
+          "sha256": "b2a09bddfe9629902b364714228206c8f312a411110c6b34c75bf64df0817130",
+          "start": "0x4bcca300",
+          "unwind_rva": "0x23bb56c"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 298,
+          "end_exclusive": "0x4bcca463",
+          "sha256": "0f68bb9b379669781be2cfa605ccd45b30165a4a5dab867034e6e1dfe9cd5e91",
+          "start": "0x4bcca339",
+          "unwind_rva": "0x23bb580"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 26,
+          "end_exclusive": "0x4bcca47d",
+          "sha256": "aaf3044a8c3e5806a8a8272dfa6e30e32817d0a47d7ca98472fce04ebd0a5d05",
+          "start": "0x4bcca463",
+          "unwind_rva": "0x23bb598"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 152,
+      "end_exclusive": "0x4c310618",
+      "name": "moRefWrapper_c::dataHasChanged",
+      "sha256": "aa07c9bfea40b2791cd74260a1ba27e706f59fd227d76e1fa738a56f9402aa9a",
+      "start": "0x4c310580",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 152,
+          "end_exclusive": "0x4c310618",
+          "sha256": "aa07c9bfea40b2791cd74260a1ba27e706f59fd227d76e1fa738a56f9402aa9a",
+          "start": "0x4c310580",
+          "unwind_rva": "0x2256ca4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 946,
+      "end_exclusive": "0x4c323f22",
+      "name": "concrete cylinder virtual+0x3c0",
+      "sha256": "8db54934af36847756c73899f851bcab9932aca27ab3889c15053f4d68fb4b1c",
+      "start": "0x4c323b70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 946,
+          "end_exclusive": "0x4c323f22",
+          "sha256": "8db54934af36847756c73899f851bcab9932aca27ab3889c15053f4d68fb4b1c",
+          "start": "0x4c323b70",
+          "unwind_rva": "0x24a8b4c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1318,
+      "end_exclusive": "0x4c314096",
+      "name": "moCylinderRef_w::getCylinder",
+      "sha256": "62a3cb5bfcbeca7ee065eeae47a91769a2649f9f621440d82bc43f429bd8daed",
+      "start": "0x4c313b70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1318,
+          "end_exclusive": "0x4c314096",
+          "sha256": "62a3cb5bfcbeca7ee065eeae47a91769a2649f9f621440d82bc43f429bd8daed",
+          "start": "0x4c313b70",
+          "unwind_rva": "0x24a8780"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 465,
+      "end_exclusive": "0x4c309b31",
+      "name": "private optional orientation-state consumer",
+      "sha256": "cd2d14a72a69b4bcbe3e81b23d5d648a9f43f8cc36dc54dc6ac4c0d0ca007d84",
+      "start": "0x4c309960",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 465,
+          "end_exclusive": "0x4c309b31",
+          "sha256": "cd2d14a72a69b4bcbe3e81b23d5d648a9f43f8cc36dc54dc6ac4c0d0ca007d84",
+          "start": "0x4c309960",
+          "unwind_rva": "0x24a6170"
+        }
+      ]
+    },
+    {
+      "bound": "concrete original entry; reviewed complete leaf body through ret",
+      "bytes": 15,
+      "end_exclusive": "0x4bc44edf",
+      "name": "moMateNGeoms_c::getAEnt",
+      "sha256": "f6015ab18941fadce5cfe05db1037ec75d5b3bea6755b3d6838103336d75889a",
+      "start": "0x4bc44ed0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "concrete original entry; reviewed complete leaf body through ret",
+      "bytes": 7,
+      "end_exclusive": "0x4b289877",
+      "name": "actual mate endpoint count getter",
+      "sha256": "df9ae61b0c83918ebebfff67700fd70f79454afe00d1e1fe6ab0b5163430f651",
+      "start": "0x4b289870",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "concrete original entry; reviewed complete leaf body through ret",
+      "bytes": 7,
+      "end_exclusive": "0x4b69d657",
+      "name": "moAssembly_c::getPersistenceOptions",
+      "sha256": "d92cc14bef0f521bb01178838bafb75f5745379817693c94fd943038f4566917",
+      "start": "0x4b69d650",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 37,
+      "end_exclusive": "0x4bcc7c05",
+      "name": "concentric map virtual+0x1a0 forwarder",
+      "sha256": "85e41a9855bbe37d324c2607859e59eac3540141deab5f0d6ad67c9e33b82016",
+      "start": "0x4bcc7be0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 37,
+          "end_exclusive": "0x4bcc7c05",
+          "sha256": "85e41a9855bbe37d324c2607859e59eac3540141deab5f0d6ad67c9e33b82016",
+          "start": "0x4bcc7be0",
+          "unwind_rva": "0x2246070"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 158,
+      "end_exclusive": "0x4bcb1dfe",
+      "name": "mate entity transport wrapper; downstream callees not closed here",
+      "sha256": "ffa920497b688ec3131165f429d0afa6b485df066bd112e1c367f417f05a923f",
+      "start": "0x4bcb1d60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 158,
+          "end_exclusive": "0x4bcb1dfe",
+          "sha256": "ffa920497b688ec3131165f429d0afa6b485df066bd112e1c367f417f05a923f",
+          "start": "0x4bcb1d60",
+          "unwind_rva": "0x2288e18"
+        }
+      ]
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 42,
+      "end_exclusive": "0x4bcc80e1",
+      "name": "position enum and suppression dispatch guards",
+      "sha256": "cac095fdf3a765974dddde5f70a21d90f6bf76695e281d387e470cd42de23f9c",
+      "start": "0x4bcc80b7"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 14,
+      "end_exclusive": "0x4bcc8132",
+      "name": "ordinary position -1 common helper invocation",
+      "sha256": "bbe771c1833f75be924cb3b6ef196467dea1e5b0943b91b4cdc32321b8bf7934",
+      "start": "0x4bcc8124"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 33,
+      "end_exclusive": "0x4bcca339",
+      "name": "actual endpoint count",
+      "sha256": "09075387308cde08b1a7b309046173dcf79414023d1e16462edd2b52fb45d55e",
+      "start": "0x4bcca318"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 74,
+      "end_exclusive": "0x4bcca39a",
+      "name": "actual endpoint and conditional change-predicate invocation",
+      "sha256": "26a9751f17257cba2b0fb5c6e29c4a22e4bbec1bc2a3150f9c35ed588a6c92a7",
+      "start": "0x4bcca350"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 64,
+      "end_exclusive": "0x4c3105d4",
+      "name": "base change predicate readiness and external context",
+      "sha256": "a7bc5c7fb12ef7d43b2f8d8eeab1b8e114dabc259c42551558c7e22279f67661",
+      "start": "0x4c310594"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 32,
+      "end_exclusive": "0x4c3105f4",
+      "name": "base predicate concrete virtual+0x3c0 dispatch",
+      "sha256": "e83a66840ff7597066d265afac07e1ece88f6a112b9faa3bcedf76cc7cb13d3b",
+      "start": "0x4c3105d4"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 43,
+      "end_exclusive": "0x4c323bd9",
+      "name": "cylinder change-check status and lock guards",
+      "sha256": "46ff343b6e5bafbe1f9080864e56a184555124790ac2f4ee06606c3b3637c269",
+      "start": "0x4c323bae"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 44,
+      "end_exclusive": "0x4c323cd4",
+      "name": "cylinder change-check getCylinder arguments",
+      "sha256": "d1a68a1b579bd0dd0579eee7c5aaa2c53063b2bca477eaf53436cc5abb8f0adf",
+      "start": "0x4c323ca8"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 58,
+      "end_exclusive": "0x4c323d9f",
+      "name": "change-check restores point axis radius and base words",
+      "sha256": "988bb04becd419c962904a3bf2650b9f70e8ade77153c82e833a8e04f864c355",
+      "start": "0x4c323d65"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 71,
+      "end_exclusive": "0x4c313f50",
+      "name": "getCylinder optional-state consumer gate",
+      "sha256": "40aaf13d79f494a55fef9efe680dfa6f39821ae8b4ca00b63bc5dfe1e34e5187",
+      "start": "0x4c313f09"
+    },
+    {
+      "bound": "reviewed instruction-boundary window within listed full owner",
+      "bytes": 45,
+      "end_exclusive": "0x4bcca419",
+      "name": "common map entity-transport dispatch",
+      "sha256": "34fce4715728b5ddb7ad29f8d9735e0b6f2f7ac5e43fc3a4307d7f064c575224",
+      "start": "0x4bcca3ec"
+    }
+  ],
+  "knowledge_inputs": [
+    {
+      "path": "re/solidworks/records/ConcentricMateArchive2026.md",
+      "sha256": "2cc0e09aa8d08566e544506626c45a17a5f835e4388924af845058fac65500c0"
+    },
+    {
+      "path": "re/solidworks/records/ConcentricMateConstructionSources2026.md",
+      "sha256": "1f72bc6d0796757ed12dbc610eb21e335672fb171ff011adf5c9c5948a1a95a1"
+    }
+  ],
+  "method": {
+    "collector_sha256": "b3b1a73302b2c3f8b97903502edf0d0134f579e63d2e047fbf398cea91bcf37c",
+    "decoder": "Apple LLVM21; original PE bytes and complete chained unwind groups",
+    "heldout_access": false,
+    "owned_hopper_target_opened": false,
+    "proprietary_bytes_or_listings_in_report": false,
+    "repository_or_git_mutations": false,
+    "static_helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad",
+    "tests_or_schema_or_codec_or_product_execution": false,
+    "vm_or_cad_or_com": false
+  },
+  "module": {
+    "build": "34.5.2.0604",
+    "bytes": 46536280,
+    "exception_directory_bytes": 988296,
+    "exception_directory_rva": "0x2a6a000",
+    "machine": "0x8664",
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "owner": "/root/flag_ownership",
+  "prior_enable_record_sha256": "ff5321a666610d951ae554d5f257250c8ecc33396fedf92fae5025269fdbd88a",
+  "refuted_shortcuts": [
+    "misalignment-only pair resolver as ordinary f4c4=-1 route",
+    "dataHasChanged treated as a pure observer because it restores world caches",
+    "concentric solver-map RTTI alone treated as proof of cold-open invocation"
+  ],
+  "remaining": [
+    "actual current-version cold-open owner invoking map+0xb0 before solve",
+    "effective runtime persistence option and map+10 values at that invocation",
+    "external-context readiness and later entity-transport/owner effects",
+    "fresh native and held-out writer acceptance"
+  ],
+  "rules": {
+    "base_readiness": "wrapper byte+3c must be0; with force0 and same-model predicate false, external-context helper4c310e30 must succeed before concrete change check",
+    "check_receiver": "actual cylinder+260 is moRefWrapper_c::dataHasChanged at4c310580; its actual virtual+3c0 is4c323b70",
+    "conditional_check": "if persistence option bit2 is clear and runtime map+10 equals0, invoke actual wrapper+260 with option0, null optional output pointers and force0",
+    "cylinder_readiness": "runtime wrapper+30 equals0, signed runtime+20<=0 and isLocked returns0 before getCylinder call",
+    "endpoint_ownership": "common helper loops actual mate runtime+420 count and obtains actual runtime+410[ordinal] through concrete mate virtuals+1ef8/+1f00",
+    "getCylinder_call": "concrete change check calls actual getCylinder at4c323ccd with transform mode0 and an actual face-tag output pointer",
+    "getter_entry_status": "initial helper4c3263b0 must return1,4 or5 and runtime wrapper+30 must remain0 before the component-specific extraction path",
+    "optional_side_effect": "getCylinder can invoke private orientation consumer4c309960 when optional state exists and its own component/context guards hold; caller world-cache restoration is not an orientation-state restoration",
+    "ordinary_map_branch": "actual mate position f4c4=-1 enters common helper4bcca300; do not use the separate misalignment cylinder-pair helper4bcc22f0 as the ordinary route",
+    "partial_restoration": "change check saves and restores world point+d0, world axis+e8, radius+100, base words+8/+c and the prior presence/value of transforms+10/+18; it does not save/restore optional orientation state+108",
+    "persistence_option_domain": "getPersistenceOptions reads a runtime global at4dacb0bc; no value for that global is assumed or promoted",
+    "resolved_face_consumer": "actual moCompFace path resolves getFace(1,0,null,null), requires a face and a supported cylinder/cone surface extraction, and leaves the local consumer-skip flag0; when it reaches the post-transform block with state+108 present it calls4c309960",
+    "unclosed_transport": "common helper also dispatches map+1a0 through4bcc7be0->4bcb1d60, whose downstream4bcb1c30/4c6f5120 effects are not closed here"
+  },
+  "schema": "solidworks-concentric-conditional-orientation-refresh-v1",
+  "task": "B04-SW2026-MATES-CONCENTRIC"
+}

@@ -6,8 +6,29 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath, [switch]$CompileOnly, [string]$CacheRoot)
+[CmdletBinding(DefaultParameterSetName = 'Cached')]
+param(
+    [Parameter(Mandatory = $true, ParameterSetName = 'Compile')]
+    [Parameter(Mandatory = $true, ParameterSetName = 'Cached')][string]$Source,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Compile')]
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$AssemblyPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')]
+    [Parameter(ParameterSetName = 'Cached')][string]$OwnerPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')]
+    [Parameter(ParameterSetName = 'Cached')][string]$JournalPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')]
+    [Parameter(ParameterSetName = 'Cached')][string]$MarkerPath,
+    [Parameter(ParameterSetName = 'Cached')][switch]$CompileOnly,
+    [Parameter(ParameterSetName = 'Cached')]
+    [Parameter(ParameterSetName = 'Compile')][string]$CacheRoot
+)
 $ErrorActionPreference = 'Stop'
+if ($PSCmdlet.ParameterSetName -eq 'Capture') {
+    Add-Type -LiteralPath $AssemblyPath
+    [ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)
+    return
+}
+$RequestedAssembly = $AssemblyPath
 [Console]::Error.WriteLine((@{ fixture = 'readback'; phase = 'started'; utc = [DateTime]::UtcNow.ToString('o') } | ConvertTo-Json -Compress))
 $Web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 $Program = @'
@@ -89,5 +110,9 @@ Add-Type -Path $AssemblyPath
     fixture = 'readback'; phase = 'loaded'; compiled = $Compiled; assembly = $AssemblyPath
     compile_seconds = $CompileSeconds; elapsed_seconds = $Started.Elapsed.TotalSeconds
 } | ConvertTo-Json -Compress))
+if ($PSCmdlet.ParameterSetName -eq 'Compile') {
+    [IO.File]::Copy($AssemblyPath, $RequestedAssembly, $false)
+    return
+}
 if ($CompileOnly) { exit 0 }
 [ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)

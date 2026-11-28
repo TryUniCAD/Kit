@@ -1,0 +1,38 @@
+{
+  "archive_binary_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "binary_call_sites": {
+    "backpatch_local_payload_length": "0x4c254940",
+    "load_single_body": "0x4c253660",
+    "read_local_table": "0x4bb32ea0",
+    "store_single_body": "0x4c254640",
+    "write_local_table": "0x4bb334b0"
+  },
+  "configuration_partition": {
+    "active_world_body": 0,
+    "bytes": 604,
+    "sha256": "1108f686bd39fab80db0fdf4e9960a83f7dd18edcf88a59f55af47c42b090ea1",
+    "stream": "Contents/Config-0-Partition"
+  },
+  "envelope_tool_sha256": "30e09ac3c7aec5cbf8d02977d3975edaa144dbaf0cb2cd6bf8b021395d360b2a",
+  "exact_linked_frames": 2,
+  "heldout_payloads_read": 0,
+  "local_body": {
+    "bytes": 3050,
+    "raw_kernel_bytes": 6298,
+    "raw_kernel_sha256": "ffc52d3cd19c4cba65fa798df5ffa0e45b3c85120fbd139e96092da292e836b0",
+    "sha256": "b3f47085497853e38407e11c53deb429916e2955f97472dc9103c762d695782f",
+    "storage_key": "Imported1",
+    "stream": "Config-0-FeatureBodies/LocalBodies"
+  },
+  "native_writer_outputs": 0,
+  "observed_resolved_link": {
+    "atom_id": 101,
+    "atom_tail_face_word": 6,
+    "current_mark_id": 7,
+    "feature_id": 26
+  },
+  "oracle_file_version": "34.5.2.0604",
+  "processes": 2,
+  "schema": "kit.sw2026.imported-local-body-envelope.v1",
+  "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325"
+}

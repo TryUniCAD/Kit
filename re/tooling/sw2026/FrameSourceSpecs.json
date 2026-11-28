@@ -1,0 +1,37 @@
+{
+  "schema": "kit.sw2026.unseen-view-specs.v1",
+  "scope": "Independent Top and Right principal sketches for the model-to-sketch writer correction; these geometry and presentation requests did not contribute to the field rule",
+  "writer_change_not_started": true,
+  "private_observations_sealed_until_frame_writer_freeze": true,
+  "units": {
+    "profile_and_depth": "mm",
+    "translation": "native IModelView.Translation3 coordinates",
+    "scale2": "native IModelView.Scale2"
+  },
+  "cases": [
+    {
+      "name": "F01TopFrame",
+      "split": "heldout",
+      "plane": "top",
+      "reverse": true,
+      "end_condition": "blind",
+      "depth_mm": 17.397,
+      "expected_bodies": 1,
+      "dimension_kind": "diameter",
+      "profile": {"kind": "circle", "center_mm": [4.139, -7.913], "radius_mm": 9.137},
+      "view_request": {"named_view": 8, "scale2": 1.5197, "translation": [0.002917, -0.003197, 0.005713]}
+    },
+    {
+      "name": "F02RightFrame",
+      "split": "heldout",
+      "plane": "right",
+      "reverse": false,
+      "end_condition": "blind",
+      "depth_mm": 31.791,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "profile": {"kind": "circle", "center_mm": [-8.713, 5.179], "radius_mm": 11.731},
+      "view_request": {"named_view": 9, "scale2": 2.7319, "translation": [-0.004713, 0.007931, -0.002317]}
+    }
+  ]
+}

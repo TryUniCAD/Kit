@@ -1,0 +1,777 @@
+{
+  "base": "9dca0bd65a4762962b0d71b896cdd354eb405a98",
+  "code_axes": {
+    "archive": [
+      [
+        "unit_system",
+        "fb0"
+      ],
+      [
+        "length",
+        "fb0"
+      ],
+      [
+        "angle",
+        "fb0"
+      ],
+      [
+        "force",
+        "fb0"
+      ],
+      [
+        "density",
+        "fc4"
+      ]
+    ],
+    "system_xml": [
+      "SW_UnitSystem",
+      "SW_UnitsLinear",
+      "SW_UnitsAngular",
+      "SW_UnitsForce",
+      "SW_UnitsMassPropMass"
+    ]
+  },
+  "disclosed_assembly_sources": {
+    "D01": {
+      "Edited": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "bytes": 1487,
+        "differences_from_same_precision_minimal": {
+          "density.fcc": [
+            0,
+            1
+          ],
+          "length.f18": [
+            0.1,
+            0.01
+          ],
+          "length.f20": [
+            4,
+            10
+          ],
+          "length.f28": [
+            8,
+            1
+          ],
+          "length.fb8": [
+            "derived_dual_length",
+            null
+          ]
+        },
+        "observed_date": "2026-11-18",
+        "rows": 16,
+        "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+        "source_history_language": 0,
+        "source_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+        "terminal_map": 36,
+        "xml_bytes": 10849,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      },
+      "Source": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "bytes": 1487,
+        "differences_from_same_precision_minimal": {
+          "density.fcc": [
+            0,
+            1
+          ],
+          "length.f18": [
+            0.1,
+            0.01
+          ],
+          "length.f20": [
+            4,
+            10
+          ],
+          "length.f28": [
+            8,
+            1
+          ],
+          "length.fb8": [
+            "derived_dual_length",
+            null
+          ]
+        },
+        "observed_date": "2026-11-18",
+        "rows": 16,
+        "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+        "source_history_language": 0,
+        "source_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+        "terminal_map": 36,
+        "xml_bytes": 10728,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      }
+    },
+    "D02": {
+      "Edited": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "bytes": 1487,
+        "differences_from_same_precision_minimal": {
+          "density.fcc": [
+            0,
+            1
+          ],
+          "length.f18": [
+            0.1,
+            0.01
+          ],
+          "length.f20": [
+            4,
+            10
+          ],
+          "length.f28": [
+            8,
+            1
+          ],
+          "length.fb8": [
+            "derived_dual_length",
+            null
+          ]
+        },
+        "observed_date": "2026-11-18",
+        "rows": 16,
+        "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+        "source_history_language": 0,
+        "source_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+        "terminal_map": 36,
+        "xml_bytes": 10853,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      },
+      "Source": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "bytes": 1487,
+        "differences_from_same_precision_minimal": {
+          "density.fcc": [
+            0,
+            1
+          ],
+          "length.f18": [
+            0.1,
+            0.01
+          ],
+          "length.f20": [
+            4,
+            10
+          ],
+          "length.f28": [
+            8,
+            1
+          ],
+          "length.fb8": [
+            "derived_dual_length",
+            null
+          ]
+        },
+        "observed_date": "2026-11-18",
+        "rows": 16,
+        "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+        "source_history_language": 0,
+        "source_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+        "terminal_map": 36,
+        "xml_bytes": 10730,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      }
+    },
+    "D03": {
+      "Edited": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "bytes": 1487,
+        "differences_from_same_precision_minimal": {
+          "density.fcc": [
+            0,
+            1
+          ],
+          "length.f18": [
+            0.1,
+            0.01
+          ],
+          "length.f20": [
+            4,
+            10
+          ],
+          "length.f28": [
+            8,
+            1
+          ],
+          "length.fb8": [
+            "derived_dual_length",
+            null
+          ]
+        },
+        "observed_date": "2026-11-18",
+        "rows": 16,
+        "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+        "source_history_language": 0,
+        "source_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+        "terminal_map": 36,
+        "xml_bytes": 10843,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      },
+      "Source": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "bytes": 1487,
+        "differences_from_same_precision_minimal": {
+          "density.fcc": [
+            0,
+            1
+          ],
+          "length.f18": [
+            0.1,
+            0.01
+          ],
+          "length.f20": [
+            4,
+            10
+          ],
+          "length.f28": [
+            8,
+            1
+          ],
+          "length.fb8": [
+            "derived_dual_length",
+            null
+          ]
+        },
+        "observed_date": "2026-11-18",
+        "rows": 16,
+        "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+        "source_history_language": 0,
+        "source_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+        "terminal_map": 36,
+        "xml_bytes": 10725,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      }
+    }
+  },
+  "disclosed_unit_preference_controls": {
+    "center": {
+      "CustomGram": {
+        "archive_codes": [
+          3,
+          0,
+          0,
+          2,
+          1
+        ],
+        "observed_date": "2026-11-18",
+        "source_history_language": 0,
+        "source_sha256": "cb96f6085b89252564bb10a7d932e3104e7bffecbe28d9e79b420de03fc1d656",
+        "xml_bytes": 10654,
+        "xml_codes": [
+          4,
+          0,
+          0,
+          3,
+          2
+        ]
+      },
+      "CustomKilogram": {
+        "archive_codes": [
+          3,
+          0,
+          0,
+          2,
+          2
+        ],
+        "observed_date": "2026-11-18",
+        "source_history_language": 0,
+        "source_sha256": "abce0b27f4a0ba6022faf291aa1cf620b9809973871a06c0a7398e02073e800e",
+        "xml_bytes": 10654,
+        "xml_codes": [
+          4,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      "MillimeterGram": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "observed_date": "2026-11-18",
+        "source_history_language": 0,
+        "source_sha256": "e5d4de7f58d6c87f9580b46633a1755ffca61afed82e881114c0d07626de0bde",
+        "xml_bytes": 10552,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      }
+    },
+    "corner": {
+      "CustomGram": {
+        "archive_codes": [
+          3,
+          0,
+          0,
+          2,
+          1
+        ],
+        "observed_date": "2026-11-18",
+        "source_history_language": 0,
+        "source_sha256": "93444d4df9c5e52d2800f7ce91d33fe469fa622bd8b31b61e287447ef5e3b757",
+        "xml_bytes": 10654,
+        "xml_codes": [
+          4,
+          0,
+          0,
+          3,
+          2
+        ]
+      },
+      "CustomKilogram": {
+        "archive_codes": [
+          3,
+          0,
+          0,
+          2,
+          2
+        ],
+        "observed_date": "2026-11-18",
+        "source_history_language": 0,
+        "source_sha256": "0f409d1bd3fefc67a5eb85335c7a34876f8458ab1c625fcadfbb45e4fe5782db",
+        "xml_bytes": 10654,
+        "xml_codes": [
+          4,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      "MillimeterGram": {
+        "archive_codes": [
+          4,
+          0,
+          0,
+          2,
+          1
+        ],
+        "observed_date": "2026-11-18",
+        "source_history_language": 0,
+        "source_sha256": "a77b749e885d7d3f70ce7a6f633c54f30d6ee3efbcc6e5e50c1699a2206890d5",
+        "xml_bytes": 10552,
+        "xml_codes": [
+          5,
+          0,
+          0,
+          3,
+          2
+        ]
+      }
+    }
+  },
+  "generated": {
+    "actual_mate": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.04690999999999999
+        ],
+        [
+          0.0,
+          -0.04691000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        150,
+        203
+      ],
+      "mate_bytes": 3596,
+      "mate_sha256": "217f18c6b94af88cb0cbf577ed3fc5e09fffd2d8ba2e2c24397b216ef0b83a59",
+      "occurrence_names": [
+        "ConcentricD01Child-1",
+        "ConcentricD01Child-2"
+      ],
+      "occurrences": [
+        24,
+        25
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.03126999999999999,
+          0.26817
+        ]
+      ]
+    },
+    "authored_unit_contrasts": {
+      "ips": {
+        "dual_length_code": 0,
+        "primary_only": {
+          "bytes": 1421,
+          "codes": [
+            2,
+            3,
+            0,
+            2,
+            1
+          ],
+          "has_dual": false,
+          "length_precision": 3,
+          "sha256": "342a61f5f272a020585ee066d27673f4093890106a47489b332d3fd000294b48",
+          "terminal_map": 35
+        },
+        "with_dual": {
+          "bytes": 1487,
+          "codes": [
+            2,
+            3,
+            0,
+            2,
+            1
+          ],
+          "has_dual": true,
+          "length_precision": 3,
+          "sha256": "9033eb418a878796c242f5a50e6201ff8221f3fca7fb696fca2469517e54cc50",
+          "terminal_map": 36
+        }
+      },
+      "mks": {
+        "dual_length_code": 3,
+        "primary_only": {
+          "bytes": 1421,
+          "codes": [
+            1,
+            2,
+            3,
+            2,
+            1
+          ],
+          "has_dual": false,
+          "length_precision": 7,
+          "sha256": "4cc1ca85651f30fc3e40aafca48ff455b3efb42d0d61fe7571112f553aacd057",
+          "terminal_map": 35
+        },
+        "with_dual": {
+          "bytes": 1487,
+          "codes": [
+            1,
+            2,
+            3,
+            2,
+            1
+          ],
+          "has_dual": true,
+          "length_precision": 7,
+          "sha256": "4b994335401cf7421b24f8756cbe81f8d5b22fa26f16ee1ce8e01096017fe4fc",
+          "terminal_map": 36
+        }
+      }
+    },
+    "baseline_parent_sha256": "4261559e326f8aba8c0a26bcf201b00583b844ab924fe831d72da3071311c24a",
+    "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+    "generated_units": {
+      "bytes": 1421,
+      "codes": [
+        4,
+        0,
+        0,
+        2,
+        1
+      ],
+      "has_dual": false,
+      "length_precision": 4,
+      "sha256": "1faed4f6924ec416c0afe46260f545861861ae7a893063344d0254affe0723f3",
+      "terminal_map": 35
+    },
+    "ordinary_streams_unchanged": 20,
+    "parent_bytes": 14196,
+    "parent_sha256": "788755fe167bc6c125794b7dc668587909d319397cf580c226a9e5425e8e2609",
+    "parent_streams": [
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/User Units Table",
+      "Header2",
+      "ModelStamps",
+      "ThirdPtyStore/VisualStates",
+      "_DL_VERSION_19000/DLUpdateStamp",
+      "_MO_VERSION_19000/Biography",
+      "_MO_VERSION_19000/History",
+      "docProps/Config-0-Properties.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "refusals": {
+      "analysis_alias": "standalone units require their own assembly model and absent analysis table",
+      "duplicate_stream": "assembly user units already have an emitted scope",
+      "mirror_from_other_assembly": "standalone user units differ from their embedded model table or canonical archive map",
+      "trailing_data": "SOLIDWORKS unit table has an invalid root or trailing data",
+      "unsupported_density_graph": "SOLIDWORKS unit table has an unsupported density override"
+    },
+    "runtime_external_accesses": 0,
+    "unrepresented_source_streams": [
+      "Contents/3DExperienceExchange2",
+      "Contents/3DExperienceExchange_ConfigHeader",
+      "Contents/Config-0-Attachment",
+      "Contents/Config-0-LWDATA",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/eModelLic",
+      "FaceTessellations/000-000-002",
+      "FaceTessellations/Directory",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPty/CM_MOTION_LOAD_1",
+      "ThirdPty/SWA_Schedules",
+      "[Content_Types].xml",
+      "_rels/.rels",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml"
+    ]
+  },
+  "guarded_generated_workers": 2,
+  "heldout_accesses": 0,
+  "independent_assembly_controls": {
+    "A0_one.SLDASM": {
+      "archive_codes": [
+        4,
+        0,
+        0,
+        2,
+        1
+      ],
+      "bytes": 1487,
+      "observed_date": "2026-11-14",
+      "rows": 16,
+      "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+      "source_history_language": 0,
+      "source_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "terminal_map": 36,
+      "xml_bytes": 10707,
+      "xml_codes": [
+        5,
+        0,
+        0,
+        3,
+        2
+      ]
+    },
+    "A13SyncedSingle.SLDASM": {
+      "archive_codes": [
+        4,
+        0,
+        0,
+        2,
+        1
+      ],
+      "bytes": 1487,
+      "observed_date": "2026-11-16",
+      "rows": 16,
+      "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+      "source_history_language": 0,
+      "source_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "terminal_map": 36,
+      "xml_bytes": 10710,
+      "xml_codes": [
+        5,
+        0,
+        0,
+        3,
+        2
+      ]
+    },
+    "A14SyncedRepeat.SLDASM": {
+      "archive_codes": [
+        4,
+        0,
+        0,
+        2,
+        1
+      ],
+      "bytes": 1487,
+      "observed_date": "2026-11-16",
+      "rows": 16,
+      "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+      "source_history_language": 0,
+      "source_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "terminal_map": 36,
+      "xml_bytes": 10710,
+      "xml_codes": [
+        5,
+        0,
+        0,
+        3,
+        2
+      ]
+    },
+    "A1_two.SLDASM": {
+      "archive_codes": [
+        4,
+        0,
+        0,
+        2,
+        1
+      ],
+      "bytes": 1487,
+      "observed_date": "2026-11-14",
+      "rows": 16,
+      "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+      "source_history_language": 0,
+      "source_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "terminal_map": 36,
+      "xml_bytes": 10707,
+      "xml_codes": [
+        5,
+        0,
+        0,
+        3,
+        2
+      ]
+    }
+  },
+  "native_probes": 0,
+  "neutral_request_sha256": "7fd17ea690d922132b83333672aca5bf3c194490788edfd8217202255556d783",
+  "prior_receipt_sha256": "d2f56661b35d6c019c3ed9b0aca9c9d241f4ba1b2631fb91eb3a9cfa5f080469",
+  "public_publication": false,
+  "schema": "kit.sw2026.disclosed-d01-assembly-user-units.v1",
+  "source_original_refusal": "assembly root contains unprojected model content",
+  "source_sha256": {
+    "re/tooling/sw2026/para/concentric/AssemblyUnitTable.py": "8ad244305176be43549db36e7be05ae716419dd25d5ef852ced5348797fa0e5d",
+    "re/tooling/sw2026/para/concentric/ObserveAssemblyUnitOwners.py": "1ebe10bacf4348ecff5f4b77f7e4e986869847e357c039de0eab5a679704f014",
+    "re/tooling/sw2026/para/concentric/ProveD01AssemblyUnitTable.py": "4fbbfe623ad126335c47a55ddd5a4a161946a0287234074c204b93cb944eab96"
+  },
+  "whole_source_admitted": false
+}

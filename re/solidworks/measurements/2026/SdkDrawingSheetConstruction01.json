@@ -1,0 +1,358 @@
+{
+  "application_usable": false,
+  "cases": [
+    {
+      "input_sha256": "3cefb0076e94f83b6c26eb220268d893e08d2a85da91e1c374d926e0db02034b",
+      "name": "CtorAlpha",
+      "result": {
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5895,
+        "artifact_sha256": "f343a4338d1cf1ae7f1b0b162880bfdedc89dbaa91a60fcaacd2ebc761370ea2",
+        "complete_sdk_only_drawing_factory": false,
+        "component_copy_preserved": true,
+        "constructor_sketch_backlink_preserved": true,
+        "definition_bytes": 23911,
+        "definition_map_next_index": 131,
+        "definition_sha256": "dc49973afabc091cbbd5871dbd54d5619f26629c889e87a048a7366bbf3321e7",
+        "feature_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "next_sheet_id": 8,
+        "passed": true,
+        "preallocation_plane_handle_preserved": true,
+        "public_reader_passed": true,
+        "public_writer_enabled": false,
+        "real_aliases_preserved": true,
+        "research_parent_factory_retained": true,
+        "runtime_input_file_access_attempts": 0,
+        "scale_operation_order_preserved": true,
+        "schema": "kit.sw2026.sdk-sheet-construction-result.v1",
+        "sdk_complete_read_write_identical": true,
+        "sdk_sheet_constructor": true,
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    },
+    {
+      "input_sha256": "f0c13c4370f20160c20189f96fbfdfd44f650bbabd064138e5f4648ae47c8354",
+      "name": "CtorBeta",
+      "result": {
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5944,
+        "artifact_sha256": "766301aa856b18f96b86ed841eab8c4c2efaa241f910a03a3604381147fe69f5",
+        "complete_sdk_only_drawing_factory": false,
+        "component_copy_preserved": true,
+        "constructor_sketch_backlink_preserved": true,
+        "definition_bytes": 24601,
+        "definition_map_next_index": 131,
+        "definition_sha256": "9513203f7a677d9f8a49e0847ef7d664046ed208ac649a17c7f6ff2ae4133d7c",
+        "feature_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "next_sheet_id": 8,
+        "passed": true,
+        "preallocation_plane_handle_preserved": true,
+        "public_reader_passed": true,
+        "public_writer_enabled": false,
+        "real_aliases_preserved": true,
+        "research_parent_factory_retained": true,
+        "runtime_input_file_access_attempts": 0,
+        "scale_operation_order_preserved": true,
+        "schema": "kit.sw2026.sdk-sheet-construction-result.v1",
+        "sdk_complete_read_write_identical": true,
+        "sdk_sheet_constructor": true,
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    },
+    {
+      "input_sha256": "649f00f6e8b35c0bed5fbf58fffaeaf81c969e53a61871dc50ac46dfb9bc3577",
+      "name": "CtorGamma",
+      "result": {
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5926,
+        "artifact_sha256": "0263f5f96a6be3a2defd35eb7c01d4c4d8e1d5eca36c8d15f9d1c0c69b29a01f",
+        "complete_sdk_only_drawing_factory": false,
+        "component_copy_preserved": true,
+        "constructor_sketch_backlink_preserved": true,
+        "definition_bytes": 23911,
+        "definition_map_next_index": 131,
+        "definition_sha256": "feda653f10b5a28c737228202b109b207ada5f75353ae7f901f9f5049177be26",
+        "feature_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "next_sheet_id": 8,
+        "passed": true,
+        "preallocation_plane_handle_preserved": true,
+        "public_reader_passed": true,
+        "public_writer_enabled": false,
+        "real_aliases_preserved": true,
+        "research_parent_factory_retained": true,
+        "runtime_input_file_access_attempts": 0,
+        "scale_operation_order_preserved": true,
+        "schema": "kit.sw2026.sdk-sheet-construction-result.v1",
+        "sdk_complete_read_write_identical": true,
+        "sdk_sheet_constructor": true,
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    },
+    {
+      "input_sha256": "4a5d9acb9173a2848ac487aa1cdceabaff8a354315310d810a23053a8d26fbcb",
+      "name": "CtorDelta",
+      "result": {
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5889,
+        "artifact_sha256": "07c1660240ae4b44f566c7c261871aee5c6609ac7df0af1b7b41d5031c15a9cb",
+        "complete_sdk_only_drawing_factory": false,
+        "component_copy_preserved": true,
+        "constructor_sketch_backlink_preserved": true,
+        "definition_bytes": 23910,
+        "definition_map_next_index": 131,
+        "definition_sha256": "de5a23a19fc0c03b191850d836bc86394b0f8391889560bb03f44d188bb17803",
+        "feature_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "heldout_inputs_read": 0,
+        "native_acceptance": false,
+        "next_sheet_id": 8,
+        "passed": true,
+        "preallocation_plane_handle_preserved": true,
+        "public_reader_passed": true,
+        "public_writer_enabled": false,
+        "real_aliases_preserved": true,
+        "research_parent_factory_retained": true,
+        "runtime_input_file_access_attempts": 0,
+        "scale_operation_order_preserved": true,
+        "schema": "kit.sw2026.sdk-sheet-construction-result.v1",
+        "sdk_complete_read_write_identical": true,
+        "sdk_sheet_constructor": true,
+        "vendor_runtime_executed": false
+      },
+      "twice_identical": true
+    },
+    {
+      "error": "ValueError: drawing sheet scale requires positive integral numerator and denominator",
+      "exit_code": 1,
+      "input_sha256": "583f98d6bb05aa9b0f0e2514294e52c646161cfcad0ff8fde6597de9420f45da",
+      "output_bytes": 0,
+      "probe": "scale_zero",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet scale requires positive integral numerator and denominator",
+      "exit_code": 1,
+      "input_sha256": "50a9e5843821eadc1d8599b57cdbbb9158aeefab62e46f36990c014a732783b0",
+      "output_bytes": 0,
+      "probe": "scale_boolean",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction requires its qualified paper and length units",
+      "exit_code": 1,
+      "input_sha256": "cc94fa542503eeefffe4a81b2da582d490c5ba8ae76479ae31c7a0f8c9cd4b6e",
+      "output_bytes": 0,
+      "probe": "paper_format",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction requires its qualified paper and length units",
+      "exit_code": 1,
+      "input_sha256": "7c2ce2d70204ad06981aa3da9ce99a3a87f6740d907c58cf1b5e2f8ec5a116d5",
+      "output_bytes": 0,
+      "probe": "length_unit",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet text is outside the xml index domain",
+      "exit_code": 1,
+      "input_sha256": "9c71f313d8e9974862f79437f2eee6054965402146f80de2746a72c38610736f",
+      "output_bytes": 0,
+      "probe": "sheet_delimiter",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet text is outside the xml index domain",
+      "exit_code": 1,
+      "input_sha256": "d10f01652f33928a46574a709747a3dc1ad373c2fec619ac4d7786abbddf086f",
+      "output_bytes": 0,
+      "probe": "sheet_xml",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction requires nonempty native names",
+      "exit_code": 1,
+      "input_sha256": "17e635938ee176f9b300558cf2f33b9f26740c9e94c57e5ebac49f2d2f75c267",
+      "output_bytes": 0,
+      "probe": "support_name",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction requires the proved 2026 sp05 2 target",
+      "exit_code": 1,
+      "input_sha256": "ee367792ed4d61e783db501fc520fea0524c63ceb1aadd539d4cdd6784eb6b2f",
+      "output_bytes": 0,
+      "probe": "archive_version",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction requires the proved 2026 sp05 2 target",
+      "exit_code": 1,
+      "input_sha256": "1333803a71a250d03ea935411699973716b95140ba57620ab9aa85aed5a43430",
+      "output_bytes": 0,
+      "probe": "service_pack",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction has invalid explicit identifier time or target provenance",
+      "exit_code": 1,
+      "input_sha256": "3a81885bc10f61b7b4889a74bf28d97c0df2cbaa4ad10a0b4338b455429a5adb",
+      "output_bytes": 0,
+      "probe": "id_domain",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction has invalid explicit identifier time or target provenance",
+      "exit_code": 1,
+      "input_sha256": "3240b04cd237bafb27f8d22a44aa181d994b4ac04ab3f599c050769794fa55f9",
+      "output_bytes": 0,
+      "probe": "creation_time",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction has invalid explicit identifier time or target provenance",
+      "exit_code": 1,
+      "input_sha256": "a1c654e00d9ba058860450afb481a3a463ec8475aa4bad9180ac1904a9f89291",
+      "output_bytes": 0,
+      "probe": "kernel_provenance",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction requires its concrete owning drawing",
+      "exit_code": 1,
+      "input_sha256": "1d2771857ca5519de57b932f7f15968d61ea9c1faa8484ebb84be90e650fab6a",
+      "output_bytes": 0,
+      "probe": "foreign_owner",
+      "rejected": true
+    },
+    {
+      "error": "ValueError: drawing sheet construction requires its actual ordinary self component",
+      "exit_code": 1,
+      "input_sha256": "f82f0497bcb0330c1ddf4f15157b4fb99c3f8dd2b451f9b225eff71666bb0e36",
+      "output_bytes": 0,
+      "probe": "external_component",
+      "rejected": true
+    }
+  ],
+  "checks": {
+    "black": {
+      "passed": true,
+      "python_files": 27
+    },
+    "donor_scan": {
+      "passed": true,
+      "source_files_observed": 3604
+    },
+    "mypy": {
+      "passed": true,
+      "python_files": 27
+    },
+    "pyright": {
+      "errors": 0,
+      "existing_unrecognized_project_settings": [
+        "reportImplicitAbstractClass",
+        "reportIncompleteStubValue",
+        "reportUnsafeMultipleInheritance"
+      ],
+      "information": 0,
+      "warnings": 0
+    },
+    "steering": {
+      "passed": true,
+      "python_files": 27
+    }
+  },
+  "complete_sdk_only_drawing_factory": false,
+  "delivery_pr": 121,
+  "evidence_level": "offline component construction and complete generated document parity",
+  "fresh_processes": 22,
+  "heldout_inputs_read": 0,
+  "independent_parent_constructions": 44,
+  "native_acceptance": false,
+  "owner": "/root/configuration_header",
+  "passed": true,
+  "positive_designs": 4,
+  "positive_runs_each": 2,
+  "private_process_receipt_sha256": "c59f717116c48f494356681382f700ef17565c714a29e8614270330c57357c0b",
+  "public_writer_enabled": false,
+  "python_version": "3.13.15",
+  "rejected_jobs": 14,
+  "remaining_requirements": [
+    "SDK parent model style and provenance factories",
+    "SDK UI document and property container composition",
+    "native qualification of the composed SDK construction route",
+    "public writer admission and complete CAD success criteria"
+  ],
+  "replay_driver_sha256": "2cd2565fbaa5193fd4e48a78cd47d39906793ce5959785ed93c54e2a1aa84f47",
+  "research_parent_factory_retained": true,
+  "runtime_input_file_access_attempts": 0,
+  "schema": "kit.sw2026.sdk-sheet-construction-measurement.v1",
+  "scope": "complete fresh unformatted ANSI A sheet support graph from explicit neutral inputs",
+  "source_files_sha256": {
+    "re/tooling/sw2026/DrawingSheetConstructionProcess.py": "7e8c46293c53c2baedc952fbe0489bc915ff48b419676281b514543d0c474971",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/AtomZeros.py": "a2c5182a6d84dc69ed8d0913aeb13577307dbebf5eb50dcdced0b897be1ca4d8",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/CheckDrawText.py": "305ef4cf79453671e03d55906b921b22d4d0ed2daf28224fddbedfcc7d981608",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/CheckSheetBuild.py": "0954bf646afc34ffd5448cc3f530048b27caf8680006f40815f8c33f302c492f",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/CheckSheetOwner.py": "0a3699598747b6de09ff0a7a22410342e41a080606e8586d46e6ea335f3924ba",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/FeatureVisible.py": "f9abd19be17c42d09157d195d98990605a556977fee1432fd716f3d8e4875473",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/FeatureZeros.py": "7043bd24674a158d3eac34204449b9990481a37edf9b62f607542e18513a40c7",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/ImperialZones.py": "9098940466b016aa39d777deabb2c731e356ebf698d235a035420c4ba3ebde50",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeBlankSheet.py": "bc53391d1bfccf9a1d50989a8eb31a62272bc64c96034be6e73203a9374d7dc9",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeDrawFeature.py": "433698ebb83dfdfb874ab5f1ff80921c03918954169d10f4f39fa389a370f8bd",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeSheetDetail.py": "14717dc593f0ef530a1c2c057bfad73eaf9e9c4ac458caf73483a6ddb4f134bc",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeSheetOwn.py": "129d59f4d8d59562f5daeb35119de275a9df78728d8411389e5949c5010100ee",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeSheetPlane.py": "c4801993d919ed4d0ef43a2d78ef12f8130965102fc5667af31c6dcddba0d0df",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeSheetRef.py": "02a147614d483cbde223f62b5d50186e9b3c82822558f92068c4f32724a647ec",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeSheetSketch.py": "0fd4322174dd71acc0b59c3c6f65a767d543c1643ad029f41ec839dc963a53ee",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MetricZones.py": "99b56cf128b4b678488515992f7ce8e33f82cf45ee878d193c7f45fd11ab3832",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/ProfileTime.py": "f5bd46a0cb8101608b398ba636e44316addca662b3da69e6396dffc1bdb7db40",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/ScaleFrame.py": "bb09329cdaeb06a92612b8b2588a383fe73f41bcbfbb3b1963b032aaed60b301",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/SheetBuild.py": "e2e119b8807db51e95b60f86fa3ad99d0e66fd7d4ad120daef415abba7930046",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/SheetGraph.py": "b911475b585dc3bbd2fa66e0deaebd45eee157036255762d716bf5d1ed2772f9",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/SheetInput.py": "3de1029eb90435d99f9924283cf424ca4a194314130195fee04e5477989ce436",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/SheetNames.py": "0ef7c8901ed38bde5074c7ab79bf02804fb2e376e33b7707b2425bcecaf90c64",
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/SheetZones.py": "f21ea16bff4a8d65cdf4d12d1ae8f84acba7a5117507fa0eb0a746c1127f5b2d",
+    "tests/Convert/Solidworks/Research/Drawing/Construction/MakeCtorInput.py": "0e8fca95d309176f04b704c7c61b6649805912d4d7486fe03dae291196f7157b",
+    "tests/Convert/Solidworks/Research/Drawing/Construction/RunCtorCase.py": "01b7a5f0ccb6150d67c97affd0c13dc5b5e6c0656b8fec3b17537147c1833c77",
+    "tests/Convert/Solidworks/Research/Drawing/Construction/RunCtorReject.py": "047f5d49a5c2c03f0018eecb9ae51d356f9baffb1f34fef45f2dce85c81dab00",
+    "tests/Convert/Solidworks/Research/Drawing/Construction/SheetCtorTests.py": "14dbca50697ccf3003e0239c4fcb589d9e738670bc9a1af06bdf8c38ceff7efe",
+    "tests/Convert/Solidworks/Research/Drawing/Construction/SheetInputTests.py": "f861d994a6e2f3b20d383554ece4b44a3a2679ce29cfc94dbc7ad07032082d18"
+  },
+  "source_manifest_sha256": "9845340d538079bd6e41bc9b76f29df51b405f754dd78ccab2cdde0a3283410a",
+  "source_unchanged": true,
+  "successful_sdk_sheet_constructions": 8,
+  "task": "B04-SW2026-DRAWPROPS / fresh SDK sheet construction",
+  "unit_tests_run": 0,
+  "vendor_files_or_prior_native_trial_outputs_opened": 0,
+  "vendor_loadable": false,
+  "vendor_measurement_status": "not run in this constructor slice",
+  "vendor_runtime_executed": false
+}

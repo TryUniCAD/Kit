@@ -1,0 +1,1095 @@
+{
+  "native_build": "34.5.2.0604",
+  "document_version": 19000,
+  "modules": {
+    "sldmodu.dll": {
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "preferred_base": "0x4b140000"
+    },
+    "sldarchiveu.dll": {
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "preferred_base": "0x319f0000"
+    },
+    "slduiu.dll": {
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "preferred_base": "0x48ea0000"
+    }
+  },
+  "native_function_extents": {
+    "sldmodu.dll": {
+      "mate_allocate": {
+        "entry": "0x4b653d20",
+        "sha256": "6c7cbb1a68221f89dc05f7e588cd11a96eb9ab256c8ec3e7e59b7ab46a112e49",
+        "extents": [
+          {
+            "start": "0x4b653d20",
+            "end": "0x4b653d4e",
+            "unwind": "0x4d38969c",
+            "sha256": "6c7cbb1a68221f89dc05f7e588cd11a96eb9ab256c8ec3e7e59b7ab46a112e49"
+          }
+        ]
+      },
+      "mate_coincident_ctor": {
+        "entry": "0x4bc2d6c0",
+        "sha256": "3c85dedf42e59d66114f56b00485abd1c59141854e9bbbc5eabee164d044718e",
+        "extents": [
+          {
+            "start": "0x4bc2d6c0",
+            "end": "0x4bc2d71a",
+            "unwind": "0x4d4ed480",
+            "sha256": "3c85dedf42e59d66114f56b00485abd1c59141854e9bbbc5eabee164d044718e"
+          }
+        ]
+      },
+      "mate_common_ctor": {
+        "entry": "0x4bc2db40",
+        "sha256": "8e2a214926a63bff7428131ce75f53fc81d05d66ea3f9a4b348012fe994c38b0",
+        "extents": [
+          {
+            "start": "0x4bc2db40",
+            "end": "0x4bc2dd8c",
+            "unwind": "0x4d4ec4e8",
+            "sha256": "8e2a214926a63bff7428131ce75f53fc81d05d66ea3f9a4b348012fe994c38b0"
+          }
+        ]
+      },
+      "model_feature_ctor": {
+        "entry": "0x4be9ed00",
+        "sha256": "bc74789a495cbd1fbc46aec0907e598fc1d1e7cc0b982bf8d472f1474acc6e27",
+        "extents": [
+          {
+            "start": "0x4be9ed00",
+            "end": "0x4be9ed4e",
+            "unwind": "0x4d42007c",
+            "sha256": "bc74789a495cbd1fbc46aec0907e598fc1d1e7cc0b982bf8d472f1474acc6e27"
+          }
+        ]
+      },
+      "feature_ctor": {
+        "entry": "0x4bb38350",
+        "sha256": "6af1f7e2d3987e493db008e5e08f8e66ec4c915a945a622a0bd4543ef449c09a",
+        "extents": [
+          {
+            "start": "0x4bb38350",
+            "end": "0x4bb38708",
+            "unwind": "0x4d4ccccc",
+            "sha256": "6af1f7e2d3987e493db008e5e08f8e66ec4c915a945a622a0bd4543ef449c09a"
+          }
+        ]
+      },
+      "concept_ctor": {
+        "entry": "0x4bda5770",
+        "sha256": "bca6974224563e12faf16f01a91ddcac328b287de7bc304c13dcb73918d63074",
+        "extents": [
+          {
+            "start": "0x4bda5770",
+            "end": "0x4bda57fb",
+            "unwind": "0x4d520d18",
+            "sha256": "bca6974224563e12faf16f01a91ddcac328b287de7bc304c13dcb73918d63074"
+          }
+        ]
+      },
+      "logged_node_ctor": {
+        "entry": "0x4c03c110",
+        "sha256": "50f52bae2d5feb11368fc2e44934e2d1d29b96230aea2514706695ba69212e33",
+        "extents": [
+          {
+            "start": "0x4c03c110",
+            "end": "0x4c03c140",
+            "unwind": "0x4d57dbdc",
+            "sha256": "50f52bae2d5feb11368fc2e44934e2d1d29b96230aea2514706695ba69212e33"
+          }
+        ]
+      },
+      "node_ctor": {
+        "entry": "0x4c03c250",
+        "sha256": "162d31cd9a7dbdb25da3d81575df765fd763cb5b455d12af7250e3a9c2a7dfe4",
+        "extents": [
+          {
+            "start": "0x4c03c250",
+            "end": "0x4c03c2b7",
+            "unwind": "0x4d57dadc",
+            "sha256": "162d31cd9a7dbdb25da3d81575df765fd763cb5b455d12af7250e3a9c2a7dfe4"
+          }
+        ]
+      },
+      "node_set_needs_update": {
+        "entry": "0x4c03ed90",
+        "sha256": "d441aeedacf219b7cfeac0298109606c454ad5b67ead1aeffcd93c0ecc60e8b6",
+        "extents": [
+          {
+            "start": "0x4c03ed90",
+            "end": "0x4c03eeac",
+            "unwind": "0x4d3877f0",
+            "sha256": "d441aeedacf219b7cfeac0298109606c454ad5b67ead1aeffcd93c0ecc60e8b6"
+          }
+        ]
+      },
+      "node_serialize_lw": {
+        "entry": "0x4c17adf0",
+        "sha256": "5f5262d0f62d2bbcea73730a56fc2b7ea8bf8489a066d84df4b9902536553760",
+        "extents": [
+          {
+            "start": "0x4c17adf0",
+            "end": "0x4c17b23a",
+            "unwind": "0x4d5acd10",
+            "sha256": "5f5262d0f62d2bbcea73730a56fc2b7ea8bf8489a066d84df4b9902536553760"
+          }
+        ]
+      },
+      "group_add_mate": {
+        "entry": "0x4bc87760",
+        "sha256": "16163923bf3492223425d89f2a816b1acb359e3cc740ced38b07ccb811c92a14",
+        "extents": [
+          {
+            "start": "0x4bc87760",
+            "end": "0x4bc87810",
+            "unwind": "0x4d385bbc",
+            "sha256": "16163923bf3492223425d89f2a816b1acb359e3cc740ced38b07ccb811c92a14"
+          }
+        ]
+      },
+      "feature_assign_owner": {
+        "entry": "0x4bb51930",
+        "sha256": "aa6af1e853df3cc5aedfd9acf5eefe8cb8b7540d607ba2a4f89be3bf3d8ada66",
+        "extents": [
+          {
+            "start": "0x4bb51930",
+            "end": "0x4bb51942",
+            "unwind": "0x4d385b40",
+            "sha256": "1d7102c2e1ad241d80b24fbe162fad6f07b4fee4327c9c965433eee1219d187d"
+          },
+          {
+            "start": "0x4bb51942",
+            "end": "0x4bb51988",
+            "unwind": "0x4d4ca254",
+            "sha256": "b6bdd5ad6a60606d2ed943bfc0fe7d8e41b64fdd7f4a643f3dc225a02790f311"
+          },
+          {
+            "start": "0x4bb51988",
+            "end": "0x4bb5198e",
+            "unwind": "0x4d4ca268",
+            "sha256": "b13c2122a4910ad1c7f40207d9561e5a2d3418bf2bc40c490e3f913641fd2989"
+          }
+        ]
+      },
+      "concept_add_new_feature": {
+        "entry": "0x4bda66c0",
+        "sha256": "328432fedf12e478d598736cc60c6811c21dcea2c717af3f0efe6d2dca27e89f",
+        "extents": [
+          {
+            "start": "0x4bda66c0",
+            "end": "0x4bda6d91",
+            "unwind": "0x4d5205f0",
+            "sha256": "328432fedf12e478d598736cc60c6811c21dcea2c717af3f0efe6d2dca27e89f"
+          }
+        ]
+      },
+      "feature_on_create": {
+        "entry": "0x4bb4de30",
+        "sha256": "b6b439d73fe248697c23695437edca558a7be8790458cb665609f63edd74e3c2",
+        "extents": [
+          {
+            "start": "0x4bb4de30",
+            "end": "0x4bb4e316",
+            "unwind": "0x4d4cb138",
+            "sha256": "b6b439d73fe248697c23695437edca558a7be8790458cb665609f63edd74e3c2"
+          }
+        ]
+      },
+      "logged_node_on_create": {
+        "entry": "0x4c03e630",
+        "sha256": "56927052930fbd6a60beb6584ca84137ed8c52510001d8a579f5d2280c4b3b56",
+        "extents": [
+          {
+            "start": "0x4c03e630",
+            "end": "0x4c03e726",
+            "unwind": "0x4d57dc18",
+            "sha256": "56927052930fbd6a60beb6584ca84137ed8c52510001d8a579f5d2280c4b3b56"
+          }
+        ]
+      },
+      "new_node_log_connection": {
+        "entry": "0x4bf435a0",
+        "sha256": "070610a826f668a5b9154197f32bf10f05e426595de75447e9e38cb0addacc6d",
+        "extents": [
+          {
+            "start": "0x4bf435a0",
+            "end": "0x4bf438c0",
+            "unwind": "0x4d55a728",
+            "sha256": "070610a826f668a5b9154197f32bf10f05e426595de75447e9e38cb0addacc6d"
+          }
+        ]
+      },
+      "concept_add_feature": {
+        "entry": "0x4bda62a0",
+        "sha256": "1ec661516498b04be16df6ed222270037cac73013bcd510e950bddacca14e580",
+        "extents": [
+          {
+            "start": "0x4bda62a0",
+            "end": "0x4bda6446",
+            "unwind": "0x4d38928c",
+            "sha256": "1ec661516498b04be16df6ed222270037cac73013bcd510e950bddacca14e580"
+          }
+        ]
+      },
+      "concept_register_child": {
+        "entry": "0x4bdacbe0",
+        "sha256": "bacc3d14979235f6776f5ff892db6049f8fdbc7529b39f548d4ea5c2702f787b",
+        "extents": [
+          {
+            "start": "0x4bdacbe0",
+            "end": "0x4bdacc48",
+            "unwind": "0x4d385b80",
+            "sha256": "bacc3d14979235f6776f5ff892db6049f8fdbc7529b39f548d4ea5c2702f787b"
+          }
+        ]
+      },
+      "register_node": {
+        "entry": "0x4c03d1c0",
+        "sha256": "71950a093229bc48671af70d44764627ae9593fd9bef59f2a791980355394356",
+        "extents": [
+          {
+            "start": "0x4c03d1c0",
+            "end": "0x4c03d1f7",
+            "unwind": "0x4d385bd8",
+            "sha256": "71950a093229bc48671af70d44764627ae9593fd9bef59f2a791980355394356"
+          }
+        ]
+      },
+      "process_mate_list": {
+        "entry": "0x4b587dd0",
+        "sha256": "3f062f5baf7b24a8ef239a12c21c7106121c64c183898d80e07e2ab60fc562f1",
+        "extents": [
+          {
+            "start": "0x4b587dd0",
+            "end": "0x4b5882aa",
+            "unwind": "0x4d3f7ee8",
+            "sha256": "3f062f5baf7b24a8ef239a12c21c7106121c64c183898d80e07e2ab60fc562f1"
+          }
+        ]
+      },
+      "update_assembly": {
+        "entry": "0x4b687a10",
+        "sha256": "d956f53d70a97b7df118e88f1873e47ae70c7c66c9da1e8e364c5038f7ef911d",
+        "extents": [
+          {
+            "start": "0x4b687a10",
+            "end": "0x4b687faf",
+            "unwind": "0x4d41b968",
+            "sha256": "d956f53d70a97b7df118e88f1873e47ae70c7c66c9da1e8e364c5038f7ef911d"
+          }
+        ]
+      },
+      "visit_feature_wrappers": {
+        "entry": "0x4c1bf830",
+        "sha256": "f8fed68267dffe304083ab0b491dc28cc52dc51263d029dd044cfeaf9d1e978c",
+        "extents": [
+          {
+            "start": "0x4c1bf830",
+            "end": "0x4c1bfc8f",
+            "unwind": "0x4d5b2dd0",
+            "sha256": "f8fed68267dffe304083ab0b491dc28cc52dc51263d029dd044cfeaf9d1e978c"
+          }
+        ]
+      },
+      "collect_mate_wrappers": {
+        "entry": "0x4bc51070",
+        "sha256": "8812a1734e0919e27231f448d87668c9343094bddbf0508eb1aafe01d7ef23c1",
+        "extents": [
+          {
+            "start": "0x4bc51070",
+            "end": "0x4bc5112d",
+            "unwind": "0x4d3877f0",
+            "sha256": "8812a1734e0919e27231f448d87668c9343094bddbf0508eb1aafe01d7ef23c1"
+          }
+        ]
+      },
+      "assign_reference_ids": {
+        "entry": "0x4c333fd0",
+        "sha256": "70bebaae325e0c0b611e673d26c141f11d19f0550a2a09b0c99dd29db0a90483",
+        "extents": [
+          {
+            "start": "0x4c333fd0",
+            "end": "0x4c33405e",
+            "unwind": "0x4d3877f0",
+            "sha256": "70bebaae325e0c0b611e673d26c141f11d19f0550a2a09b0c99dd29db0a90483"
+          }
+        ]
+      },
+      "wrapper_id_separate_allocator": {
+        "entry": "0x4c334060",
+        "sha256": "aef820ab8bfd2ffcd170c1d2c16a5be2bed46f4d39cc16cfe8341018802bdfaf",
+        "extents": [
+          {
+            "start": "0x4c334060",
+            "end": "0x4c3340ab",
+            "unwind": "0x4d385b40",
+            "sha256": "aef820ab8bfd2ffcd170c1d2c16a5be2bed46f4d39cc16cfe8341018802bdfaf"
+          }
+        ]
+      },
+      "assembly_chain_component_constructor": {
+        "entry": "0x4b8277f0",
+        "sha256": "751444c844397afff42d413cd3802ed5ae426771c9bd7c06d55997ce9e344ce1",
+        "extents": [
+          {
+            "start": "0x4b8277f0",
+            "end": "0x4b827913",
+            "unwind": "0x4d45a718",
+            "sha256": "751444c844397afff42d413cd3802ed5ae426771c9bd7c06d55997ce9e344ce1"
+          }
+        ]
+      },
+      "model_archive_primary": {
+        "entry": "0x4c224e10",
+        "sha256": "8fe114ecc4f6145ca837a359f206d4641bf4f2382bd5d813eadd85065108e304",
+        "extents": [
+          {
+            "start": "0x4c224e10",
+            "end": "0x4c22723d",
+            "unwind": "0x4d5c2cc8",
+            "sha256": "8fe114ecc4f6145ca837a359f206d4641bf4f2382bd5d813eadd85065108e304"
+          }
+        ]
+      },
+      "model_archive_alternate": {
+        "entry": "0x4c234150",
+        "sha256": "0b4ce1209e7d6151cd603478ab9b7b2090526a20024c756a35937d6e39a12b4e",
+        "extents": [
+          {
+            "start": "0x4c234150",
+            "end": "0x4c2378a1",
+            "unwind": "0x4d5c2acc",
+            "sha256": "0b4ce1209e7d6151cd603478ab9b7b2090526a20024c756a35937d6e39a12b4e"
+          }
+        ]
+      },
+      "model_counter_seed_constructor_one": {
+        "entry": "0x4bbf4540",
+        "sha256": "d0f986418386f31d67ec879d0daa4ff2fe426b6897ee45b8a54162cfab012a67",
+        "extents": [
+          {
+            "start": "0x4bbf4540",
+            "end": "0x4bbf497d",
+            "unwind": "0x4d4e16f4",
+            "sha256": "d0f986418386f31d67ec879d0daa4ff2fe426b6897ee45b8a54162cfab012a67"
+          }
+        ]
+      },
+      "model_counter_seed_constructor_two": {
+        "entry": "0x4bbf4980",
+        "sha256": "ad3d80c15d7a9f43e6df9603eeb22d09b1e0591245cb0d80c56bc5ed7f40cb91",
+        "extents": [
+          {
+            "start": "0x4bbf4980",
+            "end": "0x4bbf4dbd",
+            "unwind": "0x4d4e1570",
+            "sha256": "ad3d80c15d7a9f43e6df9603eeb22d09b1e0591245cb0d80c56bc5ed7f40cb91"
+          }
+        ]
+      },
+      "wrapper_archive": {
+        "entry": "0x4c2773d0",
+        "sha256": "f460eca75b13696fc8296f50bb830225bd7964dd1185a8bb2d3ce808810c461b",
+        "extents": [
+          {
+            "start": "0x4c2773d0",
+            "end": "0x4c277f2f",
+            "unwind": "0x4d5cae98",
+            "sha256": "f460eca75b13696fc8296f50bb830225bd7964dd1185a8bb2d3ce808810c461b"
+          }
+        ]
+      }
+    },
+    "slduiu.dll": {
+      "save_mate_list": {
+        "entry": "0x49728480",
+        "sha256": "370ac58403f6bd9cbc7e79a2a855239dfc983903891f5bc7d8998b8cfb27d1c9",
+        "extents": [
+          {
+            "start": "0x49728480",
+            "end": "0x497288e9",
+            "unwind": "0x4aa5a764",
+            "sha256": "370ac58403f6bd9cbc7e79a2a855239dfc983903891f5bc7d8998b8cfb27d1c9"
+          }
+        ]
+      }
+    }
+  },
+  "explicit_instruction_extents": {
+    "sldmodu.dll": {
+      "feature_get_filed_owner": {
+        "start": "0x4bb44300",
+        "end": "0x4bb44319",
+        "sha256": "a19f50b4de1adf961122527d8b789c184188d03cbe2cff867ade9296144fd9a1"
+      },
+      "component_get_filed_owner": {
+        "start": "0x4b82dc10",
+        "end": "0x4b82dc26",
+        "sha256": "aa3d361d7b38da8361ab6c7bcc1d75ea2c9f54392fa5b91d35520bcf5fedeb26"
+      },
+      "node_get_id": {
+        "start": "0x4b283ba0",
+        "end": "0x4b283ba4",
+        "sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689"
+      },
+      "return_false": {
+        "start": "0x4b27cbe0",
+        "end": "0x4b27cbe3",
+        "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e"
+      },
+      "return_true": {
+        "start": "0x4b27e150",
+        "end": "0x4b27e156",
+        "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67"
+      },
+      "wrapper_copy_id_triplet": {
+        "start": "0x4c3340b0",
+        "end": "0x4c3340c2",
+        "sha256": "581c4bf8d96b4ae7d5bbcb6529186e8ea5ddde2de60873b4d4d4378147ac2092"
+      },
+      "get_mate_wrapper": {
+        "start": "0x4bc44ed0",
+        "end": "0x4bc44edf",
+        "sha256": "f6015ab18941fadce5cfe05db1037ec75d5b3bea6755b3d6838103336d75889a"
+      },
+      "count_mate_wrappers": {
+        "start": "0x4b289870",
+        "end": "0x4b289877",
+        "sha256": "df9ae61b0c83918ebebfff67700fd70f79454afe00d1e1fe6ab0b5163430f651"
+      }
+    },
+    "sldarchiveu.dll": {
+      "header_allocate_id": {
+        "start": "0x31a052d0",
+        "end": "0x31a05339",
+        "sha256": "4261de603a201a7a13a8b650491ac785d4bf0c0b2fb9a729170a32c7017cd5b7"
+      }
+    }
+  },
+  "vtable_bindings": [
+    {
+      "class": ".?AVmoMateCoincident@@",
+      "vtable": "0x4cfa46e0",
+      "rtti_locator": "0x4d338348",
+      "slots": {
+        "0x28": "0x4b668a60",
+        "0x188": "0x4b283ba0",
+        "0x1e0": "0x4b27cbe0",
+        "0x498": "0x4bb44300",
+        "0x500": "0x4b27e150",
+        "0x650": "0x4b27cbe0",
+        "0x1288": "0x4bb51930",
+        "0x1590": "0x4bb4de30",
+        "0x16d0": "0x4bc51070",
+        "0x1ef8": "0x4b289870",
+        "0x1f00": "0x4bc44ed0",
+        "0x2170": "0x4b27cbe0"
+      }
+    },
+    {
+      "class": ".?AVmoMateGroup_c@@",
+      "vtable": "0x4cfe0028",
+      "rtti_locator": "0x4d33a340",
+      "slots": {
+        "0x28": "0x4b669f90",
+        "0x498": "0x4bb44300",
+        "0xfb8": "0x4bda62a0",
+        "0xfd0": "0x4bda66c0",
+        "0x11a8": "0x4bdacbe0"
+      }
+    },
+    {
+      "class": ".?AVmoAssembly_c@@",
+      "vtable": "0x4ce69b30",
+      "rtti_locator": "0x4d30ec18",
+      "slots": {
+        "0x28": "0x4b663c90",
+        "0x498": "0x4b27c910",
+        "0x11f0": "0x4b285b20",
+        "0x4b8": "0x4b6746e0",
+        "0x4c0": "0x4b677880"
+      }
+    },
+    {
+      "class": ".?AVmoChainComponent_c@@",
+      "vtable": "0x4ce9c808",
+      "rtti_locator": "0x4d319b30",
+      "slots": {
+        "0xa8": "0x4b82e340",
+        "0x498": "0x4b82f0c0"
+      }
+    }
+  ],
+  "sldmodu_imports": {
+    "0x4cd352a0": [
+      "sldarchiveu.dll",
+      "?getNewID@moHeader_c@@QEAAHXZ"
+    ],
+    "0x4cd3d880": [
+      "swccu.dll",
+      "??6su_CArchive@@QEAAAEAV0@J@Z"
+    ],
+    "0x4cd3d888": [
+      "swccu.dll",
+      "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+    ],
+    "0x4cd33300": [
+      "SLDMFCU.dll",
+      "?hasCondition@moArchiveHelper_c@@QEAAHH@Z"
+    ]
+  },
+  "disclosed_projection_sha256": "d6f675d681b933798295fb53f1567c412a165c1d797131f416b37ebb38fb3ee0",
+  "disclosed_projection": {
+    "case": "A17PlaneCoincident",
+    "source_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+    "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+    "map_streams": {
+      "Contents/Config-0": {
+        "sha256": "bdca86fea8eff997064bd8888a46c3ee16c583bb56f66543ab7c751a10a49916",
+        "bytes": 25438,
+        "map_next": 107,
+        "mate_slots": []
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "sha256": "83ab1385e7d9bce693e6d3451b5d770aa855321acaafb025227a2dfd1a989667",
+        "bytes": 5295,
+        "map_next": 168,
+        "mate_slots": []
+      },
+      "Contents/Config-0-MatesList": {
+        "sha256": "4a2f58c037314e32a62852ab03fc3d18cf83320b357e9d73c8fb5a6d2ec47694",
+        "bytes": 3304,
+        "map_next": 196,
+        "mate_slots": [
+          169
+        ]
+      },
+      "Header2": {
+        "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+        "bytes": 2575,
+        "map_next": 77,
+        "mate_slots": []
+      },
+      "Contents/Config-0-ModelHeader": {
+        "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+        "bytes": 2575,
+        "map_next": 77,
+        "mate_slots": []
+      },
+      "Contents/CMgr": {
+        "sha256": "b887cb546cabb14c209007030b4203e169ae44baa732de4669d5c921059b62d7",
+        "bytes": 2617,
+        "map_next": 42,
+        "mate_slots": []
+      },
+      "Contents/CMgrHdr2": {
+        "sha256": "adf223c490e6c6383fa46fd5f13f2de16f0cd591a1d2c7231cbcabd692af0a37",
+        "bytes": 137,
+        "map_next": 5,
+        "mate_slots": []
+      }
+    },
+    "resolved_feature_ids": [
+      {
+        "class": "moCommentsFolder_c",
+        "slot": 108,
+        "f08": 9
+      },
+      {
+        "class": "moFavoriteFolder_c",
+        "slot": 111,
+        "f08": 21
+      },
+      {
+        "class": "moHistoryFolder_c",
+        "slot": 114,
+        "f08": 22
+      },
+      {
+        "class": "moSelectionSetFolder_c",
+        "slot": 117,
+        "f08": 23
+      },
+      {
+        "class": "moSensorFolder_c",
+        "slot": 120,
+        "f08": 20
+      },
+      {
+        "class": "moLiveSectionFolder_c",
+        "slot": 123,
+        "f08": 10
+      },
+      {
+        "class": "moDocsFolder_c",
+        "slot": 126,
+        "f08": 8
+      },
+      {
+        "class": "moDetailCabinet_c",
+        "slot": 129,
+        "f08": 2
+      },
+      {
+        "class": "moEnvFolder_c",
+        "slot": 74,
+        "f08": 7
+      },
+      {
+        "class": "moInkMarkupFolder_c",
+        "slot": 137,
+        "f08": 19
+      },
+      {
+        "class": "moEqnFolder_c",
+        "slot": 140,
+        "f08": 16
+      },
+      {
+        "class": "moRefPlane_c",
+        "slot": 143,
+        "f08": 3
+      },
+      {
+        "class": "moRefPlane_c",
+        "slot": 147,
+        "f08": 4
+      },
+      {
+        "class": "moRefPlane_c",
+        "slot": 150,
+        "f08": 5
+      },
+      {
+        "class": "moOriginProfileFeature_c",
+        "slot": 154,
+        "f08": 6
+      },
+      {
+        "class": "moMateGroup_c",
+        "slot": 166,
+        "f08": 11
+      }
+    ],
+    "node_fields": {
+      "f08": 26,
+      "f0c": 256,
+      "f28": 1073741824,
+      "f2c": 0,
+      "f29c": 101,
+      "f98": 2,
+      "f2ac": 370108,
+      "f2b0": 19000,
+      "f2b8": 19000,
+      "f2bc": 2026306
+    },
+    "mate": {
+      "class": "moMateCoincident",
+      "slot": 169,
+      "f08": 26,
+      "node_children": [],
+      "owner_field_present": false
+    },
+    "resolved_group": {
+      "class": "moMateGroup_c",
+      "slot": 166,
+      "f08": 11,
+      "node_children": [],
+      "node_fields": {
+        "f0c": 0,
+        "f28": 1073741824,
+        "f2c": 0
+      },
+      "manager_records": 0,
+      "id_records": 0
+    },
+    "endpoints": {
+      "f410": [
+        {
+          "f74": 26,
+          "f78": 0,
+          "f7c": 0
+        },
+        {
+          "f74": 26,
+          "f78": 1,
+          "f7c": 1
+        }
+      ],
+      "f3c8": [
+        {
+          "f74": -12345,
+          "f78": -12345,
+          "f7c": -12345
+        },
+        {
+          "f74": -12345,
+          "f78": -12345,
+          "f7c": -12345
+        }
+      ]
+    },
+    "rooted": {
+      "Header2": {
+        "class": "moHeader_c",
+        "slot": 2,
+        "f08": 27,
+        "integer_fields": {
+          "fec": 1,
+          "f50": 1794529626,
+          "f08": 27,
+          "f40": 105,
+          "f44": 101,
+          "f58": 0,
+          "f68": 0,
+          "f70": 1794907557,
+          "f60": 0,
+          "f78": 0,
+          "fc0": 0,
+          "fc4": 2,
+          "f7c": 0,
+          "f48": 1794907566,
+          "fc8": 0,
+          "f64": 0,
+          "bboxflag": 1,
+          "fcc": 3,
+          "fd0": -1,
+          "fd4": -1,
+          "f80": 1,
+          "f9c": 0,
+          "fa0": 0,
+          "fa4": 0,
+          "fa8": 0,
+          "fac": 0,
+          "fb0": 0,
+          "fe8": 0,
+          "ff0": 0,
+          "ff4": 0,
+          "ff8": 0,
+          "ffc": 0,
+          "f100": 0,
+          "f104": 0,
+          "f108": 0,
+          "f10c": 0,
+          "f98": 1
+        },
+        "f26_owner_matches": [],
+        "class_counts": {
+          "moCStringHandle_c": 4,
+          "moExtObjectList_c": 1,
+          "moExtObject_c": 2,
+          "moHeader_c": 1,
+          "moLogs_c": 26,
+          "moStamp_c": 30,
+          "suObList": 2,
+          "su_CStringArray": 2
+        },
+        "f20_fields": [
+          "n",
+          "items"
+        ],
+        "revision_log_ids": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "mate_log": {
+          "id": 26,
+          "has_name": true,
+          "name_matches_mate": true,
+          "stamps": [
+            {
+              "f08": 0,
+              "f0c": 0,
+              "f10": 0
+            }
+          ]
+        },
+        "external_feature_ids": []
+      },
+      "Contents/Config-0-ModelHeader": {
+        "class": "moHeader_c",
+        "slot": 2,
+        "f08": 27,
+        "integer_fields": {
+          "fec": 1,
+          "f50": 1794529626,
+          "f08": 27,
+          "f40": 105,
+          "f44": 101,
+          "f58": 0,
+          "f68": 0,
+          "f70": 1794907557,
+          "f60": 0,
+          "f78": 0,
+          "fc0": 0,
+          "fc4": 2,
+          "f7c": 0,
+          "f48": 1794907566,
+          "fc8": 0,
+          "f64": 0,
+          "bboxflag": 1,
+          "fcc": 3,
+          "fd0": -1,
+          "fd4": -1,
+          "f80": 1,
+          "f9c": 0,
+          "fa0": 0,
+          "fa4": 0,
+          "fa8": 0,
+          "fac": 0,
+          "fb0": 0,
+          "fe8": 0,
+          "ff0": 0,
+          "ff4": 0,
+          "ff8": 0,
+          "ffc": 0,
+          "f100": 0,
+          "f104": 0,
+          "f108": 0,
+          "f10c": 0,
+          "f98": 1
+        },
+        "f26_owner_matches": [],
+        "class_counts": {
+          "moCStringHandle_c": 4,
+          "moExtObjectList_c": 1,
+          "moExtObject_c": 2,
+          "moHeader_c": 1,
+          "moLogs_c": 26,
+          "moStamp_c": 30,
+          "suObList": 2,
+          "su_CStringArray": 2
+        },
+        "f20_fields": [
+          "n",
+          "items"
+        ],
+        "revision_log_ids": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "mate_log": {
+          "id": 26,
+          "has_name": true,
+          "name_matches_mate": true,
+          "stamps": [
+            {
+              "f08": 0,
+              "f0c": 0,
+              "f10": 0
+            }
+          ]
+        },
+        "external_feature_ids": []
+      },
+      "Contents/CMgr": {
+        "class": "moConfigurationMgr_c",
+        "slot": 2,
+        "f08": -1,
+        "integer_fields": {
+          "f0c": 0,
+          "f28": 1073741824,
+          "f08": -1,
+          "f2c": 0,
+          "has_list68": 0,
+          "f298": 0,
+          "f28c": 0,
+          "f29c": 101,
+          "has_f1e8": 0,
+          "f2a8": -2147483648,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f2b0": 19000,
+          "f2b4": 2026306,
+          "f1f4": 0,
+          "f2ec": 0,
+          "fa8": 0,
+          "f208": 0,
+          "f300": 5,
+          "f301": 0,
+          "f318": 0,
+          "hidden": 0,
+          "f30c": -1,
+          "f2a4": 31290997,
+          "f2a0": -1498064243,
+          "f98": 2,
+          "f2ac": 370108,
+          "f344": 1,
+          "f40c": 1,
+          "n_ext": 0,
+          "f55c": 0,
+          "n590": 0,
+          "n5b8": 0,
+          "n600": 0,
+          "n5d0": 0,
+          "f658": 0,
+          "n660": 0,
+          "n6b0": 0,
+          "n6e0a": 0,
+          "n6e0b": 0,
+          "n6e8a": 0,
+          "n6e8b": 0,
+          "n708": 0,
+          "f758": 0,
+          "f75c": 2,
+          "n7f8": 0,
+          "f818": 0,
+          "f81c": 0,
+          "n820": 0,
+          "f830": 4294967295,
+          "n6c0": 0,
+          "f860": 0,
+          "has8a0": 0
+        },
+        "f26_owner_matches": [],
+        "class_counts": {
+          "moAssyMassPropsCache_c": 1,
+          "moCStringHandle_c": 4,
+          "moConfigObject_c": 3,
+          "moConfig_c": 5,
+          "moConfigurationMgr_c": 1,
+          "moConfiguration_c": 1,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moNodeName_c": 1,
+          "moReferenceChain_c": 2,
+          "suObList": 2
+        },
+        "active_configuration": {
+          "class": "moConfiguration_c",
+          "slot": 4,
+          "f08": 0,
+          "f85c": 26,
+          "f860": 105,
+          "f4b0": 2,
+          "configuration_objects": [
+            {
+              "class": "moConfigObject_c",
+              "slot": 11,
+              "f08": {
+                "class": "moConfig_c",
+                "slot": 12,
+                "f08": 2
+              }
+            },
+            {
+              "class": "moConfigObject_c",
+              "slot": 13,
+              "f08": {
+                "class": "moConfig_c",
+                "slot": 14,
+                "f08": 2
+              },
+              "f10": {
+                "class": "moContextChainComponent_c",
+                "slot": 16,
+                "f08": null
+              }
+            },
+            {
+              "class": "moConfigObject_c",
+              "slot": 29,
+              "f08": {
+                "class": "moConfig_c",
+                "slot": 30,
+                "f08": 2
+              },
+              "f10": {
+                "class": "moContextChainComponent_c",
+                "slot": 31,
+                "f08": null
+              }
+            }
+          ]
+        }
+      },
+      "Contents/CMgrHdr2": {
+        "class": "dmConfigMgrHeader_c",
+        "slot": 2,
+        "f08": null,
+        "integer_fields": {
+          "f60": 1794907572,
+          "f68": 2
+        },
+        "f26_owner_matches": [],
+        "class_counts": {
+          "dmConfigHeader_c": 1,
+          "dmConfigMgrHeader_c": 1
+        }
+      }
+    },
+    "assembly_wrapper_counter": {
+      "fd48#wire": 2,
+      "fd48": 2
+    },
+    "config_occurrences": [
+      {
+        "class": "moReference_c",
+        "slot": 8,
+        "f08": 24
+      },
+      {
+        "class": "moReference_c",
+        "slot": 16,
+        "f08": 25
+      }
+    ],
+    "heldout_payloads_read": false,
+    "native_acceptance": false
+  },
+  "generated_mate_acceptance": false,
+  "vm_accessed": false,
+  "heldout_payloads_read": false
+}

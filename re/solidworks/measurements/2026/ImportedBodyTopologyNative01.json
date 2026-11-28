@@ -1,0 +1,351 @@
+{
+  "author_revision": "1fae5822b3bdd742d9144fb2518637e9d2a0fe71",
+  "controls_healthy": true,
+  "exact_replays_per_source": 7,
+  "heldout_payloads_read": 0,
+  "native_job_sha256": "313d1f9b962beda3ef0e4d1617b5b9d935896db4a0700ce65f224c87d96162cd",
+  "native_phases": [
+    {
+      "name": "ControlBefore",
+      "record_sha256": "31cb2a1e9950e107d952d361c1cc60beaae34e30664d7b3db5bc95691a2edcb0"
+    },
+    {
+      "name": "CylinderZAuthor",
+      "record_sha256": "7cea8a446bc2e6ec6ad35d176918e78e8153ec4e3a1618d9261d1de1737ca35f"
+    },
+    {
+      "name": "CylinderZReopen",
+      "record_sha256": "42c95a46aa96a88fc5a50df2b33837f6fc0b1b7cbf58ad561ce258969090eab5"
+    },
+    {
+      "name": "CylinderReverseYAuthor",
+      "record_sha256": "bb8383e8dbd9d3839ce09e5b9cb4640271895e15c07e23297892a722412ef027"
+    },
+    {
+      "name": "CylinderReverseYReopen",
+      "record_sha256": "ac498465929dada61128f31dd2544ddcdb7fc6ff8325c2d66fc26a67d5954271"
+    },
+    {
+      "name": "ControlAfter",
+      "record_sha256": "6d6afa62d81836db736bc833e099241442b10270a1ee607bcef250b78dea45a8"
+    }
+  ],
+  "native_processes": 6,
+  "native_receipt_sha256": "bbaa59c9661882912fdc0f140feb864824a9ddc36609e902e359d8c50ffd1105",
+  "native_writer_acceptance": false,
+  "native_writer_outputs": 0,
+  "observations": {
+    "BoxReference": {
+      "empty_active_partition": {
+        "bytes": 604,
+        "sha256": "1108f686bd39fab80db0fdf4e9960a83f7dd18edcf88a59f55af47c42b090ea1"
+      },
+      "local_envelope": {
+        "bytes": 3050,
+        "sha256": "b3f47085497853e38407e11c53deb429916e2955f97472dc9103c762d695782f"
+      },
+      "local_transmit": {
+        "attribute_count": 27,
+        "bytes": 6298,
+        "header_bytes": 84,
+        "nodes": {
+          "ATTRIBUTE": 27,
+          "ATTRIB_DEF": 12,
+          "ATT_DEF_ID": 12,
+          "BODY": 1,
+          "EDGE": 12,
+          "FACE": 6,
+          "HALFEDGE": 24,
+          "INT_VALUES": 28,
+          "LINE": 12,
+          "LIST": 1,
+          "LOOP": 6,
+          "PLANE": 6,
+          "POINT": 8,
+          "POINTER_LIS_BLOCK": 1,
+          "REAL_VALUES": 3,
+          "REGION": 2,
+          "SHELL": 2,
+          "UNICODE_VALUES": 1,
+          "VERTEX": 8
+        },
+        "nonresident_pointers": {
+          "ATTRIB_DEF.next": 12
+        },
+        "resident_nodes": 172,
+        "sha256": "ffc52d3cd19c4cba65fa798df5ffa0e45b3c85120fbd139e96092da292e836b0"
+      },
+      "map_base": 107,
+      "map_final": 180,
+      "owner_links": {
+        "archive_body_tag": 536,
+        "atom_id": 101,
+        "body_stamp": 102,
+        "display_mode": 6,
+        "feature_id": 26,
+        "local_body_match_attribute": null,
+        "partition_mark": 7,
+        "saved_header_stamp": 102
+      },
+      "shared_archive": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "e5c4856063b212515420d6c5042c68e662e5fa516b61117a7cb1c68136ee86b3"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "4e0da104cd358f2c2797182b62dbdd0d5577fcf61e2d983fa785ccf5c00fddfd"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2219,
+          "sha256": "190793f61f2f160b979b323b50025001920940353bab458410530dcaa15276e4"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6080,
+          "sha256": "5c038eab2f3862e3b536c5b6e6526db9357e5fa9daa13928901dde93017fab12"
+        },
+        "Header2": {
+          "bytes": 2219,
+          "sha256": "190793f61f2f160b979b323b50025001920940353bab458410530dcaa15276e4"
+        }
+      },
+      "source": {
+        "bytes": 49188,
+        "sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325"
+      },
+      "storage_key": "Imported1",
+      "topology": {
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      }
+    },
+    "CylinderReverseY": {
+      "empty_active_partition": {
+        "bytes": 604,
+        "sha256": "1108f686bd39fab80db0fdf4e9960a83f7dd18edcf88a59f55af47c42b090ea1"
+      },
+      "local_envelope": {
+        "bytes": 1828,
+        "sha256": "2b7dea02846466e9fcdd05dea9268d0ed8384a4f29055dac2411ff52f23c79c8"
+      },
+      "local_transmit": {
+        "attribute_count": 19,
+        "bytes": 3525,
+        "header_bytes": 84,
+        "nodes": {
+          "ATTRIBUTE": 19,
+          "ATTRIB_DEF": 13,
+          "ATT_DEF_ID": 13,
+          "BODY": 1,
+          "CIRCLE": 2,
+          "CYLINDER": 1,
+          "EDGE": 2,
+          "FACE": 3,
+          "HALFEDGE": 4,
+          "INT_VALUES": 17,
+          "LIST": 1,
+          "LOOP": 4,
+          "PLANE": 2,
+          "POINTER_LIS_BLOCK": 1,
+          "REAL_VALUES": 3,
+          "REGION": 2,
+          "SHELL": 2,
+          "UNICODE_VALUES": 1
+        },
+        "nonresident_pointers": {
+          "ATTRIB_DEF.next": 13
+        },
+        "resident_nodes": 91,
+        "sha256": "81b3209741cffe06e5332b552d82743554eb9ce3415688b82e3c32f78cda623f"
+      },
+      "map_base": 107,
+      "map_final": 180,
+      "native_observation": {
+        "body_count": 1,
+        "body_name": "Imported1",
+        "feature": {
+          "name": "Imported1",
+          "native_id": 26,
+          "type": "BaseBody"
+        },
+        "mass_si": {
+          "area": 0.0012487830798019427,
+          "com": [
+            0.013,
+            0.0135,
+            -0.017
+          ],
+          "mass": 3.357577148524091e-06,
+          "volume": 3.357577148524091e-06
+        },
+        "topology": {
+          "cylindrical_faces": 1,
+          "edges": 2,
+          "faces": 3,
+          "planar_faces": 2,
+          "vertices": 0
+        }
+      },
+      "owner_links": {
+        "archive_body_tag": 316,
+        "atom_id": 101,
+        "body_stamp": 102,
+        "display_mode": 6,
+        "feature_id": 26,
+        "local_body_match_attribute": [
+          316
+        ],
+        "partition_mark": 7,
+        "saved_header_stamp": 102
+      },
+      "shared_archive": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "877ddcdc332298cf5553ceacb363b7ccddfec87b05d4dd7b848bc0b83a03cb52"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "32b3473cc2335bcc9a6d8d6e5e2495cdf18eb46b731d7b2b94589ad34b59a21a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2219,
+          "sha256": "76ac5ea4e7f35581e57213677d1fd7b3b876e57727a0d1cca2fe0153b9bcccf3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6080,
+          "sha256": "06bff7e6f4e4f013b91b92c18b9c3dc455b3d50c53a7e730b411b9a1d8bde304"
+        },
+        "Header2": {
+          "bytes": 2219,
+          "sha256": "76ac5ea4e7f35581e57213677d1fd7b3b876e57727a0d1cca2fe0153b9bcccf3"
+        }
+      },
+      "source": {
+        "bytes": 48380,
+        "sha256": "91a3a675d932d0f14c886446885980d484beb66a4f821d5ecfe9908e41182179"
+      },
+      "storage_key": "Imported1",
+      "topology": {
+        "edges": 2,
+        "faces": 3,
+        "vertices": 0
+      }
+    },
+    "CylinderZ": {
+      "empty_active_partition": {
+        "bytes": 604,
+        "sha256": "1108f686bd39fab80db0fdf4e9960a83f7dd18edcf88a59f55af47c42b090ea1"
+      },
+      "local_envelope": {
+        "bytes": 1816,
+        "sha256": "6df48cab7d570948226e982169bd35c497b9704fafc510bdc195bfd317979d3e"
+      },
+      "local_transmit": {
+        "attribute_count": 19,
+        "bytes": 3525,
+        "header_bytes": 84,
+        "nodes": {
+          "ATTRIBUTE": 19,
+          "ATTRIB_DEF": 13,
+          "ATT_DEF_ID": 13,
+          "BODY": 1,
+          "CIRCLE": 2,
+          "CYLINDER": 1,
+          "EDGE": 2,
+          "FACE": 3,
+          "HALFEDGE": 4,
+          "INT_VALUES": 17,
+          "LIST": 1,
+          "LOOP": 4,
+          "PLANE": 2,
+          "POINTER_LIS_BLOCK": 1,
+          "REAL_VALUES": 3,
+          "REGION": 2,
+          "SHELL": 2,
+          "UNICODE_VALUES": 1
+        },
+        "nonresident_pointers": {
+          "ATTRIB_DEF.next": 13
+        },
+        "resident_nodes": 91,
+        "sha256": "d6e924671f7e65f9d985f9043cb0c03ac5ecd258eae08d732c0b038f3363e09d"
+      },
+      "map_base": 107,
+      "map_final": 180,
+      "native_observation": {
+        "body_count": 1,
+        "body_name": "Imported1",
+        "feature": {
+          "name": "Imported1",
+          "native_id": 26,
+          "type": "BaseBody"
+        },
+        "mass_si": {
+          "area": 0.0032421236185046667,
+          "com": [
+            -0.008,
+            0.019,
+            0.019500000000000003
+          ],
+          "mass": 1.4024069605624837e-05,
+          "volume": 1.4024069605624837e-05
+        },
+        "topology": {
+          "cylindrical_faces": 1,
+          "edges": 2,
+          "faces": 3,
+          "planar_faces": 2,
+          "vertices": 0
+        }
+      },
+      "owner_links": {
+        "archive_body_tag": 316,
+        "atom_id": 101,
+        "body_stamp": 102,
+        "display_mode": 6,
+        "feature_id": 26,
+        "local_body_match_attribute": [
+          316
+        ],
+        "partition_mark": 7,
+        "saved_header_stamp": 102
+      },
+      "shared_archive": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "f219fdfe23f3efc3633fbc078117927fb48573c601bff40f4c31d18f333797c0"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "35dd0fda4fbc203114eec78a9a7aa01d2f24f7aae9cca2d8a9814f254be8989b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2219,
+          "sha256": "9a9c3361e4d29b2935a21a6274524e0bde7625ac819a10e2f4d76c520c0e8aa5"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6080,
+          "sha256": "2b6f490c746ce27553352e2b67c2eb8eb676becfa9ac9524e6cd6539bcb34619"
+        },
+        "Header2": {
+          "bytes": 2219,
+          "sha256": "9a9c3361e4d29b2935a21a6274524e0bde7625ac819a10e2f4d76c520c0e8aa5"
+        }
+      },
+      "source": {
+        "bytes": 68119,
+        "sha256": "ef72c75f230331903726a4e48ca61682736289dba78261d654071f2fe2a54166"
+      },
+      "storage_key": "Imported1",
+      "topology": {
+        "edges": 2,
+        "faces": 3,
+        "vertices": 0
+      }
+    }
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "schema": "kit.sw2026.imported-body-topology.v1"
+}

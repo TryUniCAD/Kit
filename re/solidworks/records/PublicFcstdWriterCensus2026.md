@@ -1,0 +1,19 @@
+# Strict FreeCAD to SOLIDWORKS public writer census
+
+Task `B04-SW2026-CORPUS/PUBLIC-FCSTD-ADMISSION`, owner `/root/assembly_occurrence`, integration `/root`, delivery PR #121. This measurement covers the available source inventory of 162 distinct FCStd identities at 171 original paths. Its SHA-256 is `db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c`. Membership in the historical 165-part and five-assembly benchmark remains unverified.
+
+The [census runner](../../tooling/sw2026/freecad_census/RunFcstdWriterCensus01.py) runs the normal SDK from an immutable snapshot with manifest `24b090548c73c8745636c5be3888d9268f2ca6ec5473ada762213e1e1df248be`. Its observed checkout head was `a15e32154f48393424c60eff2281386bdc926bd7`. Hold that code and the original paths fixed when rerunning. Read strictly with B-rep and tessellation enabled and validate the full neutral document before invoking the normal writer. Keep the original path so alias paths and external references retain their actual context. The destination uses the document's actual part or assembly kind and native transfer without a carrier.
+
+The [worker](../../tooling/sw2026/freecad_census/CensusFcstdWorker01.py) records a full neutral digest, public outcome, the lower owner admission diagnostics and exact mutation checks. For a successful write the runner independently reads back the output in a separate process. For a refusal it checks for any partially emitted file. The frozen method SHA-256 is `5ddfcf811f8a1904a9d859562dfef16b9eecfb19d6776060f5e155c672ddb24b`. The private inventory, source snapshot and per-case material remain outside the checkout.
+
+## Observed public boundary
+
+All 171 strict reads return valid documents. The 169 native part and two native assembly requests all refuse before output, so there are zero files to read back. Every original input, source snapshot and full neutral document stays unchanged. There are zero timeouts, nested runtime process calls, forbidden external reads or writer rereads of the source CAD document. The independent second run repeats all 171 semantic outcomes. Its record digests differ from the first run because the process timings and declared recipe output paths changed. [Numeric evidence](../measurements/2026/PublicFcstdWriterCensus01.json)
+
+The public resolver reports the canonical `solidworks.sldprt` adapter name for both target aliases. The part preparation diagnostic first rejects extended source state. All paths retain `source.attributes.freecad_schema_version` and `metadata.freecad`. All 162 distinct documents retain the source FCStd document and verification payload pair. Native B-rep payloads are present where applicable. The unchanged lower admission diagnoses 55 assembly or boundary payload cases and 116 extra payload or domain cases. Lifting the first guard alone leaves those owner requirements open.
+
+The available set includes nine one-boss, four-line profiles. The first two also carry support datums, 17 parameters, eleven sketch constraints and retained payloads. Source history and property ownership require explicit lowering even for the closest geometric profiles. The earlier 28 path probes join exactly. The 26 previous successful model hashes match and the two earlier failed reads now return valid neutrals.
+
+To replay a retained frozen census, use [the clone helper](../../tooling/sw2026/freecad_census/CloneFcstdCensus01.py) to stage a fresh private attempt and run its bound command under the original frozen project and Python environment. Include the cloned packet's absolute output mapping. The audited writer scope and original corpus reconciliation remain tracked in the [coverage register](../CorpusCoverage.md).
+
+[Change entry](../../../Documentation/Changes/Solidworks/Inspection/Corpus/SolidworksPublicFcstdWriterCensus.md)

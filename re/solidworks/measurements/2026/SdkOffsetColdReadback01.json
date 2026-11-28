@@ -1,0 +1,284 @@
+{
+  "cases": {
+    "FrontOffsetCircle": {
+      "cold_sha256": "9a565b31ab2fcb750f993ab3e7249316f1437712aed879445f2a3986b72d922e",
+      "disclosed_request_sha256": "d7c22522f52c67e29a6874f29f1ba610d4fa1515de63a6c3a509ed28636375eb",
+      "existing_native_result_sha256": "381ec5033f864322f457ca82fd1f1ffef5e4dc953a5dd00fd4567621a06fd2d1",
+      "geometry": {
+        "area_mm2": 771.7121291613498,
+        "centroid_mm": [
+          0.0,
+          0.0,
+          17.025000000000002
+        ],
+        "driver_owner_indices": [
+          156,
+          168,
+          191
+        ],
+        "faces": 3,
+        "ordered_neutral_features": 20,
+        "signed_offset_mm": 13.79,
+        "strict_read_modes": 2,
+        "volume_mm3": 1403.641502802787
+      },
+      "isolated_workers": 2,
+      "linked_replay": {
+        "configuration_map_counter": 83,
+        "resolved_map_counter": 217
+      },
+      "logical_stream_count": 10,
+      "publication": {
+        "design_only": {
+          "publish_adapter": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unqualified SOLIDWORKS sketch support references",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unqualified SOLIDWORKS sketch support references",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unqualified SOLIDWORKS sketch support references",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          }
+        },
+        "full": {
+          "publish_adapter": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unqualified SOLIDWORKS sketch support references",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unqualified SOLIDWORKS sketch support references",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unqualified SOLIDWORKS sketch support references",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          }
+        }
+      },
+      "runtime_input_reads": 0,
+      "warm_sha256": "42f417e7d5ff9298dae80bc06ab2745e248f2a3acdd8253add13853f76e658b8"
+    },
+    "RightOffsetCircle": {
+      "cold_sha256": "8cd21b6d7d1be689f120cce89ee2a968dbf55ca016cc9354b3dcd242f795a297",
+      "disclosed_request_sha256": "735cd1fd376fb9ff4efbb54f7af75af976d727c52c2d25b1392b2d0ed0380d5b",
+      "existing_native_result_sha256": "51ab991098c9e7cf46844f6e84017847b5151d919bbd8f98491e149a3c097015",
+      "geometry": {
+        "area_mm2": 772.1544654069751,
+        "centroid_mm": [
+          23.924999999999997,
+          0.0,
+          0.0
+        ],
+        "driver_owner_indices": [
+          156,
+          168,
+          191
+        ],
+        "faces": 3,
+        "ordered_neutral_features": 20,
+        "signed_offset_mm": 19.369999999999997,
+        "strict_read_modes": 2,
+        "volume_mm3": 1579.9592184504697
+      },
+      "isolated_workers": 2,
+      "linked_replay": {
+        "configuration_map_counter": 83,
+        "resolved_map_counter": 217
+      },
+      "logical_stream_count": 10,
+      "publication": {
+        "design_only": {
+          "publish_adapter": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "native-only feature definitions cannot be exported",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "native-only feature definitions cannot be exported",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "native-only feature definitions cannot be exported",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          }
+        },
+        "full": {
+          "publish_adapter": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "does not support the destination",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unsupported plain part preparation options",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "does not support the destination",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          }
+        }
+      },
+      "runtime_input_reads": 0,
+      "warm_sha256": "2eec08a1196edf1e3cdc9ed1cc993aae6fc6b57bfead3da04fcf735158819516"
+    },
+    "TopReverseOffset": {
+      "cold_sha256": "732d0d93db968c2f26242dbb92dcfa75d3a9748938d35ef7d602caacb1977a85",
+      "disclosed_request_sha256": "56414188a4535df0b6e10d081869beda53c469634499809ef202611e56a69dfd",
+      "existing_native_result_sha256": "a3badc21c75925ac2f40290be7a5ef4b1fd3d5fa1f9dbec926fa6d92f73513b1",
+      "geometry": {
+        "area_mm2": 1094.7457654481898,
+        "centroid_mm": [
+          0.0,
+          -25.035000000000004,
+          0.0
+        ],
+        "driver_owner_indices": [
+          156,
+          168,
+          191
+        ],
+        "faces": 3,
+        "ordered_neutral_features": 20,
+        "signed_offset_mm": -27.13,
+        "strict_read_modes": 2,
+        "volume_mm3": 1671.9055049792564
+      },
+      "isolated_workers": 2,
+      "linked_replay": {
+        "configuration_map_counter": 83,
+        "resolved_map_counter": 217
+      },
+      "logical_stream_count": 10,
+      "publication": {
+        "design_only": {
+          "publish_adapter": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "native-only feature definitions cannot be exported",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "native-only feature definitions cannot be exported",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "native-only feature definitions cannot be exported",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          }
+        },
+        "full": {
+          "publish_adapter": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "does not support the destination",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "unsupported plain part preparation options",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": {
+              "changed_source": "cold readback differs",
+              "changed_source_metadata": "cold readback differs",
+              "native_saved_history": "does not support the destination",
+              "stale_authenticated_receipt": "no matching native measurement"
+            },
+            "whole_streams": 2
+          }
+        }
+      },
+      "runtime_input_reads": 0,
+      "warm_sha256": "b45d9c85c1c95e348467ba668aba8a91b7d4d0fca4d555a97ee43f1fff4d43ee"
+    }
+  },
+  "disclosed_receipt_sha256": "69d26121c617641841dd29bd43867f082ae59d32a68cf5ace03903e11781cd3a",
+  "new_heldout_cases": 0,
+  "new_native_processes": 0,
+  "python": "3.14.7",
+  "schema": "kit.sw2026.measured-offset-cold-readback.v1",
+  "stale_receipt_sha256": "79210ac088a95b3c6d0913b8a056e678e8dbe14e9a861f178455ea0426f6e80c",
+  "zlib": "1.2.12"
+}

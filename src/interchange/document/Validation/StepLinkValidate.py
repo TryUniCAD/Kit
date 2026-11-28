@@ -1,7 +1,9 @@
 from interchange.Enums.EnumFeatures import FeatureKind
 from typing import Mapping as TypeMap
 
+from interchange.document.Validation.SweepValidate import GetSweepErrs
 from interchange.Features.FeatureStep import FeatureStep
+from interchange.Features.SweepFeature import SweepFeature
 
 
 # step links must name an existing entity and point only to prior operations
@@ -40,4 +42,9 @@ def GetStepErrors(
             ErrorValues.append(
                 f"feature {FeatureValue.id} references missing selection"
             )
+    Definition = FeatureValue.definition
+    if isinstance(Definition, SweepFeature):
+        ErrorValues.extend(
+            GetSweepErrs(FeatureValue, Definition, IdentitySets["sketches"])
+        )
     return ErrorValues

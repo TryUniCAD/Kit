@@ -1,0 +1,71 @@
+{
+  "candidate_native_rejections": 0,
+  "cleanup": {
+    "cad_processes_remaining": 0,
+    "exited": true,
+    "id": 1232,
+    "owned_birth": 134395812856301046,
+    "receipt_sha256": "217a16a052df70c1718a75b51a9a6bd8c44de90ae07bfc623cab327561d663d7",
+    "target_identity_exact": true
+  },
+  "controls": {
+    "ControlAfter": {
+      "controller_diagnostics": [
+        {
+          "error": "AttributeError('SldWorks.Application.34.CloseDoc')",
+          "stage": "close_document"
+        },
+        {
+          "error": "AttributeError('SldWorks.Application.34.CloseAllDocuments')",
+          "stage": "close_documents"
+        },
+        {
+          "error": "AttributeError('SldWorks.Application.34.ExitApp')",
+          "stage": "exit_application"
+        },
+        {
+          "error": "owned process did not exit; its lifetime handle remains registered",
+          "stage": "exit_confirmation"
+        }
+      ],
+      "creation_filetime": 134395812856301046,
+      "failure_before_rebuild": true,
+      "first_failure": {
+        "error": "com_error(-2147417851, 'The server threw an exception.', None, None)",
+        "pending_capability": false,
+        "stage": "GetDependencies",
+        "type": "com_error"
+      },
+      "opened": [
+        0,
+        0
+      ],
+      "record_sha256": "2c7dbb9a391db8a4995ea4cf0b5af380bb283071438a89dcd207fdf1ec14f040"
+    },
+    "ControlBefore": {
+      "controller_diagnostics": [],
+      "creation_filetime": 134395812573078581,
+      "failure_before_rebuild": true,
+      "first_failure": {
+        "error": "com_error(-2147417851, 'The server threw an exception.', None, None)",
+        "pending_capability": false,
+        "stage": "GetDependencies",
+        "type": "com_error"
+      },
+      "opened": [
+        0,
+        0
+      ],
+      "record_sha256": "d910c0f4c2c38e9964dcbeeab0138fd367401ea5e38184dbcce0302f762123cf"
+    }
+  },
+  "distinct_processes": 2,
+  "guest_result_sha256": "6afb78e0f9917e503200d1a4a0c6a095a1755e1938e2e5e4e65da15d1fded569",
+  "heldout_inputs_read": 0,
+  "interpretable_candidate_result": false,
+  "job_sha256": "52a7c223d61201e590296caf240fc018a98c538c9a7dedabcc997c1846e3649d",
+  "observer_sha256": "2687acb2504c33c2f03b69536abfa6d2941444faf14c4c8e0bfef2758a4cd0d0",
+  "oracle_build": "34.5.2.0604",
+  "schema": "kit.sw2026.disclosed-note-presentation-interruption.v1",
+  "skipped_note_phases": 2
+}

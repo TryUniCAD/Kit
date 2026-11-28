@@ -2932,7 +2932,7 @@ def ReadOuterMut(Choice: FilePath, State: OuterState, Depth: int) -> CadDoc:
 def OuterDocsMut(
     Native: NativeArchive, SourcePath: str, State: OuterState | None, Depth: int
 ) -> tuple[dict[str, tuple[str, CadDoc]], list[dict[str, str]]]:
-    Source = ResolvedSource(SourcePath)
+    Source = ResolvedSource(SourcePath) if State is not None else None
     Resolved: dict[str, tuple[str, CadDoc]] = {}
     Unresolved: list[dict[str, str]] = []
     for FileName in OuterFileNames(Native):

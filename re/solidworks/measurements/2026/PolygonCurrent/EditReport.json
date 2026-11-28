@@ -1,0 +1,2883 @@
+{
+  "authority": "clean-vendor-dimension-edit-and-reopen",
+  "instrumented": false,
+  "started_at": 1794777145.1071658,
+  "generator": {
+    "id": 14177624347,
+    "run": 43756383239,
+    "job": 132941286371,
+    "synthetic": "2179cb75a8501f83d78eacbdeb67f533a94246cc",
+    "parents": [
+      "e04e7b78699d3f567409937007b00b567620078a",
+      "b23e72c609caca0d0ca4acf871e9680a325f0548"
+    ],
+    "github_digest": "sha256:bb4cb2ddd8a0728e915f0748e2057012e737699f5517aad0e3c202591cf50448",
+    "digest_authority": "github metadata; zip not independently rehashed",
+    "head": "b23e72c609caca0d0ca4acf871e9680a325f0548"
+  },
+  "job_sha256": "9c3e1c20f910d2dfcb3fb1fc047736094e846444892bd12a4207d1c6c4c9a4ec",
+  "inspector_sha256": "730f09c4271b5a4d107ba9c2c78233c65504fd113572164addfe6a4529aba2d0",
+  "control_before": {
+    "path": "external-inputs/NativeControl.SLDPRT",
+    "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "stages": [
+      {
+        "stage": "oracle_idle_guard",
+        "time": 1794777145.11209
+      },
+      {
+        "stage": "open_start",
+        "time": 1794777161.409869
+      },
+      {
+        "stage": "open_return",
+        "time": 1794777171.4737954
+      },
+      {
+        "stage": "rebuild_start",
+        "time": 1794777171.4769409
+      },
+      {
+        "stage": "rebuild_return",
+        "time": 1794777172.0503004
+      },
+      {
+        "stage": "status_start",
+        "time": 1794777172.0552988
+      },
+      {
+        "stage": "status_return",
+        "time": 1794777172.2198815
+      },
+      {
+        "stage": "bodies_start",
+        "time": 1794777172.2218835
+      },
+      {
+        "stage": "bodies_return",
+        "time": 1794777172.2738554
+      },
+      {
+        "stage": "mass_start",
+        "time": 1794777172.2748814
+      },
+      {
+        "stage": "mass_return",
+        "time": 1794777172.3978817
+      },
+      {
+        "stage": "features_start",
+        "time": 1794777172.3988802
+      },
+      {
+        "stage": "features_return",
+        "time": 1794777174.0821848
+      },
+      {
+        "stage": "close_start",
+        "time": 1794777174.0848808
+      },
+      {
+        "stage": "close_return",
+        "time": 1794777174.2218797
+      }
+    ],
+    "stage": "close_return",
+    "revision": "34.5.2",
+    "process_ids": [2424, 3116],
+    "oracle_identity": {
+      "process_id": 2424,
+      "process_creation_filetime": 134392507497435725,
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664"
+    },
+    "session_diagnostics": [],
+    "seconds": 12.81,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "opened": true,
+    "rebuilt": true,
+    "whats_wrong": 0,
+    "bodies": 1,
+    "mass": {
+      "volume": 8.000000000000001e-6,
+      "area": 0.0028,
+      "com": [0.0, 0.0, 0.005],
+      "mass": 8.000000000000001e-6
+    },
+    "features": [
+      {
+        "name": "Comments",
+        "type": "CommentsFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Favorites",
+        "type": "FavoriteFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "History",
+        "type": "HistoryFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Selection Sets",
+        "type": "SelectionSetFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Sensors",
+        "type": "SensorFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Design Binder",
+        "type": "DocsFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Annotations",
+        "type": "DetailCabinet",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Surface Bodies",
+        "type": "SurfaceBodyFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Solid Bodies",
+        "type": "SolidBodyFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Lights and Cameras",
+        "type": "EnvFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Markups",
+        "type": "InkMarkupFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Equations",
+        "type": "EqnFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Material <not specified>",
+        "type": "MaterialFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Front Plane",
+        "type": "RefPlane",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Top Plane",
+        "type": "RefPlane",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Right Plane",
+        "type": "RefPlane",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Origin",
+        "type": "OriginProfileFeature",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Sketch1",
+        "type": "ProfileFeature",
+        "error": 0,
+        "warning": false,
+        "suppressed": false,
+        "dims": [
+          {
+            "name": "D1@Sketch1@NativeControl.Part",
+            "value": 0.04
+          },
+          {
+            "name": "D2@Sketch1@NativeControl.Part",
+            "value": 0.02
+          }
+        ]
+      },
+      {
+        "name": "Boss-Extrude1",
+        "type": "Extrusion",
+        "error": 0,
+        "warning": false,
+        "suppressed": false,
+        "dims": [
+          {
+            "name": "D1@Boss-Extrude1@NativeControl.Part",
+            "value": 0.01
+          },
+          {
+            "name": "D1@Sketch1@NativeControl.Part",
+            "value": 0.04
+          },
+          {
+            "name": "D2@Sketch1@NativeControl.Part",
+            "value": 0.02
+          }
+        ]
+      }
+    ],
+    "controller_diagnostics": [],
+    "dialogs": [],
+    "progress_windows": []
+  },
+  "cases": [
+    {
+      "name": "H3_scalene",
+      "source_sha256_before": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 9.932000000000002e-6,
+          "area": 0.003166276360558158,
+          "com": [0.006666666666666669, 0.007000000000000002, 0.0065]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 1.2414999999999999e-5,
+          "area": 0.003575845450697697,
+          "com": [0.006666666666666669, 0.007000000000000001, 0.008125]
+        }
+      },
+      "baseline": {
+        "path": "external-inputs/H3_scalene.SLDPRT",
+        "sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777176.7739668
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777192.757293
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777199.8980737
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777199.9020743
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777200.4862223
+          },
+          {
+            "stage": "status_start",
+            "time": 1794777200.4882953
+          },
+          {
+            "stage": "status_return",
+            "time": 1794777202.8090043
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777202.813951
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777202.883952
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777202.8882182
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777203.1438127
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777203.1457465
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777205.598758
+          },
+          {
+            "stage": "close_start",
+            "time": 1794777205.6017323
+          },
+          {
+            "stage": "close_return",
+            "time": 1794777205.781653
+          }
+        ],
+        "stage": "close_return",
+        "revision": "34.5.2",
+        "process_ids": [2296, 8624],
+        "oracle_identity": {
+          "process_id": 2296,
+          "process_creation_filetime": 134392507811871472,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "session_diagnostics": [],
+        "seconds": 13.03,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 9.932000000000002e-6,
+          "area": 0.003166276360558158,
+          "com": [0.006666666666666669, 0.007000000000000002, 0.0065],
+          "mass": 9.932000000000002e-6
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H3_scalene.Part",
+                "value": 0.013
+              }
+            ]
+          }
+        ],
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "edit": {
+        "path": "external-inputs/H3_scalene.SLDPRT",
+        "destination": "external-edited/H3_scalene_depth.SLDPRT",
+        "parameter": "D1@Boss-Extrude1",
+        "requested_value_m": 0.01625,
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777208.7070951
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777231.484878
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777244.7623065
+          },
+          {
+            "stage": "parameter_lookup_start",
+            "time": 1794777244.7732966
+          },
+          {
+            "stage": "parameter_write_start",
+            "time": 1794777244.7922897
+          },
+          {
+            "stage": "parameter_write_return",
+            "time": 1794777244.8263085
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777244.8294559
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777245.4239876
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777245.4269884
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777248.211428
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777248.2187178
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777248.3682587
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777248.3702593
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777250.021288
+          },
+          {
+            "stage": "whats_wrong_start",
+            "time": 1794777250.022743
+          },
+          {
+            "stage": "whats_wrong_return",
+            "time": 1794777250.0567448
+          },
+          {
+            "stage": "save_start",
+            "time": 1794777250.0597444
+          },
+          {
+            "stage": "save_return",
+            "time": 1794777250.526445
+          }
+        ],
+        "stage": "save_return",
+        "oracle_identity": {
+          "process_id": 5184,
+          "process_creation_filetime": 134392508135221452,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "original_value_m": 0.013,
+        "readback_value_m": 0.01625,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 1.2415e-5,
+          "area": 0.003575845450697697,
+          "com": [
+            0.006666666666666669, 0.006999999999999999, 0.008125000000000002
+          ],
+          "mass": 1.2415e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H3_scalene.Part",
+                "value": 0.01625
+              }
+            ]
+          }
+        ],
+        "whats_wrong": 0,
+        "saved": true,
+        "save_errors": 0,
+        "save_warnings": 0,
+        "edited_copy_sha256": "e391a9a01bb9fa6c2ee0ac97153ccf53b73854c9ac4e45cf5a3daded44d13630",
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "reopened": {
+        "path": "external-edited/H3_scalene_depth.SLDPRT",
+        "sha256": "e391a9a01bb9fa6c2ee0ac97153ccf53b73854c9ac4e45cf5a3daded44d13630",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777253.7091444
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777267.8312802
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777277.1565957
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777277.2662075
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777277.9408097
+          },
+          {
+            "stage": "status_start",
+            "time": 1794777277.945811
+          },
+          {
+            "stage": "status_return",
+            "time": 1794777277.9626217
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777277.965606
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777278.1858761
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777278.188683
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777278.3159819
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777278.3186827
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777279.8612645
+          },
+          {
+            "stage": "close_start",
+            "time": 1794777279.8636825
+          },
+          {
+            "stage": "close_return",
+            "time": 1794777280.002827
+          }
+        ],
+        "stage": "close_return",
+        "revision": "34.5.2",
+        "process_ids": [2500, 10768],
+        "oracle_identity": {
+          "process_id": 2500,
+          "process_creation_filetime": 134392508585389242,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "session_diagnostics": [],
+        "seconds": 12.17,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 1.2415e-5,
+          "area": 0.003575845450697697,
+          "com": [
+            0.006666666666666669, 0.006999999999999999, 0.008125000000000002
+          ],
+          "mass": 1.2415e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H3_scalene_depth.Part",
+                "value": 0.01625
+              }
+            ]
+          }
+        ],
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "source_sha256_after": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+      "unchanged_source": true,
+      "baseline_match": true,
+      "edit_match": true,
+      "reopen_match": true
+    },
+    {
+      "name": "H5_irregular",
+      "source_sha256_before": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 1.31635e-5,
+          "area": 0.004932190747600379,
+          "com": [0.005411149516972432, 0.003352565806966232, 0.0035]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 1.6454375e-5,
+          "area": 0.0052249884345004745,
+          "com": [0.005411149516972436, 0.0033525658069662326, 0.004375]
+        }
+      },
+      "baseline": {
+        "path": "external-inputs/H5_irregular.SLDPRT",
+        "sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777282.6997323
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777295.938591
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777302.3043575
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777302.3143885
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777304.8593628
+          },
+          {
+            "stage": "status_start",
+            "time": 1794777304.863327
+          },
+          {
+            "stage": "status_return",
+            "time": 1794777304.8853054
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777304.8873029
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777304.9023275
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777304.9063127
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777305.3032298
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777305.3062606
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777306.711694
+          },
+          {
+            "stage": "close_start",
+            "time": 1794777306.7142346
+          },
+          {
+            "stage": "close_return",
+            "time": 1794777306.838968
+          }
+        ],
+        "stage": "close_return",
+        "revision": "34.5.2",
+        "process_ids": [2412, 2804],
+        "oracle_identity": {
+          "process_id": 2804,
+          "process_creation_filetime": 134392508872623647,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "session_diagnostics": [],
+        "seconds": 10.9,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 1.31635e-5,
+          "area": 0.004932190747600379,
+          "com": [0.005411149516972432, 0.0033525658069662317, 0.0035],
+          "mass": 1.31635e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H5_irregular.Part",
+                "value": 0.007
+              }
+            ]
+          }
+        ],
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "edit": {
+        "path": "external-inputs/H5_irregular.SLDPRT",
+        "destination": "external-edited/H5_irregular_depth.SLDPRT",
+        "parameter": "D1@Boss-Extrude1",
+        "requested_value_m": 0.00875,
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777309.5702624
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777322.455114
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777329.3982842
+          },
+          {
+            "stage": "parameter_lookup_start",
+            "time": 1794777329.4032848
+          },
+          {
+            "stage": "parameter_write_start",
+            "time": 1794777329.4122834
+          },
+          {
+            "stage": "parameter_write_return",
+            "time": 1794777329.4229538
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777329.4263077
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777332.2424915
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777332.2464914
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777332.2715683
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777332.2744904
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777332.3222497
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777332.3242486
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777334.7093542
+          },
+          {
+            "stage": "whats_wrong_start",
+            "time": 1794777334.7131176
+          },
+          {
+            "stage": "whats_wrong_return",
+            "time": 1794777334.754766
+          },
+          {
+            "stage": "save_start",
+            "time": 1794777334.7581568
+          },
+          {
+            "stage": "save_return",
+            "time": 1794777335.2083905
+          }
+        ],
+        "stage": "save_return",
+        "oracle_identity": {
+          "process_id": 8936,
+          "process_creation_filetime": 134392509141781533,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "original_value_m": 0.007,
+        "readback_value_m": 0.00875,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 1.6454375e-5,
+          "area": 0.005224988434500474,
+          "com": [0.005411149516972433, 0.00335256580696623, 0.004375],
+          "mass": 1.6454375e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H5_irregular.Part",
+                "value": 0.00875
+              }
+            ]
+          }
+        ],
+        "whats_wrong": 0,
+        "saved": true,
+        "save_errors": 0,
+        "save_warnings": 0,
+        "edited_copy_sha256": "1246ef608511c2093e73b4d13ac8cc5156cab51b02c0382c5dfbc904674cdb68",
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "reopened": {
+        "path": "external-edited/H5_irregular_depth.SLDPRT",
+        "sha256": "1246ef608511c2093e73b4d13ac8cc5156cab51b02c0382c5dfbc904674cdb68",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777337.8363788
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777353.4665263
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777364.9650104
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777364.9722552
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777365.4561028
+          },
+          {
+            "stage": "status_start",
+            "time": 1794777365.4591346
+          },
+          {
+            "stage": "status_return",
+            "time": 1794777365.491629
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777365.4944832
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777365.6335213
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777365.6375208
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777365.7259023
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777365.729902
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777366.9420066
+          },
+          {
+            "stage": "close_start",
+            "time": 1794777366.9449022
+          },
+          {
+            "stage": "close_return",
+            "time": 1794777367.0570827
+          }
+        ],
+        "stage": "close_return",
+        "revision": "34.5.2",
+        "process_ids": [1216, 7244],
+        "oracle_identity": {
+          "process_id": 1216,
+          "process_creation_filetime": 134392509422513762,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "session_diagnostics": [],
+        "seconds": 13.6,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 1.6454375e-5,
+          "area": 0.005224988434500474,
+          "com": [0.005411149516972433, 0.00335256580696623, 0.004375],
+          "mass": 1.6454375e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H5_irregular_depth.Part",
+                "value": 0.00875
+              }
+            ]
+          }
+        ],
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "source_sha256_after": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+      "unchanged_source": true,
+      "baseline_match": true,
+      "edit_match": true,
+      "reopen_match": true
+    },
+    {
+      "name": "H7_irregular",
+      "source_sha256_before": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 5.3796500000000006e-5,
+          "area": 0.009896349327158964,
+          "com": [
+            0.001440669932058777, 0.006562595460051613, 0.008499999999999999
+          ]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 6.7245625e-5,
+          "area": 0.010788186658948703,
+          "com": [0.0014406699320587764, 0.006562595460051614, 0.010625]
+        }
+      },
+      "baseline": {
+        "path": "external-inputs/H7_irregular.SLDPRT",
+        "sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777369.493332
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777381.314251
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777389.101265
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777389.1132658
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777391.603078
+          },
+          {
+            "stage": "status_start",
+            "time": 1794777391.606876
+          },
+          {
+            "stage": "status_return",
+            "time": 1794777391.6348839
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777391.6378765
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777391.6681705
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777391.672185
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777392.8329787
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777392.8379683
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777394.248974
+          },
+          {
+            "stage": "close_start",
+            "time": 1794777394.252968
+          },
+          {
+            "stage": "close_return",
+            "time": 1794777394.3941386
+          }
+        ],
+        "stage": "close_return",
+        "revision": "34.5.2",
+        "process_ids": [8608, 9060],
+        "oracle_identity": {
+          "process_id": 9060,
+          "process_creation_filetime": 134392509739069798,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "session_diagnostics": [],
+        "seconds": 13.08,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 5.3796500000000006e-5,
+          "area": 0.009896349327158964,
+          "com": [
+            0.0014406699320587766, 0.006562595460051614, 0.008499999999999999
+          ],
+          "mass": 5.3796500000000006e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H7_irregular.Part",
+                "value": 0.017
+              }
+            ]
+          }
+        ],
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "edit": {
+        "path": "external-inputs/H7_irregular.SLDPRT",
+        "destination": "external-edited/H7_irregular_depth.SLDPRT",
+        "parameter": "D1@Boss-Extrude1",
+        "requested_value_m": 0.02125,
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777397.018538
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777409.4005504
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777416.2393267
+          },
+          {
+            "stage": "parameter_lookup_start",
+            "time": 1794777416.2452765
+          },
+          {
+            "stage": "parameter_write_start",
+            "time": 1794777416.2544308
+          },
+          {
+            "stage": "parameter_write_return",
+            "time": 1794777418.2044103
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777418.2074099
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777418.616882
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777418.624883
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777418.6597202
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777418.6636648
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777419.0319927
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777419.035756
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777420.3623183
+          },
+          {
+            "stage": "whats_wrong_start",
+            "time": 1794777420.3661118
+          },
+          {
+            "stage": "whats_wrong_return",
+            "time": 1794777420.3955758
+          },
+          {
+            "stage": "save_start",
+            "time": 1794777420.3985121
+          },
+          {
+            "stage": "save_return",
+            "time": 1794777420.853695
+          }
+        ],
+        "stage": "save_return",
+        "oracle_identity": {
+          "process_id": 4964,
+          "process_creation_filetime": 134392510014671833,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "original_value_m": 0.017,
+        "readback_value_m": 0.02125,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 6.724562500000002e-5,
+          "area": 0.010788186658948706,
+          "com": [
+            0.001440669932058777, 0.0065625954600516114, 0.010624999999999999
+          ],
+          "mass": 6.724562500000002e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H7_irregular.Part",
+                "value": 0.02125
+              }
+            ]
+          }
+        ],
+        "whats_wrong": 0,
+        "saved": true,
+        "save_errors": 0,
+        "save_warnings": 0,
+        "edited_copy_sha256": "58e28269f04521bc3b36333b1d4f004835547cf6f1e808286e533e0742b94b2b",
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "reopened": {
+        "path": "external-edited/H7_irregular_depth.SLDPRT",
+        "sha256": "58e28269f04521bc3b36333b1d4f004835547cf6f1e808286e533e0742b94b2b",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794777423.5112815
+          },
+          {
+            "stage": "open_start",
+            "time": 1794777437.3640769
+          },
+          {
+            "stage": "open_return",
+            "time": 1794777445.2207499
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794777445.2257543
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794777445.6979394
+          },
+          {
+            "stage": "status_start",
+            "time": 1794777445.7018125
+          },
+          {
+            "stage": "status_return",
+            "time": 1794777445.7304733
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794777445.7344003
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794777445.888445
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794777445.892454
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794777445.9858277
+          },
+          {
+            "stage": "features_start",
+            "time": 1794777445.9885426
+          },
+          {
+            "stage": "features_return",
+            "time": 1794777447.129871
+          },
+          {
+            "stage": "close_start",
+            "time": 1794777447.133871
+          },
+          {
+            "stage": "close_return",
+            "time": 1794777447.2288551
+          }
+        ],
+        "stage": "close_return",
+        "revision": "34.5.2",
+        "process_ids": [6556, 10628],
+        "oracle_identity": {
+          "process_id": 10628,
+          "process_creation_filetime": 134392510281354537,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "session_diagnostics": [],
+        "seconds": 9.87,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 6.724562500000002e-5,
+          "area": 0.010788186658948706,
+          "com": [
+            0.001440669932058777, 0.0065625954600516114, 0.010624999999999999
+          ],
+          "mass": 6.724562500000002e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H7_irregular_depth.Part",
+                "value": 0.02125
+              }
+            ]
+          }
+        ],
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": []
+      },
+      "source_sha256_after": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+      "unchanged_source": true,
+      "baseline_match": true,
+      "edit_match": true,
+      "reopen_match": true
+    }
+  ],
+  "control_after": {
+    "path": "external-inputs/NativeControl.SLDPRT",
+    "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "stages": [
+      {
+        "stage": "oracle_idle_guard",
+        "time": 1794777449.495989
+      },
+      {
+        "stage": "open_start",
+        "time": 1794777461.7572954
+      },
+      {
+        "stage": "open_return",
+        "time": 1794777469.4921477
+      },
+      {
+        "stage": "rebuild_start",
+        "time": 1794777469.5337372
+      },
+      {
+        "stage": "rebuild_return",
+        "time": 1794777470.0024488
+      },
+      {
+        "stage": "status_start",
+        "time": 1794777470.0073826
+      },
+      {
+        "stage": "status_return",
+        "time": 1794777470.0387268
+      },
+      {
+        "stage": "bodies_start",
+        "time": 1794777470.0427265
+      },
+      {
+        "stage": "bodies_return",
+        "time": 1794777470.2254465
+      },
+      {
+        "stage": "mass_start",
+        "time": 1794777470.2288382
+      },
+      {
+        "stage": "mass_return",
+        "time": 1794777470.3314228
+      },
+      {
+        "stage": "features_start",
+        "time": 1794777470.3348374
+      },
+      {
+        "stage": "features_return",
+        "time": 1794777471.7262077
+      },
+      {
+        "stage": "close_start",
+        "time": 1794777471.7302148
+      },
+      {
+        "stage": "close_return",
+        "time": 1794777471.8387365
+      }
+    ],
+    "stage": "close_return",
+    "revision": "34.5.2",
+    "process_ids": [1612, 2924],
+    "oracle_identity": {
+      "process_id": 1612,
+      "process_creation_filetime": 134392510539346759,
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664"
+    },
+    "session_diagnostics": [],
+    "seconds": 10.09,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "opened": true,
+    "rebuilt": true,
+    "whats_wrong": 0,
+    "bodies": 1,
+    "mass": {
+      "volume": 8.000000000000001e-6,
+      "area": 0.0028,
+      "com": [0.0, 0.0, 0.005],
+      "mass": 8.000000000000001e-6
+    },
+    "features": [
+      {
+        "name": "Comments",
+        "type": "CommentsFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Favorites",
+        "type": "FavoriteFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "History",
+        "type": "HistoryFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Selection Sets",
+        "type": "SelectionSetFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Sensors",
+        "type": "SensorFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Design Binder",
+        "type": "DocsFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Annotations",
+        "type": "DetailCabinet",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Surface Bodies",
+        "type": "SurfaceBodyFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Solid Bodies",
+        "type": "SolidBodyFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Lights and Cameras",
+        "type": "EnvFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Markups",
+        "type": "InkMarkupFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Equations",
+        "type": "EqnFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Material <not specified>",
+        "type": "MaterialFolder",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Front Plane",
+        "type": "RefPlane",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Top Plane",
+        "type": "RefPlane",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Right Plane",
+        "type": "RefPlane",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Origin",
+        "type": "OriginProfileFeature",
+        "error": 0,
+        "warning": false,
+        "suppressed": false
+      },
+      {
+        "name": "Sketch1",
+        "type": "ProfileFeature",
+        "error": 0,
+        "warning": false,
+        "suppressed": false,
+        "dims": [
+          {
+            "name": "D1@Sketch1@NativeControl.Part",
+            "value": 0.04
+          },
+          {
+            "name": "D2@Sketch1@NativeControl.Part",
+            "value": 0.02
+          }
+        ]
+      },
+      {
+        "name": "Boss-Extrude1",
+        "type": "Extrusion",
+        "error": 0,
+        "warning": false,
+        "suppressed": false,
+        "dims": [
+          {
+            "name": "D1@Boss-Extrude1@NativeControl.Part",
+            "value": 0.01
+          },
+          {
+            "name": "D1@Sketch1@NativeControl.Part",
+            "value": 0.04
+          },
+          {
+            "name": "D2@Sketch1@NativeControl.Part",
+            "value": 0.02
+          }
+        ]
+      }
+    ],
+    "controller_diagnostics": [],
+    "dialogs": [],
+    "progress_windows": []
+  },
+  "controls_healthy": true,
+  "geometry_edit_reopen_passed": true,
+  "finished_at": 1794777474.2873204,
+  "acceptance_limit": "polygon blind-extrusion geometry and one depth edit only; broader feature and source conversion acceptance remains unfinished"
+}

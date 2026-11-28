@@ -1,0 +1,44 @@
+{
+  "guarded_runtime_accesses": 0,
+  "live_parametric_control_refused": true,
+  "native_processes": 0,
+  "part_outputs": 0,
+  "schema": "kit.sw2026.disclosed-baked-local-tolerance.v1",
+  "source_owner_audit_sha256": "76471602145cacdac72876f471b00d74cf41397df85ed946e5a719d62afaeb1e",
+  "sources": {
+    "Baked01.FCStd": {
+      "encoded_tolerance_m": 9.999999999999999e-11,
+      "oriented_faces": 6,
+      "other_node_fields_identical": true,
+      "owners": {
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "source_shape_sha256": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+      "source_tolerance_mm": 1e-07,
+      "tolerance_transmit_bytes": 3759,
+      "tolerance_transmit_sha256": "3465ed369c63e20b87d811605e6ca9563ad88499073398f625139fb015b22849",
+      "typed_replay_exact": true,
+      "untoleranced_transmit_sha256": "b0099b39fa260e3242730291eda476e29cfe1a800c776d065bf7e87ec4fd1d86"
+    },
+    "Baked02.FCStd": {
+      "encoded_tolerance_m": 9.999999999999999e-11,
+      "oriented_faces": 6,
+      "other_node_fields_identical": true,
+      "owners": {
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "source_shape_sha256": "ac7510fbaf6ab6d75792a163ed280a1775cf17679e849c929144ebb8e20e8398",
+      "source_tolerance_mm": 1e-07,
+      "tolerance_transmit_bytes": 3759,
+      "tolerance_transmit_sha256": "a39b754ac777b921188a5477a6d6174b8b58eb848860c2e68ca59c90bbfceac8",
+      "typed_replay_exact": true,
+      "untoleranced_transmit_sha256": "dd8c56e337e1a1a5da3ddf7d2aa50d672a4ff9d9b84d2451dcb167e2dcef0c41"
+    }
+  },
+  "tool_sha256": "b1cba6aaf48d2c155c4bf6fa97e0d6ba9d8d954d059a9b0683c8b8a56f9b008d",
+  "whole_source_qualified": false
+}

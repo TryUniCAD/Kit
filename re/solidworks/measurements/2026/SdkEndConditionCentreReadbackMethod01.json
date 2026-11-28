@@ -1,0 +1,12 @@
+{
+  "criteria": "shared native centre index and marker owner, bit-equal raw metres, separate exact projections",
+  "frozen_at_utc": "2026-11-20T10:15:30.694423+00:00",
+  "kit_worker_sha256": "d0f92416cf7aaec2abc773b3923e685fb117bbb594563b8fdba7375b04fc4ef3",
+  "native_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c",
+  "packet_sha256": "8f38fd02f84cd554342005cd2dd0457de879cd443e96d2721af05d770cbb0bdd",
+  "prior_readback_sha256": "35fa6556f82f7312cceeb8ba689416ce8d36de7be185de795c54a1e1a67973a5",
+  "schema": "kit.sw2026.end-condition-centre-supplement-method.v1",
+  "sdk_source_revision": "92716507fef21bab511f6ac349f29a5cf965cba3",
+  "sdk_source_sha256": "c1499c173a495b0186e3acf733fcfb02b7bdb94fc46a6a902768fedec44d0e72",
+  "tool_sha256": "1d50be1ecdd109036ecf56377c73d4882294154dac809eab2efaf413a669a5f5"
+}

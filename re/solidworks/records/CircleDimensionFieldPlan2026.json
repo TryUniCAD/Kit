@@ -1,0 +1,2672 @@
+{
+  "scope": "symbolic construction field plan only not an emitted program",
+  "no_writer_code": true,
+  "inputs_not_saved_defaults": true,
+  "rows": [
+    {
+      "owner": "neutral",
+      "field": "center",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "neutral",
+      "field": "radius",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "neutral",
+      "field": "plane",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "neutral",
+      "field": "dimension_mode",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "neutral",
+      "field": "text_point",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "neutral",
+      "field": "design_intent",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "neutral",
+      "field": "selected_leader",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "neutral",
+      "field": "center_constraint",
+      "classification": "input",
+      "rule": "Caller authored semantic inputs in metres and a coherent local plane frame; center constraint must be explicit",
+      "evidence": "Sketch.PlaneFrame; AuthorCurves author inputs",
+      "proof_status": "input contract proposed; full numeric domains unproved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f0c",
+      "classification": "derived",
+      "rule": "Allocate once at first permanence from the geometry type counter; do not use point-array position",
+      "evidence": "CurvedSketchConstruction2026 IDs; 4c3e2450/4c3e3030",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f20",
+      "classification": "derived",
+      "rule": "Count actual valid geometry constraint references; dimensional references are distinct from adjacency role-use counts",
+      "evidence": "RadialParameterLifecycle2026; ArcDimensionReferences2026; 4c5bd330/4c3e1510",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "vis",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "dflt",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f38",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "lw",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "ext",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "group",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f50",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f56",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f54",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "has_name",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f68",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f74",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f78",
+      "classification": "constant",
+      "rule": "Reuse independently classified ordinary local sg2DEnt constructor vocabulary, with null ext/group and ordinary owner; presence gates remain shared schema rules",
+      "evidence": "Sketch.entity_fields; CurvedSketchConstruction2026 common-field table",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f30",
+      "classification": "derived",
+      "rule": "Constructor color5/status1 are seeds; final fields require actual constraint-status mapper and solver result for the selected relation graph",
+      "evidence": "ProfileConstruction2026 solver mapper; 4c5077f0",
+      "proof_status": "final solver input unresolved for generated circle",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint and sgArc common",
+      "field": "f34",
+      "classification": "derived",
+      "rule": "Constructor color5/status1 are seeds; final fields require actual constraint-status mapper and solver result for the selected relation graph",
+      "evidence": "ProfileConstruction2026 solver mapper; 4c5077f0",
+      "proof_status": "final solver input unresolved for generated circle",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "f08",
+      "classification": "constant",
+      "rule": "Point permanent-marker constructor zero; point creation ID is separate",
+      "evidence": "CurvedSketchConstruction2026 point and marker namespaces",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "pos",
+      "classification": "derived",
+      "rule": "Center C comes from neutral coordinates; one shared circle marker M lies on the circle and both arc endpoints reference that same node",
+      "evidence": "4b92df10/4c4b7f80; CircleMarkerPlacement2026",
+      "proof_status": "geometric construction expression derived; actual API route and neutral policy not equated",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "fe4",
+      "classification": "derived",
+      "rule": "Center type0 and full-circle marker type2 for this newly allocated local graph; neither denotes origin",
+      "evidence": "4c490970/4c601f20",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "fe8",
+      "classification": "derived",
+      "rule": "Center gets one use/one center use; marker gets two endpoint uses/zero center uses for a lone circle; shared centers accumulate operation counts",
+      "evidence": "4c5635e0/4c602c10/4c490b80/4c491b00",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "fec",
+      "classification": "derived",
+      "rule": "Center gets one use/one center use; marker gets two endpoint uses/zero center uses for a lone circle; shared centers accumulate operation counts",
+      "evidence": "4c5635e0/4c602c10/4c490b80/4c491b00",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "h1",
+      "classification": "derived",
+      "rule": "Only marker h1 receives one distinct concrete sgArcHandle clone; h2 remains null through equivalent-handle deduplication; center adjacency remains null",
+      "evidence": "CircleAdjacencyRegistration2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "h2",
+      "classification": "derived",
+      "rule": "Only marker h1 receives one distinct concrete sgArcHandle clone; h2 remains null through equivalent-handle deduplication; center adjacency remains null",
+      "evidence": "CircleAdjacencyRegistration2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "pflags",
+      "classification": "constant",
+      "rule": "Ordinary local positioned point flags0x1e, auxiliary index-2, zero auxiliary coordinates, absent jet and final counter0 at constructor boundary",
+      "evidence": "4c490970/4c58f910; CurvedSketchConstruction2026",
+      "proof_status": "constructor state only; later point auxiliary operations excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "f108",
+      "classification": "constant",
+      "rule": "Ordinary local positioned point flags0x1e, auxiliary index-2, zero auxiliary coordinates, absent jet and final counter0 at constructor boundary",
+      "evidence": "4c490970/4c58f910; CurvedSketchConstruction2026",
+      "proof_status": "constructor state only; later point auxiliary operations excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "p1",
+      "classification": "constant",
+      "rule": "Ordinary local positioned point flags0x1e, auxiliary index-2, zero auxiliary coordinates, absent jet and final counter0 at constructor boundary",
+      "evidence": "4c490970/4c58f910; CurvedSketchConstruction2026",
+      "proof_status": "constructor state only; later point auxiliary operations excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "p2",
+      "classification": "constant",
+      "rule": "Ordinary local positioned point flags0x1e, auxiliary index-2, zero auxiliary coordinates, absent jet and final counter0 at constructor boundary",
+      "evidence": "4c490970/4c58f910; CurvedSketchConstruction2026",
+      "proof_status": "constructor state only; later point auxiliary operations excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "has_jet",
+      "classification": "constant",
+      "rule": "Ordinary local positioned point flags0x1e, auxiliary index-2, zero auxiliary coordinates, absent jet and final counter0 at constructor boundary",
+      "evidence": "4c490970/4c58f910; CurvedSketchConstruction2026",
+      "proof_status": "constructor state only; later point auxiliary operations excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgPoint",
+      "field": "ff0",
+      "classification": "constant",
+      "rule": "Ordinary local positioned point flags0x1e, auxiliary index-2, zero auxiliary coordinates, absent jet and final counter0 at constructor boundary",
+      "evidence": "4c490970/4c58f910; CurvedSketchConstruction2026",
+      "proof_status": "constructor state only; later point auxiliary operations excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "f08",
+      "classification": "derived",
+      "rule": "Allocate the permanent marker through the shared eligible-segment walk; one lone new arc gets the first allocation from seed1",
+      "evidence": "4c4bb590/4c0cd540/4c5c301f",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fc8",
+      "classification": "derived",
+      "rule": "Endpoint full indices are the same marker NodeOrder position; center index is its actual position; each compact selector is min(unsigned index,0xffff)",
+      "evidence": "4c590920/4c585150",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fc8_s",
+      "classification": "derived",
+      "rule": "Endpoint full indices are the same marker NodeOrder position; center index is its actual position; each compact selector is min(unsigned index,0xffff)",
+      "evidence": "4c590920/4c585150",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fcc",
+      "classification": "derived",
+      "rule": "Endpoint full indices are the same marker NodeOrder position; center index is its actual position; each compact selector is min(unsigned index,0xffff)",
+      "evidence": "4c590920/4c585150",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fcc_s",
+      "classification": "derived",
+      "rule": "Endpoint full indices are the same marker NodeOrder position; center index is its actual position; each compact selector is min(unsigned index,0xffff)",
+      "evidence": "4c590920/4c585150",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fdc",
+      "classification": "derived",
+      "rule": "Endpoint full indices are the same marker NodeOrder position; center index is its actual position; each compact selector is min(unsigned index,0xffff)",
+      "evidence": "4c590920/4c585150",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fdc_s",
+      "classification": "derived",
+      "rule": "Endpoint full indices are the same marker NodeOrder position; center index is its actual position; each compact selector is min(unsigned index,0xffff)",
+      "evidence": "4c590920/4c585150",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fd0",
+      "classification": "derived",
+      "rule": "Contour admission follows successful ordinary endpoint registrar path; not a loop-closure certificate",
+      "evidence": "4c602c10/4c5f8460/4c5d4ff0/4c4922d0",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fd4",
+      "classification": "constant",
+      "rule": "Ordinary newly constructed positive-orientation 2D arc: flipped0, null scale encodes-1, direction+1, absent normal/fillet/virtual indices-2",
+      "evidence": "4b92df10/4c585150; orientation+1 is declared construction choice",
+      "proof_status": "bounded constructor/registration rules; no general reverse/edit admission",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "seg_tol",
+      "classification": "constant",
+      "rule": "Ordinary newly constructed positive-orientation 2D arc: flipped0, null scale encodes-1, direction+1, absent normal/fillet/virtual indices-2",
+      "evidence": "4b92df10/4c585150; orientation+1 is declared construction choice",
+      "proof_status": "bounded constructor/registration rules; no general reverse/edit admission",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fd8",
+      "classification": "constant",
+      "rule": "Ordinary newly constructed positive-orientation 2D arc: flipped0, null scale encodes-1, direction+1, absent normal/fillet/virtual indices-2",
+      "evidence": "4b92df10/4c585150; orientation+1 is declared construction choice",
+      "proof_status": "bounded constructor/registration rules; no general reverse/edit admission",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fe0",
+      "classification": "constant",
+      "rule": "Ordinary newly constructed positive-orientation 2D arc: flipped0, null scale encodes-1, direction+1, absent normal/fillet/virtual indices-2",
+      "evidence": "4b92df10/4c585150; orientation+1 is declared construction choice",
+      "proof_status": "bounded constructor/registration rules; no general reverse/edit admission",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fe4",
+      "classification": "constant",
+      "rule": "Ordinary newly constructed positive-orientation 2D arc: flipped0, null scale encodes-1, direction+1, absent normal/fillet/virtual indices-2",
+      "evidence": "4b92df10/4c585150; orientation+1 is declared construction choice",
+      "proof_status": "bounded constructor/registration rules; no general reverse/edit admission",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fe8",
+      "classification": "constant",
+      "rule": "Ordinary newly constructed positive-orientation 2D arc: flipped0, null scale encodes-1, direction+1, absent normal/fillet/virtual indices-2",
+      "evidence": "4b92df10/4c585150; orientation+1 is declared construction choice",
+      "proof_status": "bounded constructor/registration rules; no general reverse/edit admission",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArc",
+      "field": "fec",
+      "classification": "constant",
+      "rule": "Ordinary newly constructed positive-orientation 2D arc: flipped0, null scale encodes-1, direction+1, absent normal/fillet/virtual indices-2",
+      "evidence": "4b92df10/4c585150; orientation+1 is declared construction choice",
+      "proof_status": "bounded constructor/registration rules; no general reverse/edit admission",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArcHandle",
+      "field": "idx",
+      "classification": "derived",
+      "rule": "Index actual arc node in shared NodeOrder; compact below0x777f else sentinel+full i32; local block-1 and flags0; cloned handles remain distinct identities",
+      "evidence": "4c55d940/4c587800; CircleAdjacencyRegistration2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArcHandle",
+      "field": "f18",
+      "classification": "derived",
+      "rule": "Index actual arc node in shared NodeOrder; compact below0x777f else sentinel+full i32; local block-1 and flags0; cloned handles remain distinct identities",
+      "evidence": "4c55d940/4c587800; CircleAdjacencyRegistration2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArcHandle",
+      "field": "f1c",
+      "classification": "derived",
+      "rule": "Index actual arc node in shared NodeOrder; compact below0x777f else sentinel+full i32; local block-1 and flags0; cloned handles remain distinct identities",
+      "evidence": "4c55d940/4c587800; CircleAdjacencyRegistration2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgArcHandle",
+      "field": "f08",
+      "classification": "derived",
+      "rule": "Index actual arc node in shared NodeOrder; compact below0x777f else sentinel+full i32; local block-1 and flags0; cloned handles remain distinct identities",
+      "evidence": "4c55d940/4c587800; CircleAdjacencyRegistration2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "refcount",
+      "classification": "constant",
+      "rule": "Zero at the bounded retained local lifecycle because actual add/remove reference slots are no-ops",
+      "evidence": "RadialParameterLifecycle2026",
+      "proof_status": "later direct stores and callbacks not universally closed",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f28",
+      "classification": "derived",
+      "rule": "Own one private moLengthParameter_c; allocate dimension persistent ID through actual shared model allocator during naming",
+      "evidence": "4c820e10/4c821c40/4bea1400",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f50",
+      "classification": "derived",
+      "rule": "Own one private moLengthParameter_c; allocate dimension persistent ID through actual shared model allocator during naming",
+      "evidence": "4c820e10/4c821c40/4bea1400",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f48",
+      "classification": "constant",
+      "rule": "Shared base dimension constructor provides null tolerance and other shared disabled/zero fields; null-tolerance preservation is limited to enumerated local guards",
+      "evidence": "Sketch.dimension_fields; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f30",
+      "classification": "constant",
+      "rule": "Shared base dimension constructor provides null tolerance and other shared disabled/zero fields; null-tolerance preservation is limited to enumerated local guards",
+      "evidence": "Sketch.dimension_fields; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f54",
+      "classification": "constant",
+      "rule": "Shared base dimension constructor provides null tolerance and other shared disabled/zero fields; null-tolerance preservation is limited to enumerated local guards",
+      "evidence": "Sketch.dimension_fields; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f5c",
+      "classification": "constant",
+      "rule": "Shared base dimension constructor provides null tolerance and other shared disabled/zero fields; null-tolerance preservation is limited to enumerated local guards",
+      "evidence": "Sketch.dimension_fields; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f60",
+      "classification": "constant",
+      "rule": "Shared base dimension constructor provides null tolerance and other shared disabled/zero fields; null-tolerance preservation is limited to enumerated local guards",
+      "evidence": "Sketch.dimension_fields; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "f68",
+      "classification": "constant",
+      "rule": "Shared base dimension constructor provides null tolerance and other shared disabled/zero fields; null-tolerance preservation is limited to enumerated local guards",
+      "evidence": "Sketch.dimension_fields; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim Dimension_c",
+      "field": "has_f78",
+      "classification": "constant",
+      "rule": "Shared base dimension constructor provides null tolerance and other shared disabled/zero fields; null-tolerance preservation is limited to enumerated local guards",
+      "evidence": "Sketch.dimension_fields; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "f80",
+      "classification": "derived",
+      "rule": "Radius type3 with parameter r; diameter type15 with parameter2r, derived from actual handle geometry radius",
+      "evidence": "4c4cb670/4c40fec0",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "f90",
+      "classification": "constant",
+      "rule": "Bounded constructor values2/0/0, omitted optional transform fa0=0, g1=g2=0 and dir positive local X",
+      "evidence": "4c410070/4c411700/4c411830; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "f94",
+      "classification": "constant",
+      "rule": "Bounded constructor values2/0/0, omitted optional transform fa0=0, g1=g2=0 and dir positive local X",
+      "evidence": "4c410070/4c411700/4c411830; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "f98",
+      "classification": "constant",
+      "rule": "Bounded constructor values2/0/0, omitted optional transform fa0=0, g1=g2=0 and dir positive local X",
+      "evidence": "4c410070/4c411700/4c411830; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "fa0",
+      "classification": "constant",
+      "rule": "Bounded constructor values2/0/0, omitted optional transform fa0=0, g1=g2=0 and dir positive local X",
+      "evidence": "4c410070/4c411700/4c411830; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "g1",
+      "classification": "constant",
+      "rule": "Bounded constructor values2/0/0, omitted optional transform fa0=0, g1=g2=0 and dir positive local X",
+      "evidence": "4c410070/4c411700/4c411830; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "g2",
+      "classification": "constant",
+      "rule": "Bounded constructor values2/0/0, omitted optional transform fa0=0, g1=g2=0 and dir positive local X",
+      "evidence": "4c410070/4c411700/4c411830; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "dir",
+      "classification": "constant",
+      "rule": "Bounded constructor values2/0/0, omitted optional transform fa0=0, g1=g2=0 and dir positive local X",
+      "evidence": "4c410070/4c411700/4c411830; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "h1",
+      "classification": "derived",
+      "rule": "h1 is a separate concrete arc handle with identical target; h2 is nonnull default sgEntHandle with extended index-2, block-1, flags0",
+      "evidence": "4c411830/4c5bf760/4c587800",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgCircleDim",
+      "field": "h2",
+      "classification": "derived",
+      "rule": "h1 is a separate concrete arc handle with identical target; h2 is nonnull default sgEntHandle with extended index-2, block-1, flags0",
+      "evidence": "4c411830/4c5bf760/4c587800",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f18",
+      "classification": "derived",
+      "rule": "Name is D1 for empty-profile name set; value r or2r according to mode; name and value are semantic objects/scalars",
+      "evidence": "4bea1400/4c821c40/4c19c9b0/4c19cae0",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f58",
+      "classification": "derived",
+      "rule": "Name is D1 for empty-profile name set; value r or2r according to mode; name and value are semantic objects/scalars",
+      "evidence": "4bea1400/4c821c40/4c19c9b0/4c19cae0",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f08",
+      "classification": "constant",
+      "rule": "Private fresh node ID-1; parameter constructor clears f0c to0; node mask0x40000000 with no sharing bit; secondary0/empty name/null optional name/alternate value flag0",
+      "evidence": "ProfileConstruction2026; RadialParameterLifecycle2026; StaticProof.json",
+      "proof_status": "bounded private parameter; shared/equation/restore paths excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f0c",
+      "classification": "constant",
+      "rule": "Private fresh node ID-1; parameter constructor clears f0c to0; node mask0x40000000 with no sharing bit; secondary0/empty name/null optional name/alternate value flag0",
+      "evidence": "ProfileConstruction2026; RadialParameterLifecycle2026; StaticProof.json",
+      "proof_status": "bounded private parameter; shared/equation/restore paths excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f28",
+      "classification": "constant",
+      "rule": "Private fresh node ID-1; parameter constructor clears f0c to0; node mask0x40000000 with no sharing bit; secondary0/empty name/null optional name/alternate value flag0",
+      "evidence": "ProfileConstruction2026; RadialParameterLifecycle2026; StaticProof.json",
+      "proof_status": "bounded private parameter; shared/equation/restore paths excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f2c",
+      "classification": "constant",
+      "rule": "Private fresh node ID-1; parameter constructor clears f0c to0; node mask0x40000000 with no sharing bit; secondary0/empty name/null optional name/alternate value flag0",
+      "evidence": "ProfileConstruction2026; RadialParameterLifecycle2026; StaticProof.json",
+      "proof_status": "bounded private parameter; shared/equation/restore paths excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f20",
+      "classification": "constant",
+      "rule": "Private fresh node ID-1; parameter constructor clears f0c to0; node mask0x40000000 with no sharing bit; secondary0/empty name/null optional name/alternate value flag0",
+      "evidence": "ProfileConstruction2026; RadialParameterLifecycle2026; StaticProof.json",
+      "proof_status": "bounded private parameter; shared/equation/restore paths excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f48",
+      "classification": "constant",
+      "rule": "Private fresh node ID-1; parameter constructor clears f0c to0; node mask0x40000000 with no sharing bit; secondary0/empty name/null optional name/alternate value flag0",
+      "evidence": "ProfileConstruction2026; RadialParameterLifecycle2026; StaticProof.json",
+      "proof_status": "bounded private parameter; shared/equation/restore paths excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moLengthParameter_c",
+      "field": "f68",
+      "classification": "constant",
+      "rule": "Private fresh node ID-1; parameter constructor clears f0c to0; node mask0x40000000 with no sharing bit; secondary0/empty name/null optional name/alternate value flag0",
+      "evidence": "ProfileConstruction2026; RadialParameterLifecycle2026; StaticProof.json",
+      "proof_status": "bounded private parameter; shared/equation/restore paths excluded",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "ff0",
+      "classification": "derived",
+      "rule": "Reference the actual owning sgSketch and val_g1 array index, not the sgCircleDim object; class RTTI parent is ValG1",
+      "evidence": "4c83d4a0/4c837040; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "ff8",
+      "classification": "derived",
+      "rule": "Reference the actual owning sgSketch and val_g1 array index, not the sgCircleDim object; class RTTI parent is ValG1",
+      "evidence": "4c83d4a0/4c837040; RadialParameterLifecycle2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "has_f120",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f130",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f138",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f140",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f148",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f150",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "fe8",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f100",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f154",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "has_f128",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moSkDimHandleRadial_c",
+      "field": "f118",
+      "classification": "constant",
+      "rule": "Fresh local constructor null-view/GFR/frozen-cache branch uses absent transforms and references, precision0, cache flags0, f154=-1; root common component-reference base must be reused with exact receiver proof",
+      "evidence": "RadialParameterLifecycle2026; ResolvedDims define_handles",
+      "proof_status": "common base and final update state still require full construction audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "points",
+      "classification": "derived",
+      "rule": "One center point, one reused marker point, no lines, one arc, one embedded sgCircleDim plus retained display in dims.f118; optional authored center relation is a separate logical constraint",
+      "evidence": "Sketch.new_sketch/new_profile; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "lines",
+      "classification": "derived",
+      "rule": "One center point, one reused marker point, no lines, one arc, one embedded sgCircleDim plus retained display in dims.f118; optional authored center relation is a separate logical constraint",
+      "evidence": "Sketch.new_sketch/new_profile; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "arcs",
+      "classification": "derived",
+      "rule": "One center point, one reused marker point, no lines, one arc, one embedded sgCircleDim plus retained display in dims.f118; optional authored center relation is a separate logical constraint",
+      "evidence": "Sketch.new_sketch/new_profile; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "dims",
+      "classification": "derived",
+      "rule": "One center point, one reused marker point, no lines, one arc, one embedded sgCircleDim plus retained display in dims.f118; optional authored center relation is a separate logical constraint",
+      "evidence": "Sketch.new_sketch/new_profile; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f140",
+      "classification": "derived",
+      "rule": "Per-type creation counters and shared marker counter advance by actual allocations; initial geometry stamp1+permanence events, later coordinate helper deltas add independently",
+      "evidence": "4c3e3030/4c4bb590/4c5d1740/4c5195d0",
+      "proof_status": "initial formulas known; complete generated solve deltas unresolved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f130",
+      "classification": "derived",
+      "rule": "Per-type creation counters and shared marker counter advance by actual allocations; initial geometry stamp1+permanence events, later coordinate helper deltas add independently",
+      "evidence": "4c3e3030/4c4bb590/4c5d1740/4c5195d0",
+      "proof_status": "initial formulas known; complete generated solve deltas unresolved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f56c",
+      "classification": "derived",
+      "rule": "Per-type creation counters and shared marker counter advance by actual allocations; initial geometry stamp1+permanence events, later coordinate helper deltas add independently",
+      "evidence": "4c3e3030/4c4bb590/4c5d1740/4c5195d0",
+      "proof_status": "initial formulas known; complete generated solve deltas unresolved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f188",
+      "classification": "derived",
+      "rule": "Zero from fully inspected local inter-component predicate with null ext pointers and absent derived/auxiliary geometry; ordinary radial dimensions are not scanned",
+      "evidence": "4c6fcfc0/4c549ab0; CurvedSketchConstruction2026",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f12c",
+      "classification": "derived",
+      "rule": "Current solver aggregate and separately saved status are distinct; constructor one is not an admitted final solved value",
+      "evidence": "ProfileConstruction2026; training05 bounded observation",
+      "proof_status": "generated-circle solver result unresolved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "sgSketch",
+      "field": "f128",
+      "classification": "derived",
+      "rule": "Current solver aggregate and separately saved status are distinct; constructor one is not an admitted final solved value",
+      "evidence": "ProfileConstruction2026; training05 bounded observation",
+      "proof_status": "generated-circle solver result unresolved",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "ffd8",
+      "classification": "derived",
+      "rule": "Ordered seed, optional style bit0x4, forced mode bit0x10 and late OR0x100000/0x200000; post-owner solve/listener transformation remains explicit unknown",
+      "evidence": "RadialPresentationConstruction2026; private flag/context reports",
+      "proof_status": "whole final word not admitted",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f7f8",
+      "classification": "derived",
+      "rule": "Prefix R for radius or <MOD-DIAM> for diameter; ordinary text kind0x14 radius or0x11 diameter from actual predicates",
+      "evidence": "4c8cc1d0/4c889480/4c8c9f30",
+      "proof_status": "bounded initializer result; full formatting lifecycle remains open",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f6a0.f10",
+      "classification": "derived",
+      "rule": "Prefix R for radius or <MOD-DIAM> for diameter; ordinary text kind0x14 radius or0x11 diameter from actual predicates",
+      "evidence": "4c8cc1d0/4c889480/4c8c9f30",
+      "proof_status": "bounded initializer result; full formatting lifecycle remains open",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1010",
+      "classification": "derived",
+      "rule": "Reached valid full-circle witness block assigns both positive-zero points; later persistence needs lifecycle preservation proof",
+      "evidence": "4c841110/4c41ccd0/4c8dbcf0",
+      "proof_status": "bounded update formula corroborated by training05 only",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1028",
+      "classification": "derived",
+      "rule": "Reached valid full-circle witness block assigns both positive-zero points; later persistence needs lifecycle preservation proof",
+      "evidence": "4c841110/4c41ccd0/4c8dbcf0",
+      "proof_status": "bounded update formula corroborated by training05 only",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "ffe0",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "ffe8",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "fff0",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "fff8",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1000",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1008",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "nfc0",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "ffc0",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1050",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1048",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1068",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "has_f1060",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f1090",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "ffd4",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f10a8",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "f10a4",
+      "classification": "constant",
+      "rule": "Fresh radial constructor seed zeros/nulls/empty collections under null-transform/no-callout guards; final-state invariance cannot be inferred from seeds",
+      "evidence": "4c8bfc10; CurvedSketchConstruction2026 radial-specific table",
+      "proof_status": "final preservation unresolved; not permitted defaults",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "moDisplayRadialDim_c",
+      "field": "ff80",
+      "classification": "input",
+      "rule": "Explicit signed32 selected-leader presentation input; the constructor does not initialize it",
+      "evidence": "UninitializedDisplayLeaderSelection.md",
+      "proof_status": "confirmed static at stated boundary",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "runtime only",
+      "field": "sketch_solver_pointer",
+      "classification": "volatile",
+      "rule": "Runtime identities and caches are observed or constructed outside wire fields; never serialize captured addresses or infer a neutral wire field from them",
+      "evidence": "training05 metadata; class ownership records",
+      "proof_status": "not additional archive fields",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "runtime only",
+      "field": "callback_pointer",
+      "classification": "volatile",
+      "rule": "Runtime identities and caches are observed or constructed outside wire fields; never serialize captured addresses or infer a neutral wire field from them",
+      "evidence": "training05 metadata; class ownership records",
+      "proof_status": "not additional archive fields",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "runtime only",
+      "field": "model_context_pointer",
+      "classification": "volatile",
+      "rule": "Runtime identities and caches are observed or constructed outside wire fields; never serialize captured addresses or infer a neutral wire field from them",
+      "evidence": "training05 metadata; class ownership records",
+      "proof_status": "not additional archive fields",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "runtime only",
+      "field": "native_object_addresses",
+      "classification": "volatile",
+      "rule": "Runtime identities and caches are observed or constructed outside wire fields; never serialize captured addresses or infer a neutral wire field from them",
+      "evidence": "training05 metadata; class ownership records",
+      "proof_status": "not additional archive fields",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f50",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f30",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f40",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f48",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f54",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f11c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f08",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f68",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f58",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "linked",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f118",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f390",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f3e0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f290",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f298",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f288",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f3f8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f400",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f2a0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f2c0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f2c8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f2d0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f2d8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f3b8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f2f0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f2f8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f2f4",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f304",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f30c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f308",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f300",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f314",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f334",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f338",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f4a0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f318",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f31c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f320",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f328",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f32c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f4b8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f870",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f874",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f878",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f800",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f818",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f820",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f880",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8a8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8b0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f950",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fa78",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f958",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f970",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f988",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f9a0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f9b8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_fa50",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f898",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f89c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8a0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8c0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8e4",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8ec",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8f4",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fa38",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f580",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f588",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f5a0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f5a8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f590",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_f598",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8e8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8f0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8a4",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_fa58",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_fa60",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fa70",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "faf8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb00",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8f8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fad0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f5b0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f680",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f688",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb40",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb68",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb6c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb60",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f830",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f838",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f840",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f848",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "faf4",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8b8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8fc",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f900",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f5c0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f648",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb70",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb78",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb80",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb88",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fe48",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f908",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb9c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fe40",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fa80",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fa88",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fba0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb64",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fab0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fab8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_fac0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "has_fac8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fa90",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fef8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb4c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fb50",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fd78",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fd7c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff00",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8c8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8d0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff08",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff0c",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff10",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8d8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8dc",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f808",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f810",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "fd80",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff84",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff54",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff60",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f650",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff68",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff58",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "f8e0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared display base",
+      "field": "ff88",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _display_fields; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f08",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f38",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f10",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f18",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f20",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f50",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f68",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "fc4",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "fa0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "fd0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "fd8",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "fe0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f24",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f0f0",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f118",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f120",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f124",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f128",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    },
+    {
+      "owner": "shared dimension text",
+      "field": "f130",
+      "classification": "unclassified for final radial overload",
+      "rule": "Existing shared builder field rule must be reconciled with the position-taking radial base constructor and actual model styles; no value copied here",
+      "evidence": "Extrude.py _dimension_text; constructor4c86ede0",
+      "proof_status": "explicit remaining field audit",
+      "fresh_output_acceptance": false
+    }
+  ],
+  "unclassified_final_fields": 161
+}

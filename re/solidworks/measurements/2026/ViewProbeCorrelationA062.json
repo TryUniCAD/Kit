@@ -1,0 +1,4578 @@
+{
+  "schema": "kit.sw2026.orthographic-view-correlation.v1",
+  "created_at_utc": "2026-11-16T20:02:56.057277+00:00",
+  "scope": "Complete remote decoding and controlled orthographic component correspondence; training-only rules, not heldout generated camera acceptance",
+  "passed": true,
+  "is_writer_output": false,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "archive_schemas_executed_locally": false,
+  "remote": {
+    "source_revision": "a06222e4ddeef67a5a259c8e859b22ddf9f5b932",
+    "tested_revision": "55515abf13552880164bfa532548d452836b13b8",
+    "tested_tree": "f02d822495453fe1dd4d9524211fdcd08a6f0933",
+    "verified_tested_parents": [
+      "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+      "a06222e4ddeef67a5a259c8e859b22ddf9f5b932"
+    ],
+    "run": 43943589200,
+    "job": 133567218292,
+    "job_conclusion": "success",
+    "native_format_cases_passed": 198,
+    "native_format_cases_skipped": 158,
+    "policy_cases_passed": 171,
+    "artifact": {
+      "id": 14263687055,
+      "bytes": 23659048,
+      "sha256": "e6f685af6b5cf0db36921b0955c9e224cd6ea488282b29cbea0238b4bd59b6f5",
+      "reported_digest_independently_verified": true,
+      "declared_uncompressed_bytes": 913806946,
+      "selected_report_and_logs_only_extracted": true
+    },
+    "raw_report": {
+      "path": "SourceParser/Curve/ViewProbe/Checked.json",
+      "bytes": 15203121,
+      "sha256": "8ccd6d9d106ed5c37079105e83d253d32f10bc5a8028497ee40813ac3a4725e3"
+    },
+    "projection": "Typed transforms, native API poses and graph proofs retained; complete per-stream reports represented by canonical SHA256 alongside byte comparisons"
+  },
+  "source_proof": [
+    {
+      "file": "re/tooling/sw2026/serial/ViewProbe.py",
+      "sha256": "fefa25eb4a4faa4521b4a35acb4a387b1e5a22a790691bbec38219f4e5c30198"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/TreeNames.py",
+      "sha256": "02ecffe53cdaa744a729bd85fec5724022a8196c93c22ec5ac657e1f4947faab"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/AnnotationWire.py",
+      "sha256": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Classes.py",
+      "sha256": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Core.py",
+      "sha256": "a57ee11c90fb018739e99f10a47a2e501d0dc06296c34362074def4bb0a5dd66"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Dsl.py",
+      "sha256": "8467587af31c6d2b92d2fd3191640ca75a15b4840c3958abca32707e8e9f9ea4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/FieldScan.py",
+      "sha256": "b4663fffc67df7a65e998ab259dac5094d029fb74fe481e3a0ae52a8431822a0"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/MapBridge.py",
+      "sha256": "eeb9b26114a3862e124e393c615c0c979c3dbf38c2b6d9b9cf2c54321d441393"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/RoundTrip.py",
+      "sha256": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Schema.py",
+      "sha256": "fafa579ea5bc961792fdaa697f1c8cf20856a9d4bedd1b14c288be938046b2bf"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Streams.py",
+      "sha256": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/StringCorpus.py",
+      "sha256": "f6b31a97abfa2d408b33e9eb30f38be5168425ed07856a1aab63f00fc56f92c9"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py",
+      "sha256": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigAssembly.py",
+      "sha256": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigDetail.py",
+      "sha256": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigPart.py",
+      "sha256": "5a94e9ad6554ec6e54f40c311ae3a3b2328b90dd3e4318b5cc649f7aff4208eb"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigUnits.py",
+      "sha256": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigVisual.py",
+      "sha256": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Definition.py",
+      "sha256": "7f8b6ad83f7305498a7aaf9ab9b66ca9ad68442e42492a55c0b45fc0e19f649a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ExtObject.py",
+      "sha256": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Geometry.py",
+      "sha256": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MaterialDisplay.py",
+      "sha256": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MfcMaps.py",
+      "sha256": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ModelHeader.py",
+      "sha256": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedBody.py",
+      "sha256": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedComp.py",
+      "sha256": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+      "sha256": "e8205429dce688a2d41ccb2f8ef781b428f9099c5b695adc182a6557c6095413"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+      "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFeatures.py",
+      "sha256": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFillet.py",
+      "sha256": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFolders.py",
+      "sha256": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedPattern.py",
+      "sha256": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedProfile.py",
+      "sha256": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py",
+      "sha256": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefs.py",
+      "sha256": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+      "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCusProps.py",
+      "sha256": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallDocContent.py",
+      "sha256": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHeader.py",
+      "sha256": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHistory.py",
+      "sha256": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallStreams.py",
+      "sha256": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmmMaster.py",
+      "sha256": "5942042520e93d84a36d9e2b7914c7227a76a4d90163a7d2caf26aa866129a32"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py",
+      "sha256": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py",
+      "sha256": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py",
+      "sha256": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py",
+      "sha256": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py",
+      "sha256": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py",
+      "sha256": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py",
+      "sha256": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py",
+      "sha256": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py",
+      "sha256": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Visual.py",
+      "sha256": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VisualRefs.py",
+      "sha256": "dbf0c8ea784d2128573af6e21d7f7e808bacb36ea859c4146853c8fa372bbf81"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
+      "sha256": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
+      "sha256": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/AddEntryMut.py",
+      "sha256": "74a2b02aa91f016609da5b01032e210de5d05984bd5f13034978048771a9a6f4"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ArchiveMaps.py",
+      "sha256": "d7e8ccdd0d8c81c68279672b3c6ccecc9a6330e3d4c814007a11f4e97d6a3841"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/BindClassMut.py",
+      "sha256": "b2249e7e0d2d8c14113dd6f8efff5d0ee8bdcca98ec47e86806f0b054d4d0269"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ClassIndex.py",
+      "sha256": "ea249652c2da2f6037d3637debe031c167a232b780c2782fff2fa76d7ecb41ba"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindClass.py",
+      "sha256": "7eb6b1c2920019aa100de053ca6f1d6160b98256d2563a24008f2ee32b7d7701"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindObject.py",
+      "sha256": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapEntry.py",
+      "sha256": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapSnapshot.py",
+      "sha256": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ObjectIndex.py",
+      "sha256": "f4ecf8ba48b9c68beb41b13dd984b820c42b88d09a0a6647e34f74aa972d3bf0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/PutEntryMut.py",
+      "sha256": "290ec9d3ec0236b58bec2259c73e9aeee48121a13c2cb984bee6ff989ec3e32b"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ArchiveNode.py",
+      "sha256": "550abe31b41eeffce87931ea07c8a8fe04a349c37bf42bc07c82897ad2d75179"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalClass.py",
+      "sha256": "ab73b43cc167a36e361ecd30c85109f1efaf81da90bf35b0d9b4a6fd92448dad"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalRef.py",
+      "sha256": "19258628bfa23ec0cc98f75532537a90127d38cfce999c0155b4fa5fdfbc9dcc"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectRead.py",
+      "sha256": "79d8cdd212237716fac6145a048aa5d2b50410ddef03c94a03648cc6abbbea39"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectStore.py",
+      "sha256": "619fc4dbd2e9865c738af1df63929ddcfe2ef5997ae3a6f864b08507458df69f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadClassMut.py",
+      "sha256": "f1e7fe9da0b747258fed8a46c9ec11689766c013d21f89f414b3b73d8b1ca906"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py",
+      "sha256": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadTypeMut.py",
+      "sha256": "52f1287b945bc1f9b952a409b0436d27a512d251e4426d513847da661d642b7c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/RuntimeClass.py",
+      "sha256": "be3d1dc45163164ab169648d5ab98e3bbb274f1c256c0606e9af8a1f6886240a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteClassMut.py",
+      "sha256": "d53198ac370718d013ae35b0daef81aba0996f2743a1dc79734e1f85a67d2260"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteObjectMut.py",
+      "sha256": "6cc29be5679a0f6c11ce3339624a256e7c5b1fbf3bb220b531c4ae1c314bc33f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py",
+      "sha256": "98732874a4fa36c8af8e5dde44dc1844617547a182f57e2d4f7c04844779dc86"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py",
+      "sha256": "850cba1b90e592be68e7fb6558df4b798d22abf756ff963eb7210a5cd650419c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py",
+      "sha256": "82c9924a621ee1a3a16d0226d39f16601d8689c9040e2870cecc8492a0263c4a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadString.py",
+      "sha256": "1d5c8222608e80a69d92f68b9fe36a87647bb87009df949678aad61ec5d81512"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
+      "sha256": "5046d947fbc1c2d6c7e9afa0904d1a3817d71573949aaa7768a0697decde11cf"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",
+      "sha256": "399f98355bf255a8ee498b3c3c71451f9cb3edaa1d83efd5262959243ef12f6a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py",
+      "sha256": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Archive.py",
+      "sha256": "6f09542d473fbc806f30e9dca8484422743e1cde39b57deb1a8ad0fab3a92eb0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Cmgr.py",
+      "sha256": "2bab2554e90fd8155d1ab50c1f8b50c869bc139820117535bdacece2957d4e8c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Container.py",
+      "sha256": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeName.py",
+      "sha256": "5fe691829bd89bae76a0694c1d7cf737e24b771bbd9e6789f8325bef518a45a6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodePayload.py",
+      "sha256": "bcd29a4cc9702a9ea714b4e6a0254ee214e8796f907403c6a9e0ad9dda8314a5"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeScanned.py",
+      "sha256": "68b2f995303a13f0d2f6a52874d9cb07e8ceddc6896fba019db35b7fe4971c1d"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Definition.py",
+      "sha256": "f0cc64fbb208ce3bc6b670c9d0800315c69b0231b471210acc7490a6c5b3a071"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Format.py",
+      "sha256": "2765a1d4cd829871e013e187481b526f2e11781a3861faf5745be5a7f9da3c79"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/InflateStream.py",
+      "sha256": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/LayoutQueries.py",
+      "sha256": "fcd7b0ca746dda67e662c1a0a2497e33be9c50103fa5679c4efc42be8fb30259"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Parasolid.py",
+      "sha256": "220107059a26880ec51a7a9f0eca8eb2096e745c73423d90fb5e2f2721a96c6c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RotateBytes.py",
+      "sha256": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RunGroups.py",
+      "sha256": "04a8784a98cdeecf1647829410ae072e27a5f29a08e4d10c0b6c57b03e7a532e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/SldprtFormat.py",
+      "sha256": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamLimits.py",
+      "sha256": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamRecord.py",
+      "sha256": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "manifest_sha256": "1bd075254728c990763342e450a6f6b0809e2a45b8277c5f023612b87f93fc45",
+  "source_native_receipt_sha256": "d89099b69818b90be9340e5e219c9859e97fcda0dce3c2a39ad0a53994f71917",
+  "archive_comparison_count": 90,
+  "document_transform_count": 20,
+  "per_user_transform_count": 60,
+  "exact_component_comparisons": [
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "component": "scale2",
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "component": "scale2",
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 0.7071067811865464,
+      "wire": 0.7071067811865464,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": -0.4082040559113551,
+      "wire": -0.4082040559113551,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.5773815451999837,
+      "wire": 0.5773815451999837,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 2.7755575615628914e-17,
+      "wire": 2.7755575615628914e-17,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 0.8165408118857499,
+      "wire": 0.8165408118857499,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.5772877120855426,
+      "wire": 0.5772877120855426,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": -0.7071067811865488,
+      "wire": -0.7071067811865488,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": -0.4082040559113538,
+      "wire": -0.4082040559113538,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 0.5773815451999819,
+      "wire": 0.5773815451999819,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "component": "scale2",
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 0.7071067811865464,
+      "wire": 0.7071067811865464,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": -0.4082040559113551,
+      "wire": -0.4082040559113551,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.5773815451999837,
+      "wire": 0.5773815451999837,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 2.7755575615628914e-17,
+      "wire": 2.7755575615628914e-17,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 0.8165408118857499,
+      "wire": 0.8165408118857499,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.5772877120855426,
+      "wire": 0.5772877120855426,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": -0.7071067811865488,
+      "wire": -0.7071067811865488,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": -0.4082040559113538,
+      "wire": -0.4082040559113538,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 0.5773815451999819,
+      "wire": 0.5773815451999819,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "component": "scale2",
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "component": "scale2",
+      "native": 37.173,
+      "wire": 37.173,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "component": "scale2",
+      "native": 37.173,
+      "wire": 37.173,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.003173,
+      "wire": 0.003173,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": -0.007191,
+      "wire": -0.007191,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.005713,
+      "wire": 0.005713,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "component": "scale2",
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": 0.0,
+      "wire": 0.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": 0.003173,
+      "wire": 0.003173,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": -0.007191,
+      "wire": -0.007191,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.005713,
+      "wire": 0.005713,
+      "equal": true
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "component": "scale2",
+      "native": 1.0,
+      "wire": 1.0,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 0.7071067811865464,
+      "wire": 0.7071067811865464,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": -0.4082040559113551,
+      "wire": -0.4082040559113551,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.5773815451999837,
+      "wire": 0.5773815451999837,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 2.7755575615628914e-17,
+      "wire": 2.7755575615628914e-17,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 0.8165408118857499,
+      "wire": 0.8165408118857499,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.5772877120855426,
+      "wire": 0.5772877120855426,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": -0.7071067811865488,
+      "wire": -0.7071067811865488,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": -0.4082040559113538,
+      "wire": -0.4082040559113538,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 0.5773815451999819,
+      "wire": 0.5773815451999819,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": -0.006193,
+      "wire": -0.006193,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.004713,
+      "wire": 0.004713,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.009137,
+      "wire": 0.009137,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "component": "scale2",
+      "native": 29.137,
+      "wire": 29.137,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 0,
+      "native": 0.7071067811865464,
+      "wire": 0.7071067811865464,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 1,
+      "native": -0.4082040559113551,
+      "wire": -0.4082040559113551,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 2,
+      "native": 0.5773815451999837,
+      "wire": 0.5773815451999837,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 3,
+      "native": 2.7755575615628914e-17,
+      "wire": 2.7755575615628914e-17,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 4,
+      "native": 0.8165408118857499,
+      "wire": 0.8165408118857499,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 5,
+      "native": 0.5772877120855426,
+      "wire": 0.5772877120855426,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 6,
+      "native": -0.7071067811865488,
+      "wire": -0.7071067811865488,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 7,
+      "native": -0.4082040559113538,
+      "wire": -0.4082040559113538,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "orientation",
+      "index": 8,
+      "native": 0.5773815451999819,
+      "wire": 0.5773815451999819,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 0,
+      "native": -0.006193,
+      "wire": -0.006193,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 1,
+      "native": 0.004713,
+      "wire": 0.004713,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "translation",
+      "index": 2,
+      "native": 0.009137,
+      "wire": 0.009137,
+      "equal": true
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "component": "scale2",
+      "native": 29.137,
+      "wire": 29.137,
+      "equal": true
+    }
+  ],
+  "exact_component_count": 130,
+  "primary_splitter_cells_mirror_document_pair": true,
+  "secondary_splitter_transforms_remain_identity": true,
+  "static_owner_evidence": {
+    "module": "slduiu.dll",
+    "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+    "original_images_and_listings_remain_external": true,
+    "native_target_executed_for_static_analysis": false,
+    "active_model_transform_getter": {
+      "name": "uiModelView_c::getModelViewXform",
+      "start": "0x48eee140",
+      "end": "0x48eee148",
+      "sha256": "dd18a3fe8ab0efbef98c862223892743edb11a3243e9b2a95fea7b13f986f65b",
+      "runtime_member": "0x6d8",
+      "primary_table": "0x4a662880",
+      "slot": "0x610"
+    },
+    "active_model_transform_setter": {
+      "name": "uiModelView_c::setModelViewXform",
+      "start": "0x49829850",
+      "end": "0x498298e6",
+      "sha256": "e860bb0888b0f4edf30c45ad8e699f96303a4ba77ed6cf5d307c33b4efe9f6a3",
+      "slot": "0x630",
+      "behavior": "Assigns the existing transform at runtime +0x6d8 or allocates a copied transform, then updates and tail-calls rebuildTransform"
+    },
+    "saved_splitter_bridge": {
+      "name": "uiSplitterInfo_c::setDocViewingXforms",
+      "start": "0x497d68b0",
+      "end": "0x497d6bb4",
+      "sha256": "cf3999162c9ad9d9870cf327477625b0f5f4ed44dc6cad354fd739353fa73eac",
+      "observed_operations": [
+        "First transform pointer array at runtime +0x28+8*index is passed to view virtual +0x630",
+        "Second transform pointer array at runtime +0x48+8*index is passed to setPanZoomXform at 0x498299c0",
+        "Grid bounds and matching view selection gate assignment; optional tree zoom and perspective/camera paths are separate"
+      ]
+    }
+  },
+  "records": [
+    {
+      "file": "ViewBaseline-open-save.SLDPRT",
+      "name": "ViewBaseline",
+      "phase": "open-save",
+      "sha256": "a68a68f6845423ed375303b75fd44011a6cc1fcb85826be07a61529e48c55a0a",
+      "source_sha256": "a94fd68233ed0e519edb9d153510586324369d57ab884979aca1ed9c6d127908",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale2": 1.0
+      },
+      "view_request": {},
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "bcba2769c07bb2cc58a51afa3f8105dce6bd0f4668700844f62cee78cfbe8615",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "a68a68f6845423ed375303b75fd44011a6cc1fcb85826be07a61529e48c55a0a",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2525,
+              "sha256": "faf66d3fe84d664d20382f561e3f7e5e34df29cc044d4e456458c05e2a87e4b1",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "2f4731158611cbb834f36c5a8ce23b8d52cb48d350d01112736d5e0367a6ed33"
+            },
+            "Contents/Config-0": {
+              "bytes": 24937,
+              "sha256": "853ddc78b2834aaa79991f316d21fac4b0becefa9e469d3382a1d847d6faa6f2",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "7bb1fa2bdaa889ad93175187842716a103363038f9bc011f99844557c7c563bd"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1289,
+              "sha256": "e476265313e52f1d31d399e788b9af7ee4d9843fe988a0fb774297835c62b45a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "792bc8705f02211e932ffdcee4ab476b0e31f08174236d177eca3732df99cbb5"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "e3626d4e3e63539a158584f25af3dbff1480b4024675951517674de02ca1fd0d",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "f38a2587cab170780eaefcf9ed6bb6fb3c43953e279d37124b7a346567068f34"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "986749d68b5b8e4b7556c6652a1755c228301bc72ba9bd25dd48b6770d5bc188"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1157,
+              "sha256": "d680ff29905ba09bb385eb986a3f5e98d677c1c6eda4e901e629aa9e07bb42c6",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "04dabfe5b1327c73ae1bcd8cf1619bdbfaf723635f13f6fb99e727d0aedbbde2"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1289,
+              "sha256": "e476265313e52f1d31d399e788b9af7ee4d9843fe988a0fb774297835c62b45a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "5a233d88531e2869ccf5cf67afcd8f666693fa18824694b08e3accd053ad24cf"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "a68a68f6845423ed375303b75fd44011a6cc1fcb85826be07a61529e48c55a0a",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "e3626d4e3e63539a158584f25af3dbff1480b4024675951517674de02ca1fd0d",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "460452d9b200ae33cf9fb57f670e6504ffb94118a4db7dcea6d2c686e98aeb33"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewBaseline-fresh-reopen.SLDPRT",
+      "name": "ViewBaseline",
+      "phase": "fresh-reopen",
+      "sha256": "45be009a20cc3914dcee9e661bba80c0aac6dd3073f8e5d56cbefdc2404383a5",
+      "source_sha256": "7ff6d1bf632e4c6bff35c1d9826a1ab2ac9a4784918fd87616a3310a28fc35ea",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale2": 1.0
+      },
+      "view_request": {},
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "1ff4c059d12aff68478fcbd7e1169fabcfa2f87b7dfa81b6d7fc06639ee845e6",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "45be009a20cc3914dcee9e661bba80c0aac6dd3073f8e5d56cbefdc2404383a5",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2603,
+              "sha256": "7228795d93185af37b6e8cb9b6fb5c2e9ded98d7a483bfc54d54b489d4337a25",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "886855952ed2c966eede400bb0c83e5669208a434fa9979e82cfbb8dd20a5101"
+            },
+            "Contents/Config-0": {
+              "bytes": 24959,
+              "sha256": "eabd5999b869a48763816fd2addecb34288009871959cc2b6f38c0b997d9a9b1",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "94ed1491ad70105370457ffdb960405c0abc0770c2d254be842761d3a0988385"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1367,
+              "sha256": "602beb791ca5b0348c1222a73055ceb0464a33c320128e7de33eb9fbf5b5105f",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "ac9bf8320020293407329bc1744623b59211f39361232b30bd663b2009bdd6d8"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17330,
+              "sha256": "5bdd937967f2db5b41fcab4224bc16b1449295286fe9097f6359419c4c31513a",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "932565a8c4c7305e8595f9e922d43fb1587b297b37926b5d337f170ed8996104"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "7c75530c16927801535e6706a5c0b058cc6ef31beeace725680a80b4f42e953c"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1905,
+              "sha256": "18c86e828e8cf548a61af0e9f69bd35adf39cd5d846384af8026d3179d0bea85",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "ceab77b7b5d8d906c8196df9bef7173413d7e73985cb8532e2bb0bb22c76fa52"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1367,
+              "sha256": "602beb791ca5b0348c1222a73055ceb0464a33c320128e7de33eb9fbf5b5105f",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "7cc4e3c20ddf5f6a48fbbec647d930139ec5c19be0a4082fcfbcb6e1742c4b29"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "45be009a20cc3914dcee9e661bba80c0aac6dd3073f8e5d56cbefdc2404383a5",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17330,
+              "sha256": "5bdd937967f2db5b41fcab4224bc16b1449295286fe9097f6359419c4c31513a",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "b2b779eb9cddf0d6221a3970716fade8c8fdb0857525127f4dca8ebb5f53a42f"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewOrientation-open-save.SLDPRT",
+      "name": "ViewOrientation",
+      "phase": "open-save",
+      "sha256": "1a3a022a6b5765c8db6693b7f6330bc8097f73806df098d1447de38082fe16a2",
+      "source_sha256": "926cf17a4074ce88da12093e386fe7ea7f0151a50056dc6d847a5a04788abe92",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          0.7071067811865464,
+          -0.4082040559113551,
+          0.5773815451999837,
+          2.7755575615628914e-17,
+          0.8165408118857499,
+          0.5772877120855426,
+          -0.7071067811865488,
+          -0.4082040559113538,
+          0.5773815451999819,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale2": 1.0
+      },
+      "view_request": {
+        "named_view": 7
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 1,
+          "f08": {
+            "m0": 0.7071067811865464,
+            "m1": -0.4082040559113551,
+            "m2": 0.5773815451999837,
+            "m3": 2.7755575615628914e-17,
+            "m4": 0.8165408118857499,
+            "m5": 0.5772877120855426,
+            "m6": -0.7071067811865488,
+            "m7": -0.4082040559113538,
+            "m8": 0.5773815451999819
+          },
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 1,
+                        "f08": {
+                          "m0": 0.7071067811865464,
+                          "m1": -0.4082040559113551,
+                          "m2": 0.5773815451999837,
+                          "m3": 2.7755575615628914e-17,
+                          "m4": 0.8165408118857499,
+                          "m5": 0.5772877120855426,
+                          "m6": -0.7071067811865488,
+                          "m7": -0.4082040559113538,
+                          "m8": 0.5773815451999819
+                        },
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "610906dc94da3ca2c1720924514bd2d0d33c583ee7d2d57e737f7c842ffd1164",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "1a3a022a6b5765c8db6693b7f6330bc8097f73806df098d1447de38082fe16a2",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2531,
+              "sha256": "387cfc6a84d4e48fe05a7c568c86b2a15a03fa0e8c05254073db56df0096f7f6",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "168dc5fc6d17ee9bcdf54ea4f32b7a7bcdbb00c5e65290ec168e9499626e4ca7"
+            },
+            "Contents/Config-0": {
+              "bytes": 24937,
+              "sha256": "1b5e5a5b1b9345bd55cdd870206d2655a15b3394aa53207ee0343bd81fdb2d7b",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "32168cd23cf5e3cfc78e13b7eb94900756fc8e47e4eabbe229b96f889fecc3a5"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1289,
+              "sha256": "974a4e1a4f494e38894f34e42cdc1e0968877633dc0f91e839104816cbae8d52",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "7290839304cc58444df884fc70def9ce5c0dad398012234491edfcbf491c9598"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "59cd31904ea7bbf23a210620e90b2388b52a83e16baeb07a4e63cf8f24a60047",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "16db75edc335c1a1f4999301f9378f9af6d651cfdc6ef8fbea60ed2c6df1ba1f"
+            },
+            "Contents/Definition": {
+              "bytes": 999,
+              "sha256": "412db56cd2878563c5305b4861e3dc15a73352b7afa3c34a51dcf36e190a9975",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "e1304ab25f9930d249cdd771a16d90cc77b71f110167bebca254d339e90d21a9"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1169,
+              "sha256": "92341374b8763b9f88fd26731573143c66c1bff3c0334d2f49f25b78a1619316",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "d7c1d0992299cbae542bcfd392b1ca7fe4d88d0277e2d35262330b1026dd4222"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1289,
+              "sha256": "974a4e1a4f494e38894f34e42cdc1e0968877633dc0f91e839104816cbae8d52",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "17fb155c463b02e8435b14b7331de75d5c10eea7c8d3b194a3105aa62b18b08e"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "1a3a022a6b5765c8db6693b7f6330bc8097f73806df098d1447de38082fe16a2",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "59cd31904ea7bbf23a210620e90b2388b52a83e16baeb07a4e63cf8f24a60047",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "d4a09e23cea836b9aad8fae3e75cca5c2f821b9f8acfbb836253e0424ec6b517"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewOrientation-fresh-reopen.SLDPRT",
+      "name": "ViewOrientation",
+      "phase": "fresh-reopen",
+      "sha256": "a5d0b1d0b445fcf6dd8855c55d73e672145cf15987bc158e173ef67006cebe74",
+      "source_sha256": "cfa9fcd33ee08d4b0fdc2d23329b8ee01a2668d3a38ff8d048c48346237c6f4e",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          0.7071067811865464,
+          -0.4082040559113551,
+          0.5773815451999837,
+          2.7755575615628914e-17,
+          0.8165408118857499,
+          0.5772877120855426,
+          -0.7071067811865488,
+          -0.4082040559113538,
+          0.5773815451999819,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale2": 1.0
+      },
+      "view_request": {
+        "named_view": 7
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 1,
+          "f08": {
+            "m0": 0.7071067811865464,
+            "m1": -0.4082040559113551,
+            "m2": 0.5773815451999837,
+            "m3": 2.7755575615628914e-17,
+            "m4": 0.8165408118857499,
+            "m5": 0.5772877120855426,
+            "m6": -0.7071067811865488,
+            "m7": -0.4082040559113538,
+            "m8": 0.5773815451999819
+          },
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 1,
+                        "f08": {
+                          "m0": 0.7071067811865464,
+                          "m1": -0.4082040559113551,
+                          "m2": 0.5773815451999837,
+                          "m3": 2.7755575615628914e-17,
+                          "m4": 0.8165408118857499,
+                          "m5": 0.5772877120855426,
+                          "m6": -0.7071067811865488,
+                          "m7": -0.4082040559113538,
+                          "m8": 0.5773815451999819
+                        },
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "8c02c97043e7c4b09a00d2e9600340bd3a7bd49946bd5f308d1e4f499389171a",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "a5d0b1d0b445fcf6dd8855c55d73e672145cf15987bc158e173ef67006cebe74",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2627,
+              "sha256": "87bd3f0fe2b32b5d25866e13c7cb69b84cd4566e2cb6d7681e3f65c87822fa9e",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "5566eaa7b2111a4d09a6c6a15753f9d684fcc1ba145bcbc490c6c252e460607f"
+            },
+            "Contents/Config-0": {
+              "bytes": 24965,
+              "sha256": "f4f8fcab43ea8151eee07b3f8945a15ef226357d61b08c5d7221ae9ee680d255",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "317f539f2a954776d6f8ca5a10731c78bcbe5851d54e117ac870948fa5fb9336"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1385,
+              "sha256": "df4443308b77fb66e56f27db9191460efdc21ba203007c16fec7488c42b47c73",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "8bb5641fb2a51ae400f953f671ce1f863644c54c38ccf62cd6391249b488efed"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17348,
+              "sha256": "055f3c640672786e6486f8533ebb54cd88793d13cab912b78087a870472a37ee",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "ac2db2d1d1776f8654dc520c768a599b8d96d44e2ef29a69d399225d6a28d2ec"
+            },
+            "Contents/Definition": {
+              "bytes": 999,
+              "sha256": "e6d1dfe3f5b12424614ae5d03a1e6cda9d4353a2aa92ccab1f99f305000a9687",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "5020d6ad6800ac8212950bec00fe2a22e50e13c975b1f894095cb4fc4e435c90"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1941,
+              "sha256": "2eeb1c62458e0ec978a2c3a87c959a391e1d3a3babc34addee1287383e09f19c",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "06c0205a1c6a4c31c0b1564bfee66aa5ced9f50f8f9a41356dca7b4da1512e5d"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1385,
+              "sha256": "df4443308b77fb66e56f27db9191460efdc21ba203007c16fec7488c42b47c73",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "ce98c7f345d62fc3e6766eef5ad939015186aec33e4f981cc319789826566ad4"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "a5d0b1d0b445fcf6dd8855c55d73e672145cf15987bc158e173ef67006cebe74",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17348,
+              "sha256": "055f3c640672786e6486f8533ebb54cd88793d13cab912b78087a870472a37ee",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "e62a4d6e1e61b1a5ecaafd0c208e43bc10058b5402895d3bc7d8b44b7b79e99c"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewScale-open-save.SLDPRT",
+      "name": "ViewScale",
+      "phase": "open-save",
+      "sha256": "9dd99a1df44592fd7ba890a7b51f4a88815ff9de314060df8f9ee8ea06022da7",
+      "source_sha256": "f09031722592ed70ec5b683c1f1aa6cffb42f106babd4476fdb0b257bf73e661",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale2": 37.173
+      },
+      "view_request": {
+        "scale2": 37.173
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 37.173,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 37.173,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "12ef07ab1b545dfa93c851e3dfd876613c63eed5f249e4347690142bf8aada01",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "9dd99a1df44592fd7ba890a7b51f4a88815ff9de314060df8f9ee8ea06022da7",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2519,
+              "sha256": "485aac700e844bcb59b944a32758d2002096e3e9a5e8adf1f322cd7ebbedaad6",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "8f527459f719f7ac9923a7ec846f32901dc828a1b57fa4d30568b68b2b0ad0f6"
+            },
+            "Contents/Config-0": {
+              "bytes": 24937,
+              "sha256": "12fb6e9ffa2899eb41f36bce68569b888847f1c3b658e8bab4b441fbf2f8e935",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "d78dce58de8d1729e8f447c20d7bff66707756dd09a2e47f1c61dd79424622ea"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1289,
+              "sha256": "70dcef4a86352f9011d469c02afb3d921f0e3d4a8accb28491835a6933845102",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "45518d96b24116862614c592bb65aa032209c8633072bc78c86721d1d6f55fa7"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "19c4710599512ca77a42fcd9c2aab179b28176bf41a1905748e17dc494e0c83b",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "6b2570abc42ae621941c773cf10650700a2de48b4417155dcf0e6a0a1236a2eb"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "6f200385ab88e62281b86a9344f0eeb48d13c2f75e53ae0792b8b2c8d21afbce",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "a1b298d25a780061053ca1fe9dd463fa2deff173588c42ace0723c0073518854"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1145,
+              "sha256": "7bc4623dd8a1ebd51d961cda76751ed4f259e5caf1d6670feff4595662db8c6d",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "9bdd1018a64556cf394d5c8dc231763d14ef75e242aca7e5ae7288620a6a817c"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1289,
+              "sha256": "70dcef4a86352f9011d469c02afb3d921f0e3d4a8accb28491835a6933845102",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "a542db34c91b37d1194725c28402296eb946a0b3f5b49022c52f4200cb99413a"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "9dd99a1df44592fd7ba890a7b51f4a88815ff9de314060df8f9ee8ea06022da7",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "19c4710599512ca77a42fcd9c2aab179b28176bf41a1905748e17dc494e0c83b",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "44835613b9cd66da70275f2e7638cc9aab1caac7c25f26e1f1d43178674a4e67"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewScale-fresh-reopen.SLDPRT",
+      "name": "ViewScale",
+      "phase": "fresh-reopen",
+      "sha256": "6371c3889fb7bbe5b01367ae47849781698a1fb3e2a2781b873a6df1b7d0929f",
+      "source_sha256": "270417f6909bc91800db454b0bf2d9eb15f173ba2eba6c82ef830c56d22132b2",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale2": 37.173
+      },
+      "view_request": {
+        "scale2": 37.173
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 37.173,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 37.173,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "5485af234bf53583c2d03e4fb7d9093d6b7f8e129f0fef89726952a82ae6e280",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "6371c3889fb7bbe5b01367ae47849781698a1fb3e2a2781b873a6df1b7d0929f",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2579,
+              "sha256": "2264b7237a27987f2bcd548ec423e519abafd58c28d4ede036f9619e76ceef8b",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "a269b2af0a7815ff7765baf0b5a1921013bab81ea8313487b16981097945a2fc"
+            },
+            "Contents/Config-0": {
+              "bytes": 24953,
+              "sha256": "ee75948bc6a1d2d717aea459467dfa1a48d7787a3799f253f4a087b16398c60a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "c98a20f30ba2ad2f7f7b3e5ac05fd7952af8c9b9e5c6f616ab396fcddf4c374e"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1349,
+              "sha256": "80a2c6914580652b8655c5381202168f4cfda28f30ac3d3d12301cd4a806ffc6",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "f691447b7deb66d510beb1c55dcde11b1d0326a938d3965d99f8529e90c483e7"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17312,
+              "sha256": "be707211c2e4a919d68dccaeed9c629d2b72fb07534172af6cfc5aadf859032c",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "5ff10306e457ac789da212c1028516cfe7ee99587ed3399b2badd96d60122740"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "684bf29af45474d26714b10742bd8630f69d5d95c2d9b41c464dc9875b154caf",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "49f7c5874820cddc0442754db30cd894c80e8fb602382e05a4879531f607fe35"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1869,
+              "sha256": "3ac6cdbea1e2fc9d8abdc71a131719af0e8ca9ad6811e7e6ad4ec303eff33fdb",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "6a7298755c7b9691ac6ece3482846f7b27b76a63dfc4ae6b9338a4e7ff1df77b"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1349,
+              "sha256": "80a2c6914580652b8655c5381202168f4cfda28f30ac3d3d12301cd4a806ffc6",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "2ca28cc7fd4d72d0a4e7b7de1c06474b6ae7949a206a9d90c7797f3d6f972eb7"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "6371c3889fb7bbe5b01367ae47849781698a1fb3e2a2781b873a6df1b7d0929f",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17312,
+              "sha256": "be707211c2e4a919d68dccaeed9c629d2b72fb07534172af6cfc5aadf859032c",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "9dc7821195bbdb86fb47d052e97fe6a053712574e45273bb6c741a0dbe3dd6fc"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewTranslate-open-save.SLDPRT",
+      "name": "ViewTranslate",
+      "phase": "open-save",
+      "sha256": "b63c98527d539ed944813e9836747c273eef785159bbac084af439b0dc9b1568",
+      "source_sha256": "da06e1fea61a5802a5d4d846891ae69646eecf8ed747c73988f6e1dee02a62df",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.003173,
+          -0.007191,
+          0.005713
+        ],
+        "scale2": 1.0
+      },
+      "view_request": {
+        "translation": [
+          0.003173,
+          -0.007191,
+          0.005713
+        ]
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.003173,
+          "f60": -0.007191,
+          "f68": 0.005713,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.003173,
+                        "f60": -0.007191,
+                        "f68": 0.005713,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "096a8a4029fca25cf19f2c4c89275eebde403a4e7aed6b9ca43168e6828f26c9",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "b63c98527d539ed944813e9836747c273eef785159bbac084af439b0dc9b1568",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2527,
+              "sha256": "89a32613cf44974a776a2deaa35b4d875931b4385635a262a59df53550428dd5",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "4ea5a1a4627b2a0fd1f7d48221ba6ba74f3ea5414de8638c96000a6000d1eae7"
+            },
+            "Contents/Config-0": {
+              "bytes": 24937,
+              "sha256": "b31d1200540a746522722b44a23cb3fb6267aa3e73488c3ab004ade637c054b0",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "7813b0e9875257d665cd5b1d0eadd3e0115bfe127444680cf4e5a0c15c2e2239"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1289,
+              "sha256": "fadcfd6d1538ebb7b129e32f1d240ed02d22a945da30d582329daf3bb45ed829",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "217e40f9fdef750ae12ff8a5fa8b567cb34b1ec785981b2a63a3ad4ff5cfe3f4"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "e8f5aa55277e7742bbcf9927e1e9fce14390a6448b8539bc1a199f779f1a4969",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "e0cb300f2c007eb72898cf6e54fa01241f7b1a7aac00ea40f70b7aebfb60500b"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "ad19c2db0bdec2d2cdf8ef2af51204745b2d21809f9cb6c4d691460395ad19f7",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "5e5e391b1bfc3ddf0c2a645d9bbd37ed955535e74353fba409f9f9e99b497f80"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1161,
+              "sha256": "c8d12c71296284eba1cb65d59590a46f56979c5c74ade77601bdc093f4ad7642",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "5be254c709fe43b9f20d5eecb45094c3db54c64f775173c551edf663d63cf398"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1289,
+              "sha256": "fadcfd6d1538ebb7b129e32f1d240ed02d22a945da30d582329daf3bb45ed829",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "d492af7a219f83998c01a4ebc4083b264337abfa03b093a585f26dfea920baeb"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "b63c98527d539ed944813e9836747c273eef785159bbac084af439b0dc9b1568",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "e8f5aa55277e7742bbcf9927e1e9fce14390a6448b8539bc1a199f779f1a4969",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "69b40c7461da8661a83fa24d2d0509e21dc63d3f86d35f632a8b6fea12102b7e"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewTranslate-fresh-reopen.SLDPRT",
+      "name": "ViewTranslate",
+      "phase": "fresh-reopen",
+      "sha256": "142eccd93fc80a61b8faaf4a8feb0921eb59e73f3ff12e996ee94b406cc64430",
+      "source_sha256": "ec024633c30d3caf865427c3086f0d2479d92a489f1a0da206f73fe62026c016",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          0.003173,
+          -0.007191,
+          0.005713
+        ],
+        "scale2": 1.0
+      },
+      "view_request": {
+        "translation": [
+          0.003173,
+          -0.007191,
+          0.005713
+        ]
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 0,
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": 0.003173,
+          "f60": -0.007191,
+          "f68": 0.005713,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.003173,
+                        "f60": -0.007191,
+                        "f68": 0.005713,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "e6ac06cbd74c7cb4b5d54e5c84538b8089640f78c5175784bec9f587700277bc",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "142eccd93fc80a61b8faaf4a8feb0921eb59e73f3ff12e996ee94b406cc64430",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2611,
+              "sha256": "12453a801fd860e528c33b5868a7650631c0232e78be7fe3ee2a3e328648f9c2",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "5d57482a8d44d559b6ecb8dffc76fd2e2907a440314c911a7722b4c6a7ee90cd"
+            },
+            "Contents/Config-0": {
+              "bytes": 24961,
+              "sha256": "366c122501a53712f871e8a03615f9098b24a4081feba7ea55a512f9596ed8c4",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "68372965d4cf73be4e0871f6a64d6e42f0f2638a4eada2c5c966c31651ed272d"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1373,
+              "sha256": "ca89be690e87670367af1f4be2d16f8895532b4c793c2b2c806cf7c1db4e086a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "76229f70f4fc60a6be4a7cab7649ed946fb3019d294341a39852fac62e5203f8"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17336,
+              "sha256": "225dee02625ef372d5a3f86c27e82a09b6ec90d3a2ec5b56252027694a8868eb",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "bb69a99d406cec3935869ed8c85b39592fd586858f2f56cb79f81fd7b4ddaae7"
+            },
+            "Contents/Definition": {
+              "bytes": 855,
+              "sha256": "8715dac109414b9c824e13c76bf6531aa18d88af1d0342312b5ea0ea10129bb9",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "8c5680a2a6e3cb009186f83b37119daf356ceb5aeadc039fc2e0e533be551570"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1917,
+              "sha256": "7048736fbb7a12a3fa8a49f6f969c52461d47ce7732d2134c58bf66c2ced333d",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "c5711999d547e14035cd99a223dc7a679e62d592fd1ecdc0b2c28af1b8745a96"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1373,
+              "sha256": "ca89be690e87670367af1f4be2d16f8895532b4c793c2b2c806cf7c1db4e086a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "4f9e3ee1f2c7062f492c0ad331ae96c80211c2e6b2392609eb8d0e2ed002ea02"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "142eccd93fc80a61b8faaf4a8feb0921eb59e73f3ff12e996ee94b406cc64430",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17336,
+              "sha256": "225dee02625ef372d5a3f86c27e82a09b6ec90d3a2ec5b56252027694a8868eb",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "cb33ef591d9cc852c55b76ed2a3e4526eb163dc13010737a95457e5eb8eb87b2"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewCombined-open-save.SLDPRT",
+      "name": "ViewCombined",
+      "phase": "open-save",
+      "sha256": "5eef0d7e46cbbe42cfe6aab18c767e3d04325aab7684522f7da902a541f713c8",
+      "source_sha256": "9bfa982937cc5b3063ab9e022dd589f29ef33260102a7954baf32eeef36409ad",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          0.7071067811865464,
+          -0.4082040559113551,
+          0.5773815451999837,
+          2.7755575615628914e-17,
+          0.8165408118857499,
+          0.5772877120855426,
+          -0.7071067811865488,
+          -0.4082040559113538,
+          0.5773815451999819,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          -0.006193,
+          0.004713,
+          0.009137
+        ],
+        "scale2": 29.137
+      },
+      "view_request": {
+        "named_view": 7,
+        "scale2": 29.137,
+        "translation": [
+          -0.006193,
+          0.004713,
+          0.009137
+        ]
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 1,
+          "f08": {
+            "m0": 0.7071067811865464,
+            "m1": -0.4082040559113551,
+            "m2": 0.5773815451999837,
+            "m3": 2.7755575615628914e-17,
+            "m4": 0.8165408118857499,
+            "m5": 0.5772877120855426,
+            "m6": -0.7071067811865488,
+            "m7": -0.4082040559113538,
+            "m8": 0.5773815451999819
+          },
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": -0.006193,
+          "f60": 0.004713,
+          "f68": 0.009137,
+          "f70": 29.137,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 1,
+                        "f08": {
+                          "m0": 0.7071067811865464,
+                          "m1": -0.4082040559113551,
+                          "m2": 0.5773815451999837,
+                          "m3": 2.7755575615628914e-17,
+                          "m4": 0.8165408118857499,
+                          "m5": 0.5772877120855426,
+                          "m6": -0.7071067811865488,
+                          "m7": -0.4082040559113538,
+                          "m8": 0.5773815451999819
+                        },
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": -0.006193,
+                        "f60": 0.004713,
+                        "f68": 0.009137,
+                        "f70": 29.137,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "39d98256ca4e53541b632881c36ef56aa314f72181f7410e5171cccbf706a33e",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "5eef0d7e46cbbe42cfe6aab18c767e3d04325aab7684522f7da902a541f713c8",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2525,
+              "sha256": "f6499bf3a8a35fc147e6c2d2a9b23023222425202cdff2963daad8316b12121a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "27e49b628b0c9790d4f7e5ba17da822f0da547d3012e9c8d201f340a0dc3dc72"
+            },
+            "Contents/Config-0": {
+              "bytes": 24937,
+              "sha256": "e6ac3491fbaef08b7ab65acd4c59887752998fa9eaae3ea1e774df66fdb74a06",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "39227c7f923e644329dd93793fd783f93cc38a793757b71cede649fb337bc992"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1289,
+              "sha256": "2a37a35cfe26cf549314fe9410538758d230e19a7c31965d0729ec684a9135b4",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "def91698602ef3a6ef8c6c73b9c6e16788e789e90b74e439ec75ac52a4431c32"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "df67740ed7ae73991dff5e5ec6f3f428b9368b23f3f524f6b7974d379fc48874",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "6c3fc759d2d32ce754e944044916b3015cdf45c287a5cdc6b30ebe62db6630b7"
+            },
+            "Contents/Definition": {
+              "bytes": 999,
+              "sha256": "1c9fe2a21752735682c7d8a4af7d1c4ff8176234c67c9ba0344bf3bb3d63f714",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "6355b2493fbc5598820625b581ef3cc7bb5c0d343576caea9571a58328f282dd"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1157,
+              "sha256": "192da18eb90435039514de09d93934ccef60bc53c7f0a90b4c8e5bc50a99be2d",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "98532b7cefa9b8b914d7344c6080698108b4919299b0e84f681d76d79d3fc0cb"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1289,
+              "sha256": "2a37a35cfe26cf549314fe9410538758d230e19a7c31965d0729ec684a9135b4",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "e7e5b047953445851ecdde8114bbc9a3a338ba566c1298dbf5a846c227ae97f3"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "5eef0d7e46cbbe42cfe6aab18c767e3d04325aab7684522f7da902a541f713c8",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17238,
+              "sha256": "df67740ed7ae73991dff5e5ec6f3f428b9368b23f3f524f6b7974d379fc48874",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "9c15b72155f1737b744bf1a9f0d7138082746074801caf8b8b55ce71d185df0c"
+            }
+          }
+        }
+      }
+    },
+    {
+      "file": "ViewCombined-fresh-reopen.SLDPRT",
+      "name": "ViewCombined",
+      "phase": "fresh-reopen",
+      "sha256": "0a02385f3da8512d459db58c5bb902050b32368c16347b37dc7a672418b42fb0",
+      "source_sha256": "c70f6ac4d0c013e322cb5bb999d0b3a5c355a232c5c82bfba821017eefa589b0",
+      "passed": true,
+      "source_immutable": true,
+      "native_saved_pose": {
+        "orientation": [
+          0.7071067811865464,
+          -0.4082040559113551,
+          0.5773815451999837,
+          2.7755575615628914e-17,
+          0.8165408118857499,
+          0.5772877120855426,
+          -0.7071067811865488,
+          -0.4082040559113538,
+          0.5773815451999819,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "translation": [
+          -0.006193,
+          0.004713,
+          0.009137
+        ],
+        "scale2": 29.137
+      },
+      "view_request": {
+        "named_view": 7,
+        "scale2": 29.137,
+        "translation": [
+          -0.006193,
+          0.004713,
+          0.009137
+        ]
+      },
+      "document_view_state": {
+        "default_transform_fae8": {
+          "has_matrix": 1,
+          "f08": {
+            "m0": 0.7071067811865464,
+            "m1": -0.4082040559113551,
+            "m2": 0.5773815451999837,
+            "m3": 2.7755575615628914e-17,
+            "m4": 0.8165408118857499,
+            "m5": 0.5772877120855426,
+            "m6": -0.7071067811865488,
+            "m7": -0.4082040559113538,
+            "m8": 0.5773815451999819
+          },
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "second_transform_faf0": {
+          "has_matrix": 0,
+          "f58": -0.006193,
+          "f60": 0.004713,
+          "f68": 0.009137,
+          "f70": 29.137,
+          "f78": 0
+        },
+        "environments": [
+          {
+            "name_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0",
+            "splitter_f10": {
+              "header": {
+                "f08": 1,
+                "f0c": 1,
+                "f10": 1808,
+                "f14": 10,
+                "f18": 3600,
+                "f1c": 10,
+                "f20": 0,
+                "f24": 0
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 1,
+                        "f08": {
+                          "m0": 0.7071067811865464,
+                          "m1": -0.4082040559113551,
+                          "m2": 0.5773815451999837,
+                          "m3": 2.7755575615628914e-17,
+                          "m4": 0.8165408118857499,
+                          "m5": 0.5772877120855426,
+                          "m6": -0.7071067811865488,
+                          "m7": -0.4082040559113538,
+                          "m8": 0.5773815451999819
+                        },
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": -0.006193,
+                        "f60": 0.004713,
+                        "f68": 0.009137,
+                        "f70": 29.137,
+                        "f78": 0
+                      },
+                      "a": 3,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            },
+            "splitter_fe0": {
+              "header": {
+                "f08": 2,
+                "f0c": 1,
+                "f10": 0,
+                "f14": 1716,
+                "f18": 355,
+                "f1c": 10,
+                "f20": 65535,
+                "f24": 65535
+              },
+              "rows": [
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                },
+                {
+                  "cols": [
+                    {
+                      "xa": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "xb": {
+                        "has_matrix": 0,
+                        "f58": 0.0,
+                        "f60": 0.0,
+                        "f68": 0.0,
+                        "f70": 1.0,
+                        "f78": 0
+                      },
+                      "a": 65535,
+                      "b": 0,
+                      "c": -1.0,
+                      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "linked_graph": {
+        "sha256": "d40121e1a590d41a8f7aae1628fdd0eda731bf51fd6a2d5269bb02a24f767ce4",
+        "node_count": 1751,
+        "reference_count": 2085,
+        "map_base": 121,
+        "map_count": 279,
+        "unresolved_references": 0
+      },
+      "comparisons": {
+        "primary": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "0a02385f3da8512d459db58c5bb902050b32368c16347b37dc7a672418b42fb0",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2603,
+              "sha256": "94d6d46bafee29254811a30383e1a1a3d831cc2163a1d8a157fdd925b0d8c0a1",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 22,
+              "full_remote_stream_report_sha256": "0f2022412e949d822c7cbdbcfb080c3971d0afb0d75ac7e88eeda2e4e301d7ac"
+            },
+            "Contents/Config-0": {
+              "bytes": 24959,
+              "sha256": "214e01757d67511658dd5dc96c775c74d58f91613b31458ed06abfbeae3e407a",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 4,
+              "map_count": 121,
+              "full_remote_stream_report_sha256": "477970be23cbf2894be4c366a4928d0794fbd05c3ee4e427100cd1f939aae48f"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1367,
+              "sha256": "f74d4e0050254b3b0b6cbabac8b773f78fa05d99f912ddc9305fc3392db9ddcd",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "47f308200f9f456cc47036f5033613b66499ec5eebf4d25446559187f7a4e628"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17330,
+              "sha256": "cd6db1068a3e24483ca12ba61562856670faf5f71aa2e0263624bee902b8c643",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "1ef347e73d2888394cd3320ae00692f75586c6d9951d0b1eec27fa00ba65f643"
+            },
+            "Contents/Definition": {
+              "bytes": 999,
+              "sha256": "7a1ea7a67490ba88de42687db3d132be0a5516aab60c36b254de9fe8adf6320e",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 11,
+              "full_remote_stream_report_sha256": "dc0df43cec4fbfb882a4e9c515c60987e88b8bae8c857696b0410d564a31c037"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 1905,
+              "sha256": "1a6e75155d250161c6fad3b4a9ceb63cc25c17f033d1da0d19b9760ad11c4e59",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 3,
+              "full_remote_stream_report_sha256": "7ad04b95666a20dfa1e4b00ba7dc78b1d5651e5dfcb989e79fc62ba6db55c3ef"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 5,
+              "full_remote_stream_report_sha256": "42330514636f465e63f7bde32a9955019d0340a1ad3d20e394010a419d2c057c"
+            },
+            "Header2": {
+              "bytes": 1367,
+              "sha256": "f74d4e0050254b3b0b6cbabac8b773f78fa05d99f912ddc9305fc3392db9ddcd",
+              "passed": true,
+              "roots": 1,
+              "tail": 0,
+              "identical": true,
+              "map_base": 1,
+              "map_count": 32,
+              "full_remote_stream_report_sha256": "c0da0165088af193a1c4eb03eca387771f3043dcecbc99415c32c21ca3ca7a3e"
+            }
+          }
+        },
+        "linked": {
+          "passed": true,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "sha256": "0a02385f3da8512d459db58c5bb902050b32368c16347b37dc7a672418b42fb0",
+          "streams": {
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17330,
+              "sha256": "cd6db1068a3e24483ca12ba61562856670faf5f71aa2e0263624bee902b8c643",
+              "passed": true,
+              "roots": 20,
+              "tail": 0,
+              "identical": true,
+              "map_base": 121,
+              "map_count": 279,
+              "full_remote_stream_report_sha256": "3e968d1598f214820b9d7efa7695fdf4e7e21d8cd73d78f9abafe15ac00d4990"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Five requests on one unchanged circle body; only identity and standard isometric orientation were varied",
+    "Translation coordinates retain native API meaning; no world-space or unit conversion is inferred",
+    "The reader raw mapping flag remains false because the reader does not assume semantics; this separate correlation checks explicit component correspondences",
+    "Perspective, multiple active windows, arbitrary orientation input, unseen generated camera output and actual visible viewport parity remain unqualified",
+    "Observed user/window rows and transform values are diagnostic evidence and cannot be copied into writer programs"
+  ]
+}

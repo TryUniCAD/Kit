@@ -1,0 +1,112 @@
+{
+  "case_comparisons": [
+    {
+      "case": "Alpha",
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "default_lighting_parity": false,
+      "one_new_authored_light": {
+        "coefficients": [
+          0.4375,
+          0.625,
+          0.1875
+        ],
+        "colour": 6004434,
+        "external_name": "KitAuthoredAmbientAlpha",
+        "f0c": 0,
+        "f28": 1073741824,
+        "folder_flags": 0,
+        "folder_id": 9,
+        "id": 25,
+        "intentional_lighting_change": true,
+        "name": "authored soft ambient alpha",
+        "ordinary_default_parity": false,
+        "part_flags": 1,
+        "state": 0
+      },
+      "original_geometry_and_dimension_ids_retained": true,
+      "owner_flags_unchanged": true,
+      "unchanged_streams": [
+        "Contents/CMgrHdr2",
+        "Contents/Definition",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "swXmlContents/KeyWords"
+      ]
+    },
+    {
+      "case": "Beta",
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "default_lighting_parity": false,
+      "one_new_authored_light": {
+        "coefficients": [
+          0.3125,
+          0.75,
+          0.0625
+        ],
+        "colour": 13535815,
+        "external_name": "KitAuthoredAmbientBeta",
+        "f0c": 0,
+        "f28": 1073741824,
+        "folder_flags": 0,
+        "folder_id": 9,
+        "id": 25,
+        "intentional_lighting_change": true,
+        "name": "authored cool ambient beta",
+        "ordinary_default_parity": false,
+        "part_flags": 1,
+        "state": 0
+      },
+      "original_geometry_and_dimension_ids_retained": true,
+      "owner_flags_unchanged": true,
+      "unchanged_streams": [
+        "Contents/CMgrHdr2",
+        "Contents/Definition",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "swXmlContents/KeyWords"
+      ]
+    }
+  ],
+  "complete_source_files": 4687,
+  "completed_processes": 12,
+  "hidden_inputs": 0,
+  "native_acceptance": false,
+  "negative_cases": [
+    "BooleanCoefficient",
+    "AboveUnitCoefficient",
+    "BooleanColour",
+    "EmptyAmbientName"
+  ],
+  "ordinary_default_lighting_parity": false,
+  "passed": true,
+  "prior_setup_failure": {
+    "completed_workers": 0,
+    "correction": "retain the actual neutral basename under the new explicit directory; all executable files unchanged",
+    "diagnostic": "native self filename must match the actual modeled part name",
+    "sha256": "b9bc48ff56a3c28a72f7b1a21a95220382476d977c4a9499dc8bd527efceef49"
+  },
+  "public_writer_qualified": false,
+  "request_origin_metadata_correction": {
+    "description": "actual request bytes were correctly frozen and executed; old embedded origin request hashes are predecessor hashes, corrected additively without source or result changes",
+    "sha256": "7012633f4b54ec7d41e72e5c20d9dd3d68c4fc5964e3c26a650f706095b13061"
+  },
+  "root_owns_product_verification": true,
+  "root_result_sha256": "94416ac78c2c107ca788dcb9c974779e4434142512c42e54498329d7101be82c",
+  "schema": "authored-ambient-host-process-v1",
+  "scope": "two intentionally authored standalone plain rectangle ambient variations; no partition admission claim",
+  "source_manifest_sha256": "36b615f2d743218c3af01d4c2203d5c2ec0c4b7187b05cc18400a63cc1ac9447",
+  "task": "B04-SW2026-PART-COLD-ADMISSION",
+  "worker_product_execution": false
+}

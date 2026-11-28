@@ -10,6 +10,7 @@ from types import FunctionType as FuncType
 from typing import Protocol, cast as TypeCast, runtime_checkable, TypeVar
 
 import interchange as InterchangeApi
+from interchange.document.Models.Drawing.DrawingNote import DrawingNote
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
@@ -19,6 +20,8 @@ from interchange.Features.Offsets.FaceOffset import FaceOffset
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.ScopedExtrude import ScopedExtrude
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
+from interchange.Features.SweepFeature import SweepFeature
 from interchange.serialization import KTypeRegistry
 from interchange.serialization import from_data as FromData
 from interchange.serialization import to_data as ToData
@@ -261,9 +264,12 @@ def CheckRegistry() -> None:
             BoundScale,
             DistanceExtrude,
             DistanceCut,
+            DrawingNote,
             FaceOffset,
             PlaneExtrude,
             PlaneRevolve,
+            SweepFeature,
+            ThinRevolve,
         )
     )
     assert KTypeRegistry["PlaneIntersectionAxis"] is InterchangeApi.PlaneAxis

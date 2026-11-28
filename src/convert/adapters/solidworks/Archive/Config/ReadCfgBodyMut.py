@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
-from convert.adapters.solidworks.Archive.Config.Link.CheckPartRoot import CheckPartRoot
+from convert.adapters.solidworks.Archive.Config.Link.CheckPartRoot import (
+    CheckPartRoot,
+    KPartRoot,
+)
 from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
     KSketchBlockClass,
 )
@@ -15,7 +18,7 @@ from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 def ReadCfgBodyMut(
     ContextValue: BodyContext, ReaderValue: GraphReader, NodeValue: ArchiveNode
 ) -> None:
-    if NodeValue.StartOffset == 0:
+    if NodeValue.StartOffset == 0 and NodeValue.ClassValue == KPartRoot:
         CheckPartRoot(ReaderValue, NodeValue)
         ContextValue.PartRootValue = NodeValue
     ReadBodyMut(ContextValue, ReaderValue, NodeValue)

@@ -1,0 +1,770 @@
+{
+  "cad_files_written": 0,
+  "disclosed_replays": {
+    "DatumHeightShort.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "hinge_dimension_plane_ids": [
+        41,
+        44,
+        45
+      ],
+      "linked_stream_hashes": [
+        "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a",
+        "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f"
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "matching_hinge_creation_times": [
+        1795245739,
+        1795245739
+      ],
+      "matching_plane_creation_times": [
+        1795245743,
+        1795245743
+      ],
+      "root_count": 24,
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b",
+      "stored_leader_index": 0,
+      "stored_shift_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "DatumHeightTall.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "hinge_dimension_plane_ids": [
+        41,
+        44,
+        45
+      ],
+      "linked_stream_hashes": [
+        "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f",
+        "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9"
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "matching_hinge_creation_times": [
+        1795245846,
+        1795245846
+      ],
+      "matching_plane_creation_times": [
+        1795245851,
+        1795245851
+      ],
+      "root_count": 24,
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb",
+      "stored_leader_index": 16777215,
+      "stored_shift_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "hinge_dimension_plane_ids": [
+        41,
+        44,
+        45
+      ],
+      "linked_stream_hashes": [
+        "5d30c8d33d52227be16c58d77a818f11f9ff911ce035501d2187f5a353e10784",
+        "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305"
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "matching_hinge_creation_times": [
+        1795243784,
+        1795243784
+      ],
+      "matching_plane_creation_times": [
+        1795243787,
+        1795243787
+      ],
+      "root_count": 24,
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f",
+      "stored_leader_index": 0,
+      "stored_shift_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "hinge_dimension_plane_ids": [
+        41,
+        44,
+        45
+      ],
+      "linked_stream_hashes": [
+        "534bc50076ed18e0b83576c7c84a0e7b0be839192f63056db7775208cb7942ff",
+        "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9"
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "matching_hinge_creation_times": [
+        1795243784,
+        1795243784
+      ],
+      "matching_plane_creation_times": [
+        1795243787,
+        1795243787
+      ],
+      "root_count": 24,
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168",
+      "stored_leader_index": 0,
+      "stored_shift_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "generated_models": [
+    {
+      "authored_angle_degrees": 28.625,
+      "authored_dimensions_mm": [
+        137.5,
+        88.5,
+        18.625
+      ],
+      "bad_inputs": {
+        "borrowed_camera_name": "angular display requires one actual authored annotation view",
+        "implicit_or_boolean_leader": "ordinary angular datum needs an explicit signed leader and zero shifted point",
+        "reversed_angle": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "stale_hinge_header": "angular datum requires the actual fresh hinge headers and their original provenance",
+        "unregistered_hinge": "angular datum requires its actual registered hinge from the same model",
+        "unsupported_shifted_point": "ordinary angular datum needs an explicit signed leader and zero shifted point"
+      },
+      "bad_readback_owners": {
+        "altered_foreshortened_leader": "ordinary angular display changed an actual arc, presentation or parameter owner",
+        "camera_id_in_annotation_slot": "angle display view ID does not bind the actual *Back annotation view",
+        "crossed_constraint_owner": "angle datum requires its default pick locations and a present unselected third geometry",
+        "crossed_hinge_creation_event": "angle support does not join the actual registered target and both creation logs",
+        "unattached_driver_value": "angular display value, driver or registered identity differs"
+      },
+      "cad_files_written": 0,
+      "fresh_owner_aliases": true,
+      "guarded_runtime_reads": 0,
+      "independent_centre_m": [
+        0.004907523555049373,
+        0.008991697649450608,
+        0.0093125
+      ],
+      "independent_label_radius_m": 0.009278082169504919,
+      "independent_normal": [
+        0.8777740231312368,
+        -0.4790749047028064,
+        0.0
+      ],
+      "independent_style_contrast": {
+        "changed_streams": [
+          "Config-0-ResolvedFeatures"
+        ],
+        "differing_bytes_in_actual_display": 1,
+        "requested_leader": 1,
+        "resolved_sha256": "f9cf1fa22b3929de3401521fdf00f315510bc30df738c5146e2c1b2a01a075a1"
+      },
+      "map_counters": [
+        90,
+        242
+      ],
+      "observed": {
+        "allocation": {
+          "angle_dimension": 26,
+          "hinge": 25,
+          "next_header_id": 28,
+          "plane": 27
+        },
+        "arc_display_byte_range": [
+          16594,
+          18324
+        ],
+        "driver": {
+          "angle_rad": 0.49960049838337683,
+          "annotation_view": "*Back",
+          "annotation_view_id": 200,
+          "id": 26,
+          "name": "D1",
+          "standard_view_id": 2
+        },
+        "feature": {
+          "constraint_slots": [
+            "moRefPlaneAngleGeom_c",
+            "moRefPlaneCoincidentGeom_c",
+            "moRefPlaneCoincidentGeom_c"
+          ],
+          "id": 27,
+          "mode": 22,
+          "name": "ArcGraphAlpha angled datum",
+          "selected_endpoints_m": [
+            [
+              0.0,
+              0.0,
+              0.019556249999999997
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0009312499999999998
+            ]
+          ],
+          "signed_selector": -3
+        },
+        "geometry_errors": {
+          "basis_n": 0.0,
+          "basis_u": 0.0,
+          "basis_v": 0.0,
+          "border": 0.0,
+          "dimension_shift": 0.0,
+          "label_direction": 0.0,
+          "label_radius": 0.0,
+          "name_corner": 0.0,
+          "normal": 0.0,
+          "ray_separation": 0.0,
+          "root": 0.0,
+          "witness_f80": 0.0,
+          "witness_fa0": 0.0,
+          "witness_fc0": 0.0
+        },
+        "geometry_prediction": {
+          "angle_rad": 0.49960049838337683,
+          "basis_u_v_n": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.4790749047028064,
+              0.8777740231312368,
+              0.0
+            ],
+            [
+              0.8777740231312368,
+              -0.4790749047028064,
+              0.0
+            ]
+          ],
+          "dimension_basis": [
+            [
+              -1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "dimension_inverse_shift_m": [
+            0.004907523555049372,
+            -0.008991697649450604,
+            0.0093125
+          ],
+          "label_direction": [
+            0.5022927213434473,
+            -0.8646976477852787,
+            0.0
+          ],
+          "label_radius_m": 0.009278082169504915,
+          "name_corner_m": [
+            0.010305799465603683,
+            0.018882565063846272,
+            0.020580624999999998
+          ],
+          "ordered_borders_m": [
+            0.001955625,
+            -0.020580624999999998,
+            0.021511875,
+            -0.001024375
+          ],
+          "ray_separation_m": 0.0004944208265612671,
+          "root_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "witness_points_m": [
+            [
+              0.004907523555049372,
+              0.009991697649450605,
+              0.0093125
+            ],
+            [
+              0.005386598459752178,
+              0.00986947167258184,
+              0.0093125
+            ],
+            [
+              0.004907523555049372,
+              0.008991697649450604,
+              0.0093125
+            ]
+          ]
+        },
+        "selected_ids": {
+          "hinge": 25,
+          "right": 16
+        },
+        "style": {
+          "design_intent": false,
+          "selected_leader": 0,
+          "shifted_point_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "prefix_map_counter": 217,
+      "preserved_prior_root_count": 20,
+      "request_sha256": "8ad2e7470cc8e3efd1ba4f1f9225d35e5eee74e196e73ec6996688c98a774381",
+      "root_count": 21,
+      "standalone_plate_size_m": [
+        0.1375,
+        0.0885,
+        0.018625
+      ],
+      "streams": {
+        "CMgr": {
+          "bytes": 1145,
+          "sha256": "5dcb8d45919b5a8db9ce2c293a2be8210aeced71467eba7d64416003d6867d38"
+        },
+        "Config-0": {
+          "bytes": 22800,
+          "sha256": "ab6974574075425484e10ff1168df987f17ec318a8fe6286b23eaf612850b377"
+        },
+        "Config-0-ModelHeader": {
+          "bytes": 963,
+          "sha256": "2235e71b177594d6dcfc28358978b9b460555d0737d9c7c45cce1f0ee5d9ad04"
+        },
+        "Config-0-ResolvedFeatures": {
+          "bytes": 18324,
+          "sha256": "0cfad148d3d5e9b50f73c07fe54638f3ab8201d27d256be9a727228e64de1b66"
+        },
+        "Header2": {
+          "bytes": 963,
+          "sha256": "75e698023c7e582bd59b90d1ae58c81afab63e74512107f6746d2b87bae0a5b2"
+        }
+      }
+    },
+    {
+      "authored_angle_degrees": 61.875,
+      "authored_dimensions_mm": [
+        121.125,
+        73.375,
+        12.75
+      ],
+      "bad_inputs": {
+        "borrowed_camera_name": "angular datum requires the actual named Back annotation and its angular dimension frame",
+        "implicit_or_boolean_leader": "ordinary angular datum needs an explicit signed leader and zero shifted point",
+        "reversed_angle": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "stale_hinge_header": "angular datum requires the actual fresh hinge headers and their original provenance",
+        "unregistered_hinge": "angular datum requires its actual registered hinge from the same model",
+        "unsupported_shifted_point": "ordinary angular datum needs an explicit signed leader and zero shifted point"
+      },
+      "bad_readback_owners": {
+        "altered_foreshortened_leader": "ordinary angular display changed an actual arc, presentation or parameter owner",
+        "camera_id_in_annotation_slot": "angle display view ID does not bind the actual *Back annotation view",
+        "crossed_constraint_owner": "angle datum requires its default pick locations and a present unselected third geometry",
+        "crossed_hinge_creation_event": "angle support does not join the actual registered target and both creation logs",
+        "unattached_driver_value": "angular display value, driver or registered identity differs"
+      },
+      "cad_files_written": 0,
+      "fresh_owner_aliases": true,
+      "guarded_runtime_reads": 0,
+      "independent_centre_m": [
+        0.006184472866242841,
+        0.0033056696169923086,
+        0.0063750000000000005
+      ],
+      "independent_label_radius_m": 0.006176205347520936,
+      "independent_normal": [
+        0.4713967368259976,
+        -0.881921264348355,
+        0.0
+      ],
+      "independent_style_contrast": {
+        "changed_streams": [
+          "Config-0-ResolvedFeatures"
+        ],
+        "differing_bytes_in_actual_display": 1,
+        "requested_leader": 0,
+        "resolved_sha256": "fb9c1b2833ea16accd6a89c4a3be78879b0177220000d01d667eefecf5bbc8f1"
+      },
+      "map_counters": [
+        91,
+        243
+      ],
+      "observed": {
+        "allocation": {
+          "angle_dimension": 26,
+          "hinge": 25,
+          "next_header_id": 28,
+          "plane": 27
+        },
+        "arc_display_byte_range": [
+          16590,
+          18320
+        ],
+        "driver": {
+          "angle_rad": 1.0799224746714915,
+          "annotation_view": "*Back",
+          "annotation_view_id": 202,
+          "id": 26,
+          "name": "D1",
+          "standard_view_id": 2
+        },
+        "feature": {
+          "constraint_slots": [
+            "moRefPlaneAngleGeom_c",
+            "moRefPlaneCoincidentGeom_c",
+            "moRefPlaneCoincidentGeom_c"
+          ],
+          "id": 27,
+          "mode": 22,
+          "name": "ArcGraphBeta angled datum",
+          "selected_endpoints_m": [
+            [
+              0.0,
+              0.0,
+              0.0133875
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0006375
+            ]
+          ],
+          "signed_selector": -3
+        },
+        "geometry_errors": {
+          "basis_n": 0.0,
+          "basis_u": 0.0,
+          "basis_v": 0.0,
+          "border": 0.0,
+          "dimension_shift": 0.0,
+          "label_direction": 0.0,
+          "label_radius": 0.0,
+          "name_corner": 0.0,
+          "normal": 0.0,
+          "ray_separation": 0.0,
+          "root": 0.0,
+          "witness_f80": 0.0,
+          "witness_fa0": 0.0,
+          "witness_fc0": 0.0
+        },
+        "geometry_prediction": {
+          "angle_rad": 1.0799224746714915,
+          "basis_u_v_n": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.881921264348355,
+              0.4713967368259976,
+              0.0
+            ],
+            [
+              0.4713967368259976,
+              -0.881921264348355,
+              0.0
+            ]
+          ],
+          "dimension_basis": [
+            [
+              -1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "dimension_inverse_shift_m": [
+            0.0061844728662428395,
+            -0.0033056696169923077,
+            0.0063750000000000005
+          ],
+          "label_direction": [
+            0.918099351137288,
+            -0.39635032665722725,
+            0.0
+          ],
+          "label_radius_m": 0.006176205347520934,
+          "name_corner_m": [
+            0.012987393019109963,
+            0.006941906195683847,
+            0.01408875
+          ],
+          "ordered_borders_m": [
+            0.00133875,
+            -0.01408875,
+            0.01472625,
+            -0.00070125
+          ],
+          "ray_separation_m": 0.0010282054883864432,
+          "root_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "witness_points_m": [
+            [
+              0.0061844728662428395,
+              0.004305669616992308,
+              0.0063750000000000005
+            ],
+            [
+              0.007066394130591194,
+              0.0037770663538183053,
+              0.0063750000000000005
+            ],
+            [
+              0.0061844728662428395,
+              0.0033056696169923077,
+              0.0063750000000000005
+            ]
+          ]
+        },
+        "selected_ids": {
+          "hinge": 25,
+          "right": 16
+        },
+        "style": {
+          "design_intent": true,
+          "selected_leader": 1,
+          "shifted_point_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "prefix_map_counter": 218,
+      "preserved_prior_root_count": 20,
+      "request_sha256": "717af6fa7a5b274ac3e60777a5573b0f75a3134a4c69cfa8ca5c99b97b57943e",
+      "root_count": 21,
+      "standalone_plate_size_m": [
+        0.121125,
+        0.073375,
+        0.012750000000000001
+      ],
+      "streams": {
+        "CMgr": {
+          "bytes": 1145,
+          "sha256": "598e5e510ebda3c367b8c157f788453a197e6ee6ff2a0d38cd3d42690c99d1dd"
+        },
+        "Config-0": {
+          "bytes": 22986,
+          "sha256": "f3d99ca992d09c0a961dfb9faf809dee604639e39be1e50404581430d1a167a7"
+        },
+        "Config-0-ModelHeader": {
+          "bytes": 953,
+          "sha256": "617fdfcf872b311144429477b31f74dc3d00d56e6b99471746e12fe0d03c091c"
+        },
+        "Config-0-ResolvedFeatures": {
+          "bytes": 18320,
+          "sha256": "9152f9417e954edc64fb27d0d03f216922c425b966748f993b30c035607871a0"
+        },
+        "Header2": {
+          "bytes": 953,
+          "sha256": "10d7e14d57a33550bf3f1f0b414878f6a5394b778c0f4758684cac5e6cf3cb63"
+        }
+      }
+    }
+  ],
+  "guarded_processes": 4,
+  "heldout_accesses": 0,
+  "independent_graphs_built": 8,
+  "native_calls": 0,
+  "pattern_seed_built": false,
+  "previous_receipts": {
+    "LocalLinearPatternAngularArc01.json": "7a696419144538fb6e876e568d633ce9f05a8cc3d57c0bcacf06ce7204e2f2f0",
+    "LocalLinearPatternAngularDatumOwners01.json": "adf414b19f9e6c9e47463dad4ea4799fd3de589dca4099edeb625abb59240498",
+    "LocalLinearPatternAnnotationCatalog01.json": "6d763f146c13b64014a73fe5c07c830664742b9bf5401a248352bf94740aab68",
+    "LocalLinearPatternFiniteHinge01.json": "7c0f8111ce899b34bbac361f0e2c4394cc8b366a0e98311666d943b9d125c6d2",
+    "LocalLinearPatternHingeAxisGraph01.json": "e37b9369c5f5e6391444b28a8f6a988fdb338980762cbe31993dff9b6483b6e3"
+  },
+  "schema": "kit.sw2026.research-only.angular-plane-graph.v1",
+  "static_owner_boundaries": {
+    "actual_style_archive_imports": {
+      "read_long": {
+        "address": "0x4cd3d888",
+        "module": "swccu.dll",
+        "symbol": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+      },
+      "read_point": {
+        "address": "0x4cd3a940",
+        "module": "sldmgu.dll",
+        "symbol": "??5@YAAEAVsu_CArchive@@AEAV0@AEAVmgPoint_c@@@Z"
+      },
+      "write_long": {
+        "address": "0x4cd3d880",
+        "module": "swccu.dll",
+        "symbol": "??6su_CArchive@@QEAAAEAV0@J@Z"
+      },
+      "write_point": {
+        "address": "0x4cd3a948",
+        "module": "sldmgu.dll",
+        "symbol": "??6@YAAEAVsu_CArchive@@AEAV0@AEAVmgPoint_c@@@Z"
+      }
+    },
+    "module": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "spans": {
+      "angle_dimension_factory": {
+        "range": [
+          "0x4c820d30",
+          "0x4c820e09"
+        ],
+        "sha256": "33645bac0b9e5413e63474db85159920c410cc792ac4271bf82deafb5f722d56"
+      },
+      "angle_parameter_factory": {
+        "range": [
+          "0x4c821470",
+          "0x4c8214ab"
+        ],
+        "sha256": "591c2e427f35be3c45698384d00fe087f0bd84c80f7980176339425ff566f260"
+      },
+      "component_axis_reference": {
+        "range": [
+          "0x4b278b80",
+          "0x4b278c13"
+        ],
+        "sha256": "b79df13c1ea0e868baa116d09c103c5e4b083cffd8be21ca58316e93e1c2cc3a"
+      },
+      "constrained_plane_init": {
+        "range": [
+          "0x4b8ed160",
+          "0x4b8ed241"
+        ],
+        "sha256": "bb9b4966dabeee4e2365012ec031f8b36ac775a7a623dd75b2e515eb23b26ffb"
+      },
+      "dimension_persistent_registration": {
+        "range": [
+          "0x4c821c40",
+          "0x4c821d69"
+        ],
+        "sha256": "0e415a01819436714d3a891db3df28dc48fa5e99d3f7f110122343bb99f7d1dc"
+      },
+      "load_leader_and_shift": {
+        "range": [
+          "0x4c830bd4",
+          "0x4c830bf4"
+        ],
+        "sha256": "6d2c022c87fd0fba8abc4ca098925f32d971e214f1521aef1bb7de3eb4389ad9"
+      },
+      "owner_taking_plane_data": {
+        "range": [
+          "0x4c2dadb0",
+          "0x4c2daf8c"
+        ],
+        "sha256": "d845c051d198ee9a40a60087ddd86a705afd16069d46c0f0cdba9d9034a244b7"
+      },
+      "parameter_name_ordinal": {
+        "range": [
+          "0x4c820f20",
+          "0x4c820fa8"
+        ],
+        "sha256": "ea388ce9e1011ab700de0337e756a58cfe8218510444cc1f3e676e9c97923be5"
+      },
+      "plane_owner_constructor": {
+        "range": [
+          "0x4c2d2d20",
+          "0x4c2d2ddc"
+        ],
+        "sha256": "d772f13c562309b6048d0e3c33a8457e6a37dbc171596039f5065d217f460ee4"
+      },
+      "set_foreshorten_shifted_point": {
+        "range": [
+          "0x4c896990",
+          "0x4c8969e0"
+        ],
+        "sha256": "89aad7a2dd555132eb58641bf267ef129cb84d4d29e18a7bb089faaee8c92fac"
+      },
+      "store_leader_index": {
+        "range": [
+          "0x4c82e7ef",
+          "0x4c82e7fe"
+        ],
+        "sha256": "2d99f74eddc664e7f061a0438ca3a20d58667557702f1a0e0c2cffc8f3a5f4f6"
+      },
+      "store_ordinary_shifted_point": {
+        "range": [
+          "0x4c82e87a",
+          "0x4c82e88a"
+        ],
+        "sha256": "090e9267314e8843af45c077526e8b01d16f2367ab661c2ab4b1e8a8aa0d2bd9"
+      }
+    }
+  },
+  "tools": {
+    "MakePatternAngularPlane.py": "b89f9a4bdace8d640046eb6db36e2c7e30caa416ab00b978e6f11e04090f275a",
+    "MakePatternAnnotationCatalog.py": "5d9e3d704fadd1560f3328a432ca4c055a6055b7365a0e65a12d69506671201b",
+    "MakePatternHingeAxis.py": "4178e7ae39eefe60b185a49fb559fb405fd62802ccb6da536cc6b441ad36ec46",
+    "PatternAngleArc.py": "77dec9cab948516d10ffca240fed122afc125ffb6a31db6d6a244121dc26445f",
+    "PatternAngleWire.py": "7ac09e40f5678a24aa80460d80c39693338475d2ebc3e740839e31250f0fda43",
+    "PatternAngularPlaneProcess.py": "1ca99b6691289d7390c2714310953b5e2dcf256f1130994b0625d281243225e1",
+    "ProvePatternAngularPlane.py": "239e1c3a398076fabcb4128fa19b8f3d932c29857115c1d68f8deb6e3ebd6158"
+  }
+}

@@ -122,4 +122,5 @@ def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -
     for PartValue in WalkDocuments(Document):
         if PartValue.assembly is not None and PartValue.assembly.instances:
             raise ValueError("UnqualifiedAssembly" + KInspectText)
-        CheckDocHistory(PartValue)
+        if PartValue.DrawingValue is None:
+            CheckDocHistory(PartValue)

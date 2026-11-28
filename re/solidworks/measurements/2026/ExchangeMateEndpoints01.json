@@ -1,0 +1,328 @@
+{
+  "base": "eeef0365613f06dca3f755916c677c6a090d0bbb",
+  "disclosed_source_sha256": "3c67d10789bbd681bfb99da712e1c6a035d78713b326c3048373ed4972198997",
+  "exact_build": "34.5.2.0604",
+  "generated": {
+    "models": {
+      "persistence": {
+        "child_sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+        "ends": [
+          {
+            "map_bytes": 149,
+            "map_sha256": "03461d3751f92e9ce56297609a4a713d955944ce8bc7cb9f812319b393e00cd2",
+            "target": "NeutralCylinderAlphaDerived-1@ConcentricNeutralAlphaDerived",
+            "uda0": "0 0 74 20 2592000 0 1 3 0 "
+          },
+          {
+            "map_bytes": 149,
+            "map_sha256": "78d70d710c8a34d550bdb3dff2008c2af1e609a1db8ff2064ea178a96856e42a",
+            "target": "NeutralCylinderAlphaDerived-2@ConcentricNeutralAlphaDerived",
+            "uda0": "0 0 74 20 2592000 0 1 3 0 "
+          }
+        ],
+        "parent_sha256": "929c8e4260b62d8c16fd1a7369a46bebc9d0bcec104b36b8fbddfd3fb5b75bdd"
+      },
+      "renamed_reversed": {
+        "child_sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+        "ends": [
+          {
+            "map_bytes": 133,
+            "map_sha256": "83a4167548ada430935a9975d1de8dcb95822cb950ae6c8cb526de92a537a256",
+            "target": "Other-mount-3@ConcentricNeutralAlphaDerived",
+            "uda0": "0 0 74 20 2592000 0 1 3 0 "
+          },
+          {
+            "map_bytes": 135,
+            "map_sha256": "e808f8aa7b359dcdfb8dfbe406e2929e020f1406438eb52814a80d6e8160dbb9",
+            "target": "Motion-guide-17@ConcentricNeutralAlphaDerived",
+            "uda0": "0 0 74 20 2592000 0 1 3 0 "
+          }
+        ],
+        "parent_sha256": "b9e9eb4710080f862a2a0c6f7375731e28c6dd36f92bdb57a7319dbc509744a4"
+      }
+    },
+    "refusals": {
+      "crossed_face_tag": "exchange mate selection lost its actual lateral kernel face identity",
+      "foreign_mate_id": "exchange mate requires the actual ordered active wrapper",
+      "foreign_side_keeper": "exchange mate side and caps target a different actual child keeper",
+      "reused_occurrence": "exchange mate requires two distinct selected occurrence owners",
+      "stale_wrapper_epoch": "mate wrapper child update is stale",
+      "wrong_order": "exchange mate requires the actual ordered active wrapper"
+    },
+    "runtime_input_accesses": 0
+  },
+  "heldout_accesses": 0,
+  "native_runs": 0,
+  "native_static": {
+    "selected_functions": {
+      "actual_face_integer_attributes": {
+        "end_exclusive": "0x439ee10e",
+        "sha256": "7a3f4919bb5fd27764e3ef662ec3d45fe449dfde9b682f7b132417e75bca3a50",
+        "start": "0x439edfa0"
+      },
+      "chain_component_target": {
+        "end_exclusive": "0x4b82ecc6",
+        "sha256": "c573d41c755916f8d2042399b7151be7bf178c005a909185cfd9e4a45f5c32f4",
+        "start": "0x4b82eb60"
+      },
+      "concentric_kind": {
+        "end_exclusive": "0x4bc8064c",
+        "sha256": "5088ecc7b21e26400fe63070601a9e44faf89479ecd0e681802ebb96c4afa7b2",
+        "start": "0x4bc80540"
+      },
+      "face_uda_and_downstream_branch": {
+        "end_exclusive": "0x4b809c12",
+        "sha256": "75641b46500d164496605dad0249dfa3a15415533a4dc6be6be774684dc1892d",
+        "start": "0x4b8096a0"
+      },
+      "mate_order": {
+        "end_exclusive": "0x4bc80ff6",
+        "sha256": "66ca728ea705034f8777d57342914324a8030c7300ed966e48d804f953a512f0",
+        "start": "0x4bc80b00"
+      },
+      "reference_chain_string": {
+        "end_exclusive": "0x4c2919ee",
+        "sha256": "ddafbba8301f9900d527b96ddc17cd009bb72f4cff9c54a8607926cadd8c9b74",
+        "start": "0x4c291460"
+      },
+      "target_base": {
+        "end_exclusive": "0x4b80a359",
+        "sha256": "398d84ed4ad555b320968aafba16cc324a5f2946a8ef5ca4bfa73a993276fcd8",
+        "start": "0x4b809e30"
+      },
+      "wrapper_dummy": {
+        "end_exclusive": "0x4b50e821",
+        "sha256": "a8a32b00d4b10d293e9b82e8316280f4fdeb8c3dc5239049bc6ada14e0d9342e",
+        "start": "0x4b50e1d0"
+      }
+    },
+    "sldgcu_sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594",
+    "sldmodu_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "vocabulary_addresses": [
+      "0x4ce96470",
+      "0x4ce96478",
+      "0x4cdd9838",
+      "0x4cdcb310"
+    ]
+  },
+  "prior_generated_pair_trial_sha256": "9b7e52d198a7e2a70902b3794fff1987451bc6a599ca1d557493eddc75a580c9",
+  "prior_parent_inventory_sha256": "676fb1e7e56e929d880a7de1471acf7cb456b70f9fec862f00961fc597736c51",
+  "proof_sha256": {
+    "ExchangeMateEndpoints.py": "09d592b2b65fa311be1d0d32e6ef372bd7128dbbf67948b077b5fd45f7362ef5",
+    "ProveExchangeMateEndpoints.py": "b032aa036f6e1f1a9c59bf043c570bdad7ede7844d4429004317ad548e8e810c"
+  },
+  "renamed_source_sha256": "3639fb9d7fd6c40e10782b8b43ce000a63269adcdcd8230ef911d24c38fe8d39",
+  "request_sha256": "c4b6c936c4a2083560b5e4a9f0f0fc58d09053a9e53d2bcba87e14da3ffccc0a",
+  "saved_contrasts": {
+    "A0_one.SLDASM": {
+      "child_sha256": null,
+      "empty": true,
+      "mate_cell_sha256": "30d4f0d4dfb99d18b994a3b734b4594082f6da74afd6031031addbf58bd079c4",
+      "mate_cell_size": 84,
+      "mate_count": 0,
+      "parent_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8"
+    },
+    "A12SyncedEmpty.SLDASM": {
+      "child_sha256": null,
+      "empty": true,
+      "mate_cell_sha256": "30d4f0d4dfb99d18b994a3b734b4594082f6da74afd6031031addbf58bd079c4",
+      "mate_cell_size": 84,
+      "mate_count": 0,
+      "parent_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2"
+    },
+    "A13SyncedSingle.SLDASM": {
+      "child_sha256": null,
+      "empty": true,
+      "mate_cell_sha256": "30d4f0d4dfb99d18b994a3b734b4594082f6da74afd6031031addbf58bd079c4",
+      "mate_cell_size": 84,
+      "mate_count": 0,
+      "parent_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523"
+    },
+    "A14SyncedRepeat.SLDASM": {
+      "child_sha256": null,
+      "empty": true,
+      "mate_cell_sha256": "30d4f0d4dfb99d18b994a3b734b4594082f6da74afd6031031addbf58bd079c4",
+      "mate_cell_size": 84,
+      "mate_count": 0,
+      "parent_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37"
+    },
+    "A1_two.SLDASM": {
+      "child_sha256": null,
+      "face_uda_rows": 0,
+      "mate_cell_sha256": "e3b2a77c0e411d45a8a327957677786cdb1f6050a2956c01691148cce2b3295b",
+      "mate_cell_size": 1025,
+      "mate_count": 3,
+      "parent_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "plane_feature_ids": [
+        "3",
+        "4",
+        "2"
+      ]
+    },
+    "D01/Edited": {
+      "actual_concentric_ends": [
+        {
+          "map_bytes": 139,
+          "map_sha256": "1ffe07e2caf5822e232ff1e051b4d8fca4cfb51864281d0f5bc9d8a18e700d4c",
+          "target": "ConcentricD01Child-1@ConcentricD01AlignedFree",
+          "uda0": "0 0 74 33 1795044309 0 1 25 0 "
+        },
+        {
+          "map_bytes": 139,
+          "map_sha256": "79e6efc71848ae2c2280887385afd5d3282f69f34f99ccaf879c21e56d3d723e",
+          "target": "ConcentricD01Child-2@ConcentricD01AlignedFree",
+          "uda0": "0 0 74 33 1795044309 0 1 25 0 "
+        }
+      ],
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "current_as_prior_refusal": "exchange mate side and caps target a different actual child keeper",
+      "mate_cell_sha256": "09c7050f0e9ce2ee267bb48859bc585d5d5f66ce9958a8dea74d046f397d1d3e",
+      "mate_cell_size": 514,
+      "mate_count": 1,
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "wrong_history_refusal": "exchange mate side and caps target a different actual child keeper"
+    },
+    "D01/Source": {
+      "D01/Edited crossed_child_refusal": "mate wrapper child update is stale",
+      "D02/Source crossed_child_refusal": "exchange mate requires an exact historical locator for the same child filename",
+      "actual_concentric_ends": [
+        {
+          "map_bytes": 120,
+          "map_sha256": "3063881e15129c645685d31fdeae08303a67fb871de96b1b5872b3ba837b4284",
+          "target": "ConcentricD01Child-1@Assem1",
+          "uda0": "0 0 74 33 1795044309 0 1 15 0 "
+        },
+        {
+          "map_bytes": 120,
+          "map_sha256": "45d4d92d382882fe1c740a255451b9fa89299b723b83ff9c43e559038f1d22ad",
+          "target": "ConcentricD01Child-2@Assem1",
+          "uda0": "0 0 74 33 1795044309 0 1 15 0 "
+        }
+      ],
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "current_as_prior_refusal": "exchange mate side and caps target a different actual child keeper",
+      "mate_cell_sha256": "bf1fc6267b2205a726aef3987e9e113c17be05d43ff0ef1fc23bbf6c9cf06c88",
+      "mate_cell_size": 476,
+      "mate_count": 1,
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "wrong_history_refusal": "exchange mate side and caps target a different actual child keeper"
+    },
+    "D02/Edited": {
+      "actual_concentric_ends": [
+        {
+          "map_bytes": 141,
+          "map_sha256": "4a5baedf60a94e81cb149b94a85a43f3289dcb6c3d147d3689942b28ec55bfd6",
+          "target": "ConcentricD02Child-1@ConcentricD02AlignedLocked",
+          "uda0": "0 0 74 33 1795044655 0 1 25 0 "
+        },
+        {
+          "map_bytes": 141,
+          "map_sha256": "6a9e490ccc09abca47bc7d146392856f8461064150fcd531eb54331ae8304738",
+          "target": "ConcentricD02Child-2@ConcentricD02AlignedLocked",
+          "uda0": "0 0 74 33 1795044655 0 1 25 0 "
+        }
+      ],
+      "child_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
+      "current_as_prior_refusal": "exchange mate side and caps target a different actual child keeper",
+      "mate_cell_sha256": "8469557903571cde6f6b3d322581a7818dec7ad4831cb45570028316b79a8844",
+      "mate_cell_size": 518,
+      "mate_count": 1,
+      "parent_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+      "wrong_history_refusal": "exchange mate side and caps target a different actual child keeper"
+    },
+    "D02/Source": {
+      "actual_concentric_ends": [
+        {
+          "map_bytes": 120,
+          "map_sha256": "85199ab4b097b76f0901e55e54d4982705d5c8b4406b1f19f76b161b1fb262e4",
+          "target": "ConcentricD02Child-1@Assem1",
+          "uda0": "0 0 74 33 1795044655 0 1 15 0 "
+        },
+        {
+          "map_bytes": 120,
+          "map_sha256": "c95b5bf51b5abdeacc837864cf36f7f73da39ae99ab57d9ac1f771bfd7ba046d",
+          "target": "ConcentricD02Child-2@Assem1",
+          "uda0": "0 0 74 33 1795044655 0 1 15 0 "
+        }
+      ],
+      "child_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
+      "current_as_prior_refusal": "exchange mate side and caps target a different actual child keeper",
+      "mate_cell_sha256": "86317fa3b2c22e0f8b461a03315aafba5d35716f5caa00d7434a1983de33c138",
+      "mate_cell_size": 476,
+      "mate_count": 1,
+      "parent_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+      "wrong_history_refusal": "exchange mate side and caps target a different actual child keeper"
+    },
+    "D03/Edited": {
+      "actual_concentric_ends": [
+        {
+          "map_bytes": 136,
+          "map_sha256": "b4ab4be28c6d7269b325eccc817153d3a9333b4ba00b844a7627526122e16e1d",
+          "target": "ConcentricD03Child-1@ConcentricD03AntiFree",
+          "uda0": "0 0 74 33 1795044948 0 1 25 0 "
+        },
+        {
+          "map_bytes": 136,
+          "map_sha256": "5a7491ac14adf68a4005a3ad9245f240c2a796f9dece9bfec97b22d5bd4a521c",
+          "target": "ConcentricD03Child-2@ConcentricD03AntiFree",
+          "uda0": "0 0 74 33 1795044948 0 1 25 0 "
+        }
+      ],
+      "child_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
+      "current_as_prior_refusal": "exchange mate side and caps target a different actual child keeper",
+      "mate_cell_sha256": "997e4405ea88085f35f1c4d55e2adf57ace5d3bbcbba700cfd7d896c536c2141",
+      "mate_cell_size": 508,
+      "mate_count": 1,
+      "parent_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+      "wrong_history_refusal": "exchange mate side and caps target a different actual child keeper"
+    },
+    "D03/Source": {
+      "actual_concentric_ends": [
+        {
+          "map_bytes": 120,
+          "map_sha256": "cf3a207ad6760df11fcd35b68f0b821514a17bee0aeb51ada8a55c83f53ee287",
+          "target": "ConcentricD03Child-1@Assem1",
+          "uda0": "0 0 74 33 1795044948 0 1 15 0 "
+        },
+        {
+          "map_bytes": 120,
+          "map_sha256": "2b0f94b7b04b54a193e02a8b0e4853221855af92d337aed00561315ed2f93aa2",
+          "target": "ConcentricD03Child-2@Assem1",
+          "uda0": "0 0 74 33 1795044948 0 1 15 0 "
+        }
+      ],
+      "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+      "current_as_prior_refusal": "exchange mate side and caps target a different actual child keeper",
+      "mate_cell_sha256": "ab4999cf081ea322831221f06dfef6fba8626179307ab096c5712aee33ed554a",
+      "mate_cell_size": 476,
+      "mate_count": 1,
+      "parent_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+      "wrong_history_refusal": "exchange mate side and caps target a different actual child keeper"
+    },
+    "renamed_native": {
+      "actual_concentric_ends": [
+        {
+          "map_bytes": 115,
+          "map_sha256": "5862845d8ebef8c3fb334e2854c670154b3abf69c22491cee74a0f038b9041dc",
+          "target": "AuthoredAxisA-1@Assem1",
+          "uda0": "0 0 74 33 1795107054 0 1 15 0 "
+        },
+        {
+          "map_bytes": 115,
+          "map_sha256": "21d14552e7a17998b0ca4a07e184fd380e881b7b9057b0296705c5de34ec9576",
+          "target": "AuthoredAxisB-2@Assem1",
+          "uda0": "0 0 74 33 1795107054 0 1 15 0 "
+        }
+      ],
+      "child_sha256": "3a39ac65c61cad230c36b27d53f7179813e68afabff2090e1ca98bdd08b2d16f",
+      "current_as_prior_refusal": "exchange mate side and caps target a different actual child keeper",
+      "mate_cell_sha256": "0ad192734e17cdb796f5248ad885c4d207ed5e97bfcebf1c47db92e3fe4e218c",
+      "mate_cell_size": 466,
+      "mate_count": 1,
+      "parent_sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c",
+      "wrong_history_refusal": "exchange mate side and caps target a different actual child keeper"
+    }
+  },
+  "schema": "kit.sw2026.exchange-mate-endpoints.v1",
+  "worker_processes": 2
+}

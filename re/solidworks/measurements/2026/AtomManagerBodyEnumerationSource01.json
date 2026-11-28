@@ -1,0 +1,49 @@
+{
+  "confidence": "partial source-backed; selected cold-open runtime operands pending",
+  "delivery_pr": 121,
+  "evidence": {
+    "generator_sha256": "f326a7a7eb6d43c25993206cc185150b9b6c12a95ecf3bdfeda5b6e64b756df3",
+    "record": "re/solidworks/records/AtomManagerBodyEnumeration2026.json",
+    "record_sha256": "5ddd972529b4aa811e6c0fb0f40e21f7afe540f9aaba2585a96037fdccb7b14f",
+    "static_original_pe_replay": {
+      "acceptance": false,
+      "cad_execution": false,
+      "complete_functions": 26,
+      "data_windows": 10,
+      "imports": 25,
+      "instruction_windows": 29,
+      "modules": 1,
+      "native_execution": false,
+      "record_sha256": "5ddd972529b4aa811e6c0fb0f40e21f7afe540f9aaba2585a96037fdccb7b14f",
+      "schema_or_codec_execution": false,
+      "tests": false,
+      "verified": true,
+      "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+      "vtable_cells": 7
+    },
+    "static_original_pe_replay_sha256": "d27828a8d985fb92dff03c04897907c6ebcc76a07c661462ff19b54b5b31368c"
+  },
+  "heldout_qualification": false,
+  "native_body_admission": false,
+  "no_vendor_code_or_bytes": true,
+  "owner": "/root/flag_ownership",
+  "remaining": [
+    "actual current manager/owner/atom/body state and reached branch",
+    "same-invocation publication and returned API array custody",
+    "modern atom feature-ID fixup caller coverage"
+  ],
+  "schema": "atom-manager-body-enumeration-source-receipt-v1",
+  "scope": "pinned ordinary19000 manager body-query and current resolved reload ownership",
+  "source_runtime_domains_separate": true,
+  "task_id": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD",
+  "worker": {
+    "cad_or_com_calls": false,
+    "native_calls": false,
+    "sdk_schema_or_codec_runs": false,
+    "sealed_inputs": false,
+    "shared_edits": false,
+    "tests": false,
+    "vm_calls": false
+  },
+  "writer_change": false
+}

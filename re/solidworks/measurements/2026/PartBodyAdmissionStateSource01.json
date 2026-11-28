@@ -1,0 +1,79 @@
+{
+  "acceptance": false,
+  "cad_execution": false,
+  "cad_success_criteria_satisfied": false,
+  "complete_functions": 27,
+  "data_only_root_receipts": [
+    {
+      "bytes": 1664,
+      "candidate_acceptance": false,
+      "file": "ConfigBodyCountDisclosed01.json",
+      "sha256": "02915602c4128a8b646cc854b37f5ee1c35c0b64d8db39242fc6ca6b8737e02b"
+    },
+    {
+      "bytes": 1760,
+      "candidate_acceptance": false,
+      "file": "KernelAskBodiesBoundary01.json",
+      "sha256": "a3add91a7e7080cb48bfd56d2774f9341e36fe3e96cd0901e53b9b84613c36b5"
+    },
+    {
+      "bytes": 2088,
+      "candidate_acceptance": false,
+      "file": "ApiWarningBoundary01.json",
+      "sha256": "54ac38cb1f9589f771cbcbddcd263988856e56834c7b95adaff37926fece165c"
+    }
+  ],
+  "data_windows": 12,
+  "delivery_pr": 121,
+  "heldout_inputs_read": 0,
+  "imports": 11,
+  "instruction_windows": 16,
+  "modules": 2,
+  "native_execution": false,
+  "native_measurement_performed_by_worker": false,
+  "owner": "flag_ownership",
+  "qualified_complete_part": false,
+  "record_sha256": "b54dc1aa5d0af1bdd48aa78598c854b63ccf2727cae82116f059ee5c2cc0e82e",
+  "schema": "kit.sw2026.part-body-admission-state-static-receipt.v1",
+  "schema_or_codec_execution": false,
+  "shared_edits": false,
+  "source_files": [
+    {
+      "bytes": 554068,
+      "path": "re/data/Serialization/SerializeMap2026.json",
+      "sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+    },
+    {
+      "bytes": 21627,
+      "path": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "76c46ab9d70235fa5346e449a34df0850484cfeb9ad10553bd5f54ff811db11d"
+    },
+    {
+      "bytes": 34122,
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ConfigurationFields.py",
+      "sha256": "06f005cde3edd32c4890635d752e90ea100c9a611b839983f3d1eb3cd48d2e3f"
+    },
+    {
+      "bytes": 2351,
+      "path": "src/convert/adapters/solidworks/Archive/Cmgr/ReadCmgrMut.py",
+      "sha256": "13e7a371e53d0f374d9fc94be1e370357e49b91f08c524669c98d9966998705b"
+    },
+    {
+      "bytes": 1362,
+      "path": "src/convert/adapters/solidworks/Archive/Cmgr/WriteCmgrMut.py",
+      "sha256": "ec034bbac3bd676413a1da89e9c9fa87e7767eb49edda10911f0e14ddfdc6bc0"
+    },
+    {
+      "bytes": 1249,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/ConfigFieldSets.py",
+      "sha256": "049dbaf3c00448cfc583b8833c9309c8c2e080bfacfbea9b489ae8e64e0abcb7"
+    }
+  ],
+  "static_replay_sha256": "d0fe3d9f8a4ca508f4a79dfbd4c488a5eac7c7a3b965d3a104c311f1548e76f6",
+  "task": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD / saved count and update-state writes",
+  "tests": false,
+  "vendor_bytes_or_listings": false,
+  "verified": true,
+  "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+  "vtable_cells": 6
+}

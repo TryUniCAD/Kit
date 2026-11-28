@@ -1,0 +1,5 @@
+# Material identity and physical density have separate owners
+
+A generated file can report the requested named material through `IPartDoc.GetMaterialPropertyName2` while the actual solid still has the unassigned density. Conversely, setting the part-density node can give the expected mass while the material API reports a blank assignment. The active configuration density scalar alone also leaves the selected solid at the default density in the measured fresh single-configuration parts.
+
+Measure material identity and the actual selected solid separately. The SOLIDWORKS 2026 SP05.2 control cases distinguish the part-density node, configuration scalar and active configuration IdName. Combined outputs for separately modeled aluminium and steel retained the expected identity and physical density during cold open and rebuild. [Field analysis](../../../../../../re/solidworks/records/AssignedMaterialPhysicalProbe2026.md) · [Native receipt](../../../../../../re/solidworks/measurements/2026/AssignedMaterialPhysicalProbeNative01.json)

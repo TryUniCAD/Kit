@@ -1,0 +1,316 @@
+{
+  "schema": "kit.sw2026.generated-distance-mate-open-setup.v1",
+  "scope": "Disclosed read-only setup observation for a generated bundle opened from a shared directory distinct from its encoded Windows output paths.",
+  "passed": false,
+  "read_only": true,
+  "observer_source_committed_before_execution": false,
+  "native_acceptance": false,
+  "vendor_loadable": false,
+  "application_usable": false,
+  "driving_edit_tested": false,
+  "persistence_tested": false,
+  "heldout_inputs_tested": 0,
+  "heldout_acceptance": false,
+  "writer_revision": "c4fda5661f92ed77d8b743be0d1940035bdd50fa",
+  "committed_writer_sha256": {
+    "CoincidentMateBundleProcess.py": "5e896ec2ea84951cd9bd0fa2c5dc80949ab34b2f0fa7bc6f675db2bebea7cabc",
+    "ParallelMateBundleProcess.py": "3e0359e235497a978884fbac4f0f430b1c7621750e5ab3176a068751b65685a9",
+    "DistanceMateBundleProcess.py": "49220595c946ae42ddfd938d26a36fb020ce0fd7c8cf5bbbf02ca7fe7bc81514",
+    "PlanarMateEndpointProcess.py": "fb875ef97fdee0548c2f7e4bf5ce538fa0a58c783712e07916f1157438d6483f",
+    "PlanarMateWrapperProcess.py": "5e894c56981ae0ba936f3e5964effafbc3d1b98acf184621b88a21861c3e1ac2",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMateEndpoint.py": "14f3896e089cfd87b8d962ed74b8a69c7d06b0cde26a2d78c4e9535a12ef8142",
+    "builders/AssemblyPlanarMate.py": "3cedbb46e824da1c1a964c35f2bbd9d8a8055941377e9cf3eec04b4040c0aec6",
+    "builders/AssemblyPlanarDistance.py": "c61a685c10f561712e7d0e7660a4d6ad7eb0097805889e4a062e8bb8caa9ff91",
+    "builders/Extrude.py": "12b26949b285eb8fd180729a7fcc57dd2457a5f13666c370f01f49f114fc3c79",
+    "serial/AssemblyMates.py": "3b461a967190267bb40d9c853cac9e9db54f4b79ae5f0bbd276e364f0bf333bf",
+    "serial/defs/ConfigAssembly.py": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62",
+    "serial/defs/ResolvedDims.py": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+  },
+  "executed_tool_sha256": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectGeneratedCoincidentMate.py": "ea83a2c3f1755966f34eaead10bdd6f7f987d42a4d9a15b8e154618e4cf7f683",
+    "InspectGeneratedDistanceMate.py": "3e18a599e525cd05c40bbe6a94a4796b6c73f153ebdcf6092661dcbb1149683b",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "first_packet_preparer_sha256": "a0d1d0579e1128c8d7755e780431e343c7febf012ab123aa7d9e9cd9aa6dd346",
+  "structural_receipt_sha256": "9fdea7a56f2eb3ba0c344f9062cab12a71a3c062c834a328e10a5265e713aa4a",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "fc150e226e7c18467e17d73a55404e93868df1a63f870e7a00455810e37e5087",
+  "native_open_receipt_sha256": "0678806bfc037f17689f90d0735d50b3871699b79283254389b3403470192ba3",
+  "native_call_receipt_sha256": {
+    "ControlBefore": "5cd66daef394a3513cc3c8beff6f1f63ad7c0e74a9e72166606d153cfc314a64",
+    "Generated": "7cc6005109d441ef896df19bb02ad7e66ec806ce95e23dc7b2103b8ade420909",
+    "ControlAfter": "301c4fae4d11c8db3e09c241947bc366e497e3b5f43a3b6f4f7cda082b683128"
+  },
+  "host_transport_sha256": "e1042c5bf66eaebdb11f46075daf7766c41c2053fa68ddafadf147c3a4724d79",
+  "host_transport_exit_confirmed": true,
+  "host_transport_exit_code": 1,
+  "distinct_app_processes": 3,
+  "controls_healthy": true,
+  "a18_control_files": {
+    "A18PlaneDistance.SLDASM": {
+      "sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "bytes": 57875
+    },
+    "CohortChild.SLDPRT": {
+      "sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+      "bytes": 59729
+    }
+  },
+  "a18_prior_native_reopen_sha256": "60a18de825ef771b93f0478d26210c06b35b3764f12bab5237d159d686b9a1f2",
+  "a18_brackets": [
+    {
+      "phase": "ControlBefore",
+      "passed": true,
+      "input_hashes_unchanged": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "forced_rebuild_passed": true,
+      "both_native_scenes_match": true,
+      "rebuild": {
+        "body_count": 2,
+        "mass_properties": {
+          "child": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          },
+          "assembly": {
+            "volume": 1.6000000000000003e-05,
+            "area": 0.0056,
+            "com": [
+              0.031615000000000004,
+              -0.007412159992500894,
+              0.01727946676291983
+            ],
+            "mass": 0.016000000000000004
+          }
+        },
+        "parent_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "child_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        }
+      },
+      "distance_m": 0.06323,
+      "ordered_right_plane_identity": [
+        1,
+        1
+      ]
+    },
+    {
+      "phase": "ControlAfter",
+      "passed": true,
+      "input_hashes_unchanged": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "forced_rebuild_passed": true,
+      "both_native_scenes_match": true,
+      "rebuild": {
+        "body_count": 2,
+        "mass_properties": {
+          "child": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          },
+          "assembly": {
+            "volume": 1.6000000000000003e-05,
+            "area": 0.0056,
+            "com": [
+              0.031615000000000004,
+              -0.007412159992500894,
+              0.01727946676291983
+            ],
+            "mass": 0.016000000000000004
+          }
+        },
+        "parent_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "child_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        }
+      },
+      "distance_m": 0.06323,
+      "ordered_right_plane_identity": [
+        1,
+        1
+      ]
+    }
+  ],
+  "generated_files": {
+    "DistanceMateDiscovery.SLDASM": {
+      "bytes": 9560,
+      "sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198"
+    },
+    "DistanceDatumPlate.SLDPRT": {
+      "bytes": 8070,
+      "sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37"
+    }
+  },
+  "packet_and_all_input_hashes_unchanged": true,
+  "generated": {
+    "opened_parent": true,
+    "returned_exact_requested_parent": true,
+    "open_errors": 2,
+    "open_warnings": 0,
+    "open_error_enum": "swFileNotFoundError",
+    "staged_directory": "DistanceMateOpenTrial01/GeneratedInput",
+    "opened_via_share": true,
+    "encoded_paths_by_file": {
+      "DistanceMateDiscovery.SLDASM": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceMateDiscovery.SLDASM",
+      "DistanceDatumPlate.SLDPRT": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT"
+    },
+    "encoded_path_references": {
+      "parent_headers": {
+        "Header2": {
+          "self": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceMateDiscovery.SLDASM",
+          "children": [
+            "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT"
+          ]
+        },
+        "Contents/Config-0-ModelHeader": {
+          "self": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceMateDiscovery.SLDASM",
+          "children": [
+            "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT"
+          ]
+        }
+      },
+      "child_headers": {
+        "Header2": {
+          "self": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT",
+          "children": []
+        },
+        "Contents/Config-0-ModelHeader": {
+          "self": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT",
+          "children": []
+        }
+      },
+      "occurrence_refs": [
+        {
+          "name": "DistanceDatumPlate-1",
+          "child": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT",
+          "parent_backlink": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceMateDiscovery.SLDASM"
+        },
+        {
+          "name": "DistanceDatumPlate-2",
+          "child": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT",
+          "parent_backlink": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceMateDiscovery.SLDASM"
+        }
+      ]
+    },
+    "stored_signed_separation_m": 0.043875,
+    "expected_solved_separation_m": 0.071375,
+    "first_open_pose": {
+      "pose": "stored",
+      "transforms": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.6780057348426142,
+          0.735056612459562,
+          0.0,
+          -0.735056612459562,
+          0.6780057348426142,
+          0.043875,
+          -0.00671,
+          0.01391,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "forced_rebuild_returned": true,
+    "unresolved_occurrence": "DistanceDatumPlate-1",
+    "observations": {
+      "initial": {
+        "component_counts": [
+          2,
+          2
+        ],
+        "parent_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "get_model_doc2_returned_object": false
+      },
+      "rebuilt": {
+        "component_counts": [
+          2,
+          2
+        ],
+        "parent_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "get_model_doc2_returned_object": false
+      }
+    },
+    "native_d1_measured": false,
+    "native_mate_plane_identity_measured": false,
+    "body_count_measured": false,
+    "mass_properties_measured": false,
+    "unclassified_dialog_count": 0,
+    "controller_diagnostic_count": 0
+  },
+  "prepared_exact_path_replay": {
+    "packet_sha256": "05f11605bc776e144780118058282af8cca725c5a601c74919d41ef0c89704ef",
+    "observer_sha256": "3895feebacf15c0d511ff785c677fa5e8b7d40a5f25f4e225bae7b4d2d428fac",
+    "preparer_sha256": "8bc784a6d347e15b63b320c20a3c92d7adeda5b433d557da69311a92f3c8041d",
+    "native_execution": "pending_at_freeze"
+  }
+}

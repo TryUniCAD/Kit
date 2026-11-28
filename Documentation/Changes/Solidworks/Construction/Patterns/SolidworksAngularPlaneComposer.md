@@ -1,0 +1,5 @@
+# Compose a constrained native angular plane and its annotation views
+
+The internal SOLIDWORKS 2026 part constructor builds the measured acute Right-plane constraint from an already registered finite Top/Right hinge and an authored angle. The actual support wrappers drive the plane frame, angular witnesses and display. A shared annotation catalog assigns view IDs from the authored order and binds the angle display to its actual Back view. The shared allocator, creation logs and configuration stamp record the resulting identities.
+
+Two independently authored annotation catalogs and two standalone angular graphs preserve the previous exact stream and map results. The scoped path and stream reader reproduces all six complete generated pattern states and their neutral JSON. This composition supports the measured through-origin, unreversed plane and up to three unbound cardinal annotation views. The public pattern writer still requires the shared seed, pattern owners and neutral presentation admission. [Construction rules and reproduction](../../../../../re/solidworks/records/LocalLinearPatternAngularPlaneGraph2026.md#shared-construction)

@@ -1,0 +1,14 @@
+{
+  "schema": "kit.sw2026.center-anchor-heldout-method-process.v1",
+  "method_sha256": "6b72042cdd541a5e9e673ce94c8971f3c794121f0482e33f1a24eff3779c30c9",
+  "source_closure_sha256": "12fd2c92c787c9bff1e7a94c245dc6d67f23651575057b5802b38d098ec4da45",
+  "disclosed_recipe_build_sha256": "1306fa911cf54b71b9084b94336327333bd6c622d990c01230e4f6bb3ce2e4c1",
+  "native_observer_sha256": "af0e9582d4b70ebbdf1c88fec60a14285696c932533664109bfb6bdb882a1e31",
+  "source_lock_sha256": "7770ae975152aae0a6f211b5ab262541aeb15bea2861f96da9b80cd9cd432e7b",
+  "verified_without_selected_recipe": true,
+  "generation_without_selected_recipe_rejected": true,
+  "linked_streams": 8,
+  "typed_center_relations": 3,
+  "hidden_inputs_read": 0,
+  "native_processes_started": 0
+}
