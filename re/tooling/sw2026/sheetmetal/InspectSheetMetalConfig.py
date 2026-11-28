@@ -9,6 +9,7 @@ from tarfile import open as open_tar
 from tempfile import TemporaryDirectory
 
 LEGACY = 'moPerBodySheetMetalData_c'
+PAIR = 'moSMAndFPFeatIdPair'
 MAX_PART = 128 * 1024 * 1024
 REFERENCE = 'b87f3b12b72874f4289b627d56e3740da2ab725b'
 FIELDS = ('f08', 'f10', 'f18', 'f20')
@@ -32,7 +33,7 @@ def map_members(reader):
     return {row.IndexValue: row.EntryValue for row in reader.map_state().state.EntriesValue}
 
 
-def inspect(archive, registry, name):
+def inspect(archive, registry, name, linked=False):
     from Core import ArchiveError
     from Dsl import i32, obj
     from Schema import Fn
@@ -104,7 +105,7 @@ def inspect(archive, registry, name):
         stored = store_map[slot]
         if stored is not value and stored != value:
             raise ArchiveError('store changed the typed owner of a map slot')
-    return dict(config_sha256=image(data), config_bytes=len(data), config_version=version,
+    result = dict(config_sha256=image(data), config_bytes=len(data), config_version=version,
                 fully_consumed=True, exact_replay=True, exact_slot_roster=True, research_only=True,
                 master_present=master is not None,
                 master_inherited_links={} if master is None else {key: describe(master.get(key)) for key in INHERITED},
@@ -114,11 +115,79 @@ def inspect(archive, registry, name):
                 legacy_wire_observations=observations)
 
 
+    if linked:
+        result['linked_streams'] = inspect_linked(archive, rules, name, version, reader)
+    return result
+
+
+def inspect_linked(archive, rules, name, version, configuration):
+    from CmgrBridge import load_cmgr, store_cmgr
+    from Core import ArchiveError
+    from Dsl import i32
+    from Schema import Fn
+    from defs.ResolvedCore import load_resolved, store_resolved_state
+
+    def check_pair_schema(reader, fields, owner):
+        if owner.schema != 1:
+            raise ArchiveError('sheet-metal manager pair is outside the schema-one proposal')
+
+    # SP04.1 sldmodu.dll Serialize at RVA 0x10e8b40 has three signed long operations.
+    # The native meanings of the three values need independently measured identity controls.
+    rules.provisional(PAIR, [Fn(check_pair_schema, lambda *_: None), i32('f08'), i32('f0c'), i32('f10')])
+    manager_bytes = archive.require('Contents/CMgr')
+    manager, manager_reader = load_cmgr(manager_bytes, rules, version, archive=archive, name='Contents/CMgr')
+    if manager.tail or manager_reader.left() or store_cmgr(manager, rules, version) != manager_bytes:
+        raise ArchiveError('linked check requires complete identical CMgr replay')
+    roots = [root for root in manager.roots if root.cls == 'moConfigurationMgr_c']
+    if len(roots) != 1:
+        raise ArchiveError('linked check requires one typed configuration manager')
+    result = {
+        'cmgr': dict(bytes=len(manager_bytes), sha256=image(manager_bytes), exact_replay=True,
+                     map_count=manager_reader.count, mode=roots[0].get('f658'), pairs=[]),
+    }
+    for row in roots[0].get('f660') or ():
+        pair = row['o']
+        if pair is None or pair.cls != PAIR or pair.schema != 1:
+            raise ArchiveError('linked check encountered an unresolved sheet-metal manager pair')
+        result['cmgr']['pairs'].append(dict(key=row['key'], owner=describe(pair), fields=dict(pair.f)))
+
+    resolved_name = name + '-ResolvedFeatures'
+    resolved = archive.require(resolved_name)
+    resolved_report = dict(bytes=len(resolved), sha256=image(resolved),
+                           inherited_config_count=configuration.count,
+                           recorded_prefix=int.from_bytes(resolved[:4], 'little'),
+                           exact_replay=False)
+    result['resolved'] = resolved_report
+    if len(resolved) < 4 or resolved_report['recorded_prefix'] != configuration.count:
+        raise ArchiveError('resolved archive prefix differs from the measured configuration map')
+    seed = configuration.map_state()
+    with rules.track_usage('load', resolved_name, role='linked', sources=archive.streams) as usage:
+        try:
+            document, reader = load_resolved(resolved, rules, version, archive=archive, name=resolved_name, seed=seed)
+            if document.tail or reader.left():
+                raise ArchiveError('resolved archive retains unconsumed bytes')
+            generated, written = store_resolved_state(document, rules, version, seed=seed)
+            if resolved != generated or reader.count != written.count:
+                raise ArchiveError('resolved archive bytes or map allocation count changed')
+            inherited = map_members(configuration)
+            read_map = map_members(reader)
+            written_map = {entry.IndexValue: entry.EntryValue for entry in written.state.EntriesValue}
+            if any(read_map.get(slot) is not value or written_map.get(slot) is not value
+                   for slot, value in inherited.items()):
+                raise ArchiveError('resolved archive changed an inherited configuration map identity')
+            resolved_report.update(exact_replay=True, map_count=reader.count, roots=len(document.roots))
+        except (ArchiveError, ValueError, KeyError) as error:
+            resolved_report.update(error_type=type(error).__name__, diagnostic=str(error)[:350],
+                                   boundary=getattr(error, 'details', None), missing_schemas=usage.snapshot()['missing_schemas'])
+    return result
+
+
 def main():
     parser = ArgumentParser(description='Check a digest-pinned native Config stream against the provisional sheet-metal child layout')
     parser.add_argument('--reference', type=Path, required=True)
     parser.add_argument('--part', type=Path, required=True)
     parser.add_argument('--sha256', required=True)
+    parser.add_argument('--linked', action='store_true', help='also check CMgr and the inherited ResolvedFeatures handoff')
     args = parser.parse_args()
     with args.part.open('rb') as handle:
         source = handle.read(MAX_PART + 1)
@@ -143,14 +212,14 @@ def main():
         from Core import ArchiveError
         from convert.adapters.solidworks.Container.Container import SldprtArchive
         try:
-            result = inspect(SldprtArchive.from_bytes(source), registry, 'Contents/Config-0')
+            result = inspect(SldprtArchive.from_bytes(source), registry, 'Contents/Config-0', args.linked)
         except (ArchiveError, ValueError, KeyError) as error:
             print(json.dumps(dict(source_sha256=digest, reference_revision=REFERENCE,
                                   research_only=True, exact_replay=False,
                                   error_type=type(error).__name__, diagnostic=str(error)[:350])))
             return 2
     print(json.dumps(dict(source_sha256=image(source), reference_revision=REFERENCE, **result), indent=2, sort_keys=True))
-    return 0
+    return 2 if args.linked and not result['linked_streams']['resolved']['exact_replay'] else 0
 
 
 if __name__ == '__main__':
