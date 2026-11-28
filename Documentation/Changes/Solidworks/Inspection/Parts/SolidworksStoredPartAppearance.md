@@ -34,3 +34,8 @@ The native reopen exposed separate part, body and face appearances on a
 two-solid contrast. The part RGB matched the bounded stored record. The
 public SDK projected one body and withheld the face texture. See the
 [measured face texture contrast](../../../../Gotchas/Conversion/Solidworks/Readers/FaceTextureChangesLegacyOptics.md).
+
+Full B-rep inspection adds an informational diagnostic when one decoded
+carrier holds multiple solid regions without a resolved design body.
+Design-only inspection omits this check because it does not decode the
+B-rep. A region count alone cannot establish body or appearance ownership.

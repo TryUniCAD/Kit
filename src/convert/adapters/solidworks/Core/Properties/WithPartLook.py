@@ -42,7 +42,30 @@ def WithPartLook(
         Evidence = ReadPartLook(Archive)
     except (TypeError, ValueError, KeyError, SyntaxError) as ErrorInfo:
         return PartLookError(Document, str(ErrorInfo))
-    return ReplaceValue(
-        Document,
-        metadata=FreezeMapping({**Document.metadata, KPartLookKey: Evidence}),
+    return ReportOwners(
+        ReplaceValue(
+            Document,
+            metadata=FreezeMapping({**Document.metadata, KPartLookKey: Evidence}),
+        )
     )
+
+
+# an unbound carrier can hold several regions without proving their model or appearance ownership
+def ReportOwners(Document: CadDocument) -> CadDocument:
+    BrepValue = Document.brep
+    if BrepValue is None:
+        return Document
+    SolidIds = {Region.id for Region in BrepValue.regions if Region.solid}
+    RegionCounts = tuple(
+        len(SolidIds.intersection(Carrier.region_ids))
+        for Carrier in BrepValue.bodies
+        if not Carrier.design_body_id
+    )
+    if max(RegionCounts, default=0) < 2:
+        return Document
+    Notice = Diagnostic(
+        code="solidworks.part_visual_unbound_regions",
+        message="multiple solid regions have no resolved body appearance ownership",
+        severity=Severity.INFO,
+    )
+    return ReplaceValue(Document, diagnostics=Document.diagnostics + (Notice,))

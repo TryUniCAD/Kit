@@ -40,6 +40,10 @@ def TestPartLook(IncludeBrep: bool) -> None:
     assert PbrFields["roughness"] == ApproxValue(0.2)
     assert TypedAppearance["primary_texture_wire"] is None
     assert TypedAppearance["effective_body_appearance"] is None
+    assert all(
+        Notice.code != "solidworks.part_visual_unbound_regions"
+        for Notice in Document.diagnostics
+    )
     assert not Document.materials and all(
         not BodyRecord.material_id for BodyRecord in Document.bodies
     )
