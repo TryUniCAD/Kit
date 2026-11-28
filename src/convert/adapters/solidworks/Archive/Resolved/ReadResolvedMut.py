@@ -15,10 +15,12 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
+from convert.adapters.solidworks.Archive.Resolved.CheckEllipUse import CheckEllipUse
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
 
 
 # resolved features extend the exact configuration snapshot after verifying the stored inherited base
@@ -30,8 +32,13 @@ def ReadResolvedMut(
     *,
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
+    ReadEllipses: bool = False,
 ) -> ResolvedGraph:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    ContextValue = MakeResolvedCtx(
+        VersionValue, SeedValue, LinkContext, UsageValue, EllipseScope=ReadEllipses
+    )
+    if ReadEllipses:
+        UseEllipCtxMut(ContextValue)
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:
@@ -52,6 +59,8 @@ def ReadResolvedMut(
         raise BodyUnsupported(
             f"resolved graph has {Cursor.GetRemaining()} trailing bytes"
         )
+    if ReadEllipses:
+        CheckEllipUse(ContextValue)
     ContextValue.UsageValue.IsComplete = True
     return ResolvedGraph(
         RootsValue,

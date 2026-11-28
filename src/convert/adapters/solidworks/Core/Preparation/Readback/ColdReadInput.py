@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Core.Preparation.Readback.ReadColdBoss import (
@@ -8,11 +9,17 @@ from convert.adapters.solidworks.Core.Preparation.Readback.ReadColdSketch import
 )
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.geometry.Models.Sketch import Sketch as CadSketch
 from interchange.Records.RecordTopology import TopologyCounts
 
 
 # only the shared plain inputs reach construction while the enclosing writer verifies all readback state
-def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
+def ColdReadInput(
+    Document: CadDocument,
+    NameValue: str,
+    *,
+    SketchReader: Callable[[CadSketch], CadSketch] = ReadColdSketch,
+) -> CadDocument:
     if (
         Document.assembly is not None
         or Document.brep_payloads
@@ -68,7 +75,7 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
         support_planes=(
             ReplaceValue(Planes[0], attributes=FreezeMapping(), provenance=None),
         ),
-        sketches=(ReadColdSketch(Sketch),),
+        sketches=(SketchReader(Sketch),),
         selections=(),
         feature_timeline=(Feature,),
         bodies=(

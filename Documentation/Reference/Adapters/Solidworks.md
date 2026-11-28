@@ -333,10 +333,20 @@ reproduce the measured encoded locator.
 [Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 [SP04.1 qualification](../../Changes/Solidworks/Construction/SolidworksEncoderOracleBuild.md)
 
-A strict cold readback of a measured ordinary part can use the same SDK writer
+A strict cold readback of a measured ordinary line part can use the same SDK writer
 with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
+
+The measured SDK full-ellipse profile accepts one free ellipse on the
+canonical Front Plane and one forward blind D1 boss. Exact offline native
+measurement is required for publication. Its cold readback verifies the
+entire typed archive and reconstructs the live D1 and rational solid. The
+same strict cold document can be written again with its measured bytes and
+complete semantic state, including after a design-only read. Strict reads
+refuse recognized ellipses in unsupported histories. Permissive reads retain
+the available history and an explicit diagnostic.
+[Measured full-ellipse boss](../../Changes/Solidworks/Construction/SolidworksMeasuredEllipseBoss.md)
 
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.

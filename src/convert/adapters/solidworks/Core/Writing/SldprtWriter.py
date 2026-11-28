@@ -6,11 +6,20 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsColdEllip import IsColdEllip
+from convert.adapters.solidworks.Core.Preparation.Ellipse.ReadColdEllip import (
+    ReadColdEllip,
+)
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
+    IsEllipsePart,
+)
+from convert.adapters.solidworks.Core.Preparation.Ellipse.PlanEllipse import PlanEllipse
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
@@ -34,20 +43,17 @@ class SldprtWriter(PairProtocol):
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
-            if IsColdRead(DocValue):
-                NameValue = (
-                    PathValue.stem
-                    if PathValue is not None
-                    else DocValue.sketches[0].name
-                )
-                DocValue = ColdReadInput(DocValue, NameValue)
-            PlanValue = PlanPartWrite(DocValue)
+            if IsColdEllip(DocValue):
+                _, PlanValue = ReadColdEllip(DocValue)
+                NameValue = PlanValue.NameValue
+            else:
+                NameValue = ReadPartName(DocValue, PathValue)
         except (IndexError, TypeError, ValueError):
             return False
         if PathValue is not None:
             return (
                 PathValue.suffix.casefold() == KPartSuffix
-                and PathValue.stem == PlanValue.NameValue
+                and PathValue.stem == NameValue
                 and not PathValue.is_dir()
             )
         return IsBinaryTarget(Target)
@@ -59,4 +65,20 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if IsEllipsePart(document):
+            return EmitEllipMut(document, destination, options)
         return EmitNativeMut(document, destination, options)
+
+
+# both ordinary and authored conic selection reuse their normal model qualification
+def ReadPartName(DocumentValue: CadDocument, PathValue: FilePath | None) -> str:
+    if IsColdRead(DocumentValue):
+        NameValue = (
+            PathValue.stem if PathValue is not None else DocumentValue.sketches[0].name
+        )
+        return PlanPartWrite(ColdReadInput(DocumentValue, NameValue)).NameValue
+    return (
+        PlanEllipse(DocumentValue).NameValue
+        if IsEllipsePart(DocumentValue)
+        else PlanPartWrite(DocumentValue).NameValue
+    )

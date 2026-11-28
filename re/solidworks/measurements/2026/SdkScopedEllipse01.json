@@ -1,0 +1,102 @@
+{
+  "deflate_version": "1.2.12",
+  "guarded_workers": 2,
+  "heldout_credit": 0,
+  "legacy_read_controls": {
+    "ControlCircle.SLDPRT": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7",
+    "ControlRectangle.SLDPRT": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f"
+  },
+  "method_sha256": {
+    "CheckSdkEllipsePart.py": "52bf7ee56ae758807e0a2e61522550db1ac9bef736bd4d52f03204154ea4d09f",
+    "ColdEllipseModel.py": "fbc11b55245030ed9a0de016a026eb9da71a56f91955914e49c7fdfb1a9bc562",
+    "EllipseMeasuredReceipt.py": "2014763ca9f3811a0a9eb76732b600e97ea05f3086d6c394db7cf5ec1bbd492b",
+    "EllipseModel.py": "bbf9f25888140914a5be7d0029ba6aa1ad471967a4de7ca0663022575ffe237d",
+    "VerifyEllipseBoundary.py": "bd2c755dc0cedb22ff31aa80ce5a6e11a7b926bf2f9f75c226692f12d75fa20b"
+  },
+  "native_phase_sha256": [
+    "5f234124d345997f4ab297ed79cbffd87ccbf5f1d2b7a60a22677b120f501259",
+    "6d250cbf5bb77772ee34a8591e6fe367972d0dc1dcee600d53ac5aab3b3bd894",
+    "df6da151a62372e467ed1df45890c89ab2914be2797a3c484d10d1090fd7e1cf",
+    "cf2f4aed23a0503e2cda7f9f4861fa4bb41ebb1515d5c593cb2261985a3225d3",
+    "245480d9f0b90b90eba748a744ea9c76f4549b4e58fb9e4ba51bff201ed91050",
+    "71855b223d863d350ddfeb1efba665206746549a8632dce0e0804a2c24df424d",
+    "758e36ccd1becbc8ceaebe38df1911af40a958b1f2b87073810f6bb70111d0bc",
+    "f141d4cd46303e3695874b5df5c90b1489b9ce0dfdfefa38d85b23538d31243a"
+  ],
+  "native_result_sha256": "6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93",
+  "native_trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653",
+  "new_native_launches": 0,
+  "normalized_receipt_sha256": "e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3",
+  "prior_healthy_controls": 4,
+  "prior_native_checks": 910,
+  "prior_native_processes": 8,
+  "python_version": "3.14.7",
+  "results": [
+    {
+      "archive_bytes": 8120,
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "clear_stream_hashes": {
+        "Contents/CMgr": "7ac1f0425dd7638edd352f8c7cae0d6f9f872534543f2725b6f531d0ba699c9b",
+        "Contents/CMgrHdr2": "d2f1e86f2508795804f641868bae538253ab7106e124203c4f1f8c1b040fd657",
+        "Contents/Config-0": "34fadd57567d318f58ef4f901df8e13a79a6d39b6f57445489adcabee7824471",
+        "Contents/Config-0-ModelHeader": "12571a6c2795373bd1527ad2d49583fd02c09c5b34f1ab5b34242b69b91c007a",
+        "Contents/Config-0-ResolvedFeatures": "35835c3bb521af80dfa3458d12ef74af226535c58fcc30ade8db7fe2740598b8",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "8a138d4c17160278b92b78401523b89135b7fa437a83d2c497a352fc856ed24b",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "1a673a332a9b021393fbe39e19e974d5fb4e403f6c7289a69eeea9bb306e30f1",
+        "swXmlContents/KeyWords": "1b9d29b93b4d64fbab1e72051734cfd5d85787014c7737b53eedac8adec1a874"
+      },
+      "depth_mm": 13.125,
+      "filesystem_reads_after_import": 0,
+      "map_counters": [
+        87,
+        195
+      ],
+      "name": "EllipseFrontA",
+      "native_measure_comparisons": 17,
+      "read_refusals": 4,
+      "scope": [
+        "direct",
+        "registry",
+        "strict_readback"
+      ],
+      "trim_surface_evaluations": 201,
+      "write_refusals": 18
+    },
+    {
+      "archive_bytes": 8119,
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "clear_stream_hashes": {
+        "Contents/CMgr": "6882876e49e128bc53e9774ce928ddf8af410d71cdd015aae813d0d23b73408d",
+        "Contents/CMgrHdr2": "3734927b8c64051ce160ea40b0f062ecb0d7ec361331d95a784f14d8ad5d7ae5",
+        "Contents/Config-0": "24d980da2f4559a78a1455818d352ab88ac27f6b3fd6d0e2026f6bfb3ea40124",
+        "Contents/Config-0-ModelHeader": "3e48ba0b81bb4f805239d045c634063a3b8b5f33622c0cae8471f7f00a75130d",
+        "Contents/Config-0-ResolvedFeatures": "deea5090185a57493dce670bdf3c57fba31f52ac2a91e6d1e7837ac4a664b716",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "e9a2949ef153d1fc15a43c5269ffa5bb9b650f0d62e326cf22a8a1a233c4264c",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "1690143a6e71930dbba6c1750161b135f89961299c3f95383d681606c0f676e0",
+        "swXmlContents/KeyWords": "884457c2b720ef3c8661534d1a7280c84ba6936d4d3b320309cdbc46be412d3b"
+      },
+      "depth_mm": 21.625,
+      "filesystem_reads_after_import": 0,
+      "map_counters": [
+        87,
+        195
+      ],
+      "name": "EllipseFrontB",
+      "native_measure_comparisons": 17,
+      "read_refusals": 4,
+      "scope": [
+        "direct",
+        "registry",
+        "strict_readback"
+      ],
+      "trim_surface_evaluations": 201,
+      "write_refusals": 18
+    }
+  ],
+  "schema": "kit.sw2026.scoped-measured-ellipse.v1",
+  "src_tree": "77321ab2683e64e413259811fbbda50798463266"
+}

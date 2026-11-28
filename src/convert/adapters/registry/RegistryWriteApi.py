@@ -112,6 +112,9 @@ class WriteApi(WriteLookup):
         TargetData: KTargetType,
         **NamedValues: object,
     ) -> WriteResult:
+        from convert.adapters.solidworks.Core.Preparation.Ellipse.IsColdEllip import (
+            IsColdEllip,
+        )
         from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
             IsColdRead,
         )
@@ -129,7 +132,9 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+        if type(AdapterData) is not SldprtWriter or not (
+            IsColdRead(DocumentData) or IsColdEllip(DocumentData)
+        ):
             CheckHistory(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:

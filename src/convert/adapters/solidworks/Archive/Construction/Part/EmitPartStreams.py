@@ -15,6 +15,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist imp
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartKeys import (
     MakePartKeys,
 )
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
 )
@@ -44,8 +47,10 @@ def EmitPartStreams(
     HeadersValue: tuple[ArchiveNode, ArchiveNode, ArchiveNode],
     DefinitionValue: ModelDefGraph,
     InputValue: PartBuildInput,
-    PlanValue: BlindPlan,
+    PlanValue: BlindPlan | EllipsePlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    ReplayEllipses: bool = False,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
@@ -54,8 +59,14 @@ def EmitPartStreams(
         "model_is_part": 1,
         "cmgr_f658": CastValue(int, SystemValue.ManagerValue.FieldsValue["f658"]),
     }
+    BodyMap: dict[str, object] | None = {"n": 0, "fcd8": []} if ReplayEllipses else None
     ResolvedBytes, ResolvedValue = WriteResolMut(
-        FeatureValues, None, 19000, ConfigValue.MapValue, ContextValue
+        FeatureValues,
+        BodyMap,
+        19000,
+        ConfigValue.MapValue,
+        ContextValue,
+        ReplayEllipses=ReplayEllipses,
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),

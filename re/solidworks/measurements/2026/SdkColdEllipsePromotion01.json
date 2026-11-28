@@ -1,0 +1,270 @@
+{
+  "cases": [
+    {
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "bytes": 8120,
+      "case": "EllipseFrontA",
+      "depth_m": 0.013125,
+      "linked_replays": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 86,
+          "sha256": "34fadd57567d318f58ef4f901df8e13a79a6d39b6f57445489adcabee7824471"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 194,
+          "sha256": "35835c3bb521af80dfa3458d12ef74af226535c58fcc30ade8db7fe2740598b8"
+        }
+      },
+      "linked_roots": 19,
+      "major_station_m": [
+        0.03699003440324798,
+        0.0039061349356519113
+      ],
+      "map_frontiers": [
+        87,
+        195
+      ],
+      "neutral_request_sha256": "a1a8650a76e29c0b14a04b0adbd7e8a8fdaefa53ab7c5fd0c93cb7bcec022384",
+      "refusals": {
+        "construction": "cold ellipse requires its actual free full closed entity",
+        "equal_radii": "cold ellipse is outside the measured signed geometry and depth scope",
+        "requested_configuration": "requested ellipse write configuration is unavailable",
+        "reversed_boss": "plain boss requires its admitted single blind direction",
+        "unnamed_stream": "unnamed native streams require an explicit final destination",
+        "unsupported_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_driver": "plain boss requires its actual unexpressed driving D1 parameter"
+      },
+      "resolved_map_base": 87,
+      "runtime_file_reads": 0,
+      "sdk_research_imports": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "7ac1f0425dd7638edd352f8c7cae0d6f9f872534543f2725b6f531d0ba699c9b"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "d2f1e86f2508795804f641868bae538253ab7106e124203c4f1f8c1b040fd657"
+        },
+        "Contents/Config-0": {
+          "bytes": 22260,
+          "sha256": "34fadd57567d318f58ef4f901df8e13a79a6d39b6f57445489adcabee7824471"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 675,
+          "sha256": "12571a6c2795373bd1527ad2d49583fd02c09c5b34f1ab5b34242b69b91c007a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13834,
+          "sha256": "35835c3bb521af80dfa3458d12ef74af226535c58fcc30ade8db7fe2740598b8"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 675,
+          "sha256": "8a138d4c17160278b92b78401523b89135b7fa437a83d2c497a352fc856ed24b"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "1a673a332a9b021393fbe39e19e974d5fb4e403f6c7289a69eeea9bb306e30f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1423,
+          "sha256": "1b9d29b93b4d64fbab1e72051734cfd5d85787014c7737b53eedac8adec1a874"
+        }
+      }
+    },
+    {
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "bytes": 8119,
+      "case": "EllipseFrontB",
+      "depth_m": 0.021625000000000002,
+      "linked_replays": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 86,
+          "sha256": "24d980da2f4559a78a1455818d352ab88ac27f6b3fd6d0e2026f6bfb3ea40124"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 194,
+          "sha256": "deea5090185a57493dce670bdf3c57fba31f52ac2a91e6d1e7837ac4a664b716"
+        }
+      },
+      "linked_roots": 19,
+      "major_station_m": [
+        0.0008761766068169762,
+        -0.0024959699911387134
+      ],
+      "map_frontiers": [
+        87,
+        195
+      ],
+      "neutral_request_sha256": "ce733456558355ff2e1748c50a4111a9a6d721a10cae67988833d1f66e2c6964",
+      "refusals": {
+        "construction": "cold ellipse requires its actual free full closed entity",
+        "equal_radii": "cold ellipse is outside the measured signed geometry and depth scope",
+        "requested_configuration": "requested ellipse write configuration is unavailable",
+        "reversed_boss": "plain boss requires its admitted single blind direction",
+        "unnamed_stream": "unnamed native streams require an explicit final destination",
+        "unsupported_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_driver": "plain boss requires its actual unexpressed driving D1 parameter"
+      },
+      "resolved_map_base": 87,
+      "runtime_file_reads": 0,
+      "sdk_research_imports": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "6882876e49e128bc53e9774ce928ddf8af410d71cdd015aae813d0d23b73408d"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "3734927b8c64051ce160ea40b0f062ecb0d7ec361331d95a784f14d8ad5d7ae5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22260,
+          "sha256": "24d980da2f4559a78a1455818d352ab88ac27f6b3fd6d0e2026f6bfb3ea40124"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 675,
+          "sha256": "3e48ba0b81bb4f805239d045c634063a3b8b5f33622c0cae8471f7f00a75130d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13834,
+          "sha256": "deea5090185a57493dce670bdf3c57fba31f52ac2a91e6d1e7837ac4a664b716"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 675,
+          "sha256": "e9a2949ef153d1fc15a43c5269ffa5bb9b650f0d62e326cf22a8a1a233c4264c"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "1690143a6e71930dbba6c1750161b135f89961299c3f95383d681606c0f676e0"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1423,
+          "sha256": "884457c2b720ef3c8661534d1a7280c84ba6936d4d3b320309cdbc46be412d3b"
+        }
+      }
+    }
+  ],
+  "construction_reference_receipt": "646be1559ff71dba8650df05a4dcdfdbf987c6a7e11ce3e132a720cd8fb3c555",
+  "guarded_processes": 4,
+  "guarded_stdout_sha256": "e11b88d8eb2ceeff85f62b56a808c6f17e6828ddc0c7632615f3ab88ee3b4c4a",
+  "native_processes_started": 0,
+  "native_reference_receipt": "6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93",
+  "new_source_sha256": {
+    "re/tooling/sw2026/ellipse_source/CheckSdkEllipsePart.py": "62957fb3d73ac0cb9d517e47f74abed57a35e226c3e7705723bc258250f8318b",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/BindEllipPtsMut.py": "f94be93baf789cd3dc2e027213e026def6ee10aaa244175f6dbca4139cd117a0",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/EllipseGraph.py": "c118517c82596c464257e0a0988ef5ef1aeb16730047d9a2db0271b890c11bb9",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/EllipsePart.py": "2983b9456f84e1224d72f71c382669ec6d79447d88f64ad0f113a684ba18661e",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/EllipsePlan.py": "6e8e40f764e66f29ddf841caaa23b042aae6ddab78c3f648166931d6ca926ad9",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/EmitEllipsePart.py": "cc7b9d1f9d5d115e812f85d61c05d25fa144d36db2eb1a02921fe65d430d1ea6",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/MakeEllipPoints.py": "053db122b3ef15fe058303c6373131ad262ebd578ff130f6fdedf0f7d20d7081",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/MakeEllipProf.py": "9dd8b36ce963a6966c89812e19170630eef96b67971d7161732f6755c02937e8",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/MakeEllipSeg.py": "5ce7c24300dabc632604ed52ca635d3cd13039bb5d98d61dd5025973a61c99a2",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/MakeEllipSketch.py": "d4f75c23dc62d63ef2b4c3791fde8900cd2d51452f6f38f92c9bd31132d15d21",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/MakeEllipsePart.py": "05d96d71b3833264c99c3d7f71be4d02cce0dc865acaff386222411a3bdd5bb0",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/ProjectEllipse.py": "85efe58bac83f993d838e6858f3dd04e7ae7779a791850b21ba4f566e47d0564",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/ReadEllipAxes.py": "e70ca60364330a734e112628a5d5f042882cff7d5267b52690fb4f087589075e",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/ReadEllipGeom.py": "7d22287ef4f3539901dda41dee63b4990f4da2198c0f638295229a8b9e85ec65",
+    "src/convert/adapters/solidworks/Core/Preparation/Ellipse/PlanEllipse.py": "a5471821f98f2517a734320e8d54aefe07c0e974861c46833d645cc6e242a6e0",
+    "src/convert/adapters/solidworks/Core/Preparation/Ellipse/PrepareEllipse.py": "e6bd43ae0aaabfb9f4a5e0cc35684858d56f40ff0ad1134cf3124a6a37aafe6e"
+  },
+  "prior_protected_native_receipt_sha256": "aed36c0f0b9698469ad35a3c3975a5f600019a3c5bb28de67784c4e0fe47d0b5",
+  "production_base": "0f2444beb33c558bf78e7a48cb87047d04d6709b",
+  "production_base_src_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "schema": "kit.sw2026.sdk-full-ellipse-promotion.v1",
+  "shared_integration_patch_sha256": "8e2e1eea2a0fb65a75ade71184c4ac51ae20a06f602ffb25bcb460bb35d883e8",
+  "shared_integration_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartArchive.py": "3dee0c9c5105e6524d2ec64e73fe9e7cdd609f574051ea0423f4f1f9326ba1b2",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartKeys.py": "23e5ab75d12858035596086a5ab620c066b2c7538b561634eaa9022034bd595e",
+    "src/convert/adapters/solidworks/Archive/Construction/Profile/ProfileGraph.py": "69bf1a6e98a72567b4b652d5abca29d5180c7c535bef5bc1f79933d2f5ffb819",
+    "src/convert/adapters/solidworks/Archive/Construction/Sketch/RequirePolygon.py": "3ca90a410b798647cd314d24200c2094123034f9a9af3a1558050ef870b96bd9"
+  }
+}
