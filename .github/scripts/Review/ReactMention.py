@@ -15,7 +15,7 @@ from ReadPages import ReadPages
 def ReactMention(StateName: str) -> None:
     if StateName not in ("started", "complete"):
         raise ValueError("Unexpected review reaction state")
-    Context = ReactionContext(StateName)
+    Context = ReactionContext()
     CommentId = Context.get("mention_comment")
     if CommentId is None:
         return

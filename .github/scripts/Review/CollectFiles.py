@@ -1,5 +1,6 @@
 from Input.ReadSource import ReadSource
 from Input.ReadTarget import ReadTarget
+from Input.SourcePriority import SourcePriority
 
 
 # complete changed sources and their previous versions expose more than truncated patch snippets
@@ -7,7 +8,7 @@ def CollectFiles(
     Files: list[dict[str, object]], Evidence: dict[str, object]
 ) -> list[dict[str, object]]:
     Sources: list[dict[str, object]] = []
-    for Entry in Files[:40]:
+    for Entry in sorted(Files, key=SourcePriority)[:40]:
         FileName = str(Entry["filename"])
         try:
             Source = {

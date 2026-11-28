@@ -22,6 +22,7 @@ def CheckPull(RepoName: str, Evidence: dict[str, object]) -> dict[str, object]:
         or ObjectMap(HeadData["repo"])["full_name"] != RepoName
         or ObjectMap(BaseData["repo"])["full_name"] != RepoName
         or HeadData["sha"] != Evidence["head_sha"]
+        or BaseData["ref"] != Evidence["base_ref"]
         or ObjectMap(LiveBase["object"])["sha"] != Evidence["base_sha"]
         or ObjectMap(BaseData["repo"])["id"] != Evidence["repository_id"]
         or (

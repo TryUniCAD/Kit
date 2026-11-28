@@ -83,6 +83,7 @@ flowchart LR
   A16["A16: Broader features and additional CAD families"]
   A13 --> A16
   A15 --> A16
+  ReviewerContinuous["ReviewerContinuous: Review each proposed revision independently of approval gates"]
   ReviewerLiveEvidence["ReviewerLiveEvidence: Live review base and mergeability qualification"]
   ReviewerReactions["ReviewerReactions: Mention review lifecycle reactions"]
   ReviewerRuntime["ReviewerRuntime: Explicit default review model and reasoning"]

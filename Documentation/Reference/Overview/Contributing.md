@@ -39,7 +39,7 @@ PR creation does not authorize merge or queue enrollment.
 
 Read each entry in `Reviewers` from [ReviewBot.json](../../../.agents/skills/standard-pr-practice/ReviewBot.json).
 The array is the only source of reviewer identities, report names, and request text.
-For `Trigger: schedule`, follow the automatic review workflow after successful aggregate PR CI.
+For `Trigger: schedule`, follow the automatic review workflow on each proposed head regardless of CI failures or merge conflicts.
 For explicit reassessment, use one complete `AccountReview.MentionCommands` entry from the same registry in a new PR comment.
 Use its workflow dispatch with CI run input `id` for a manual retry.
 For a comment-triggered entry, post `Comment` verbatim as a separate top-level request.

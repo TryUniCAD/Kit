@@ -7,9 +7,7 @@
       "AppSlug": "unifiedcad",
       "UserId": 362345322,
       "UserLogin": "unifiedcad[bot]",
-      "Checks": [
-        "Account review result"
-      ],
+      "Checks": ["Account review result"],
       "Statuses": [],
       "Documentation": "Documentation/Tasks/AccountReviewer.md"
     }
@@ -17,10 +15,7 @@
   "ExcludedReports": [],
   "AccountReview": {
     "AppId": 5966452,
-    "MentionCommands": [
-      "@unifiedcad",
-      "@unifiedcad review"
-    ],
+    "MentionCommands": ["@unifiedcad", "@unifiedcad review"],
     "CheckName": "Account review result",
     "MinimumScore": 4,
     "Workflow": ".github/workflows/AccountReview.yml",

@@ -3,6 +3,7 @@ import subprocess as ProcessTools
 from typing import cast
 
 from ApiCall import ApiCall
+from Approval.HasCiComplete import HasCiComplete
 from ObjectMap import ObjectMap
 from ReadEvidence import ReadEvidence
 from ReadChecks import GetCheckId
@@ -21,6 +22,11 @@ def ReadCiGate(RepoName: str, Evidence: dict[str, object]) -> dict[str, object]:
     Latest = max(Checks, key=GetCheckId)
     if Latest["status"] != "completed" or Latest["conclusion"] != "success":
         return {"passed": False, "reason": "CI is pending or unsuccessful"}
+    if not HasCiComplete(RepoName, str(Evidence["head_sha"])):
+        return {
+            "passed": False,
+            "reason": "Other CI checks are pending or unsuccessful",
+        }
     RunMatch = RegexTools.fullmatch(
         rf"https://github\.com/{RegexTools.escape(RepoName)}/actions/runs/([0-9]+)/job/[0-9]+",
         str(Latest.get("details_url", "")),

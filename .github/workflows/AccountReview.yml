@@ -220,8 +220,8 @@ jobs:
 
   react:
     name: Complete review outcome
-    needs: [prepare, review, publish]
-    if: always() && needs.prepare.outputs.selected == 'true'
+    needs: [admit, prepare, review, publish]
+    if: always() && (needs.prepare.outputs.selected == 'true' || needs.admit.outputs.mention == 'true')
     environment: AccountReview
     runs-on: ubuntu-24.04
     timeout-minutes: 5
@@ -233,9 +233,15 @@ jobs:
           ref: ${{ github.sha }}
           persist-credentials: false
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        if: needs.prepare.outputs.selected == 'true'
         with:
           name: ReviewInput
           path: ReviewInput
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        if: needs.admit.outputs.mention == 'true'
+        with:
+          name: ReviewRequest
+          path: ReviewRequest
       - name: Obtain completion report and reaction token
         id: reaction-token
         uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
@@ -247,7 +253,7 @@ jobs:
           permission-pull-requests: read
           permission-checks: write
       - name: Publish failed native report when the workflow did not complete
-        if: needs.prepare.result != 'success' || (needs.prepare.outputs.ready == 'true' && needs.publish.result != 'success')
+        if: needs.prepare.outputs.selected == 'true' && (needs.prepare.result != 'success' || (needs.prepare.outputs.ready == 'true' && needs.publish.result != 'success'))
         env:
           GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
         run: python .github/scripts/Review/FailReview.py

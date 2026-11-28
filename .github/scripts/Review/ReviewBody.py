@@ -33,6 +33,9 @@ def ReviewBody(Report: dict[str, object], Context: dict[str, object]) -> str:
         f"Approval gate: {SafeText(ObjectMap(Context['approval_gate'])['reason'])}"
     )
     Sections.append(f"Policy revision: {Context['policy_sha']}")
+    GateInfo = ObjectMap(Context["approval_gate"])
+    if GateInfo.get("run_id") is not None:
+        Sections.append(f"Approval CI run: {GateInfo['run_id']}")
     if not Context["input_complete"]:
         Sections.append(
             "Partial source coverage; automatic approval is disabled for this report"

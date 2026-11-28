@@ -79,10 +79,10 @@ GitHub review submissions carry `commit_id`, comments can link their original/cu
 
 ## Trigger, answer, and resolve
 
-For `Trigger: schedule`, follow the configured automatic workflow after successful PR aggregate CI.
+For `Trigger: schedule`, follow the configured automatic workflow on each proposed head through event dispatch and scheduled recovery regardless of CI failures or merge conflicts.
 For explicit reassessment, post one exact `AccountReview.MentionCommands` entry as the whole new PR comment.
 The commenter must have current write, maintain, or admin permission; verify the resulting workflow and reviewed revision.
-For a manual retry, dispatch the configured `Workflow` with the successful CI run ID in input `id`.
+For a manual retry, dispatch the configured `Workflow` with input `pull` and optional `force`, or input `comment` for an authorized mention.
 Do not use the comment-request commands below for an automatic reviewer.
 Those request commands apply only to entries with a configured `Comment`.
 

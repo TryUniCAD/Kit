@@ -5,7 +5,7 @@ from Input.MakeContext import MakeContext
 from Input.ReadSource import ReadSource
 
 
-# unreviewable source sizes must fail before any account credential reaches the runner
+# bounded source coverage must remain explicit so incomplete input can never receive automatic approval
 def BuildContext(
     Evidence: dict[str, object],
     PullData: dict[str, object],
@@ -39,8 +39,10 @@ def BuildContext(
                     "omitted": "Complete source exceeds the review context budget",
                 }
             )
-    Context["omitted_file_count"] = len(FileList) - len(Sources)
-    Context["input_complete"] = len(FileList) == len(Sources) and not any(
+    Context["omitted_file_count"] = int(str(Context["changed_file_count"])) - len(
+        Sources
+    )
+    Context["input_complete"] = Context["omitted_file_count"] == 0 and not any(
         "omitted" in Source for Source in Sources
     )
     return JsonTools.dumps(Context)
