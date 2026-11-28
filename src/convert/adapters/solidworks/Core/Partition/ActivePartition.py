@@ -2,9 +2,7 @@ from collections.abc import Iterable, Sequence
 from dataclasses import dataclass as Dataclass, replace as Replace
 from re import compile as CompileRegex
 
-from convert.adapters.solidworks.Container.Parasolid import (
-    decode_brep_model as DecodeBrep,
-)
+from convert.adapters.solidworks.Core.Partition.Current.ReadActiveModel import ReadActiveModel
 from convert.Geometry.Parasolid import KBlankDeltaBody, KBlankPartBody, ParaHeaderData
 from convert.Geometry.ReadParaSection import ReadEmptyFrame
 from interchange.brep.Topology.BrepModel import BrepModel
@@ -41,7 +39,7 @@ def ReadActivePart(
     if len(Partitions) != 1:
         return ActivePartition(None, None)
     (Source,) = Partitions
-    ModelValue = DecodeBrep(Source.data) if Source.data is not None else None
+    ModelValue = ReadActiveModel(Source.data) if Source.data is not None else None
     if (
         BodyId is not None
         and ModelValue is not None

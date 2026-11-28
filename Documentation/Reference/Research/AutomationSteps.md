@@ -96,6 +96,31 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ## Step register
 
+### SOLIDWORKS partition reader follow-up
+
+#### B04-SW2026-PARTITION-VERTEX-BOUNDARIES
+
+The SOLIDWORKS reader lane owns this active child on
+`codex/sw-active-partition-vertex-read`. [PR #340](https://github.com/TryUniCAD/Kit/pull/340) delivers this child.
+The branch starts from [PR #121](https://github.com/TryUniCAD/Kit/pull/121) at
+`c0a401a607759fb0c2589647c2a22af65ebb7ce1`. It depends on that revision's
+complete typed partition reader, the accepted
+[terminal-fin geometry rule](https://github.com/TryUniCAD/Kit/pull/171) and
+the [record-boundary evidence](https://github.com/TryUniCAD/Kit/pull/334).
+The original B04 and B08 owners and delivery boundaries remain in place.
+
+The child covers read-only geometry projection for one current-schema active
+partition when legacy projection returns no model. Complete typed record
+boundaries and fin, vertex and point ownership must explain every replacement
+in the full vertex-use table. The repair preserves successful legacy output,
+terminal-fin orientation, raw payloads and existing unsupported-profile behavior.
+
+Exit requires the published SDK process to preserve complete geometry on the
+four-line and locked vendor controls, reconstruct the five-line case with
+its signed outward rings, retain older and unsupported profile behavior, and
+pass an independently authored case sealed before implementation. Native
+acceptance and complete source preservation have separate exit criteria.
+
 ### PR 158 implementation follow-up
 
 #### A08b-CatalogueThroughput: catalogue rescan groups and A03 overhead
