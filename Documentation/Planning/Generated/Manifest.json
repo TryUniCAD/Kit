@@ -1,9 +1,9 @@
 {
-  "MainRevision": "68cec987d0b720762ae95f2f92799eb113d23b44",
+  "MainRevision": "141f396f183220e691194907cdcacb7ba56d9ce6",
   "ObservedOn": "2026-11-28",
   "SourceHashes": {
-    "Documentation/Planning/Links.json": "29990983f8403ab08720a4bb042c261e95d55b20047ef1f4c43425d9037cb740",
-    "Documentation/Planning/PullRequests.json": "96b20780e29ea7927075f847a51df1e601eac8859e75cc5d4c878f0a68d38a72",
+    "Documentation/Planning/Links.json": "2bf41983651eb0e32a3c486f6165c879e936931e7f9a85389d1148b09b8bbdb7",
+    "Documentation/Planning/PullRequests.json": "bb8e5e902bfc1dba5aa487ae5d25733621e97f582d60415072cfc394863ad24d",
     "Documentation/Planning/SdkScopes.json": "f4b9157b835e504d914d71160ee65e19305e69409261226e1179905df12027b5",
     "Documentation/Planning/TaskIdentities.json": "6171959aadd12abdc62c9c7c8099c2de93fc5cc0cb9c8689ebdcab02d9bf31f2",
     "Documentation/Maintenance/ConversionBacklog.md": "68eb2c93a40a3cd58ff48d24f7cf61cbb355960641fc1a6b39b4ba34721ea0f4",
@@ -18,10 +18,10 @@
     "Documentation/Planning/Generated/Board.js": "415a3e54efd1b737c0884c31d1f9c30ecd66b0878b95d9eee1b8f61089f3797b",
     "Documentation/Planning/Generated/Board.css": "53461e6dd36d9ca1d06a9ae0f3c6af2538e8146cd88bf01f5cbc184664b59dd9"
   },
-  "ParentTasks": 49,
+  "ParentTasks": 51,
   "RegisterRows": 80,
   "Scopes": 4580,
   "OpenPullRequests": 85,
-  "DeliveryRecords": 104,
+  "DeliveryRecords": 105,
   "ProseClaims": 84
 }
