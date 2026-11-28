@@ -204,11 +204,24 @@ public static class SheetMetalCapture
                 "area_m2", pair.Face.GetArea())).ToArray();
     }
 
-    static Dictionary<string, object> AddBase(ISldWorks app, IModelDoc2 doc, string id, Dictionary<string, object> body,
-        string caseId, string discoveryDirectory)
+    static IFeature AddOppositeDatum(IModelDoc2 doc)
     {
         doc.ClearSelection2(true);
-        Check(doc.Extension.SelectByID2("Front Plane", "PLANE", 0, 0, 0, false, 0, null, 0), "Cannot select the world XY datum");
+        Check(doc.Extension.SelectByID2("Front Plane", "PLANE", 0, 0, 0, false, 0, null, 0),
+            "Cannot select the world XY datum");
+        int relation = (int)(swRefPlaneReferenceConstraints_e.swRefPlaneReferenceConstraint_Coincident |
+            swRefPlaneReferenceConstraints_e.swRefPlaneReferenceConstraint_OptionReferenceFlip);
+        var datum = doc.FeatureManager.InsertRefPlane(relation, 0, 0, 0, 0, 0) as IFeature;
+        Check(datum != null, "Cannot create the coincident reference datum with an opposing frame");
+        datum.Name = "KitOppositeXY";
+        return datum;
+    }
+
+    static Dictionary<string, object> AddBase(ISldWorks app, IModelDoc2 doc, string id, Dictionary<string, object> body,
+        IFeature datum, string caseId, string discoveryDirectory)
+    {
+        doc.ClearSelection2(true);
+        Check(datum.Select2(false, 0), "Cannot select the explicit world XY datum");
         doc.SketchManager.InsertSketch(true);
         var sketch = doc.SketchManager.ActiveSketch as ISketch;
         Check(sketch != null, "Could not start base-flange sketch");
@@ -224,7 +237,12 @@ public static class SheetMetalCapture
         Check(status == (int)swConstrainedStatus_e.swFullyConstrained, "Base-flange rectangle constraint status " + status);
         doc.ClearSelection2(true);
         doc.SketchManager.InsertSketch(true);
-        var profile = Diagnostic(() => BaseProfile(app, sketch));
+        var profile = BaseProfile(app, sketch);
+        var normal = Numbers(profile["normal"]);
+        var origin = Numbers(profile["origin_m"]);
+        if (!SamePoint(normal, new[] { 0.0, 0, -1 }) || !Near(origin[2], 0))
+            throw new InvalidOperationException("The measured sketch datum is not coincident world XY with a negative normal: " +
+                Json.Serialize(profile));
         var sketchFeature = (IFeature)sketch;
         sketchFeature.Name = "Sketch-" + id;
         Check(sketchFeature.Select2(false, 0), "Could not select the rectangle sketch");
@@ -485,15 +503,24 @@ public static class SheetMetalCapture
         var observed = Diagnostic(() => Observe(doc, count));
         Directory.CreateDirectory(diagnostics);
         var path = Path.Combine(diagnostics, caseId + "-base-" + baseId + ".SLDPRT");
-        int errors = 0, warnings = 0;
-        bool saved = doc.Extension.SaveAs3(path, 0, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, null,
-            ref errors, ref warnings);
+        var save = SaveCopy(doc, path);
         var archive = File.Exists(path) ? Archive(path) : null;
         var report = Row("status", "unqualified_geometry_mismatch", "case", caseId, "base", baseId,
-            "archive", archive, "save_as", Row("success", saved, "errors", errors, "warnings", warnings),
+            "archive", archive, "save_as", save,
             "observation", observed);
         WriteCheckpoint(Path.ChangeExtension(path, ".unqualified.json"), report);
         return report;
+    }
+
+    static Dictionary<string, object> SaveCopy(IModelDoc2 doc, string path)
+    {
+        doc.ClearSelection2(true);
+        var previous = doc.GetPathName();
+        int errors = 0, warnings = 0;
+        int options = (int)(swSaveAsOptions_e.swSaveAsOptions_Silent | swSaveAsOptions_e.swSaveAsOptions_Copy);
+        bool saved = doc.Extension.SaveAs3(path, 0, options, null, null, ref errors, ref warnings);
+        Check(doc.GetPathName() == previous, "Saving a copy unexpectedly changed the active authoring document");
+        return Row("success", saved, "errors", errors, "warnings", warnings, "native_options", options);
     }
 
     static Dictionary<string, object> Save(IModelDoc2 doc, string directory, string id, int count,
@@ -507,11 +534,11 @@ public static class SheetMetalCapture
             "Capture ID must be a plain file name");
         var path = Path.Combine(directory, id + ".SLDPRT");
         Check(!File.Exists(path), "Refusing to overwrite an existing native archive");
-        int errors = 0, warnings = 0;
-        bool saved = doc.Extension.SaveAs3(path, 0, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, null, ref errors, ref warnings);
-        Check(saved && errors == 0 && warnings == 0, "Native SaveAs failed: " + id + " errors=" + errors + " warnings=" + warnings);
+        var save = SaveCopy(doc, path);
+        Check((bool)save["success"] && (int)save["errors"] == 0 && (int)save["warnings"] == 0,
+            "Native SaveAs copy failed: " + id + " " + Json.Serialize(save));
         var archive = Archive(path);
-        row.Add("save_as", Row("success", saved, "errors", errors, "warnings", warnings));
+        row.Add("save_as", save);
         row.Add("archive", archive);
         WriteCheckpoint(Path.Combine(directory, id + ".saved.json"), Row("id", id, "native_process", process,
             "edge_authoring", edge, "observation", row));
@@ -533,7 +560,8 @@ public static class SheetMetalCapture
             return WithDocument(app, app.NewDocument(template, 0, 0, 0) as IModelDoc2, doc =>
             {
                 var discoveryDirectory = control.ContainsKey("holdout") ? null : directory;
-                var arguments = ids.Select(body => AddBase(app, doc, body, Object(definitions[body]), id, discoveryDirectory)).ToArray();
+                var datum = AddOppositeDatum(doc);
+                var arguments = ids.Select(body => AddBase(app, doc, body, Object(definitions[body]), datum, id, discoveryDirectory)).ToArray();
                 Check(Bodies(doc).Length == ids.Length, "Disjoint base-flange controls did not retain the authored body membership");
                 var folder = Features(doc).FirstOrDefault(feature => feature.GetTypeName2() == "SolidBodyFolder");
                 var bodyFolder = folder == null ? null : folder.GetSpecificFeature2() as IBodyFolder;
@@ -570,6 +598,7 @@ public static class SheetMetalCapture
                     saves.Add(restored);
                 }
                 return Row("id", id, "recipe", control, "native_process", process, "template", templateArchive,
+                    "support_feature", Row("name", datum.Name, "type", datum.GetTypeName2(), "persist_reference", Identity(doc, datum)),
                     "base_authoring", arguments, "edge_authoring", edge, "saves", saves.ToArray());
             });
         }, true);
