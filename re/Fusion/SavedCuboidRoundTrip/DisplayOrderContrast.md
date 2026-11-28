@@ -279,3 +279,32 @@ The positive-Z face retained its native override and RGBA
 before viewport intervention. All three rebuilt successfully. This
 comparison leaves actual viewport picking, archived previews and
 native lifecycle for independently generated archives open.
+
+### Strict styled cuboid projection
+
+The fixed XY cuboid reader requires the complete reciprocal face
+owner, compute dependency and snapshot links. The one observed
+appearance operation extends the extrusion compute order. It
+references the actual `DcBody` and the containing component. Each
+of the styled journal states differs from the corresponding closed
+cuboid only by the material attachment and reciprocal face links.
+The complete bound recipe is regenerated from the live face
+geometry and tags. The Design face map and Protein assets identify
+the same override. When graphics is present, the leaf bounds and
+body identity corroborate the assignment independently of leaf
+order or numeric qualifiers.
+
+Strict SDK JSON and the CLI passed for the native plain, top-red and
+side-red controls and the styled same-source archive without OGS.
+Their complete typed Fusion state persisted. Substituting the other
+native face recipe or a different valid parent relationship was
+refused at the strict boundary. Every public output request refused
+without mutating its seeded stream, occupied file or absent parent,
+including after removal of the read-only metadata flag.
+
+Exact report SHA-256
+`35138723a2f30b214719b52169c41613d37187d322e785eb3bcf159f92ad90c2`.
+The checked scope covers one saved face override on the fixed
+cuboid. The native assembly, cut and unsupported style branches
+retain their own semantic limits. The exact independent writer
+candidate and full native lifecycle remain open.

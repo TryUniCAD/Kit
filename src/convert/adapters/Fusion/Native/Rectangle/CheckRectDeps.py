@@ -20,7 +20,10 @@ from convert.adapters.Fusion.Native.Rectangle.ReadRectEdges import ReadRectEdges
 
 # the complete connected first boss dependency graph must follow the verified scoped sketch drivers
 def CheckRectDeps(
-    Graph: NativeGraph, Context: ExtrudeContext, SketchBindings: tuple[NativeNode, ...]
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    SketchBindings: tuple[NativeNode, ...],
+    StyleOwner: NativeNode | None = None,
 ) -> None:
     Matrix = ResolveField(
         Graph, Context.SketchFeature, "rSketchPlaneMatrix", "DRMatrix"
@@ -37,7 +40,7 @@ def CheckRectDeps(
     Width, Height = (NodeValue.ObjectId for NodeValue in SketchBindings)
     RegionId, ProfileId, ToolId = Region.ObjectId, Profile.ObjectId, ToolNode.ObjectId
     Along, Taper = Context.Along.ObjectId, Context.Taper.ObjectId
-    Order = (
+    Order: tuple[int, ...] = (
         Component,
         Plane,
         Place,
@@ -65,6 +68,9 @@ def CheckRectDeps(
         (Taper, ToolId, 1),
         (ToolId, BossId, 1),
     }
+    if StyleOwner is not None:
+        Order = (*Order, StyleOwner.ObjectId)
+        Edges.add((BossId, StyleOwner.ObjectId, 1))
     Compute = ResolveField(
         Graph, Context.Fragment, "rComputeManager", "DcComputeManager"
     )

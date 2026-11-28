@@ -462,7 +462,8 @@ The [fixed corner line normal repair](../../Changes/Fusion/Adapter/FusionFixedCu
 admits five additional exact native archives through strict readback.
 The [typed face appearance owner](../../Changes/Research/Encoder/FusionFaceAppearanceOwner.md) preserves exact reference records in three styled saves.
 The same-source scene omission reopened with matching camera, face appearance and pixels. The generated graphics candidate stalled during native import.
-Distinct-face semantic admission, viewport picking and exact generated archive lifecycle remain open.
+The [fixed cuboid face appearance reader](../../Changes/Fusion/Adapter/FusionSavedCuboidFaceAppearance.md) verifies strict SDK and CLI preservation of the measured styled cases.
+Neutral face presentation, viewport picking and exact generated archive lifecycle remain open.
 This is partial writer evidence. Saved-scene generation, material and preview preservation, and the held-out writer exit remain open.
 Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 The scope is the supported vendor-resaved constrained cuboid family.

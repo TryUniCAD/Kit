@@ -21,7 +21,7 @@ non-reciprocal previous link refused. All 17 focused integration cases
 passed on Windows Python 3.14.6.
 
 The [Design owner codec](FusionFaceAppearanceOwner.md) reads the
-associated reference. Public strict projection still refuses this
-styled route, and the saved cuboid writer remains disabled. See the [measured face
+associated reference. The [styled cuboid reader](../../Fusion/Adapter/FusionSavedCuboidFaceAppearance.md)
+verifies the fixed-profile family. The historical styled cut andsaved cuboid writer retain their existing refusal boundaries. See the [measured face
 relationships](../../../../re/Fusion/SavedCuboidRoundTrip/DisplayOrderContrast.md#face-assignment-observations)
 and [API identity gotcha](../../../Gotchas/Conversion/Fusion/Api/FaceAppearanceSourceIdentity.md).

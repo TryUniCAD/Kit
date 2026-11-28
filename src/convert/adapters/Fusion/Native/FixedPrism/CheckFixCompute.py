@@ -22,4 +22,7 @@ def CheckFixCompute(
         if NodeValue in Bindings
     )
     SameNodes(Order, Bindings)
-    CheckRectDeps(Graph, Context, Order)
+    StyleOwners = Graph.ByClass("VMBrepRef")
+    if len(StyleOwners) > 1:
+        raise ValueError("Native fixed rectangle supports one saved face appearance")
+    CheckRectDeps(Graph, Context, Order, next(iter(StyleOwners), None))

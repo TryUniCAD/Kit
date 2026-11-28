@@ -10,9 +10,9 @@ The two independent styled cuboids and a historical cut preserve
 their exact primary and continuation record bytes through typed
 re-emission. Those three archives and the plain control preserve
 complete typed document equality. The 57 existing focused integration
-cases and a separate cut CLI process passed on Python 3.14.6. Strict public projection still
-refuses this styled family. Neutral face presentation and
-source-free writer generation have separate acceptance gates.
+cases and a separate cut CLI process passed on Python 3.14.6. The [strict styled cuboid reader](../../Fusion/Adapter/FusionSavedCuboidFaceAppearance.md)
+now verifies this narrower family. Neutral per-face appearance
+and source-free writer generation have separate acceptance gates.
 
 Fusion 2706.1.17 reopened the top-red control, its repacked copy
 and the same archive with only the OGS world and mesh subtree
