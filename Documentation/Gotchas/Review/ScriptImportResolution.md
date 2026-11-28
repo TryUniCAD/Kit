@@ -7,5 +7,7 @@ Adding those arguments would break the actual runtime call.
 
 Verify the imported callable's source path and signature with the review script directory first on `sys.path`.
 That inspection resolved `.github/scripts/Review/CollectFiles.py` and its two-argument signature.
-The collector implementation and call remain unchanged; no analyzer rule is disabled.
+The same false positive recurred on PR #402.
+The review collector now has the unique module and callable name `ReviewSources` to remove that ambiguity.
+Its two-argument contract and behavior remain unchanged; no analyzer rule is disabled.
 See [the original finding](https://github.com/TryUniCAD/Kit/pull/399#discussion_r4727406730).

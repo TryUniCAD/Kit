@@ -4,7 +4,7 @@ from Input.SourcePriority import SourcePriority
 
 
 # complete changed sources and their previous versions expose more than truncated patch snippets
-def CollectFiles(
+def ReviewSources(
     Files: list[dict[str, object]], Evidence: dict[str, object]
 ) -> list[dict[str, object]]:
     Sources: list[dict[str, object]] = []

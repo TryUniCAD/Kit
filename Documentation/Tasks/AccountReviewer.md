@@ -6,6 +6,7 @@ Run automated reviews on GitHub-hosted runners without an always-on server.
 The GitHub App posts findings, a five-point soundness score, a native check, and a revision-bound review.
 The workflow never merges a PR or enrolls it in the merge queue.
 A metadata-only dispatcher requests review when a PR opens, changes, or receives an authorized mention.
+The owner approved only its two line-scoped Zizmor trigger exceptions; it never checks out PR code or reads private credentials.
 Review runs even when CI fails, the PR is a draft, or its branches conflict.
 A five-minute scheduled scan provides recovery and backlog discovery; GitHub can delay schedules.
 Approval remains a separate, stricter decision.

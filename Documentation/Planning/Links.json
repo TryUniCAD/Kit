@@ -294,7 +294,7 @@
       "Source": "Documentation/Tasks/AccountReviewer.md",
       "Exit": "Commit changes dispatch a new current-head model review even with failed CI or conflicts; app approval remains gated by current successful CI and mergeability; mentions acknowledge processing and use current trusted policy",
       "Branch": "fix/reviewer-review-on-change-20261128",
-      "Blocker": "Hosted model process failed after successful input preparation and container build; safe runtime diagnosis and deployment pending; immediate metadata trigger exception awaits explicit owner approval; native project sync lacks read project permission",
+      "Blocker": "Hosted model process failed after successful input preparation and container build; safe runtime diagnosis awaits protected default branch deployment; native project sync lacks read project permission",
       "Evidence": "https://github.com/TryUniCAD/Kit/actions/runs/46163285662",
       "HostedSmoke": {
         "PullRequest": "https://github.com/TryUniCAD/Kit/pull/401",
@@ -342,7 +342,14 @@
           "omitted_file_count": 0,
           "omitted_sources": 7
         }
-      ]
+      ],
+      "DispatcherException": {
+        "ApprovedBy": "jdharcourt",
+        "ApprovedOn": "2026-11-28",
+        "Scope": "Only dangerous-triggers annotations on pull_request_target and issue_comment in .github/workflows/ReviewRequest.yml",
+        "Constraints": "Metadata only; no PR code checkout or private credentials; live comment authorization; dispatch only the protected default branch reviewer; CI approval and merge queue gates unchanged",
+        "Verification": "Pinned Zizmor 1.32.0 pedantic offline audit passed both reviewer workflows with exactly two approved findings ignored"
+      }
     },
     {
       "Id": "ReviewerLiveEvidence",

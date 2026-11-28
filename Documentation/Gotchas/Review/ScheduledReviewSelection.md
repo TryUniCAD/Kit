@@ -1,13 +1,16 @@
 # Workflow completion triggers require special trust handling
 
-The security audit rejects privileged `workflow_run` and `issue_comment` triggers even when their handlers validate source input.
-The account reviewer instead uses scheduled execution of trusted default-branch code.
-It verifies successful aggregate CI evidence before selecting an eligible PR.
-Mention discovery also uses trusted scheduled polling, followed by live permission checks in a read-only job.
+The security audit flags `pull_request_target` and `issue_comment` triggers even when their handlers validate metadata only.
+The repository owner explicitly approved two line-scoped `dangerous-triggers` exceptions for the review request dispatcher.
+That dispatcher never checks out PR code, reads no app or account secrets and sends only a PR or comment number to the protected default-branch workflow.
+Comment requests require live write, maintain or admin permission.
+The protected handler repeats admission before accessing private credentials.
 
-Selection records the CI run ID on the app's native check.
-A successful report needs the actual approving review before selection treats publication as complete.
-An unsupported input receives a failed report, so it does not repeatedly prevent other PRs from being selected.
+Ordinary `pull_request` workflows do not run when a PR has merge conflicts.
+The metadata-only target trigger keeps new-commit review dispatch available during conflicts.
+Scheduled execution remains recovery and backlog discovery, rather than the only mention trigger.
+Selection and analysis are independent of CI success; successful matching CI remains an approval gate.
+The native report records the review snapshot, and approval additionally requires the actual approving review.
 
 GitHub schedules can be delayed and run only from the default branch.
 See [GitHub's schedule reference](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onschedule)

@@ -1,6 +1,6 @@
 import json as JsonTools
 
-from CollectFiles import CollectFiles
+from ReviewSources import ReviewSources
 from Input.MakeContext import MakeContext
 from Input.ReadSource import ReadSource
 
@@ -27,7 +27,7 @@ def BuildContext(
     }
     Sources: list[dict[str, object]] = []
     Context["files"] = Sources
-    for Source in CollectFiles(FileList, Evidence):
+    for Source in ReviewSources(FileList, Evidence):
         Sources.append(Source)
         if len(JsonTools.dumps(Context).encode()) > 900000:
             Source.update(

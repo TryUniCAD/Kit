@@ -26,6 +26,11 @@ Completion replaces it with the actual published outcome.
 Preparation and model failures receive a failed native report when a snapshot was selected.
 Runtime errors expose fixed diagnostic categories without publishing raw model output or credentials.
 
+The repository owner explicitly approved the two line-scoped Zizmor `dangerous-triggers` exceptions for the metadata-only `pull_request_target` and `issue_comment` dispatcher.
+The dispatcher never checks out PR code or reads app or account secrets.
+It passes only a PR number or an authorized comment number to the protected default-branch workflow.
+Every other audit and approval gate remains enabled.
+
 ## Verification
 
 Live input preparation at `a384ed232df29a34ea6818ebedc09b78629aed4f` selected PR #330 with complete bounded coverage and selected PRs #384 and #398 with explicit omissions.

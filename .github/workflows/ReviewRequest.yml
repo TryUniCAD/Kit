@@ -1,7 +1,7 @@
 name: Request account review
 
 on:
-  pull_request_target:
+  pull_request_target: # zizmor: ignore[dangerous-triggers] Owner approved metadata only dispatch without secrets or PR code.
     types:
       [
         opened,
@@ -11,7 +11,7 @@ on:
         ready_for_review,
         converted_to_draft,
       ]
-  issue_comment:
+  issue_comment: # zizmor: ignore[dangerous-triggers] Owner approved live permission checks and protected default branch dispatch only.
     types: [created]
 
 permissions: {}
