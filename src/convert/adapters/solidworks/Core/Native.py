@@ -90,6 +90,9 @@ from convert.adapters.solidworks.Resolved.Core import (
 )
 
 if TYPE_CHECKING:
+    from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.AttachedRound import (
+        AttachedRound,
+    )
     from convert.adapters.solidworks.Core.Cut.CutSource import CutSource
     from convert.adapters.solidworks.Resolved.RectanglePart import RectanglePart
 
@@ -1201,6 +1204,8 @@ class NativeModel:
     linear_display: LinearDisplay | None = None
     cut_source: CutSource | None = None
     SavedCircleAtom: int | None = None
+    SavedCircleName: str | None = None
+    AttachedRoundValue: AttachedRound | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

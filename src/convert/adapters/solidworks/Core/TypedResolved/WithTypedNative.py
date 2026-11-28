@@ -4,8 +4,8 @@ from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Native import NativeModel
-from convert.adapters.solidworks.Core.TypedResolved.Circles.BindSavedCircle import (
-    BindSavedCircle,
+from convert.adapters.solidworks.Core.TypedResolved.Circles.TrySavedCircle import (
+    TrySavedCircle,
 )
 from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
     BindDepth,
@@ -28,7 +28,9 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # unsupported typed modes must stay explicit while established public readers retain their prior behavior
-def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
+def WithTypedNative(
+    Model: NativeModel, Archive: SldprtArchive, *, Strict: bool = False
+) -> NativeModel:
     if (
         ContainerMo(Archive.streams) != 19000
         or len(Model.sketches) != 1
@@ -36,7 +38,7 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
     ):
         return Model
     if KPartitionStream in Archive.streams:
-        return TrySavedCircle(Model, Archive)
+        return TrySavedCircle(Model, Archive, Strict=Strict)
     SketchValue = Model.sketches[0]
     Operation = Model.operations[0]
     try:
@@ -78,40 +80,3 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
         ),
         operations=(BindExtrude(Operation, Owner),),
     )
-
-
-# a saved family with extra native owners keeps its earlier compatibility projection
-def TrySavedCircle(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
-    Markers = Model.sketches[0].markers
-    if (
-        Model.equations
-        or len(Model.configurations) != 1
-        or not any(Marker.semantic == "circle" for Marker in Markers)
-        or not any(
-            Marker.endpoint_indices is not None
-            and Marker.endpoint_indices[0] == Marker.endpoint_indices[1]
-            for Marker in Markers
-        )
-    ):
-        return Model
-    try:
-        LinkValue = ReadNativeLink(Archive, Model.active_configuration_id)
-        Features = IndexFeatures(LinkValue)
-        Profile = RequireNative(
-            Features[Model.sketches[0].object_id], "moProfileFeature_c"
-        )
-        ShapeValue = RequireNative(Profile.FieldsValue.get("pd_f80"), "sgSketch")
-        if not ShapeValue.FieldsValue.get("arcs"):
-            return Model
-    except (KeyError, TypeError, ValueError, OverflowError):
-        return Model
-    try:
-        return BindSavedCircle(Model, LinkValue, Features, Profile)
-    except (KeyError, TypeError, ValueError, OverflowError) as ErrorInfo:
-        return ReplaceValue(
-            Model,
-            diagnostics=(
-                *Model.diagnostics,
-                f"saved circle typed owners unavailable: {ErrorInfo}",
-            ),
-        )

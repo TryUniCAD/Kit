@@ -1,0 +1,185 @@
+{
+  "candidate": {
+    "bytes": 10863,
+    "guest_path": "C:\\KitAttachedRadiusChild01\\Working\\DisclosedRadialSceneProbe.SLDPRT",
+    "sha256": "502544a82aa60b83ac6ee8e032a209022b3382734e6e68f9bb6c737287fec149"
+  },
+  "complete_native_lifecycle_qualified": false,
+  "first_batch": {
+    "attempted_numeric_checks": 100,
+    "controls_healthy": false,
+    "distinct_native_processes": 4,
+    "edited_file_sha256": "d70e5a5a623fa4bd41cd4d97a380dbbece676b42ef55f5bb7010ed9fdf410dcc",
+    "generated_observations": {
+      "fresh_reopen": {
+        "body_count": 1,
+        "body_name": "CurveBoss",
+        "configuration": "Default",
+        "drivers_m": {
+          "D1@CurveBoss": 0.034125,
+          "D1@CurveSketch": 0.00719
+        },
+        "face_count": 3,
+        "mass_properties_si": {
+          "area": 0.001866450668946436,
+          "com": [
+            0.0026299999999999995,
+            -0.00417,
+            0.017062500000000005
+          ],
+          "volume": 5.542176002291678e-06
+        },
+        "native_feature_status": 0,
+        "native_tree_rows": 25
+      },
+      "generated_edited": {
+        "body_count": 1,
+        "body_name": "CurveBoss",
+        "configuration": "Default",
+        "drivers_m": {
+          "D1@CurveBoss": 0.034125,
+          "D1@CurveSketch": 0.00719
+        },
+        "face_count": 3,
+        "mass_properties_si": {
+          "area": 0.001866450668946436,
+          "com": [
+            0.0026299999999999995,
+            -0.00417,
+            0.017062500000000005
+          ],
+          "volume": 5.542176002291678e-06
+        },
+        "native_feature_status": 0,
+        "native_tree_rows": 25
+      },
+      "generated_initial": {
+        "body_count": 1,
+        "body_name": "CurveBoss",
+        "configuration": "Default",
+        "drivers_m": {
+          "D1@CurveBoss": 0.03137,
+          "D1@CurveSketch": 0.00719
+        },
+        "face_count": 3,
+        "mass_properties_si": {
+          "area": 0.0017419905069484343,
+          "com": [
+            0.00263,
+            -0.00417,
+            0.015685000000000004
+          ],
+          "volume": 5.094741719908863e-06
+        },
+        "native_feature_status": 0,
+        "native_tree_rows": 25
+      }
+    },
+    "native_edit_status": 0,
+    "native_save_status": [
+      true,
+      0,
+      0
+    ],
+    "phases": {
+      "ControlAfter": {
+        "first_failure": {
+          "error": "com_error(-2147023179, 'The interface is unknown.', None, None)",
+          "pending_capability": false,
+          "stage": "Parameter",
+          "type": "com_error"
+        },
+        "numeric_checks": 20,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": false,
+        "process": {
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "process_creation_filetime": 134398346314929329,
+          "process_id": 4580,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      },
+      "ControlBefore": {
+        "first_failure": null,
+        "numeric_checks": 20,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process": {
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "process_creation_filetime": 134398345270299567,
+          "process_id": 7844,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      },
+      "Generated": {
+        "first_failure": null,
+        "numeric_checks": 40,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process": {
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "process_creation_filetime": 134398345609095823,
+          "process_id": 2612,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      },
+      "Reopen": {
+        "first_failure": null,
+        "numeric_checks": 20,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process": {
+          "file_version": "34.5.2.0604",
+          "pe_machine": "0x8664",
+          "process_creation_filetime": 134398346000946035,
+          "process_id": 5820,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        }
+      }
+    },
+    "result_sha256": "d409cf92394e4fce4261731973424f1d26099082e88de8f25b3380da3069c1e0",
+    "trial_sha256": "252d2fa1715a04d7e795c0318ff9921b7f4fa10697ccb67ff3b56cff1b445e67"
+  },
+  "heldout_credit": 0,
+  "independent_known_good_control": {
+    "activation_stage": "oracle_idle_guard",
+    "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "current_health_receipt_sha256": "e8a0dd328263845e63fc9e9c1667dfec7e55e2b755e10283240cf49250f7dad1",
+    "exception": "com_error(-2146959355, 'Server execution failed', None, None)"
+  },
+  "oracle": {
+    "build": "34.5.2.0604",
+    "pe_machine": "0x8664",
+    "sldworks_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "plan_sha256": "02183274b1dac25beada7c523d8b2d08cf98074bb0a8ff57f58cbc9cbef1115c",
+  "public_writer_qualified": false,
+  "retry_batch": {
+    "candidate_launched": false,
+    "controls": {
+      "ControlAfter": {
+        "error": "com_error(-2146959355, 'Server execution failed', None, None)",
+        "pending_capability": false,
+        "stage": "start exact SOLIDWORKS oracle",
+        "type": "com_error"
+      },
+      "ControlBefore": {
+        "error": "com_error(-2146959355, 'Server execution failed', None, None)",
+        "pending_capability": false,
+        "stage": "start exact SOLIDWORKS oracle",
+        "type": "com_error"
+      }
+    },
+    "distinct_native_processes": 0,
+    "result_sha256": "c38e0c4b95eca9b124e240367e9d2089b69a96a233d466b18f7e74a1d41cf7b9",
+    "trial_sha256": "2dcd00637e8559328577599e9ff1b343f410d37293ca77c7f78e8578c4179921"
+  },
+  "schema": "kit.sw2026.attached-radius-standalone-control-boundary.v1"
+}

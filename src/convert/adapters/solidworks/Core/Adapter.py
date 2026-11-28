@@ -186,8 +186,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import 
     CircleSketch,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
-from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
-from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
+    TypedProvenance,
+)
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
+    WithTypedNative,
+)
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -376,7 +380,11 @@ def ReadNativePart(
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
     Model = (
-        NativePartModel(Archive, Settings.configuration)
+        NativePartModel(
+            Archive,
+            Settings.configuration,
+            Strict=Settings.strict and not Settings.extract_raw_brep,
+        )
         if ModelValue is None
         else ModelValue
     )
@@ -388,7 +396,9 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep, CircleValue = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep, CircleValue = PartBrepData(
+        Archive, Model, Settings
+    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -404,6 +414,11 @@ def ReadNativePart(
             Model.active_configuration_id,
             TypedBodyId(Model),
             (Record.name for Record in Archive.records),
+            VerifiedBody=(
+                (Attached.DigestValue, Attached.BodyValue)
+                if (Attached := Model.AttachedRoundValue) is not None
+                else None
+            ),
         )
         if Candidate is None
         else None
@@ -433,7 +448,15 @@ def ReadNativePart(
         if LocalOwner is not None
         else FinalBodyId(TimeValues, SolidOpIds)
     )
-    BodyFeature = LocalOwner or SolidBody(Model.features)
+    BodyFeature = (
+        next(
+            Feature
+            for Feature in Model.features
+            if Feature.object_id == Model.operations[0].object_id
+        )
+        if Model.SavedCircleName is not None
+        else LocalOwner or SolidBody(Model.features)
+    )
     MassBody = ActivePart.ModelValue if ActivePart is not None else ColdBrep
     Fallback = TopologySummary(
         solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
@@ -446,7 +469,8 @@ def ReadNativePart(
     Bodies = (
         BodyValue(
             id=KPartBodyId,
-            name=BodyFeature.name if BodyFeature is not None else "Body 1",
+            name=Model.SavedCircleName
+            or (BodyFeature.name if BodyFeature is not None else "Body 1"),
             final_feature_id=FinalFeature,
             topology=Summary,
             provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
@@ -561,7 +585,8 @@ def PartBrepData(
         else None
     )
     ColdBrep = (
-        CircleValue.BrepValue if CircleValue is not None
+        CircleValue.BrepValue
+        if CircleValue is not None
         else ColdPrism(Model, KPartBodyId) if UseGeometry else None
     )
     Payloads, Diagnostics = BrepPayloads(
@@ -2283,7 +2308,9 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 
 
 # this definition exists because focused behavior needs one stable owner
-def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+def NativePartModel(
+    Archive: SldprtArchive, Requested: str | None, *, Strict: bool = False
+) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2335,7 +2362,23 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
     if SelectedStream == KitResolvedStream:
         return Model
 
-    Model = WithTypedNative(Model, Archive)
+    Model = WithTypedNative(Model, Archive, Strict=Strict)
+    if Model.SavedCircleName is not None:
+        return Model
+    return RefineLegacy(
+        Model, Archive, ConfigStream, SelectedStream, ConfigData, Resolved
+    )
+
+
+# unmatched histories keep their established compatibility and partial scope diagnostics
+def RefineLegacy(
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    ConfigStream: str,
+    SelectedStream: str,
+    ConfigData: bytes,
+    Resolved: bytes,
+) -> NativeModel:
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(
@@ -2418,8 +2461,10 @@ def Parameters(
                     ),
                     owner_id=FeatureId(Feature.object_id),
                     provenance=TypedProvenance(
-                        Dimension.TypedOwner or {}, f"{Feature.object_id}:{Dimension.name}"
-                    ) or (
+                        Dimension.TypedOwner or {},
+                        f"{Feature.object_id}:{Dimension.name}",
+                    )
+                    or (
                         ProvenanceA(
                             f"{Feature.object_id}:{Dimension.name}",
                             Dimension.native_offset,

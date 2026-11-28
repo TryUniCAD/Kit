@@ -1,0 +1,142 @@
+{
+  "cases": [
+    {
+      "editable": {
+        "body": "CurveBoss",
+        "body_atom": 101,
+        "creator": "CurveBoss",
+        "diagnostics": [
+          "sldprt.native_record_unresolved"
+        ],
+        "feature_timeline_rows": 19,
+        "inactive_depth_m": 0.03137,
+        "mass": {
+          "area": 0.0017419905069484345,
+          "com": [
+            0.00263,
+            -0.00417,
+            0.015685
+          ],
+          "volume": 5.094741719908863e-06
+        },
+        "native_observed_tree_rows": 25,
+        "parameter_metres_hex": {
+          "D1@CurveBoss": "0x1.00fba8826aa8fp-5",
+          "D1@CurveSketch": "0x1.d7342edbb59dep-8"
+        }
+      },
+      "file_sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd",
+      "linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "next_counter": 10,
+          "sha256": "d42d1cbf329af63676a4cbedcaf65d047882f81ab6035e85c9e7d0c0ab50f3d4"
+        },
+        "Contents/Config-0": {
+          "bytes": 23689,
+          "next_counter": 101,
+          "sha256": "c6e4d24a029ec6902d159abe3fa35eb11d87b4ec1893f4968401024235a8220c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15075,
+          "next_counter": 223,
+          "sha256": "8c7f56d4798673eebcfd3dd4f6aba36abbd708803eda7c19c008037490af1461"
+        }
+      },
+      "phase": "Frozen",
+      "physical": {
+        "active_nodes": 72,
+        "active_sha256": "5c487d7a95d22b71b7ec01542d77e1646f449cc6ae1326ac1ccdede6a5ba1dca",
+        "rollback_sha256": "0163ffd3edb62a28d2e0dce1f389ff07336628523b74c714b0b7b805a4fa5a61",
+        "selected_activation_marks": [
+          4,
+          2
+        ]
+      },
+      "refusals": {
+        "match_tag": "SOLIDWORKS attached circle aliases disagree with its visible atom",
+        "producer": "saved circle atom does not link its producing boss and configuration",
+        "selected_mark": "SOLIDWORKS attached circle marks disagree with native history",
+        "stale_partition": "SOLIDWORKS attached circle marks disagree with native history",
+        "visibility": "SOLIDWORKS attached circle aliases disagree with its visible atom"
+      },
+      "runtime_external_accesses": 0
+    },
+    {
+      "editable": {
+        "body": "CurveBoss",
+        "body_atom": 101,
+        "creator": "CurveBoss",
+        "diagnostics": [
+          "sldprt.native_record_unresolved"
+        ],
+        "feature_timeline_rows": 27,
+        "inactive_depth_m": 0.03137,
+        "mass": {
+          "area": 0.001987161666209696,
+          "com": [
+            0.00263,
+            -0.00417,
+            0.018398505000000002
+          ],
+          "volume": 5.976132037453097e-06
+        },
+        "native_observed_tree_rows": 25,
+        "parameter_metres_hex": {
+          "D1@CurveBoss": "0x1.2d70ec514c78ep-5",
+          "D1@CurveSketch": "0x1.d7342edbb59dep-8"
+        }
+      },
+      "file_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2521,
+          "next_counter": 22,
+          "sha256": "492c8de978820719f3281f9acfd6b1a2a9870a998575c296d15a47b64d5d2364"
+        },
+        "Contents/Config-0": {
+          "bytes": 26023,
+          "next_counter": 121,
+          "sha256": "b0a2649722e9f6dcb0e81f3fb777b24906f60e8fa604df133482a9234ec0b288"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16761,
+          "next_counter": 277,
+          "sha256": "a184a0ea76fa4b5f93eced1d9a894a452c71dfe45dd157607597ca9f887314f0"
+        }
+      },
+      "phase": "Working",
+      "physical": {
+        "active_nodes": 92,
+        "active_sha256": "35b57286effcce86aa416f91cc0ca0381dbb88d347eddf91cb1de89396a1e2ab",
+        "rollback_sha256": "e33cd86e11d268bc969ff55cd89bef1ca7142fb4e254ae42c47cbccc9753c2ef",
+        "selected_activation_marks": [
+          10,
+          2
+        ]
+      },
+      "refusals": {
+        "cache_creator": "SOLIDWORKS attached circle chooser does not alias its own producer",
+        "match_tag": "SOLIDWORKS attached circle aliases disagree with its visible atom",
+        "producer": "saved circle atom does not link its producing boss and configuration",
+        "selected_mark": "SOLIDWORKS attached circle marks disagree with native history",
+        "stale_partition": "SOLIDWORKS attached circle marks disagree with native history",
+        "visibility": "SOLIDWORKS attached circle aliases disagree with its visible atom"
+      },
+      "runtime_external_accesses": 0
+    }
+  ],
+  "fresh_processes": 2,
+  "heldout_credits": 0,
+  "native_identity": {
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "native_result_sha256": "3263e7d2019953bede2c36948b84274d915b9cd8f4de1afc0bcb1988e0397f03",
+  "native_standalone_acceptance": false,
+  "prediction_sha256": "767d0a22a75e92f40a83126516a611b987ecf0c927e70ce9c491c3f37613e15c",
+  "reported_native_scope": "resolved child in native concentric assembly",
+  "schema": "kit.sw2026.attached-radius-sdk-read.v1",
+  "tool_sha256": "0b7a77faed8116860e4ba7f83b7daba4650a3e9bbc86a0740b016cc1d104951f",
+  "trial_sha256": "5d7680db342c5c7e037313d0a2bc3e02820b1d21dfcbdad5cd77293430d32d01"
+}
