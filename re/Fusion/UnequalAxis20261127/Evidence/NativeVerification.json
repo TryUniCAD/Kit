@@ -1,0 +1,6496 @@
+{
+  "checks": [
+    {
+      "case": "baseline",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "baseline",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "first",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "second",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "swapped",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "origin",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "direction",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "reversed",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "radial",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "axial",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "holdout_a",
+      "stage": "control_after",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "process",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "initial_open",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "rebuilt",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "edit_first",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "restore_first",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "reopen_edit_first",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "edit_second",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "restore_second",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "reopen_edit_second",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "reopen_restored",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "control_before",
+      "matches": true
+    },
+    {
+      "case": "holdout_b",
+      "stage": "control_after",
+      "matches": true
+    }
+  ],
+  "verifications": [
+    {
+      "case": "baseline",
+      "remote_job": "7ddcb189188fa6d418e700a04636641d",
+      "script_sha256": "a813d8a70ed670c0269f7fd14b88e0779ba7f832a9fffd3d77a293eec9c51f3e",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 8592,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                0.8499999999999998,
+                0.3523143784962471
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                0.8499999999999998,
+                0.3523143784962471
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420463,
+              "area_cm2": 12.157732723502741,
+              "center_cm": [
+                0.11627694820695704,
+                0.8499999999999998,
+                0.40747142967172884
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.8003147252672704,
+                  1.7999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                0.8499999999999998,
+                0.3523143784962471
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420463,
+              "area_cm2": 12.157732723502741,
+              "center_cm": [
+                0.11627694820695704,
+                0.8499999999999998,
+                0.40747142967172884
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.8003147252672704,
+                  1.7999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420454,
+              "area_cm2": 12.157732723502738,
+              "center_cm": [
+                0.07395119507150787,
+                0.8500000000000001,
+                0.2845485170099366
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.7499999999999999
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                0.8499999999999998,
+                0.3523143784962471
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420454,
+              "area_cm2": 12.157732723502738,
+              "center_cm": [
+                0.07395119507150787,
+                0.8500000000000001,
+                0.2845485170099366
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.7499999999999999
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                0.8499999999999998,
+                0.3523143784962471
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "0bb3d6b63b3c4bb7df0a80364a65cada7d15e260aada77aee469d1f6b02f7cc9",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "36480a73c3a79960598f544e14e3087995ed76b07b8f6451aedd79ecddaf6bfd"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "c7f965aaa2177430141a10203d4d06341c117ccd75f1c72f17d3dd4df74518c3"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "73e6aec0068a1f5a2ca8438f8d32ddbe53255c3cdb43b54b1a7bac09b9b3ca28"
+          }
+        ]
+      }
+    },
+    {
+      "case": "first",
+      "remote_job": "9c207508467f2c3272b8f6faf7a66b69",
+      "script_sha256": "26c88be20cf491f50ab04511cddd154c5e26f495ffbf04d19d6e74043f4e7de9",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 7648,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.7228707127438323,
+              "area_cm2": 13.305810305464613,
+              "center_cm": [
+                0.18610944146754727,
+                0.8499999999999993,
+                0.485924229478081
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.9473528036987642,
+                  1.7999999999999998,
+                  1.472440775171496
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.3788101090755203,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.7228707127438323,
+              "area_cm2": 13.305810305464613,
+              "center_cm": [
+                0.18610944146754727,
+                0.8499999999999993,
+                0.485924229478081
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.9473528036987642,
+                  1.7999999999999998,
+                  1.472440775171496
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.3788101090755203,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9097343891086056,
+              "area_cm2": 14.03640513034944,
+              "center_cm": [
+                0.23486842509188785,
+                0.8499999999999995,
+                0.5301533109484308
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  1.0441948210047,
+                  1.7999999999999998,
+                  1.4963460753897362
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.5009831567151235,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.7228707127438323,
+              "area_cm2": 13.305810305464613,
+              "center_cm": [
+                0.18610944146754727,
+                0.8499999999999993,
+                0.485924229478081
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.9473528036987642,
+                  1.7999999999999998,
+                  1.472440775171496
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.3788101090755203,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9097343891086056,
+              "area_cm2": 14.03640513034944,
+              "center_cm": [
+                0.23486842509188785,
+                0.8499999999999995,
+                0.5301533109484308
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  1.0441948210047,
+                  1.7999999999999998,
+                  1.4963460753897362
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.5009831567151235,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9097343891086043,
+              "area_cm2": 14.036405130349435,
+              "center_cm": [
+                0.17670754875220673,
+                0.8499999999999998,
+                0.42076861156865836
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.7499999999999999
+                ],
+                [
+                  0.9473528036987642,
+                  1.7999999999999998,
+                  1.472440775171496
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.3788101090755203,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.7228707127438323,
+              "area_cm2": 13.305810305464613,
+              "center_cm": [
+                0.18610944146754727,
+                0.8499999999999993,
+                0.485924229478081
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.9473528036987642,
+                  1.7999999999999998,
+                  1.472440775171496
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.3788101090755203,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9097343891086043,
+              "area_cm2": 14.036405130349435,
+              "center_cm": [
+                0.17670754875220673,
+                0.8499999999999998,
+                0.42076861156865836
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.7499999999999999
+                ],
+                [
+                  0.9473528036987642,
+                  1.7999999999999998,
+                  1.472440775171496
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.3788101090755203,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.7228707127438323,
+              "area_cm2": 13.305810305464613,
+              "center_cm": [
+                0.18610944146754727,
+                0.8499999999999993,
+                0.485924229478081
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.5860966927339106
+                ],
+                [
+                  0.9473528036987642,
+                  1.7999999999999998,
+                  1.472440775171496
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.3788101090755203,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "7248fcae238b0fc27a3d997f84b8d285a88170906b0e98f40cf1932f57ce276d",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "172d1b927ef8e763d786202395a4dbfb66bd5ec95ea45b87f2d63e3f7445770e"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "d710dc3513c9cddc56687f3f944c940ba756a372f284bd6f8da1f86899dc799a"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "4619650cc2ea419a793395081e5e8984f8456321c48bc9530b04786a3a4b524a"
+          }
+        ]
+      }
+    },
+    {
+      "case": "second",
+      "remote_job": "3fda8c9686e185bb3a56ef9b20f1f197",
+      "script_sha256": "d77527901f6530a4d38eddc882488bce638f20d8c1b2c944e6f2fe999ef8259f",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 7408,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.616091469106821,
+              "area_cm2": 12.888327548387569,
+              "center_cm": [
+                0.07667161142134224,
+                0.85,
+                0.21751516373560373
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.9027225347280724
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.311929560709094
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.6457718232379019,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.616091469106821,
+              "area_cm2": 12.888327548387569,
+              "center_cm": [
+                0.07667161142134224,
+                0.85,
+                0.21751516373560373
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.9027225347280724
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.311929560709094
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.6457718232379019,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.802955145471594,
+              "area_cm2": 13.6189223732724,
+              "center_cm": [
+                0.11088972608493453,
+                0.8499999999999996,
+                0.2743045557383977
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.9027225347280724
+                ],
+                [
+                  0.8003147252672704,
+                  1.7999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.6457718232379019,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.616091469106821,
+              "area_cm2": 12.888327548387569,
+              "center_cm": [
+                0.07667161142134224,
+                0.85,
+                0.21751516373560373
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.9027225347280724
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.311929560709094
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.6457718232379019,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.802955145471594,
+              "area_cm2": 13.6189223732724,
+              "center_cm": [
+                0.11088972608493453,
+                0.8499999999999996,
+                0.2743045557383977
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.9027225347280724
+                ],
+                [
+                  0.8003147252672704,
+                  1.7999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.6457718232379019,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.8029551454715937,
+              "area_cm2": 13.618922373272394,
+              "center_cm": [
+                0.08483308797582859,
+                0.8500000000000001,
+                0.15171771153851416
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.0419875556884959
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.767944870877505,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.616091469106821,
+              "area_cm2": 12.888327548387569,
+              "center_cm": [
+                0.07667161142134224,
+                0.85,
+                0.21751516373560373
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.9027225347280724
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.311929560709094
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.6457718232379019,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.8029551454715937,
+              "area_cm2": 13.618922373272394,
+              "center_cm": [
+                0.08483308797582859,
+                0.8500000000000001,
+                0.15171771153851416
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.0419875556884959
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.767944870877505,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.616091469106821,
+              "area_cm2": 12.888327548387569,
+              "center_cm": [
+                0.07667161142134224,
+                0.85,
+                0.21751516373560373
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -0.9027225347280724
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999998,
+                  1.311929560709094
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.6457718232379019,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "ddbe761ab49380ae79de479cdeed1ba0acab9637637bc63da8edb530ec6ab2e5",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "e603c2db400a4b04dea27ce4f24e33fb916d93dd18ac5ce744dff7dbaa43e4d9"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "5e02bdf690e4acdb4c381d6401e74bce7568d562538cf14e0237035080f54112"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "15a35b51d615307465c77e7557c05adb309cf8b30560c6130881178bcab9ac89"
+          }
+        ]
+      }
+    },
+    {
+      "case": "swapped",
+      "remote_job": "cd82d14d7cc4dd52ea22cc499a5f8c19",
+      "script_sha256": "e73343d84457742a13f411c03eff63fbba6239839523223a774876d10910328b",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 13552,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772774,
+              "area_cm2": 11.427137898617934,
+              "center_cm": [
+                0.07680474960960118,
+                0.8500000000000005,
+                -0.35231437849624786
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3119295607090937
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999994,
+                  0.5860966927339106
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.4014257279586958,
+              "second": 1.064650843716541,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772774,
+              "area_cm2": 11.427137898617934,
+              "center_cm": [
+                0.07680474960960118,
+                0.8500000000000005,
+                -0.35231437849624786
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3119295607090937
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999994,
+                  0.5860966927339106
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.4014257279586958,
+              "second": 1.064650843716541,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420494,
+              "area_cm2": 12.157732723502747,
+              "center_cm": [
+                0.0739511950715078,
+                0.8500000000000005,
+                -0.28454851700993716
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3119295607090937
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999994,
+                  0.7499999999999998
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.5235987755982988,
+              "second": 1.064650843716541,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772774,
+              "area_cm2": 11.427137898617934,
+              "center_cm": [
+                0.07680474960960118,
+                0.8500000000000005,
+                -0.35231437849624786
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3119295607090937
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999994,
+                  0.5860966927339106
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.4014257279586958,
+              "second": 1.064650843716541,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420494,
+              "area_cm2": 12.157732723502747,
+              "center_cm": [
+                0.0739511950715078,
+                0.8500000000000005,
+                -0.28454851700993716
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3119295607090937
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999994,
+                  0.7499999999999998
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.5235987755982988,
+              "second": 1.064650843716541,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.42922779274205,
+              "area_cm2": 12.157732723502766,
+              "center_cm": [
+                0.11627694820695723,
+                0.8500000000000011,
+                -0.40747142967172933
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3907757818501811
+                ],
+                [
+                  0.8003147252672704,
+                  1.7999999999999998,
+                  0.5860966927339106
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.4014257279586958,
+              "second": 1.1868238913561442,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772774,
+              "area_cm2": 11.427137898617934,
+              "center_cm": [
+                0.07680474960960118,
+                0.8500000000000005,
+                -0.35231437849624786
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3119295607090937
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999994,
+                  0.5860966927339106
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.4014257279586958,
+              "second": 1.064650843716541,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.42922779274205,
+              "area_cm2": 12.157732723502766,
+              "center_cm": [
+                0.11627694820695723,
+                0.8500000000000011,
+                -0.40747142967172933
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3907757818501811
+                ],
+                [
+                  0.8003147252672704,
+                  1.7999999999999998,
+                  0.5860966927339106
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.4014257279586958,
+              "second": 1.1868238913561442,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772774,
+              "area_cm2": 11.427137898617934,
+              "center_cm": [
+                0.07680474960960118,
+                0.8500000000000005,
+                -0.35231437849624786
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -0.09999999999999998,
+                  -1.3119295607090937
+                ],
+                [
+                  0.7121523038029305,
+                  1.7999999999999994,
+                  0.5860966927339106
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.4014257279586958,
+              "second": 1.064650843716541,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "c5653fa661f56cba4b74b56457cccfdf5e0f4fb397a9319573f60f3a833e04ea",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "741fcee22aa22fc316a6513c909447fb519e683d9608acfd32f85f04df18018a"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "f037cb55f25ae386d3c0f18e05808f5d2057f669f7e91b72b1ab776c5fa2b4bf"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "31054c561b10790007669953690cb1477ee95f5d8adbc62b371b32d37eadae2c"
+          }
+        ]
+      }
+    },
+    {
+      "case": "origin",
+      "remote_job": "eefaa7d1d1674aa6445cb81d6ad1be0b",
+      "script_sha256": "c829a761d6d7b0e8d3be2c48d280cbefb446db488c4977cd3a259d171d146c8b",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 22112,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772725,
+              "area_cm2": 11.427137898617904,
+              "center_cm": [
+                -2.7231952503904027,
+                3.850000000000004,
+                0.35231437849625097
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.5860966927339109
+                ],
+                [
+                  -2.08784769619707,
+                  4.8,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772725,
+              "area_cm2": 11.427137898617904,
+              "center_cm": [
+                -2.7231952503904027,
+                3.850000000000004,
+                0.35231437849625097
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.5860966927339109
+                ],
+                [
+                  -2.08784769619707,
+                  4.8,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420454,
+              "area_cm2": 12.157732723502734,
+              "center_cm": [
+                -2.6837230517930477,
+                3.8500000000000063,
+                0.40747142967173283
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.5860966927339109
+                ],
+                [
+                  -1.9996852747327296,
+                  4.8,
+                  1.3907757818501814
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772725,
+              "area_cm2": 11.427137898617904,
+              "center_cm": [
+                -2.7231952503904027,
+                3.850000000000004,
+                0.35231437849625097
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.5860966927339109
+                ],
+                [
+                  -2.08784769619707,
+                  4.8,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420454,
+              "area_cm2": 12.157732723502734,
+              "center_cm": [
+                -2.6837230517930477,
+                3.8500000000000063,
+                0.40747142967173283
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.5860966927339109
+                ],
+                [
+                  -1.9996852747327296,
+                  4.8,
+                  1.3907757818501814
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742047,
+              "area_cm2": 12.157732723502738,
+              "center_cm": [
+                -2.726048804928493,
+                3.8500000000000005,
+                0.28454851700993733
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.75
+                ],
+                [
+                  -2.08784769619707,
+                  4.8,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772725,
+              "area_cm2": 11.427137898617904,
+              "center_cm": [
+                -2.7231952503904027,
+                3.850000000000004,
+                0.35231437849625097
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.5860966927339109
+                ],
+                [
+                  -2.08784769619707,
+                  4.8,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742047,
+              "area_cm2": 12.157732723502738,
+              "center_cm": [
+                -2.726048804928493,
+                3.8500000000000005,
+                0.28454851700993733
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.75
+                ],
+                [
+                  -2.08784769619707,
+                  4.8,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772725,
+              "area_cm2": 11.427137898617904,
+              "center_cm": [
+                -2.7231952503904027,
+                3.850000000000004,
+                0.35231437849625097
+              ],
+              "bounds_cm": [
+                [
+                  -3.2,
+                  2.9,
+                  -0.5860966927339109
+                ],
+                [
+                  -2.08784769619707,
+                  4.8,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -1.7,
+                  2.3,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "95e7362388f82b8aae6c645325863f60c9755f0fac2b6dbf5d787d8b726895b2",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "b79446419198c02394d7e1bb718e3fedae68a4e3906a0d58934767a120090aa9"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "840d75008a05ea11753269639f8631f2350704ab6dfe09360855fce4101c9c04"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "bd0fb84c12f7c204bbf5e4b736744a931a118fa41ef2cd8b295a1e0621a22990"
+          }
+        ]
+      }
+    },
+    {
+      "case": "direction",
+      "remote_job": "6e55f74f0093683423d7491b2466e23e",
+      "script_sha256": "9a70ed60e0551c4289e1529c1695aa34b376a37dd953da3880493105eab7bf15",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 29920,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377276,
+              "area_cm2": 11.427137898617927,
+              "center_cm": [
+                1.2114437996876808,
+                1.15391715023424,
+                0.35231437849624775
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  0.012708617718241541,
+                  -0.5860966927339109
+                ],
+                [
+                  2.2897218430423445,
+                  2.2,
+                  1.3119295607090944
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377276,
+              "area_cm2": 11.427137898617927,
+              "center_cm": [
+                1.2114437996876808,
+                1.15391715023424,
+                0.35231437849624775
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  0.012708617718241541,
+                  -0.5860966927339109
+                ],
+                [
+                  2.2897218430423445,
+                  2.2,
+                  1.3119295607090944
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742044,
+              "area_cm2": 12.157732723502749,
+              "center_cm": [
+                1.2430215585655655,
+                1.1302338310758275,
+                0.40747142967172945
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  -0.04018883516036245,
+                  -0.5860966927339109
+                ],
+                [
+                  2.3602517802138165,
+                  2.2,
+                  1.390775781850182
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377276,
+              "area_cm2": 11.427137898617927,
+              "center_cm": [
+                1.2114437996876808,
+                1.15391715023424,
+                0.35231437849624775
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  0.012708617718241541,
+                  -0.5860966927339109
+                ],
+                [
+                  2.2897218430423445,
+                  2.2,
+                  1.3119295607090944
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420445,
+              "area_cm2": 12.157732723502749,
+              "center_cm": [
+                1.2430215585655655,
+                1.1302338310758275,
+                0.4074714296717295
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  -0.04018883516036245,
+                  -0.5860966927339109
+                ],
+                [
+                  2.3602517802138165,
+                  2.2,
+                  1.390775781850182
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.42922779274205,
+              "area_cm2": 12.157732723502752,
+              "center_cm": [
+                1.2091609560572072,
+                1.155629282957097,
+                0.28454851700993566
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  0.012708617718241541,
+                  -0.7499999999999999
+                ],
+                [
+                  2.2897218430423445,
+                  2.2,
+                  1.3119295607090944
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377276,
+              "area_cm2": 11.427137898617927,
+              "center_cm": [
+                1.2114437996876808,
+                1.15391715023424,
+                0.35231437849624775
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  0.012708617718241541,
+                  -0.5860966927339109
+                ],
+                [
+                  2.2897218430423445,
+                  2.2,
+                  1.3119295607090944
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.42922779274205,
+              "area_cm2": 12.157732723502752,
+              "center_cm": [
+                1.2091609560572072,
+                1.155629282957097,
+                0.28454851700993566
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  0.012708617718241541,
+                  -0.7499999999999999
+                ],
+                [
+                  2.2897218430423445,
+                  2.2,
+                  1.3119295607090944
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377276,
+              "area_cm2": 11.427137898617927,
+              "center_cm": [
+                1.2114437996876808,
+                1.15391715023424,
+                0.35231437849624775
+              ],
+              "bounds_cm": [
+                [
+                  0.2599999999999998,
+                  0.012708617718241541,
+                  -0.5860966927339109
+                ],
+                [
+                  2.2897218430423445,
+                  2.2,
+                  1.3119295607090944
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.6,
+                  0.8,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "c5f8bbd0a8d479cdcf33a0e244f49d203a05e20e797bd9337ba86e974d8bca61",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "e70c9e6093f3e4d34caa217af8ef8685e4149b218fb9a5dba42448aace58bc73"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "f0fcf4f02fd9cfa2b7f245197c0c5a8fde3836eb7d7c5268a0ece9f41548c0ed"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "fe0812253cf46a8c4e2185a670ad071d06eaf09c4551c3fb0e044f59fb3e6691"
+          }
+        ]
+      }
+    },
+    {
+      "case": "reversed",
+      "remote_job": "d0f8c51f8083782a6d4047f3999547e7",
+      "script_sha256": "fd04929c4297c72ba5082acf594b3347ee87f6bdd3caf30bf203db719bbe404e",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 2364,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377278,
+              "area_cm2": 11.427137898617913,
+              "center_cm": [
+                2.1231952503903995,
+                -2.2499999999999996,
+                0.35231437849624997
+              ],
+              "bounds_cm": [
+                [
+                  1.4878476961970697,
+                  -3.2,
+                  -0.5860966927339106
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377278,
+              "area_cm2": 11.427137898617913,
+              "center_cm": [
+                2.1231952503903995,
+                -2.2499999999999996,
+                0.35231437849624997
+              ],
+              "bounds_cm": [
+                [
+                  1.4878476961970697,
+                  -3.2,
+                  -0.5860966927339106
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742052,
+              "area_cm2": 12.157732723502745,
+              "center_cm": [
+                2.083723051793044,
+                -2.249999999999999,
+                0.40747142967173205
+              ],
+              "bounds_cm": [
+                [
+                  1.3996852747327295,
+                  -3.2,
+                  -0.5860966927339106
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377278,
+              "area_cm2": 11.427137898617913,
+              "center_cm": [
+                2.1231952503903995,
+                -2.2499999999999996,
+                0.35231437849624997
+              ],
+              "bounds_cm": [
+                [
+                  1.4878476961970697,
+                  -3.2,
+                  -0.5860966927339106
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742052,
+              "area_cm2": 12.157732723502745,
+              "center_cm": [
+                2.083723051793044,
+                -2.249999999999999,
+                0.40747142967173205
+              ],
+              "bounds_cm": [
+                [
+                  1.3996852747327295,
+                  -3.2,
+                  -0.5860966927339106
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742051,
+              "area_cm2": 12.157732723502741,
+              "center_cm": [
+                2.1260488049284927,
+                -2.249999999999999,
+                0.28454851700993894
+              ],
+              "bounds_cm": [
+                [
+                  1.4878476961970697,
+                  -3.2,
+                  -0.7499999999999999
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377278,
+              "area_cm2": 11.427137898617913,
+              "center_cm": [
+                2.1231952503903995,
+                -2.2499999999999996,
+                0.35231437849624997
+              ],
+              "bounds_cm": [
+                [
+                  1.4878476961970697,
+                  -3.2,
+                  -0.5860966927339106
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742051,
+              "area_cm2": 12.157732723502741,
+              "center_cm": [
+                2.1260488049284927,
+                -2.249999999999999,
+                0.28454851700993894
+              ],
+              "bounds_cm": [
+                [
+                  1.4878476961970697,
+                  -3.2,
+                  -0.7499999999999999
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.242364116377278,
+              "area_cm2": 11.427137898617913,
+              "center_cm": [
+                2.1231952503903995,
+                -2.2499999999999996,
+                0.35231437849624997
+              ],
+              "bounds_cm": [
+                [
+                  1.4878476961970697,
+                  -3.2,
+                  -0.5860966927339106
+                ],
+                [
+                  2.6,
+                  -1.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  -1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "345797af2e84db3da72c23fe5132669ae596b7758cf2e44e18e7e147f494b032",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "7c8853cd9905920e9a3811dcbbf5675c2fd97bb88614257f04004f32553f2848"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "489afda44daab1b1cf73bc34e4f02c403935f31bc1ecee1c042a019e11e2e9ca"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "d1c201d9095d0b366f7a652f009036523bd257c7fa45045cba547a28aa4e4a8c"
+          }
+        ]
+      }
+    },
+    {
+      "case": "radial",
+      "remote_job": "ee062b768512b66e76534413cbb82069",
+      "script_sha256": "8f28b696a87cec4b9d02aec9d2abb790155fa0f30b14dc59b600c6aa3e2a610c",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 20336,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.2173050365413034,
+              "area_cm2": 15.23893698497353,
+              "center_cm": [
+                -0.3454518662809313,
+                0.85,
+                0.4977089912416051
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.7814622569785475
+                ],
+                [
+                  0.4697474936797619,
+                  1.7999999999999998,
+                  1.7492394142787915
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.2173050365413034,
+              "area_cm2": 15.23893698497353,
+              "center_cm": [
+                -0.3454518662809313,
+                0.85,
+                0.4977089912416051
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.7814622569785475
+                ],
+                [
+                  0.4697474936797619,
+                  1.7999999999999998,
+                  1.7492394142787915
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.485413789586414,
+              "area_cm2": 16.28718173372133,
+              "center_cm": [
+                -0.2896901110274835,
+                0.8499999999999996,
+                0.5756284914833553
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.7814622569785475
+                ],
+                [
+                  0.6130114285593145,
+                  1.7999999999999998,
+                  1.8543677091335748
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.2173050365413034,
+              "area_cm2": 15.23893698497353,
+              "center_cm": [
+                -0.3454518662809313,
+                0.85,
+                0.4977089912416051
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.7814622569785475
+                ],
+                [
+                  0.4697474936797619,
+                  1.7999999999999998,
+                  1.7492394142787915
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.485413789586414,
+              "area_cm2": 16.28718173372133,
+              "center_cm": [
+                -0.2896901110274835,
+                0.8499999999999996,
+                0.5756284914833553
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.7814622569785475
+                ],
+                [
+                  0.6130114285593145,
+                  1.7999999999999998,
+                  1.8543677091335748
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.485413789586418,
+              "area_cm2": 16.287181733721326,
+              "center_cm": [
+                -0.3494830379767035,
+                0.8500000000000002,
+                0.4019772226293588
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.9999999999999999
+                ],
+                [
+                  0.4697474936797619,
+                  1.7999999999999998,
+                  1.7492394142787915
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.2173050365413034,
+              "area_cm2": 15.23893698497353,
+              "center_cm": [
+                -0.3454518662809313,
+                0.85,
+                0.4977089912416051
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.7814622569785475
+                ],
+                [
+                  0.4697474936797619,
+                  1.7999999999999998,
+                  1.7492394142787915
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.485413789586418,
+              "area_cm2": 16.287181733721326,
+              "center_cm": [
+                -0.3494830379767035,
+                0.8500000000000002,
+                0.4019772226293588
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.9999999999999999
+                ],
+                [
+                  0.4697474936797619,
+                  1.7999999999999998,
+                  1.7492394142787915
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.2173050365413034,
+              "area_cm2": 15.23893698497353,
+              "center_cm": [
+                -0.3454518662809313,
+                0.85,
+                0.4977089912416051
+              ],
+              "bounds_cm": [
+                [
+                  -0.8999999999999999,
+                  -0.09999999999999998,
+                  -0.7814622569785475
+                ],
+                [
+                  0.4697474936797619,
+                  1.7999999999999998,
+                  1.7492394142787915
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "d2bf22d22df73e2c1940eb0991e9810edb3ff62cc6df2b1e8586258818377e5a",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "9646eb7084b321fce497ec352148ba78c86bd24e21a8f108992462b76df0b3d3"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "f7d212654a9fb8101ddadf26ed00ea46326c6ca3c1f5b5ea39212e8de35d5dac"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "7df01f4a5673e3da5f044881f41755bf079feae72e8d3da398dad07646f1fe2c"
+          }
+        ]
+      }
+    },
+    {
+      "case": "axial",
+      "remote_job": "001aeed16885911537aab71fae00693d",
+      "script_sha256": "e4f79c7e106d8bf90db0e2963f92f7420587f6fda3d812e7f47ba860022f488e",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 30488,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                -0.6499999999999995,
+                0.3523143784962473
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  0.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                -0.6499999999999995,
+                0.3523143784962473
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  0.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420463,
+              "area_cm2": 12.157732723502741,
+              "center_cm": [
+                0.11627694820695691,
+                -0.6499999999999997,
+                0.40747142967172884
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.5860966927339106
+                ],
+                [
+                  0.8003147252672704,
+                  0.2999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                -0.6499999999999995,
+                0.3523143784962473
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  0.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.4292277927420463,
+              "area_cm2": 12.157732723502741,
+              "center_cm": [
+                0.11627694820695691,
+                -0.6499999999999997,
+                0.40747142967172884
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.5860966927339106
+                ],
+                [
+                  0.8003147252672704,
+                  0.2999999999999998,
+                  1.3907757818501811
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.1868238913561442,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742046,
+              "area_cm2": 12.157732723502738,
+              "center_cm": [
+                0.07395119507150785,
+                -0.6499999999999998,
+                0.2845485170099365
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.7499999999999999
+                ],
+                [
+                  0.7121523038029305,
+                  0.2999999999999996,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                -0.6499999999999995,
+                0.3523143784962473
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  0.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.429227792742046,
+              "area_cm2": 12.157732723502738,
+              "center_cm": [
+                0.07395119507150785,
+                -0.6499999999999998,
+                0.2845485170099365
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.7499999999999999
+                ],
+                [
+                  0.7121523038029305,
+                  0.2999999999999996,
+                  1.3119295607090935
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.5235987755982988,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.2423641163772734,
+              "area_cm2": 11.427137898617916,
+              "center_cm": [
+                0.07680474960960117,
+                -0.6499999999999995,
+                0.3523143784962473
+              ],
+              "bounds_cm": [
+                [
+                  -0.3999999999999999,
+                  -1.6,
+                  -0.5860966927339106
+                ],
+                [
+                  0.7121523038029305,
+                  0.2999999999999998,
+                  1.3119295607090937
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.064650843716541,
+              "second": 0.4014257279586958,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  1.1,
+                  -0.7,
+                  0.0
+                ],
+                "direction": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "20aa075944645035d556dae305a5f0b015c8df1addd63a71839ada5904acd734",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "00211ae5fd38b70900d33b25646a18c291779894329578f7e8a94ff794b98a12"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "130c8187d1784674cd5dceb1015d4f1ec6f7f7b7dc03de98ed77fe917d44c6a9"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "13a9022de1ecb59b9d154ac60a01696d52346d3f32eb4e97fb2f89a5a37fbf5b"
+          }
+        ]
+      }
+    },
+    {
+      "case": "holdout_a",
+      "remote_job": "0534eb61b2af600469394a539982ec88",
+      "script_sha256": "a592e90238adbaa7db211a87e4134101293b6149b959cee73835b6412191c028",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 23172,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.6253766207274327,
+              "area_cm2": 12.92463039682905,
+              "center_cm": [
+                0.8480008567496953,
+                -2.052665524333742,
+                0.19019839561670776
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000027,
+                  -2.9800000000000004,
+                  -0.9270685348380978
+                ],
+                [
+                  1.969881082358751,
+                  -1.0001585568549993,
+                  1.3164366629145074
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.8203047484373349,
+              "second": 0.5410520681182421,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.6253766207274323,
+              "area_cm2": 12.92463039682905,
+              "center_cm": [
+                0.8480008567496956,
+                -2.052665524333742,
+                0.1901983956167079
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000027,
+                  -2.9800000000000004,
+                  -0.9270685348380978
+                ],
+                [
+                  1.969881082358751,
+                  -1.0001585568549993,
+                  1.3164366629145074
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.8203047484373349,
+              "second": 0.5410520681182421,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.8609873431004074,
+              "area_cm2": 13.845815176031653,
+              "center_cm": [
+                0.8684420384224669,
+                -2.0254106154367135,
+                0.2684071456834767
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000016,
+                  -2.9800000000000004,
+                  -0.9270685348380978
+                ],
+                [
+                  2.0320617334869677,
+                  -0.9172510220173766,
+                  1.4562305898749057
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.9424777960769379,
+              "second": 0.5410520681182421,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.6253766207274323,
+              "area_cm2": 12.92463039682905,
+              "center_cm": [
+                0.8480008567496956,
+                -2.052665524333742,
+                0.1901983956167079
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000027,
+                  -2.9800000000000004,
+                  -0.9270685348380978
+                ],
+                [
+                  1.969881082358751,
+                  -1.0001585568549993,
+                  1.3164366629145074
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.8203047484373349,
+              "second": 0.5410520681182421,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.860987343100408,
+              "area_cm2": 13.845815176031653,
+              "center_cm": [
+                0.8684420384224669,
+                -2.0254106154367135,
+                0.2684071456834765
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000016,
+                  -2.9800000000000004,
+                  -0.9270685348380978
+                ],
+                [
+                  2.0320617334869677,
+                  -0.9172510220173766,
+                  1.4562305898749057
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.9424777960769379,
+              "second": 0.5410520681182421,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.8609873431004114,
+              "area_cm2": 13.84581517603168,
+              "center_cm": [
+                0.8547158298693531,
+                -2.0437122268408645,
+                0.10562873111354584
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000027,
+                  -2.9800000000000004,
+                  -1.1081906555861851
+                ],
+                [
+                  1.969881082358751,
+                  -1.0001585568549993,
+                  1.3164366629145074
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.8203047484373349,
+              "second": 0.6632251157578453,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.6253766207274323,
+              "area_cm2": 12.92463039682905,
+              "center_cm": [
+                0.8480008567496956,
+                -2.052665524333742,
+                0.1901983956167079
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000027,
+                  -2.9800000000000004,
+                  -0.9270685348380978
+                ],
+                [
+                  1.969881082358751,
+                  -1.0001585568549993,
+                  1.3164366629145074
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.8203047484373349,
+              "second": 0.5410520681182421,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.8609873431004114,
+              "area_cm2": 13.84581517603168,
+              "center_cm": [
+                0.8547158298693531,
+                -2.0437122268408645,
+                0.10562873111354584
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000027,
+                  -2.9800000000000004,
+                  -1.1081906555861851
+                ],
+                [
+                  1.969881082358751,
+                  -1.0001585568549993,
+                  1.3164366629145074
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.8203047484373349,
+              "second": 0.6632251157578453,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.6253766207274327,
+              "area_cm2": 12.92463039682905,
+              "center_cm": [
+                0.8480008567496953,
+                -2.052665524333742,
+                0.19019839561670776
+              ],
+              "bounds_cm": [
+                [
+                  -0.18000000000000027,
+                  -2.9800000000000004,
+                  -0.9270685348380978
+                ],
+                [
+                  1.969881082358751,
+                  -1.0001585568549993,
+                  1.3164366629145074
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 0.8203047484373349,
+              "second": 0.5410520681182421,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  2.1,
+                  -1.3,
+                  0.0
+                ],
+                "direction": [
+                  -0.8,
+                  0.6,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "803ef2deaf9aa92f74c9a91463826cd8c5475afcd4290ddfe8ba83a5702bbaf8",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "80279d2de890bdfb14edbfb518d237d7a90e31b6aa763bad99ba5bec96a772e1"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "0e6f380cd5c5aaa1a2c257fd0a3a023ffa01fcd7b5f9b415cda02c3bd24a9934"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "290428b5ae3cd819e98dcfdb0607efda8440bb688a7bb73d41d3abe324b87cc0"
+          }
+        ]
+      }
+    },
+    {
+      "case": "holdout_b",
+      "remote_job": "7f72971e023a9b937ce8c922907d7ead",
+      "script_sha256": "60495a9e02530fc84e42642723fb3d949b43aec87b55fe2fe1bab7e2d4330c36",
+      "observations": {
+        "build": "2706.1.17",
+        "process_id": 1560,
+        "initial_documents": 0,
+        "observations": [
+          {
+            "stage": "initial_open",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9735698065003526,
+              "area_cm2": 14.285987213384644,
+              "center_cm": [
+                1.8188598585712001,
+                -3.4581868552383463,
+                0.5985583829426568
+              ],
+              "bounds_cm": [
+                [
+                  0.4710411143511529,
+                  -4.811945180865129,
+                  -0.45579541624001957
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.400000000000018
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.7976891295541595,
+              "second": 0.33161255787892263,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "rebuilt",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9735698065003526,
+              "area_cm2": 14.285987213384644,
+              "center_cm": [
+                1.8188598585712001,
+                -3.4581868552383463,
+                0.5985583829426568
+              ],
+              "bounds_cm": [
+                [
+                  0.4710411143511529,
+                  -4.811945180865129,
+                  -0.45579541624001957
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.400000000000018
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.7976891295541595,
+              "second": 0.33161255787892263,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.1441844675290644,
+              "area_cm2": 14.953052053496886,
+              "center_cm": [
+                1.7871535935750686,
+                -3.500461875233189,
+                0.6226970186304956
+              ],
+              "bounds_cm": [
+                [
+                  0.37270307960643795,
+                  -4.94306256052475,
+                  -0.45579541624001957
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.400000000000018
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.9198621771937625,
+              "second": 0.33161255787892263,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9735698065003526,
+              "area_cm2": 14.285987213384644,
+              "center_cm": [
+                1.8188598585712001,
+                -3.4581868552383463,
+                0.5985583829426568
+              ],
+              "bounds_cm": [
+                [
+                  0.4710411143511529,
+                  -4.811945180865129,
+                  -0.45579541624001957
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.400000000000018
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.7976891295541595,
+              "second": 0.33161255787892263,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_first",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.1441844675290644,
+              "area_cm2": 14.953052053496886,
+              "center_cm": [
+                1.7871535935750686,
+                -3.500461875233189,
+                0.6226970186304956
+              ],
+              "bounds_cm": [
+                [
+                  0.37270307960643795,
+                  -4.94306256052475,
+                  -0.45579541624001957
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.400000000000018
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.9198621771937625,
+              "second": 0.33161255787892263,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.1441844675289525,
+              "area_cm2": 14.953052053496835,
+              "center_cm": [
+                1.8299494924447668,
+                -3.4434006767403504,
+                0.5434809171838335
+              ],
+              "bounds_cm": [
+                [
+                  0.4710411143511529,
+                  -4.811945180865129,
+                  -0.6137196055047085
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.3999999999999908
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.7976891295541595,
+              "second": 0.4537856055185257,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "restore_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9735698065003526,
+              "area_cm2": 14.285987213384644,
+              "center_cm": [
+                1.8188598585712001,
+                -3.4581868552383463,
+                0.5985583829426568
+              ],
+              "bounds_cm": [
+                [
+                  0.4710411143511529,
+                  -4.811945180865129,
+                  -0.45579541624001957
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.400000000000018
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.7976891295541595,
+              "second": 0.33161255787892263,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_edit_second",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 3.1441844675289525,
+              "area_cm2": 14.953052053496835,
+              "center_cm": [
+                1.8299494924447672,
+                -3.4434006767403504,
+                0.5434809171838335
+              ],
+              "bounds_cm": [
+                [
+                  0.4710411143511529,
+                  -4.811945180865129,
+                  -0.6137196055047085
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.3999999999999908
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.7976891295541595,
+              "second": 0.4537856055185257,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reopen_restored",
+            "value": {
+              "body_count": 1,
+              "volume_cm3": 2.9735698065003526,
+              "area_cm2": 14.285987213384644,
+              "center_cm": [
+                1.8188598585712001,
+                -3.4581868552383463,
+                0.5985583829426568
+              ],
+              "bounds_cm": [
+                [
+                  0.4710411143511529,
+                  -4.811945180865129,
+                  -0.45579541624001957
+                ],
+                [
+                  3.02,
+                  -2.3,
+                  1.400000000000018
+                ]
+              ],
+              "health": 0,
+              "error": "",
+              "first": 1.7976891295541595,
+              "second": 0.33161255787892263,
+              "operation": 3,
+              "solid": true,
+              "project_axis": false,
+              "axis": {
+                "type": "adsk::fusion::ConstructionAxis",
+                "name": "ExplicitAxis",
+                "origin_cm": [
+                  -0.3,
+                  -2.7,
+                  0.0
+                ],
+                "direction": [
+                  0.8,
+                  -0.5999999999999999,
+                  0.0
+                ]
+              }
+            }
+          }
+        ],
+        "errors": [],
+        "executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+        "control_before": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "control_after": {
+          "body_count": 1,
+          "volume_cm3": 2.2423641163772734,
+          "area_cm2": 11.427137898617916,
+          "center_cm": [
+            0.07680474960960117,
+            0.8499999999999998,
+            0.3523143784962471
+          ],
+          "bounds_cm": [
+            [
+              -0.3999999999999999,
+              -0.09999999999999998,
+              -0.5860966927339106
+            ],
+            [
+              0.7121523038029305,
+              1.7999999999999998,
+              1.3119295607090937
+            ]
+          ],
+          "health": 0,
+          "error": "",
+          "first": 1.064650843716541,
+          "second": 0.4014257279586958,
+          "operation": 3,
+          "solid": true,
+          "project_axis": false,
+          "axis": {
+            "type": "adsk::fusion::ConstructionAxis",
+            "name": "ExplicitAxis",
+            "origin_cm": [
+              1.1,
+              -0.7,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        "final_documents": 0,
+        "source_sha256": "ed74c9ac258f9430bfe26eb14d68ae8e1ce80dc006f0b6e5742b0ff56e9ef04d",
+        "archives": [
+          {
+            "file": "verified_edit_first.f3d",
+            "sha256": "2911b1f88eac14f1265bced59693054fd99e15d01b6750be45d1d2835187cd31"
+          },
+          {
+            "file": "verified_edit_second.f3d",
+            "sha256": "d2a6446c1e0bf6bfd4565e3fd49ebc654ab1ecf2322382852ccee4bbeeff0524"
+          },
+          {
+            "file": "verified_restored.f3d",
+            "sha256": "014481cd11fac9665ef0051fe1b1461047559c75aa331880e73aff5dea130ee5"
+          }
+        ]
+      }
+    }
+  ]
+}

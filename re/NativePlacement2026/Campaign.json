@@ -1,0 +1,25 @@
+{
+  "task": "A08h-Placement20261123",
+  "owner": "Codex",
+  "revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "branch": "feat/native-placement-decoding-20261123",
+  "native_batches": 48,
+  "expected_native_files": 144,
+  "committed_replays": 255,
+  "split_native_batches": {
+    "discovery": 36,
+    "held-out": 12
+  },
+  "model_advice": false,
+  "strict_first": true,
+  "partial_fallback": false,
+  "conversion_acceptance": false,
+  "started_at": 1795439293.060452,
+  "dependencies": [
+    "merged PR263",
+    "merged PR265",
+    "merged PR267",
+    "licensed personal CAD API"
+  ],
+  "exit_condition": "all executable jobs settled, original strict and native failure evidence retained, placement comparisons reported, sanitized publication candidates identified"
+}

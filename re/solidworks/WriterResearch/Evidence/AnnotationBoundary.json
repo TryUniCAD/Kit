@@ -1,0 +1,732 @@
+{
+  "alias_scope": "unexpected API arguments only; native graph alias admission is not exposed",
+  "application_usable": false,
+  "audit_calibration": [
+    "open",
+    "subprocess.Popen",
+    "import",
+    "socket.__new__",
+    "ctypes.dlopen"
+  ],
+  "emission_external_events": [],
+  "generated": {
+    "after": {
+      "classes": [
+        [
+          1,
+          "suObList"
+        ],
+        [
+          3,
+          "moView_c"
+        ],
+        [
+          14,
+          "moFeatColorTab_c"
+        ],
+        [
+          16,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          19,
+          "moAnnotationView_c"
+        ]
+      ],
+      "next_index": 21,
+      "objects": [
+        [
+          2,
+          "suObList"
+        ],
+        [
+          4,
+          "moView_c"
+        ],
+        [
+          5,
+          "moView_c"
+        ],
+        [
+          6,
+          "moView_c"
+        ],
+        [
+          7,
+          "moView_c"
+        ],
+        [
+          8,
+          "moView_c"
+        ],
+        [
+          9,
+          "moView_c"
+        ],
+        [
+          10,
+          "moView_c"
+        ],
+        [
+          11,
+          "moView_c"
+        ],
+        [
+          12,
+          "moView_c"
+        ],
+        [
+          13,
+          "moView_c"
+        ],
+        [
+          15,
+          "moFeatColorTab_c"
+        ],
+        [
+          17,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          18,
+          "suObList"
+        ],
+        [
+          20,
+          "moAnnotationView_c"
+        ]
+      ]
+    },
+    "annotation_bytes": 282,
+    "annotation_sha256": "e4530e36f48152b696e6a16cb8fc916b8be169daf68407c1a9e614bf67c0674a",
+    "before": {
+      "classes": [
+        [
+          1,
+          "suObList"
+        ],
+        [
+          3,
+          "moView_c"
+        ],
+        [
+          14,
+          "moFeatColorTab_c"
+        ],
+        [
+          16,
+          "moSketchBlockMgr_c"
+        ]
+      ],
+      "next_index": 18,
+      "objects": [
+        [
+          2,
+          "suObList"
+        ],
+        [
+          4,
+          "moView_c"
+        ],
+        [
+          5,
+          "moView_c"
+        ],
+        [
+          6,
+          "moView_c"
+        ],
+        [
+          7,
+          "moView_c"
+        ],
+        [
+          8,
+          "moView_c"
+        ],
+        [
+          9,
+          "moView_c"
+        ],
+        [
+          10,
+          "moView_c"
+        ],
+        [
+          11,
+          "moView_c"
+        ],
+        [
+          12,
+          "moView_c"
+        ],
+        [
+          13,
+          "moView_c"
+        ],
+        [
+          15,
+          "moFeatColorTab_c"
+        ],
+        [
+          17,
+          "moSketchBlockMgr_c"
+        ]
+      ]
+    },
+    "complete_sha256": "66ef294e138925b3df9e73188dc09577601f25f1ac2f35f0abe11cd85300cbda",
+    "following": {
+      "classes": [
+        [
+          1,
+          "suObList"
+        ],
+        [
+          3,
+          "moView_c"
+        ],
+        [
+          14,
+          "moFeatColorTab_c"
+        ],
+        [
+          16,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          19,
+          "moAnnotationView_c"
+        ],
+        [
+          21,
+          "moPMarkRecord_c"
+        ],
+        [
+          24,
+          "moCThreadRefMgr_c"
+        ]
+      ],
+      "next_index": 26,
+      "objects": [
+        [
+          2,
+          "suObList"
+        ],
+        [
+          4,
+          "moView_c"
+        ],
+        [
+          5,
+          "moView_c"
+        ],
+        [
+          6,
+          "moView_c"
+        ],
+        [
+          7,
+          "moView_c"
+        ],
+        [
+          8,
+          "moView_c"
+        ],
+        [
+          9,
+          "moView_c"
+        ],
+        [
+          10,
+          "moView_c"
+        ],
+        [
+          11,
+          "moView_c"
+        ],
+        [
+          12,
+          "moView_c"
+        ],
+        [
+          13,
+          "moView_c"
+        ],
+        [
+          15,
+          "moFeatColorTab_c"
+        ],
+        [
+          17,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          18,
+          "suObList"
+        ],
+        [
+          20,
+          "moAnnotationView_c"
+        ],
+        [
+          22,
+          "moPMarkRecord_c"
+        ],
+        [
+          23,
+          "suObList"
+        ],
+        [
+          25,
+          "moCThreadRefMgr_c"
+        ]
+      ]
+    },
+    "following_bytes": 164
+  },
+  "input_refusals": [
+    {
+      "before_import_or_emit": true,
+      "case": "nonnull_alias",
+      "returncode": 1
+    },
+    {
+      "before_import_or_emit": true,
+      "case": "explicit_basis",
+      "returncode": 1
+    },
+    {
+      "before_import_or_emit": true,
+      "case": "missing_include_top",
+      "returncode": 1
+    }
+  ],
+  "method_sha256": "e7c0dda965c572fef9bbc6d5d704289f6962e32b1a76012d91552c801c5561b2",
+  "models_used": false,
+  "modules": {
+    "count": 829,
+    "sha256": "cf6d9006f86baa8ce77e4b2b38099180a109aa00e6f9e7fe4d8696d75a822276",
+    "writer_sha256": {
+      "re/solidworks/WriterResearch/CmgrInherited.py": "e6b832cdf1dec1c1684e862ee76f741180341a28783111ac60ba02040a6639c8",
+      "re/solidworks/WriterResearch/ConfigSavedViews.py": "e4090eb9d1dec2fbaf8c916682757dc0b5b37510d86af4312c141e6d5ce7ba83",
+      "re/solidworks/WriterResearch/ConfigScene/Annotation.py": "df929a840f7d637e8379cce76ef0667871a5096e95fd992498e85272bfd7622b",
+      "re/solidworks/WriterResearch/ConfigScene/ModelLists.py": "e20dbc674569733e0965657dc8c1e9bef510d2207026f866e6258dfb74a12e7d",
+      "re/solidworks/WriterResearch/ConfigScene/SketchBlock.py": "f190214f088b504b605b476a5de3bea8412d20aa2d976753e7ee5bc6f242151c",
+      "re/solidworks/WriterResearch/PartArchive.py": "59d0ebe5237066e6be22db56d7d920345e12a0b464d9a170a2ebcf8945fad5d2"
+    }
+  },
+  "process": {
+    "fresh_child": true,
+    "python_version": "3.14.6",
+    "returncode": 0
+  },
+  "refusals": [
+    {
+      "case": "duplicate_top",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "custom_name",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "noncardinal_name",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "null_name",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "older_generation",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "newer_generation",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "integer_include_top",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "null_include_top",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "missing_suObList",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "missing_moSketchBlockMgr_c",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "preexisting_annotation",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "zero_counter",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "overflow_counter",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "future_object_collision_0",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "future_class_collision_0",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "future_object_collision_1",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "future_class_collision_1",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "future_object_collision_2",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "future_class_collision_2",
+      "exception": "ArchiveError",
+      "unchanged": true
+    },
+    {
+      "case": "unexposed_Aliases",
+      "exception": "TypeError",
+      "unchanged": true
+    },
+    {
+      "case": "unexposed_Basis",
+      "exception": "TypeError",
+      "unchanged": true
+    },
+    {
+      "case": "unexposed_Schema",
+      "exception": "TypeError",
+      "unchanged": true
+    }
+  ],
+  "relocated": {
+    "after": {
+      "classes": [
+        [
+          2,
+          "suObList"
+        ],
+        [
+          4,
+          "moView_c"
+        ],
+        [
+          15,
+          "moFeatColorTab_c"
+        ],
+        [
+          17,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          20,
+          "moAnnotationView_c"
+        ]
+      ],
+      "next_index": 22,
+      "objects": [
+        [
+          1,
+          "owned-neutral-root"
+        ],
+        [
+          3,
+          "suObList"
+        ],
+        [
+          5,
+          "moView_c"
+        ],
+        [
+          6,
+          "moView_c"
+        ],
+        [
+          7,
+          "moView_c"
+        ],
+        [
+          8,
+          "moView_c"
+        ],
+        [
+          9,
+          "moView_c"
+        ],
+        [
+          10,
+          "moView_c"
+        ],
+        [
+          11,
+          "moView_c"
+        ],
+        [
+          12,
+          "moView_c"
+        ],
+        [
+          13,
+          "moView_c"
+        ],
+        [
+          14,
+          "moView_c"
+        ],
+        [
+          16,
+          "moFeatColorTab_c"
+        ],
+        [
+          18,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          19,
+          "suObList"
+        ],
+        [
+          21,
+          "moAnnotationView_c"
+        ]
+      ]
+    },
+    "annotation_bytes": 282,
+    "annotation_sha256": "8fa78f1daf7d2074c77a951c0ec4702c8ac96da2394525988e0334ab98635ba0",
+    "before": {
+      "classes": [
+        [
+          2,
+          "suObList"
+        ],
+        [
+          4,
+          "moView_c"
+        ],
+        [
+          15,
+          "moFeatColorTab_c"
+        ],
+        [
+          17,
+          "moSketchBlockMgr_c"
+        ]
+      ],
+      "next_index": 19,
+      "objects": [
+        [
+          1,
+          "owned-neutral-root"
+        ],
+        [
+          3,
+          "suObList"
+        ],
+        [
+          5,
+          "moView_c"
+        ],
+        [
+          6,
+          "moView_c"
+        ],
+        [
+          7,
+          "moView_c"
+        ],
+        [
+          8,
+          "moView_c"
+        ],
+        [
+          9,
+          "moView_c"
+        ],
+        [
+          10,
+          "moView_c"
+        ],
+        [
+          11,
+          "moView_c"
+        ],
+        [
+          12,
+          "moView_c"
+        ],
+        [
+          13,
+          "moView_c"
+        ],
+        [
+          14,
+          "moView_c"
+        ],
+        [
+          16,
+          "moFeatColorTab_c"
+        ],
+        [
+          18,
+          "moSketchBlockMgr_c"
+        ]
+      ]
+    },
+    "complete_sha256": "884f00a1955f27434d6a0af061f9f8cb1b888fc1ab3c9222b7021890894e9086",
+    "following": {
+      "classes": [
+        [
+          2,
+          "suObList"
+        ],
+        [
+          4,
+          "moView_c"
+        ],
+        [
+          15,
+          "moFeatColorTab_c"
+        ],
+        [
+          17,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          20,
+          "moAnnotationView_c"
+        ],
+        [
+          22,
+          "moPMarkRecord_c"
+        ],
+        [
+          25,
+          "moCThreadRefMgr_c"
+        ]
+      ],
+      "next_index": 27,
+      "objects": [
+        [
+          1,
+          "owned-neutral-root"
+        ],
+        [
+          3,
+          "suObList"
+        ],
+        [
+          5,
+          "moView_c"
+        ],
+        [
+          6,
+          "moView_c"
+        ],
+        [
+          7,
+          "moView_c"
+        ],
+        [
+          8,
+          "moView_c"
+        ],
+        [
+          9,
+          "moView_c"
+        ],
+        [
+          10,
+          "moView_c"
+        ],
+        [
+          11,
+          "moView_c"
+        ],
+        [
+          12,
+          "moView_c"
+        ],
+        [
+          13,
+          "moView_c"
+        ],
+        [
+          14,
+          "moView_c"
+        ],
+        [
+          16,
+          "moFeatColorTab_c"
+        ],
+        [
+          18,
+          "moSketchBlockMgr_c"
+        ],
+        [
+          19,
+          "suObList"
+        ],
+        [
+          21,
+          "moAnnotationView_c"
+        ],
+        [
+          23,
+          "moPMarkRecord_c"
+        ],
+        [
+          24,
+          "suObList"
+        ],
+        [
+          26,
+          "moCThreadRefMgr_c"
+        ]
+      ]
+    },
+    "following_bytes": 164
+  },
+  "repeat_exact": true,
+  "request": {
+    "first_name": "*Top",
+    "generation": 19000,
+    "include_top": false
+  },
+  "schema": "kit.sw2026.annotation-emission-boundary.v1",
+  "serializer_revision": "bf87e42d46db3bec776ef9959ef775a23b7fcd0e",
+  "vendor_loadable": false,
+  "vendor_source_access": false
+}

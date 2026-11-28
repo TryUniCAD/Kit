@@ -24,20 +24,25 @@ env:
   AuditSha: ${{ inputs.audit_sha || github.sha }}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && format('audit-{0}-{1}-{2}', inputs.audit_sha, github.sha, inputs.feature_session) || github.event.merge_group.head_sha || github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
+  group: ${{ github.workflow }}-${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'push') && 'audits' || github.event.merge_group.head_sha || github.ref }}
+  cancel-in-progress: false
+  queue: max
 
 jobs:
   test-plan:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Test suite / Plan
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: ${{ github.event_name == 'workflow_dispatch' && 75 || 15 }}
     permissions:
       actions: read # Reads earlier merge-group test durations to balance shards.
       contents: read
+      pull-requests: read # Reads native queue metadata before admitting manual audits.
     outputs:
       shards: ${{ steps.plan.outputs.shards }}
+      matrix: ${{ steps.plan.outputs.matrix }}
+      native: ${{ steps.capacity.outputs.native }}
+      count: ${{ steps.capacity.outputs.count }}
     steps:
       - &AuditSource
         name: Validate the requested audit source
@@ -50,6 +55,23 @@ jobs:
           [[ "$RequestedSha" =~ ^[0-9a-f]{40}$ ]]
           test "$RequestedSha" = "$AuditSha"
 
+      - name: Checkout audit admission harness
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          path: AdmissionHarness
+          sparse-checkout: .github/scripts/Scheduling
+
+      - name: Give queued acceptance priority over manual audits
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { WaitForQueue } = require(`${process.env.GITHUB_WORKSPACE}/AdmissionHarness/.github/scripts/Scheduling/WaitForQueue.cjs`);
+            await WaitForQueue(github, context, core);
+
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -57,6 +79,15 @@ jobs:
           fetch-depth: 0
           filter: blob:none
           ref: ${{ env.AuditSha }}
+
+      - name: Select the trusted shared runner budget
+        id: capacity
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SelectBudget } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectBudget.cjs`);
+            await SelectBudget(github, context, core);
 
       - name: Confirm the pinned audit revision
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -66,7 +97,7 @@ jobs:
           echo "Auditing source revision ${AuditSha} with every test scheduled fresh" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -105,28 +136,16 @@ jobs:
           tail -n 1 "${RUNNER_TEMP}/Collected.txt"
 
       - name: Fetch earlier merge-group test durations
+        if: github.event_name == 'merge_group'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          RunId="$(
-            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=TestDurations&per_page=100" --jq '
-              [
-                .artifacts[]
-                | select(.expired | not)
-                | select((.workflow_run.head_branch // "") | startswith("gh-readonly-queue/"))
-                | select(.workflow_run.head_repository_id == .workflow_run.repository_id)
-              ]
-              | sort_by(.created_at)
-              | last
-              | .workflow_run.id // empty
-            '
-          )"
-          if [ -z "$RunId" ]; then
-            echo "No earlier merge-group test durations exist; shards balance by test count" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          gh run download "$RunId" --repo "$GITHUB_REPOSITORY" --name TestDurations --dir "${RUNNER_TEMP}/History"
+          bash .github/scripts/Queue/FetchDurations.sh TestDurations "${RUNNER_TEMP}/History"
+          for Platform in windows-2025 macos-26; do
+            bash .github/scripts/Queue/FetchDurations.sh "PlatformDurations-${Platform}" \
+              "${RUNNER_TEMP}/ShardPlan/History-${Platform}"
+          done
 
       - name: Fetch test results that an accepted ancestor verified
         if: github.event_name == 'merge_group'
@@ -167,8 +186,18 @@ jobs:
 
       - name: Plan test shards
         id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RuntimeTarget: ${{ steps.capacity.outputs.runtime-target || '0' }}
+          MaxTests: ${{ steps.capacity.outputs.max-tests || '1200' }}
         run: |
           set -euo pipefail
+          RuntimeArgs=()
+          TargetSeconds="$RuntimeTarget"
+          if [ "$GITHUB_EVENT_NAME" = merge_group ]; then
+            RuntimeArgs=(--target-seconds "$TargetSeconds" --runtime-shards 256)
+          fi
+          echo "Runtime shard target: ${TargetSeconds} test seconds; zero retains count-based sizing" >> "$GITHUB_STEP_SUMMARY"
           git ls-tree -r -z HEAD > "${RUNNER_TEMP}/Tree.bin"
           uv run --no-sync --python 3.14 python -m tools.TestShards.PlanShards \
             --collected "${RUNNER_TEMP}/Collected.txt" \
@@ -177,11 +206,13 @@ jobs:
             --tree "${RUNNER_TEMP}/Tree.bin" \
             --carried "${RUNNER_TEMP}/ShardPlan/Carried.json" \
             --max-age-days 7 \
-            --max-tests 1200 \
+            --max-tests "$MaxTests" \
+            "${RuntimeArgs[@]}" \
             --output "${RUNNER_TEMP}/ShardPlan/ShardPlan.json" \
             --summary "$GITHUB_STEP_SUMMARY"
           cp "${RUNNER_TEMP}/Collected.txt" "${RUNNER_TEMP}/ShardPlan/Collected.txt"
           echo "shards=$(jq -c '[.Shards[].Index]' "${RUNNER_TEMP}/ShardPlan/ShardPlan.json")" >> "$GITHUB_OUTPUT"
+          echo "matrix=$(jq -c '[.Shards[] | {shard:.Index,slot:((.Index - 1) % 8),auditSlot:(6 + ((.Index - 1) % 2))}]' "${RUNNER_TEMP}/ShardPlan/ShardPlan.json")" >> "$GITHUB_OUTPUT"
 
       - name: Upload the shard plan
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -192,6 +223,7 @@ jobs:
           retention-days: 7
 
   feature-session:
+    needs: test-plan
     if: github.event_name == 'workflow_dispatch' && inputs.feature_session
     name: CAD feature decoding session
     runs-on: ubuntu-24.04
@@ -215,7 +247,7 @@ jobs:
           sparse-checkout: re/automation/FeatureDecodeSession.py
           sparse-checkout-cone-mode: false
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -250,7 +282,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: ${{ fromJSON(needs.test-plan.outputs.shards) }}
+        include: ${{ fromJSON(needs.test-plan.outputs.matrix) }}
     steps:
       - *AuditSource
       - name: Checkout repository
@@ -262,7 +294,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -326,8 +358,8 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Synchronize locked dependencies for inference shards
-        if: steps.selection.outputs.inference == 'true'
+      - name: Synchronize locked dependencies for inference and research CLI shards
+        if: steps.selection.outputs.inference == 'true' || steps.selection.outputs.research == 'true'
         run: uv sync --frozen --no-default-groups --extra dev --group dev --python 3.14 --compile-bytecode
 
       - name: Hydrate sealed original inputs for research shards
@@ -359,19 +391,24 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  research-windows:
+  research-windows-shard:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: test-plan
-    name: Test suite / Platform (windows-2025)
+    name: Test suite / Platform (windows-2025) / ${{ matrix.group }}
     runs-on: windows-2025
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.test-plan.outputs.native || '[{"group":"shard-1","index":0},{"group":"shard-2","index":1},{"group":"shard-3","index":2},{"group":"shard-4","index":3}]') }}
     env:
       PlatformRunner: windows-2025
-      ShardIndex: 0
-      ShardCount: 1
-      PlatformShard: unsharded
+      ShardIndex: ${{ matrix.index }}
+      ShardCount: ${{ needs.test-plan.outputs.count || 4 }}
+      PlatformShard: ${{ matrix.group }}
       NativePattern: "^tests/Research/Windows/"
       SelectionPatterns: |-
+        ^tests/Policy/Shards/PlatformPlanTests\.py::
         ^tests/Research/Windows/
         ^tests/Research/Outputs/
         ^tests/Research/Applications/ApplicationParkTests\.py::
@@ -381,6 +418,11 @@ jobs:
         ^tests/Research/Supervisor/Grouping/SupervisorSoloTests\.py::CheckBatchCrash
         ^tests/Research/Owners/
         ^tests/Research/WindowsRecords/
+        ^tests/Research/Inference/Authoring/SolidWorks/NativeEnvTests\.py::
+        ^tests/Research/Inference/Authoring/SolidWorks/SystemShellTests\.py::
+        ^tests/Research/Inference/Authoring/SolidWorks/PhaseProcessTests\.py::
+        ^tests/Research/Inference/Authoring/Recipes/
+        ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
     defaults:
       run:
@@ -396,7 +438,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -412,6 +454,8 @@ jobs:
           path: ${{ runner.temp }}/ShardPlan
 
       - name: Select required platform cases from the shared collected roster
+        env:
+          AuditEvent: ${{ github.event_name }}
         run: |
           set -euo pipefail
           mkdir -p "${RUNNER_TEMP}/PlatformReport"
@@ -421,14 +465,36 @@ jobs:
           : > "$Selected"
           while IFS= read -r Pattern; do
             test -n "$Pattern"
-            grep -E "$Pattern" "$Roster" >> "$Selected"
+            if grep -E "$Pattern" "$Roster" >> "$Selected"; then
+              continue
+            else
+              test "$?" -eq 1
+            fi
+            case "$Pattern" in
+              '^tests/Policy/Shards/PlatformPlanTests\.py::') AuditSuite=tests/Policy/Shards/PlatformPlanTests.py ;;
+              '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
+              '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
+              *) exit 1 ;;
+            esac
+            test "$AuditEvent" = workflow_dispatch
+            if git cat-file -e "${AuditSha}:${AuditSuite}" 2>/dev/null; then
+              echo "::error::Required suite $AuditSuite has no collected cases" >&2
+              exit 1
+            fi
           done <<< "$SelectionPatterns"
           LC_ALL=C sort -u "$Selected" > "${RUNNER_TEMP}/PlatformReport/Collected.txt"
           test -s "${RUNNER_TEMP}/PlatformReport/Collected.txt"
           grep -E "$NativePattern" "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "${RUNNER_TEMP}/PlatformReport/Native.txt"
           test -s "${RUNNER_TEMP}/PlatformReport/Native.txt"
-          awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
-            "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
+          if [ "$AuditEvent" = workflow_dispatch ] || [ "$AuditEvent" = push ]; then
+            awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
+              "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
+          else
+            uv run --no-sync --python 3.14 python -m tools.TestShards.Platform.SelectShard \
+              --collected "${RUNNER_TEMP}/PlatformReport/Collected.txt" \
+              --history "${RUNNER_TEMP}/ShardPlan/History-${PlatformRunner}/Durations.json" \
+              --index "$ShardIndex" --count "$ShardCount" --output "$Selected"
+          fi
           test -s "$Selected"
 
       - name: Execute the required platform process cases
@@ -466,6 +532,54 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+  research-windows:
+    if: ${{ !cancelled() && (github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    needs: [test-plan, research-windows-shard]
+    name: Test suite / Platform (windows-2025)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - *AuditSource
+      - name: Require every Windows platform shard to succeed
+        env:
+          ShardResult: ${{ needs.research-windows-shard.result }}
+        run: test "$ShardResult" = success
+
+      - name: Checkout the workflow revision for shard reporting
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+          sparse-checkout: .github/scripts/VerifyShardReports.sh
+          sparse-checkout-cone-mode: false
+
+      - name: Download this attempt's Windows platform reports
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: PlatformReport-windows-2025-shard-*
+          path: ${{ runner.temp }}/WindowsReports
+
+      - name: Require every selected case and an actual native Windows pass
+        env:
+          ReportRoot: ${{ runner.temp }}/WindowsReports
+          RunAttempt: ${{ github.run_attempt }}
+          ShardCount: ${{ needs.test-plan.outputs.count || '4' }}
+        run: >-
+          bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
+          PlatformReport-windows-2025 "$RunAttempt"
+          '^tests/Research/Windows/'
+          "$ReportRoot/Durations.json"
+          "$ShardCount"
+
+      - name: Publish Windows durations for later plans
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: PlatformDurations-windows-2025
+          overwrite: true
+          path: ${{ runner.temp }}/WindowsReports/Durations.json
+          if-no-files-found: error
+          retention-days: 7
+
   research-macos-shard:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: test-plan
@@ -475,22 +589,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - group: shard-1
-            index: 0
-          - group: shard-2
-            index: 1
-          - group: shard-3
-            index: 2
-          - group: shard-4
-            index: 3
+        include: ${{ fromJSON(needs.test-plan.outputs.native || '[{"group":"shard-1","index":0},{"group":"shard-2","index":1},{"group":"shard-3","index":2},{"group":"shard-4","index":3}]') }}
     env:
       PlatformRunner: macos-26
       ShardIndex: ${{ matrix.index }}
-      ShardCount: 4
+      ShardCount: ${{ needs.test-plan.outputs.count || 4 }}
       PlatformShard: ${{ matrix.group }}
       NativePattern: '^tests/Research/Applications/FusionColdStartTests\.py::'
       SelectionPatterns: |-
+        ^tests/Policy/Shards/PlatformPlanTests\.py::
         ^tests/Research/Supervisor[^/]*Tests\.py::
         ^tests/Research/Supervisor/Supervisor[^/]*Tests\.py::
         ^tests/Research/Outputs/
@@ -535,12 +642,25 @@ jobs:
         env:
           ReportRoot: ${{ runner.temp }}/MacosReports
           RunAttempt: ${{ github.run_attempt }}
+          ShardCount: ${{ needs.test-plan.outputs.count || '4' }}
         run: >-
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-macos-26 "$RunAttempt"
           '^tests/Research/Applications/FusionColdStartTests\.py::'
+          "$ReportRoot/Durations.json"
+          "$ShardCount"
+
+      - name: Publish macOS durations for later plans
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: PlatformDurations-macos-26
+          overwrite: true
+          path: ${{ runner.temp }}/MacosReports/Durations.json
+          if-no-files-found: error
+          retention-days: 7
 
   linux-oom-witness:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Linux kernel OOM witness
     runs-on: ubuntu-24.04
@@ -628,7 +748,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -710,6 +830,7 @@ jobs:
           echo "The planned shards and verified reuse covered the complete test suite" >> "$GITHUB_STEP_SUMMARY"
 
   analyze:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Analyze ${{ matrix.language }}
     runs-on: ubuntu-24.04
@@ -813,6 +934,7 @@ jobs:
           echo "CodeQL reported no findings"
 
   bandit:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Bandit
     runs-on: ubuntu-24.04
@@ -827,7 +949,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -837,9 +959,10 @@ jobs:
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run Bandit SAST
-        run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,Parashell,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
+        run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
 
   semgrep:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Semgrep
     runs-on: ubuntu-24.04
@@ -854,7 +977,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -867,9 +990,10 @@ jobs:
         run: uv run python -m tools.Security.SemgrepPaths
 
       - name: Run Semgrep SAST
-        run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=Parashell --exclude=modules --exclude=re
+        run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=modules --exclude=re
 
   pip-audit:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: pip-audit
     runs-on: ubuntu-24.04
@@ -884,7 +1008,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -899,6 +1023,7 @@ jobs:
           uv run pip-audit --strict --requirement "${RUNNER_TEMP}/runtime-requirements.txt"
 
   safety:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Safety
     runs-on: ubuntu-24.04
@@ -913,7 +1038,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -928,6 +1053,7 @@ jobs:
           uv run safety check --file "${RUNNER_TEMP}/runtime-requirements.txt" --output text
 
   checkov:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Checkov
     runs-on: ubuntu-24.04
@@ -942,7 +1068,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -955,6 +1081,7 @@ jobs:
         run: uv run checkov --directory . --quiet --skip-framework secrets --skip-path .venv --skip-path examples --skip-path re
 
   detect-secrets:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: detect-secrets
     runs-on: ubuntu-24.04
@@ -969,7 +1096,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -982,6 +1109,7 @@ jobs:
         run: uv run detect-secrets scan --all-files --exclude-files '(^\.venv/|^examples/|^re/|^uv\.lock$)' --only-verified
 
   syft:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Syft
     runs-on: ubuntu-24.04
@@ -1001,7 +1129,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/syft_${SyftVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/anchore/syft/releases/download/v${SyftVersion}/syft_${SyftVersion}_linux_amd64.tar.gz"
           echo "${SyftSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1018,6 +1146,7 @@ jobs:
             "${RUNNER_TEMP}/Kit.syft.cdx.json"
 
   cyclonedx-sbom:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: CycloneDX SBOM
     runs-on: ubuntu-24.04
@@ -1031,7 +1160,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1050,6 +1179,7 @@ jobs:
           --output-reproducible --mc-type application
 
   dlint:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: dlint
     runs-on: ubuntu-24.04
@@ -1064,7 +1194,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1076,10 +1206,11 @@ jobs:
       - name: Run dlint insecure-pattern scan
         run: >-
           uv run flake8 --select=DUO
-          --exclude=.venv,examples,Parashell,modules,re,tests
+          --exclude=.venv,examples,modules,re,tests
           src Cli tools .github/scripts
 
   gitleaks:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Gitleaks
     runs-on: ubuntu-24.04
@@ -1100,7 +1231,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/gitleaks_${GitleaksVersion}_linux_x64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/gitleaks/gitleaks/releases/download/v${GitleaksVersion}/gitleaks_${GitleaksVersion}_linux_x64.tar.gz"
           echo "${GitleaksSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1119,6 +1250,47 @@ jobs:
             test "$?" -eq 23
           fi
 
+      - name: Verify public checksum classification stays narrow
+        env:
+          HarnessSha: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          FixturePath=$(mktemp -d "${RUNNER_TEMP}/GitleaksChecksum.XXXXXX")
+          ConfigPath=$(mktemp "${RUNNER_TEMP}/GitleaksPolicy.XXXXXX")
+          ScannerPath="${RUNNER_TEMP}/gitleaks"
+          git show "${HarnessSha}:.github/config/Gitleaks.toml" > "${ConfigPath}"
+          mkdir -p "${FixturePath}/.github/workflows"
+          git show "${HarnessSha}:.github/workflows/SteeringSync.yml" \
+            | grep --fixed-strings '".kiro/steering/WorkosTokenVerification.md":' \
+              > "${FixturePath}/.github/workflows/SteeringSync.yml"
+          (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          )
+          cp "${FixturePath}/.github/workflows/SteeringSync.yml" "${FixturePath}/Other.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted another file"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+          rm -- "${FixturePath}/Other.yml"
+          sed 's/5034005417c0910a/6034005417c0910a/' \
+            "${FixturePath}/.github/workflows/SteeringSync.yml" > "${FixturePath}/Changed.yml"
+          mv -- "${FixturePath}/Changed.yml" "${FixturePath}/.github/workflows/SteeringSync.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted an unknown value"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+
       - name: Run Gitleaks history secret audit
         run: >-
           "${RUNNER_TEMP}/gitleaks" git
@@ -1127,6 +1299,7 @@ jobs:
           --redact --verbose .
 
   grype:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Grype
     runs-on: ubuntu-24.04
@@ -1140,7 +1313,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1165,7 +1338,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/grype_${GrypeVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/anchore/grype/releases/download/v${GrypeVersion}/grype_${GrypeVersion}_linux_amd64.tar.gz"
           echo "${GrypeSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1178,6 +1351,7 @@ jobs:
         run: '"${RUNNER_TEMP}/grype" sbom:"${RUNNER_TEMP}/Kit.cdx.json" --fail-on low'
 
   osv-scanner:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: OSV-Scanner
     runs-on: ubuntu-24.04
@@ -1197,7 +1371,7 @@ jobs:
         run: |
           set -euo pipefail
           BinaryPath="${RUNNER_TEMP}/osv-scanner"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${BinaryPath}" \
             "https://github.com/google/osv-scanner/releases/download/v${OsvScannerVersion}/osv-scanner_linux_amd64"
           echo "${OsvScannerSha256}  ${BinaryPath}" | sha256sum --check --
@@ -1207,6 +1381,7 @@ jobs:
         run: '"${RUNNER_TEMP}/osv-scanner" scan source --lockfile=uv.lock --config .github/config/OsvScanner.toml'
 
   scorecard:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Scorecard
     runs-on: ubuntu-24.04
@@ -1228,7 +1403,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/scorecard_${ScorecardVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/ossf/scorecard/releases/download/v${ScorecardVersion}/scorecard_${ScorecardVersion}_linux_amd64.tar.gz"
           echo "${ScorecardSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1261,6 +1436,7 @@ jobs:
             Scorecard.json ScorecardCandidate.json
 
   trivy:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: Trivy
     runs-on: ubuntu-24.04
@@ -1280,7 +1456,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/trivy_${TrivyVersion}_Linux-64bit.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/aquasecurity/trivy/releases/download/v${TrivyVersion}/trivy_${TrivyVersion}_Linux-64bit.tar.gz"
           echo "${TrivySha256}  ${ArchivePath}" | sha256sum --check --
@@ -1291,11 +1467,12 @@ jobs:
         run: >-
           "${RUNNER_TEMP}/trivy" fs
           --scanners vuln,misconfig,secret
-          --skip-dirs .venv,examples,Parashell,modules,re
+          --skip-dirs .venv,examples,modules,re
           --ignorefile .github/config/TrivyIgnore.txt
           --exit-code 1 .
 
   trufflehog:
+    needs: test-plan
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     name: TruffleHog
     runs-on: ubuntu-24.04
@@ -1316,7 +1493,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/trufflehog_${TrufflehogVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/trufflesecurity/trufflehog/releases/download/v${TrufflehogVersion}/trufflehog_${TrufflehogVersion}_linux_amd64.tar.gz"
           echo "${TrufflehogSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1329,7 +1506,6 @@ jobs:
           cat > "${RUNNER_TEMP}/TrufflehogExcludes" <<'EOF'
           (^|/)\.venv/
           (^|/)examples/
-          (^|/)Parashell/
           (^|/)modules/
           (^|/)re/
           EOF
@@ -1350,10 +1526,10 @@ jobs:
         test-shard,
         test-report,
         research-windows,
+        research-windows-shard,
         research-macos,
         research-macos-shard,
         linux-oom-witness,
-        verify-end-to-end,
         analyze,
         bandit,
         semgrep,

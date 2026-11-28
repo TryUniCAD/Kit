@@ -1,0 +1,11 @@
+{
+  "attempts": [
+    {
+      "stage": "primary packaging",
+      "outcome": "failed",
+      "reason": "RemoteJob.json absent: the existing private CLI prints its complete job receipt to stdout instead of storing a separate file",
+      "repair": "Retained the successful stdout JSON verbatim as runtime Capture/RemoteJob.json, then rebuilt the package",
+      "native_request_repeated": false
+    }
+  ]
+}

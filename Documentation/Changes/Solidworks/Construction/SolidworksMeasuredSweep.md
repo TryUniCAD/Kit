@@ -36,3 +36,11 @@ republish the same measured archive.
 [Receipt example](../../../../re/solidworks/measurements/2026/SdkStandardSweepReceipt01.json)
 
 [Adapter guide](../../../Reference/Adapters/Solidworks.md)
+
+The main-branch compatibility check preserved the named SP05.2 oracle
+identity while the standalone part reader retained both of its measured
+service packs. The fresh SDK replay on Python 3.13.0 with zlib 1.3.1
+reproduced both measured sweep archives. A zlib-ng build produced
+unmeasured bytes and failed the exact receipt gate. That build requires
+its own measurements before publication.
+See the [build-scope gotcha](../../../Gotchas/Conversion/Solidworks/SweepReceiptBuildScope.md).

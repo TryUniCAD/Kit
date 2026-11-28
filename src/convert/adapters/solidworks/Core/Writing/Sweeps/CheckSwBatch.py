@@ -1,7 +1,9 @@
 from convert.adapters.solidworks.Core.Writing.Measured.CheckMeasPhase import (
     CheckMeasPhase,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import (
+    KOracleSpFive,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasRows import ReadMeasRows
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
@@ -17,7 +19,7 @@ from convert.adapters.solidworks.Core.Writing.Sweeps.SweepMeasPhases import (
 def CheckSwBatch(Receipt: dict[str, object]) -> tuple[dict[str, object], ...]:
     if (
         Receipt.get("schema") != "kit.sw2026.standard-sweep-measurement.v1"
-        or ReadMeasMap(Receipt.get("oracle")) != KOraclePart
+        or ReadMeasMap(Receipt.get("oracle")) != KOracleSpFive
         or Receipt.get("passed") is not True
         or Receipt.get("healthy_controls") is not True
     ):
