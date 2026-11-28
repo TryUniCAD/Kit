@@ -1,0 +1,79 @@
+import os as OsTools
+import subprocess as ProcessTools
+from pathlib import Path
+from tests.Policy.GeneratedCoverage.CopyPlan import CopyPlan
+
+
+# real project inputs and isolated git objects exercise reconstruction without changing checkout state or publishing refs
+def CreatePlan(TempPath: Path, CaseName: str) -> tuple[str, str, dict[str, str]]:
+    RootPath = Path(__file__).resolve().parents[3]
+    Revision = ProcessTools.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=RootPath,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    GitDir = ProcessTools.run(
+        ["git", "rev-parse", "--absolute-git-dir"],
+        cwd=RootPath,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    EnvState = {
+        "PATH": OsTools.environ.get("PATH", OsTools.defpath),
+        "SYSTEMROOT": OsTools.environ.get("SYSTEMROOT", ""),
+        "GIT_DIR": GitDir,
+        "GIT_WORK_TREE": str(TempPath),
+        "GIT_INDEX_FILE": str(TempPath / "Index"),
+        "GIT_AUTHOR_NAME": "Coverage process",
+        "GIT_AUTHOR_EMAIL": "coverage@example.invalid",
+        "GIT_COMMITTER_NAME": "Coverage process",
+        "GIT_COMMITTER_EMAIL": "coverage@example.invalid",
+    }
+    ProcessInfo = ProcessTools.run(
+        ["git", "read-tree", Revision], cwd=TempPath, env=EnvState, check=False
+    )
+    assert ProcessInfo.returncode == 0, ProcessInfo.stderr
+    FileNames = CopyPlan(RootPath, TempPath, CaseName, EnvState)
+    ProcessInfo = ProcessTools.run(
+        ["git", "add", "--", *FileNames], cwd=TempPath, env=EnvState, check=False
+    )
+    assert ProcessInfo.returncode == 0, ProcessInfo.stderr
+    if CaseName == "symlink":
+        FileName = "Documentation/Planning/Generated/BoardData.js"
+        SourceBlob = ProcessTools.run(
+            ["git", "rev-parse", f":{FileName}"],
+            cwd=TempPath,
+            env=EnvState,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+        ProcessInfo = ProcessTools.run(
+            ["git", "update-index", "--cacheinfo", "120000", SourceBlob, FileName],
+            cwd=TempPath,
+            env=EnvState,
+            capture_output=True,
+            check=False,
+        )
+        assert ProcessInfo.returncode == 0, ProcessInfo.stderr
+    TreeName = ProcessTools.run(
+        ["git", "write-tree"],
+        cwd=TempPath,
+        env=EnvState,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    HeadSha = ProcessTools.run(
+        ["git", "commit-tree", TreeName, "-p", Revision],
+        input="coverage process\n",
+        cwd=TempPath,
+        env=EnvState,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    return Revision, HeadSha, EnvState
