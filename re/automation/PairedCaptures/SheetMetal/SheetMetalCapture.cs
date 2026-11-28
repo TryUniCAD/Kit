@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Web.Script.Serialization;
 using SolidWorks.Interop.sldworks;
@@ -190,12 +191,19 @@ public static class SheetMetalCapture
         return actual.Zip(desired, (a, b) => a.Zip(b, (value, expected) => Near(value, expected)).All(v => v)).All(v => v);
     }
 
+    static bool IsExpectedDiagnosticFailure(Exception error)
+    {
+        return error is COMException || error is IOException || error is UnauthorizedAccessException ||
+            error is InvalidOperationException || error is InvalidCastException;
+    }
+
     static object Diagnostic(Func<object> measure)
     {
         try { return measure(); }
         catch (Exception error)
         {
             var cause = error.GetBaseException();
+            if (!IsExpectedDiagnosticFailure(cause)) throw;
             return Row("measurement_error", cause.GetType().Name, "hresult", cause.HResult, "message", cause.Message);
         }
     }
@@ -346,6 +354,7 @@ public static class SheetMetalCapture
                     catch (Exception diagnostic)
                     {
                         var cause = diagnostic.GetBaseException();
+                        if (!IsExpectedDiagnosticFailure(cause)) throw;
                         evidence.Add("diagnostic_save_failure", Row("type", cause.GetType().Name,
                             "hresult", cause.HResult, "message", cause.Message));
                     }
@@ -559,16 +568,24 @@ public static class SheetMetalCapture
         return Items(observation["bodies"]).Sum(body => Number(Object(body)["volume_m3"]));
     }
 
+    static string CaptureChildPath(string directory, string name)
+    {
+        Check(!String.IsNullOrEmpty(name) && !Path.IsPathRooted(name) && name == Path.GetFileName(name) &&
+            name != "." && name != ".." && name.IndexOfAny(Path.GetInvalidFileNameChars()) < 0,
+            "Capture output requires a plain file or directory name");
+        return Path.Combine(directory, name);
+    }
+
     static Dictionary<string, object> SaveDiagnostic(IModelDoc2 doc, string directory, string caseId, string baseId, int count)
     {
         Check(caseId == "A-only" || caseId == "A-only-repeat" || caseId == "A-then-B" || caseId == "B-then-A" || caseId == "A-edge",
             "Only a pinned discovery case may emit an unqualified diagnostic archive");
         Check(baseId == "A" || baseId == "B", "Unqualified diagnostic archive has an unknown discovery body");
-        var diagnostics = Path.Combine(directory, "unqualified-discovery");
+        var diagnostics = CaptureChildPath(directory, "unqualified-discovery");
         Check(!Directory.Exists(diagnostics) && !File.Exists(diagnostics), "Refusing to reuse an unqualified archive directory");
         var observed = Diagnostic(() => Observe(doc, count));
         Directory.CreateDirectory(diagnostics);
-        var path = Path.Combine(diagnostics, caseId + "-base-" + baseId + ".SLDPRT");
+        var path = CaptureChildPath(diagnostics, caseId + "-base-" + baseId + ".SLDPRT");
         var save = SaveCopy(doc, path);
         var archive = File.Exists(path) ? Archive(path) : null;
         var report = Row("status", "unqualified_geometry_mismatch", "case", caseId, "base", baseId,
@@ -595,10 +612,7 @@ public static class SheetMetalCapture
         var row = Observe(doc, count);
         if (edge != null)
             row.Add("flange", ReadEdge(doc, (string)edge["profile_dimension"], (string)edge["source_edge"], length, angle, radius));
-        Check(!String.IsNullOrEmpty(id) && !Path.IsPathRooted(id) && id == Path.GetFileName(id)
-            && id != "." && id != ".." && id.IndexOfAny(Path.GetInvalidFileNameChars()) < 0,
-            "Capture ID must be a plain file name");
-        var path = Path.Combine(directory, id + ".SLDPRT");
+        var path = CaptureChildPath(directory, id + ".SLDPRT");
         Check(!File.Exists(path), "Refusing to overwrite an existing native archive");
         var save = SaveCopy(doc, path);
         Check((bool)save["success"] && (int)save["errors"] == 0 && (int)save["warnings"] == 0,
@@ -606,7 +620,7 @@ public static class SheetMetalCapture
         var archive = Archive(path);
         row.Add("save_as", save);
         row.Add("archive", archive);
-        WriteCheckpoint(Path.Combine(directory, id + ".saved.json"), Row("id", id, "native_process", process,
+        WriteCheckpoint(CaptureChildPath(directory, id + ".saved.json"), Row("id", id, "native_process", process,
             "edge_authoring", edge, "observation", row));
         return row;
     }
