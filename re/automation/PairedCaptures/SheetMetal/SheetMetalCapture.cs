@@ -144,10 +144,10 @@ public static class SheetMetalCapture
             features.Select(feature => FeatureRow(doc, feature)).ToArray());
     }
 
-    static double[] InSketch(ISldWorks app, ISketch sketch, double[] xy)
+    static double[] InSketch(ISldWorks app, ISketch sketch, double[] xy, double worldZ)
     {
         var utility = (IMathUtility)app.GetMathUtility();
-        var point = (IMathPoint)utility.CreatePoint(new[] { xy[0] * Mm, xy[1] * Mm, 0 });
+        var point = (IMathPoint)utility.CreatePoint(new[] { xy[0] * Mm, xy[1] * Mm, worldZ });
         var projected = (double[])point.IMultiplyTransform(sketch.ModelToSketchTransform).ArrayData;
         Check(Near(projected[2], 0), "The world XY control does not lie on the selected datum");
         return projected;
@@ -204,17 +204,48 @@ public static class SheetMetalCapture
                 "area_m2", pair.Face.GetArea())).ToArray();
     }
 
-    static IFeature AddOppositeDatum(IModelDoc2 doc)
+    static IFeature CreateThicknessDatum(ISldWorks app, IModelDoc2 doc, double thickness, out Dictionary<string, object> evidence)
+    {
+        var initial = InsertThicknessDatum(doc, thickness, false);
+        var firstFrame = PlaneFrame(app, initial);
+        var origin = Numbers(firstFrame["origin_m"]);
+        bool reverse = Near(origin[2], -thickness);
+        if (reverse)
+        {
+            doc.ClearSelection2(true);
+            Check(initial.Select2(false, 0) && doc.Extension.DeleteSelection2(0), "Could not remove the newly authored mirrored datum");
+            initial = InsertThicknessDatum(doc, thickness, true);
+        }
+        var frame = reverse ? PlaneFrame(app, initial) : firstFrame;
+        Check(Near(Numbers(frame["origin_m"])[2], thickness) && SamePoint(Numbers(frame["normal"]), new[] { 0.0, 0, 1 }),
+            "Native thickness datum did not bind the desired positive world elevation and frame: " + Json.Serialize(frame));
+        initial.Name = "KitThicknessXY";
+        evidence = Row("first_frame", firstFrame, "reversed_after_mirrored_measurement", reverse, "final_frame", frame,
+            "offset_m", thickness, "source", "Front Plane");
+        return initial;
+    }
+
+    static IFeature InsertThicknessDatum(IModelDoc2 doc, double thickness, bool reverse)
     {
         doc.ClearSelection2(true);
         Check(doc.Extension.SelectByID2("Front Plane", "PLANE", 0, 0, 0, false, 0, null, 0),
             "Cannot select the world XY datum");
-        int relation = (int)(swRefPlaneReferenceConstraints_e.swRefPlaneReferenceConstraint_Coincident |
-            swRefPlaneReferenceConstraints_e.swRefPlaneReferenceConstraint_OptionReferenceFlip);
-        var datum = doc.FeatureManager.InsertRefPlane(relation, 0, 0, 0, 0, 0) as IFeature;
-        Check(datum != null, "Cannot create the coincident reference datum with an opposing frame");
-        datum.Name = "KitOppositeXY";
+        int relation = (int)swRefPlaneReferenceConstraints_e.swRefPlaneReferenceConstraint_Distance;
+        if (reverse) relation |= (int)swRefPlaneReferenceConstraints_e.swRefPlaneReferenceConstraint_OptionFlip;
+        var datum = doc.FeatureManager.InsertRefPlane(relation, thickness, 0, 0, 0, 0) as IFeature;
+        Check(datum != null, "Cannot create the native offset datum");
         return datum;
+    }
+
+    static Dictionary<string, object> PlaneFrame(ISldWorks app, IFeature feature)
+    {
+        var datum = feature.GetSpecificFeature2() as IRefPlane;
+        Check(datum != null, "Native offset feature has no reference plane");
+        var utility = (IMathUtility)app.GetMathUtility();
+        var origin = (IMathPoint)utility.CreatePoint(new[] { 0.0, 0, 0 });
+        var normal = (IMathVector)utility.CreateVector(new[] { 0.0, 0, 1 });
+        return Row("origin_m", origin.IMultiplyTransform(datum.Transform).ArrayData,
+            "normal", normal.IMultiplyTransform(datum.Transform).ArrayData);
     }
 
     static Dictionary<string, object> AddBase(ISldWorks app, IModelDoc2 doc, string id, Dictionary<string, object> body,
@@ -225,8 +256,9 @@ public static class SheetMetalCapture
         doc.SketchManager.InsertSketch(true);
         var sketch = doc.SketchManager.ActiveSketch as ISketch;
         Check(sketch != null, "Could not start base-flange sketch");
-        var low = InSketch(app, sketch, Numbers(body["low"]));
-        var high = InSketch(app, sketch, Numbers(body["high"]));
+        double thickness = Length(body, "thickness_mm");
+        var low = InSketch(app, sketch, Numbers(body["low"]), thickness);
+        var high = InSketch(app, sketch, Numbers(body["high"]), thickness);
         var segments = Items(doc.SketchManager.CreateCornerRectangle(low[0], low[1], 0, high[0], high[1], 0));
         Check(segments.Length == 4 && segments.All(segment => segment is ISketchLine), "Could not create the four rectangle edges");
         doc.ClearSelection2(true);
@@ -240,20 +272,19 @@ public static class SheetMetalCapture
         var profile = BaseProfile(app, sketch);
         var normal = Numbers(profile["normal"]);
         var origin = Numbers(profile["origin_m"]);
-        if (!SamePoint(normal, new[] { 0.0, 0, -1 }) || !Near(origin[2], 0))
-            throw new InvalidOperationException("The measured sketch datum is not coincident world XY with a negative normal: " +
+        if (!SamePoint(normal, new[] { 0.0, 0, 1 }) || !Near(origin[2], thickness))
+            throw new InvalidOperationException("The measured sketch did not retain the expected positive elevated XY frame: " +
                 Json.Serialize(profile));
         var sketchFeature = (IFeature)sketch;
         sketchFeature.Name = "Sketch-" + id;
         Check(sketchFeature.Select2(false, 0), "Could not select the rectangle sketch");
 
-        double thickness = Length(body, "thickness_mm");
         double radius = Length(body, "radius_mm");
         var allowance = doc.FeatureManager.CreateCustomBendAllowance();
         allowance.Type = (int)swBendAllowanceTypes_e.swBendAllowanceKFactor;
         allowance.KFactor = .5;
         int noRelief = (int)swSheetMetalReliefTypes_e.swSheetMetalReliefNone;
-        const bool thickenTowardPositiveZ = true;
+        const bool reverseThickness = true;
         var manager = doc.FeatureManager;
         var typed = manager.CreateDefinition((int)swFeatureNameID_e.swFmBaseFlange) as IBaseFlangeFeatureData;
         Check(typed != null, "Could not create a typed sheet-metal base-flange definition");
@@ -261,10 +292,10 @@ public static class SheetMetalCapture
         typed.OverrideDefaultSheetMetalParameters = true;
         typed.Thickness = thickness;
         typed.BendRadius = radius;
-        typed.ReverseThickness = thickenTowardPositiveZ;
+        typed.ReverseThickness = reverseThickness;
         Check(typed.OverrideDefaultSheetMetalParameters && !typed.UseMaterialSheetMetalParameters &&
             Near(typed.Thickness, thickness) && Near(typed.BendRadius, radius) &&
-            typed.ReverseThickness == thickenTowardPositiveZ,
+            typed.ReverseThickness == reverseThickness,
             "The pending base-flange definition did not retain the explicitly initialized parameters");
         var flange = manager.CreateFeature(typed);
         Check(flange != null, "Base flange returned no feature for " + id);
@@ -272,7 +303,7 @@ public static class SheetMetalCapture
         Check(doc.ForceRebuild3(false), "Base flange could not rebuild for " + id);
         var expected = DesiredBounds(body);
         var initial = Bodies(doc);
-        var evidence = Row("id", id, "requested_thicken_direction", thickenTowardPositiveZ,
+        var evidence = Row("id", id, "requested_thicken_direction", reverseThickness,
             "intended_bounds_m", expected, "profile", profile, "initial_bodies", initial.Select(candidate =>
             Row("name", candidate.Name, "bounds_m", Bounds(candidate), "sheet_metal", candidate.IsSheetMetal(),
                 "planar_faces", Diagnostic(() => PlanarFaces(candidate)))).ToArray());
@@ -306,7 +337,7 @@ public static class SheetMetalCapture
                     "initialize_arguments", new object[] { false, true,
                         Row("type", allowance.Type, "k_factor", allowance.KFactor), true, noRelief, false, 0, 0, 0 },
                     "override_default_parameters", true, "thickness_m", thickness, "radius_m", radius,
-                    "reverse_thickness", thickenTowardPositiveZ),
+                    "reverse_thickness", reverseThickness),
                 "base_readback", Row("thickness_m", definition.Thickness, "bend_radius_m", definition.BendRadius,
                     "reverse_thickness", definition.ReverseThickness),
                 "sketch_constraint_status", status);
@@ -560,7 +591,10 @@ public static class SheetMetalCapture
             return WithDocument(app, app.NewDocument(template, 0, 0, 0) as IModelDoc2, doc =>
             {
                 var discoveryDirectory = control.ContainsKey("holdout") ? null : directory;
-                var datum = AddOppositeDatum(doc);
+                var thicknesses = ids.Select(body => Length(Object(definitions[body]), "thickness_mm")).Distinct().ToArray();
+                Check(thicknesses.Length == 1, "One measured offset datum supports only the declared equal-thickness contrasts");
+                Dictionary<string, object> datumEvidence;
+                var datum = CreateThicknessDatum(app, doc, thicknesses[0], out datumEvidence);
                 var arguments = ids.Select(body => AddBase(app, doc, body, Object(definitions[body]), datum, id, discoveryDirectory)).ToArray();
                 Check(Bodies(doc).Length == ids.Length, "Disjoint base-flange controls did not retain the authored body membership");
                 var folder = Features(doc).FirstOrDefault(feature => feature.GetTypeName2() == "SolidBodyFolder");
@@ -598,7 +632,8 @@ public static class SheetMetalCapture
                     saves.Add(restored);
                 }
                 return Row("id", id, "recipe", control, "native_process", process, "template", templateArchive,
-                    "support_feature", Row("name", datum.Name, "type", datum.GetTypeName2(), "persist_reference", Identity(doc, datum)),
+                    "support_feature", Row("name", datum.Name, "type", datum.GetTypeName2(),
+                        "persist_reference", Identity(doc, datum), "definition", datumEvidence),
                     "base_authoring", arguments, "edge_authoring", edge, "saves", saves.ToArray());
             });
         }, true);
