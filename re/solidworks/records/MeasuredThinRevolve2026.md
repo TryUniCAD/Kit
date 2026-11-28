@@ -119,3 +119,11 @@ python3.14 -I -B re/tooling/sw2026/revolve/CheckThinReviewBoundary.py \
 ~~~
 
 [Synthetic and exact saved boundary receipt](../measurements/2026/SdkThinReadReviewRecovery01.json) records zero open or launch attempts by the guarded writer. The separate saved reads load only the installed package grammar while their verified CAD input is supplied in memory.
+
+## Saved queue capture preparation
+
+Task B08-PR247-SAVED-THIN-COVERAGE is owned by the swarm root and delivered through PR #247. Its scope is real saved-file coverage of strict refusal, permissive inspection and raw extraction in the existing shared suite. The parent #244 and genuine native saves are dependencies. The exit is actual shared-planner execution against digest-pinned saved files, current CI and configured approval. The separate generalization finding remains unfinished.
+
+`re/tooling/sw2026/revolve/PrepareSavedThinQueue.py` prepares four independently authored Front two-wall and Right midplane originals and parameter derivatives. It uses the existing symbolic constructor and writes no native-loadability success. The preparation receipt records the complete SDK source tree, tool closure, neutral JSON and analytic expectations. Construction is repeated under the existing source-free audit. Candidate preparation is not saved-cache coverage: real native save and fresh reopen must still produce the inputs.
+
+The 2026-11-28 local process run passed eight deterministic constructions and four strict SDK readbacks. Each returned one body; Front retained three driving parameters and Right retained two. All four analytic volumes matched. Native execution remains unrun. Full fixture provenance and the installed oracle build must accompany the eventual saved files; no synthetic partition is accepted as a native control.

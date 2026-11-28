@@ -80,6 +80,13 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### B08-PR247-SAVED-THIN-COVERAGE
+
+Status: active capture preparation; genuine saved fixtures pending. Owner: Codex swarm root, chat 01a22333-c91a-7753-a913-6ea8091aebc5. Scope: exercise strict refusal, permissive inspection and raw extraction for genuine saved thin-revolve parts through the existing shared suite. Dependencies: parent PR #244, sole native oracle owner and complete build-bound saved-file capture. Delivery: [PR #247](https://github.com/TryUniCAD/Kit/pull/247). Exit: retained real saved inputs with exact hashes, shared-planner process coverage, passing current-head CI and configured approval. Native generalization and merge-group acceptance remain separate unfinished requirements.
+
+The [candidate preparation](../Changes/Solidworks/Construction/SolidworksSavedThinQueuePreparation.md) passed eight source-free deterministic constructions and four strict SDK geometry reads with independently checked volume. It supplies no saved fixture and no native acceptance. The [provenance boundary](../Gotchas/Conversion/Solidworks/ThinSavedFixtureProvenance.md) remains explicit.
+
+
 ### B10-RunDefaults
 
 Codex owns the profile-independent catalogue shortcut on `codex/desktop-run-defaults`.
