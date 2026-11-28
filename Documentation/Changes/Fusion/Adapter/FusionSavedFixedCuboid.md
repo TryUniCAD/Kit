@@ -23,3 +23,7 @@ The [local capture and replay tooling](../../../../re/Fusion/LocalOracle/SavedCu
 The [public boundary evidence](../../../../re/Fusion/SavedCuboidRoundTrip/PublicBoundaryEvidence.md) records 17 SDK integration checks and four fresh CLI decode checks. The [boundary harness](../../../../re/Fusion/SavedCuboidRoundTrip/PublicBoundaryCheck.py) persists the complete JSON and verifies the explicit public write refusal. The fixtures preserve the original receipt bytes through checkout to keep their SHA-256 bindings. See the [receipt line endings gotcha](../../../Gotchas/Packaging/ResearchReceiptLineEndings.md).
 
 See the [source observations, exact sample hashes and audit procedure](../../../../re/Fusion/SavedCuboidRoundTrip/Findings.md). The [dimension edit and reopen receipt](../../../../re/Fusion/LocalOracle/DimensionAuthoring/NativeAcceptance.json) independently verifies the edited 19 × 29 × 37 mm solid and its 20.387 cm³ volume. See the [extension anchor gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionStaleDimExtension.md). The saved 23 mm extension anchor survives JSON while the measured depth remains 29 mm. Product conversion acceptance and the broader Fusion reader and writer remain open.
+
+A separate [physical history order contrast](../../Research/Encoder/FusionSavedCuboidDisplayOrder.md)
+prepares exact native presentation probes from persisted saved-state JSON.
+The offline comparison does not enable public writing.

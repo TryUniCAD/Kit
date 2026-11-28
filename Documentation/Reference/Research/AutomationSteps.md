@@ -448,6 +448,10 @@ The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.
 The Codex Fusion encoder worker owns this active task on `codex/fusion-saved-cuboid-roundtrip`.
 [PR #299](https://github.com/TryUniCAD/Kit/pull/299) delivers the read-only reader and is checking.
 The saved-graph writer and independent native acceptance remain open.
+The [saved cuboid display-order contrast](../../Changes/Research/Encoder/FusionSavedCuboidDisplayOrder.md)
+regenerates the history association from persisted typed JSON for two measured source states.
+The exact generated candidate bytes still require a native presentation and lifecycle bracket.
+This is partial writer evidence. Saved-scene generation, material and preview preservation, and the held-out writer exit remain open.
 Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 The scope is the supported vendor-resaved constrained cuboid family.
 The exit requires exact saved-state reading and deterministic native generation from JSON alone.
