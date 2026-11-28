@@ -26,8 +26,16 @@ def TestThinRevolve() -> None:
         assert Result.returncode == 0, Result.stderr
         Report = CastValue(dict[str, object], LoadJson(Result.stdout))
         assert Report["case"] == NameValue
-        assert Report["stream_routes"] == 6
-        assert Report["file_routes"] == (2 if OsName == "nt" else 0)
+        IsExact = Report["exact_native_hash"]
+        assert isinstance(IsExact, bool)
+        if not IsExact:
+            assert "zlib-ng" in str(Report["runtime_encoder"])
+        assert Report["matching_streams"] == 10
+        assert Report["strict_read_modes"] == 2
+        assert Report["stream_routes"] == (6 if IsExact else 0)
+        assert Report["stream_measurement_refusals"] == (0 if IsExact else 12)
+        assert Report["file_routes"] == (2 if OsName == "nt" and IsExact else 0)
+        assert Report["file_refusals"] == (4 if OsName == "nt" and not IsExact else 0)
         assert Report["name_contrasts"] == 4
         assert Report["unmeasured_refusals"] == 2
         assert Report["native_launches"] == 0

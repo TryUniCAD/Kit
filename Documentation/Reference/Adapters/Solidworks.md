@@ -367,6 +367,8 @@ Windows path. This profile's `receipt` contains the unchanged UTF-8
 `native_result` and `inspection_job` texts.
 [Thin-revolve evidence and usage](../../Changes/Solidworks/Construction/SolidworksMeasuredThinRevolve.md)
 
+The complete compressed bytes must match that measurement. A different encoder can produce the same logical streams with a different archive digest. The observed zlib-ng output is unmeasured and refuses publication before output changes; matching stock-zlib output retains its measured route. The shared compatibility suite records positive and refusal outcomes separately. [Encoder and saved-guard evidence](../../Changes/Solidworks/Inspection/Parts/SavedThinGuardSuite.md)
+
 A saved thin revolve with a physical body cache requires qualified editable
 history for strict inspection. The current strict reader refuses this saved
 profile in both full and design-only modes. Explicit non-strict inspection

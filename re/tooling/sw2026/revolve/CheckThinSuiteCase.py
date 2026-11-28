@@ -10,15 +10,20 @@ from pathlib import Path, PureWindowsPath
 from subprocess import run as run_process
 from tempfile import TemporaryDirectory
 import sys
+import zlib
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from ProveMeasuredPrincipalRevolve import ROOT, WriterAudit, digest, written
+from ProveMeasuredPrincipalRevolve import ROOT, WriterAudit, digest, stream_hashes, written
 from ProveMeasuredThinRevolve import PINS, emit, reject
 from ThinProofModel import WALL_MODES, neutral
 from ThinPathLease import measured_target, own_root, prove_lease
 from convert import open_document
-from convert.adapters.base.WritePolicy import GetDocumentCaps
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WritePolicy import CheckTransfers, GetDocumentCaps
+from convert.adapters.base.TransferContract import TransferMode
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import PrepareRevolve
 from convert.adapters.solidworks.Container.Container import (
     BuildSldprt, SldprtArchive, SldprtFormatError,
 )
@@ -111,28 +116,82 @@ def ambiguous_name(payload, audit):
     return 4
 
 
-def publish_path(author, options, payload, case, token):
+def publish_stream(audit, document, options, route, payload, exact):
+    sink = BytesIO()
+    if not exact:
+        for occupied in (False, True):
+            before = b"retained unmeasured thin stream" if occupied else b""
+            rejected = BytesIO(before)
+            rejected.seek(3 if occupied else 0)
+            position = rejected.tell()
+            try:
+                audit.run(lambda: emit(document, rejected, options, route))
+            except ValueError as error:
+                assert "no matching native measurement" in str(error)
+            else:
+                raise AssertionError("an unmeasured encoder published a native stream")
+            assert rejected.getvalue() == before and rejected.tell() == position
+        return 0
+    result = audit.run(lambda: emit(document, sink, options, route))
+    written(lambda: result, payload, sink)
+    transfers = CheckTransfers(document, SldprtWriter().info, result)
+    assert all(value.TransferModeData is TransferMode.KNative for value in transfers)
+    assert not result.dropped
+    return 1
+
+
+def refuse_paths(audit, author, target, options):
+    count = 0
+    for route in ("registry", "direct"):
+        for occupied in (False, True):
+            sentinel = b"retained unmeasured thin destination"
+            if occupied:
+                target.write_bytes(sentinel)
+            try:
+                audit.run(lambda: emit(author, target, options, route))
+            except FileExistsError:
+                assert occupied
+            except ValueError as error:
+                assert "no matching native measurement" in str(error)
+            else:
+                raise AssertionError("an unmeasured encoder published a native file")
+            assert (target.read_bytes() == sentinel) if occupied else not target.exists()
+            assert set(target.parent.iterdir()) == ({target} if occupied else set())
+            if occupied:
+                target.unlink()
+            count += 1
+    return count
+
+
+def publish_path(author, options, payload, case, token, exact):
     target = measured_target(options["final_destination"])
     if token is None:
         raise ValueError("thin suite path worker requires its parent lease")
     prove_lease(target.parent.parent, token)
     target.parent.mkdir()
     audit = WriterAudit(target.parent)
-    for route in ("registry", "direct"):
-        result = audit.run(lambda: emit(author, target, options, route))
-        written(lambda: result, payload)
-        assert result.path == target.resolve() and not result.dropped
-        assert set(target.parent.iterdir()) == {target}
-        assert target.read_bytes() == payload
-        verify_owner(read(target, True), author, case, True)
-        target.unlink()
+    refused = 0
+    if exact:
+        for route in ("registry", "direct"):
+            result = audit.run(lambda: emit(author, target, options, route))
+            written(lambda: result, payload)
+            assert result.path == target.resolve() and not result.dropped
+            assert set(target.parent.iterdir()) == {target}
+            assert target.read_bytes() == payload
+            verify_owner(read(target, True), author, case, True)
+            target.unlink()
+    else:
+        refused = refuse_paths(audit, author, target, options)
     observed = audit.report()
-    assert observed["output_opens"] == 2
-    return observed
+    assert observed["output_opens"] == (2 if exact else 0)
+    return observed, refused
 
 
 def run(case_id, token=None):
     case, expected, options = measure(case_id)
+    references = loads((ROOT / "re/solidworks/measurements/2026/SdkThinRevolveMeasuredPublication01.json").read_bytes())
+    reference, = (row for row in references["records"] if row["case"] == case["name"])
+    assert reference["generated_sha256"] == expected
     author = neutral(case)
     author.assert_valid()
     GetDocumentCaps(author)
@@ -141,21 +200,20 @@ def run(case_id, token=None):
         lookup(codec)
     with TemporaryDirectory(prefix="KitThinSuite-") as folder:
         audit = WriterAudit(Path(folder))
-        stream = BytesIO()
-        first = audit.run(lambda: emit(author, stream, options, "registry"))
-        payload = stream.getvalue()
-        assert first.vendor_loadable and first.application_usable and digest(payload) == expected
-        sink = BytesIO()
-        written(lambda: audit.run(lambda: emit(author, sink, options, "direct")), payload, sink)
+        epoch = options["solidworks_native_measurement"]["written_at"]
+        payload = audit.run(lambda: PrepareRevolve(author, BytesIO(), epoch, WriteOptions(values=options)).BytesValue)
+        assert stream_hashes(payload) == reference["stream_sha256"]
+        exact = digest(payload) == expected
+        if not exact:
+            assert hasattr(zlib, "ZLIBNG_VERSION"), "the measured stock encoder produced a different archive"
+        published = sum(publish_stream(audit, author, options, route, payload, exact)
+                        for route in ("registry", "direct"))
         for full in (True, False):
             projected = audit.run(lambda: read(payload, full))
             verify_owner(projected, author, case, full)
             restored = CadDocument.from_json(ToJson(projected, IndentSize=None))
-            for route in ("direct", "registry"):
-                sink = BytesIO()
-                result = audit.run(lambda: emit(restored, sink, options, route))
-                written(lambda: result, payload, sink)
-                assert GetDocumentCaps(restored) <= result.NativeCaps and not result.dropped
+            published += sum(publish_stream(audit, restored, options, route, payload, exact)
+                             for route in ("direct", "registry"))
         negative = ambiguous_name(payload, audit)
         width = author.parameters[1]
         changed = replace(author, parameters=(
@@ -165,10 +223,15 @@ def run(case_id, token=None):
         for route in ("direct", "registry"):
             reject(audit, changed, options, route, "no matching native measurement")
         runtime = audit.report()
-    path_runtime = publish_path(author, options, payload, case, token) if os_name == "nt" else None
+    path_runtime, path_refusals = (publish_path(author, options, payload, case, token, exact)
+                                   if os_name == "nt" else (None, 0))
     return {
-        "case": case["name"], "sha256": expected, "runtime": runtime, "stream_routes": 6,
-        "file_routes": 2 if path_runtime else 0, "path_runtime": path_runtime,
+        "case": case["name"], "sha256": digest(payload), "measured_sha256": expected,
+        "exact_native_hash": exact, "runtime_encoder": zlib.ZLIB_RUNTIME_VERSION,
+        "matching_streams": 10, "strict_read_modes": 2, "runtime": runtime,
+        "stream_routes": published, "stream_measurement_refusals": 2 * (6 - published),
+        "file_routes": 2 if path_runtime and exact else 0,
+        "file_refusals": path_refusals, "path_runtime": path_runtime,
         "name_contrasts": negative, "unmeasured_refusals": 2, "native_launches": 0,
     }
 
