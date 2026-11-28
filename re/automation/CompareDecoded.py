@@ -5,6 +5,7 @@ import os
 import sys
 from collections import Counter
 from pathlib import Path
+from time import perf_counter_ns
 
 from DecodedPairs import directory_pairs, file_pin, manifest_pairs
 from SemanticComparison import (
@@ -128,6 +129,7 @@ def batch_exit(outcomes, rows):
 
 
 def run_batch(args):
+    started = perf_counter_ns()
     if any(
         hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest() != pin
         for name, pin in PROGRAMME_PINS.items()
@@ -166,6 +168,7 @@ def run_batch(args):
     rows = []
     remaining = MAX_BATCH_BYTES - 2 * DOCUMENT_BYTES
     for index, pair in enumerate(pairs):
+        pair_started = perf_counter_ns()
         pins = {"tolerances": tolerance_pin}
         try:
             report = compare_pair(pair, args, tolerances, tolerance_pin, pins)
@@ -195,6 +198,7 @@ def run_batch(args):
         artifact["path"] = "reports/" + artifact["path"]
         rows.append({
             "id": pair["id"], "status": report["status"],
+            "elapsed_ns": perf_counter_ns() - pair_started,
             "inputs": {
                 side: str(pair[side].absolute()) if pair[side] is not None else None
                 for side in ("left", "right")
@@ -226,6 +230,10 @@ def run_batch(args):
         "programme_sha256": PROGRAMME_PINS,
         "pair_count": len(rows), "outcomes": dict(outcomes),
         "exit_code": exit_code, "pairs": rows,
+        "timings": {
+            "elapsed_ns": perf_counter_ns() - started,
+            "comparison_ns": sum(row["elapsed_ns"] for row in rows),
+        },
     }
     if unified is not None:
         summary["unified"] = unified

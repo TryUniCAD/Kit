@@ -299,6 +299,10 @@ def run_round_trip(root, source, output, application, edit, *, native_locator_di
             "status": "awaiting_native" if complete_candidates else "incomplete",
             "source": source_result,
             **candidates,
+            "timings": {
+                "decode_ns": source_result["elapsed_ns"],
+                "generation_ns": sum(candidates[role]["elapsed_ns"] for role in ROLES),
+            },
             "models_used": False,
             "vendor_loadable": False,
             "application_usable": False,

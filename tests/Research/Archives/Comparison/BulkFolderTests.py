@@ -14,6 +14,13 @@ from tests.Research.Archives.Comparison.SemanticDocuments import (
 )
 
 
+# batch timing must account for both successful and failed comparisons
+def AssertPairTimes(PairTimes: list[int], Totals: dict[str, int]) -> None:
+    assert all(Value > 0 for Value in PairTimes)
+    assert Totals["comparison_ns"] == sum(PairTimes)
+    assert Totals["elapsed_ns"] >= sum(PairTimes)
+
+
 # one invalid export must not hide valid matches differences or missing counterparts
 def CheckMixedBatch(TmpPath: FilePath) -> None:
     First = TmpPath / "Left"
@@ -42,6 +49,9 @@ def CheckMixedBatch(TmpPath: FilePath) -> None:
     assert Result.returncode == 1, Result.stderr + Result.stdout
     Summary = ParseJson((Output / "summary.json").read_text(encoding="utf-8"))
     assert Summary["pair_count"] == 4
+    AssertPairTimes(
+        [PairRow["elapsed_ns"] for PairRow in Summary["pairs"]], Summary["timings"]
+    )
     assert Summary["outcomes"] == {
         "equal_observed_graph": 1,
         "different": 1,

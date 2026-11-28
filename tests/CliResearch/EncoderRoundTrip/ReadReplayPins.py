@@ -10,6 +10,17 @@ def ReadReplayPins(OutputPath: FilePath, SourceSha: str) -> dict[str, str]:
     assert Manifest["source"]["status"] == "decoded"
     assert Manifest["source_sha256"] == SourceSha
     assert Manifest["models_used"] is False
+    Timings = Manifest["timings"]
+    assert Timings["decode_ns"] == Manifest["source"]["elapsed_ns"] > 0
+    assert (
+        Timings["generation_ns"]
+        == sum(
+            Manifest[RoleName]["elapsed_ns"]
+            for RoleName in ("reconstruction", "edited")
+        )
+        > 0
+    )
+    assert Manifest["elapsed_ns"] >= sum(Timings.values())
     NeutralSha = HashContent((OutputPath / "document.json").read_bytes()).hexdigest()
     assert Manifest["neutral_sha256"] == NeutralSha
     RunFingerprint = Manifest["run_fingerprint"]
