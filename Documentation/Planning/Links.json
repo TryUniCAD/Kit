@@ -755,7 +755,8 @@
       "Source": "Documentation/Changes/Review/CompleteSourceBudget.md",
       "Exit": "Six real Git and production CLI scenarios passed in 29.92 seconds; actual PR225 input at 9f2f570a retains 120 source snapshots within 789581 bytes, with its two out of limit files still blocking completeness. Current CI, configured approval and remote project synchronization remain pending; source limits and trust gates stay unchanged",
       "Area": "Infrastructure",
-      "Branch": "codex/review-complete-source-budget"
+      "Branch": "codex/review-complete-source-budget",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/409"
     }
   ],
   "Dependencies": {
