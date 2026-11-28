@@ -2,7 +2,7 @@
   "MainRevision": "2df599a77d33a9c994855766f4471d88539bf394",
   "ObservedOn": "2026-11-28",
   "SourceHashes": {
-    "Documentation/Planning/Links.json": "19de062c6fcc9a22feb1aa8ca1e3b7fffc53a8afc554a8ddfe2e62c320c311fc",
+    "Documentation/Planning/Links.json": "2ec2669782fc6d9ff323c78b75576921bfa868c87064fcadc64f5a07326f6117",
     "Documentation/Planning/PullRequests.json": "6eb4ac4328a31f11bfeb6ee51fb1ad018d2ab0e7a44b908148e6beb5b498e030",
     "Documentation/Planning/SdkScopes.json": "f4b9157b835e504d914d71160ee65e19305e69409261226e1179905df12027b5",
     "Documentation/Planning/TaskIdentities.json": "6171959aadd12abdc62c9c7c8099c2de93fc5cc0cb9c8689ebdcab02d9bf31f2",

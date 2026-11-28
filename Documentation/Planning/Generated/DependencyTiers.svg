@@ -112,8 +112,8 @@
 <text x="16" y="1158" fill="#66615b" font-size="10">blocked · jdharcourt</text>
 <rect x="1100.0" y="1133" width="62.0" height="22" rx="2" fill="#8b554e"><title>A16: Each scoped feature/version/route has independent native acceptance; FreeCAD and CATIA use the same contract</title></rect>
 <text x="16" y="1180">ReviewerBranding · Organization reviewer app name and logo</text>
-<text x="16" y="1194" fill="#66615b" font-size="10">active · jdharcourt</text>
-<rect x="610.0" y="1169" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerBranding: GitHub verifies the requested app display name and organization logo and the reviewer registry matches the actual resulting app and bot identities</title></rect>
+<text x="16" y="1194" fill="#66615b" font-size="10">complete · jdharcourt</text>
+<rect x="610.0" y="1169" width="62.0" height="22" rx="2" fill="#526d50"><title>ReviewerBranding: GitHub verifies the requested app display name and organization logo and the reviewer registry matches the actual resulting app and bot identities</title></rect>
 <text x="16" y="1216">ReviewerMentions · Trusted collaborator mention review requests</text>
 <text x="16" y="1230" fill="#66615b" font-size="10">active · jdharcourt</text>
 <rect x="610.0" y="1205" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerMentions: Live authorized mentions select the commented PR with current successful CI while rejected public comments never reach protected app or account credential jobs</title></rect>

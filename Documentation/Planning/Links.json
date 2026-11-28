@@ -285,7 +285,7 @@
     {
       "Id": "ReviewerBranding",
       "Name": "Organization reviewer app name and logo",
-      "Status": "active",
+      "Status": "complete",
       "Owner": "jdharcourt",
       "Agent": "T3 Code Codex reviewer session feat/codex-reviewer-20261128-setup",
       "Runner": "OpenAI",
@@ -295,13 +295,14 @@
       "Exit": "GitHub verifies the requested app display name and organization logo and the reviewer registry matches the actual resulting app and bot identities",
       "Branch": "feat/codex-reviewer-20261128-setup",
       "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
-      "Blocker": "Live app name and logo and unchanged app and bot IDs verified; renamed registry and mention commands await accepted delivery revision; native project synchronization requires unavailable project scopes",
+      "Blocker": "Native project synchronization remains pending because project token scopes are unavailable; parent reviewer deployment and hosted acceptance remain unfinished",
       "Evidence": {
         "App": "https://github.com/apps/unicad",
         "Bot": "https://api.github.com/users/unicad[bot]",
         "Installation": "https://github.com/organizations/TryUniCAD/settings/installations/186823517",
         "Avatar": "https://avatars.githubusercontent.com/in/5966452?v=4"
-      }
+      },
+      "AcceptedRevision": "b3e5255cdeea1cea904df485cf26d1d410a37f8e"
     },
     {
       "Id": "ReviewerMentions",
@@ -315,7 +316,9 @@
       "MentionRepair": {
         "Revision": "a5022354857791514dcfeeb049a28bdc595dfb6b",
         "Report": "https://github.com/TryUniCAD/Kit/actions/runs/46153837089/job/141006028438",
-        "Change": "Use trusted scheduled mention polling and complete workflow concurrency without suppressing dangerous trigger audits"
+        "Change": "Use trusted scheduled mention polling and complete workflow concurrency without suppressing dangerous trigger audits",
+        "AcceptedRevision": "b3e5255cdeea1cea904df485cf26d1d410a37f8e",
+        "Verification": "Black and planning freshness passed; hosted CI and actual mention acceptance remain pending; local process tests were rejected by automatic approval review"
       },
       "Source": "Documentation/Changes/Review/ReviewerMentions.md",
       "Exit": "Live authorized mentions select the commented PR with current successful CI while rejected public comments never reach protected app or account credential jobs",

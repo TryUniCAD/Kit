@@ -10,7 +10,7 @@ def SafeText(Value: object) -> str:
 
 
 # every reported issue remains visible even when it cannot be attached to a changed diff line
-def ReviewBody(Report: dict[str, object]) -> str:
+def ReviewBody(Report: dict[str, object], Context: dict[str, object]) -> str:
     Sections = [
         f"Soundness: {Report['score']}/5",
         f"Complete review: {Report['complete']}; scope matches: {Report['scope_matches']}",
@@ -25,6 +25,9 @@ def ReviewBody(Report: dict[str, object]) -> str:
     Sections.append(
         f"Reviewed head: {Report['head']}\n\nReviewed base: {Report['base']}"
     )
+    if Context.get("mention_comment") is not None:
+        Sections.append(f"Mention comment: {Context['mention_comment']}")
+    Sections.append(f"CI run: {ObjectMap(Context['evidence'])['run_id']}")
     Content = "\n\n".join(Sections)
     if len(Content) > 60000:
         raise ValueError("Review exceeds GitHub publication limit")
