@@ -339,7 +339,7 @@ verification, and the current revision's review and queue acceptance.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalBodyResearch.md)
 The [paired capture launcher](../../re/automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1)
 now binds the six native saves and the edit and restoration to the owned-process harness.
-The unqualified base discovery reproduced the configuration manager and located the first unresolved typed resolved-feature class. Qualified native captures, populated master admission and held-out correlation are pending.
+Two independently authored base discovery saves now replay their configuration manager and full resolved streams, including one modern per-body record each. Both lack a direct master in Config-0. Native edit and reopen evidence, changed membership, direct populated master admission and held-out correlation are pending.
 [Capture recipe change](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalNativeCaptureRecipe.md)
 [Linked manager inspection](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalLinkedManagerInspection.md)
 

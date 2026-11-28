@@ -122,17 +122,15 @@ def inspect(archive, registry, name, linked=False):
     return result
 
 
-def cut_list_candidate(rules, observations):
+def record_boundary(observations):
     from Core import ArchiveError
-    from Dsl import base, emb, f64, i32, u8
     from Schema import Fn
-    from defs.ResolvedCore import concept_vt, obarray, xo
 
     frames = []
 
     def begin(reader, fields, owner):
         if owner.schema != 1:
-            raise ArchiveError('cut-list class is outside the schema-one proposal')
+            raise ArchiveError(f'{owner.cls} is outside the schema-one proposal')
         frames.append((reader.p, reader.map_state(), dict(reader.ctx)))
 
     def end(reader, fields, owner):
@@ -142,9 +140,17 @@ def cut_list_candidate(rules, observations):
     def noop(*args):
         return None
 
+    return Fn(begin, noop), Fn(end, noop)
+
+
+def cut_list_candidate(rules, observations):
+    from Dsl import base, emb, f64, i32, u8
+    from defs.ResolvedCore import concept_vt, obarray, xo
+
+    begin, end = record_boundary(observations)
     concept_vt(CUT_LIST)
     rules.provisional(CUT_LIST_SORT, [
-        Fn(begin, noop), i32('f08'), obarray('f10'), Fn(end, noop),
+        begin, i32('f08'), obarray('f10'), end,
     ])
     rules.provisional('moAtomBodyFolder_c', [
         base('moFolder_c'), i32('f37c'), i32('f380'),
@@ -158,13 +164,170 @@ def cut_list_candidate(rules, observations):
         base('moSubAtomFolder_c'), emb('f450', 'moCustomPropertyList'),
     ])
     rules.provisional(CUT_LIST, [
-        Fn(begin, noop), base('moSubWeldFolder_c'), xo('f498', 'moCompFeature_c'),
+        begin, base('moSubWeldFolder_c'), xo('f498', 'moCompFeature_c'),
         i32('f4a4'), i32('f4a0'), u8('f48c'), xo('f468', 'moPlaneRef_w'),
-        f64('f470'), f64('f478'), f64('f480'), i32('f4b0'), i32('f4b4'), Fn(end, noop),
+        f64('f470'), f64('f478'), f64('f480'), i32('f4b0'), i32('f4b4'), end,
     ])
 
 
-def replay_cut_lists(resolved, rules, version, observations):
+def template_candidate(rules, observations):
+    from Core import ArchiveError
+    from Dsl import base, count, cstr, emb, f64, i32, u8, u32
+    from Schema import Fn, If
+    from defs.ResolvedCore import concept_vt, xo
+
+    def require_empty_array_counts(archive, fields, owner):
+        if any(fields.get(key, 0) != 0 for key in ('n00', 'n04', 'n08', 'n30', 'n34')):
+            raise ArchiveError('nonempty sheet-metal bend-allowance arrays remain unresolved')
+
+    def contextual(fields, archive):
+        # sldmodu SP04.1 moModel_c::loadResolvedFeatures copies CMgr.f658 to helper+0x890.
+        return bool(archive.ctx['model_is_part'] and archive.ctx['cmgr_f658'])
+
+    begin, end = record_boundary(observations)
+    concept_vt('moTemplateSheetMetal_c')
+    concept_vt('moSheetMetal_c')
+    rules.provisional('moTemplateSheetMetal_c', [begin, base('moSheetMetal_c'), end])
+    rules.provisional('moSheetMetalCommon_c', [
+        base('moBodyFeature_c'), emb('f808', 'sm.common808'), i32('f848'), i32('f84c'), i32('f850'),
+    ])
+    require_empty = Fn(require_empty_array_counts, require_empty_array_counts)
+    rules.provisional('sm.bend_allow', [
+        u32('n00'), u32('n04'), u32('n08'), require_empty,
+        cstr('f38'), i32('f40'), u8('f00'), xo('f08', 'moDisplayDim_c'), xo('f10', 'moDisplayDistanceDim_c'),
+        i32('n30'), i32('n34'), require_empty, cstr('f110'), cstr('f100'), cstr('f0f8'), cstr('f108'),
+        xo('f128', 'moSMParamsFromMat_c'), emb('f0d0', 'su_CStringArray'),
+        emb('f0a8', 'su_CStringArray'), emb('f080', 'su_CStringArray'),
+    ])
+    rules.provisional('sm.common808', [
+        xo('f10', 'moDisplayDim_c'), xo('f18', 'moCompFeature_c'), u8('has_bend_allow'),
+        If(lambda scope, ar: bool(scope['has_bend_allow']), [emb('bend_allow', 'sm.bend_allow')]),
+        i32('f00'), i32('f04'), i32('temp0'), i32('temp1'),
+        If(contextual, [xo('f20', 'moCompSheetmetalFeat_c')]),
+    ])
+    rules.provisional('moSheetMetal_c', [
+        base('moSheetMetalCommon_c'), f64('f8f8'), xo('f900', 'moDisplayDim_c'), i32('f908'),
+        xo('f910', 'moDisplayDim_c'), xo('f918', 'moFixedFaceInFlat_c'), i32('f938'),
+        i32('f958'), cstr('f960'), i32('f968'), i32('f96c'), i32('f970'), i32('f974'),
+        If(contextual, [i32('f980'), i32('f97c'), i32('f984')]),
+    ])
+
+
+def base_flange_candidate(rules, observations):
+    from Core import ArchiveError
+    from Dsl import base, emb, f64, i32, u8, u32
+    from Schema import Fn, If, Rep
+    from defs.ResolvedCore import concept_vt, obarray, xo
+
+    def require_termination_mode(archive, fields, owner):
+        if fields['f900'] not in (0, 1, 2):
+            raise ArchiveError('base-flange termination lane mode remains unresolved')
+
+    def termination_lane(mode, ending, length, wrapper, reference, dimension, offset):
+        return If(lambda scope, ar: scope['f900'] in (0, mode), [
+            i32(ending),
+            If(lambda scope, ar: scope[ending] in (0, 6), [f64(length)]),
+            If(lambda scope, ar: scope[ending] == 3, [xo(reference)]),
+            If(lambda scope, ar: scope[ending] == 1 and scope['has_control'], [xo(wrapper, 'moRefWrapper_c')]),
+            xo(dimension, 'moDisplayDim_c'), f64(offset),
+        ])
+
+    begin, end = record_boundary(observations)
+    concept_vt('moSMBaseFlange_c')
+    rules.provisional('moCompSheetmetalFeat_c', [base('moCompSMDataObjFeat_c')])
+    rules.provisional('moCompSMDataObjFeat_c', [base('moCompRef_c'), i32('fe8')])
+    rules.provisional('moSheetMetalBendGroup_c', [
+        base('moSheetMetalCommon_c'), obarray('f860'), u32('f880'),
+    ])
+    rules.provisional('sm.base_group', [
+        i32('n'), If(lambda scope, ar: scope['n'] > 0, [
+            xo('sketch', 'sgSketch'), Rep('n', 'handles', [xo('o', 'sgEntHandle')]),
+        ]),
+    ])
+    rules.provisional('moSMBaseFlange_c', [
+        begin, base('moSheetMetalBendGroup_c'), xo('f890', 'moProfileFeature_c'), i32('f8a0'),
+        i32('f8d0'), i32('f900'), Fn(require_termination_mode, require_termination_mode),
+        u8('has_control'), i32('f888'),
+        termination_lane(1, 'f8d8', 'f8c0', 'f8e0', 'ref0', 'fA10', 'f8b0'),
+        termination_lane(2, 'f8dc', 'f8c8', 'f8e8', 'ref1', 'fA18', 'f8b8'),
+        emb('f960', 'sm.base_group'), emb('f980', 'sm.base_group'),
+        emb('f9c0', 'sm.base_group'), emb('f9e0', 'sm.base_group'),
+        i32('f8d4'), xo('fA20', 'moFromEndSpec_c'), end,
+    ])
+
+
+def flat_pattern_candidate(rules, observations):
+    from Core import ArchiveError
+    from Dsl import base, count, cstr, emb, f64, i32
+    from Schema import Fn, If, Rep
+    from defs.ResolvedCore import concept_vt, obarray, xo
+
+    def require_absent_flat_body(archive, fields, owner):
+        if fields['has_flat_parasolid']:
+            raise ArchiveError('embedded flat-pattern body remains unresolved')
+
+    def require_supported_pair_count(archive, fields, owner):
+        if not 0 <= fields['n_pairs'] <= 4096:
+            raise ArchiveError('invalid signed flat-pattern pair count')
+
+    def require_absent_fold_properties(archive, fields, owner):
+        if fields['n_properties']:
+            raise ArchiveError('nonempty fold sketch properties remain unresolved')
+
+    def require_absent_fold_bytes(archive, fields, owner):
+        if fields['n_fold_bytes']:
+            raise ArchiveError('nonempty fold sketch byte array remains unresolved')
+
+    begin, end = record_boundary(observations)
+    concept_vt('moTemplateFlatPattern_c')
+    concept_vt('moFlatPattern_c')
+    concept_vt('moFoldUpDownSketchFolder_c')
+    rules.provisional('moFoldUpDownSketchFolder_c', [
+        begin, base('moFolder_c'), xo('f570', 'moFoldUpDownSketchXformData_c'),
+        xo('f578', 'moFoldUpDownFeatXformData_c'), end,
+    ])
+    rules.provisional('moFoldUpDownSketchXformData_c', [
+        begin, emb('f58', 'rf.suObList'), emb('fA0', 'rf.suObList'), i32('n_transforms'),
+        Rep('n_transforms', 'transforms', [emb('transform', 'mgXform_c.restore')]),
+        i32('n_properties'), Fn(require_absent_fold_properties, require_absent_fold_properties),
+        count('n_fold_bytes'), Fn(require_absent_fold_bytes, require_absent_fold_bytes),
+        emb('f10', 'rf.suObList'), end,
+    ])
+    rules.provisional('moFoldUpDownFeatXformData_c', [
+        begin, emb('f58', 'rf.suObList'), i32('n_transforms'),
+        Rep('n_transforms', 'transforms', [emb('transform', 'mgXform_c.restore')]),
+        emb('f10', 'rf.suObList'), end,
+    ])
+    rules.provisional('moFlatPatBoundBox_c', [emb('f10', 'moBoundBoxData_c')])
+    rules.provisional('moBoundBoxData_c', [
+        *(f64(key) for key in ('x0', 'y0', 'z0', 'x1', 'y1', 'z1', 'f28', 'f30', 'f38', 'f40', 'f80', 'f88')),
+        i32('f90'), f64('f48'),
+    ])
+    rules.provisional('moTemplateFlatPattern_c', [begin, base('moFlatPattern_c'), end])
+    rules.provisional('moFlatPattern_c', [
+        base('moSheetMetalBendGroup_c'), obarray('f950'),
+        *(xo(key, 'moCompBEntRef_c') for key in ('f900', 'f908', 'f910')),
+        i32('f9b8'), i32('f9bc'), obarray('f970'),
+        *(i32(key) for key in ('f9c4', 'f9c8', 'f9f8', 'f9cc')),
+        f64('f9d0'), i32('f9e8'), f64('f9e0'),
+        *(i32(key) for key in ('f9ec', 'f9d8', 'f9f4', 'fab0')),
+        xo('fA00', 'moCompFeature_c'), xo('fA40', 'suObList'), i32('has_flat_parasolid'),
+        Fn(require_absent_flat_body, require_absent_flat_body), i32('f990'), obarray('f998'),
+        xo('f928', 'moCompFace_c'), i32('f930'),
+        If(lambda scope, ar: bool(scope['f930']), [cstr('f938')]),
+        xo('f918', 'moRefWrapper_c'), emb('f920', 'moFlatPatBoundBox_c'),
+        *(i32(key) for key in ('fA30', 'fA34', 'fA38', 'fA3c')),
+        If(lambda scope, ar: bool(ar.ctx['model_is_part'] and ar.ctx['cmgr_f658']), [i32('fA88')]),
+        i32('n_pairs'), Fn(require_supported_pair_count, require_supported_pair_count),
+        Rep('n_pairs', 'pairs', [i32('a'), i32('b')]),
+    ])
+    rules.provisional('moPerBodySheetMetalDataNew_c', [
+        begin, emb('f30', 'su_CDWordArray'), i32('f08'), i32('f0c'), xo('f10', 'moSheetMetal_c'),
+        xo('f18', 'moFlatPattern_c'), i32('f28'), i32('f20'), i32('f24'), i32('f50'), end,
+    ])
+
+
+def replay_boundaries(resolved, rules, version, observations):
     from Core import ArchiveError, Store
 
     def roster(snapshot):
@@ -182,10 +345,15 @@ def replay_cut_lists(resolved, rules, version, observations):
                     for slot, value in inherited.items()) or
                 any(outgoing.get(slot) is not value and outgoing.get(slot) != value
                     for slot, value in incoming.items())):
-            raise ArchiveError('cut-list candidate did not reproduce its bytes and map identities')
-        result.append(dict(owner=describe(owner), payload_start=start, payload_end=end,
-                           payload_sha256=image(resolved[start:end]), exact_replay=True,
-                           inherited_count=seed.count, resulting_count=read_state.count))
+            raise ArchiveError(f'{owner.cls} candidate did not reproduce its bytes and map identities')
+        row = dict(owner=describe(owner), payload_start=start, payload_end=end,
+                   payload_sha256=image(resolved[start:end]), exact_replay=True,
+                   inherited_count=seed.count, resulting_count=read_state.count)
+        if owner.cls == 'moPerBodySheetMetalDataNew_c':
+            row['fields'] = {key: fields[key] for key in ('f08', 'f0c', 'f28', 'f20', 'f24', 'f50')}
+            row['fields']['f30'] = [item['v'] for item in fields['f30']['items']]
+            row['links'] = {key: describe(fields[key]) for key in ('f10', 'f18')}
+        result.append(row)
     return result
 
 
@@ -230,8 +398,11 @@ def inspect_linked(archive, rules, name, version, configuration):
     if len(resolved) < 4 or resolved_report['recorded_prefix'] != configuration.count:
         raise ArchiveError('resolved archive prefix differs from the measured configuration map')
     seed = configuration.map_state()
-    cut_lists = []
+    cut_lists, templates, base_flanges, flat_patterns = [], [], [], []
     cut_list_candidate(rules, cut_lists)
+    template_candidate(rules, templates)
+    base_flange_candidate(rules, base_flanges)
+    flat_pattern_candidate(rules, flat_patterns)
     with rules.track_usage('load', resolved_name, role='linked', sources=archive.streams) as usage:
         try:
             document, reader = load_resolved(resolved, rules, version, archive=archive, name=resolved_name, seed=seed)
@@ -246,11 +417,26 @@ def inspect_linked(archive, rules, name, version, configuration):
             if any(read_map.get(slot) is not value or written_map.get(slot) is not value
                    for slot, value in inherited.items()):
                 raise ArchiveError('resolved archive changed an inherited configuration map identity')
+            if read_map.keys() != written_map.keys() or any(
+                written_map[slot] is not value and written_map[slot] != value
+                for slot, value in read_map.items()
+            ):
+                raise ArchiveError('resolved archive read and write map rosters differ')
+            mbsm = document.head.get('mbsm')
+            if mbsm is not None:
+                rows = mbsm.get('fcd8') or ()
+                resolved_report['mbsm_modern_entries'] = [
+                    dict(key=row['key'], owner=describe(row['o'])) for row in rows
+                    if row['o'] is not None and row['o'].cls == 'moPerBodySheetMetalDataNew_c'
+                ]
             resolved_report.update(exact_replay=True, map_count=reader.count, roots=len(document.roots))
         except (ArchiveError, ValueError, KeyError) as error:
             resolved_report.update(error_type=type(error).__name__, diagnostic=str(error)[:350],
                                    boundary=getattr(error, 'details', None), missing_schemas=usage.snapshot()['missing_schemas'])
-    resolved_report['cut_list_candidate_replays'] = replay_cut_lists(resolved, rules, version, cut_lists)
+    resolved_report['cut_list_candidate_replays'] = replay_boundaries(resolved, rules, version, cut_lists)
+    resolved_report['template_candidate_replays'] = replay_boundaries(resolved, rules, version, templates)
+    resolved_report['base_flange_candidate_replays'] = replay_boundaries(resolved, rules, version, base_flanges)
+    resolved_report['flat_pattern_candidate_replays'] = replay_boundaries(resolved, rules, version, flat_patterns)
     return result
 
 

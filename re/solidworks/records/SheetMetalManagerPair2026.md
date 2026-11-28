@@ -30,3 +30,34 @@ The sort-options class uses descriptor `0x29adc28`, vtable `0x1f0af08` and seria
 | Sort options, slot 173 | [3,233, 3,239) | `36c159d76b52e03e496363607c5940227f62f4e048df344b050159bc97bba3d7` | 174 → 174 |
 
 Both provisional records re-emit byte for byte from their actual incoming map. The read and write retain identical inherited entries and agree on the resulting class and object roster. The reported full-stream replay remains incomplete. The next unresolved typed class is `moTemplateSheetMetal_c` at byte 9,508.
+
+## Template and bounded bend allowance
+
+The SP04.1 `sldsmmu.dll` template-sheet-metal descriptor is at RVA `0x7806b0`. Its concrete serializer at `0x53cd00` forwards to `moSheetMetal_c` at `0x53ae10`. The parent calls `moSheetMetalCommon_c` at `0x53aae0`, which consumes the existing body-feature layout, its embedded `+0x808` record and the trailing integer members. The embedded record reaches the inline bend allowance when its presence byte is set. The native writer and reader branch on a helper archive-context member at `+0x890` for extra pointers and three signed fields. In the matching sldmodu.dll, moModel_c::loadResolvedFeatures at RVA 0x448760 reads CMgr.f658 after checking the model and manager at 0x448953 and writes it into helper +0x890 at 0x44895c. That happens before feature-list serialization at 0x4489e9. The linked research reader derives the mode from the fully replayed typed manager and its part context.
+
+The unqualified discovery reaches the present bend allowance at offset 11,558. Its three initial unsigned array counts and two signed matrix counts are zero. The candidate reuses the typed dimension pointers and inline string arrays. It refuses any nonempty matrix or scalar-array count. No meaning is assigned to the flags or other scalars.
+
+With diagnostic context zero, the template fails at byte 14,817 on the display-dimension pointer. With diagnostic context one, the complete payload interval `[9508,18090)` re-emits exactly and retains all incoming map identities. Its 8,582-byte SHA-256 is `c64e24a395290e5faf0b1673b3f187ff140642c3b996770384e2b4efeb97225c`, and the resulting map count is 292. The next typed refusal is `moSMBaseFlange_c` at offset 18,112. The public research switch reports the full-stream refusal and exits 2 because resolved traversal remains incomplete. The production reader and writer remain outside this research result.
+
+## Base flange, flat template and resolved per-body owner
+
+The SP04.1 sheet-metal module places `moSMBaseFlange_c` behind descriptor `0x780fe0` and serializer `0x538660`. It shares the bend-group base with the flat pattern. This base calls the common sheet-metal serializer, emits an inline object array and then one unsigned field. The base flange adds its profile pointer and two termination lanes conditioned on its lane mode and termination code. Four fixed inline groups each record a count and, when populated, a sketch pointer followed by that number of entity handles. The component-sheet-metal link forwards through `moCompSMDataObjFeat_c` to the existing component-reference layout and appends a signed field at `+0xe8`.
+
+The flat template serializer `0x53ccf0` forwards to `moFlatPattern_c` at `0x5316f0`. The current serializer extends the bend-group base with three inline object arrays, typed feature and topology links, a conditionally written string, and an inline 108-byte bounding box. It then visits the context-dependent field and its signed pair count. Raw embedded flat body payloads remain outside this research rule.
+
+| Research record | Payload interval | SHA-256 | Resulting map count |
+| --- | --- | --- | ---: |
+| Base flange, slot 293 | [18,112, 20,289) | `064dd9c2775899b1748c2eb97f5c206fd6a16c57793e196b079b5e25e78db45a` | 305 |
+| Flat-pattern template, slot 306 | [20,318, 23,524) | `09b52147defeb8a2f3ccd4bb291795126a175c17b213f77fa0630d2e058c85da` | 329 |
+
+The two complete payloads re-emit exactly from the same incoming archive maps. The typed list `moPartConfiguration_c.SerializeMBSMDataObjects.fcd8` in ResolvedFeatures reads the separate modern record `moPerBodySheetMetalDataNew_c`. Its native constructor identifies the virtual member at `+0x30` as `suDWordArray`, whose serializer forwards to the ordinary typed DWORD-array implementation. The first item follows its typed `f18` link to the flat-pattern record. The currently unresolved child `moFoldUpDownSketchFolder_c` is reached through that record at offset 35,613. This shows the modern record's ownership in this save. The direct master remains absent from Config-0.
+
+## Complete linked research replay on two base saves
+
+The fold-up/down sketch folder follows the ordinary folder serializer with two typed transform objects at `f570` and `f578`. The SP04.1 sheet-metal module's folder serializer is at RVA `0x5328a0` and its two transform children dispatch to `0x5329f0` and `0x532770`. Both child payloads are empty for transforms, properties and byte records in this discovery. The research layout retains typed transform fields and refuses unresolved property and byte-array contents.
+
+The original unqualified native discovery consumed all 36,970 resolved bytes, produced 22 roots, and closed its map at 420. Its one inline modern row key 101 occupies slot 330 and links to sheet-metal slot 332 and flat-pattern slot 365. The 13,404-byte modern payload spans `[23566,36970)` with SHA-256 `cc457d78d230b3eb7fcacea5f03a72a7b676890ff67787cd159c1a81aaf338dc`.
+
+An independently authored positive-Z A-only save on the thickness datum has archive SHA-256 `7deadafa95fd2960aabeefea4ad78f837914209b1cc0ac70761be5bd3b5ec3cb`. Its save receipt reports the intended `(0, 0, 0)` to `(41, 23, 1.25)` mm body and no errors or warnings. The same probe re-emits all 25,632 Config bytes, its 2,280 CMgr bytes and all 39,528 ResolvedFeatures bytes. The resolved SHA-256 is `be6eab77947b56f4fec14cfeab850fc925f203077a2c7098762cd5a004d1d5c9`. The part's 23 roots close the map at 434. One modern row with key 101 occupies slot 344 and links to sheet-metal slot 346 and flat-pattern slot 379. Its 13,404-byte payload spans `[26124,39528)` with SHA-256 `705c8979085900e416a7079ba7c3c4613cc8205bcd8d1ebb72d25ea28086fe39`.
+
+In both records the first signed field is 101, matching the typed map key, and the second differs, 49 versus 51. The manager pairs are `(101, 39, 48)` and `(101, 41, 50)`. The remaining resolved integers and the empty DWORD array match. Association with independently measured native feature IDs, changes in body membership and nonempty contents still require the prepared contrast batch. Neither Config contains the direct sheet-metal master. The positive-Z save's batch failed to observe normal author and post-control process exits and never reached a fresh reopen. Its complete research replay does not qualify the native file or a writer.
