@@ -65,3 +65,33 @@ The experiment updates leaf bounds only. The preserved aggregate model
 box can differ from the target capture, and all three inputs contain
 one distinct face attribute set. Full graphics generation, per-face
 presentation, picking and the fresh native acceptance bracket remain open.
+
+## Source-free body scene contrast
+
+The `GenerateBodySceneContrast.py` probe reuses the exact #337
+modern material and appearance generator, plus #307's structural
+graphics grammar. The scene derives edge and face bounds from the
+solved prism. It uses the physical history slots and actual extrusion
+body reference, with a separate scene-local handle. Only one typed
+graphics world is added. Complete strict document and neutral
+readback verify that the added world leaves the other typed fields
+and authored graph intact.
+
+The requests were frozen against `d49614c7f15b092b645a25d4467d005f009fd1fd`
+before scene generation. The manifest SHA-256 is
+`a755dee9fcc81e3951771dfb424cf89ac719f33f40a43cab2fb84c13d148e380`.
+
+| Request | Dimensions in mm | No-scene control SHA-256 | Generated scene candidate SHA-256 |
+| --- | --- | --- | --- |
+| Baseline | 24.625 × 16.375 × 8.875 | `40a748922a067f81370e1ffd99049a8cfa19d78340e617e48e5409a6d3c6a5a0` | `11ea093d009775708bfc48eb28d7ee792b0a52d41f0d00f9ae796917be4b6c89` |
+| JSON height edit | 24.625 × 16.375 × 19.125 | `50b230df4802cf9c21f823aaa2e27ec84fae0a1acadbd223f1b575f3653a5774` | `37826d503ac08c16a39bf437cd263f3e488ef237104dfe20814f80397a90b0e9` |
+| Independent authored request | 12.375 × 44.625 × 33.875 | `c8acf380c4dedd7d23bc783408f98d8153c5322ce438908e88daca6fcf5ced40` | `d44600455c283ce2d87e5ccc561fa480edba51474e04c0bd607518ffc311c9b5` |
+
+Each variant retained the three-root snapshot, named parameters, one
+camera, empty configuration envelope and distinct directly owned
+modern material appearances. The #337 appearance preparation still
+refuses documents carrying graphics. The new probe compares the
+complete typed state and strict neutral projection across the isolated
+scene addition. The generated zero-LOD scene remains structural. Native
+style inheritance, role picking, full saved scene, preview regeneration
+and proprietary application acceptance are unresolved.
