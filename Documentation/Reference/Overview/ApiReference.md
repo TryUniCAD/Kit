@@ -50,6 +50,11 @@ Reader strictness and writer usability policy are independent.
 The public API translates `allow_carrier` into writer values.
 `WriteOptions` does not have an `allow_carrier` constructor field.
 
+For SOLIDWORKS assemblies, `include_tessellation=False` omits meshes and their
+definition links from the returned assembly and its linked documents.
+Component source resolution and its diagnostics remain available.
+See [assembly tessellation control](../../Changes/Solidworks/Inspection/Assemblies/SolidworksAssemblyTessellation.md).
+
 ## Options by operation
 
 | Operation            | Accepted keyword options                                                                  |
