@@ -250,6 +250,9 @@ try {
             message = $failure.Message.Substring(0, [Math]::Min($failure.Message.Length, 2048))
         }
         if ($failure.Data.Contains('scope_cleanup')) { $failureRecord.cleanup = $failure.Data['scope_cleanup'] | ConvertFrom-Json }
+        if ($failure.Data.Contains('sheet_metal_base_evidence')) {
+            $failureRecord.base_authoring = $failure.Data['sheet_metal_base_evidence'] | ConvertFrom-Json
+        }
         if ($failure.Data.Contains('sheet_metal_close_hresult')) {
             $failureRecord.document_close_hresult = $failure.Data['sheet_metal_close_hresult']
         }

@@ -42,7 +42,7 @@ public static class SheetMetalCapture
 
     static byte[] Reference(IModelDoc2 doc, object item)
     {
-        return item == null ? null : (byte[])doc.Extension.GetPersistReference3(item);
+        return item == null ? null : doc.Extension.GetPersistReference3(item) as byte[];
     }
 
     static string Identity(IModelDoc2 doc, object item)
@@ -201,16 +201,71 @@ public static class SheetMetalCapture
         Check(flange != null, "Base flange returned no feature for " + id);
         flange.Name = "Base-" + id;
         Check(doc.ForceRebuild3(false), "Base flange could not rebuild for " + id);
-        var solid = Bodies(doc).SingleOrDefault(candidate => HasBounds(candidate, DesiredBounds(body)));
-        Check(solid != null && solid.IsSheetMetal(), "No distinct positive-Z sheet-metal body matched " + id);
-        var definition = flange.GetDefinition() as IBaseFlangeFeatureData;
-        Check(definition != null && Near(definition.Thickness, thickness) && Near(definition.BendRadius, radius),
-            "Base flange did not report the requested thickness and radius for " + id);
-        return Row("id", id, "body", BodyRow(doc, solid), "feature", Identity(doc, flange),
+        var expected = DesiredBounds(body);
+        var initial = Bodies(doc);
+        var evidence = Row("id", id, "intended_bounds_m", expected, "initial_bodies", initial.Select(candidate =>
+            Row("name", candidate.Name, "bounds_m", Bounds(candidate), "sheet_metal", candidate.IsSheetMetal())).ToArray());
+        try
+        {
+            var definition = flange.GetDefinition() as IBaseFlangeFeatureData;
+            Check(definition != null, "Base flange has no typed definition for " + id);
+            evidence.Add("initial_reverse_thickness", definition.ReverseThickness);
+            evidence.Add("initial_thickness_m", definition.Thickness);
+            evidence.Add("initial_radius_m", definition.BendRadius);
+            var solid = initial.SingleOrDefault(candidate => HasBounds(candidate, expected));
+            var reverse = false;
+            if (solid == null)
+            {
+                var mirrored = new[] { new[] { expected[0][0], expected[0][1], -thickness },
+                    new[] { expected[1][0], expected[1][1], 0.0 } };
+                var negative = initial.SingleOrDefault(candidate => candidate.IsSheetMetal() && HasBounds(candidate, mirrored));
+                if (negative != null)
+                {
+                    reverse = true;
+                    ReverseBaseThickness(doc, flange, definition, thickness, radius);
+                    var revised = Bodies(doc);
+                    evidence.Add("revised_bodies", revised.Select(candidate =>
+                        Row("name", candidate.Name, "bounds_m", Bounds(candidate), "sheet_metal", candidate.IsSheetMetal())).ToArray());
+                    solid = revised.SingleOrDefault(candidate => HasBounds(candidate, expected));
+                    definition = flange.GetDefinition() as IBaseFlangeFeatureData;
+                }
+            }
+            Check(solid != null && solid.IsSheetMetal(), "No distinct positive-Z sheet-metal body matched " + id);
+            Check(definition != null && Near(definition.Thickness, thickness) && Near(definition.BendRadius, radius),
+                "Base flange did not report the requested thickness and radius for " + id);
+            return Row("id", id, "body", BodyRow(doc, solid), "feature", Identity(doc, flange),
+                "direction_reversed_after_mirrored_bounds", reverse, "direction_evidence", evidence,
             "base_flange2_arguments", new object[] { thickness, false, radius, .02, .01, false, 0, 0, 1,
                 Row("type", allowance.Type, "k_factor", allowance.KFactor), false, noRelief, 0, 0, .5, false, false, true, true },
-            "base_readback", Row("thickness_m", definition.Thickness, "bend_radius_m", definition.BendRadius),
-            "sketch_constraint_status", status);
+                "base_readback", Row("thickness_m", definition.Thickness, "bend_radius_m", definition.BendRadius,
+                    "reverse_thickness", definition.ReverseThickness),
+                "sketch_constraint_status", status);
+        }
+        catch (Exception error)
+        {
+            error.GetBaseException().Data["sheet_metal_base_evidence"] = Json.Serialize(evidence);
+            throw;
+        }
+    }
+
+    static void ReverseBaseThickness(IModelDoc2 doc, IFeature flange, IBaseFlangeFeatureData definition,
+        double thickness, double radius)
+    {
+        var reverse = !definition.ReverseThickness;
+        Check(definition.IAccessSelections2((ModelDoc2)doc, null), "Cannot access base flange to reverse measured mirrored thickness");
+        bool committed = false;
+        try
+        {
+            Check(!definition.UseMaterialSheetMetalParameters, "The base flange thickness is governed by material parameters");
+            definition.OverrideDefaultSheetMetalParameters = true;
+            definition.ReverseThickness = reverse;
+            definition.Thickness = thickness;
+            definition.BendRadius = radius;
+            committed = flange.IModifyDefinition2(definition, (ModelDoc2)doc, null);
+            Check(committed, "Native base flange declined the exact mirrored-thickness correction");
+        }
+        finally { if (!committed) definition.ReleaseSelectionAccess(); }
+        Check(doc.ForceRebuild3(false), "The mirrored-thickness correction could not rebuild");
     }
 
     static double[][] Endpoints(IEdge edge)
@@ -315,7 +370,7 @@ public static class SheetMetalCapture
             var reference = Reference(doc, edge);
             Check(reference != null && reference.Length > 0, "The selected flange edge has no persistent reference");
             var original = Convert.FromBase64String(sourceEdge);
-            Check(doc.Extension.IsSamePersistentID(original, reference) == 1,
+            Check(doc.Extension.IsSamePersistentID(original, reference) == (int)swObjectEquality.swObjectSame,
                 "Native edge flange selection does not match the authored persistent reference");
             var owner = edge.GetBody() as IBody2;
             Check(owner != null, "The resolved edge has no body in the feature definition");
@@ -356,17 +411,13 @@ public static class SheetMetalCapture
         }
     }
 
-    static IModelDoc2 OpenPart(ISldWorks app, string path)
+    static IModelDoc2 OpenPart(ISldWorks app, string path, out int errors, out int warnings)
     {
-        int errors = 0, warnings = 0;
+        errors = 0;
+        warnings = 0;
         int options = (int)swOpenDocOptions_e.swOpenDocOptions_Silent | (int)swOpenDocOptions_e.swOpenDocOptions_ReadOnly;
         var doc = app.OpenDoc6(path, (int)swDocumentTypes_e.swDocPART, options, "", ref errors, ref warnings) as IModelDoc2;
-        if (doc != null && (errors != 0 || warnings != 0))
-        {
-            app.CloseDoc(doc.GetTitle());
-            doc = null;
-        }
-        Check(doc != null, "Could not open native archive without diagnostics, errors=" + errors + " warnings=" + warnings);
+        Check(doc != null, "Could not open native archive, errors=" + errors + " warnings=" + warnings);
         return doc;
     }
 
@@ -472,13 +523,19 @@ public static class SheetMetalCapture
         Check(String.Equals((string)before["sha256"], expectedHash, StringComparison.Ordinal), "Input archive SHA-256 differs from its receipt");
         return SolidWorksScopeControl.RunOwnedPhase(executable, (app, process) =>
         {
-            var row = WithDocument(app, OpenPart(app, path), doc =>
+            int errors, warnings;
+            var part = OpenPart(app, path, out errors, out warnings);
+            var row = WithDocument(app, part, doc =>
             {
+                Check(doc.IsOpenedReadOnly() && errors == 0 &&
+                    (warnings & ~(int)swFileLoadWarning_e.swFileLoadWarning_ReadOnly) == 0 &&
+                    String.Equals(doc.GetPathName(), path, StringComparison.OrdinalIgnoreCase),
+                    "Exact archive did not open cleanly and read-only, errors=" + errors + " warnings=" + warnings);
                 var observed = Observe(doc, bodies);
                 if (!String.IsNullOrEmpty(sourceEdge))
                     observed.Add("flange", ReadEdge(doc, dimensionName, sourceEdge, length, angle, radius));
-                return Row("id", identity, "native_process", process, "archive", before, "open_errors", 0,
-                    "open_warnings", 0, "observation", observed);
+                return Row("id", identity, "native_process", process, "archive", before, "open_errors", errors,
+                    "open_warnings", warnings, "read_only", true, "observation", observed);
             });
             var after = Archive(path);
             Check((string)before["sha256"] == (string)after["sha256"], "The read-only native verification changed the input file");
