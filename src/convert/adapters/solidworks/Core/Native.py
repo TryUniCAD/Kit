@@ -89,6 +89,7 @@ from convert.adapters.solidworks.Resolved.Core import (
 if TYPE_CHECKING:
     from convert.adapters.solidworks.Core.Cut.CutSource import CutSource
     from convert.adapters.solidworks.Resolved.RectanglePart import RectanglePart
+    from convert.adapters.solidworks.Core.TypedResolved.Equations.WidthDepthLink import WidthDepthLink
 
 # this binding exists because shared behavior needs one stable value
 KRadiansToDegrees = 180.0 / MathValue.pi
@@ -1195,6 +1196,7 @@ class NativeModel:
     bounding_box: NativeBoundingBox | None = None
     linear_display: LinearDisplay | None = None
     cut_source: CutSource | None = None
+    WidthDepth: WidthDepthLink | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

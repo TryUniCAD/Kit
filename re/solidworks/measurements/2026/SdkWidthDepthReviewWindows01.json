@@ -1,0 +1,84 @@
+{
+  "schema": "kit.sw2026.sdk-width-depth-windows.v1",
+  "sdk_revision": "4ab1ecdc901ec280dc068c619c72b42378b0ace8",
+  "sdk_source_tree": "1bf82e440748430174122ae8164287d880c81f9c",
+  "bound_inputs": {
+    "Request.json": "ec8d341b4460e78f2415341fc4e7163ca4ee70d21ebd6ffcd680bc944ada1b85",
+    "re/tooling/sw2026/CheckScopedPlainWriter.py": "a1fe2873539965c0db03c1b4aac971c9fd421a59fb0fde1d733dcc136601311b",
+    "re/tooling/sw2026/equations/ProveMeasuredWidthDepth.py": "aa98ca809096bd2b9d50a5882980150f34b3db9c9e7bc79ed0f3abf2ea9ba35f"
+  },
+  "python": "3.12.7",
+  "zlib": "1.3.1",
+  "native_processes_started": 0,
+  "heldout_cases_added": 0,
+  "observation": {
+    "bytes": 9157,
+    "config_map_counter": 163,
+    "feature_rows": 19,
+    "file_opens": 0,
+    "guarded_runtime_input_reads": 0,
+    "matches_measured_archive": true,
+    "parameter_ids": [
+      "sldprt:parameter:18:D1",
+      "sldprt:parameter:18:D2",
+      "sldprt:parameter:21:D1"
+    ],
+    "published_routes": 4,
+    "refusals": [
+      "no_receipt",
+      "changed_receipt",
+      "changed_epoch",
+      "stale_readback",
+      "wrong_dependency",
+      "missing_origin_coincidence",
+      "wrong_configuration",
+      "different_locator",
+      "raw_cache",
+      "unmeasured_neutral_variant",
+      "trailing_config_strict_geometry",
+      "trailing_config_strict_design",
+      "trailing_config_partial_diagnostic",
+      "unqualified_mode_strict_geometry",
+      "unqualified_mode_strict_design",
+      "unqualified_mode_partial_diagnostic",
+      "unqualified_mode_raw_diagnostic"
+    ],
+    "resolved_map_counter": 256,
+    "sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+    "stream_lengths": {
+      "Contents/CMgr": 1145,
+      "Contents/CMgrHdr2": 169,
+      "Contents/Config-0": 28811,
+      "Contents/Config-0-ModelHeader": 697,
+      "Contents/Config-0-ResolvedFeatures": 12247,
+      "Contents/Definition": 459,
+      "Header2": 697,
+      "_MO_VERSION_19000/Biography": 23,
+      "_MO_VERSION_19000/History": 187,
+      "swXmlContents/KeyWords": 1522
+    },
+    "stream_sha256": {
+      "Contents/CMgr": "8e19dc894eca73aa1b68185608d6b785271812345bbaa19022567206bd9692af",
+      "Contents/CMgrHdr2": "4088c3b2b78efaa33d93da967797d2ac19d859070b739734062d47d8ee1ce355",
+      "Contents/Config-0": "a6f986c4e8a09533e36dd4b255e78bf14ece4aaf51ab80efef9b4502dfcb7483",
+      "Contents/Config-0-ModelHeader": "08f89b3839f3ecdfc649e62ced641386c57381b52233b00169023c297cad3562",
+      "Contents/Config-0-ResolvedFeatures": "af872eafdb9d1f91105415fcf1ededed573d0297bce10290f949e352327f6609",
+      "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+      "Header2": "1d6e112f85afd23b36234b3e90b868822ee05f16156b752bc89dfb3fd46292c6",
+      "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+      "_MO_VERSION_19000/History": "7420105d3cc2bba8fb54aac63795fe4d938853c8e2781d21c5301a4ee02d181e",
+      "swXmlContents/KeyWords": "59dce410a9f90637ecba5ffdef5dc1808632013e9a042ec783780161a76fc842"
+    },
+    "unmeasured_variant_stream_lengths": {
+      "Contents/Config-0": 28865,
+      "Contents/Config-0-ResolvedFeatures": 12265
+    },
+    "unrelated_formula_legacy_inspection": true,
+    "width_inverse": {
+      "depth_mm": 10.005,
+      "publication_refused": true,
+      "strict_readback_regenerated": true,
+      "width_mm": 20.01
+    }
+  }
+}

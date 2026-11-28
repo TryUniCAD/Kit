@@ -816,7 +816,17 @@ KSketchFields = MappingProxyType(
                 "val_g2",
                 "u16",
                 BodyValue=(
-                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 val_g2"),
+                    NativeField(
+                        "Branch",
+                        "part_relations",
+                        BodyValue=(NativeField("Node", "d", "sgPntPntDist"),),
+                        OtherValue=(
+                            NativeField(
+                                "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 val_g2"
+                            ),
+                        ),
+                        ModeValue="Context",
+                    ),
                 ),
                 CountValue="ng2",
             ),
@@ -852,7 +862,19 @@ KSketchFields = MappingProxyType(
                 "log_g2",
                 "u16",
                 BodyValue=(
-                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 log_g2"),
+                    NativeField(
+                        "Branch",
+                        "part_relations",
+                        BodyValue=(
+                            NativeField("Embed", "d", "sk.sgLogG2Dim.FUN_4c58b970"),
+                        ),
+                        OtherValue=(
+                            NativeField(
+                                "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 log_g2"
+                            ),
+                        ),
+                        ModeValue="Context",
+                    ),
                 ),
                 CountValue="nlog2",
             ),

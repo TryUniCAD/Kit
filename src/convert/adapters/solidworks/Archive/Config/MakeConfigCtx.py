@@ -10,16 +10,23 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartVirtuals
     KPartVirtuals,
 )
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
+from convert.adapters.solidworks.Archive.Config.UsePartRelationsMut import (
+    BindPartRelsMut,
+)
 from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefNodes
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # one ordinary part graph uses the original model header identities and explicit part owners
 def MakeConfigCtx(
-    VersionValue: int, HeaderValue: ArchiveNode, UsageValue: BodyUsage | None
+    VersionValue: int,
+    HeaderValue: ArchiveNode,
+    UsageValue: BodyUsage | None,
+    *,
+    PartRelations: bool = False,
 ) -> BodyContext:
     Usage = NewBodyUsage(VersionValue, UsageValue)
-    return BodyContext(
+    ContextValue = BodyContext(
         VersionValue,
         KPartLayouts,
         KPartVirtuals,
@@ -27,3 +34,6 @@ def MakeConfigCtx(
         Usage,
         DirectNodes=HeaderRefNodes(HeaderValue, VersionValue),
     )
+    if PartRelations:
+        BindPartRelsMut(ContextValue)
+    return ContextValue

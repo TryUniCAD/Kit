@@ -424,6 +424,7 @@ jobs:
         ^tests/Research/Inference/Authoring/Recipes/
         ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
+        ^tests/Convert/Solidworks/WidthDepth/EqWinTests\.py::TestEqWin$
     defaults:
       run:
         shell: bash
@@ -454,6 +455,7 @@ jobs:
           path: ${{ runner.temp }}/ShardPlan
 
       - name: Select required platform cases from the shared collected roster
+        id: platform-cases
         env:
           AuditEvent: ${{ github.event_name }}
         run: |
@@ -474,6 +476,13 @@ jobs:
               '^tests/Policy/Shards/PlatformPlanTests\.py::') AuditSuite=tests/Policy/Shards/PlatformPlanTests.py ;;
               '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
               '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
+              '^tests/Convert/Solidworks/WidthDepth/EqWinTests\.py::TestEqWin$')
+                test "$AuditEvent" = workflow_dispatch
+                if git grep -q '^def TestEqWin(' "$AuditSha" -- tests/Convert/Solidworks/WidthDepth/EqWinTests.py; then
+                  exit 1
+                fi
+                continue
+                ;;
               *) exit 1 ;;
             esac
             test "$AuditEvent" = workflow_dispatch
@@ -496,9 +505,24 @@ jobs:
               --index "$ShardIndex" --count "$ShardCount" --output "$Selected"
           fi
           test -s "$Selected"
+          if grep -Fqx \
+            -e 'tests/Convert/Solidworks/WidthDepth/EqWinTests.py::TestEqWin' "$Selected"; then
+            printf '%s\n' 'measured_windows_part=true' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up the measured Windows part runtime
+        if: runner.os == 'Windows' && steps.platform-cases.outputs.measured_windows_part == 'true'
+        id: measured-part-python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12.7"
+          architecture: x64
+          update-environment: false
 
       - name: Execute the required platform process cases
         id: tests
+        env:
+          KIT_MEASURED_PART_PYTHON: ${{ steps.measured-part-python.outputs.python-path }}
         run: >-
           env GITHUB_SHA="$AuditSha" uv run --no-sync --python 3.14 python -m pytest -p no:cacheprovider
           --durations=20
@@ -511,6 +535,7 @@ jobs:
           jq --slurp --exit-status \
             --rawfile Selected "${RUNNER_TEMP}/PlatformReport/Selected.txt" \
             --argjson ShardCount "$ShardCount" \
+            --arg MeasuredEquation 'tests/Convert/Solidworks/WidthDepth/EqWinTests.py::TestEqWin' \
             --rawfile Native "${RUNNER_TEMP}/PlatformReport/Native.txt" '
             ($Selected | split("\n") | map(select(length > 0))) as $Expected
             | ($Native | split("\n") | map(select(length > 0))) as $NativeIds
@@ -519,6 +544,9 @@ jobs:
               and ([.[] | select(.["$report_type"] == "TestReport")
                     | select(.when == "call" or (.when == "setup" and .outcome == "skipped"))
                     | .nodeid] | sort) == ($Expected | sort)
+              and (($Expected | index($MeasuredEquation) == null)
+                or any(.[]; .["$report_type"] == "TestReport" and .when == "call"
+                    and .outcome == "passed" and .nodeid == $MeasuredEquation))
               and ($ShardCount > 1 or any(.[]; .["$report_type"] == "TestReport" and .when == "call"
                     and .outcome == "passed" and (.nodeid as $Id | $NativeIds | index($Id) != null)))
             ' "${RUNNER_TEMP}/PlatformReport/Report.jsonl"

@@ -12,6 +12,13 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedSchemas
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedVirtuals import (
     KResolvedVirtuals,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AnchorFields import (
+    KAnchorFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.WidthDimLayouts import (
+    KWidthDimLayouts,
+    KWidthDimSchemas,
+)
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
@@ -23,6 +30,8 @@ def MakeResolvedCtx(
     SeedValue: MapSnapshot,
     LinkContext: Mapping[str, int],
     UsageValue: BodyUsage | None,
+    *,
+    PartRelations: bool = False,
 ) -> BodyContext:
     UsageValue = NewBodyUsage(VersionValue, UsageValue)
     if set(LinkContext) != {
@@ -48,10 +57,16 @@ def MakeResolvedCtx(
         )
     return BodyContext(
         VersionValue,
-        KResolvedLayouts,
+        (
+            {**KResolvedLayouts, **KAnchorFields, **KWidthDimLayouts}
+            if PartRelations
+            else KResolvedLayouts
+        ),
         KResolvedVirtuals,
-        KResolvedSchemas,
+        {**KResolvedSchemas, **KWidthDimSchemas} if PartRelations else KResolvedSchemas,
         UsageValue,
-        FlagsValue=dict(LinkContext),
+        FlagsValue=(
+            {**LinkContext, "part_relations": 1} if PartRelations else dict(LinkContext)
+        ),
         PartRootValue=OwnerValue,
     )

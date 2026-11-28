@@ -5,6 +5,10 @@ from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.Staging.WriteWholeMut import WriteWholeMut
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.base.WritePolicy import GetDocumentCaps
+from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import HasEqIntent
+from convert.adapters.solidworks.Core.Writing.Measured.MatchEqMeas import MatchEqMeas
+from convert.adapters.solidworks.Core.Writing.Measured.ReadEqMeas import ReadEqMeas
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
@@ -23,7 +27,8 @@ def EmitNativeMut(
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
     SettingsValue = CheckPartOpts(OptionsValue)
-    WrittenAt, Receipt = ReadPartMeas(SettingsValue)
+    IsEquation = HasEqIntent(DocumentValue)
+    WrittenAt, Receipt = (ReadEqMeas if IsEquation else ReadPartMeas)(SettingsValue)
     OutputPath = (
         FilePath(TargetValue).expanduser().resolve()
         if isinstance(TargetValue, (str, FilePath))
@@ -33,7 +38,16 @@ def EmitNativeMut(
         DocumentValue, OutputPath or TargetValue, WrittenAt, SettingsValue
     )
     Payload = Candidate.BytesValue
-    Evidence = MatchPartMeas(Receipt, Payload)
+    Evidence = (MatchEqMeas if IsEquation else MatchPartMeas)(Receipt, Payload)
+    NativeCaps = GetDocumentCaps(DocumentValue) if IsEquation else DocumentValue.capabilities
+    TransfersValue = (
+        tuple(
+            CapTransfer(CapabilityValue, TransferMode.KNative)
+            for CapabilityValue in sorted(NativeCaps)
+        )
+        if IsEquation or IsColdRead(DocumentValue)
+        else ()
+    )
     if OutputPath is not None:
         with OutputPath.open("wb" if SettingsValue.overwrite else "xb") as OutputFile:
             if OutputFile.write(Payload) != len(Payload):
@@ -45,14 +59,7 @@ def EmitNativeMut(
         KPartFormatId,
         len(Payload),
         metadata=Evidence,
-        transfers=(
-            tuple(
-                CapTransfer(CapabilityValue, TransferMode.KNative)
-                for CapabilityValue in sorted(DocumentValue.capabilities)
-            )
-            if IsColdRead(DocumentValue)
-            else ()
-        ),
+        transfers=TransfersValue,
         vendor_loadable=True,
         application_usable=True,
     )

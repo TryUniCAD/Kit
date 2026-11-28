@@ -6,6 +6,8 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
+from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import HasEqIntent
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
     ColdReadInput,
@@ -41,7 +43,7 @@ class SldprtWriter(PairProtocol):
                     else DocValue.sketches[0].name
                 )
                 DocValue = ColdReadInput(DocValue, NameValue)
-            PlanValue = PlanPartWrite(DocValue)
+            PlanValue = PlanEqPart(DocValue)[1] if HasEqIntent(DocValue) else PlanPartWrite(DocValue)
         except (IndexError, TypeError, ValueError):
             return False
         if PathValue is not None:

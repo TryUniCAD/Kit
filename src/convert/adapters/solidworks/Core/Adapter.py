@@ -175,6 +175,8 @@ from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
+from convert.adapters.solidworks.Core.TypedResolved.Equations.BindWidthDepth import BindWidthDepth
+from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadEqPart import ReadEqPart
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -363,9 +365,9 @@ def ReadNativePart(
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
     Model = (
-        NativePartModel(Archive, Settings.configuration)
+        NativePartModel(Archive, Settings.configuration, Settings)
         if ModelValue is None
-        else ModelValue
+        else ReadEqPart(ModelValue, Archive, Settings)
     )
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
@@ -505,6 +507,11 @@ def ReadNativePart(
                 "native_name_record_count": len(Model.names),
                 "native_scalar_count": len(Model.scalars),
                 "stream_names": tuple((Record.name for Record in Archive.records)),
+                **(
+                    {"solidworks.typed_width_depth": Model.WidthDepth.EvidenceValue}
+                    if Model.WidthDepth is not None
+                    else {}
+                ),
                 **(
                     {KUnresolvedEqTargets: tuple(UnresolvedTargets)}
                     if UnresolvedTargets
@@ -2207,7 +2214,9 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 
 
 # this definition exists because focused behavior needs one stable owner
-def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+def NativePartModel(
+    Archive: SldprtArchive, Requested: str | None, Settings: ReadOptions | None = None
+) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2259,6 +2268,23 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
     if SelectedStream == KitResolvedStream:
         return Model
 
+    return RefinePart(Model, Archive, ConfigData, Resolved, ConfigStream, SelectedStream, Settings)
+
+
+# the linked equation path must precede legacy fallback discovery when it can decide the result
+def RefinePart(
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    ConfigData: bytes,
+    Resolved: bytes,
+    ConfigStream: str,
+    SelectedStream: str,
+    Settings: ReadOptions | None,
+) -> NativeModel:
+    if Settings is not None:
+        EquationModel = ReadEqPart(Model, Archive, Settings)
+        if EquationModel is not Model:
+            return EquationModel
     Model = WithTypedNative(Model, Archive)
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
@@ -2320,7 +2346,7 @@ def Parameters(
     DimensionIds: dict[tuple[str, str], str] = {}
     AmbiguousDims: set[tuple[str, str]] = set()
     for Feature in Model.features:
-        for Dimension, ParamId in ParamEntries(Feature.object_id, Feature.dimensions):
+        for Dimension, ParamKey in ParamEntries(Feature.object_id, Feature.dimensions):
             NativeValue = (
                 Dimension.native_value
                 if Dimension.native_value is not None
@@ -2332,7 +2358,7 @@ def Parameters(
             )
             Parameters.append(
                 Param(
-                    id=ParamId,
+                    id=ParamKey,
                     name=Dimension.name,
                     value=DimensionParam(Dimension),
                     role=(
@@ -2395,7 +2421,14 @@ def Parameters(
             if QualifiedName in DimensionIds:
                 AmbiguousDims.add(QualifiedName)
             else:
-                DimensionIds[QualifiedName] = ParamId
+                DimensionIds[QualifiedName] = ParamKey
+    if Model.WidthDepth is not None:
+        return BindWidthDepth(
+            Parameters,
+            ParamId(Model.WidthDepth.WidthFeature, "D1"),
+            ParamId(Model.WidthDepth.DepthFeature, "D1"),
+            Model.WidthDepth,
+        )
     return ApplyNativeMut(
         Parameters, Model, DimensionIds, frozenset(AmbiguousDims), UnresolvedTargets
     )
@@ -2800,7 +2833,7 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
     if Sketch.TypedLines is not None:
-        return LineSketch(Sketch)
+        return LineSketch(Sketch, ParamIds)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities

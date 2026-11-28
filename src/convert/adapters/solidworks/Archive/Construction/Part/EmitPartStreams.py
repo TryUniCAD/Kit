@@ -46,16 +46,25 @@ def EmitPartStreams(
     InputValue: PartBuildInput,
     PlanValue: BlindPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    PartRelations: bool = False,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
-    ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
+    ConfigBytes, ConfigValue = WriteConfigMut(
+        SystemValue.RootValue, 19000, HeaderValue, PartRelations=PartRelations
+    )
     ContextValue = {
         "model_compressed_stream": 1,
         "model_is_part": 1,
         "cmgr_f658": CastValue(int, SystemValue.ManagerValue.FieldsValue["f658"]),
     }
     ResolvedBytes, ResolvedValue = WriteResolMut(
-        FeatureValues, None, 19000, ConfigValue.MapValue, ContextValue
+        FeatureValues,
+        None,
+        19000,
+        ConfigValue.MapValue,
+        ContextValue,
+        PartRelations=PartRelations,
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),

@@ -4,6 +4,12 @@ from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import (
     SetCfgStampMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import (
+    DimensionGraph,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Equations.BindWidthMut import (
+    BindWidthMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBlindMut import (
     MakeBlindMut,
 )
@@ -48,6 +54,8 @@ def FinishBlindMut(
     PlanValue: BlindPlan,
     Allocator: PersistentIds,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    WidthDriver: DimensionGraph | None = None,
 ) -> PartCandidate:
     BossValue = MakeBlindMut(
         PlanValue.FeatureName,
@@ -59,6 +67,8 @@ def FinishBlindMut(
         InputValue.DesignIntent,
         InputValue.SelectedLeader,
     )
+    if WidthDriver is not None:
+        BindWidthMut(SystemValue.RootValue, WidthDriver, BossValue.DimensionsValue[0])
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)
@@ -75,6 +85,7 @@ def FinishBlindMut(
         InputValue,
         PlanValue,
         SketchDims,
+        PartRelations=WidthDriver is not None,
     )
     BytesValue = BuildSldprt(StreamsValue, FormatVersion=4)
     return PartCandidate(
