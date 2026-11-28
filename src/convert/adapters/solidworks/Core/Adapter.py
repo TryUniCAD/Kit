@@ -141,6 +141,12 @@ from convert.adapters.solidworks.Container.Format import (
     SUFFIX_BY_FORMAT_ID as SuffixByFormatId,
 )
 from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByNative
+from convert.adapters.solidworks.Core.ConfigLanes import (
+    KResolvedConfigStream,
+    ResolvedLanes,
+    ResolvedStream,
+    SelectLaneId,
+)
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildRevolve
 from convert.adapters.solidworks.Core.EquationLinks import EquationData
@@ -175,6 +181,10 @@ from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwPart import (
+    IsScopedSweep,
+    ReadSwPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -185,6 +195,7 @@ from convert.adapters.solidworks.Core.Native import (
     NativePlane,
     NativeProfile,
     NativeSketch,
+    ParseKeywords,
     DIRECTION_AXIS_ROLE as DirectionAxisRole,
     decode_native_model as DecodeNativeModel,
     operation_axis_subelement as OperationAxisSubElem,
@@ -250,9 +261,6 @@ KSourceKeys = frozenset(
     }
 )
 
-
-# this binding exists because shared behavior needs one stable value
-KResolvedConfigStream = RegexLib.compile("^Contents/Config-(\\d+)-ResolvedFeatures$")
 
 # native part geometry and the design body need the same public identifier
 KPartBodyId = "sldprt:body:1"
@@ -349,6 +357,15 @@ def ReadAction(
         )
         ValidateSource(Label, True)
         return DocValue
+    if not Settings.extract_raw_brep and IsScopedSweep(Archive, Settings.configuration):
+        try:
+            DocValue = ReadSwPart(Archive, DataValue, Label, Settings)
+        except SldprtFormatError:
+            if Settings.strict:
+                raise
+        else:
+            ValidateSource(Label, False)
+            return DocValue
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 
 
@@ -2185,11 +2202,6 @@ def SourceBytes(Source: Source) -> tuple[bytes, str]:
     return (bytes(Value), str(NameValue))
 
 
-# this definition exists because focused behavior needs one stable owner
-def ResolvedStream(Streams: Mapping[str, bytes], LaneValue: str) -> str:
-    return KitResolvedStream if KitResolvedStream in Streams else LaneValue
-
-
 # a warning needs the reached configuration map and typed resolved system prefix
 def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) -> bool:
     if (
@@ -2209,36 +2221,15 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 # this definition exists because focused behavior needs one stable owner
 def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
-    Lanes = {
-        int(Match.group(1)): NameValue
-        for NameValue in Archive.streams
-        if (Match := KResolvedConfigStream.fullmatch(NameValue)) is not None
-    }
+    Lanes = ResolvedLanes(Archive.streams)
     if not Lanes:
         raise SldprtFormatError("required native resolved-feature stream is missing")
-    InitialId = 0 if 0 in Lanes else min(Lanes)
-    InitialStream = ResolvedStream(Archive.streams, Lanes[InitialId])
-    Initial = DecodeNativeModel(
-        Keywords,
-        Archive.require(InitialStream),
-        configuration_id=InitialId,
-        resolved_stream=InitialStream,
-    )
-    SelectedId = InitialId
-    if Requested is not None:
-        Selected = next(
-            (
-                ItemValue.configuration_id
-                for ItemValue in Initial.configurations
-                if ItemValue.name == Requested
-            ),
-            None,
+    ConfigValues = ParseKeywords(Keywords)[0]
+    SelectedId = SelectLaneId(ConfigValues, Lanes, Requested)
+    if SelectedId is None:
+        raise SldprtFormatError(
+            f"configuration {Requested!r} is unavailable; choices are {sorted(ItemValue.name for ItemValue in ConfigValues)}"
         )
-        if Selected is None:
-            raise SldprtFormatError(
-                f"configuration {Requested!r} is unavailable; choices are {sorted((ItemValue.name for ItemValue in Initial.configurations))}"
-            )
-        SelectedId = Selected
     if SelectedId not in Lanes:
         raise SldprtFormatError(
             f"native data for configuration {SelectedId} is unavailable; available lanes are {sorted(Lanes)}"

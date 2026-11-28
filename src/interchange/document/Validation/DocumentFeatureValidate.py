@@ -51,7 +51,9 @@ def GetFeatureErrs(
                 Selections,
             )
         )
-        ErrorValues.extend(GetStepErrors(FeatureValue, FeatureOrders, IdentitySets))
+        ErrorValues.extend(
+            GetStepErrors(FeatureValue, FeatureOrders, IdentitySets, Sketches)
+        )
         ErrorValues.extend(
             GetDefErrors(
                 FeatureValue,

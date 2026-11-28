@@ -8,6 +8,7 @@ from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeatureKinds import CombineFeature
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
+from interchange.Features.SweepFeature import SweepFeature
 
 # body generation must distinguish profile based creation from operations that require existing geometry
 KCreatorTypes = (DistanceExtrude, PlaneExtrude, AngularRevolve, PlaneRevolve)
@@ -19,6 +20,7 @@ KDefinitionKinds: dict[type[object], FeatureKind] = {
     PlaneExtrude: FeatureKind.KExtrusion,
     AngularRevolve: FeatureKind.KRevolution,
     PlaneRevolve: FeatureKind.KRevolution,
+    SweepFeature: FeatureKind.KSweep,
     BoundDatum: FeatureKind.KReference,
     BoundScale: FeatureKind.KScale,
     FaceOffset: FeatureKind.KOffset,

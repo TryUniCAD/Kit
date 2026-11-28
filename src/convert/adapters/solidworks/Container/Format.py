@@ -80,6 +80,9 @@ KConfigStream = "Contents/Config-0"
 # this binding exists because shared behavior needs one stable value
 KPartitionStream = "Contents/Config-0-Partition"
 
+# the standard sweep owns both picked shapes in its separate ghost transport
+KGhostPartition = "Contents/Config-0-GhostPartition"
+
 # this binding exists because shared behavior needs one stable value
 KSolidworksStream = "Contents/SolidWorks"
 

@@ -1,4 +1,7 @@
 from typing import cast as CastValue
+from convert.adapters.solidworks.Archive.Construction.Circles.RequireRadial import (
+    RequireRadial,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.CheckViewArgs import (
@@ -17,6 +20,12 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 def RequireDisplay(
     HandleValue: ArchiveNode, DesignIntent: bool, SelectedLeader: int, TextKind: int
 ) -> ArchiveNode:
+    if isinstance(
+        CastValue(object, HandleValue), ArchiveNode
+    ) and HandleValue.ClassValue == RuntimeClass("moSkDimHandleRadial_c", 1):
+        OwnerValue = RequireRadial(HandleValue, TextKind)
+        CheckViewArgs(DesignIntent, SelectedLeader)
+        return OwnerValue
     if isinstance(
         CastValue(object, HandleValue), ArchiveNode
     ) and HandleValue.ClassValue == RuntimeClass("moSkDimHandleValG2_c", 1):

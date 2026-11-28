@@ -11,7 +11,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 
 # public semantic reads must enter through the same proven configuration and resolved alias chain
-def ReadNativeLink(Archive: SldprtArchive, ConfigId: int | None) -> NativeLink:
+def ReadNativeLink(
+    Archive: SldprtArchive, ConfigId: int | None, *, ReadSweeps: bool = False
+) -> NativeLink:
     VersionValue = ContainerMo(Archive.streams)
     if (
         VersionValue != 19000
@@ -27,12 +29,15 @@ def ReadNativeLink(Archive: SldprtArchive, ConfigId: int | None) -> NativeLink:
     HeaderValue = ReadHeaderGraph(
         Archive.require(ConfigName + "-ModelHeader"), VersionValue
     )
-    ConfigValue = ReadConfigMut(Archive.require(ConfigName), VersionValue, HeaderValue)
+    ConfigValue = ReadConfigMut(
+        Archive.require(ConfigName), VersionValue, HeaderValue, SweepGhosts=ReadSweeps
+    )
     ManagerValue = ReadCmgrMut(Archive.require("Contents/CMgr"), VersionValue)
     ResolvedValue = ReadResolvedMut(
         Archive.require(StreamName),
         VersionValue,
         ConfigValue.MapValue,
         MakeLinkContext(ConfigValue, ManagerValue),
+        ReadSweeps=ReadSweeps,
     )
-    return NativeLink(ConfigValue, ResolvedValue, ConfigName, StreamName)
+    return NativeLink(ConfigValue, ResolvedValue, ConfigName, StreamName, ManagerValue)

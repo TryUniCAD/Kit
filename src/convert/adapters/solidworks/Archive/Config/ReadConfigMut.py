@@ -21,8 +21,11 @@ def ReadConfigMut(
     HeaderValue: ArchiveNode,
     *,
     UsageValue: BodyUsage | None = None,
+    SweepGhosts: bool = False,
 ) -> ConfigGraph:
-    ContextValue = MakeConfigCtx(VersionValue, HeaderValue, UsageValue)
+    ContextValue = MakeConfigCtx(
+        VersionValue, HeaderValue, UsageValue, SweepGhosts=SweepGhosts
+    )
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),

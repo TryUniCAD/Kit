@@ -276,6 +276,10 @@ def CheckRegistry() -> None:
         "PlaneIntersectionAxis",
         "ScopedExtrusionFeature",
     }
+    SweepWire = {"$type": "SweepFeature", "path_sketch_id": "sweep-path"}
+    SweepValue = FromData(SweepWire)
+    assert type(SweepValue) is InterchangeApi.SweepFeature
+    assert ToData(SweepValue) == SweepWire
 
 
 # historical feature state must survive pickle loading through public document validation

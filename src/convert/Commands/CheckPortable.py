@@ -21,7 +21,7 @@ KInspectText = (
 
 
 # writer success must not qualify opaque records incomplete assemblies or retained source data
-def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -> None:
+def CheckPortable(Document: CadDocument, *, PartQualified: bool = False) -> None:
     for PartValue in WalkDocuments(Document):
         Freecad = PartValue.metadata.get("freecad")
         for RecordName, IsBlocked in (
@@ -113,10 +113,10 @@ def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -
             ):
                 if isinstance(Geometry, (NativeCurve, NativePcurve, NativeSurface)):
                     raise ValueError(type(Geometry).__name__ + KInspectText)
-        if not WriterQualifiedPart:
+        if not PartQualified:
             CheckFeatures(PartValue)
     CheckRetained(Document)
-    if not WriterQualifiedPart:
+    if not PartQualified:
         for PartValue in WalkDocuments(Document):
             CheckGeometry(PartValue)
     for PartValue in WalkDocuments(Document):

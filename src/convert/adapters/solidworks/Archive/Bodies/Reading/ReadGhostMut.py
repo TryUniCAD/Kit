@@ -12,6 +12,11 @@ def ReadGhostMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
     if FrameValue.ContextValue.VersionValue != KHeaderVersion:
         raise BodyUnsupported("SOLIDWORKS ghost count requires archive version 19000")
     Packed = CastValue(int, ReadScalarMut(FrameValue.ReaderValue.Cursor, "i32"))
+    if FrameValue.ContextValue.FlagsValue.get("sweep_ghosts") == 1 and (
+        Packed >> 28,
+        Packed & 0x0FFFFFFF,
+    ) != (2, 2):
+        raise BodyUnsupported("SOLIDWORKS cold sweep requires its two ghost records")
     Fields = FrameValue.ScopeValue.FieldsValue
     Fields[RuleValue.OtherName] = Packed >> 28
     Fields[RuleValue.NameValue] = Packed & 0x0FFFFFFF

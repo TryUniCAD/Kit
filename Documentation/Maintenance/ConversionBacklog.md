@@ -80,6 +80,20 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### B04-SW2026-MEASURED-SWEEP
+
+The PR #121 takeover team owns the isolated Standard sweep writer delivery on
+`codex/solidworks-sweep-main-delivery`. It depends on the accepted
+[standalone part writer](https://github.com/TryUniCAD/Kit/pull/235), the
+measured quarter-arc recipe and exact offline native attestation.
+The scoped SDK streams reproduce both disclosed measured parts with all
+six inferred domains transferred. Both strict cold projections reproduce
+the measured archive on re-export. The delivery exits after [PR #238](https://github.com/TryUniCAD/Kit/pull/238) passes
+current-head review, CI and queue acceptance. Native-saved and broader
+sweep variants remain separate work.
+[Format and evidence record](../../re/solidworks/records/ScopedSweepWriter2026.md)
+[Cold readback and exact re-export](../../re/solidworks/records/ScopedSweepReadback2026.md)
+
 ### B10-RunDefaults
 
 Codex owns the profile-independent catalogue shortcut on `codex/desktop-run-defaults`.
