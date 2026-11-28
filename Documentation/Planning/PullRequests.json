@@ -4,17 +4,30 @@
   "Purpose": "Dated open PR and recent delivery collision inventory; authors are contacts, not inferred scope owners; checks and approvals require fresh revision-bound evidence",
   "PullRequests": [
     {
-      "number": 402,
-      "title": "fix(review): review each revision independently of approval readiness",
-      "url": "https://github.com/TryUniCAD/Kit/pull/402",
-      "author": "jdharcourt",
-      "headBranch": "fix/reviewer-review-on-change-20261128",
+      "number": 404,
+      "title": "fix(solidworks): honor assembly tessellation opt-out",
+      "url": "https://github.com/TryUniCAD/Kit/pull/404",
+      "author": "Stephen316",
+      "headBranch": "codex/solidworks-assembly-tessellation",
       "baseBranch": "main",
       "state": "open",
-      "isDraft": true,
+      "isDraft": false,
       "reviewDecision": "review-required",
       "checksState": "pending",
-      "updatedAt": "2026-11-28T16:52:17Z"
+      "updatedAt": "2026-11-28T17:48:50Z"
+    },
+    {
+      "number": 403,
+      "title": "fix(research): report provisional holdout selections",
+      "url": "https://github.com/TryUniCAD/Kit/pull/403",
+      "author": "Stephen316",
+      "headBranch": "codex/provisional-inference-survivor",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": "review-required",
+      "checksState": "pending",
+      "updatedAt": "2026-11-28T17:45:41Z"
     },
     {
       "number": 401,
@@ -1057,6 +1070,19 @@
       "updatedAt": "2026-11-27T00:26:23Z"
     },
     {
+      "number": 402,
+      "title": "fix(review): review each revision independently of approval readiness",
+      "url": "https://github.com/TryUniCAD/Kit/pull/402",
+      "author": "jdharcourt",
+      "headBranch": "fix/reviewer-review-on-change-20261128",
+      "baseBranch": "main",
+      "state": "merged",
+      "isDraft": false,
+      "reviewDecision": "review-required",
+      "checksState": "passing",
+      "updatedAt": "2026-11-28T17:33:29Z"
+    },
+    {
       "number": 400,
       "title": "feat(review): pin review runtime and react to mention requests",
       "url": "https://github.com/TryUniCAD/Kit/pull/400",
@@ -1289,32 +1315,6 @@
       "reviewDecision": "approved",
       "checksState": "passing",
       "updatedAt": "2026-11-27T13:32:04Z"
-    },
-    {
-      "number": 359,
-      "title": "ci: give each queue candidate its own aggregation slot",
-      "url": "https://github.com/TryUniCAD/Kit/pull/359",
-      "author": "usehoplite",
-      "headBranch": "hoplite/lilaia-59618fe9--queue-agg-per-candidate",
-      "baseBranch": "main",
-      "state": "closed",
-      "isDraft": false,
-      "reviewDecision": "review-required",
-      "checksState": "failing",
-      "updatedAt": "2026-11-26T23:22:21Z"
-    },
-    {
-      "number": 322,
-      "title": "fix(ci): restore required Python verification on the catalogue branch",
-      "url": "https://github.com/TryUniCAD/Kit/pull/322",
-      "author": "Stephen316",
-      "headBranch": "codex/catalogue-base-python-checks",
-      "baseBranch": "wip/pr158-cad-catalogue-runner",
-      "state": "closed",
-      "isDraft": false,
-      "reviewDecision": "approved",
-      "checksState": "failing",
-      "updatedAt": "2026-11-26T23:19:47Z"
     }
   ]
 }
