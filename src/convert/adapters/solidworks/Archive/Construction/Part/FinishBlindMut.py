@@ -53,7 +53,9 @@ def FinishBlindMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,
         ProfileValue,
-        BlindEndInput(PlanValue.DepthValue, False, 19000),
+        BlindEndInput(
+            PlanValue.DepthValue, PlanValue.Reversed, 19000, PlanValue.DepthName
+        ),
         InputValue.TargetValue,
         Allocator,
         InputValue.DesignIntent,

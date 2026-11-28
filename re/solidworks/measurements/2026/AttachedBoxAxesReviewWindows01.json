@@ -1,0 +1,153 @@
+{
+  "additional_historical_corpus_cases": 0,
+  "archive_sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+  "default_cli_source_evidence_verified": true,
+  "file_hashes": [
+    {
+      "bytes": 10707,
+      "name": "F14c.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "cli_explicit.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "cli_inferred.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "cli_text.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "sdk_explicit.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "sdk_inferred.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    }
+  ],
+  "native_path": "C:\\KitAttachedBoxAxes01\\F14c.SLDPRT",
+  "new_native_lifetimes": 0,
+  "original_restored": true,
+  "pinned_oracle_build": "34.5.2.0604",
+  "publications": [
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "sdk_explicit",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    },
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "sdk_inferred",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    },
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "cli_explicit",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    },
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "cli_inferred",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    },
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "cli_text",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    }
+  ],
+  "python_machine": "ARM64",
+  "python_version": "3.12.7",
+  "schema": "kit.sw2026.attached-box-windows-review-publication.v1",
+  "source_archive_sha256": "aa1f44e45b9516f2350b0df4440b0cc266fd9912f106cf09c03a321e6c06b04b",
+  "source_revision": "4b78c9361fca556225f1979ed9cc70539f3415b2",
+  "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "source_tree": "9d1e440db0ffdf685733882269de87fa69c39ba4",
+  "stream_preflight": {
+    "native_capabilities": [
+      "body_structure",
+      "brep",
+      "configurations",
+      "parameters",
+      "parametric_history",
+      "support_planes"
+    ],
+    "source_evidence_capabilities": [
+      "native_payloads",
+      "provenance",
+      "roundtrip_metadata"
+    ]
+  },
+  "transport_sha256": "a27f2bd2e1eef05816b89726106514f689c5b8279af2f24ace4d3d98ed632493",
+  "worker_sha256": "e608ec4890ffcdf7b7ef7a138d4e0522b0910ba317149feb7b5db008c599803e",
+  "zlib_runtime": "1.3.1"
+}

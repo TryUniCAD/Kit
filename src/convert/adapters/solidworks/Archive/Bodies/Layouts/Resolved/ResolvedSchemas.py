@@ -40,6 +40,16 @@ KResolvedSchemas = MappingProxyType(
         "moSurfaceBodyFolder_c": (1,),
         "sgLineHandle": (1,),
         "sgPointHandle": (1,),
+        "moCompSketchEntHandle_c": (1,),
+        "moPointBackedUpData_c": (1,),
+        "moPlaneInterAxisData_c": (1,),
+        "moPlaneRef_w": (1,),
+        "moRefAxis_c": (1,),
+        "moSketchExtRef_w": (1,),
+        "moSkDimHandleValG2_c": (1,),
+        "sgEntHandle": (1,),
+        "sgExtEnt_c": (1,),
+        "sgPntPntDist": (1,),
         "sgSketch": (1,),
     }
 )

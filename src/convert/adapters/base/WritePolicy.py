@@ -12,6 +12,7 @@ from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import RegistryError
+from convert.adapters.base.SourceEvidenceKey import KSourceEvidence
 from convert.adapters.base.TransferContract import CapTransfer
 from convert.adapters.base.TransferContract import CarrierReason
 from convert.adapters.base.TransferContract import TransferMode
@@ -52,8 +53,11 @@ def CheckTransfers(
     DocumentData: CadDocument,
     InfoData: AdapterInfo,
     ResultData: WriteResult,
+    SourceCaps: frozenset[Capability] | None = None,
 ) -> tuple[CapTransfer, ...]:
-    CapabilityValues = GetDocumentCaps(DocumentData)
+    CapabilityValues = (
+        GetDocumentCaps(DocumentData) if SourceCaps is None else SourceCaps
+    )
     if ResultData.DroppedCaps:
         raise CapLossError(InfoData.FormatId, ResultData.DroppedCaps)
     if not ResultData.Transfers:
@@ -171,7 +175,16 @@ def RunCheckedMut(
         raise RegistryError(
             f"writer {AdapterData.info.FormatId} returned write format {ResultData.AdapterName}"
         )
-    TransferValues = CheckTransfers(DocumentData, AdapterData.info, ResultData)
+    SourceCaps = None
+    if KSourceEvidence in ResultData.MetadataMap:
+        from convert.adapters.solidworks.Core.Writing.AttachedBox.BoxTransferCaps import (
+            BoxTransferCaps,
+        )
+
+        SourceCaps = BoxTransferCaps(DocumentData, AdapterData, ResultData)
+    TransferValues = CheckTransfers(
+        DocumentData, AdapterData.info, ResultData, SourceCaps
+    )
     CheckedResult = NormalizeUsable(
         ReplaceValue(ResultData, transfers=TransferValues, dropped=frozenset())
     )

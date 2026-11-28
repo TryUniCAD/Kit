@@ -28,7 +28,7 @@ def ReadEndParam(
         "moAngleParameter_c" if IsAngular else "moLengthParameter_c",
     )
     NameValue = RequireEndNode(ParamValue.FieldsValue["f18"], "moNodeName_c")
-    if NameValue.FieldsValue["f08"] != f"D{OrdinalValue}":
+    if NameValue.FieldsValue["f08"] != InputValue.DriverName(OrdinalValue):
         raise ValueError("blind dimension name does not match its constructor role")
     ExpectedValue = float(InputValue.DepthValue) if OrdinalValue in (1, 2) else 0.0
     NativeValue = ParamValue.FieldsValue["f58"]

@@ -14,7 +14,13 @@ from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.registry.NativeHistory import CheckHistory
+from convert.adapters.registry.CheckPartSource import CheckPartSource
+from convert.adapters.solidworks.Core.Writing.AttachedBox.CheckBoxTarget import (
+    CheckBoxTarget,
+)
+from convert.adapters.solidworks.Core.Writing.AttachedBox.ReadBoxMeasure import (
+    ReadBoxMeasure,
+)
 from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
@@ -129,8 +135,7 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
-            CheckHistory(DocumentData)
+        SourceProof = CheckPartSource(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)
@@ -142,9 +147,18 @@ class WriteApi(WriteLookup):
         CheckReadOnly(DocumentData)
         if SelectedOpts.Validate:
             DocumentData.AssertValid()
-        UnsupportedCaps = GetDocumentCaps(DocumentData) - AdapterData.info.Capabilities
+        SourceCaps = (
+            GetDocumentCaps(DocumentData)
+            if SourceProof is None
+            else SourceProof.NativeCaps
+        )
+        UnsupportedCaps = SourceCaps - AdapterData.info.Capabilities
         if UnsupportedCaps:
             raise CapLossError(AdapterData.info.FormatId, UnsupportedCaps)
+        if SourceProof is not None:
+            _ = CheckBoxTarget(
+                TargetData, ReadBoxMeasure(SelectedOpts, SourceProof.PlanValue)
+            )
         if isinstance(TargetData, (str, FilePath)):
             return WritePathStaged(
                 DocumentData,

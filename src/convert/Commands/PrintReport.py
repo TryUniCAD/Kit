@@ -16,4 +16,8 @@ def PrintReport(Report: dict[str, object]) -> None:
         "diagnostics",
     ):
         print(FieldName + ": " + DumpJson(Report[FieldName], ensure_ascii=True))
+    if "source_evidence" in Report:
+        print(
+            "source_evidence: " + DumpJson(Report["source_evidence"], ensure_ascii=True)
+        )
     print(str(Report["acceptance"]))

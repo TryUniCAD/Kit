@@ -338,6 +338,20 @@ with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
 
+The exact disclosed FreeCAD 0.21.2 F14c attached box also has a measured
+native publication route. It preserves the three driving dimensions,
+the signed Top-plane boss and the three principal axes with their
+ordered plane selections. The SDK verifies the intact FreeCAD archive
+binding and accounts for its source-only provenance separately.
+
+For this route, `solidworks_native_measurement` takes `written_at` and
+a `receipt` object with `summary` and `native_result`. Read both original
+records as bytes and decode UTF-8 so their line endings stay intact.
+Put the same envelope in the CLI's `--native-measurement` file. A file
+write needs the actual measured Windows destination. An empty binary
+stream needs that exact value as `final_destination`.
+[Scope, evidence and usage](../../Changes/Solidworks/Construction/SolidworksMeasuredFreecadBox.md)
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.

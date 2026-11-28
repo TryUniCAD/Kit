@@ -31,7 +31,7 @@ KBodyFields = MappingProxyType(
                         "Branch",
                         "",
                         BodyValue=(
-                            NativeField("Fail", "alternate moAtomFeature_c Branch"),
+                            NativeField("Embed", "f528", "rf.suObArray.ResultAtoms"),
                         ),
                         ModeValue="Expression",
                         ExpressionValue=(
@@ -105,11 +105,7 @@ KBodyFields = MappingProxyType(
                                 "Array",
                                 "f498",
                                 "i32",
-                                BodyValue=(
-                                    NativeField(
-                                        "Fail", "alternate moAtomFeature_c f498"
-                                    ),
-                                ),
+                                BodyValue=(NativeField("Scalar", "v", "i32"),),
                                 CountValue="n494",
                                 ModeValue="Positive",
                             ),

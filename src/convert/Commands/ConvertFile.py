@@ -2,6 +2,9 @@ from convert.api.ApiContext import GetRegistry
 from convert.api.ApiOpen import OpenDocument
 from convert.api.ApiWrite import WriteDocument
 from convert.adapters.solidworks.Container.Format import KPartFormatId
+from convert.adapters.solidworks.Core.Writing.AttachedBox.FindBoxProof import (
+    FindBoxProof,
+)
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.NativeMeasVals import NativeMeasVals
@@ -42,7 +45,11 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
     )
     Writer = Registry.GetWriter(DestFormat)
     IsPartWriter = Writer.info.FormatId == KPartFormatId
-    CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
+    ProofValue = FindBoxProof(Writer, Document) if IsPartWriter else None
+    Portable = (
+        Document if ProofValue is None else ProofValue.PlanValue.PartSource.ModelValue
+    )
+    CheckPortable(Portable, WriterQualifiedPart=IsPartWriter)
     Result = WriteDocument(
         Document,
         Options.Destination,

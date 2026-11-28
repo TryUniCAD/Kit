@@ -11,6 +11,7 @@ from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import 
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.AttachedBox.IsBoxSource import IsBoxSource
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
@@ -34,6 +35,12 @@ class SldprtWriter(PairProtocol):
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
+            if IsBoxSource(DocValue):
+                from convert.adapters.solidworks.Core.Writing.AttachedBox.CanWriteBox import (
+                    CanWriteBox,
+                )
+
+                return CanWriteBox(DocValue, Target)
             if IsColdRead(DocValue):
                 NameValue = (
                     PathValue.stem
@@ -59,4 +66,10 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if IsBoxSource(document):
+            from convert.adapters.solidworks.Core.Writing.AttachedBox.EmitBoxMut import (
+                EmitBoxMut,
+            )
+
+            return EmitBoxMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

@@ -10,9 +10,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # point records supply owned coordinates while adjacency handles prove their actual line membership
-def ReadLinePoint(RowValue: Mapping[str, object], IndexValue: int) -> LinePoint:
+def ReadLinePoint(
+    RowValue: Mapping[str, object], IndexValue: int, RefCount: int = 0
+) -> LinePoint:
     FieldsValue = NativeRecord(RowValue.get("point"))
-    CheckLineEntity(FieldsValue)
+    CheckLineEntity(FieldsValue, RefCount)
     CreationId = FieldsValue.get("f0c")
     if (
         RowValue.get("kind") != 0

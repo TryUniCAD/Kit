@@ -227,6 +227,17 @@ coverage, and revision-bound CI and review. Neutral graph projection and
 part and assembly writer qualification have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
 
+### B04-SW2026-FCSTD-BOX
+
+The PR #121 takeover team owns the measured FreeCAD attached-box extraction
+on `codex/solidworks-measured-fcstd-box`. It depends on the measured standalone
+part writer, the intact FreeCAD source and the signed stock and principal axis
+measurements. The main-based proof reproduces the exact published file and its
+strict semantic readback. Exit requires normal current-head review and queue
+acceptance. Other FreeCAD documents and benchmark membership remain open.
+[Exact scope and evidence](../../re/solidworks/records/MeasuredFreecadBoxMain2026.md)
+[Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredFreecadBox.md)
+
 ### B04-SW2026-CONFIG-ATOM-EMISSION
 
 The PR #121 takeover team owns bounded kind-zero atom manager writing

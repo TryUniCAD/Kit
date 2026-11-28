@@ -33,7 +33,10 @@ def BindPartIntent(
     SystemValue = ReplaceValue(
         RecipeValue.SystemValue,
         PlaneNames=tuple(
-            (AxisValue, PlanValue.PlaneName if AxisValue == "z" else NameValue)
+            (
+                AxisValue,
+                PlanValue.PlaneName if AxisValue == PlanValue.AxisValue else NameValue,
+            )
             for AxisValue, NameValue in RecipeValue.SystemValue.PlaneNames
         ),
     )

@@ -1,4 +1,6 @@
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.base.SourceEvidenceKey import KSourceEvidence
+from interchange.serialization.EncodeData import ToData
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
@@ -6,7 +8,9 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 
 # conversion evidence needs a stable public representation without claiming target application acceptance
 def WriteReport(Result: WriteResult) -> dict[str, object]:
+    Evidence = Result.MetadataMap.get(KSourceEvidence)
     return {
+        **({"source_evidence": ToData(Evidence)} if Evidence is not None else {}),
         "path": str(Result.OutputPath) if Result.OutputPath is not None else None,
         "bytes_written": Result.ByteCount,
         "application_usable": Result.IsAppUsable,
