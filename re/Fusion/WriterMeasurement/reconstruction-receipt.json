@@ -1,0 +1,1088 @@
+{
+  "schema": 1,
+  "application": "fusion",
+  "role": "reconstruction",
+  "run_fingerprint": "d234a305703e8e9abb6c8d9c27503a0208fe841d0bf91d5e7606b3557c30ace8",
+  "source_sha256": "dc2e0269311de79c13c3617b6febe9cd47a707d92968903b1c4ed5dfff9625e7",
+  "candidate_sha256": "bb662739916ed12c21680f9e4b53f553625ea799f066ba4e7d2f88417ea55112",
+  "sdk_revision": "a529ff98cb7624982bb05a41c1ab7c07eaed6a38",
+  "controls": {
+    "before": {
+      "application": "fusion",
+      "build": "2706.1.17",
+      "pid": 25000,
+      "source_sha256": "5f9ad382c5e4b15313a59bebe4201ccd5b87137a3f20ebe85f5e3fba79148ca0",
+      "status": "measured",
+      "load_errors": [],
+      "edits": [],
+      "documents_after": 0,
+      "opened": {
+        "features": [
+          {
+            "name": "Encoder Rectangle",
+            "type": "adsk::fusion::Sketch",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Encoder Extrusion",
+            "type": "adsk::fusion::ExtrudeFeature",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "bodies": [
+          {
+            "name": "Encoder Cuboid",
+            "volume_mm3": 6133.272,
+            "center_mm": [
+              8.2,
+              13.55,
+              6.8999999999999995
+            ],
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounds_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                16.4,
+                27.1,
+                13.8
+              ]
+            ]
+          }
+        ],
+        "sketches": [
+          {
+            "name": "Encoder Rectangle",
+            "entities": 4,
+            "constraints": 4,
+            "dimensions": 2
+          }
+        ],
+        "parameters": [
+          {
+            "name": "kitWidth",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "16.4 mm"
+          },
+          {
+            "name": "kitDepth",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "27.1 mm"
+          },
+          {
+            "name": "kitHeight",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "13.8 mm"
+          },
+          {
+            "name": "d4",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitWidth"
+          },
+          {
+            "name": "d5",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitDepth"
+          },
+          {
+            "name": "d6",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitHeight"
+          },
+          {
+            "name": "d7",
+            "value": 0.0,
+            "display_unit": "deg",
+            "unit": "rad",
+            "expression": "0.0 deg"
+          }
+        ]
+      },
+      "rebuilt": {
+        "features": [
+          {
+            "name": "Encoder Rectangle",
+            "type": "adsk::fusion::Sketch",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Encoder Extrusion",
+            "type": "adsk::fusion::ExtrudeFeature",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "bodies": [
+          {
+            "name": "Encoder Cuboid",
+            "volume_mm3": 6133.272,
+            "center_mm": [
+              8.2,
+              13.55,
+              6.8999999999999995
+            ],
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounds_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                16.4,
+                27.1,
+                13.8
+              ]
+            ]
+          }
+        ],
+        "sketches": [
+          {
+            "name": "Encoder Rectangle",
+            "entities": 4,
+            "constraints": 4,
+            "dimensions": 2
+          }
+        ],
+        "parameters": [
+          {
+            "name": "kitWidth",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "16.4 mm"
+          },
+          {
+            "name": "kitDepth",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "27.1 mm"
+          },
+          {
+            "name": "kitHeight",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "13.8 mm"
+          },
+          {
+            "name": "d4",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitWidth"
+          },
+          {
+            "name": "d5",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitDepth"
+          },
+          {
+            "name": "d6",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitHeight"
+          },
+          {
+            "name": "d7",
+            "value": 0.0,
+            "display_unit": "deg",
+            "unit": "rad",
+            "expression": "0.0 deg"
+          }
+        ]
+      }
+    },
+    "after": {
+      "application": "fusion",
+      "build": "2706.1.17",
+      "pid": 24112,
+      "source_sha256": "5f9ad382c5e4b15313a59bebe4201ccd5b87137a3f20ebe85f5e3fba79148ca0",
+      "status": "measured",
+      "load_errors": [],
+      "edits": [],
+      "documents_after": 0,
+      "opened": {
+        "features": [
+          {
+            "name": "Encoder Rectangle",
+            "type": "adsk::fusion::Sketch",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Encoder Extrusion",
+            "type": "adsk::fusion::ExtrudeFeature",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "bodies": [
+          {
+            "name": "Encoder Cuboid",
+            "volume_mm3": 6133.272,
+            "center_mm": [
+              8.2,
+              13.55,
+              6.8999999999999995
+            ],
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounds_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                16.4,
+                27.1,
+                13.8
+              ]
+            ]
+          }
+        ],
+        "sketches": [
+          {
+            "name": "Encoder Rectangle",
+            "entities": 4,
+            "constraints": 4,
+            "dimensions": 2
+          }
+        ],
+        "parameters": [
+          {
+            "name": "kitWidth",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "16.4 mm"
+          },
+          {
+            "name": "kitDepth",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "27.1 mm"
+          },
+          {
+            "name": "kitHeight",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "13.8 mm"
+          },
+          {
+            "name": "d4",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitWidth"
+          },
+          {
+            "name": "d5",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitDepth"
+          },
+          {
+            "name": "d6",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitHeight"
+          },
+          {
+            "name": "d7",
+            "value": 0.0,
+            "display_unit": "deg",
+            "unit": "rad",
+            "expression": "0.0 deg"
+          }
+        ]
+      },
+      "rebuilt": {
+        "features": [
+          {
+            "name": "Encoder Rectangle",
+            "type": "adsk::fusion::Sketch",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Encoder Extrusion",
+            "type": "adsk::fusion::ExtrudeFeature",
+            "suppressed": false,
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "bodies": [
+          {
+            "name": "Encoder Cuboid",
+            "volume_mm3": 6133.272,
+            "center_mm": [
+              8.2,
+              13.55,
+              6.8999999999999995
+            ],
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounds_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                16.4,
+                27.1,
+                13.8
+              ]
+            ]
+          }
+        ],
+        "sketches": [
+          {
+            "name": "Encoder Rectangle",
+            "entities": 4,
+            "constraints": 4,
+            "dimensions": 2
+          }
+        ],
+        "parameters": [
+          {
+            "name": "kitWidth",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "16.4 mm"
+          },
+          {
+            "name": "kitDepth",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "27.1 mm"
+          },
+          {
+            "name": "kitHeight",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "13.8 mm"
+          },
+          {
+            "name": "d4",
+            "value": 1.64,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitWidth"
+          },
+          {
+            "name": "d5",
+            "value": 2.7100000000000004,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitDepth"
+          },
+          {
+            "name": "d6",
+            "value": 1.3800000000000001,
+            "display_unit": "mm",
+            "unit": "cm",
+            "expression": "kitHeight"
+          },
+          {
+            "name": "d7",
+            "value": 0.0,
+            "display_unit": "deg",
+            "unit": "rad",
+            "expression": "0.0 deg"
+          }
+        ]
+      }
+    }
+  },
+  "candidate": {
+    "application": "fusion",
+    "build": "2706.1.17",
+    "pid": 34032,
+    "source_sha256": "bb662739916ed12c21680f9e4b53f553625ea799f066ba4e7d2f88417ea55112",
+    "status": "measured",
+    "load_errors": [],
+    "edits": [
+      {
+        "parameter": "kitHeight",
+        "original_value": 1.3800000000000001,
+        "edited_value": 2.83,
+        "unit": "cm",
+        "measured": {
+          "features": [
+            {
+              "name": "Encoder Rectangle",
+              "type": "adsk::fusion::Sketch",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            },
+            {
+              "name": "Encoder Extrusion",
+              "type": "adsk::fusion::ExtrudeFeature",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            }
+          ],
+          "bodies": [
+            {
+              "name": "Encoder Cuboid",
+              "volume_mm3": 12577.652,
+              "center_mm": [
+                8.2,
+                13.549999999999997,
+                14.150000000000002
+              ],
+              "faces": 6,
+              "edges": 12,
+              "vertices": 8,
+              "bounds_mm": [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  16.4,
+                  27.1,
+                  28.3
+                ]
+              ]
+            }
+          ],
+          "sketches": [
+            {
+              "name": "Encoder Rectangle",
+              "entities": 4,
+              "constraints": 4,
+              "dimensions": 2
+            }
+          ],
+          "parameters": [
+            {
+              "name": "kitHeight",
+              "value": 2.83,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "28.3 mm"
+            },
+            {
+              "name": "kitWidth",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "16.4 mm"
+            },
+            {
+              "name": "kitDepth",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "27.1 mm"
+            },
+            {
+              "name": "d6",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitWidth"
+            },
+            {
+              "name": "d7",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitDepth"
+            },
+            {
+              "name": "d2",
+              "value": 2.83,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitHeight"
+            },
+            {
+              "name": "d3",
+              "value": 0.0,
+              "display_unit": "deg",
+              "unit": "rad",
+              "expression": "0 deg"
+            }
+          ]
+        },
+        "saved": "VendorEdited.f3d",
+        "saved_sha256": "1e7584c59f898b41af2ea3d5accf0c5c44e793bcd0ab7c5486a08feb55443aa2",
+        "restored": {
+          "features": [
+            {
+              "name": "Encoder Rectangle",
+              "type": "adsk::fusion::Sketch",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            },
+            {
+              "name": "Encoder Extrusion",
+              "type": "adsk::fusion::ExtrudeFeature",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            }
+          ],
+          "bodies": [
+            {
+              "name": "Encoder Cuboid",
+              "volume_mm3": 6133.272,
+              "center_mm": [
+                8.2,
+                13.550000000000002,
+                6.8999999999999995
+              ],
+              "faces": 6,
+              "edges": 12,
+              "vertices": 8,
+              "bounds_mm": [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  16.4,
+                  27.1,
+                  13.8
+                ]
+              ]
+            }
+          ],
+          "sketches": [
+            {
+              "name": "Encoder Rectangle",
+              "entities": 4,
+              "constraints": 4,
+              "dimensions": 2
+            }
+          ],
+          "parameters": [
+            {
+              "name": "kitHeight",
+              "value": 1.3800000000000001,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "13.8 mm"
+            },
+            {
+              "name": "kitWidth",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "16.4 mm"
+            },
+            {
+              "name": "kitDepth",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "27.1 mm"
+            },
+            {
+              "name": "d6",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitWidth"
+            },
+            {
+              "name": "d7",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitDepth"
+            },
+            {
+              "name": "d2",
+              "value": 1.3800000000000001,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitHeight"
+            },
+            {
+              "name": "d3",
+              "value": 0.0,
+              "display_unit": "deg",
+              "unit": "rad",
+              "expression": "0 deg"
+            }
+          ]
+        },
+        "restored_sha256": "b6726c11bd4e67155035de7fc6bcda3b559682fc9c4f496c2b35a05d84184752",
+        "reopen_pid": 13964,
+        "reopened": {
+          "features": [
+            {
+              "name": "Encoder Rectangle",
+              "type": "adsk::fusion::Sketch",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            },
+            {
+              "name": "Encoder Extrusion",
+              "type": "adsk::fusion::ExtrudeFeature",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            }
+          ],
+          "bodies": [
+            {
+              "name": "Encoder Cuboid",
+              "volume_mm3": 12577.652,
+              "center_mm": [
+                8.2,
+                13.549999999999997,
+                14.150000000000002
+              ],
+              "faces": 6,
+              "edges": 12,
+              "vertices": 8,
+              "bounds_mm": [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  16.4,
+                  27.1,
+                  28.3
+                ]
+              ]
+            }
+          ],
+          "sketches": [
+            {
+              "name": "Encoder Rectangle",
+              "entities": 4,
+              "constraints": 4,
+              "dimensions": 2
+            }
+          ],
+          "parameters": [
+            {
+              "name": "kitHeight",
+              "value": 2.83,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "28.3 mm"
+            },
+            {
+              "name": "kitWidth",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "16.4 mm"
+            },
+            {
+              "name": "kitDepth",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "27.1 mm"
+            },
+            {
+              "name": "d6",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitWidth"
+            },
+            {
+              "name": "d7",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitDepth"
+            },
+            {
+              "name": "d2",
+              "value": 2.83,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitHeight"
+            },
+            {
+              "name": "d3",
+              "value": 0.0,
+              "display_unit": "deg",
+              "unit": "rad",
+              "expression": "0 deg"
+            }
+          ]
+        },
+        "restored_reopened": {
+          "features": [
+            {
+              "name": "Encoder Rectangle",
+              "type": "adsk::fusion::Sketch",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            },
+            {
+              "name": "Encoder Extrusion",
+              "type": "adsk::fusion::ExtrudeFeature",
+              "suppressed": false,
+              "health": 0,
+              "message": ""
+            }
+          ],
+          "bodies": [
+            {
+              "name": "Encoder Cuboid",
+              "volume_mm3": 6133.272,
+              "center_mm": [
+                8.2,
+                13.550000000000002,
+                6.8999999999999995
+              ],
+              "faces": 6,
+              "edges": 12,
+              "vertices": 8,
+              "bounds_mm": [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  16.4,
+                  27.1,
+                  13.8
+                ]
+              ]
+            }
+          ],
+          "sketches": [
+            {
+              "name": "Encoder Rectangle",
+              "entities": 4,
+              "constraints": 4,
+              "dimensions": 2
+            }
+          ],
+          "parameters": [
+            {
+              "name": "kitHeight",
+              "value": 1.3800000000000001,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "13.8 mm"
+            },
+            {
+              "name": "kitWidth",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "16.4 mm"
+            },
+            {
+              "name": "kitDepth",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "27.1 mm"
+            },
+            {
+              "name": "d6",
+              "value": 1.64,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitWidth"
+            },
+            {
+              "name": "d7",
+              "value": 2.7100000000000004,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitDepth"
+            },
+            {
+              "name": "d2",
+              "value": 1.3800000000000001,
+              "display_unit": "mm",
+              "unit": "cm",
+              "expression": "kitHeight"
+            },
+            {
+              "name": "d3",
+              "value": 0.0,
+              "display_unit": "deg",
+              "unit": "rad",
+              "expression": "0 deg"
+            }
+          ]
+        }
+      }
+    ],
+    "documents_after": 0,
+    "opened": {
+      "features": [
+        {
+          "name": "Encoder Rectangle",
+          "type": "adsk::fusion::Sketch",
+          "suppressed": false,
+          "health": 0,
+          "message": ""
+        },
+        {
+          "name": "Encoder Extrusion",
+          "type": "adsk::fusion::ExtrudeFeature",
+          "suppressed": false,
+          "health": 0,
+          "message": ""
+        }
+      ],
+      "bodies": [
+        {
+          "name": "Encoder Cuboid",
+          "volume_mm3": 6133.272,
+          "center_mm": [
+            8.2,
+            13.550000000000002,
+            6.8999999999999995
+          ],
+          "faces": 6,
+          "edges": 12,
+          "vertices": 8,
+          "bounds_mm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              16.4,
+              27.1,
+              13.8
+            ]
+          ]
+        }
+      ],
+      "sketches": [
+        {
+          "name": "Encoder Rectangle",
+          "entities": 4,
+          "constraints": 4,
+          "dimensions": 2
+        }
+      ],
+      "parameters": [
+        {
+          "name": "kitHeight",
+          "value": 1.3800000000000001,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "13.8 mm"
+        },
+        {
+          "name": "kitWidth",
+          "value": 1.64,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "16.4 mm"
+        },
+        {
+          "name": "kitDepth",
+          "value": 2.7100000000000004,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "27.1 mm"
+        },
+        {
+          "name": "d6",
+          "value": 1.64,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "kitWidth"
+        },
+        {
+          "name": "d7",
+          "value": 2.7100000000000004,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "kitDepth"
+        },
+        {
+          "name": "d2",
+          "value": 1.3800000000000001,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "kitHeight"
+        },
+        {
+          "name": "d3",
+          "value": 0.0,
+          "display_unit": "deg",
+          "unit": "rad",
+          "expression": "0 deg"
+        }
+      ]
+    },
+    "rebuilt": {
+      "features": [
+        {
+          "name": "Encoder Rectangle",
+          "type": "adsk::fusion::Sketch",
+          "suppressed": false,
+          "health": 0,
+          "message": ""
+        },
+        {
+          "name": "Encoder Extrusion",
+          "type": "adsk::fusion::ExtrudeFeature",
+          "suppressed": false,
+          "health": 0,
+          "message": ""
+        }
+      ],
+      "bodies": [
+        {
+          "name": "Encoder Cuboid",
+          "volume_mm3": 6133.272,
+          "center_mm": [
+            8.2,
+            13.550000000000002,
+            6.8999999999999995
+          ],
+          "faces": 6,
+          "edges": 12,
+          "vertices": 8,
+          "bounds_mm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              16.4,
+              27.1,
+              13.8
+            ]
+          ]
+        }
+      ],
+      "sketches": [
+        {
+          "name": "Encoder Rectangle",
+          "entities": 4,
+          "constraints": 4,
+          "dimensions": 2
+        }
+      ],
+      "parameters": [
+        {
+          "name": "kitHeight",
+          "value": 1.3800000000000001,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "13.8 mm"
+        },
+        {
+          "name": "kitWidth",
+          "value": 1.64,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "16.4 mm"
+        },
+        {
+          "name": "kitDepth",
+          "value": 2.7100000000000004,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "27.1 mm"
+        },
+        {
+          "name": "d6",
+          "value": 1.64,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "kitWidth"
+        },
+        {
+          "name": "d7",
+          "value": 2.7100000000000004,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "kitDepth"
+        },
+        {
+          "name": "d2",
+          "value": 1.3800000000000001,
+          "display_unit": "mm",
+          "unit": "cm",
+          "expression": "kitHeight"
+        },
+        {
+          "name": "d3",
+          "value": 0.0,
+          "display_unit": "deg",
+          "unit": "rad",
+          "expression": "0 deg"
+        }
+      ]
+    }
+  },
+  "fusion_oracle_stage_sha256": {
+    "ControlBefore": "99c5649dc3e04c40582bcd0dc0d9587edb2e7a0e4f4bdcb87c2fb5258e48f24e",
+    "Candidate": "7560b4f5a920e61f0c97377d52609d4b03ccfd9946d30c48317a3965014ed71c",
+    "Reopen": "c86e76b10d8763cfeaa1b3206d0bc146b0b4b96e117365476535c3c25a617c8a",
+    "ControlAfter": "8bf2da5d1a4f9b0671eb48b70a7228188ffa81c7fc293d7576262542b44f09c9"
+  }
+}

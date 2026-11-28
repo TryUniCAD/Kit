@@ -23,12 +23,12 @@ for kind in ('parameter', 'circle', 'rectangle', 'extrusion', 'cuboid', 'frustum
                         ConstrainRectangle=kind in ('rectangle','cuboid'))
     document = MakeFusionDoc(spec)
     source = out / (kind + '.f3d')
-    result = write_document(document, source, destination_format='f3d', overwrite=True, allow_carrier=False)
+    result = write_document(document, source, destination_format='f3d', overwrite=True)
     (out / (kind + '.authoring.json')).write_text(document.to_json())
     projected = open_document(source, source_format='f3d')
     (out / (kind + '.native.json')).write_text(projected.to_json())
     target = out / (kind + '.reemit.f3d')
-    write_document(type(projected).from_json(projected.to_json()), target, destination_format='f3d', overwrite=True, allow_carrier=False)
+    write_document(type(projected).from_json(projected.to_json()), target, destination_format='f3d', overwrite=True)
     report.append({'kind':kind,'source':str(source),'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
                    'reemit':str(target),'reemitSha256':hashlib.sha256(target.read_bytes()).hexdigest(),
                    'nativeBytesEqual':source.read_bytes()==target.read_bytes(), 'solidCount':len(projected.bodies),

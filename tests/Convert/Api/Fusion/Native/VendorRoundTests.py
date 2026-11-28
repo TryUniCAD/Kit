@@ -28,10 +28,8 @@ def TestVendorRound(TmpPath: FilePath, CaseValue: VendorCase) -> None:
     Target = TmpPath / "Reemitted.f3d"
     Neutral = CadDocument.from_json(Document.to_json())
     assert Neutral == Document
-    Result = WriteDocument(
-        Neutral, Target, destination_format="f3d", allow_carrier=False
-    )
-    assert Result.application_usable and Result.vendor_loadable
+    Result = WriteDocument(Neutral, Target, destination_format="f3d")
+    assert not Result.application_usable and not Result.vendor_loadable
     assert HashBytes(Target.read_bytes()).hexdigest() == CaseValue.OutputDigest
     assert ReadDocument(Target.read_bytes()) == ReadDocument(Source.read_bytes())
     Parsed = OpenDocument(Target)

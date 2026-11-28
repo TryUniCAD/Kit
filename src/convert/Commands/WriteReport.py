@@ -1,4 +1,5 @@
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.Fusion.Measurement.FusionMeasOpt import KFusionMeasOpt
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
@@ -32,11 +33,15 @@ def WriteReport(Result: WriteResult) -> dict[str, object]:
             }
             for Value in Result.Diagnostics
         ],
-        "acceptance": (
-            "Exact output matches the caller supplied offline SOLIDWORKS native measurement"
-            if KPartMeasureOpt in Result.metadata
-            and Result.IsVendorLoadable
-            and Result.IsAppUsable
-            else "Writer evidence only; target application open, edit, and rebuild remain unverified"
-        ),
+        "acceptance": GetAcceptance(Result),
     }
+
+
+# report the oracle only after the writer binds its receipt to the entire output
+def GetAcceptance(Result: WriteResult) -> str:
+    if Result.IsVendorLoadable and Result.IsAppUsable:
+        if KPartMeasureOpt in Result.metadata:
+            return "Exact output matches the caller supplied offline SOLIDWORKS native measurement"
+        if KFusionMeasOpt in Result.metadata:
+            return "Exact output matches the caller supplied offline Fusion native measurement"
+    return "Writer evidence only; target application open, edit, and rebuild remain unverified"

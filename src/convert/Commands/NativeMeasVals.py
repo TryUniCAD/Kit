@@ -1,6 +1,10 @@
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 
+from convert.adapters.Fusion.Measurement.FusionMeasOpt import KFusionMeasOpt
+from convert.adapters.Fusion.Bridge.WriterInfo import KWriterInfo as KFusionInfo
+from convert.adapters.solidworks.Container.Format import KPartFormatId
+
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
@@ -13,13 +17,16 @@ KReceiptLimit = 1024 * 1024
 def NativeMeasVals(
     ReceiptPath: FilePath | None,
     TargetPath: FilePath,
-    IsPartWriter: bool,
+    FormatId: str,
 ) -> dict[str, object]:
     Values: dict[str, object] = {"require_native_transfers": True}
     if ReceiptPath is None:
         return Values
-    if not IsPartWriter:
-        raise ValueError("native measurement requires the SOLIDWORKS part writer")
+    if FormatId not in (KPartFormatId, KFusionInfo.FormatId):
+        raise ValueError(
+            "native measurement requires a SOLIDWORKS or Fusion part writer"
+        )
+    ReceiptKey = KPartMeasureOpt if FormatId == KPartFormatId else KFusionMeasOpt
     try:
         ReceiptPath = ReceiptPath.expanduser()
     except RuntimeError as ErrorInfo:
@@ -32,5 +39,5 @@ def NativeMeasVals(
         Payload = ReceiptFile.read(KReceiptLimit + 1)
     if len(Payload) > KReceiptLimit:
         raise ValueError("native measurement receipt exceeds the CLI input limit")
-    Values[KPartMeasureOpt] = LoadJson(Payload)
+    Values[ReceiptKey] = LoadJson(Payload)
     return Values

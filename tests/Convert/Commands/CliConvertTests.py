@@ -71,14 +71,11 @@ def CheckCliConvert(TmpPath: FilePath) -> None:
 
 
 # the public cli must preserve dimension driven cuboid bytes across a native neutral roundtrip
-def CheckCliRound(TmpPath: FilePath) -> None:
-    Source = TmpPath / "source.f3d"
-    Original = EmitDocument(
-        DocumentSpec(
-            "CLI cuboid", "height", 17.0, ProfileKind="cuboid", ConstrainRectangle=True
-        )
-    )
-    _ = Source.write_bytes(Original)
+def TestCliRound(TmpPath: FilePath) -> None:
+    Folder = FilePath(__file__).resolve().parents[3] / "re/Fusion/WriterMeasurement"
+    Source = Folder / "edited.f3d"
+    Receipt = Folder / "edited-receipt.json"
+    Original = Source.read_bytes()
     Neutral = TmpPath / "neutral.json"
     First = CliProcess(TmpPath, "convert", str(Source), str(Neutral), "--json")
     assert First.returncode == 0, First.stderr
@@ -94,11 +91,16 @@ def CheckCliRound(TmpPath: FilePath) -> None:
         "interchange.json",
         "--to",
         "f3d",
+        "--native-measurement",
+        str(Receipt),
         "--json",
     )
     assert Second.returncode == 0, Second.stderr
-    assert LoadJson(Second.stdout)["source_format"] == "interchange.json"
-    assert LoadJson(Second.stdout)["destination_format"] == "fusion.f3d"
+    Report = LoadJson(Second.stdout)
+    assert Report["source_format"] == "interchange.json"
+    assert Report["destination_format"] == "fusion.f3d"
+    assert Report["vendor_loadable"] and Report["application_usable"]
+    assert "offline Fusion native measurement" in Report["acceptance"]
     assert Restored.read_bytes() == Original
     assert Source.read_bytes() == Original
 

@@ -12,7 +12,7 @@ def TestSafeSupport(TmpPath: FilePath) -> None:
     Original = AdapterCase("rectangle")
     NativePath = TmpPath / "Rectangle.f3d"
     _ = WriteDocument(
-        Original, NativePath, destination_format="f3d", allow_carrier=False
+        Original, NativePath, destination_format="f3d"
     )
     Document = OpenDocument(NativePath)
     assert Document.sketches

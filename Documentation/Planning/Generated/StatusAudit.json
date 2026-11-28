@@ -42,6 +42,7 @@
     "A06c",
     "A06d",
     "A11a",
+    "A11-FusionMeasuredPublication",
     "A16a",
     "A16b",
     "A16c",
@@ -330,6 +331,23 @@
           "Status": "active",
           "Evidence": "https://github.com/TryUniCAD/Kit/pull/258",
           "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-FusionMeasuredPublication",
+      "Boundary": "Exact offline publication of one constrained origin-based untapered cuboid",
+      "Stages": {
+        "write": {
+          "Status": "checking",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/406",
+          "Revision": "25bec20ef896111b70ea13861bef469963978cbc"
+        },
+        "native": {
+          "Status": "checking",
+          "Evidence": "https://github.com/TryUniCAD/Kit/blob/25bec20ef896111b70ea13861bef469963978cbc/re/Fusion/WriterMeasurement/README.md",
+          "Revision": "25bec20ef896111b70ea13861bef469963978cbc"
         }
       }
     },

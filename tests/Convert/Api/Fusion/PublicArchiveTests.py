@@ -22,10 +22,8 @@ def TestPublicRound(TmpPath: FilePath, ProfileKind: KProfileKind) -> None:
     assert Serialized.Parameters == Document.parameters
     assert Serialized.BrepModel == Document.brep
     Source = TmpPath / "Authored.f3d"
-    Result = WriteDocument(
-        Serialized, Source, destination_format="f3d", allow_carrier=False
-    )
-    assert Result.application_usable and Result.vendor_loadable
+    Result = WriteDocument(Serialized, Source, destination_format="f3d")
+    assert not Result.application_usable and not Result.vendor_loadable
     assert not Result.carrier_capabilities and not Result.dropped
     Parsed = OpenDocument(Source)
     assert not Parsed.brep_payloads and not Parsed.diagnostics
@@ -41,7 +39,6 @@ def TestPublicRound(TmpPath: FilePath, ProfileKind: KProfileKind) -> None:
         CadDocument.from_json(Parsed.to_json()),
         Target,
         destination_format="fusion.f3d",
-        allow_carrier=False,
     )
     assert Target.read_bytes() == Source.read_bytes()
     assert RegistryValue.GetReader("f3d").info == RegistryValue.GetWriter("f3d").info

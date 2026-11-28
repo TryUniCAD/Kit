@@ -546,11 +546,25 @@ A06b/A07 proof, complete donor-free generation and licensed load, independent ed
 | -------- | ----------------------------------------------------------------------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | A11a     | Explicit directly owned dimensions in the scoped positive-XY Boss constructor | jdharcourt | checking | The [real-stage authoring composition](../../Changes/Fusion/Authoring/FusionDirectDimensionAuthoring.md) replaces temporary profile changes and shared-function replacement; hosted Boss and historical Origin process execution remains required |
 | A11b     | Native writing from qualified portable graphs                                 | jdharcourt | blocked  | A06b/A09 evidence, complete required-semantic admission and licensed target acceptance remain required; the public writer guard remains enforced                                                                                                  |
+| A11-FusionMeasuredPublication | Exact measurement binding for public Fusion cuboid output | Codex Fusion writer worker | checking | [PR #406](https://github.com/TryUniCAD/Kit/pull/406) must pass current-head hosted checks and review, with merge-group acceptance deferred until authorized queue enrollment |
 
 The [source-derived Boss probe](../../Changes/Research/Readers/Comparison/FusionSourceBossProbe.md) retains four measured discovery controls and the exact parameter, geometry, material and archive checks.
 The reported separate 37 × 21 × 11 mm feasibility case supports the composition change, not native application acceptance of this revision.
 The owned licensed witness still needs driving edits, restoration, rebuild, save and fresh-process reopen with healthy controls.
 Neither the scoped constructor nor its observation receipt closes A11 or qualifies a conversion route.
+
+### A11-FusionMeasuredPublication
+
+Status is checking. The Codex Fusion writer worker owns
+`codex/fusion-writer-native-measurement` and [PR #406](https://github.com/TryUniCAD/Kit/pull/406).
+This child depends on A11c, the encoder oracle receipt, and the qualified public Fusion constructor.
+It covers the exact offline publication of one constrained, origin-based untapered cuboid.
+A fresh licensed Fusion oracle is required for new candidate bytes.
+The [retained Fusion 2706.1.17 evidence](../../../re/Fusion/WriterMeasurement/README.md)
+and [32 SDK and CLI integration cases at `25bec20ef8`](https://github.com/TryUniCAD/Kit/tree/25bec20ef896111b70ea13861bef469963978cbc/tests/Convert/Api/Fusion)
+establish exact re-emission, driver and geometry verification, and refusal before mutation.
+Current-head hosted CI, configured review and authorized queue acceptance remain open.
+Other profiles, auxiliary-bearing vendor saves, qualified cross-format routes and wider A11 generation remain open.
 
 ## A12 SOLIDWORKS writer research
 

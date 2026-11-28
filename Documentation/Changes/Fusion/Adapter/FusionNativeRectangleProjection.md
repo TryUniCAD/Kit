@@ -14,7 +14,7 @@ from interchange import CadDocument
 
 Document = open_document("NativeRectangle.f3d")
 Restored = CadDocument.from_json(Document.to_json())
-write_document(Restored, "Reemitted.f3d", allow_carrier=False)
+write_document(Restored, "Reemitted.f3d")
 ```
 
 Native-state contract version 2 identifies this route. Version 1 remains the existing constructor-shaped profile. Source-free `MakeFusionDoc` authoring and explicit `strict=False` partial reading remain unchanged.

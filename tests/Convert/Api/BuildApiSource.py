@@ -11,6 +11,5 @@ def BuildApiSource(TmpPath: FilePath) -> FilePath:
         AdapterCase("rectangle"),
         SourcePath,
         destination_format="f3d",
-        allow_carrier=False,
     )
     return SourcePath

@@ -16,7 +16,7 @@ def TestLegacyWorld() -> None:
     assert DropWorldMut(Encoded) > 0
     Restored = CadDocument.from_json(DumpJson(Encoded))
     Target = ByteStream()
-    _ = WriteDocument(Restored, Target, destination_format="f3d", allow_carrier=False)
+    _ = WriteDocument(Restored, Target, destination_format="f3d")
     assert HashBytes(Target.getvalue()).hexdigest() == CaseValue.OutputDigest
 
 

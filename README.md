@@ -71,6 +71,7 @@ Choose unused output paths and quote paths that contain spaces.
 Conversion uses strict reading and applies the output policy before writing.
 Use `--configuration NAME` for a named configuration or `--json` for a machine-readable conversion report.
 For the measured SOLIDWORKS write path, see the requirements for [`--native-measurement`](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md).
+For measured Fusion output, see the [exact Fusion receipt](Documentation/Changes/Fusion/Adapter/FusionMeasuredPublication.md).
 
 `decode` wraps its neutral document in an inspection report. To create interchange JSON, use `kit convert` with a `.json` destination.
 Use `--partial` with the neutral view or `--stream NAME` with the container view.

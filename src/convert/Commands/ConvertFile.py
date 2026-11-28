@@ -52,7 +52,7 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         ValidateData=True,
         AllowCarrier=False,
         InputValues=NativeMeasVals(
-            Options.NativeMeasurePath, Options.Destination, IsPartWriter
+            Options.NativeMeasurePath, Options.Destination, Writer.info.FormatId
         ),
     )
     return {
