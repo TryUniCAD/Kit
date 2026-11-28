@@ -17,8 +17,14 @@ The native reports retain missing semantic fields and comparison failures.
 On SOLIDWORKS `34.4.1`, the original verifier failed both bracket controls with
 COM `0x80020003` at `FirstFeature`. A diagnostic run of the repaired verifier
 measured the same stock control with one body, 8,000 mm³ volume, center
-`[20, 10, 5]` mm, six faces, twelve edges, and eight vertices. The diagnostic
-identified further failures in sketch transforms and part selection before
-those calls were repaired. This check does not qualify any conversion route.
+`[20, 10, 5]` mm, six faces, twelve edges, and eight vertices.
+
+At `f932864cbd`, both bracketing controls passed. The P03 12 mm source rebuilt,
+and independent width, height and depth edits changed its geometry. The verifier
+restored each driver, saved the edited shapes and reopened all three saves in
+fresh processes. The measured lifecycle passed. Decoder comparison still
+reported 52 semantic gaps and returned exit status `5`. The native verification
+report has SHA-256 `8d0ae3edf829337789fcaca742d58270712d4cebafe965076cf27291a23802ab`.
+This check does not qualify any conversion route.
 
 See [native part selection marshaling](../../../../../Gotchas/Research/Workers/SolidWorks/PartSelectionComMarshaling.md).
