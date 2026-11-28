@@ -13,10 +13,10 @@ Document = MakeFusionDoc(DocumentSpec(
     "Dimensioned cuboid", "height", 31.0, ProfileKind="cuboid",
     WidthMm=17.0, DepthMm=23.0, ConstrainRectangle=True,
 ))
-write_document(Document, "Cuboid.f3d", destination_format="f3d", allow_carrier=False)
+write_document(Document, "Cuboid.f3d", destination_format="f3d")
 Parsed = open_document("Cuboid.f3d")
 Restored = type(Parsed).from_json(Parsed.to_json())
-write_document(Restored, "Reemitted.f3d", allow_carrier=False)
+write_document(Restored, "Reemitted.f3d")
 ```
 
 Length values in the neutral graph are millimetres, and angles are radians. Material density is kilograms per cubic metre, and color channels are floating-point RGBA values between zero and one. `ConstrainRectangle=True` exposes the anchored corner, four horizontal/vertical relations, two dimensions, width/depth user parameters, and their dependent model parameters. Extrusions use `DistanceExtrude` with actual height/taper parameter references. The geometry is built through Kit's independent analytic circular/prism builders, with planar, cylindrical or conical surfaces and complete neutral topology.
@@ -24,6 +24,9 @@ Length values in the neutral graph are millimetres, and angles are radians. Mate
 `CadDocument.materials` is an optional tuple of typed `MaterialRecord` values. Existing neutral JSON without this field still loads with an empty tuple. The existing body `material_id` contract remains compatible with other adapters. The qualified Fusion graph requires the exact material identity, density and color represented by its constructor. A separate optional `TypedMaterials` writer property defaults to unsupported at the public registry boundary. Only the qualified Fusion writer and neutral JSON writer opt in. Any root or nested component material collection is rejected before staging for other writers, even when they advertise legacy `material_id` support. Density and color cannot silently disappear. Parameter-only documents with a configuration are valid neutral documents even without a feature timeline.
 
 ## Two explicit contracts
+
+These examples prepare native candidates. For strict publication and true
+application acceptance flags, supply an [exact offline measurement](FusionMeasuredPublication.md).
 
 A constructor-produced document carries `fusion.authoring`, version 1, containing only its semantic specification. Before emission the writer rebuilds the complete neutral graph from that specification and compares every document field. Changed parameters, geometry, constraints, bodies, material values, source fields, capabilities, extra metadata, assemblies, or other unaccounted collections are rejected before output. Rebuild through `MakeFusionDoc` with a changed specification to author a different document. This is a qualified constructor contract, not general recognition of arbitrary `CadDocument` graphs.
 

@@ -18,7 +18,7 @@ for row in rows:
     neutral=out/(row['kind']+'.native.json')
     neutral.write_text(document.to_json())
     target=Path(row['reemit'])
-    write_document(CadDocument.from_json(neutral.read_text()),target,destination_format='f3d',overwrite=True,allow_carrier=False)
+    write_document(CadDocument.from_json(neutral.read_text()),target,destination_format='f3d',overwrite=True)
     row['reemitSha256']=hashlib.sha256(target.read_bytes()).hexdigest()
     row['nativeBytesEqual']=target.read_bytes()==source.read_bytes()
     row['nativeJsonSha256']=hashlib.sha256(neutral.read_bytes()).hexdigest()

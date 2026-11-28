@@ -1,7 +1,8 @@
 from pathlib import Path
 
-from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
+from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.Staging.WriteWholeMut import WriteWholeMut
 
 
 # the payload operation needs a consistent construction rule so public document claims remain grounded in native records
@@ -15,9 +16,5 @@ def WritePayloadMut(
         if Count != len(Payload):
             raise OSError("Incomplete Fusion file write")
         return PathValue
-    if not IsBinaryTarget(Target):
-        raise TypeError("Fusion requires a binary output stream")
-    StreamCount = Target.write(Payload)
-    if StreamCount is not None and StreamCount != len(Payload):
-        raise OSError("Incomplete Fusion stream write")
+    WriteWholeMut(Target, Payload)
     return None

@@ -11,7 +11,7 @@ def TestTypedWrite(TmpPath: FilePath) -> None:
     Document = CadDocument.from_json(AdapterCase("cuboid").to_json())
     assert Document.sketches[0].constraints
     TargetPath = TmpPath / "Typed.f3d"
-    _ = WriteDocument(Document, TargetPath, allow_carrier=False)
+    _ = WriteDocument(Document, TargetPath)
     Parsed = OpenDocument(TargetPath)
     assert Parsed.sketches == Document.sketches
     assert len(Parsed.feature_timeline) == len(Document.feature_timeline)

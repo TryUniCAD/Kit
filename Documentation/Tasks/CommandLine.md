@@ -79,6 +79,8 @@ kit convert model.f3d model.json --from fusion.f3d --to interchange.json --json
 `kit formats --json` lists format identifiers, aliases, suffixes, and independent read/write availability.
 The SOLIDWORKS entry includes bounded `.SLDPRT` writing. `.SLDASM` remains read-only.
 For eligible part output, supply the matching offline measurement with `--native-measurement RECEIPT`.
+Fusion CLI writes require an [exact Fusion receipt](../Changes/Fusion/Adapter/FusionMeasuredPublication.md).
+The current receipt covers a constrained cuboid and must match the full output archive.
 See the [measured part publication requirements](../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md).
 Format registration does not establish complete feature coverage.
 

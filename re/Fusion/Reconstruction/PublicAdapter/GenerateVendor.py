@@ -21,7 +21,7 @@ for name, source in sources:
     neutral = output / (name + '.json')
     neutral.write_text(document.to_json())
     target = output / (name + '.f3d')
-    write_document(CadDocument.from_json(neutral.read_text()), target, destination_format='f3d', overwrite=True, allow_carrier=False)
+    write_document(CadDocument.from_json(neutral.read_text()), target, destination_format='f3d', overwrite=True)
     report.append({'name': name, 'source': str(source), 'sourceSha256': sha256(source.read_bytes()).hexdigest(),
                    'output': str(target), 'outputSha256': sha256(target.read_bytes()).hexdigest(),
                    'neutralSha256': sha256(neutral.read_bytes()).hexdigest(),

@@ -30,9 +30,7 @@ def TestContract(TmpPath: FilePath) -> None:
     Reopened = OpenDocument(JsonPath)
     assert Reopened.feature_timeline == Document.feature_timeline
     FusionPath = TmpPath / "Qualified.f3d"
-    _ = WriteDocument(
-        Reopened, FusionPath, destination_format="f3d", allow_carrier=False
-    )
+    _ = WriteDocument(Reopened, FusionPath, destination_format="f3d")
     assert len(ReadDocument(FusionPath.read_bytes()).Bodies) == 1
 
 

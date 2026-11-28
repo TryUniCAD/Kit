@@ -12,7 +12,6 @@ def TestFusionBrep(TmpPath: FilePath) -> None:
         AdapterCase("parameter"),
         Archive,
         destination_format="fusion.f3d",
-        allow_carrier=False,
     )
     Source = NonSeekable(Archive.read_bytes())
     assert ExtractBrep(Source, TmpPath / "payloads", source_format="fusion.f3d") == ()

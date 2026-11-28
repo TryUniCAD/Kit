@@ -18,7 +18,7 @@ for role in ('circle', 'extrusion', 'frustum'):
     neutral = output / (role + '.json')
     neutral.write_text(document.to_json())
     target = output / (role + '.f3d')
-    write_document(CadDocument.from_json(neutral.read_text()), target, destination_format='f3d', overwrite=True, allow_carrier=False)
+    write_document(CadDocument.from_json(neutral.read_text()), target, destination_format='f3d', overwrite=True)
     report.append({'role': role, 'source': str(source.relative_to(root)), 'sourceSha256': sha256(source.read_bytes()).hexdigest(),
                    'output': str(target.relative_to(root)), 'outputSha256': sha256(target.read_bytes()).hexdigest(),
                    'neutralSha256': sha256(neutral.read_bytes()).hexdigest(),
