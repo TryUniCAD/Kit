@@ -187,6 +187,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import 
 )
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.BindColdDoc import (
+    BindColdDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.TryColdStock import (
+    TryColdStock,
+)
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -375,10 +381,13 @@ def ReadNativePart(
     *,
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = (
-        NativePartModel(Archive, Settings.configuration)
-        if ModelValue is None
-        else ModelValue
+    Model, StockPart = TryColdStock(
+        Archive,
+        (
+            NativePartModel(Archive, Settings.configuration)
+            if ModelValue is None
+            else ModelValue
+        ),
     )
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
@@ -386,9 +395,22 @@ def ReadNativePart(
     PlaneValues, SketchValues = PartSketchData(
         Model, {Param.id for Param in ParamValues}
     )
-    SelectValues = Selections(Model)
+    SelectValues = Selections(Model) if StockPart is None else ()
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep, CircleValue = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep, CircleValue = (
+        PartBrepData(Archive, Model, Settings)
+        if StockPart is None
+        else (
+            (),
+            (),
+            (
+                StockPart.GeometryValue.BrepValue
+                if Settings.include_brep and not Settings.extract_raw_brep
+                else None
+            ),
+            None,
+        )
+    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -540,7 +562,11 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    DocValue = (
+        ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+        if StockPart is None
+        else BindColdDoc(DocValue, StockPart)
+    )
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(WithPartProps(DocValue, Archive), DataValue)
@@ -3871,6 +3897,12 @@ def BuildExtrude(Operation: NativeOperation | None) -> ExtrusionFeature | None:
     if Operation is None or Operation.kind not in {"join", "cut", "surface"}:
         return None
     if Operation.length_mm is None:
+        if Operation.ThroughDirection is not None:
+            return ExtrusionFeature(
+                length=None,
+                end_condition=ExtrusionEndCondition.THROUGH_ALL,
+                direction=Operation.ThroughDirection,
+            )
         if (
             Operation.kind == "cut"
             and Operation.termination_code == 1

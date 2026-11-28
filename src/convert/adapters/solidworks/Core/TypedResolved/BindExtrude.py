@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNo
 
 # only the owned forward depth replaces matching keyword dimensions without dropping unrelated legacy parameters
 def BindDepth(Feature: NativeFeature, OwnerValue: ExtrudeOwner) -> NativeFeature:
-    DepthValue = OwnerValue.DepthValue.DepthValue
+    DepthValue = OwnerValue.RequireDepth().DepthValue
     OtherValues = tuple(
         Dimension
         for Dimension in Feature.dimensions
@@ -26,7 +26,7 @@ def BindExtrude(
         Operation,
         profile_id=ProfileId,
         dependencies=ParentIds,
-        length_mm=OwnerValue.DepthValue.DepthValue.value_mm,
+        length_mm=OwnerValue.RequireDepth().DepthValue.value_mm,
         direction_code=int(OwnerValue.IsReversed),
         termination_code=0,
     )

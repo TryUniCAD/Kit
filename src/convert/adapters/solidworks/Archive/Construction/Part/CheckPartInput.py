@@ -1,8 +1,6 @@
 from ntpath import basename as BaseName, splitext as SplitExt
 from typing import cast as CastValue
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
-    KPartPlan,
-)
+from convert.adapters.solidworks.Archive.Construction.Part.PartLabels import PartLabels
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
 )
@@ -17,7 +15,10 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # modeled presentation and provenance must agree with the supported neutral graph before construction can consume any persistent identity
 def CheckPartInput(
-    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: KPartPlan
+    DocumentValue: CadDocument,
+    InputValue: PartBuildInput,
+    PlanValue: PartLabels,
+    AdditionalNames: tuple[str, ...] = (),
 ) -> None:
     if type(InputValue) is not PartBuildInput:
         raise TypeError(
@@ -74,6 +75,7 @@ def CheckPartInput(
         InputValue.SystemValue.OriginName,
         PlanValue.SketchName,
         PlanValue.FeatureName,
+        *AdditionalNames,
     )
     if len(set(NamesValue)) != len(NamesValue):
         raise ValueError("native part features require distinct authored names")

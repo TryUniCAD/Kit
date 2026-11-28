@@ -39,6 +39,8 @@ KResolvedSchemas = MappingProxyType(
         "moEndSpec_c": (1,),
         "moEqnFolder_c": (1,),
         "moExtrusion_c": (1,),
+        "moICE_c": (1,),
+        "moCompSolidBody_c": (1,),
         "moFavoriteFolder_c": (1,),
         "moFavoriteHandle_c": (1,),
         "moFeatureDimHandle_c": (1,),

@@ -370,6 +370,24 @@ boss exposes its inactive depth and typed archive owner separately from its
 active forward depth driver.
 [Verified saved-circle scope](../../Changes/Solidworks/Inspection/Parts/SolidworksSavedCircleDrivers.md)
 
+The measured two-stock profile has two independent Front- and Right-plane
+blind rectangular bosses and an explicitly selected forward circular through-all
+cut on the Front stock. The strict cache-free reader preserves the selected body,
+separate editable depths and both analytic solids. The writer requires the same
+receipt, epoch and final Windows locator as the measured file. A standalone
+binary stream can carry that locator explicitly. Other pathnames and regenerated
+bytes require their own evidence.
+[Measured selected-stock scope](../../Changes/Solidworks/Construction/SolidworksMeasuredSelectedStock.md)
+
+The measured cold stock model retains both ordered body results in geometry,
+design-only and raw-only reads. Writing the strict readback reconstructs from
+its editable geometry and drivers, then checks the whole document and exact
+measured archive before publication.
+
+The neutral profile can also be written as interchange JSON. The JSON
+retains the signed through-all end and the explicit selected stock, with
+the cut depth absent.
+
 Raw Parasolid extraction requires a saved Parasolid payload.
 
 The earlier writer did not generate its streams from format rules.

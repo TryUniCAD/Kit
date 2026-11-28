@@ -10,7 +10,9 @@ KPortableEnds = frozenset(
 
 
 # native termination evidence must prevent an export from inventing an extent
-def EndFindings(Document: CadDocument) -> tuple[str, ...]:
+def EndFindings(
+    Document: CadDocument, ThroughEndId: str | None = None
+) -> tuple[str, ...]:
     Findings: list[str] = []
     for StepValue in Document.feature_timeline:
         Definition = StepValue.definition
@@ -22,7 +24,13 @@ def EndFindings(Document: CadDocument) -> tuple[str, ...]:
             "end_condition": Definition.end_condition
         }
         if isinstance(Definition, ExtrudeFeature):
-            if Definition.length is None:
+            if Definition.length is None and not (
+                type(ThroughEndId) is str
+                and bool(ThroughEndId)
+                and StepValue.id == ThroughEndId
+                and type(StepValue.definition) is ExtrudeFeature
+                and Definition.end_condition == ExtrudeEnd.KThroughAll
+            ):
                 Detail = f"{Document.source.path}: feature {StepValue.id} length"
                 Findings.append(
                     f"{Detail} (depthless extrusion reconstruction is unqualified)"

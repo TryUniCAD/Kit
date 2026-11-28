@@ -54,7 +54,7 @@ def CheckBlindCirc(
     )
     Forward, Reverse, Draft, OtherDraft = Values
     if (
-        Forward[1] is not OwnerValue.DepthValue.Parameter
+        Forward[1] is not OwnerValue.RequireDepth().Parameter
         or len({Dimension for Dimension, _, _ in Values}) != 4
         or len({Parameter for _, Parameter, _ in Values}) != 4
         or len({Dimension.FieldsValue.get("f50") for Dimension, _, _ in Values}) != 4

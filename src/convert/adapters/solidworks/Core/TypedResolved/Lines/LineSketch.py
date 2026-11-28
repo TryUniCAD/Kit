@@ -1,5 +1,5 @@
 from interchange.Core.Common import FreezeMapping
-from interchange.geometry.Models.Sketch import Sketch
+from interchange.geometry.Models.Sketch import ConstraintRef, Sketch, SketchRelation
 
 from convert.adapters.solidworks.Core.Native import NativeSketch
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineEntity import LineEntity
@@ -22,6 +22,17 @@ def LineSketch(SketchValue: NativeSketch) -> Sketch:
         name=SketchValue.name,
         support_plane_id=f"sldprt:plane:{SketchValue.support_plane_id}",
         entities=Entities,
+        constraints=tuple(
+            SketchRelation(
+                f"sldprt:sketch:{SketchValue.object_id}:axis:{AxisValue.IndexValue}",
+                "horizontal" if AxisValue.CodeValue == 4 else "vertical",
+                (ConstraintRef(Entities[AxisValue.LineValue].id),),
+                provenance=TypedProvenance(
+                    AxisValue.OwnerValue, str(AxisValue.IndexValue)
+                ),
+            )
+            for AxisValue in LoopValue.AxisValues
+        ),
         closed_profile_entity_ids=(
             tuple(Entities[Index].id for Index in LoopValue.OrderValue),
         ),

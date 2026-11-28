@@ -229,5 +229,20 @@ KComponentFields = MappingProxyType(
             NativeField("Scalar", "f00", "i32"),
             NativeField("Scalar", "f08", "u32"),
         ),
+        "moCompSolidBody_c": (
+            NativeField("Base", "moCompRef_c"),
+            NativeField("Node", "ff0", "moFaceRef_c"),
+            NativeField("Scalar", "n110", "i32"),
+            NativeField(
+                "Repeat",
+                "f110",
+                BodyValue=(NativeField("Scalar", "v", "i32"),),
+                CountValue="n110",
+                ModeValue="Positive",
+            ),
+            NativeField("Scalar", "f108", "i32"),
+            NativeField("Scalar", "f104", "i32"),
+            NativeField("Scalar", "f100", "i32"),
+        ),
     }
 )

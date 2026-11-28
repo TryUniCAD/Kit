@@ -3,12 +3,15 @@ from convert.adapters.solidworks.Core.Adapter import KSourceFormatKey
 from convert.adapters.solidworks.Core.Preparation.Circle.IsCirclePart import (
     IsCirclePart,
 )
+from convert.adapters.solidworks.Core.Preparation.Readback.IsStockRead import (
+    IsStockRead,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # only the native typed reader projection requires regeneration and full source comparison
 def IsColdRead(Document: CadDocument) -> bool:
-    return (
+    return IsStockRead(Document) or (
         Document.source.format_id == KPartFormatId
         and Document.source.container_version == "4"
         and Document.metadata.get(KSourceFormatKey) == KPartFormatId

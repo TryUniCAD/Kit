@@ -40,6 +40,7 @@ def RequireDisplay(
         not in (
             RuntimeClass("moMateDistanceDim_c", 1),
             RuntimeClass("moExtrusion_c", 1),
+            RuntimeClass("moICE_c", 1),
         )
         or FieldInt(OwnerValue.FieldsValue, "f2b0") != 19000
     ):
@@ -64,7 +65,7 @@ def RequireDisplay(
         type(CastValue(object, TextKind)) is not int
         or TextKind != ExpectedKind
         or IsAngular
-        and ExpectedKind == 18
+        and OwnerValue.ClassValue != RuntimeClass("moExtrusion_c", 1)
     ):
         raise ValueError(
             "display text kind disagrees with its verified native factory and dimension owner"
