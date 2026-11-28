@@ -66,7 +66,7 @@ KCamAssembly = (
 )
 
 
-# mesh opt-out must preserve strict reads supported by either linked parts or native cache evidence
+# mesh filtering must preserve strict reads supported by linked parts or native cache evidence
 @PytestLib.mark.parametrize("UseBytes", (False, True))
 def TestMeshOptOut(UseBytes: bool) -> None:
     Source = KCamAssembly.read_bytes() if UseBytes else KCamAssembly
