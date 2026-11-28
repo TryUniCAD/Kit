@@ -20,6 +20,9 @@ KStrictFusion = "re/Fusion/Study/extents-f0f33a9a605f/taper.f3d"
 # a partial fusion decode exercises strict refusal and feature attribution
 KPartialFusion = "re/Fusion/Study/edgemodes-52695761f185/chamfer_multiple.f3d"
 
+# the census package exercises the research reader rather than the public registry
+KFusionPackage = "re/Fusion/examples/.f3z/example1.f3z"
+
 # a pinned solidworks part with an accented name exercises path normalisation
 KSolidWorksPart = (
     "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/"
@@ -81,6 +84,18 @@ def CheckMixedSet(TmpPath: Path) -> None:
     Markdown = (Output / "Scoreboard.md").read_text(encoding="utf-8")
     assert "| fusion | 2 | 1 | 1 |" in Markdown
     assert "## solidworks: areas blocking a full read" in Markdown
+
+
+# the package contributes its native archive refusal to the census verdict
+def CheckPackage(TmpPath: Path) -> None:
+    Output = TmpPath / "Package"
+    _ = RunScoreboard(Output, KFusionPackage)
+    Report = json.loads((Output / "Scoreboard.json").read_bytes())
+    (Record,) = Report["files"]
+    assert Record["path"] == KFusionPackage and Record["outcome"] == "rejected"
+    assert "Missing active Fusion design BulkStream.dat" in Record["reason"]
+    Fusion = Report["summary"]["fusion"]
+    assert (Fusion["files"], Fusion["rejected"], Fusion["reader_error"]) == (1, 1, 0)
 
 
 # reused output directories and unpinned paths are refused before any decoding

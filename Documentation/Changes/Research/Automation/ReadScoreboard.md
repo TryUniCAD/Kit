@@ -5,6 +5,7 @@
 ## Behaviour
 
 For each file, the scoreboard reads the pinned Git blob, checks its SHA-256 and attempts a strict read. When strict reading refuses the file, it records the reason and reads again in partial mode. Read options match the Fusion census: B-rep and tessellation payloads are included.
+F3Z uses the pinned research reader's strict and partial modes because the public registry does not expose an F3Z adapter. The scoreboard records the archive's refusal reason. See the [F3Z routing gotcha](../../../Gotchas/Research/Readers/ScoreboardFusionPackages.md).
 
 Each file row records:
 

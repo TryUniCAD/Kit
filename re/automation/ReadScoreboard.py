@@ -60,6 +60,10 @@ def FusionClassNames():
 
 # a strict read is attempted first and the partial read only records what strict refused
 def ReadDocument(Raw, SourceFormat):
+    if SourceFormat == "fusion.f3z":
+        from FusionReader import read_document
+
+        return read_document(Raw, allow_partial=True)
     from convert import open_document
 
     try:
