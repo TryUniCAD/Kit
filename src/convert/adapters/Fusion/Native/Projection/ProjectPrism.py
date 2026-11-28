@@ -1,5 +1,8 @@
 from convert.adapters.Fusion.Native.DatumPrism.ReadDatumBody import ReadDatumBody
 from convert.adapters.Fusion.Native.DraftedRectangle.ProjectDraft import ProjectDraft
+from convert.adapters.Fusion.Native.FixedPrism.CheckFixedSnap import (
+    CheckFixedSnap,
+)
 from convert.adapters.Fusion.Native.DatumPrism.ReadDatumFrame import (
     KYzMatrix,
     ReadDatumFrame,
@@ -86,6 +89,8 @@ def ProjectPrism(
     )
     CheckRegion(Graph, Context, Shape.LineNodes, Model.Asset.AssetId)
     CheckPrismBody(Graph, Context, Model, Shape, FrameValue, Reverse, YzDatum)
+    if Rectangle is not None and Rectangle.Anchor.Fields["isFixed"] is True:
+        CheckFixedSnap(Graph, Context, Model)
     Material = ReadMaterial(Graph, Context, Model)
     Features = ProjectFeatures(Graph, Context, Rectangle, FrameValue.z_axis)
     DepthSpan = ReadSignedSpan(Features[-1], Parameters) if Reverse else None
