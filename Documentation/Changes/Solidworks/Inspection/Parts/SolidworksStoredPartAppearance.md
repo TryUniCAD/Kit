@@ -29,3 +29,8 @@ direct and registry write destinations, the bounded
 archive refusal, and exact replay of the authored primary texture.
 See the [visual codec evidence](../../Archive/Configuration/SolidworksPartMaterialVisual.md)
 and [appearance-domain gotcha](../../../../Gotchas/Conversion/Solidworks/Readers/StoredMaterialVisualDomains.md).
+
+The native reopen exposed separate part, body and face appearances on a
+two-solid contrast. The part RGB matched the bounded stored record. The
+public SDK projected one body and withheld the face texture. See the
+[measured face texture contrast](../../../../Gotchas/Conversion/Solidworks/Readers/FaceTextureChangesLegacyOptics.md).
