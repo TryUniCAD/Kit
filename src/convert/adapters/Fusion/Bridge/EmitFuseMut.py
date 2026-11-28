@@ -1,3 +1,5 @@
+from typing import Mapping as TypeMap
+
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.UsabilityError import UsabilityError
@@ -55,7 +57,7 @@ def EmitFuseMut(
         CapTransfer(Value, TransferMode.KNative)
         for Value in sorted(CapsValue, key=lambda Value: Value.value)
     )
-    Evidence = (
+    Evidence: TypeMap[str, object] = (
         MatchFuseMeas(Settings.values[KFusionMeasOpt], Payload)
         if KFusionMeasOpt in Settings.values
         else {}
