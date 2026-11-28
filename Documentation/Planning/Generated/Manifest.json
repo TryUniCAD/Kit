@@ -2,8 +2,8 @@
   "MainRevision": "5d9c6a5f5a41e03d07368a5ef11f90b60caff4c2",
   "ObservedOn": "2026-11-28",
   "SourceHashes": {
-    "Documentation/Planning/Links.json": "5f7b5cfdb341787fb23a4766d6e862a32c86f98739bb941aaee51fd780ccec9a",
-    "Documentation/Planning/PullRequests.json": "4d3de0b16e682728bb8513465aa1f1f7440453a83d3b5a1e72360eaaa2e0d5d3",
+    "Documentation/Planning/Links.json": "ad116d4c9a01a5bbd507b231af0d2eef957ff29d2fcf3f30627930feb39134bd",
+    "Documentation/Planning/PullRequests.json": "78b37974a731a39ff1846a106269eefa3031c6ee39aec1df4b636d37dda0385c",
     "Documentation/Planning/SdkScopes.json": "f4b9157b835e504d914d71160ee65e19305e69409261226e1179905df12027b5",
     "Documentation/Planning/TaskIdentities.json": "6171959aadd12abdc62c9c7c8099c2de93fc5cc0cb9c8689ebdcab02d9bf31f2",
     "Documentation/Maintenance/ConversionBacklog.md": "9c8cbaf368367d4f54be45770a58ee0a6671ffd304b6bc9ea00b75dcf2491120",
@@ -21,7 +21,7 @@
   "ParentTasks": 46,
   "RegisterRows": 80,
   "Scopes": 4580,
-  "OpenPullRequests": 79,
+  "OpenPullRequests": 80,
   "DeliveryRecords": 100,
   "ProseClaims": 76
 }

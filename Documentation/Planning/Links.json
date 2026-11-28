@@ -294,7 +294,8 @@
       "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
       "Exit": "Review selection and publication compare ci evidence against the live target branch ref and refuse conflicting or indeterminate mergeability",
       "Branch": "feat/reviewer-model-reactions-20261128",
-      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes"
+      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400"
     },
     {
       "Id": "ReviewerReactions",
@@ -308,7 +309,8 @@
       "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
       "Exit": "Authorized mention receives an app reaction when model review starts and a native outcome reaction after publication or failure without exposing credentials to the model",
       "Branch": "feat/reviewer-model-reactions-20261128",
-      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes"
+      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400"
     },
     {
       "Id": "ReviewerRuntime",
@@ -322,7 +324,8 @@
       "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
       "Exit": "Every hosted review passes the configured model and medium reasoning explicitly and reports the requested runtime without fallback",
       "Branch": "feat/reviewer-model-reactions-20261128",
-      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes"
+      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400"
     },
     {
       "Id": "ReviewerBranding",
@@ -395,6 +398,12 @@
           "https://github.com/TryUniCAD/Kit/actions/runs/46152077332/job/141000741402"
         ],
         "Change": "Move the change entry into a review topic and replace privileged completion events with scheduled verified CI selection without security suppressions"
+      },
+      "FollowUpPR": "https://github.com/TryUniCAD/Kit/pull/400",
+      "Deployment": {
+        "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
+        "AcceptedRevision": "5d9c6a5f5a41e03d07368a5ef11f90b60caff4c2",
+        "State": "Initial workflow merged; activation paused for explicit runtime and reaction follow-up; hosted account execution remains unverified"
       }
     },
     {
