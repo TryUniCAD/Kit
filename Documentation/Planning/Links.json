@@ -300,7 +300,8 @@
         "Revision": "a06b12cf0f0144933abb17030d25b5a24dfad911",
         "Failures": [
           "https://github.com/TryUniCAD/Kit/actions/runs/46152077236/job/141000677751",
-          "https://github.com/TryUniCAD/Kit/actions/runs/46152077247/job/141000677843"
+          "https://github.com/TryUniCAD/Kit/actions/runs/46152077247/job/141000677843",
+          "https://github.com/TryUniCAD/Kit/actions/runs/46152077332/job/141000741402"
         ],
         "Change": "Move the change entry into a review topic and replace privileged completion events with scheduled verified CI selection without security suppressions"
       }
