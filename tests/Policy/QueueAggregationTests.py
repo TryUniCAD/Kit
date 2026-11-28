@@ -101,6 +101,11 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
             False,
             ("CI failed: Merge queue acceptance", "poll 30 s", "detected 60 s"),
         ),
+        (
+            "job-failure",
+            False,
+            ("CI failed: Test suite / Shard (2)\n", "detected 60 s"),
+        ),
     ),
 )
 def CheckPolling(CaseName: str, Passed: bool, Expected: tuple[str, ...]) -> None:
