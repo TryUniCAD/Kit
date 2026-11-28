@@ -35,6 +35,11 @@ No replacement percentage is claimed without a complete acceptance matrix.
 
 Registration, same-format reconstruction and retained native bytes do not establish cross-format editability.
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
+The [SOLIDWORKS guide](Documentation/Reference/Adapters/Solidworks.md) tracks
+subsequent measured native SDK deliveries for ordinary blind bosses and the
+bounded oblique linear pattern. The larger SOLIDWORKS and cross-format
+milestones remain open.
+
 The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md) define the writer's supported geometry and measurement gate.
 
 ## Destination

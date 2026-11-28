@@ -1,0 +1,537 @@
+{
+  "cases": {
+    "ColdRaisedPatternA": {
+      "alternate_sdk": {
+        "bytes": 12072,
+        "case": "ColdRaisedPatternA",
+        "compression_receipt_refusal_count": 6,
+        "compression_runtime": "1.3.1.zlib-ng",
+        "design_only_history_equal": true,
+        "generated_sha256": "60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5",
+        "native_launches": 0,
+        "permissive_history_unqualified": true,
+        "publication_count": 7,
+        "refusal_count": 21,
+        "request_sha256": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+        "runtime_input_file_reads": 0,
+        "semantics": {
+          "area_mm2": 36638.0,
+          "count": 3,
+          "edges": 48,
+          "faces": 21,
+          "pitch_mm": 18.0,
+          "reversed": false,
+          "vertices": 32,
+          "volume_mm3": 107715.0
+        },
+        "status": "native_hash_reproduced",
+        "streams": {
+          "Contents/CMgr": [
+            1129,
+            "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          ],
+          "Contents/CMgrHdr2": [
+            137,
+            "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          ],
+          "Contents/Config-0": [
+            23018,
+            "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          ],
+          "Contents/Config-0-ModelHeader": [
+            1465,
+            "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          ],
+          "Contents/Config-0-ResolvedFeatures": [
+            28290,
+            "51611d4dcf499beda2ec08b9498ecf14a876366b031f131a24d29a76ac2361fa"
+          ],
+          "Contents/Definition": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "Header2": [
+            1465,
+            "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          ],
+          "_MO_VERSION_19000/Biography": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "_MO_VERSION_19000/History": [
+            187,
+            "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          ],
+          "swXmlContents/KeyWords": [
+            1939,
+            "7d34679f4851719275d4ba5598b4c21dd028c8fd07cd30311b78fca90c6fa7ed"
+          ]
+        },
+        "strict_history_refusal_count": 2
+      },
+      "classic_receipt_on_alternate_runtime": {
+        "bytes": 12072,
+        "case": "ColdRaisedPatternA",
+        "compression_runtime": "1.3.1.zlib-ng",
+        "design_only_history_equal": true,
+        "generated_sha256": "60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5",
+        "native_launches": 0,
+        "permissive_history_unqualified": true,
+        "publication_count": 0,
+        "refusal_count": 2,
+        "request_sha256": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+        "runtime_input_file_reads": 0,
+        "semantics": {
+          "area_mm2": 36638.0,
+          "count": 3,
+          "edges": 48,
+          "faces": 21,
+          "pitch_mm": 18.0,
+          "reversed": false,
+          "vertices": 32,
+          "volume_mm3": 107715.0
+        },
+        "status": "unmeasured_binary_envelope_refused",
+        "streams": {
+          "Contents/CMgr": [
+            1129,
+            "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          ],
+          "Contents/CMgrHdr2": [
+            137,
+            "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          ],
+          "Contents/Config-0": [
+            23018,
+            "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          ],
+          "Contents/Config-0-ModelHeader": [
+            1465,
+            "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          ],
+          "Contents/Config-0-ResolvedFeatures": [
+            28290,
+            "51611d4dcf499beda2ec08b9498ecf14a876366b031f131a24d29a76ac2361fa"
+          ],
+          "Contents/Definition": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "Header2": [
+            1465,
+            "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          ],
+          "_MO_VERSION_19000/Biography": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "_MO_VERSION_19000/History": [
+            187,
+            "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          ],
+          "swXmlContents/KeyWords": [
+            1939,
+            "7d34679f4851719275d4ba5598b4c21dd028c8fd07cd30311b78fca90c6fa7ed"
+          ]
+        },
+        "strict_history_refusal_count": 2
+      },
+      "classic_sdk": {
+        "bytes": 10474,
+        "case": "ColdRaisedPatternA",
+        "compression_runtime": "1.2.12",
+        "design_only_history_equal": true,
+        "generated_sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+        "native_launches": 0,
+        "permissive_history_unqualified": true,
+        "publication_count": 7,
+        "refusal_count": 21,
+        "request_sha256": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+        "runtime_input_file_reads": 0,
+        "semantics": {
+          "area_mm2": 36638.0,
+          "count": 3,
+          "edges": 48,
+          "faces": 21,
+          "pitch_mm": 18.0,
+          "reversed": false,
+          "vertices": 32,
+          "volume_mm3": 107715.0
+        },
+        "status": "native_hash_reproduced",
+        "streams": {
+          "Contents/CMgr": [
+            1129,
+            "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          ],
+          "Contents/CMgrHdr2": [
+            137,
+            "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          ],
+          "Contents/Config-0": [
+            23018,
+            "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          ],
+          "Contents/Config-0-ModelHeader": [
+            1465,
+            "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          ],
+          "Contents/Config-0-ResolvedFeatures": [
+            28290,
+            "51611d4dcf499beda2ec08b9498ecf14a876366b031f131a24d29a76ac2361fa"
+          ],
+          "Contents/Definition": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "Header2": [
+            1465,
+            "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          ],
+          "_MO_VERSION_19000/Biography": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "_MO_VERSION_19000/History": [
+            187,
+            "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          ],
+          "swXmlContents/KeyWords": [
+            1939,
+            "7d34679f4851719275d4ba5598b4c21dd028c8fd07cd30311b78fca90c6fa7ed"
+          ]
+        },
+        "strict_history_refusal_count": 2
+      },
+      "native_phases": {
+        "edit": {
+          "numeric_checks": 55,
+          "open": {
+            "error": 0,
+            "opened": true,
+            "warning": 0
+          },
+          "passed": true,
+          "record_sha256": "e9b411c9d1dc41655de70463cec87552fb03b3c22677e820aa909d6f271b4d02"
+        },
+        "reopen": {
+          "numeric_checks": 33,
+          "open": {
+            "error": 0,
+            "opened": true,
+            "warning": 0
+          },
+          "passed": true,
+          "record_sha256": "8ef7c9676fda34ec259d2c78f8256b3b0a26afca02bd4aa61c9298bc8fce768c"
+        }
+      },
+      "retained_native_edit": {
+        "bytes": 71023,
+        "name": "ColdRaisedPatternAEdited.SLDPRT",
+        "sha": "230647c109c9bdd043c567115b41501838584bb1c1a4e764d737bcd0b181b716"
+      },
+      "retained_original": {
+        "bytes": 12072,
+        "name": "ColdRaisedPatternA.SLDPRT",
+        "sha": "60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5"
+      }
+    },
+    "ColdRaisedPatternB": {
+      "alternate_sdk": {
+        "bytes": 12120,
+        "case": "ColdRaisedPatternB",
+        "compression_receipt_refusal_count": 6,
+        "compression_runtime": "1.3.1.zlib-ng",
+        "design_only_history_equal": true,
+        "generated_sha256": "d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b",
+        "native_launches": 0,
+        "permissive_history_unqualified": true,
+        "publication_count": 7,
+        "refusal_count": 21,
+        "request_sha256": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+        "runtime_input_file_reads": 0,
+        "semantics": {
+          "area_mm2": 36275.0,
+          "count": 4,
+          "edges": 60,
+          "faces": 26,
+          "pitch_mm": 19.0,
+          "reversed": true,
+          "vertices": 40,
+          "volume_mm3": 83836.0
+        },
+        "status": "native_hash_reproduced",
+        "streams": {
+          "Contents/CMgr": [
+            1131,
+            "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          ],
+          "Contents/CMgrHdr2": [
+            141,
+            "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          ],
+          "Contents/Config-0": [
+            23018,
+            "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          ],
+          "Contents/Config-0-ModelHeader": [
+            1471,
+            "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          ],
+          "Contents/Config-0-ResolvedFeatures": [
+            28298,
+            "11c32670d8fc089a24e7ca652d11b1946d67e6dafd528c2e23f31eaa94460f57"
+          ],
+          "Contents/Definition": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "Header2": [
+            1471,
+            "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          ],
+          "_MO_VERSION_19000/Biography": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "_MO_VERSION_19000/History": [
+            187,
+            "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          ],
+          "swXmlContents/KeyWords": [
+            1961,
+            "e3ed195b37d9d3b06423a955b02b6658b33afdbdfd598ccdc3b31482bc14d685"
+          ]
+        },
+        "strict_history_refusal_count": 2
+      },
+      "classic_receipt_on_alternate_runtime": {
+        "bytes": 12120,
+        "case": "ColdRaisedPatternB",
+        "compression_runtime": "1.3.1.zlib-ng",
+        "design_only_history_equal": true,
+        "generated_sha256": "d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b",
+        "native_launches": 0,
+        "permissive_history_unqualified": true,
+        "publication_count": 0,
+        "refusal_count": 2,
+        "request_sha256": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+        "runtime_input_file_reads": 0,
+        "semantics": {
+          "area_mm2": 36275.0,
+          "count": 4,
+          "edges": 60,
+          "faces": 26,
+          "pitch_mm": 19.0,
+          "reversed": true,
+          "vertices": 40,
+          "volume_mm3": 83836.0
+        },
+        "status": "unmeasured_binary_envelope_refused",
+        "streams": {
+          "Contents/CMgr": [
+            1131,
+            "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          ],
+          "Contents/CMgrHdr2": [
+            141,
+            "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          ],
+          "Contents/Config-0": [
+            23018,
+            "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          ],
+          "Contents/Config-0-ModelHeader": [
+            1471,
+            "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          ],
+          "Contents/Config-0-ResolvedFeatures": [
+            28298,
+            "11c32670d8fc089a24e7ca652d11b1946d67e6dafd528c2e23f31eaa94460f57"
+          ],
+          "Contents/Definition": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "Header2": [
+            1471,
+            "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          ],
+          "_MO_VERSION_19000/Biography": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "_MO_VERSION_19000/History": [
+            187,
+            "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          ],
+          "swXmlContents/KeyWords": [
+            1961,
+            "e3ed195b37d9d3b06423a955b02b6658b33afdbdfd598ccdc3b31482bc14d685"
+          ]
+        },
+        "strict_history_refusal_count": 2
+      },
+      "classic_sdk": {
+        "bytes": 10461,
+        "case": "ColdRaisedPatternB",
+        "compression_runtime": "1.2.12",
+        "design_only_history_equal": true,
+        "generated_sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+        "native_launches": 0,
+        "permissive_history_unqualified": true,
+        "publication_count": 7,
+        "refusal_count": 21,
+        "request_sha256": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+        "runtime_input_file_reads": 0,
+        "semantics": {
+          "area_mm2": 36275.0,
+          "count": 4,
+          "edges": 60,
+          "faces": 26,
+          "pitch_mm": 19.0,
+          "reversed": true,
+          "vertices": 40,
+          "volume_mm3": 83836.0
+        },
+        "status": "native_hash_reproduced",
+        "streams": {
+          "Contents/CMgr": [
+            1131,
+            "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          ],
+          "Contents/CMgrHdr2": [
+            141,
+            "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          ],
+          "Contents/Config-0": [
+            23018,
+            "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          ],
+          "Contents/Config-0-ModelHeader": [
+            1471,
+            "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          ],
+          "Contents/Config-0-ResolvedFeatures": [
+            28298,
+            "11c32670d8fc089a24e7ca652d11b1946d67e6dafd528c2e23f31eaa94460f57"
+          ],
+          "Contents/Definition": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "Header2": [
+            1471,
+            "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          ],
+          "_MO_VERSION_19000/Biography": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "_MO_VERSION_19000/History": [
+            187,
+            "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          ],
+          "swXmlContents/KeyWords": [
+            1961,
+            "e3ed195b37d9d3b06423a955b02b6658b33afdbdfd598ccdc3b31482bc14d685"
+          ]
+        },
+        "strict_history_refusal_count": 2
+      },
+      "native_phases": {
+        "edit": {
+          "numeric_checks": 55,
+          "open": {
+            "error": 0,
+            "opened": true,
+            "warning": 0
+          },
+          "passed": true,
+          "record_sha256": "252a736971d56f4ed549d32ea292027d3d53044c3f5d835a6a36204b2b5dabea"
+        },
+        "reopen": {
+          "numeric_checks": 33,
+          "open": {
+            "error": 0,
+            "opened": true,
+            "warning": 0
+          },
+          "passed": true,
+          "record_sha256": "65cc8c3a441ba4a4af1c130724b760816fc7799025411f0a02db3d1ebbc9b77c"
+        }
+      },
+      "retained_native_edit": {
+        "bytes": 76037,
+        "name": "ColdRaisedPatternBEdited.SLDPRT",
+        "sha": "fd6fff752c902a582b565b9254907b0d93197142eac5145621e041b7cdc431d5"
+      },
+      "retained_original": {
+        "bytes": 12120,
+        "name": "ColdRaisedPatternB.SLDPRT",
+        "sha": "d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b"
+      }
+    }
+  },
+  "compression_comparison_sha256": "61f7862e5be14b7fdd5024db4ff4b9b65ad31dad9e533d241b694b35e1d0aee6",
+  "compression_runtime": "1.3.1.zlib-ng",
+  "embedded_runtime_archive_sha256": "90905e64a840557d8c1bc4f5b74db3d7ee85e3ffb217611cac1c7813acea4159",
+  "native": {
+    "build": "34.5.2.0604",
+    "build_manifest_sha256": "c59987abd7a7298e97da3a2251a36dac4aca068319ddcd312fafd0a9e4c8ceab",
+    "candidate_numeric_checks": 176,
+    "classic_locator_restored_and_rehashed": {
+      "ColdRaisedPatternA.SLDPRT": {
+        "bytes": 10474,
+        "name": "ColdRaisedPatternA.SLDPRT",
+        "sha": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f"
+      },
+      "ColdRaisedPatternAEdited.SLDPRT": {
+        "bytes": 70387,
+        "name": "ColdRaisedPatternAEdited.SLDPRT",
+        "sha": "d8b83bdf73f97c41581be425353cf8fa9595bf0a9cd6387cf67448b4b5af1d86"
+      },
+      "ColdRaisedPatternB.SLDPRT": {
+        "bytes": 10461,
+        "name": "ColdRaisedPatternB.SLDPRT",
+        "sha": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754"
+      },
+      "ColdRaisedPatternBEdited.SLDPRT": {
+        "bytes": 75927,
+        "name": "ColdRaisedPatternBEdited.SLDPRT",
+        "sha": "36e1d0f88d4169b256ca5e39f6c2009f03529490ec4fe882803666f6aa2b50e8"
+      }
+    },
+    "controls": {
+      "after": {
+        "passed": true,
+        "record_sha256": "763e363931574d5404589d52c1558463f0070a4e3e149a1066ee25a88ebfacca"
+      },
+      "before": {
+        "passed": true,
+        "record_sha256": "3950e2197d6db163c384deac17e4f665f86a4c0e259471596bfb4d6a8e5a3a30"
+      }
+    },
+    "distinct_processes": 6,
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "heldout_cases": 0,
+    "native_result_sha256": "c119cfd3f1faef104030333cab7c55221f890ea52dc3a853b115e8e4108ec0c4",
+    "observer_sha256": "4586919bb798d1e49ef2d6d14f927af0f014901246797a15b1bd241df9033cf8",
+    "packet_sha256": "9e8456c5f266646e7a96ffa711c5a4e3be957ffa807eaddc4e9aa8e0dae8bf8c",
+    "transport_result_sha256": "af2b2018d5a239b37f07865715643a2caf554b42f6f38687cb6e3aa263dc754a",
+    "transport_script_sha256": "9ee7a1154ebdbd641f161b828a8c64a16eee39f0c72d697aab80161f223526f0"
+  },
+  "prequalification_source_archive_sha256": "a3793e622642bcff0c1151fbb070238a5f50b2f2989eed5613ccc939a3bb3587",
+  "prequalification_source_revision": "1e663c616fc7b2db51740f3dfeffff4f29d63c98",
+  "public_snapshot_ast_equal_for_restored_existing_comments": [
+    "src/convert/adapters/solidworks/Core/Writing/Measured/PatNativePins.py",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadPatMeas.py"
+  ],
+  "public_snapshot_guest_verification_script_sha256": "d37e6668d0fd058786cd37ca0774c089f638741e976948bd38a9ba902ef8b75f",
+  "public_source_snapshot_sha256": "152c90dea21a21b829fe4a7097c47ef6773f561dce34973ce06ea83b13842108",
+  "public_source_snapshot_verified_members": 4488,
+  "public_transport_sha256": "480e9ddf1f7b0e4993c10c1f04ef69cd96a22d8fd79bc48a4b1e75c6a65d44cc",
+  "public_worker_sha256": "fa1123366b7a9bcff8343793bbc595b14aa9f0a0fc8ff358833136725e12974f",
+  "runtime": "CPython 3.14.10 x64 under Windows ARM64 emulation",
+  "schema": "kit.sw2026.measured-pattern-compression-publication.v1"
+}

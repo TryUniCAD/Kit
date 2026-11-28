@@ -1,4 +1,8 @@
 from typing import cast as CastValue
+
+from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.RequirePatView import (
+    RequirePatView,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.CheckViewArgs import (
@@ -25,11 +29,17 @@ def RequireDisplay(
         return OwnerValue
     _ = RequireNode(HandleValue, "moFeatureDimHandle_c")
     OwnerValue = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("owner"))
+    if OwnerValue.ClassValue == RuntimeClass("moLPattern_c", 1):
+        RequirePatView(OwnerValue, HandleValue, TextKind)
+        CheckViewArgs(DesignIntent, SelectedLeader)
+        return OwnerValue
     if (
         OwnerValue.ClassValue
         not in (
             RuntimeClass("moMateDistanceDim_c", 1),
             RuntimeClass("moExtrusion_c", 1),
+            RuntimeClass("moICE_c", 1),
+            RuntimeClass("moRefPlane_c", 1),
         )
         or FieldInt(OwnerValue.FieldsValue, "f2b0") != 19000
     ):
@@ -54,10 +64,17 @@ def RequireDisplay(
         type(CastValue(object, TextKind)) is not int
         or TextKind != ExpectedKind
         or IsAngular
-        and ExpectedKind == 18
+        and OwnerValue.ClassValue.NameValue not in ("moExtrusion_c", "moRefPlane_c")
+        or not IsAngular
+        and OwnerValue.ClassValue.NameValue == "moRefPlane_c"
     ):
         raise ValueError(
             "display text kind disagrees with its verified native factory and dimension owner"
+        )
+    if OwnerValue.ClassValue.NameValue == "moRefPlane_c":
+        _ = RequireNode(
+            OwnerValue.FieldsValue.get("f6f8"),
+            "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
         )
     CheckViewArgs(DesignIntent, SelectedLeader)
     return OwnerValue

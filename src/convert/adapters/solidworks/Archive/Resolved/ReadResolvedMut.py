@@ -29,9 +29,12 @@ def ReadResolvedMut(
     LinkContext: Mapping[str, int],
     *,
     UsageValue: BodyUsage | None = None,
+    PartPattern: bool = False,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
 ) -> ResolvedGraph:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    ContextValue = MakeResolvedCtx(
+        VersionValue, SeedValue, LinkContext, UsageValue, PartPattern=PartPattern
+    )
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:

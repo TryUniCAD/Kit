@@ -358,6 +358,49 @@ CI now rejects any recorded field program in `src`.
 The current part writer derives its streams from format rules using the
 typed container, configuration, definition and resolved-feature codecs.
 
+### Measured local linear pattern
+
+The SOLIDWORKS writer also accepts one bounded oblique linear pattern built
+from two Front sketch rectangles with horizontal and vertical relations,
+a blind plate and joined raised seed, a finite Top/Right hinge, and a
+driving angular plane. The single pattern direction uses that actual plane.
+The instance footprints must be disjoint and interior to the plate. The
+measured rectangles use relations and authored vertex positions. Sketch
+dimension parameters are outside this profile.
+
+For independent authored input, use the five qualified feature steps and
+pass a typed `PatPresentInput` under
+`values["solidworks_pattern_presentation"]` to retain a specific annotation
+catalog and label placement. The presentation refers to the real angle,
+count and pitch parameter IDs. Strict cold SDK reads recover and reuse
+the validated annotation and body selection owners from the native graph.
+With `include_brep=False`, the same typed history can be transported using
+`CadDocument.to_json()` and `CadDocument.from_json()` and republished with
+the matching native receipt.
+
+Use the regular `solidworks_native_measurement` option with
+`{"written_at": ..., "receipt": {"packet": ..., "result": ...}}`.
+Supply the original JSON bytes of the packet and native report that
+match the generated container. The classic zlib and Windows zlib-ng
+envelopes use distinct pairs. The native result can use the shipped LF
+encoding or the original Windows CRLF encoding. The two measured pattern locators
+are `C:\KitGeneratedLocalPattern\ColdRaisedPatternA.SLDPRT` and
+`C:\KitGeneratedLocalPattern\ColdRaisedPatternB.SLDPRT`. Use an empty
+seekable SDK stream, optionally an exclusively opened binary file, together
+with the matching `final_destination`. Publication by path requires the
+same measured encoded Windows path. A host path mapped into a different
+logical directory refuses before publication.
+
+The pattern reader derives the linked solid from the cold editable graph
+when physical geometry caches are absent. Raw Parasolid extraction still
+requires a real payload. Both strict read modes refuse a cache-free
+pattern with incomplete typed ownership and a saved version-19000
+linear pattern without verified history. Use `strict=False` for
+permissive inspection, or `extract_brep` to retrieve the original
+Parasolid payloads. New model or compressor digests require their own
+native evidence.
+[Measured pattern change](../../Changes/Solidworks/Construction/SolidworksMeasuredLinearPattern.md)
+
 ## Geometry cache boundary
 
 The partition stream can contain geometry derived from feature history.

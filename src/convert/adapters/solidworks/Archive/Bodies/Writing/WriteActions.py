@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePatField import (
+    WritePatField,
+)
 from collections.abc import Callable
 from types import MappingProxyType
 
@@ -65,6 +68,8 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Boolean": WriteBooleanMut,
             "Bytes": WriteBytesMut,
             "Context": WriteContextMut,
+            "Mask": WritePatField,
+            "Validate": WritePatField,
             "DirectNode": WriteOwnedMut,
             "Present": WritePresentMut,
             "Packed": WritePackedMut,

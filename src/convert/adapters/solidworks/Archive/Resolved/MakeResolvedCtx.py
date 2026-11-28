@@ -12,6 +12,11 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedSchemas
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ResolvedVirtuals import (
     KResolvedVirtuals,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Patterns.PatLayouts import (
+    KPatFields,
+    KPatSchemas,
+    KPatVirtuals,
+)
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
@@ -23,6 +28,8 @@ def MakeResolvedCtx(
     SeedValue: MapSnapshot,
     LinkContext: Mapping[str, int],
     UsageValue: BodyUsage | None,
+    *,
+    PartPattern: bool = False,
 ) -> BodyContext:
     UsageValue = NewBodyUsage(VersionValue, UsageValue)
     if set(LinkContext) != {
@@ -46,12 +53,19 @@ def MakeResolvedCtx(
         raise BodyUnsupported(
             "ordinary resolved graph has an unsupported manager suffix"
         )
+    FlagsValue = dict(LinkContext)
+    if PartPattern:
+        FlagsValue["part_local_pattern"] = 1
     return BodyContext(
         VersionValue,
-        KResolvedLayouts,
-        KResolvedVirtuals,
-        KResolvedSchemas,
+        dict(KResolvedLayouts) | dict(KPatFields) if PartPattern else KResolvedLayouts,
+        (
+            dict(KResolvedVirtuals) | dict(KPatVirtuals)
+            if PartPattern
+            else KResolvedVirtuals
+        ),
+        dict(KResolvedSchemas) | dict(KPatSchemas) if PartPattern else KResolvedSchemas,
         UsageValue,
-        FlagsValue=dict(LinkContext),
+        FlagsValue=FlagsValue,
         PartRootValue=OwnerValue,
     )

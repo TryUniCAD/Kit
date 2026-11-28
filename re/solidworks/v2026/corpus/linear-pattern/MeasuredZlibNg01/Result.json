@@ -1,0 +1,2538 @@
+{
+  "schema": "kit.sw2026.generated-raised-pattern-native-result.v1",
+  "packet_sha256": "9e8456c5f266646e7a96ffa711c5a4e3be957ffa807eaddc4e9aa8e0dae8bf8c",
+  "build_sha256": "c59987abd7a7298e97da3a2251a36dac4aca068319ddcd312fafd0a9e4c8ceab",
+  "build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "heldout_cases": 0,
+  "controls": {
+    "before": {
+      "passed": true,
+      "record_sha256": "3950e2197d6db163c384deac17e4f665f86a4c0e259471596bfb4d6a8e5a3a30"
+    },
+    "after": {
+      "passed": true,
+      "record_sha256": "763e363931574d5404589d52c1558463f0070a4e3e149a1066ee25a88ebfacca"
+    }
+  },
+  "phases": {
+    "ColdRaisedPatternA-edit": {
+      "passed": true,
+      "identity": {
+        "process_id": 6072,
+        "process_creation_filetime": 134398279924356556,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "open": {
+        "opened": true,
+        "error": 0,
+        "warning": 0
+      },
+      "cold_geometry": {
+        "body_count": 1,
+        "mass": {
+          "volume": 0.00010771499999999997,
+          "area": 0.036638000000000004,
+          "com": [
+            0.07334482888439008,
+            0.05459284090549129,
+            0.003416585433783595
+          ],
+          "mass": 0.00010771499999999997
+        },
+        "rebuild_diagnostics": 0,
+        "feature_diagnostics": [],
+        "face_count": 21,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.147,
+          0.11,
+          0.01375
+        ]
+      },
+      "rebuilt": {
+        "geometry": {
+          "body_count": 1,
+          "mass": {
+            "volume": 0.00010771499999999997,
+            "area": 0.036638000000000004,
+            "com": [
+              0.07334482888439008,
+              0.05459284090549129,
+              0.003416585433783595
+            ],
+            "mass": 0.00010771499999999997
+          },
+          "rebuild_diagnostics": 0,
+          "feature_diagnostics": [],
+          "face_count": 21,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.147,
+            0.11,
+            0.01375
+          ]
+        },
+        "tree": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes1___EndTag___",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Ambient",
+            "type": "AmbientLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional1",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional2",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional3",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model plate rectangle",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model plate",
+            "type": "Extrusion",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model seed rectangle",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model raised seed",
+            "type": "ICE",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA hinge",
+            "type": "RefAxis",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA direction",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA feature pattern",
+            "type": "LPattern",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        ],
+        "pattern": {
+          "name": "ColdRaisedPatternA feature pattern",
+          "drivers": {
+            "D1": 3.0,
+            "D3": 0.018
+          },
+          "parents": [
+            "Model raised seed",
+            "ColdRaisedPatternA direction"
+          ],
+          "native_axis": {
+            "role": "pattern direction plane",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        },
+        "datum": {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.5446390350150271,
+            0.838670567945424,
+            0.0,
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hinge": {
+            "endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "unit": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "parents": [
+              {
+                "name": "Top Plane",
+                "type": "RefPlane"
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane"
+              }
+            ]
+          },
+          "signed_normal": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "reverse": false,
+          "constraints": [
+            {
+              "flags": 16,
+              "angle_or_distance": 0.5759586531581288,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000010000000"
+              }
+            },
+            {
+              "flags": 4,
+              "angle_or_distance": 0.0,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000018000000"
+              }
+            }
+          ],
+          "feature_reference": {
+            "role": "direction owner",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          },
+          "geometry_reference": {
+            "role": "direction geometry",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        }
+      },
+      "edited": {
+        "geometry": {
+          "body_count": 1,
+          "mass": {
+            "volume": 0.00010771499999999998,
+            "area": 0.036638000000000004,
+            "com": [
+              0.07346675787379753,
+              0.054513659293939185,
+              0.003416585433783596
+            ],
+            "mass": 0.00010771499999999998
+          },
+          "rebuild_diagnostics": 0,
+          "feature_diagnostics": [],
+          "face_count": 21,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.147,
+            0.11,
+            0.01375
+          ]
+        },
+        "tree": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes1___EndTag___",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Ambient",
+            "type": "AmbientLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional1",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional2",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional3",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model plate rectangle",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model plate",
+            "type": "Extrusion",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model seed rectangle",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model raised seed",
+            "type": "ICE",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA hinge",
+            "type": "RefAxis",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA direction",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA feature pattern",
+            "type": "LPattern",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        ],
+        "pattern": {
+          "name": "ColdRaisedPatternA feature pattern",
+          "drivers": {
+            "D1": 3.0,
+            "D3": 0.024
+          },
+          "parents": [
+            "Model raised seed",
+            "ColdRaisedPatternA direction"
+          ],
+          "native_axis": {
+            "role": "pattern direction plane",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        },
+        "datum": {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.5446390350150271,
+            0.838670567945424,
+            0.0,
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hinge": {
+            "endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "unit": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "parents": [
+              {
+                "name": "Top Plane",
+                "type": "RefPlane"
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane"
+              }
+            ]
+          },
+          "signed_normal": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "reverse": false,
+          "constraints": [
+            {
+              "flags": 16,
+              "angle_or_distance": 0.5759586531581288,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000010000000"
+              }
+            },
+            {
+              "flags": 4,
+              "angle_or_distance": 0.0,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000018000000"
+              }
+            }
+          ],
+          "feature_reference": {
+            "role": "direction owner",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          },
+          "geometry_reference": {
+            "role": "direction geometry",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        }
+      },
+      "saved": {
+        "name": "ColdRaisedPatternAEdited.SLDPRT",
+        "bytes": 71023,
+        "sha256": "230647c109c9bdd043c567115b41501838584bb1c1a4e764d737bcd0b181b716"
+      },
+      "controller_diagnostics": [],
+      "first_failure": null,
+      "numeric_checks": 55,
+      "record_sha256": "e9b411c9d1dc41655de70463cec87552fb03b3c22677e820aa909d6f271b4d02"
+    },
+    "ColdRaisedPatternA-reopen": {
+      "passed": true,
+      "identity": {
+        "process_id": 10124,
+        "process_creation_filetime": 134398280571103469,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "open": {
+        "opened": true,
+        "error": 0,
+        "warning": 0
+      },
+      "cold_geometry": {
+        "body_count": 1,
+        "mass": {
+          "volume": 0.00010771499999999998,
+          "area": 0.036638000000000004,
+          "com": [
+            0.07346675787379753,
+            0.054513659293939185,
+            0.003416585433783596
+          ],
+          "mass": 0.00010771499999999998
+        },
+        "rebuild_diagnostics": 0,
+        "feature_diagnostics": [],
+        "face_count": 21,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.147,
+          0.11,
+          0.01375
+        ]
+      },
+      "rebuilt": {
+        "geometry": {
+          "body_count": 1,
+          "mass": {
+            "volume": 0.00010771499999999998,
+            "area": 0.036638000000000004,
+            "com": [
+              0.07346675787379753,
+              0.054513659293939185,
+              0.003416585433783596
+            ],
+            "mass": 0.00010771499999999998
+          },
+          "rebuild_diagnostics": 0,
+          "feature_diagnostics": [],
+          "face_count": 21,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.147,
+            0.11,
+            0.01375
+          ]
+        },
+        "tree": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes1___EndTag___",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Ambient",
+            "type": "AmbientLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional1",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional2",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional3",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model plate rectangle",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model plate",
+            "type": "Extrusion",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model seed rectangle",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Model raised seed",
+            "type": "ICE",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA hinge",
+            "type": "RefAxis",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA direction",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternA feature pattern",
+            "type": "LPattern",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        ],
+        "pattern": {
+          "name": "ColdRaisedPatternA feature pattern",
+          "drivers": {
+            "D1": 3.0,
+            "D3": 0.024
+          },
+          "parents": [
+            "Model raised seed",
+            "ColdRaisedPatternA direction"
+          ],
+          "native_axis": {
+            "role": "pattern direction plane",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        },
+        "datum": {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.5446390350150271,
+            0.838670567945424,
+            0.0,
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hinge": {
+            "endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "unit": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "parents": [
+              {
+                "name": "Top Plane",
+                "type": "RefPlane"
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane"
+              }
+            ]
+          },
+          "signed_normal": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "reverse": false,
+          "constraints": [
+            {
+              "flags": 16,
+              "angle_or_distance": 0.5759586531581288,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000010000000"
+              }
+            },
+            {
+              "flags": 4,
+              "angle_or_distance": 0.0,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000018000000"
+              }
+            }
+          ],
+          "feature_reference": {
+            "role": "direction owner",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          },
+          "geometry_reference": {
+            "role": "direction geometry",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        }
+      },
+      "controller_diagnostics": [],
+      "first_failure": null,
+      "numeric_checks": 33,
+      "record_sha256": "8ef7c9676fda34ec259d2c78f8256b3b0a26afca02bd4aa61c9298bc8fce768c"
+    },
+    "ColdRaisedPatternB-edit": {
+      "passed": true,
+      "identity": {
+        "process_id": 6980,
+        "process_creation_filetime": 134398280963078741,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "open": {
+        "opened": true,
+        "error": 0,
+        "warning": 0
+      },
+      "cold_geometry": {
+        "body_count": 1,
+        "mass": {
+          "volume": 8.3836e-05,
+          "area": 0.036275,
+          "com": [
+            0.06238429108342493,
+            0.06110394572810076,
+            0.0033112028245622397
+          ],
+          "mass": 8.3836e-05
+        },
+        "rebuild_diagnostics": 0,
+        "feature_diagnostics": [],
+        "face_count": 26,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.128,
+          0.122,
+          0.01625
+        ]
+      },
+      "rebuilt": {
+        "geometry": {
+          "body_count": 1,
+          "mass": {
+            "volume": 8.3836e-05,
+            "area": 0.036275,
+            "com": [
+              0.06238429108342493,
+              0.06110394572810076,
+              0.0033112028245622397
+            ],
+            "mass": 8.3836e-05
+          },
+          "rebuild_diagnostics": 0,
+          "feature_diagnostics": [],
+          "face_count": 26,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ]
+        },
+        "tree": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes1___EndTag___",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Ambient",
+            "type": "AmbientLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional1",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional2",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional3",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Base plate footprint",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Base extrusion",
+            "type": "Extrusion",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Raised island footprint",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Raised extrusion",
+            "type": "ICE",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB hinge",
+            "type": "RefAxis",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB direction",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB feature pattern",
+            "type": "LPattern",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        ],
+        "pattern": {
+          "name": "ColdRaisedPatternB feature pattern",
+          "drivers": {
+            "D1": 4.0,
+            "D3": 0.019
+          },
+          "parents": [
+            "Raised extrusion",
+            "ColdRaisedPatternB direction"
+          ],
+          "native_axis": {
+            "role": "pattern direction plane",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        },
+        "datum": {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.5446390350150271,
+            -0.838670567945424,
+            0.0
+          ],
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.838670567945424,
+            0.5446390350150271,
+            0.0,
+            0.5446390350150271,
+            -0.838670567945424,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hinge": {
+            "endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "unit": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "parents": [
+              {
+                "name": "Top Plane",
+                "type": "RefPlane"
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane"
+              }
+            ]
+          },
+          "signed_normal": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "reverse": true,
+          "constraints": [
+            {
+              "flags": 16,
+              "angle_or_distance": 0.9948376736367679,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000010000000"
+              }
+            },
+            {
+              "flags": 4,
+              "angle_or_distance": 0.0,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000018000000"
+              }
+            }
+          ],
+          "feature_reference": {
+            "role": "direction owner",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          },
+          "geometry_reference": {
+            "role": "direction geometry",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        }
+      },
+      "edited": {
+        "geometry": {
+          "body_count": 1,
+          "mass": {
+            "volume": 8.383599999999999e-05,
+            "area": 0.036275,
+            "com": [
+              0.06210188902640762,
+              0.06153880676141089,
+              0.003311202824562239
+            ],
+            "mass": 8.383599999999999e-05
+          },
+          "rebuild_diagnostics": 0,
+          "feature_diagnostics": [],
+          "face_count": 26,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ]
+        },
+        "tree": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes1___EndTag___",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Ambient",
+            "type": "AmbientLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional1",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional2",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional3",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Base plate footprint",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Base extrusion",
+            "type": "Extrusion",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Raised island footprint",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Raised extrusion",
+            "type": "ICE",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB hinge",
+            "type": "RefAxis",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB direction",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB feature pattern",
+            "type": "LPattern",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        ],
+        "pattern": {
+          "name": "ColdRaisedPatternB feature pattern",
+          "drivers": {
+            "D1": 4.0,
+            "D3": 0.022
+          },
+          "parents": [
+            "Raised extrusion",
+            "ColdRaisedPatternB direction"
+          ],
+          "native_axis": {
+            "role": "pattern direction plane",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        },
+        "datum": {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.5446390350150271,
+            -0.838670567945424,
+            0.0
+          ],
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.838670567945424,
+            0.5446390350150271,
+            0.0,
+            0.5446390350150271,
+            -0.838670567945424,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hinge": {
+            "endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "unit": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "parents": [
+              {
+                "name": "Top Plane",
+                "type": "RefPlane"
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane"
+              }
+            ]
+          },
+          "signed_normal": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "reverse": true,
+          "constraints": [
+            {
+              "flags": 16,
+              "angle_or_distance": 0.9948376736367679,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000010000000"
+              }
+            },
+            {
+              "flags": 4,
+              "angle_or_distance": 0.0,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000018000000"
+              }
+            }
+          ],
+          "feature_reference": {
+            "role": "direction owner",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          },
+          "geometry_reference": {
+            "role": "direction geometry",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        }
+      },
+      "saved": {
+        "name": "ColdRaisedPatternBEdited.SLDPRT",
+        "bytes": 76037,
+        "sha256": "fd6fff752c902a582b565b9254907b0d93197142eac5145621e041b7cdc431d5"
+      },
+      "controller_diagnostics": [],
+      "first_failure": null,
+      "numeric_checks": 55,
+      "record_sha256": "252a736971d56f4ed549d32ea292027d3d53044c3f5d835a6a36204b2b5dabea"
+    },
+    "ColdRaisedPatternB-reopen": {
+      "passed": true,
+      "identity": {
+        "process_id": 5352,
+        "process_creation_filetime": 134398281665391622,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "open": {
+        "opened": true,
+        "error": 0,
+        "warning": 0
+      },
+      "cold_geometry": {
+        "body_count": 1,
+        "mass": {
+          "volume": 8.383599999999999e-05,
+          "area": 0.036275,
+          "com": [
+            0.06210188902640762,
+            0.06153880676141089,
+            0.003311202824562239
+          ],
+          "mass": 8.383599999999999e-05
+        },
+        "rebuild_diagnostics": 0,
+        "feature_diagnostics": [],
+        "face_count": 26,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.128,
+          0.122,
+          0.01625
+        ]
+      },
+      "rebuilt": {
+        "geometry": {
+          "body_count": 1,
+          "mass": {
+            "volume": 8.383599999999999e-05,
+            "area": 0.036275,
+            "com": [
+              0.06210188902640762,
+              0.06153880676141089,
+              0.003311202824562239
+            ],
+            "mass": 8.383599999999999e-05
+          },
+          "rebuild_diagnostics": 0,
+          "feature_diagnostics": [],
+          "face_count": 26,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ]
+        },
+        "tree": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Notes1___EndTag___",
+            "type": "NotesAreaFtrFolder",
+            "parent": "Annotations",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Ambient",
+            "type": "AmbientLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional1",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional2",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Directional3",
+            "type": "DirectionLight",
+            "parent": "Lights and Cameras",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Base plate footprint",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Base extrusion",
+            "type": "Extrusion",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Raised island footprint",
+            "type": "ProfileFeature",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Raised extrusion",
+            "type": "ICE",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB hinge",
+            "type": "RefAxis",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB direction",
+            "type": "RefPlane",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "ColdRaisedPatternB feature pattern",
+            "type": "LPattern",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        ],
+        "pattern": {
+          "name": "ColdRaisedPatternB feature pattern",
+          "drivers": {
+            "D1": 4.0,
+            "D3": 0.022
+          },
+          "parents": [
+            "Raised extrusion",
+            "ColdRaisedPatternB direction"
+          ],
+          "native_axis": {
+            "role": "pattern direction plane",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        },
+        "datum": {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.5446390350150271,
+            -0.838670567945424,
+            0.0
+          ],
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.838670567945424,
+            0.5446390350150271,
+            0.0,
+            0.5446390350150271,
+            -0.838670567945424,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hinge": {
+            "endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "unit": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "parents": [
+              {
+                "name": "Top Plane",
+                "type": "RefPlane"
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane"
+              }
+            ]
+          },
+          "signed_normal": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "reverse": true,
+          "constraints": [
+            {
+              "flags": 16,
+              "angle_or_distance": 0.9948376736367679,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000010000000"
+              }
+            },
+            {
+              "flags": 4,
+              "angle_or_distance": 0.0,
+              "input": {
+                "role": "actual plane input",
+                "bytes": 20,
+                "hex": "384a000001000000fffeff000000000018000000"
+              }
+            }
+          ],
+          "feature_reference": {
+            "role": "direction owner",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          },
+          "geometry_reference": {
+            "role": "direction geometry",
+            "bytes": 20,
+            "hex": "384a000001000000fffeff00000000001a000000"
+          }
+        }
+      },
+      "controller_diagnostics": [],
+      "first_failure": null,
+      "numeric_checks": 33,
+      "record_sha256": "65cc8c3a441ba4a4af1c130724b760816fc7799025411f0a02db3d1ebbc9b77c"
+    }
+  },
+  "passed": true,
+  "distinct_processes": 6
+}

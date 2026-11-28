@@ -38,7 +38,11 @@ def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
         raise ValueError(
             "ordinary cut keyword permits no driver or its actual single D1 dimension"
         )
-    if InputValue.KindValue == "Revolve" and (
+    if (
+        InputValue.KindValue == "Revolve"
+        or InputValue.KindValue == "Plane"
+        and InputValue.DimensionValues
+    ) and (
         InputValue.TagValue != "Feature"
         or tuple(
             (DimValue.NameValue, DimValue.UnitValue)
@@ -47,12 +51,15 @@ def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
         != (("D1", "degree"),)
     ):
         raise ValueError(
-            "ordinary revolve keyword requires its single D1 degree driver"
+            "ordinary angular keyword requires its single D1 degree driver"
         )
     FeatureValue = SubElement(RootValue, InputValue.TagValue, Attributes)
     for DimValue in InputValue.DimensionValues:
-        if DimValue.UnitValue is not None and InputValue.KindValue != "Revolve":
+        if DimValue.UnitValue is not None and InputValue.KindValue not in (
+            "Revolve",
+            "Plane",
+        ):
             raise ValueError(
-                "keyword degree suffix requires an ordinary revolve feature"
+                "keyword degree suffix requires an ordinary revolve or angular datum"
             )
         MakeKeyDimMut(FeatureValue, DimValue)

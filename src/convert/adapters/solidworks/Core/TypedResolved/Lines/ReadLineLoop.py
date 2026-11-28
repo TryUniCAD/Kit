@@ -16,15 +16,17 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
 
 
 # the linked typed sketch owns array membership and provenance independently of legacy marker discovery
-def ReadLineLoop(SketchValue: ArchiveNode, LinkValue: NativeLink) -> LineLoop:
+def ReadLineLoop(
+    SketchValue: ArchiveNode, LinkValue: NativeLink, *, HasAxes: bool = False
+) -> LineLoop:
     FieldsValue = SketchValue.FieldsValue
-    CheckLineScope(FieldsValue)
+    CheckLineScope(FieldsValue, HasAxes=HasAxes)
     PointsValue = tuple(
         ReadLinePoint(RowValue, Index)
         for Index, RowValue in enumerate(NativeRows(FieldsValue.get("points")))
     )
     LinesValue = tuple(
-        ReadLineSegment(RowValue, Index)
+        ReadLineSegment(RowValue, Index, int(HasAxes))
         for Index, RowValue in enumerate(NativeRows(FieldsValue.get("lines")))
     )
     if FieldsValue.get("npoints") != len(PointsValue) or FieldsValue.get(

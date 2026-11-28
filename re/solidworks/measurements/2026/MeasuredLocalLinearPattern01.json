@@ -1,0 +1,180 @@
+{
+  "base": "e5294382aad0c04ba26554dfe381fd03daec110a",
+  "baseline_plain_writer_control": {
+    "cases": [
+      {
+        "measurements_accepted": 3,
+        "role": "Skew",
+        "runtime_input_file_reads": 0,
+        "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2"
+      },
+      {
+        "measurements_accepted": 3,
+        "role": "Step",
+        "runtime_input_file_reads": 0,
+        "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+      }
+    ],
+    "fresh_proof_sha256": "ff3b5d96aa8841df7a42cc4f97eccd5c7bd5df7e8be7cd34b194fcec087e689a"
+  },
+  "cases": [
+    {
+      "bytes": 10474,
+      "case": "ColdRaisedPatternA",
+      "compression_runtime": "1.2.12",
+      "generated_sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+      "native_launches": 0,
+      "publication_count": 5,
+      "refusal_count": 17,
+      "request_sha256": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+      "runtime_input_file_reads": 0,
+      "semantics": {
+        "area_mm2": 36638.0,
+        "count": 3,
+        "edges": 48,
+        "faces": 21,
+        "pitch_mm": 18.0,
+        "reversed": false,
+        "vertices": 32,
+        "volume_mm3": 107715.0
+      },
+      "status": "native_hash_reproduced",
+      "streams": {
+        "Contents/CMgr": [
+          1129,
+          "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+        ],
+        "Contents/CMgrHdr2": [
+          137,
+          "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+        ],
+        "Contents/Config-0": [
+          23018,
+          "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          1465,
+          "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          28290,
+          "51611d4dcf499beda2ec08b9498ecf14a876366b031f131a24d29a76ac2361fa"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          1465,
+          "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+        ],
+        "swXmlContents/KeyWords": [
+          1939,
+          "7d34679f4851719275d4ba5598b4c21dd028c8fd07cd30311b78fca90c6fa7ed"
+        ]
+      }
+    },
+    {
+      "bytes": 10461,
+      "case": "ColdRaisedPatternB",
+      "compression_runtime": "1.2.12",
+      "generated_sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+      "native_launches": 0,
+      "publication_count": 5,
+      "refusal_count": 17,
+      "request_sha256": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+      "runtime_input_file_reads": 0,
+      "semantics": {
+        "area_mm2": 36275.0,
+        "count": 4,
+        "edges": 60,
+        "faces": 26,
+        "pitch_mm": 19.0,
+        "reversed": true,
+        "vertices": 40,
+        "volume_mm3": 83836.0
+      },
+      "status": "native_hash_reproduced",
+      "streams": {
+        "Contents/CMgr": [
+          1131,
+          "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+        ],
+        "Contents/CMgrHdr2": [
+          141,
+          "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+        ],
+        "Contents/Config-0": [
+          23018,
+          "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          1471,
+          "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          28298,
+          "11c32670d8fc089a24e7ca652d11b1946d67e6dafd528c2e23f31eaa94460f57"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          1471,
+          "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+        ],
+        "swXmlContents/KeyWords": [
+          1961,
+          "e3ed195b37d9d3b06423a955b02b6658b33afdbdfd598ccdc3b31482bc14d685"
+        ]
+      }
+    }
+  ],
+  "coverage": {
+    "fcstd_conversion_count": 0,
+    "fresh_heldout_reads": 0,
+    "logical_streams_checked_per_case": 10,
+    "measured_generated_cases": 2,
+    "unmeasured_compression_variant_positive": false,
+    "warm_conversion_count": 0
+  },
+  "fixture_sha256": {
+    "ColdRaisedPatternARequest.json": "70ff91ec7aadd7c619534f7c41fbe2fc1d26772202e45ce59785069bddcad67d",
+    "ColdRaisedPatternBRequest.json": "ace15fd9645a0b35279b901320747719ee28c03407c38e60302a1d99a0a2f4fa",
+    "Packet.json": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1",
+    "Result.json": "545467f5a478e363bbf75232f3dff5bf13a3c9d739ef919254d2d88d18f7113a",
+    "Streams.json": "53021376d60c8fd7a2cf48d622455287c2a93ca12d5080853be5b5f8da7b06f0"
+  },
+  "native_prior": {
+    "build": "34.5.2.0604",
+    "build_sha256": "b04e279af46524b69a3198c50e2ba06a89702327be1885eb5e2283d82f2d84a3",
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "native_launches_in_this_delivery": 0,
+    "numeric_checks": 176,
+    "packet_sha256": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1",
+    "passing_candidate_phases": 4,
+    "passing_controls": 2,
+    "processes": 6,
+    "result_sha256": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b"
+  },
+  "schema": "kit.sw2026.measured-local-linear-pattern-delivery.v1",
+  "sdk_source_tree": "f7ec83cd47074e0efc9a4f4d30bf3d8fb676d3c5",
+  "worker_sha256": "bd0c197e6f51cbe017cb69ac50100e9802cc767df7711941d1d299a043a57c54"
+}

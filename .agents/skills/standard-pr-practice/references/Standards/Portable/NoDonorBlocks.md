@@ -6,7 +6,8 @@ This section replaces the preserved "THE STATE OF THE WORK" paragraph below wher
 [AGENTS.md](../../../../../../AGENTS.md) takes precedence over the preserved text.
 
 Kit writes native `.SLDPRT` files for the measured version-19000 ordinary
-Front-plane line-loop blind boss family. The part writer derives every
+Front-plane line-loop blind boss and bounded oblique local linear pattern
+profiles. The part writer derives every
 stream from the neutral model and the documented archive rules. The
 assembly identifier has reader registration.
 

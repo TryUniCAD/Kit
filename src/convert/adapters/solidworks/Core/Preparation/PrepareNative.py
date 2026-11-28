@@ -37,7 +37,7 @@ def PrepareNative(
             )
         InputValue = ColdReadInput(DocumentValue, PureWindowsPath(FinalValue).stem)
     PlanValue = PlanPartWrite(InputValue)
-    RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
+    RecipeValue = MakePartRecipe(PlanValue.NameValue, PlanValue.PlaneName, WrittenAt)
     Candidate = RunPartPrep(
         InputValue, TargetValue, PlanValue, RecipeValue, SettingsValue
     )

@@ -5,13 +5,16 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 
+# measured pattern receipts retain their exact oracle even when other part builds qualify
+KOraclePart = {
+    "build": "34.5.2.0604",
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+}
+
 # exact executable identities bind standalone part measurements to independently verified native builds
 KPartOracleBuilds = (
-    {
-        "build": "34.5.2.0604",
-        "product": "SOLIDWORKS 2026 SP05.2",
-        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
-    },
+    KOraclePart,
     {
         "build": "34.4.1.1011",
         "product": "SOLIDWORKS 2026 SP04.1",
@@ -20,8 +23,8 @@ KPartOracleBuilds = (
 )
 
 
-# the reported authoring time reconstructs the already measured bytes without deriving intent from the receipt
-def ReadPartMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
+# the caller authored event is independent from the scoped immutable native evidence
+def ReadMeasInput(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
     SourceValue = OptionsValue.values.get(KPartMeasureOpt)
     if SourceValue is None:
         raise ValueError(
@@ -37,7 +40,12 @@ def ReadPartMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
         raise ValueError(
             "native measurement requires its exact archive creation epoch and receipt"
         )
-    Receipt = ReadMeasMap(Envelope["receipt"])
+    return TimeValue, ReadMeasMap(Envelope["receipt"])
+
+
+# the plain part lane retains its independently qualified oracle and receipt schema
+def ReadPartMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
+    TimeValue, Receipt = ReadMeasInput(OptionsValue)
     if (
         Receipt.get("schema") != "kit.sw2026.sdk-standalone-default-part-evidence.v1"
         or ReadMeasMap(Receipt.get("oracle")) not in KPartOracleBuilds

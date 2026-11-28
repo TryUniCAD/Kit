@@ -6,6 +6,17 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
+    SelfFileInput,
+)
+from convert.adapters.solidworks.Core.Preparation.Patterns.PatWritePlan import (
+    PatWritePlan,
+)
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.PatReadData import (
+    IsPatWrite,
+    PatDocName,
+)
+from convert.adapters.solidworks.Core.Preparation.SelectPartSelf import KNeutralRoot
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
     ColdReadInput,
@@ -34,20 +45,27 @@ class SldprtWriter(PairProtocol):
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
-            if IsColdRead(DocValue):
-                NameValue = (
-                    PathValue.stem
-                    if PathValue is not None
-                    else DocValue.sketches[0].name
+            if IsPatWrite(DocValue):
+                NameValue = PatDocName(DocValue)
+                ModelPath = SelfFileInput(
+                    KNeutralRoot + "\\" + NameValue + ".SLDPRT", 1
                 )
-                DocValue = ColdReadInput(DocValue, NameValue)
-            PlanValue = PlanPartWrite(DocValue)
-        except (IndexError, TypeError, ValueError):
+                _ = PatWritePlan(DocValue, ModelPath)
+            else:
+                if IsColdRead(DocValue):
+                    NameValue = (
+                        PathValue.stem
+                        if PathValue is not None
+                        else DocValue.sketches[0].name
+                    )
+                    DocValue = ColdReadInput(DocValue, NameValue)
+                NameValue = PlanPartWrite(DocValue).NameValue
+        except (IndexError, KeyError, TypeError, ValueError):
             return False
         if PathValue is not None:
             return (
                 PathValue.suffix.casefold() == KPartSuffix
-                and PathValue.stem == PlanValue.NameValue
+                and PathValue.stem == NameValue
                 and not PathValue.is_dir()
             )
         return IsBinaryTarget(Target)

@@ -37,7 +37,10 @@ def MakeBossDimMut(
     SelectedLeader: int,
     Allocator: PersistentIds,
 ) -> DimensionGraph:
-    RequireRootNode(OwnerValue, "moExtrusion_c")
+    if OrdinalValue == 1 and OwnerValue.ClassValue.NameValue == "moICE_c":
+        RequireRootNode(OwnerValue, "moICE_c")
+    else:
+        RequireRootNode(OwnerValue, "moExtrusion_c")
     Parameter = MakeBlindParam(InputValue, OrdinalValue)
     Parameter.FieldsValue["owner"] = OwnerValue
     IsAngular = OrdinalValue in (3, 4)

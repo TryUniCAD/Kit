@@ -26,8 +26,11 @@ def WriteResolMut(
     LinkContext: Mapping[str, int],
     *,
     UsageValue: BodyUsage | None = None,
+    PartPattern: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    ContextValue = MakeResolvedCtx(
+        VersionValue, SeedValue, LinkContext, UsageValue, PartPattern=PartPattern
+    )
     _ = NormalizeCount(len(RootsValue), "")
     WriterValue = BodyWriter(
         ArchiveMaps(SeedValue.CounterValue, SeedValue), ContextValue, WriteBodyMut

@@ -80,6 +80,21 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### B04-SW2026-LOCAL-LINEAR-PATTERN
+
+The PR #121 takeover team owns the cold measured local pattern delivery
+in [PR #243](https://github.com/TryUniCAD/Kit/pull/243). It depends on the accepted
+typed ordinary part archive and exact native measurement gate on main.
+The scoped exit requires the two genuinely measured origination and
+readback republication cases, complete stream equality, preserved typed
+presentation, and the accepted revision's review and integration checks.
+The scoped reader refuses recognized version-19000 saved patterns in
+strict mode and retains permissive inspection and raw extraction.
+Typed saved history, other pattern modes, dimension-driven stock
+sketches, and additional outputs after neutral edits or unmeasured
+compression remain open.
+[Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredLinearPattern.md)
+
 ### B10-RunDefaults
 
 Codex owns the profile-independent catalogue shortcut on `codex/desktop-run-defaults`.

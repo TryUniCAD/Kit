@@ -41,7 +41,9 @@ def MakeBlindByPlan(
 ) -> PartCandidate:
     CheckPartInput(DocumentValue, InputValue, PlanValue)
     Allocator = PersistentIds()
-    SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)
+    SystemValue = MakePartBaseMut(
+        InputValue, PlanValue.NameValue, PlanValue.ConfigName, Allocator
+    )
     ProfileValue = MakePartProfMut(SystemValue, InputValue, PlanValue, Allocator)
     return FinishBlindMut(SystemValue, ProfileValue, InputValue, PlanValue, Allocator)
 
