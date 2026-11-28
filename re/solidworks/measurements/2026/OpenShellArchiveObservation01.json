@@ -1,0 +1,864 @@
+{
+  "cases": {
+    "OpenShell.SLDPRT": {
+      "archive_map": {
+        "configuration_base": 4,
+        "end": 313,
+        "resolved_base": 109,
+        "resolved_roots": 20
+      },
+      "field_links": {
+        "auxiliary_edge": {
+          "carriers": [
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 4,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moEndFaceSurfIdRep_c",
+              "role": 0,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 3,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 1,
+              "stock": 32,
+              "stock_event": 1795360551
+            }
+          ],
+          "field_span": [
+            13887,
+            14042
+          ],
+          "index": 304,
+          "tag": 1922,
+          "trailer_mode": 512
+        },
+        "edge_component_index": 301,
+        "face_component_index": 278,
+        "removed_top_cap": {
+          "carriers": [
+            {
+              "class": "moEndFaceSurfIdRep_c",
+              "role": 1,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 4,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 1,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 2,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 3,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            null
+          ],
+          "field_span": [
+            11844,
+            12010
+          ],
+          "index": 280,
+          "tag": 1857,
+          "trailer_mode": 768
+        }
+      },
+      "keywords": {
+        "root": "Keywords",
+        "sha256": "3ee20347d142ef0547de02b2caaf9b876fea79dce73b2174d611536f4087ceac"
+      },
+      "legacy_sdk": {
+        "parameter_id": "sldprt:parameter:34:D1",
+        "parameter_role": "driving",
+        "parameter_value_mm": 2.8,
+        "selection_ids": [
+          "sldprt:selection:34:face:1",
+          "sldprt:selection:34:face:4"
+        ]
+      },
+      "saved_raw_spans": {
+        "Contents/Config-0-ResolvedFeatures": [
+          {
+            "completed": true,
+            "declared_length": 8,
+            "field": "data",
+            "length_rule": {
+              "kind": "callable",
+              "module": "defs.ResolvedDims",
+              "name": "define_helpers.<locals>.<lambda>",
+              "source": null,
+              "source_file": "/Users/odin/.codex/worktrees/kit-121-main-e529-integration/Kit/re/tooling/sw2026/serial/defs/ResolvedDims.py",
+              "source_line": 222,
+              "source_status": "not read during archive execution"
+            },
+            "object_class": "moDisplayDistanceDim_c",
+            "object_type": "Core.Obj",
+            "observed_length": 8,
+            "operation": "Schema.Raw",
+            "operation_path": [
+              {
+                "field": "f818",
+                "index": 1,
+                "operation": "defs.ResolvedCore.XO",
+                "scope_index": null
+              },
+              {
+                "field": "f18",
+                "index": 7,
+                "operation": "defs.ResolvedCore.XO",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 0,
+                "operation": "Schema.Base",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 42,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "f5b0",
+                "index": 0,
+                "operation": "Schema.Emb",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 1,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "data",
+                "index": 3,
+                "operation": "Schema.Raw",
+                "scope_index": null
+              }
+            ],
+            "schema": "dm.FUN_4bd03960",
+            "schema_path": [
+              "moExtrusion_c",
+              "moEndSpec_c",
+              "moDisplayDistanceDim_c",
+              "moDisplayDim_c.FUN_4c82c3d0",
+              "dm.FUN_4bd03960"
+            ],
+            "source_streams": [
+              "Contents/Config-0-ResolvedFeatures"
+            ]
+          },
+          {
+            "completed": true,
+            "declared_length": 8,
+            "field": "data",
+            "length_rule": {
+              "kind": "callable",
+              "module": "defs.ResolvedDims",
+              "name": "define_helpers.<locals>.<lambda>",
+              "source": null,
+              "source_file": "/Users/odin/.codex/worktrees/kit-121-main-e529-integration/Kit/re/tooling/sw2026/serial/defs/ResolvedDims.py",
+              "source_line": 222,
+              "source_status": "not read during archive execution"
+            },
+            "object_class": "moDisplayDistanceDim_c",
+            "object_type": "Core.Obj",
+            "observed_length": 8,
+            "operation": "Schema.Raw",
+            "operation_path": [
+              {
+                "field": "f818",
+                "index": 2,
+                "operation": "defs.ResolvedCore.XO",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 0,
+                "operation": "Schema.Base",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 42,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "f5b0",
+                "index": 0,
+                "operation": "Schema.Emb",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 1,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "data",
+                "index": 3,
+                "operation": "Schema.Raw",
+                "scope_index": null
+              }
+            ],
+            "schema": "dm.FUN_4bd03960",
+            "schema_path": [
+              "moShell_c",
+              "moDisplayDistanceDim_c",
+              "moDisplayDim_c.FUN_4c82c3d0",
+              "dm.FUN_4bd03960"
+            ],
+            "source_streams": [
+              "Contents/Config-0-ResolvedFeatures"
+            ]
+          }
+        ],
+        "Contents/Definition": [
+          {
+            "completed": true,
+            "declared_length": 8,
+            "field": "clsid_d",
+            "length_rule": {
+              "kind": "constant",
+              "value": 8
+            },
+            "object_class": "uiModelDoc_c",
+            "object_type": "Core.Obj",
+            "observed_length": 8,
+            "operation": "Schema.Raw",
+            "operation_path": [
+              {
+                "field": "clsid_d",
+                "index": 9,
+                "operation": "Schema.Raw",
+                "scope_index": null
+              }
+            ],
+            "schema": "uiModelDoc_c.Serialize",
+            "schema_path": [
+              "uiModelDoc_c.Serialize"
+            ],
+            "source_streams": [
+              "Contents/Definition"
+            ]
+          }
+        ]
+      },
+      "sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd",
+      "shell_identity": {
+        "atom_event_tag": 1855,
+        "atom_id": 101,
+        "atom_index": 58,
+        "event_tag": 1855,
+        "index": 273,
+        "position": [
+          11424,
+          14106
+        ],
+        "shell_id": 34,
+        "stock_id": 32
+      },
+      "shell_scope": {
+        "direction_byte": 0,
+        "f830_count": 0,
+        "f838_count": 0,
+        "f850_is_null": true
+      },
+      "stream_replay": {
+        "Contents/CMgr": {
+          "bytes": 2175,
+          "map_base": 1,
+          "map_count": 19,
+          "sha256": "02b7d4b422055f417d209ca019badffffee7ee283411416d23e6ce08b264ed8c",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "map_base": 1,
+          "map_count": 5,
+          "sha256": "136e7b6d2ec9dc393054dd3018111e58e3390b66142d7f06a884af5083928787",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 25484,
+          "map_base": 4,
+          "map_count": 109,
+          "sha256": "f3d0f8a42187c98cd0faeac7ceb69dce97f1f96c94557243b2cf90efadebe7f3",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2459,
+          "map_base": 1,
+          "map_count": 78,
+          "sha256": "8eda21b1a840c3557992a18fd456e8ab07706be1f9e99160a117c503775a66d9",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14110,
+          "map_base": 109,
+          "map_count": 313,
+          "sha256": "801703a38a5869983abbae6e5194eea6c2418c2a70f130c71d0ba7380f4f280e",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "map_base": 1,
+          "map_count": 9,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "map_base": 1,
+          "map_count": 60,
+          "sha256": "be80e77608e2866f4572a835226e4fc2d3feba8882d356457a174e7780282b9d",
+          "tail": 0
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "map_base": 1,
+          "map_count": 1,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2459,
+          "map_base": 1,
+          "map_count": 78,
+          "sha256": "8eda21b1a840c3557992a18fd456e8ab07706be1f9e99160a117c503775a66d9",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "map_base": 1,
+          "map_count": 1,
+          "sha256": "d139362157acd668f7b87c16f076eb0f3147b982e22e3b6d0146e6461526ee49",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 463,
+          "map_base": 1,
+          "map_count": 5,
+          "sha256": "ecc4396b65cc4d97b6249507e98210576680f81f68a815220e86242080763e1a",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1789,
+          "map_base": 1,
+          "map_count": 26,
+          "sha256": "f6d3035ee73f983a6b96d17791667e8376d533c9b89d046557366adbd2c08c95",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "map_base": 1,
+          "map_count": 1,
+          "sha256": "789f92a8689f992743b6ff4c538c14eea86d4bdd87491ec470f7010d51c84d14",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1455,
+          "map_base": 1,
+          "map_count": 3,
+          "sha256": "ebc8c3643ea83cd1f6cfba34f46f0b4591ee2b7466561c7191dde5f2e3746e1a",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "map_base": 1,
+          "map_count": 5,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "thickness_driver": {
+        "dimension_number_rows": [
+          {
+            "v": 200
+          }
+        ],
+        "display_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "display_class": "moDisplayDistanceDim_c",
+        "display_index": 291,
+        "field_span": [
+          12012,
+          13774
+        ],
+        "handle_index": 292,
+        "handle_value_kind": "ThreeDRadiusDim_c",
+        "point_m": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.028
+        },
+        "value_m": 0.0028000000000000004
+      }
+    },
+    "OpenShellEdited.SLDPRT": {
+      "archive_map": {
+        "configuration_base": 4,
+        "end": 313,
+        "resolved_base": 109,
+        "resolved_roots": 20
+      },
+      "field_links": {
+        "auxiliary_edge": {
+          "carriers": [
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 4,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moEndFaceSurfIdRep_c",
+              "role": 0,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 3,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 1,
+              "stock": 32,
+              "stock_event": 1795360551
+            }
+          ],
+          "field_span": [
+            13995,
+            14150
+          ],
+          "index": 304,
+          "tag": 2646,
+          "trailer_mode": 512
+        },
+        "edge_component_index": 301,
+        "face_component_index": 278,
+        "removed_top_cap": {
+          "carriers": [
+            {
+              "class": "moEndFaceSurfIdRep_c",
+              "role": 1,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 4,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 1,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 2,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            {
+              "class": "moFromSktEntSurfIdRep_c",
+              "role": 3,
+              "stock": 32,
+              "stock_event": 1795360551
+            },
+            null
+          ],
+          "field_span": [
+            11952,
+            12118
+          ],
+          "index": 280,
+          "tag": 2581,
+          "trailer_mode": 768
+        }
+      },
+      "keywords": {
+        "root": "Keywords",
+        "sha256": "94c47276426c3f62b180e97caa6c1a127a9d3232e2350a1afa68782235b42dc8"
+      },
+      "legacy_sdk": {
+        "parameter_id": "sldprt:parameter:34:D1",
+        "parameter_role": "driving",
+        "parameter_value_mm": 3.53,
+        "selection_ids": [
+          "sldprt:selection:34:face:1",
+          "sldprt:selection:34:face:4"
+        ]
+      },
+      "saved_raw_spans": {
+        "Contents/Config-0-ResolvedFeatures": [
+          {
+            "completed": true,
+            "declared_length": 8,
+            "field": "data",
+            "length_rule": {
+              "kind": "callable",
+              "module": "defs.ResolvedDims",
+              "name": "define_helpers.<locals>.<lambda>",
+              "source": null,
+              "source_file": "/Users/odin/.codex/worktrees/kit-121-main-e529-integration/Kit/re/tooling/sw2026/serial/defs/ResolvedDims.py",
+              "source_line": 222,
+              "source_status": "not read during archive execution"
+            },
+            "object_class": "moDisplayDistanceDim_c",
+            "object_type": "Core.Obj",
+            "observed_length": 8,
+            "operation": "Schema.Raw",
+            "operation_path": [
+              {
+                "field": "f818",
+                "index": 1,
+                "operation": "defs.ResolvedCore.XO",
+                "scope_index": null
+              },
+              {
+                "field": "f18",
+                "index": 7,
+                "operation": "defs.ResolvedCore.XO",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 0,
+                "operation": "Schema.Base",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 42,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "f5b0",
+                "index": 0,
+                "operation": "Schema.Emb",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 1,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "data",
+                "index": 3,
+                "operation": "Schema.Raw",
+                "scope_index": null
+              }
+            ],
+            "schema": "dm.FUN_4bd03960",
+            "schema_path": [
+              "moExtrusion_c",
+              "moEndSpec_c",
+              "moDisplayDistanceDim_c",
+              "moDisplayDim_c.FUN_4c82c3d0",
+              "dm.FUN_4bd03960"
+            ],
+            "source_streams": [
+              "Contents/Config-0-ResolvedFeatures"
+            ]
+          },
+          {
+            "completed": true,
+            "declared_length": 8,
+            "field": "data",
+            "length_rule": {
+              "kind": "callable",
+              "module": "defs.ResolvedDims",
+              "name": "define_helpers.<locals>.<lambda>",
+              "source": null,
+              "source_file": "/Users/odin/.codex/worktrees/kit-121-main-e529-integration/Kit/re/tooling/sw2026/serial/defs/ResolvedDims.py",
+              "source_line": 222,
+              "source_status": "not read during archive execution"
+            },
+            "object_class": "moDisplayDistanceDim_c",
+            "object_type": "Core.Obj",
+            "observed_length": 8,
+            "operation": "Schema.Raw",
+            "operation_path": [
+              {
+                "field": "f818",
+                "index": 2,
+                "operation": "defs.ResolvedCore.XO",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 0,
+                "operation": "Schema.Base",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 42,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "f5b0",
+                "index": 0,
+                "operation": "Schema.Emb",
+                "scope_index": null
+              },
+              {
+                "field": null,
+                "index": 1,
+                "operation": "Schema.If",
+                "scope_index": null
+              },
+              {
+                "field": "data",
+                "index": 3,
+                "operation": "Schema.Raw",
+                "scope_index": null
+              }
+            ],
+            "schema": "dm.FUN_4bd03960",
+            "schema_path": [
+              "moShell_c",
+              "moDisplayDistanceDim_c",
+              "moDisplayDim_c.FUN_4c82c3d0",
+              "dm.FUN_4bd03960"
+            ],
+            "source_streams": [
+              "Contents/Config-0-ResolvedFeatures"
+            ]
+          }
+        ],
+        "Contents/Definition": [
+          {
+            "completed": true,
+            "declared_length": 8,
+            "field": "clsid_d",
+            "length_rule": {
+              "kind": "constant",
+              "value": 8
+            },
+            "object_class": "uiModelDoc_c",
+            "object_type": "Core.Obj",
+            "observed_length": 8,
+            "operation": "Schema.Raw",
+            "operation_path": [
+              {
+                "field": "clsid_d",
+                "index": 9,
+                "operation": "Schema.Raw",
+                "scope_index": null
+              }
+            ],
+            "schema": "uiModelDoc_c.Serialize",
+            "schema_path": [
+              "uiModelDoc_c.Serialize"
+            ],
+            "source_streams": [
+              "Contents/Definition"
+            ]
+          }
+        ]
+      },
+      "sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810",
+      "shell_identity": {
+        "atom_event_tag": 2579,
+        "atom_id": 101,
+        "atom_index": 58,
+        "event_tag": 2579,
+        "index": 273,
+        "position": [
+          11532,
+          14214
+        ],
+        "shell_id": 34,
+        "stock_id": 32
+      },
+      "shell_scope": {
+        "direction_byte": 0,
+        "f830_count": 0,
+        "f838_count": 0,
+        "f850_is_null": true
+      },
+      "stream_replay": {
+        "Contents/CMgr": {
+          "bytes": 2283,
+          "map_base": 1,
+          "map_count": 19,
+          "sha256": "e333e1b885ade4e06fd1f238c4e8f9412f85adf2becb1cbced0cac155b97b7fd",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "map_base": 1,
+          "map_count": 5,
+          "sha256": "719ff2ab19d50ed94d7ad840db5c84021481fe9acc8c7871ddc435db8f5ee3a5",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 25492,
+          "map_base": 4,
+          "map_count": 109,
+          "sha256": "75ae2bd4e88338be330aef5f488a11f47d9745be9c174837280d88ae5fab894e",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2599,
+          "map_base": 1,
+          "map_count": 79,
+          "sha256": "63b69d9c91fa07e6b80e66cc4202634e6c1287daab78b578aa9b7421f75718fa",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14218,
+          "map_base": 109,
+          "map_count": 313,
+          "sha256": "a04a3e9c95cb378231f71d20300c17198c4682e471f957b5518d4512ffd184bf",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "map_base": 1,
+          "map_count": 9,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "map_base": 1,
+          "map_count": 60,
+          "sha256": "be80e77608e2866f4572a835226e4fc2d3feba8882d356457a174e7780282b9d",
+          "tail": 0
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "map_base": 1,
+          "map_count": 1,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2599,
+          "map_base": 1,
+          "map_count": 79,
+          "sha256": "63b69d9c91fa07e6b80e66cc4202634e6c1287daab78b578aa9b7421f75718fa",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "map_base": 1,
+          "map_count": 1,
+          "sha256": "68c4938f132f95f0fcdcd746e9d1c7f488a743cef5e7aa8f8479e19c54847a3c",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 463,
+          "map_base": 1,
+          "map_count": 5,
+          "sha256": "f9efb038c35cbdd4cef05c8baefe982de7f3d2f4a1119a43a78bc14061a52fbe",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1789,
+          "map_base": 1,
+          "map_count": 26,
+          "sha256": "f6d3035ee73f983a6b96d17791667e8376d533c9b89d046557366adbd2c08c95",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "map_base": 1,
+          "map_count": 1,
+          "sha256": "37f76ab9a476f8407c16daf7c74e969ae6bd0f1ee37729cf1fd9186817c90343",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1467,
+          "map_base": 1,
+          "map_count": 3,
+          "sha256": "adf3174892ab0672c115933076116eabe3f3a5df661750ff9631f6726192416f",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "map_base": 1,
+          "map_count": 5,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "thickness_driver": {
+        "dimension_number_rows": [
+          {
+            "v": 200
+          }
+        ],
+        "display_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "display_class": "moDisplayDistanceDim_c",
+        "display_index": 291,
+        "field_span": [
+          12120,
+          13882
+        ],
+        "handle_index": 292,
+        "handle_value_kind": "ThreeDRadiusDim_c",
+        "point_m": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.028
+        },
+        "value_m": 0.003530000000000002
+      }
+    }
+  },
+  "generated_publications": 0,
+  "heldout_inputs_read": 0,
+  "paired_streams_exact": 30,
+  "schema": "kit-sw2026-open-shell-archive-observation-v1"
+}

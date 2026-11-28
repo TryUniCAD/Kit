@@ -1,0 +1,323 @@
+{
+  "author_sha256": "0d1692d27fbe31b4cd63e910ed8cdc14c79ec31b307032fbe883d7e6213881b9",
+  "cases": {
+    "disclosed": {
+      "edited_sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810",
+      "original_sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd",
+      "qualified": true,
+      "request_sha256": "191c2d2e924f75c4c4cd55171d50488241e83b696eff7298780e0e68a81dd602"
+    },
+    "sealed-a": {
+      "edited_sha256": "9a78e4f314d082a561fd307a5939d4959a94dd44602d3fde6f9ff7cf6e7f1e1e",
+      "original_sha256": "bbe4909913ddee35bb8ccfa173bc7afd914fa3c92ce514e698fddee3cf1ec97a",
+      "qualified": true,
+      "request_sha256": "c9e62f796b383f30145cfc91a1bf3f4d5292a9738993ebae3e83aeece20c23a5"
+    },
+    "sealed-b": {
+      "edited_sha256": "19cfe17120dc048e10a99fd3d3416611b3b36f98106bf2b0d9449d5cb07ec9c8",
+      "original_sha256": "19dcfc123ae74ae4b3e6627ae1c2b0a9cd4d126e24b55ce3be141701b919ed4d",
+      "qualified": true,
+      "request_sha256": "73a0e8d1ea1b06d52977e6f21975d0755b1a902e5baee136a1a0f09370d8787b"
+    }
+  },
+  "controls": {
+    "after": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398344098098548,
+      "process_id": 7372,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    "before": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341033739061,
+      "process_id": 5132,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0"
+  },
+  "new_historical_corpus_credit": 0,
+  "oracle": {
+    "pe_machine": "0x8664",
+    "prog_id": "SldWorks.Application.34",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "processes": [
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341033739061,
+      "process_id": 5132,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341306043559,
+      "process_id": 1056,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341694029672,
+      "process_id": 5352,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341969770003,
+      "process_id": 5532,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398342249979837,
+      "process_id": 10372,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398342652127924,
+      "process_id": 10312,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398342924590657,
+      "process_id": 408,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398343202076387,
+      "process_id": 6936,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398343569967026,
+      "process_id": 1980,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398343835819438,
+      "process_id": 2312,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398344098098548,
+      "process_id": 7372,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    }
+  ],
+  "schema": "kit-sw2026-open-shell-source-lock-v1",
+  "shell_writer_code_at_lock": false
+}
