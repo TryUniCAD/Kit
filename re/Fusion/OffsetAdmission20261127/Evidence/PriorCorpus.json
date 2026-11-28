@@ -1,0 +1,150 @@
+{
+  "manifest_version": 1,
+  "source_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "assets": [
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyBefore.f3d",
+      "git_blob": "61f969a03fbb460cfe93f3876e5af02510a081db",
+      "sha256": "5f42a3244b155a19f4c9139d57b15a442958c68646ebec376fb642310bf3280c",
+      "size_bytes": 71889,
+      "prefix_hex": "504b03040a00000000006a57765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscSymmetric.f3d",
+      "git_blob": "abd38732011f0f7f7d4f27163051e89bb155b260",
+      "sha256": "6a8b62f1be608491ab806ce244d05cf42ecfff368050f070f26be13177fabccd",
+      "size_bytes": 179818,
+      "prefix_hex": "504b03040a00000000006e57765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscTwoSided.f3d",
+      "git_blob": "a67f6ceea1a04b5cd6525f60e12bba868610bd48",
+      "sha256": "2c4f2c65e5d664bff10db3f7b841eba3075c4f3620ba8b68784914e443d8bce1",
+      "size_bytes": 187538,
+      "prefix_hex": "504b03040a00000000006f57765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscFlip.f3d",
+      "git_blob": "4e928abcc40fd38d9a49f6c999c9212d9b93575e",
+      "sha256": "c00cb518a622646f9bf1ce659b1ba5ef0a70b94f757feab9eb638d65012a418b",
+      "size_bytes": 180035,
+      "prefix_hex": "504b03040a00000000006f57765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyAfter.f3d",
+      "git_blob": "ff0ff7df7a26e46da6f86c29710151964f8e05a7",
+      "sha256": "fc7535cd906a7017ada4b1b9493106bebab4c57b071b6f644a2be3de71d73bf8",
+      "size_bytes": 71891,
+      "prefix_hex": "504b03040a00000000007457765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyBefore.f3d",
+      "git_blob": "f8d480702d236850c1f968477c1b88d26f6bfcb2",
+      "sha256": "76d8aab9daedad4b51e90abb4fd8a6d42af48c87e6a36a08d1a6233e4671337c",
+      "size_bytes": 74643,
+      "prefix_hex": "504b03040a0000000000c359765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscSymmetric.f3d",
+      "git_blob": "163065373e03da7677b561bfd9dd77300d45a6c5",
+      "sha256": "a1284ae38787691a17f1380ba8ccd9179408413ec1803bb828edaad0190e0273",
+      "size_bytes": 187133,
+      "prefix_hex": "504b03040a0000000000c459765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscTwoSided.f3d",
+      "git_blob": "be147c7aed899ad84a4e836eb766c74b9c9cd174",
+      "sha256": "ec048ee1af28a24850cfc67b615dbebdd621cba992be88d3fde307b51f15f7ac",
+      "size_bytes": 185821,
+      "prefix_hex": "504b03040a0000000000c459765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscFlip.f3d",
+      "git_blob": "2376a64fe7ed4785805f6e6442d72263125bb389",
+      "sha256": "da42534361b137723b75e6d010d2c23a384bc5edd0ac1531401dc2ff908634aa",
+      "size_bytes": 187313,
+      "prefix_hex": "504b03040a0000000000c459765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyAfter.f3d",
+      "git_blob": "76a60645977c787235225d344dbeae718e9848ad",
+      "sha256": "be8856d90b4c88ef152ec82b01523fa6328133a69bb74d3058c1b77cd5184a48",
+      "size_bytes": 74436,
+      "prefix_hex": "504b03040a0000000000c559765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyBefore.f3d",
+      "git_blob": "f91e96818b6c7a6c4ac8726acf4e2bbe9269020c",
+      "sha256": "320496c0c575840fb70b2f0bf6b00a1f57d38b8c3d5444374f6cc756facc7e6e",
+      "size_bytes": 71809,
+      "prefix_hex": "504b03040a0000000000b45b765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/DiscHalf.f3d",
+      "git_blob": "045d3cf446bc0a786454b1c016c314e930be2693",
+      "sha256": "706ee7d995e5bee9bfb82ec8427466faf8b2d6510e5b718129081d67ea31ca43",
+      "size_bytes": 191143,
+      "prefix_hex": "504b03040a0000000000b55b765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyAfter.f3d",
+      "git_blob": "0b0bf740cdba30f3d614e9fd27801d18d83a0459",
+      "sha256": "2379abd9d2960d7c49d824240165b5062a69920e6e94185ed650ddee0a12e516",
+      "size_bytes": 71739,
+      "prefix_hex": "504b03040a0000000000b55b765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyBefore.f3d",
+      "git_blob": "fd838f474a1549aabdd650b219bf6684eb5a6b67",
+      "sha256": "b3cbc4d798ae5812698ee46f87f1a67832ad899a41f0a9829510b46087ed5266",
+      "size_bytes": 71779,
+      "prefix_hex": "504b03040a00000000004b60765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/DiscTwoSided.f3d",
+      "git_blob": "02e01a34b1dbf4d04738e7cd478e2c51db7b0836",
+      "sha256": "df2872e467e2f9d2adfb665ca1bb0fcaeba8a7b8afb2a8ff80a418c9e7a359ba",
+      "size_bytes": 184869,
+      "prefix_hex": "504b03040a00000000004b60765d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyAfter.f3d",
+      "git_blob": "cd54b3a02f3bc01666ce02c7b28ff242fdc2b4cc",
+      "sha256": "1a0d3ad644fafd278cce0f86f52e06c25bfa4f5f73d32e991de4e04b0aae794b",
+      "size_bytes": 71916,
+      "prefix_hex": "504b03040a00000000004c60765d0000",
+      "kind": "native",
+      "format": "f3d"
+    }
+  ]
+}

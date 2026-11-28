@@ -1,0 +1,32 @@
+{
+  "runners": {
+    "offset.read": {
+      "pool": "offline",
+      "argv": [
+        "/private/tmp/KitOffsetTools20261127/unicad-kit/bin/python3",
+        "/Users/jdharc/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/OffsetAdmission20261127/Replay.py",
+        "/private/tmp/KitOffsetAdmissionFinal20261127",
+        "/private/tmp/KitOffsetAdmission20261127",
+        "{session}"
+      ],
+      "result_schema": "/private/tmp/KitOffsetAdmission20261127/Schema.json",
+      "threads": 1,
+      "initial_peak_memory_mib": 128,
+      "max_memory_mib": 1024
+    },
+    "offset.baseline": {
+      "pool": "offline",
+      "argv": [
+        "/private/tmp/KitOffsetTools20261127/unicad-kit/bin/python3",
+        "/Users/jdharc/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/OffsetAdmission20261127/Replay.py",
+        "/private/tmp/KitOffsetResearch20261127",
+        "/private/tmp/KitOffsetAdmission20261127",
+        "{session}"
+      ],
+      "result_schema": "/private/tmp/KitOffsetAdmission20261127/Schema.json",
+      "threads": 1,
+      "initial_peak_memory_mib": 128,
+      "max_memory_mib": 1024
+    }
+  }
+}

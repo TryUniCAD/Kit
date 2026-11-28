@@ -1,0 +1,2711 @@
+{
+  "task": "A05c-FusionOffsetReader20261127",
+  "reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+  "models": false,
+  "source_files": 139,
+  "strict": 109,
+  "rejected": 30,
+  "comparisons": 1447,
+  "failed": 0,
+  "rows": [
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/baseline.f3d",
+      "sha256": "9b32fdb3df77fafb1a7a1c10b0933cf20c439b00aef8c7aeed60c2b2b09ddde2",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "209a77f09edacb33a5f0e320c407c2a377e32de81d7ae57fb24b1feac015d656"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/baseline_edit_first.f3d",
+      "sha256": "92b89e1376663e61de7509fad5826457dd0929c980df57e149fbcfa753b4c732",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "950701a757a732f7ea37636a43945c7a6bbdcd969277d03ecd1e6d6e7dc17c76"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/baseline_edit_offset.f3d",
+      "sha256": "6ec10c483221b7975bfd5d8e3bad063db053e4249a8f882ca3d358ba92af5650",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "82940c0a460337c44d825a19e35a36d0f4a6be2f57cb33712d41197be3a4a878"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/baseline_edit_second.f3d",
+      "sha256": "3ef07abb57563f1b97360e32835acf8ebb836e03ff8db241fc37c24739af06ff",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "7910f75f19e05d5bb2ec000fa455d922a95840b171cc848bbb62ffe4486fb93b"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/baseline_restored.f3d",
+      "sha256": "ecc8741224052055d2294422a468d274e9787ffbcedb5bdae5f37b8154e6fc55",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "54f6589bef1780a88d8e60aabf5eb0cc9405d2ba1f7d10b40456327ce54df1d4"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/control_after.f3d",
+      "sha256": "d1123f8c1cc3dfa29f61b035082b87cef297555748ce8a5b6e80beb1cd8730d9",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "415561d14e4559010d82ddf56c4d0e7a08eb150742247404b5b0cd3ea1db5ed1"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/control_before.f3d",
+      "sha256": "8186fdf3bcfe001f45b23c353f049773c3717e0ba9e8d5b46b85d54d513f05e0",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "3bcbfbcd6991382542ef53b136ffccd6a9dd6476da8dfc919cbf8726144bc205"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/first.f3d",
+      "sha256": "3e4a0642cf3e1b3515324ea12f76c4a85e7ca9a36eee4e0a40ab22b4ec1dfc3e",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "fdcc0c3909836ea6b2b0b59d5f2603718c1f7f5f4036d568f4fbb19b6e751622"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/first_edit_first.f3d",
+      "sha256": "c712f104c3c6d218ad2318a5835b101ab0fbd5be35fe9f88154199263e2d82ab",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "7cbd039db48daca91c803e3ac072fcc99e32cea5822b0e80d2a7ec9f4b5c6973"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/first_edit_offset.f3d",
+      "sha256": "022bb3b5465b70c25b8f44908d63a5e3105472d2e841e50288e5422c659da5fe",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "98aff631424ca7b8bd8f37e61dcae1cc8cfa81ffbeb79587bcab57f1ae0ed414"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/first_edit_second.f3d",
+      "sha256": "ba847f4df6170a9327b42ea378dc6f0ec61f0952da81e4eb9d8bc1b5731d7999",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "f761ddc97c1bb5edebd699079e539395cf5a4f57508a2cfd44c7732c243bfbff"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/first_restored.f3d",
+      "sha256": "3a5355e235cd026576aa67111a65868cdfb771a63cc1b47290ce646f7ac49480",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "ab06fdc75af57135f9e29abb493dc9a215218e466cc8e6431af879b2a41b983a"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/frame.f3d",
+      "sha256": "192e2924d1a1a307413427f141cf6173c653824dbf37116a85e145e02ae74630",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/frame_edit_first.f3d",
+      "sha256": "6a5e00c6998f8515763ab0b8ca6423143716b2124fdf38ac20a4bf5ee25247bc",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/frame_edit_offset.f3d",
+      "sha256": "b939e073092100166cbd9ef2fb5980a01e570af383099772a8edf92140c54bc7",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/frame_edit_second.f3d",
+      "sha256": "78a4ebd125de13b5500d97b469af98193b34aa686cabc632f2e2b2852fdf3c30",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/frame_restored.f3d",
+      "sha256": "93c58cc61be59eae9da753682258103f4b24b016e823fcfd8f5baea555c3cc14",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_a.f3d",
+      "sha256": "4e1f6f05bf815857e9f37abcc1c028c291f971384fd0d20e591bc3936ebd0760",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_a_edit_first.f3d",
+      "sha256": "b073d38455c5a7c871ba7b12215d4ec43d11a8bb4e9b0862c0efa9baff4c70b3",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_a_edit_offset.f3d",
+      "sha256": "d103a894a8927497f0750cef55ccc030abb6767e6a3a673ab4dabee05aa8b5c6",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_a_edit_second.f3d",
+      "sha256": "d3d1b6d4cd33e113da307e1be2585579313b3acebe6440c23081ddc2e9ddc889",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_a_restored.f3d",
+      "sha256": "0eff4efab2b65d1288039a7861d961dff56ceff9881d0b2f49f98dffdc7fbb5a",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_b.f3d",
+      "sha256": "083d9f568181bfcfbda7981c9b23cf1dd63a39dfdb084fc53ec052b1ac0539df",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "6c69d5d27c83ba914d7e34e5df903302ac9ce85f9a6c547d0e622e11c0c36432"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_b_edit_first.f3d",
+      "sha256": "3271371671d948e544cb6cafb666e1eebf70718b2098616a5a3c56452186f552",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "0ad449cc3385554ec02d714e47e816f320c67720f1b7bde62210dd7caa4104e0"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_b_edit_offset.f3d",
+      "sha256": "48ff6ae4eea0feb4b5c641f2587c40e9c1cf2d21f89063a0ba6ee6b868094fec",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "6aba96269adc68f0e274e0d2e27e4eea5a2b4555d6c006f104dd4d0ea0854980"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_b_edit_second.f3d",
+      "sha256": "1d2195aa10b53b5ca5b1db6592483f85ed26607b4f60061de598245c08163981",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1756c3cd82ed1e8b9dd77b67e39ee8f501ec12eba62b3be81e6d45a587519354"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/holdout_b_restored.f3d",
+      "sha256": "d97a18189f2f7922c06a9513d52ad03d6bbfb56a7d8a9971e121f4ca6f559174",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "8821721e7416dc3d9718a7cf1c6133293981c1a07367e57f92a63fb3bad71606"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/negative_offset.f3d",
+      "sha256": "3f66339fe0282407e6559651a63e989edc4f8568e96d6e74f1c90286104e5d8c",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "c0458bd2e9840e8fca43b92cbbc29f75de580c7bc934ad603d2a5930d6de8fbc"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/negative_offset_edit_first.f3d",
+      "sha256": "890516c81c4563408340609bc7c29f125b5acad7fbf6e6885c7f8d399e9fa21f",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "c0f22211fb350a490b34ce133a1f155a62bf58437bc6a4c89c4a437258ce1a3f"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/negative_offset_edit_offset.f3d",
+      "sha256": "ce307e4c5815fedce80f3f9011fb7566da4c4262c21d4627be922f217231686a",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "75b5b790fe343c6b59f80ed163d4e74a3e55d3f5cc87acdb54306d2a4fc94a9e"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/negative_offset_edit_second.f3d",
+      "sha256": "ad3083f7f3df5ac2903f5b46abfeb58cb7b4ee2b8b055db9332eda2adcef0f87",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "0cbd41da2dc62c378b81a6bc99950b1d396c7faedb68e4ba9d0061f0dfdb66b9"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/negative_offset_restored.f3d",
+      "sha256": "1a4c58b668bfecf78ede7f0ab68a64f68887764571235b2e0a22370f49fcc970",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "6b528d8ee0c5ef6ed5ddd527232bc5ad37ce2bb0624bbd5c3c47c3401a094e3d"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/placement.f3d",
+      "sha256": "852ac115f4adfc162ef664428c81d6b468685a8ed19fa0ef857e6dd375c8bd38",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "34423a42826c28cf48a5d1311a314b11ab1066c558743015305e4161bac1fe9d"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/placement_edit_first.f3d",
+      "sha256": "8e4f9fffcdba388aa460e74549d6eb61aa28e483d5886d412fea9178d0f9a479",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "853eaff81e75a500f9bf9997a8c57425e3d7e506986f317a23d581b1219d1bf5"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/placement_edit_offset.f3d",
+      "sha256": "36cd57b916486e4f80e7eeb55ba0d72a5d5065d94589f504c56b135ddf0f2dce",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "50cb7a8a38085ee9d0f31b29811437c30d187ffdf71676b6c883b47ba353f61a"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/placement_edit_second.f3d",
+      "sha256": "4b278ed82b453f53e3c8ed9b6f834c8c5049a290759007cc9b385b5bc7191343",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "c94c57f39b50995f3a928b51a33352d93a4514f37e9307b604af0e7ae37977f6"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/placement_restored.f3d",
+      "sha256": "d3bdc00739873772cd6fcd06b543a98a22ce6f5a6c3711ea2f1eb666503562db",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "8d14d36cf4255dbd552061317392c5f49d96137c78807444d5b468097168912a"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/radius.f3d",
+      "sha256": "c3c0d526cf85a2dad2759283d62938cc31791c3a381f6d26a98ff9a1ab648451",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "210de7713d9b8a966cc5c56965ba73d3d8182fd94c898d532f3febc841681466"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/radius_edit_first.f3d",
+      "sha256": "9ce69c6a137f7390caa81ca203824452ccecff583fd8b67544ecd5244c88dcc2",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "63244edc37f209c9f4c516b3c364a29d1b9600c812916ba76bc53813bc7407a7"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/radius_edit_offset.f3d",
+      "sha256": "d0eb8c83d1a5d0f0e80f96a31c24c817dfcc3a7f48f3fbab1025f997d230bdeb",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "9ea6091049fdc11b57d4ccd432f2716d6ed7f83875ebdcbf6509bb6a4b4abf87"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/radius_edit_second.f3d",
+      "sha256": "838df6852b1226cf5d0029ac6b685245f74175558fd034c71c57354c0a779066",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "2c18da0d2c69c917f275d3a247e3d653de305e5f4f1681e7db2e11e6dbea1dc0"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/radius_restored.f3d",
+      "sha256": "89eee39f80ef5c50f677b95011f607b1f0589e9fd09c3837e3c18e677fd815e1",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "31d0f0bb1bf775bfd96f44b83abb780724a8d687d0aaf32ee5ecd31e8989143b"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/second.f3d",
+      "sha256": "1e4f727505631d22e1192133f399b543eac41f916dc00d4fb2d598a448fd6bbe",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "e6826585ec0035fdf42aad878a451ce5a4fc7cff243972335ef2eff71247f494"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/second_edit_first.f3d",
+      "sha256": "3b0d9e47cfbeef7e54f55ac330e1571a506642f8401edbccdc15cc99ba003b84",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "ce15ffa17422f9442ea6a7c10d34cd4a3f711a2df9945d2000dfba6db86279be"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/second_edit_offset.f3d",
+      "sha256": "d87bf02d699d55bc6e58a16eb8a22ae35f7d81bbc153e0d18246e2d0ae5fd90e",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1c76e21ebb68337fd9a4d152831323c14a33ab6084edaf63b0641845ff179473"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/second_edit_second.f3d",
+      "sha256": "196a9db427338acb77af1d2838bf73ddd7f1506f7c89aa99d767f6782d759fa7",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1e11863d0f614b80b8e2391d8dbeed76e8953c9f3df94a16661717c91483d061"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/second_restored.f3d",
+      "sha256": "61b1dabe76a88d492db2315b4a91ef9d88df32afce12dab5d81a78d3f69ef046",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "89263fe867cddf7b0218f9edbfdf5acb9cdccc4a65b1f05dbecded8dcc37a136"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/swapped.f3d",
+      "sha256": "05d72ee29216a83b24b9a0d1367432540ee813e019646e52806420f9d7e58e7e",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "401ec4dc99f67ddd8409967de207c0949af92bc1d98bce2e249f7248a56bab6c"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/swapped_edit_first.f3d",
+      "sha256": "a4abb45ad21693b20f8ad0e4c77885eb270a65ed0afea5a7674a8cd007a75c37",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "853f87e42c6550f3acd7e5dd1c9e6eec1315c66a7db949d6494e953f4ab15d1d"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/swapped_edit_offset.f3d",
+      "sha256": "dfcc57bc6ed6a1ee46ddab4e053ca3b9e44fdff0dd666155e00a7dca31219f22",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "3b92ba6680d4afb886c0d9e6117ec0138daf9839e737893a948b57fcc010c348"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/swapped_edit_second.f3d",
+      "sha256": "51608b13146fb367d4d5012c6927b21ca776156aa47052926b34f1b393d3ca82",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "3646a52c58a894cc79a37b271f568f5658cc35d4e2134235575342c6b898e28b"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/swapped_restored.f3d",
+      "sha256": "6892ae37b75682185a7769cacb00952f5ac40be3d73fd560ab2ac5d4097a0c81",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1a86c996df6b2093062da584d36fbd524d04d4c8e253f3abb5df77f16cb3cd51"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/zero_offset.f3d",
+      "sha256": "4e87114c7389eddbada8f83a50e1ac37453fb1ffec6d682db84fd1f114f891b1",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "8cd2f131b81952fe2bbac69f0e209cc25ff7b72cc8519d4b5ad3f4dbfad33273"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/zero_offset_edit_first.f3d",
+      "sha256": "7c9e6aeee163e29bf7c5ef973cc65e08f75cba3833f558fda3fb36eb6664731b",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "5d0876d87bb246b3d12de718c7557dabc5f746a814f8231d7409d82b0f6dbce2"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/zero_offset_edit_offset.f3d",
+      "sha256": "0da272e97be8e60799bfe8dfad32588dba543dfc73c304451db6b75f6ec61411",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1f3790d6a534e18346b69675b9684d91df6d571a78aa51a3d958a5731e6ab927"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/zero_offset_edit_second.f3d",
+      "sha256": "53fd645ed8c3565051a952044265f8d09055d3193e17140154497f05ac667470",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "25de3b5c645efdb9bb54ffaee4d96dbb9eee2a0173555122c8cede5e3267a0bb"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Native/zero_offset_restored.f3d",
+      "sha256": "7b41c0a76746178488ca7183e6860e871246e917de6cee58d6740bed3cc30517",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "6ce1a0c6e6d3c52517d8d962524ed549758a651bff1e2d12385887435417496f"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/control_after.f3d",
+      "sha256": "b292d0e030dc159083bf1b69cc72f0fc99c0ef97d5e8a6832ce1e435d708e255",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "f1f405b071d29de9cb1e460ac97ae221c9f1414a60e98a43ea6f7130e61118ad"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/control_before.f3d",
+      "sha256": "38f4b89a2ed5ee268b91c33fd2f8d221d1c5129578cde24580cb572e7d2aae12",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "71df8b2ff6a9ee8ed62b127a662aace5d348cff76f1ae16d6e7222b8c030312e"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_c.f3d",
+      "sha256": "be8cd648bba6e18c65a95f3eb1881fdf1077ef1caa7b3963d6d0d17345fe3c8c",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_c_edit_first.f3d",
+      "sha256": "3e26aee756f3a4d1e9eae86b35865baf82fa266bdef27bef4cab02c6e7cd47c2",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_c_edit_offset.f3d",
+      "sha256": "187c9336a341cee5440185f42d959fb56de2ff92b0318556ac551a5169f92df8",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_c_edit_second.f3d",
+      "sha256": "09e567f076fb879d19ca89980e8b31cc469c5c529834adfdfadec3c92dfbcd5f",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_c_restored.f3d",
+      "sha256": "ad34391ff9e63b458b04367c6e151cb379456e9e460bb0eb3313f41c859caf5d",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_d.f3d",
+      "sha256": "592f9249ea9e1471b48ac53a0730b5abba98744d61f25761a2bf320386e783b7",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_d_edit_first.f3d",
+      "sha256": "46877803b72ffe720cb2e945415895f7d3fce128af0b2c7611f8c2775f085cdd",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_d_edit_offset.f3d",
+      "sha256": "41654cd1032397a59b7fb88f380116edc273cca91eec9b7e74cc4825107e6767",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_d_edit_second.f3d",
+      "sha256": "1c9f25600bcba8364728ab352dbfccf956477a024f99ab7346b4a251deb2baa6",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_d_restored.f3d",
+      "sha256": "a559075765257d40ce5d18583d00352143cd12993fc75080b1be37a5c7cdfa34",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_e.f3d",
+      "sha256": "0420aa309615d5d0c43b5dcd2e8ac6423094619a571bcd9887a4e0fa55a2f8f1",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "27490a9c70a61356e4c5a9e900e57f4e12cab254fe10579affca55e2cd7c522d"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_e_edit_first.f3d",
+      "sha256": "f9ea86fd7ab31f9151fed43b63048e722c1d15f144fae47e493cfadfec5e4fbd",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "172f799a8f610c328a0c5aeaf065a559ac6c59a1f09e30a9621b275f0ee528f6"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_e_edit_offset.f3d",
+      "sha256": "23c808737db517402d105500eee4d41ed97bb48be98952d13681a755cdaa086e",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1453ba6aa5b6215bce04fc3aff57a80731d6a199aab7ed51f81a55c3e6e51533"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_e_edit_second.f3d",
+      "sha256": "aefecc8d1ad12536bc24ea8188d74a5ceb922f73d2b778067fc079b5fb54f5e0",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "e188cc0ac301c38787de6d6f6cef494ec5d88fa01a830f2b8e11d8554a12d7b1"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_e_restored.f3d",
+      "sha256": "ca86f06495eb2b7593cedb566944d445244c5f3478cb0aed612fe7957379f2f8",
+      "outcome": "decoded",
+      "holdout": true,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "af8263cb0db47c88894e4b631d4cf68d6da480d8e47bd0f79edc7fbabecc8547"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_f.f3d",
+      "sha256": "ccf2a633cdf7c1bfd4cdf572469ce7e58c9543993b7ede01f2b621f3d5e73878",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_f_edit_first.f3d",
+      "sha256": "096f01ebb9914fd41571b98c3793b72a411a03e240553027cb741a257cd621cb",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_f_edit_offset.f3d",
+      "sha256": "d8adca200750716fa5130f0b839deb439195085cef1ef6edddf145a004b64cdf",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_f_edit_second.f3d",
+      "sha256": "f692ed6ea0b7fb181ec4f4b6c3b4b86341fcace42fb85883e80fc421ec7c6d8a",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/holdout_f_restored.f3d",
+      "sha256": "0e22fa20d02f49e59b7b022b6d91c1df18f31e5a75c5a436c8c460602ae96b3e",
+      "outcome": "rejected",
+      "holdout": true,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_fraction.f3d",
+      "sha256": "36522e347e798af1b69ea53716c3d4ff5561c8419eff6f2a2cc8f832643c2cb5",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "9924b41e233d988429e4a2c9c798f4888c08e4ff9dfce577ba98ad6efdafcfe2"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_fraction_edit_first.f3d",
+      "sha256": "051bba6000e1c747ca4096937c5ab2cddca75c7179a66cd8e91cd2d7407e5077",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "f1f706d0da32f4650e99f25ea80af9220ed9e0a0430021b9cf34e6b82788994f"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_fraction_edit_offset.f3d",
+      "sha256": "db62fde79c72274e6007c3b48f388327e890037cb22a47ccf1302f45251828ea",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "58fc6b252af0c84fbb25bcbf414df638154c382688b175192866b92c67b78cba"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_fraction_edit_second.f3d",
+      "sha256": "60c2daee7fdb3a537491bc188922796095799fedec5da6d13a21fc7aa3d8c268",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "b5bb30361b5af94954f62b1a52af51485f30d42f325f9cae27ef43a4c19fb52c"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_fraction_restored.f3d",
+      "sha256": "50db65e036e9c329c6005ff6e9f3017fbeb0710ca33ca34f846ff1a1eaa668c8",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "c313d36cb6dd286d1e3825bc073ec6786235ff11207c82383f0ef9115fc775f0"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_large.f3d",
+      "sha256": "a08c6215fad273304c0d7bd230d35b7bc8682de8ceb16925b9853caa129b3118",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "22993b09a44f937fa0fce89086bcc056b16e8d2e805956900345459e71978979"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_large_edit_first.f3d",
+      "sha256": "08e2b7884a71ab2c184ba2f5f27791f7a14eb21b408195286c4113c61f3c7d18",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1bbcc69170aa1a723d11d9bb40f37fe78082947ada02a529cc3e2c4f04a6e0af"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_large_edit_offset.f3d",
+      "sha256": "3d06c5e2777166d91ddbf64405f76be93c99ebf660f0237e6fa2971d77814d52",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "8af4500208f61804a0578ac7e42b9a79f8f1b76cdb826eef7eef8b7bed2adbcd"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_large_edit_second.f3d",
+      "sha256": "0d21293c5c6f18ec9ce3eb0029280ddb1e0c28c70938670a9f1e7f1eab89e3a4",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "822e523dc07c33ec7e34408effc46680a1fdad7d4c676f4a5d6b36d37c73bf95"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_large_restored.f3d",
+      "sha256": "a115fbaecb70d237f43471452c480e9f78633f37dced4fd5c5260bbb25b77f5e",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "76518f48001a2dca5b85aad1b543f0dfd70e8998342657d6d3ad9c4b49a2c7fa"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_small.f3d",
+      "sha256": "c6bf9e19568eb2e2a7289673035241af3de88d1790ce65b7ec508be41d1af685",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1f20402313d7ec4fb9802d297f25accab417a237756d7d2e3ad7091c3ad62379"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_small_edit_first.f3d",
+      "sha256": "abfd71c00ceb9bd67cfec87c8f104f23d8c583f2d712fd023b2b4b4275ff46f9",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "aff9764e298e5641aa1408c9b47631210ac904a9e2d3973cbe5b78540afe1c90"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_small_edit_offset.f3d",
+      "sha256": "c557b587964436f33344a919aa5ebca95e0021fe7b7657d41b2db4367348f51d",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "989d7dd4e06470813466da602714b987163ec9cea9d69d484be9ea6bb59dfb1e"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_small_edit_second.f3d",
+      "sha256": "f26d818cfb5cca6d8c0dd6da5dec1550452fe33f7820c9e0fa00c57289c33cbc",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "49a61d0b973e3bc4c5474ccef71630fbfcc13c4e91ac5b0164a382a1055dc8bc"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_first_small_restored.f3d",
+      "sha256": "beea302c26bae9eec2a6ee98942cb3962d761e8d33bc3502bc5512f49244187e",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "bd55cac6c5661594385a1eedcd9d884c6b79c5d0535f793695bd45edba2f098c"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_frame_yz.f3d",
+      "sha256": "41b97f96047d07c7ea9b833cffed52f86f8aa4eb3b155043e3cbb721ff7bf23b",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_frame_yz_edit_first.f3d",
+      "sha256": "2e571797fc7af8dcdd83d15426e7d521b6f0dc30275fcdd954280b4cabd45719",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_frame_yz_edit_offset.f3d",
+      "sha256": "d9b8d142c7f0ef22a43bb0e41d79c868c0454c373f5f17743bb39a2a92ef0437",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_frame_yz_edit_second.f3d",
+      "sha256": "55e3eb67fc71c3c63ed69241fc2e94e9c6cecb0d354aa645dc2b13b25f2ddf8b",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_frame_yz_restored.f3d",
+      "sha256": "1f54d1d1ec998ffc2ca820210e622f337470edbeccdc6f6a4cba9f782501af41",
+      "outcome": "rejected",
+      "holdout": false,
+      "checks": {
+        "scope": true
+      },
+      "reason": "Native Fusion profile requires identity placement"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_above.f3d",
+      "sha256": "529a857b1ce088868736b385e6e93f4326e7d447368301cadf85b5781c6a74b1",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "4fb509016f4576f621e84f39b0e6506b1edfb6a13db8b5c8f919abe2fccd8eaa"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_above_edit_first.f3d",
+      "sha256": "4cb464ad507f0d68ec6e55a72d6f08eb01c0775f6702b84ef4271a846d9cd083",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "8d6c71f903c0828c3f0cc7fd8364f705344112732a74861e354fd0bdf5831d9b"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_above_edit_offset.f3d",
+      "sha256": "6b61abda61bcf9fe8ddb93d655eb570686a3e31f27d5da36555a65ce66c84e9c",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "241ab05b6d6d91c3b5bd64d53918803203bde538af9a547ce1fd3e67b875f0eb"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_above_edit_second.f3d",
+      "sha256": "71af48c62ffdecd0d7a1dec0249bc20e1890dc44286f16168d00b1fea0ed2f08",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "b8d54a4a88930b1e967c9c82da2dc225c915cbf7151d7cb5635a3c88441ecc55"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_above_restored.f3d",
+      "sha256": "310635e070e441386e2da170e617cac8f376617b82f7287c5852f8f534cbf4eb",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "bceec33b05112c108a2302025acab62f813dc18abddbc05971f9f8948bbf38ad"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_below.f3d",
+      "sha256": "f49c6a1ca37364d687eb042f4961a29b136b65fcfea485372a98c7b247f14d40",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "1bf6cbc5d4b972d5ed37e6692a4f9e40a940e03723f2d13b6761b19a601655a3"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_below_edit_first.f3d",
+      "sha256": "9bda646a0ff5fae879c1a0036207fdd95f9673ab026bf15ebe843fae0300b119",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "f123350b301b83a6ba408adfbe90565ceae56b3d00119ef76b0329fa33366eb2"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_below_edit_offset.f3d",
+      "sha256": "581e776c4a6f8e3dd283dffde1915bba31d08a4a58e3aadb25176861d810ea55",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "6771e167d06d2dd74f45c6c0b38e624921781fd6472bdaa3a57d74937e58571f"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_below_edit_second.f3d",
+      "sha256": "e3b42997a7d449785b5a0c2333ab3ab810bc9ca9f03cd16d8666dfd418b89f65",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "3f76cadf35780c880a2923afe441e8cc85a2da4b6033cece7e839fb974688b72"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_below_restored.f3d",
+      "sha256": "5d7b9706369e303e7118e0fd60687fd9cfc5e511c7b6d8cd3388f10540f48720",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "6dbc644c158551a9c16fe30bc9e2fb1cd1fb62f0170e622242f15456e52cb020"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_fraction.f3d",
+      "sha256": "8bab49a6530b05960e9e54c61f3fd14bd6fa20a0f1a5d62a59a740ec9c9ef2e6",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "82e975bcf8c67feb47508a52ad7f3aa53cab6f05e19e6951bcab7e51f5e04d7e"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_fraction_edit_first.f3d",
+      "sha256": "d068aed9e46f6b474e9cbf3d5adc3bf19d6225b21e9e7559a33d391a52631866",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "9309b4b74ebf88528fbe30fbe359657ca4105604e73e2522ce6e9058a6c52fbe"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_fraction_edit_offset.f3d",
+      "sha256": "d628721fa8bf0f2bbeeafd8f2cf8728d5a64bd8c168d608ccb49be151ee6d57c",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "c6f4a0c940d22c7dcbbc0e786ebf0ae82a471bf64940a40f1e143b7b703142f9"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_fraction_edit_second.f3d",
+      "sha256": "540438562a833dbd8c2f19642a6d30c6c29e828d75f72eb342749f4c8b735fa2",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "311a17aea486eaef285d459b110567bd27aeaed08889c3412cac0c410034e2b5"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_fraction_restored.f3d",
+      "sha256": "54851f33b2a89f45a6c00c3483e85db46eeb6c5a83ab1507b1ee46fabc75c1f1",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "a51a1d8dc926ccc166a8f2dc28667cb48e022828f084ee213312c5eab2efe2ca"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_near_zero.f3d",
+      "sha256": "437ba3951e52b55a68839b51d35716bafff9b3cad57351b5b6d21b97911e6f38",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "7a49bb65422d413ed9649c38fe259ddaf7fc09576d292b50f854b0999a614264"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_near_zero_edit_first.f3d",
+      "sha256": "8d187f43734db08a025fb55c4e4719e1071439ab474ceb4ea9fba11b369a8d0e",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "ee4bebf9b7e4aeda149a27ace397ef150b26bae1aab3e61cd0449ed96e58e72b"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_near_zero_edit_offset.f3d",
+      "sha256": "5f256f6833245755e9f19d9c5786c4eade2222cb675bb19237cc4a8d89f75b62",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "a33571e85b6586df6eee8751f4237596f00ba5d39f833e0a4f6afa5542f42222"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_near_zero_edit_second.f3d",
+      "sha256": "bee44a98957eb422302fde6b6964db65799bb058591eeb37a46218e3fa191712",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "c9e13dbe93c2e18a6fe408ac5f0bbad97c716c6c253947ce340fa5b0b3c9fbc2"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_offset_near_zero_restored.f3d",
+      "sha256": "0789ed0a91ec97c35a9fc8ec059a499ae634865527fd9f780898bc874b19e04a",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "e4667a84822227f9c9a6e1b22547bc7a4cf486c22d7833d21435a2858dcdda88"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_radius_small.f3d",
+      "sha256": "8631fe51c40b18a9c1513344a6c12065804d69f25de021353c6a95c09145e691",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "7e4b9c1e8734bb05656854c35255ec9ac4d36ba51563f65cfcc320df8679c08c"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_radius_small_edit_first.f3d",
+      "sha256": "d51714cda15acae7f8bb84304585c1f9944853d1850a5d72cf5cf1037eb1338d",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "6a8a6d1a096f53c87039a512c5a4d3406e4c236fc9e19966fc7634b8026fc370"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_radius_small_edit_offset.f3d",
+      "sha256": "2506f531a7f10a06d93878f7d45cfc3e402cddd618624d85beac73c477c76504",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "ab440575075a09ffb59777d6bb29aec92e8e272f28badb49c6dbf68dd11367d9"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_radius_small_edit_second.f3d",
+      "sha256": "eaf7c866b7e2b6e9f2708ec83ca4997b5163b4bd6e06368375f34655564b44e4",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "9d26f2040ac24d00243e9569a24029e4daf0385eceefb13c6e06ffc087e4e90c"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_radius_small_restored.f3d",
+      "sha256": "5e6d0996d6ce70d535476ff0bd28e3ae4e9c4999603f4a66e9c71fe8fdc08990",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "78037f60b144f3926ebef772cb003b8921d4e432a14d433cd3672c7fa414be56"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_fraction.f3d",
+      "sha256": "b1e766ba33645530725cc77de27f205624d9064cf252d7b09cd3bf8db80e82eb",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "782800b126ffbda40832b54ad87f62e25a49ee2ae05190edf5891c722ec2bbe1"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_fraction_edit_first.f3d",
+      "sha256": "d1be08101d00e98f3b04e37ae044fcf56f124e6e82bf1a326eca3c8a059e2c0c",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "70928954487ee8622baae3f8ae6f0412b5267c0aefe8868a4f23e380b75516e6"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_fraction_edit_offset.f3d",
+      "sha256": "5eb05cdc9b8a6d133b68e86b61da5fd484183586a4a4256d6412eaaa43dff2d0",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "8ed611525d9e885ef58425d7ba21a0485e5a87b7372de3ce6b537ad16e449161"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_fraction_edit_second.f3d",
+      "sha256": "610c8ca6452ffbfe587a0046f88734d5368e24bf52a2e85e5aabf482bab00dbd",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "2603be150f9b5bb9a7c64df429d648076ad37fb9184b0b86063f34b3e4228608"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_fraction_restored.f3d",
+      "sha256": "ea90ac6aeb408cd1e17107bac64afca79df7ea17e4cdea13d52552df12fc78a0",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "7da385fed388db41eefda123632e1c9f26aa4b42147a1fcd0dafed44cbf03bee"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_large.f3d",
+      "sha256": "5e2d52d14e5e484977df084018a6794c440a2e846ec53e6305789252daa42d1a",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "aae2c8b75bb186749bd6d4085c0b727807a9769ae031648a129efc48c37b0aa4"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_large_edit_first.f3d",
+      "sha256": "ac618e1cf8593a722ef1c9d41584960c51863f44d58b37b2b88e4f742f7707b3",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "264b480435f33679364a97863b908dd46686c350c4d0036759fc85098879599c"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_large_edit_offset.f3d",
+      "sha256": "27572c222d75e3d6495f7d501d46552e982adb6a0088793d83f41e93985518d0",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "159e39032b23429bcaee430b959e09df46ee9c701ef8f6918440b567ebc8d42b"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_large_edit_second.f3d",
+      "sha256": "9d86e0b374ce33d5de15c1318e8f447479beaafc6b78370a5d5a241915d9ba41",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "b66855058aab1f6b4d9a4cf49eb6232ac9b8ec371f7d60b2fa0f82c655802815"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_large_restored.f3d",
+      "sha256": "c74e72491edaa46a6151fb9cc93a76bbdcd521b10f8abf476baa9ab82f3c77ff",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "5c90e23a22aa25acf2cdd895d9fbacc931bdad2077fba4dc5d59e9e18b47b003"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_small.f3d",
+      "sha256": "addbcf1dee1ec5faa926dc1a39a1d14982b24dc9513e3b8365adb9e08cb2922e",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "4571f7b25a6d73fe919fc90c24870c9ca2a17edd2247a4382caed19bc70088c8"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_small_edit_first.f3d",
+      "sha256": "7bb67312436a0dd8f7f7f051669f42804cc10e04eaeb2362f3d4ed591367debe",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "b9b3705280322d3a9af4eed70c70803947628fef49709d9961d86863e1b311da"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_small_edit_offset.f3d",
+      "sha256": "5cd5e4842bff7b408172484c3dd1dca51616920f75ccf3fd5a91aaaeca5a8744",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "ec2e7228378f2441512b9023ba8094997b1f78bdfdfc1b27bd6003f70be76063"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_small_edit_second.f3d",
+      "sha256": "6686f4ba4be48743c5c0414caaf1334530ed684da1d540e2220c9643f2e8bf36",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "830d40f70a27a83a1b648769da5a4ce5b98b922e11588783af207128825e876a"
+    },
+    {
+      "path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_second_small_restored.f3d",
+      "sha256": "69ad05f6d31f5f4333a1c3852959b4b1a420905cd836ec418292c25f68435e33",
+      "outcome": "decoded",
+      "holdout": false,
+      "checks": {
+        "scope": true,
+        "five_owned_parameters": true,
+        "along_parameter_id": true,
+        "against_parameter_id": true,
+        "start_offset_id": true,
+        "taper_parameter_id": true,
+        "second_taper_id": true,
+        "volume": true,
+        "area": true,
+        "bounds": true,
+        "definition": true,
+        "read_only": true,
+        "receipt": true
+      },
+      "document_sha256": "cd27e7a6e3db376f30e078732b2d5e091fd3cee35deb59b2c56ada9bb437b689"
+    }
+  ],
+  "conversion_acceptance": "not_established"
+}

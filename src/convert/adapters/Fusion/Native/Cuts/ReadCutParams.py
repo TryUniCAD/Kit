@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Parameters.CheckBinding import CheckBinding
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
@@ -8,10 +9,7 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 )
 from convert.adapters.Fusion.Native.Graph.GraphValues import NumberValue, TextValue
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
-from convert.adapters.Fusion.Native.Parameters.ReadParameters import (
-    CheckBinding,
-    ProjectParam,
-)
+from convert.adapters.Fusion.Native.Parameters.ReadParameters import ProjectParam
 from interchange.Records.RecordParameter import Parameter
 
 

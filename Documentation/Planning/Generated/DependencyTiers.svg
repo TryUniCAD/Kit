@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1535" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1571" role="img" aria-labelledby="title description">
 <title id="title">Kit dependency Gantt</title>
 <desc id="description">Ordinal dependency tiers, not elapsed time or promised delivery dates. Every bar is one task, not a duration. Status and ownership are dated register observations.</desc>
-<rect width="1200" height="1535" fill="#faf9f6"/>
+<rect width="1200" height="1571" fill="#faf9f6"/>
 <g font-family="sans-serif" font-size="12" fill="#242321">
 <text x="16" y="24" font-size="17">Dependency Gantt — no calendar estimates assigned</text>
 <text x="16" y="45">Register observations; source gates and evidence still apply · red blocked · ochre active/checking · green recorded complete</text>
 <text x="610.0" y="70">Tier 0</text>
-<path d="M610.0 80V1535" stroke="#dedbd5"/>
+<path d="M610.0 80V1571" stroke="#dedbd5"/>
 <text x="680.0" y="70">Tier 1</text>
-<path d="M680.0 80V1535" stroke="#dedbd5"/>
+<path d="M680.0 80V1571" stroke="#dedbd5"/>
 <text x="750.0" y="70">Tier 2</text>
-<path d="M750.0 80V1535" stroke="#dedbd5"/>
+<path d="M750.0 80V1571" stroke="#dedbd5"/>
 <text x="820.0" y="70">Tier 3</text>
-<path d="M820.0 80V1535" stroke="#dedbd5"/>
+<path d="M820.0 80V1571" stroke="#dedbd5"/>
 <text x="890.0" y="70">Tier 4</text>
-<path d="M890.0 80V1535" stroke="#dedbd5"/>
+<path d="M890.0 80V1571" stroke="#dedbd5"/>
 <text x="960.0" y="70">Tier 5</text>
-<path d="M960.0 80V1535" stroke="#dedbd5"/>
+<path d="M960.0 80V1571" stroke="#dedbd5"/>
 <text x="1030.0" y="70">Tier 6</text>
-<path d="M1030.0 80V1535" stroke="#dedbd5"/>
+<path d="M1030.0 80V1571" stroke="#dedbd5"/>
 <text x="1100.0" y="70">Tier 7</text>
-<path d="M1100.0 80V1535" stroke="#dedbd5"/>
+<path d="M1100.0 80V1571" stroke="#dedbd5"/>
 <text x="16" y="100">B01 · Supported version, feature and route matrix</text>
 <text x="16" y="114" fill="#66615b" font-size="10">active · Codex B01 matrix worker; scoped delivery below</text>
 <rect x="610.0" y="89" width="62.0" height="22" rx="2" fill="#9b773f"><title>B01: Every intended family has explicit file types, vendor versions, feature scope and directional routes, with evidence or named gaps.</title></rect>
@@ -141,4 +141,7 @@
 <text x="16" y="1504">AgentDispatch · Direct local and Hoplite agent dispatch</text>
 <text x="16" y="1518" fill="#66615b" font-size="10">proposed · Unassigned</text>
 <rect x="750.0" y="1493" width="62.0" height="22" rx="2" fill="#77716a"><title>AgentDispatch: Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client</title></rect>
+<text x="16" y="1540">A05c-FusionOffsetReader20261127 · Bounded signed offset circular SDK and CL…</text>
+<text x="16" y="1554" fill="#66615b" font-size="10">checking · jdharcourt / Codex root</text>
+<rect x="610.0" y="1529" width="62.0" height="22" rx="2" fill="#9b773f"><title>A05c-FusionOffsetReader20261127: Current-head CI and configured approval for the recorded bounded read-only source reader; broader frames, writing and editable target conversion remain unfinished</title></rect>
 </g></svg>

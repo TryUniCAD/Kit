@@ -46,6 +46,13 @@ The [production adapter directory](https://github.com/TryUniCAD/Kit/tree/1619f00
 Intended extensions for those families must be chosen explicitly; none are invented here.
 Version gaps remain B01 follow-up work until compatibility evidence defines the release promise.
 
+## Bounded circular offset reader extension
+
+The [offset-start reader](../../Changes/Fusion/Readers/FusionOffsetStartReader.md) adds strict SDK and CLI inspection of an identity-XY unconstrained circle followed by an untapered NewBody extrusion with positive two-sided distances and a signed OffsetStart parameter.
+It preserves five distinct owned parameter roles and requires the existing current-body, journal, snapshot, geometry and mass proofs.
+The initial 139-file replay admits 109 XY files and explicitly refuses 30 XZ/YZ files.
+The returned graph remains read-only; this extension changes the source read boundary without expanding the write or directional conversion matrix below.
+
 ## Directional route matrix
 
 Rows are sources and columns are destinations.

@@ -135,6 +135,11 @@ It is not an interchange document accepted by `kit convert`.
 kit decode part.SLDPRT -o decoded.json
 ```
 
+For qualified XY circular NewBody extrusions, the strict reader also accepts untapered two-sided distance extents with signed offset starts.
+The report preserves first/second distance, start-offset and taper parameter roles and measured solid geometry.
+These documents remain inspection-only; `partial: false` does not authorize native writing or conversion.
+See the [offset-start reader scope](../Changes/Fusion/Readers/FusionOffsetStartReader.md) for admission limits and evidence.
+
 Without `-o`, the command prints JSON to standard output.
 A saved decode file is written atomically and protected from replacement by default.
 New files respect the process umask; replacement preserves existing permission bits.

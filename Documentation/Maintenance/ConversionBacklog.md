@@ -669,6 +669,16 @@ Delivery PR is [#265](https://github.com/TryUniCAD/Kit/pull/265); current-head C
 The exit requires numerical source comparison, public SDK and CLI replay, retained refusal coverage, shared-suite integration, and current-head CI and review.
 Native writing and full conversion acceptance remain open. SOLIDWORKS host recovery is separate.
 
+## A05c-FusionOffsetReader20261127 source-reader promotion
+
+Codex owns the bounded signed-offset circular reader extension on `feat/fusion-offset-sdk-reader-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a05c-fusionoffsetreader20261127) records scope, dependencies, evidence and exit conditions.
+It promotes qualified XY source inspection through the existing SDK and CLI, with five distinct owned parameters and the existing full native body proofs.
+Read-only publication and conversion guards remain enforced; B02–B05 target acceptance and broader frame/feature support remain unfinished.
+Delivery is [PR #396](https://github.com/TryUniCAD/Kit/pull/396); the [change entry](../Changes/Fusion/Readers/FusionOffsetStartReader.md) supplies usage and limitations.
+
+The queue repair preserves PR #395 as a separate source-evidence delivery and relocates this reader entry without changing its stable anchor or read-only acceptance boundary.
+
 ## Recovered SOLIDWORKS native ladder evidence
 
 Task `A08h-LadderRecovery` was published through the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).

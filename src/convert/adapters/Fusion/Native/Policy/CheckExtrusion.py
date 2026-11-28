@@ -8,6 +8,7 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
+from convert.adapters.Fusion.Native.Policy.CheckExtStart import CheckExtStart
 
 
 # invalid extrusion input must fail here so public document claims remain grounded in native records
@@ -16,11 +17,13 @@ def CheckExtrusion(
     Context: ExtrudeContext,
     YzDatum: bool = False,
     Operation: int = 4,
+    AllowOffset: bool = False,
 ) -> None:
     if Operation not in (2, 4):
         raise ValueError("Unsupported native modifying extrusion operation")
     Feature = Context.Extrude
     SideMode = ReadExtentMode(Feature)
+    CheckExtStart(Graph, Context, AllowOffset)
     RequireFields(
         Feature,
         {
@@ -30,7 +33,6 @@ def CheckExtrusion(
             ),
             "extendFaceOption": 2 if SideMode == "one_sided" else 1,
             "isSolidOperation": True,
-            "profileLocaltionType": 0,
             "side1ExtentType": 1,
             "side1SolutionType": 0,
             "side2ExtentType": 1 if SideMode == "two_sided" else 0,
@@ -62,7 +64,6 @@ def CheckExtrusion(
             NameValue: None
             for NameValue in (
                 "ProfileFromEntityRef",
-                "profileOffset",
                 "rFromEntityRef",
                 "rToEntityRef",
                 "side1Offset",

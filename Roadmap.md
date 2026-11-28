@@ -33,6 +33,10 @@ No replacement percentage is claimed without a complete acceptance matrix.
 | AutoCAD                 | No standalone production adapter on this main revision. Fusion drawing codecs are a separate bounded path.                                | Format/version contract, neutral drawing model and qualified standalone routes.                     |
 | Kit JSON and shared SDK | Neutral model, serialization, discovery, conversion API, CLI and packaging exist.                                                         | Complete route evidence, operational hardening, user evaluation and release qualification.          |
 
+The bounded [Fusion offset-start reader](Documentation/Changes/Fusion/Readers/FusionOffsetStartReader.md) extends strict SDK and CLI inspection to untapered XY circular two-sided NewBody extrusions with signed start placement.
+Its five owned parameter roles and saved solid must agree with the existing native identity and geometry proofs.
+The document remains read-only; native writing and editable target acceptance retain their existing gates.
+
 Registration, same-format reconstruction and retained native bytes do not establish cross-format editability.
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md) define the writer's supported geometry and measurement gate.

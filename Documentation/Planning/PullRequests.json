@@ -1,8 +1,41 @@
 {
-  "ObservedOn": "2026-11-27",
+  "ObservedOn": "2026-11-28",
   "Repository": "TryUniCAD/Kit",
   "Purpose": "Dated collision inventory only; authors are contacts, not inferred feature owners; checks and approvals require fresh revision-bound evidence",
   "PullRequests": [
+    {
+      "number": 398,
+      "title": "docs(planning): publish completed project import receipts",
+      "url": "https://github.com/TryUniCAD/Kit/pull/398",
+      "author": "jdharcourt",
+      "headBranch": "feat/planning-import-receipts-20261128",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "updatedAt": "2026-11-28T00:01:08Z"
+    },
+    {
+      "number": 397,
+      "title": "feat(cad): qualify Fusion draft and rim reads with measured CLI parity",
+      "url": "https://github.com/TryUniCAD/Kit/pull/397",
+      "author": "jdharcourt",
+      "headBranch": "feat/decoded-cad-read-write-20261127",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "updatedAt": "2026-11-28T00:00:33Z"
+    },
+    {
+      "number": 396,
+      "title": "feat(fusion): read owned offset-start circular extrusions through sdk and cli",
+      "url": "https://github.com/TryUniCAD/Kit/pull/396",
+      "author": "jdharcourt",
+      "headBranch": "feat/fusion-offset-sdk-reader-20261127",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "updatedAt": "2026-11-27T22:46:50Z"
+    },
     {
       "number": 395,
       "title": "feat(research): decode signed offset starts on unequal two-sided extrusions",
@@ -10,70 +43,67 @@
       "author": "jdharcourt",
       "headBranch": "feat/fusion-offset-start-20261127",
       "baseBranch": "main",
-      "state": "open",
+      "state": "merged",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:48:26Z"
+      "updatedAt": "2026-11-27T22:46:37Z",
+      "StateObservedOn": "2026-11-28"
     },
     {
       "number": 394,
       "title": "feat(research): record independent two-sided Fusion drafts",
-      "url": "https://github.com/TryUniCAD/Kit/pull/394",
+      "url": "https://github.com/tryunicad/kit/pull/394",
       "author": "jdharcourt",
       "headBranch": "feat/fusion-two-sided-draft-20261127",
       "baseBranch": "main",
       "state": "merged",
-      "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:12Z"
+      "isDraft": false
     },
     {
       "number": 393,
       "title": "feat(research): record unequal construction-axis Fusion revolutions",
-      "url": "https://github.com/TryUniCAD/Kit/pull/393",
+      "url": "https://github.com/tryunicad/kit/pull/393",
       "author": "jdharcourt",
       "headBranch": "feat/fusion-unequal-revolve-20261127",
       "baseBranch": "main",
       "state": "merged",
-      "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:12Z"
+      "isDraft": false
     },
     {
       "number": 392,
       "title": "feat(planning): add scheduled scope board and organization project",
-      "url": "https://github.com/TryUniCAD/Kit/pull/392",
+      "url": "https://github.com/tryunicad/kit/pull/392",
       "author": "jdharcourt",
       "headBranch": "feat/project-todo-review-20261127",
       "baseBranch": "main",
-      "state": "open",
-      "isDraft": false,
-      "updatedAt": "2026-11-27T17:44:23Z"
+      "state": "merged",
+      "isDraft": false
     },
     {
       "number": 391,
       "title": "fix(tests): cache Windows fixture assembly across processes",
-      "url": "https://github.com/TryUniCAD/Kit/pull/391",
-      "author": "app/usehoplite",
+      "url": "https://github.com/tryunicad/kit/pull/391",
+      "author": "usehoplite",
       "headBranch": "codex/windows-fixture-cache",
       "baseBranch": "main",
       "state": "merged",
-      "isDraft": false,
-      "updatedAt": "2026-11-27T16:43:56Z"
+      "isDraft": false
     },
     {
       "number": 385,
       "title": "fix(ci): fail queue CI Agg as soon as a candidate job fails",
       "url": "https://github.com/TryUniCAD/Kit/pull/385",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "hoplite/sybaris-29ba7c65",
       "baseBranch": "main",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T14:12:34Z"
+      "updatedAt": "2026-11-27T18:27:54Z"
     },
     {
       "number": 384,
       "title": "refactor(solidworks): share proven archive field rules",
       "url": "https://github.com/TryUniCAD/Kit/pull/384",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/sw-header-bounds",
       "baseBranch": "main",
       "state": "open",
@@ -84,7 +114,7 @@
       "number": 383,
       "title": "docs: audit solidworks later-phase coverage",
       "url": "https://github.com/TryUniCAD/Kit/pull/383",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "hoplite/tegea-f1d4ae13--later-phases",
       "baseBranch": "main",
       "state": "open",
@@ -95,7 +125,7 @@
       "number": 382,
       "title": "feat(research): report offline timings and verify advisor opt-in",
       "url": "https://github.com/TryUniCAD/Kit/pull/382",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/offline-research-metrics",
       "baseBranch": "main",
       "state": "open",
@@ -106,7 +136,7 @@
       "number": 381,
       "title": "fix(research): recover owned SOLIDWORKS capture sessions",
       "url": "https://github.com/TryUniCAD/Kit/pull/381",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/capture-resilience",
       "baseBranch": "main",
       "state": "open",
@@ -117,7 +147,7 @@
       "number": 380,
       "title": "Verify SOLIDWORKS sketch dimension record bindings",
       "url": "https://github.com/TryUniCAD/Kit/pull/380",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "offline-sketch-dimension-records",
       "baseBranch": "main",
       "state": "open",
@@ -128,7 +158,7 @@
       "number": 379,
       "title": "test: verify solidworks analytic carriers offline",
       "url": "https://github.com/TryUniCAD/Kit/pull/379",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "hoplite/solidworks-brep-carriers",
       "baseBranch": "main",
       "state": "open",
@@ -139,7 +169,7 @@
       "number": 378,
       "title": "docs(solidworks): identify unresolved feature definition evidence",
       "url": "https://github.com/TryUniCAD/Kit/pull/378",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "offline/feature-definitions",
       "baseBranch": "main",
       "state": "open",
@@ -149,30 +179,28 @@
     {
       "number": 377,
       "title": "docs(guides): clarify first-use discovery and recovery",
-      "url": "https://github.com/TryUniCAD/Kit/pull/377",
+      "url": "https://github.com/tryunicad/kit/pull/377",
       "author": "jdharcourt",
       "headBranch": "feat/b11-documentation-usability-20261127",
       "baseBranch": "main",
       "state": "merged",
-      "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:32Z"
+      "isDraft": false
     },
     {
       "number": 376,
       "title": "feat(cli): add focused format discovery and alias guidance",
-      "url": "https://github.com/TryUniCAD/Kit/pull/376",
+      "url": "https://github.com/tryunicad/kit/pull/376",
       "author": "jdharcourt",
       "headBranch": "feat/b10-cli-usability-20261127",
       "baseBranch": "main",
       "state": "merged",
-      "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:34Z"
+      "isDraft": false
     },
     {
       "number": 374,
       "title": "docs(research): inventory SOLIDWORKS sketch streams",
       "url": "https://github.com/TryUniCAD/Kit/pull/374",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/sketch-stream-inventory",
       "baseBranch": "main",
       "state": "open",
@@ -183,7 +211,7 @@
       "number": 373,
       "title": "docs(research): SOLIDWORKS sketch circle and relation field candidates",
       "url": "https://github.com/TryUniCAD/Kit/pull/373",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/sketch-circle-relation-fields",
       "baseBranch": "main",
       "state": "open",
@@ -194,7 +222,7 @@
       "number": 372,
       "title": "docs(research): group committed SOLIDWORKS unresolved decodes",
       "url": "https://github.com/TryUniCAD/Kit/pull/372",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/nov25-unresolved-decodes",
       "baseBranch": "main",
       "state": "open",
@@ -205,7 +233,7 @@
       "number": 371,
       "title": "docs(solidworks): admit the 2026 captured controls",
       "url": "https://github.com/TryUniCAD/Kit/pull/371",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/v2026-control-admission",
       "baseBranch": "main",
       "state": "open",
@@ -216,7 +244,7 @@
       "number": 370,
       "title": "docs(research): audit the November 25 capture-failure records",
       "url": "https://github.com/TryUniCAD/Kit/pull/370",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/nov25-capture-failures",
       "baseBranch": "main",
       "state": "open",
@@ -227,7 +255,7 @@
       "number": 369,
       "title": "docs(research): record SOLIDWORKS sketch dimension field search",
       "url": "https://github.com/TryUniCAD/Kit/pull/369",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/sketch-dimension-fields",
       "baseBranch": "main",
       "state": "open",
@@ -238,7 +266,7 @@
       "number": 368,
       "title": "docs(solidworks): add feature-family and version coverage table",
       "url": "https://github.com/TryUniCAD/Kit/pull/368",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/solidworks-family-version-coverage",
       "baseBranch": "main",
       "state": "open",
@@ -249,7 +277,7 @@
       "number": 367,
       "title": "docs(research): reconcile the automation register with merged PR 288",
       "url": "https://github.com/TryUniCAD/Kit/pull/367",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/automation-register-pr288-status",
       "baseBranch": "main",
       "state": "open",
@@ -260,7 +288,7 @@
       "number": 366,
       "title": "feat(solidworks): prepare offline blind-boss milestone candidates and tests",
       "url": "https://github.com/TryUniCAD/Kit/pull/366",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "hoplite/olynthos-8e5509c7",
       "baseBranch": "main",
       "state": "open",
@@ -271,7 +299,7 @@
       "number": 365,
       "title": "chore(deps-dev): bump ruff from 0.17.5 to 0.17.6",
       "url": "https://github.com/TryUniCAD/Kit/pull/365",
-      "author": "app/dependabot",
+      "author": "dependabot",
       "headBranch": "dependabot/uv/ruff-0.17.6",
       "baseBranch": "main",
       "state": "open",
@@ -282,7 +310,7 @@
       "number": 364,
       "title": "test(supervisor): make CheckWindow wait for a memory sample and outlast slow passes",
       "url": "https://github.com/TryUniCAD/Kit/pull/364",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/supervisor-window-sampling",
       "baseBranch": "main",
       "state": "open",
@@ -573,7 +601,7 @@
       "baseBranch": "main",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:18Z"
+      "updatedAt": "2026-11-27T19:49:50Z"
     },
     {
       "number": 296,
@@ -903,7 +931,7 @@
       "baseBranch": "main",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:21Z"
+      "updatedAt": "2026-11-27T19:49:46Z"
     },
     {
       "number": 120,
@@ -916,6 +944,5 @@
       "isDraft": false,
       "updatedAt": "2026-11-27T17:31:32Z"
     }
-  ],
-  "ObservedAt": "2026-11-27T17:49:31.007602+00:00"
+  ]
 }

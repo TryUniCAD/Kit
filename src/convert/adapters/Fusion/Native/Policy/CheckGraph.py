@@ -47,10 +47,11 @@ def CheckGraph(
     Context: ExtrudeContext,
     Rectangle: RectSketchProof | None = None,
     YzDatum: bool = False,
+    AllowOffset: bool = False,
 ) -> None:
     CheckBase(Graph, Context, Rectangle=Rectangle, YzDatum=YzDatum)
     CheckFeature(Graph, Context.Extrude)
-    CheckExtrusion(Graph, Context, YzDatum)
+    CheckExtrusion(Graph, Context, YzDatum, AllowOffset=AllowOffset)
     Overrides = ObjectFields(Context.BodyNode.Fields["massProperties"])
     if any(Value != -1.0 for Value in Overrides.values()):
         raise ValueError("Native body mass-property overrides are not qualified")
