@@ -2,6 +2,8 @@
 
 These are local Fusion API research captures. They do not use any existing CAD
 document as an authoring template and do not save to a cloud project.
+The control keeps Fusion's assigned root component name. See the
+[unsaved root component gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Api/UnsavedRootComponentName.md).
 
 Use a private scratch directory and a fresh task-owned Fusion process for each
 group. Check that the host has no other Fusion session before starting. On
