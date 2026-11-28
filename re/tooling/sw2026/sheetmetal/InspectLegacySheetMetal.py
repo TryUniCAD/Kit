@@ -47,11 +47,13 @@ def inspect_legacy(source, probe, legacy):
 
     archive = SldprtArchive.from_bytes(source)
     observations = []
+    bend_observations = []
     configured = []
 
     def legacy_registry():
         rules = registry()
         legacy.install_legacy_resolved_rules(rules, probe.record_boundary(observations))
+        legacy.install_legacy_bend_rules(rules, probe.record_boundary(bend_observations))
         configured.append(rules)
         return rules
 
@@ -60,10 +62,11 @@ def inspect_legacy(source, probe, legacy):
     if not result['positive_populated_observed'] or linked['cmgr']['mode'] != 0:
         raise ArchiveError('expected a populated direct legacy master and CMgr mode zero')
     resolved = linked['resolved']
-    resolved['legacy_candidate_replays'] = probe.replay_boundaries(
-        archive.require(CONFIG + '-ResolvedFeatures'), configured[0],
-        result['config_version'], observations,
-    )
+    image = archive.require(CONFIG + '-ResolvedFeatures')
+    rules, = configured
+    version = result['config_version']
+    resolved['legacy_candidate_replays'] = probe.replay_boundaries(image, rules, version, observations)
+    resolved['legacy_bend_replays'] = legacy.replay_legacy_bend(image, rules, version, bend_observations)
     return result
 
 
@@ -81,7 +84,8 @@ def main():
     if not source or len(source) > probe.MAX_PART or digest != args.sha256:
         parser.error('part is empty, oversized or differs from its supplied digest')
     provenance = dict(source_sha256=digest, reference_revision=probe.REFERENCE,
-                      frozen_probe_sha256=probe_digest, legacy_rule_sha256=rule_digest)
+                      frozen_probe_sha256=probe_digest, legacy_rule_sha256=rule_digest,
+                      legacy_probe_sha256=probe.image(Path(__file__).read_bytes()))
     with TemporaryDirectory(prefix='KitLegacySheetMetal') as temporary:
         unpack_reference(args.reference, probe.REFERENCE, Path(temporary))
         from Core import ArchiveError

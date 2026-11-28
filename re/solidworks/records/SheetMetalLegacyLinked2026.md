@@ -20,7 +20,7 @@ The six disclosed-input verification passes used pinned compatibility revision `
 
 A second pinned process inspected the actual CMgr store on all six witnesses. Each attempted the SDK writer and used the compatibility store for its final bytes. Read and store agreed on bytes, counter, typed slot roster and each shared object identity. Class descriptors were reconstructed with equal values. The private custody receipt SHA-256 is `bc26e4e6640e468275fffd3994bd4582b915e1cfb1b1b900f774cd314199d999`.
 
-The following additional legacy replays used rule SHA-256 `3dc8e736530d49072e1a8244652b98c7b384d16c317979a8edede0c66e2968ee`. Each reported interval re-emits all bytes, preserves incoming object identities and reproduces the resulting map roster.
+The first additional legacy exploratory replays used the pre-normalization working-copy rule SHA-256 `3dc8e736530d49072e1a8244652b98c7b384d16c317979a8edede0c66e2968ee`. Each reported interval re-emits all bytes, preserves incoming object identities and reproduces the resulting map roster.
 
 | Record | Cover bytes and map count | Plate bytes and map count |
 | --- | --- | --- |
@@ -28,6 +28,19 @@ The following additional legacy replays used rule SHA-256 `3dc8e736530d49072e1a8
 | Native table feature | [9053, 9264), 261 → 262 | [5703, 5914), 217 → 218 |
 | Configuration table folder | [8966, 9387), 258 → 262 | [5616, 6037), 214 → 218 |
 
-The cover and plate source SHA-256 values are `0ae11e59dcac0d88e6dacde4ebcfbc666da5df65d974863dce8609e0b62b3fbc` and `abaa90aac3955099d76e20c2e5f1e4cc97e65c6311d019ca1603ec4596f4c3da`. The cover Config and CMgr replay 28,839 and 2,759 bytes. Its 116,246-byte ResolvedFeatures stream starts from configuration map 169 and refuses at byte 17,775 in `moSheetMetal_c.f808.bend_allow`. The next rule must establish the actual mode-zero bend record sequence before treating any observed word as an array count. The plate exactly replays 28,076 Config bytes, 3,316 CMgr bytes and all 26,559 resolved bytes. The last stream has SHA-256 `aad4d9a52fb02b8f582d018a5ece1b5a2a063e8c6cbd5bfe4460e52413da5a38`, 22 roots and final map count 372.
+The cover and plate source SHA-256 values are `0ae11e59dcac0d88e6dacde4ebcfbc666da5df65d974863dce8609e0b62b3fbc` and `abaa90aac3955099d76e20c2e5f1e4cc97e65c6311d019ca1603ec4596f4c3da`. The cover Config and CMgr replay 28,839 and 2,759 bytes. Its 116,246-byte ResolvedFeatures stream starts from configuration map 169 and initially refused at byte 17,775 in `moSheetMetal_c.f808.bend_allow`. The current rule below resolves that boundary. The plate exactly replays 28,076 Config bytes, 3,316 CMgr bytes and all 26,559 resolved bytes. The last stream has SHA-256 `aad4d9a52fb02b8f582d018a5ece1b5a2a063e8c6cbd5bfe4460e52413da5a38`, 22 roots and final map count 372.
 
 These observations establish bounded archive structure. Native feature and topology correspondence, controlled leaf suppression and driver edit, held-out verification, and production admission remain open. See the [capture and invocation procedure](SheetMetalCapture2026.md).
+
+## Mode-zero bend allowance
+
+In installed SP04.1 `sldsmmu.dll` SHA-256 `3299f8676485bab354704fb190cff768393bcf9a0ccd225ba6b29271e3b462ea`, load RVAs `0x52ddc3` and `0x52df6f` read the signed `+0x30` and `+0x34` members. The store matches at `0x52dbac` and `0x52dbb8`. At generation 19000 the old dimension special case is bypassed by the version guard at `0x52dfa4`. The matrix loops take their bounds from allocated axes `+0x50`, `+0x70` and `+0x60`, with store loop at `0x52daf5` and load loop at `0x52dfb3`. The proposed layout still refuses nonzero values in the three preceding axis headers. The signed members have unresolved meanings and remain explicit.
+
+| Witness | Embedded payload and map count | Signed members | Payload SHA-256 |
+| --- | --- | --- | --- |
+| Cover | [14574, 17799), 311 → 327 | 2003968329, 0 | `0a35d6c287a98c2d387c34754e2c707aed1cd42f8832d5f3dc3a5f721edc61a7` |
+| Plate | [14954, 18347), 297 → 312 | 0, 0 | `866c291e86e9d4d38157272e94c315abe5c21100535de1f1317949c8c5ee30e3` |
+
+Both embedded payloads consume and re-emit with existing object identities and exact read and store rosters. These runs used rule SHA-256 `3622650d31d86fd4c01ba7719137c9b246cafdfec448ef2f2c56dc64f5fbe76e` and probe SHA-256 `13841e2b68bdd1618181f1adbfab8c28779d68909cfa2e905cf99a1e980517bd`. The cover now refuses at `moSketchBend_c` byte 21,202. The plate still fully replays to map 372. [Bend-allowance field gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/LegacyBendAllowanceSignedFields.md)
+
+The next cover record dispatches to the `moSketchBend_c` descriptor at `0x780170`, vtable `0x618198` and serializer `0x53b3b0` in the same sheet-metal module. Its serializer calls `moOneBend_c` at `0x536070` before any subclass fields. That parent begins with `moSheetMetalCommon_c`, typed sketch, component and dimension objects, signed members, a 16-bit word, a double, and a byte. The next mode-zero lane reads a second typed sketch, with an inline line handle when the sketch is present, and then a typed list. The parent’s remaining records and their axis and handle semantics remain open.
