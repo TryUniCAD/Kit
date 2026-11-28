@@ -9,7 +9,7 @@ uv run --locked --no-sync python re/automation/ReviewSmoke/ReadCount.py re/autom
 ```
 
 The initial head `c9682038719ade0661f43b74bf69943d7a4b70d8` rejected this command instead of printing `7`.
-The repaired implementation normalizes the suffix before comparing it.
+The repair normalized the suffix before comparing it. This post-deployment negative control deliberately reintroduces the case-sensitive check so the new runtime must independently identify the contract violation.
 
 ## Verified hosted evidence
 
@@ -29,3 +29,12 @@ Automatic commit rereview and a clean current-head app approval after matching C
 Generated planning content can exceed source limits, in which case review must remain partial and approval must remain blocked.
 The fixture's own approval is not a prerequisite for assessing its code repair; approval publication is a separate live acceptance observation.
 No CAD, production release or merge-queue acceptance is claimed.
+
+## Post-deployment negative control
+
+The current protected deployment is recorded in the owning register.
+This revision also includes `tests/Policy/ReviewSmoke/FormattingProbe.py`, a harmless unformatted binding that deliberately fails ordinary formatting CI.
+The reviewer must still execute and react while CI is failing; approval must remain blocked.
+The uppercase JSON input currently exits instead of producing `7`.
+A following commit will restore normalization and remove the formatting control to verify automatic rereview and a genuine clean-head app approval after fresh CI.
+The planning input changes regenerate both large BoardData outputs so this trial exercises the deployed exact reconstruction path.

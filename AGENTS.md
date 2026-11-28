@@ -28,6 +28,9 @@ at task start, at every planning state change and before handoff.
 Set the project's native Status to In Progress before work starts and to Done only
 after the claimed exit has revision-bound evidence. Keep blocked work explicit.
 Completed bounded children do not complete their parent feature or version matrix.
+Review each PR against its claimed bounded delivery. An unfinished parent scope or
+an explicitly unclaimed acceptance stage is not alone a defect in that delivery.
+Retain all applicable evidence requirements and never infer broader acceptance.
 Update native GitHub Assignees to the verified accounts responsible for claimed
 scopes and delivery PRs. Retain assignees on Done items for ownership history and
 update them explicitly at handoff. Keep the exact runtime/session in Agent and the
@@ -149,6 +152,15 @@ read its complete standards index and every applicable rule before coding.
   not substitute for approval. Keep reviewer names and identifiers only in that
   JSON. No human or code-owner approval is required by this workflow. Report
   unavailable review evidence and independently enforced requirements separately.
+  Large generated planning outputs count as covered only after exact reconstruction
+  with the unchanged trusted default-branch generator and fully reviewed changed
+  inputs. Require matching before and after bytes, a current trusted merge base,
+  and unchanged remaining generator dependencies. A filename, hash alone, omitted
+  source, failed rebuild, stale base or changed generator never establishes coverage.
+  Keep such reviews partial and block approval when these requirements are unmet.
+  Present published reviews with a clear native verdict, a score out of five,
+  explicit coverage, findings grouped by P1/P2/P3 and collapsible verification
+  details. Preserve the canonical receipt markers used for request deduplication.
 - `jdharcourt` and `odinglynn` are repository-policy administrators with merge
   privileges. Either may explicitly authorize agent queue enrollment, auto-merge,
   or merging under the existing readiness gates. Verify the requester’s GitHub
