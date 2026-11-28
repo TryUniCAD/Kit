@@ -524,6 +524,18 @@ def ReadNativePart(
         units=UnitSystem.MILLIMETER,
     )
     DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    return FinishPartDoc(DocValue, Model, Archive, DataValue, Label, Settings)
+
+
+# inspection metadata is applied only after the reconstructed document passes validation
+def FinishPartDoc(
+    DocValue: CadDoc,
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    DataValue: bytes,
+    Label: str,
+    Settings: ReadOptions,
+) -> CadDoc:
     DocValue.assert_valid()
     ValidateSource(Label, False)
     Result = WithPartProps(DocValue, Archive)
