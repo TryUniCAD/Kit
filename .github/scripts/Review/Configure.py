@@ -55,6 +55,11 @@ def ConfigureApp(AppSlug: str) -> None:
             "Documentation": "Documentation/Tasks/AccountReviewer.md",
         }
     ]
+    Settings["MentionCommands"] = [
+        f"@{AppData['slug']}",
+        f"@{AppData['slug']} review",
+    ]
+    Config["AccountReview"] = Settings
     ConfigPath.write_text(JsonTools.dumps(Config, indent=2) + "\n")
 
 

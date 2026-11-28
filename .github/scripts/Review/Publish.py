@@ -48,7 +48,10 @@ def PublishRun() -> None:
         and not Report["findings"]
     )
     Verdict = "APPROVE" if IsApproved else "REQUEST_CHANGES"
-    BodyText = ReviewBody(Report) + f"\n\nCI run: {Evidence['run_id']}"
+    BodyText = ReviewBody(Report)
+    if Context.get("mention_comment") is not None:
+        BodyText += f"\n\nMention comment: {Context['mention_comment']}"
+    BodyText += f"\n\nCI run: {Evidence['run_id']}"
     CheckName = cast(list[str], Reviewer["Checks"])[0]
     CheckData = ObjectMap(
         ApiCall(

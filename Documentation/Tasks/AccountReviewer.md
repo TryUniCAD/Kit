@@ -7,7 +7,7 @@ The GitHub App posts findings, a five-point soundness score, a native check, and
 The workflow never merges a PR or enrolls it in the merge queue.
 The scheduled workflow checks for eligible successful PR CI runs every five minutes.
 GitHub can delay scheduled execution; this is not an immediate completion hook.
-Trusted collaborators can also request review with the configured mention commands.
+Trusted collaborators can also request review with mention commands polled by that same scheduled workflow.
 
 ## Before you start
 
@@ -63,7 +63,7 @@ CODEX_HOME=/private/tmp/KitReviewLogin codex -c 'cli_auth_credentials_store="fil
 Use a private secret channel or GitHub's secret interface for credential transfer.
 The runner writes rotated credentials back after the model process exits.
 Environment secrets load when their job starts, so serialized runs receive the latest token bundle.
-The account credential job queues up to 100 requests and never intentionally cancels an active credential refresh.
+The trusted workflow queues up to 100 requests and never intentionally cancels an active credential refresh.
 
 ## Activate and verify
 
@@ -83,6 +83,11 @@ They search the 100 most recent successful PR CI runs.
 If current successful CI is unavailable, no model job starts; scheduled review can follow after CI succeeds.
 Mentions inside quotes, longer comments, edited comments, bot comments, and ordinary issue comments are ignored.
 Public comment admission runs without app or account credentials.
+Polling inspects the latest 100 repository comments and rotates through at most ten matching commands per invocation.
+The workflow run number advances the start position so completed requests do not permanently block older requests in that window.
+The app's native report marks a handled mention for the inspected head, preventing repeated requests from one unchanged comment.
+A neutral waiting-for-CI report does not establish a completed review or approval.
+Receipt discovery includes all retained matching app checks with pagination.
 Each scheduled invocation selects one unreported eligible run from the 30 most recent successful PR CI runs.
 Closed, draft, forked, obsolete, and previously reported inputs are skipped.
 Use manual dispatch for an older run outside that window or an explicit reassessment.
@@ -116,6 +121,9 @@ Do not restore the previous reviewer as an automatic fallback.
 
 Implementation is under scope `AccountReviewer` in the [planning register](../Planning/Links.json).
 App registration, bot identity verification, and reviewer replacement are recorded in this implementation.
+The owner updated the app display name and organization logo.
+The public app, installed app, bot account, and downloaded public avatar were verified after that change.
+The configuration command refreshes mention commands from the verified app slug when an app is renamed.
 Corrected permissions, protected environment secret storage, and a temporary read-only Kit installation token were verified during setup.
 That token was revoked after verification.
 At the owner's explicit request, initial seeding uses the existing local account session.

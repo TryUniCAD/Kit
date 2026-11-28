@@ -42,8 +42,10 @@ def CheckReviewCli(CaseName: str) -> None:
         ]
     with TempTools.TemporaryDirectory() as TempName:
         TempPath = Path(TempName)
-        assert (TempPath / "Context.json").write_text(JsonTools.dumps(Context)) > 0
-        assert (TempPath / "Report.json").write_text(JsonTools.dumps(Report)) > 0
+        WriteCount = (TempPath / "Context.json").write_text(JsonTools.dumps(Context))
+        assert WriteCount > 0
+        WriteCount = (TempPath / "Report.json").write_text(JsonTools.dumps(Report))
+        assert WriteCount > 0
         Result = ProcessTools.run(
             [
                 SysTools.executable,

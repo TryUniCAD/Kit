@@ -4,9 +4,9 @@
       "Trigger": "schedule",
       "Workflow": ".github/workflows/AccountReview.yml",
       "AppId": 5966452,
-      "AppSlug": "jibiti-review",
+      "AppSlug": "unicad",
       "UserId": 362345322,
-      "UserLogin": "jibiti-review[bot]",
+      "UserLogin": "unicad[bot]",
       "Checks": ["Account review result"],
       "Statuses": [],
       "Documentation": "Documentation/Tasks/AccountReviewer.md"
@@ -15,7 +15,7 @@
   "ExcludedReports": [],
   "AccountReview": {
     "AppId": 5966452,
-    "MentionCommands": ["@jibiti-review", "@jibiti-review review"],
+    "MentionCommands": ["@unicad", "@unicad review"],
     "CheckName": "Account review result",
     "MinimumScore": 4,
     "Workflow": ".github/workflows/AccountReview.yml"

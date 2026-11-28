@@ -1,4 +1,4 @@
-from typing import cast
+from IsCommand import IsCommand
 
 from ObjectMap import ObjectMap
 
@@ -18,13 +18,4 @@ def IsMention(EventData: dict[str, object], Settings: dict[str, object]) -> bool
         or ObjectMap(Comment["user"]).get("type") != "User"
     ):
         return False
-    BodyText = Comment.get("body")
-    return (
-        isinstance(BodyText, str)
-        and len(BodyText) <= 128
-        and BodyText.strip().casefold()
-        in {
-            Command.casefold()
-            for Command in cast(list[str], Settings["MentionCommands"])
-        }
-    )
+    return IsCommand(Comment.get("body"), Settings)

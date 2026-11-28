@@ -49,7 +49,8 @@ def CheckMentionCli(CaseName: str) -> None:
     if CaseName == "quoted":
         Comment["body"] = "> " + Command
     if CaseName == "issue":
-        assert IssueData.pop("pull_request") == {}
+        PullRequestData = IssueData.pop("pull_request")
+        assert PullRequestData == {}
     if CaseName == "bot":
         Comment["user"] = {"login": "review-bot", "id": 1, "type": "Bot"}
     if CaseName == "edited":
@@ -60,7 +61,8 @@ def CheckMentionCli(CaseName: str) -> None:
         Comment["body"] = Command + " " * 129
     with TempTools.TemporaryDirectory() as TempName:
         TempPath = Path(TempName)
-        assert (TempPath / "Event.json").write_text(JsonTools.dumps(EventData)) > 0
+        WriteCount = (TempPath / "Event.json").write_text(JsonTools.dumps(EventData))
+        assert WriteCount > 0
         Result = ProcessTools.run(
             [SysTools.executable, str(RootPath / ".github/scripts/Review/Admit.py")],
             cwd=RootPath,

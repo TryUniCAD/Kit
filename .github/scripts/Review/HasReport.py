@@ -1,7 +1,5 @@
-from typing import cast
-
-from ApiCall import ApiCall
 from ObjectMap import ObjectMap
+from ReadChecks import ReadChecks
 from ReadPages import ReadPages
 
 
@@ -9,14 +7,9 @@ from ReadPages import ReadPages
 def HasReport(
     RepoName: str, Evidence: dict[str, object], Settings: dict[str, object]
 ) -> bool:
-    Checks = ObjectMap(
-        ApiCall(
-            f"repos/{RepoName}/commits/{Evidence['head_sha']}/check-runs?per_page=100"
-        )
-    )
     Matches = [
-        ObjectMap(Entry)
-        for Entry in cast(list[object], Checks["check_runs"])
+        Entry
+        for Entry in ReadChecks(RepoName, str(Evidence["head_sha"]), Settings)
         if ObjectMap(Entry)["name"] == Settings["CheckName"]
         and ObjectMap(ObjectMap(Entry)["app"])["id"] == Settings["AppId"]
         and ObjectMap(Entry).get("external_id") == str(Evidence["run_id"])

@@ -8,11 +8,13 @@ def BuildContext(
     Evidence: dict[str, object],
     PullData: dict[str, object],
     FileList: list[dict[str, object]],
+    RequestId: int | None = None,
 ) -> str:
     Context = {
         "evidence": Evidence,
         "title": PullData["title"],
         "body": PullData["body"],
+        "mention_comment": RequestId,
         "files": CollectFiles(FileList, Evidence),
         "policy": {
             FileName: ReadSource(str(Evidence["base_sha"]), FileName)

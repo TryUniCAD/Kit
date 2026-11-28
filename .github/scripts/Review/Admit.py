@@ -1,18 +1,24 @@
 import json as JsonTools
 import os as OsTools
-import re as RegexTools
 from pathlib import Path
 
-from ApiCall import ApiCall
-from IsMention import IsMention
+from CanComment import CanComment
 from ObjectMap import ObjectMap
 
 
 # public comment admission must complete with read only credentials before protected jobs can start
 def AdmitRun() -> None:
-    EventName = OsTools.environ["GITHUB_EVENT_NAME"]
+    EventName = OsTools.environ.get(
+        "REVIEW_EVENT_NAME", OsTools.environ["GITHUB_EVENT_NAME"]
+    )
     EventData = ObjectMap(
-        JsonTools.loads(Path(OsTools.environ["GITHUB_EVENT_PATH"]).read_text())
+        JsonTools.loads(
+            Path(
+                OsTools.environ.get(
+                    "REVIEW_EVENT_PATH", OsTools.environ["GITHUB_EVENT_PATH"]
+                )
+            ).read_text()
+        )
     )
     Config = ObjectMap(
         JsonTools.loads(
@@ -20,20 +26,12 @@ def AdmitRun() -> None:
         )
     )
     IsAllowed = EventName in ("schedule", "workflow_dispatch")
-    if EventName == "issue_comment" and IsMention(
-        EventData, ObjectMap(Config["AccountReview"])
-    ):
-        Commenter = ObjectMap(ObjectMap(EventData["comment"])["user"])
-        LoginName = str(Commenter["login"])
-        if not RegexTools.fullmatch(r"[A-Za-z0-9-]{1,39}", LoginName):
-            raise ValueError("Invalid commenter identity")
-        if ObjectMap(EventData["sender"])["id"] != Commenter["id"]:
-            raise ValueError("Comment sender identity mismatch")
-        RepoName = OsTools.environ["GITHUB_REPOSITORY"]
-        Permission = ObjectMap(
-            ApiCall(f"repos/{RepoName}/collaborators/{LoginName}/permission")
+    if EventName == "issue_comment":
+        IsAllowed = CanComment(
+            OsTools.environ.get("GITHUB_REPOSITORY", ""),
+            EventData,
+            ObjectMap(Config["AccountReview"]),
         )
-        IsAllowed = Permission["permission"] in ("write", "maintain", "admin")
     with Path(OsTools.environ["GITHUB_OUTPUT"]).open("a") as OutputFile:
         OutputFile.write(f"allowed={'true' if IsAllowed else 'false'}\n")
 

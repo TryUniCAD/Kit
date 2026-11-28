@@ -15,8 +15,20 @@ from ApiCall import ApiCall
 # untrusted workflow inputs must be checked before any account credential is restored
 def PrepareRun() -> None:
     RepoName = OsTools.environ["GITHUB_REPOSITORY"]
+    RequestPath = Path("ReviewRequest/Event.json")
     EventData = ObjectMap(
-        JsonTools.loads(Path(OsTools.environ["GITHUB_EVENT_PATH"]).read_text())
+        JsonTools.loads(
+            (
+                RequestPath
+                if RequestPath.exists()
+                else Path(OsTools.environ["GITHUB_EVENT_PATH"])
+            ).read_text()
+        )
+    )
+    RequestId = (
+        int(str(ObjectMap(EventData["comment"])["id"]))
+        if "comment" in EventData
+        else None
     )
     Config = ObjectMap(
         JsonTools.loads(
@@ -28,6 +40,22 @@ def PrepareRun() -> None:
     Settings = {**Settings, "UserId": Reviewer["UserId"]}
     Evidence = SelectEvidence(RepoName, EventData, Settings)
     if Evidence is None:
+        if RequestId is not None:
+            PullNumber = int(str(ObjectMap(EventData["issue"])["number"]))
+            PullInfo = ObjectMap(ApiCall(f"repos/{RepoName}/pulls/{PullNumber}"))
+            ApiCall(
+                f"repos/{RepoName}/check-runs",
+                {
+                    "name": Settings["CheckName"],
+                    "head_sha": ObjectMap(PullInfo["head"])["sha"],
+                    "status": "completed",
+                    "conclusion": "neutral",
+                    "output": {
+                        "title": "Mention requires current successful CI",
+                        "summary": f"No eligible successful CI evidence was found for this PR.\n\nMention comment: {RequestId}\n\nCI run: unavailable",
+                    },
+                },
+            )
         with Path(OsTools.environ["GITHUB_OUTPUT"]).open("a") as OutputFile:
             OutputFile.write("ready=false\n")
         return
@@ -42,7 +70,7 @@ def PrepareRun() -> None:
     if len(FileList) != PullData["changed_files"]:
         raise ValueError("Changed file inventory is incomplete")
     try:
-        Content = BuildContext(Evidence, PullData, FileList)
+        Content = BuildContext(Evidence, PullData, FileList, RequestId)
     except ValueError as ErrorInfo:
         ApiCall(
             f"repos/{RepoName}/check-runs",
@@ -54,7 +82,12 @@ def PrepareRun() -> None:
                 "conclusion": "failure",
                 "output": {
                     "title": "Review input exceeds supported bounds",
-                    "summary": str(ErrorInfo),
+                    "summary": str(ErrorInfo)
+                    + (
+                        f"\n\nMention comment: {RequestId}\n\nCI run: {Evidence['run_id']}"
+                        if RequestId is not None
+                        else ""
+                    ),
                 },
             },
         )
