@@ -4,6 +4,9 @@ from dataclasses import dataclass as DataClass
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import (
     DatumTime,
 )
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
     ReadPrismFrame,
@@ -18,6 +21,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwDriver import (
     ReadSwDriver,
     SwDriver,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwSeam import (
+    ReadSwSeam,
+    SwSeamPoint,
+)
 from interchange.geometry.Models.GeometryCurves import ArcGeometry, CircleGeometry
 from interchange.geometry.Models.VectorSpace import SpaceVector
 
@@ -29,6 +36,7 @@ class SwReadProfile:
     CurveValue: CircleGeometry | ArcGeometry
     DriverValue: SwDriver
     DatumId: int
+    SeamValue: SwSeamPoint | None = None
 
 
 # the actual local component stamp must match the selected profile and its header creation log
@@ -63,6 +71,8 @@ def ReadSwProfile(
     FeatureValue: ArchiveNode,
     NodeValues: Mapping[int, ArchiveNode],
     IsSection: bool,
+    *,
+    SavedResult: bool = False,
 ) -> SwReadProfile:
     SupportValue = RequireNative(
         FeatureValue.FieldsValue.get("pd_f78"), "moCompRefPlane_c"
@@ -85,9 +95,20 @@ def ReadSwProfile(
     RadiusValue = (
         DriverValue.MetresValue / 2.0 if IsSection else DriverValue.MetresValue
     )
+    if SavedResult:
+        Principal = PrincipalFrame("x" if IsSection else "z")
+        if (
+            FrameValue.origin != SpaceVector(*Principal.OriginValue)
+            or FrameValue.x_axis != SpaceVector(*Principal.AxisU)
+            or FrameValue.y_axis != SpaceVector(*Principal.AxisV)
+        ):
+            raise ValueError(
+                "SOLIDWORKS saved sweep profile has a foreign signed frame"
+            )
     return SwReadProfile(
         FeatureValue,
-        ReadSwArc(SketchValue, RadiusValue, IsSection),
+        ReadSwArc(SketchValue, RadiusValue, IsSection, SavedResult=SavedResult),
         DriverValue,
         DatumId,
+        ReadSwSeam(SketchValue) if SavedResult and IsSection else None,
     )

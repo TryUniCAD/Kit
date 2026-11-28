@@ -1,0 +1,1524 @@
+{
+  "baseline": "ab4c5b98b5fdb7b49146601ffc5731aa0b6a095d",
+  "baseline_src": "31a7a096ee8ba9efdb78042bfa25a7d9aaf20e96",
+  "disclosed_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "fresh_sdk_processes": 6,
+  "heldout_credits": 0,
+  "independent_edit_responses": [
+    {
+      "centroid_delta_m": [
+        0.00011230662125139013,
+        -0.00011230662125139013,
+        3.932308363341389e-20
+      ],
+      "edit": "section",
+      "metric_delta_si": {
+        "area": 0.0006706050931951691,
+        "mass": 0.002959804269378792,
+        "volume": 2.8688613641356902e-06
+      },
+      "radius_delta_m": 0.0019179999999999996,
+      "section_seam_turn_rad": 0.2967059728390366,
+      "slot": 1
+    },
+    {
+      "centroid_delta_m": [
+        0.0030206552171628057,
+        0.0017473447828371957,
+        2.535819806824867e-20
+      ],
+      "edit": "path",
+      "metric_delta_si": {
+        "area": 0.00020333880102236667,
+        "mass": 0.00045323971691242334,
+        "volume": 4.393134796088236e-07
+      },
+      "radius_delta_m": 0.004768000000000001,
+      "section_seam_turn_rad": 0.0,
+      "slot": 1
+    },
+    {
+      "centroid_delta_m": [
+        6.810738595307286e-05,
+        -6.810738595307633e-05,
+        -4.48203810354482e-19
+      ],
+      "edit": "section",
+      "metric_delta_si": {
+        "area": 0.0006735055831138298,
+        "mass": 0.0037156454610857296,
+        "volume": 3.6014785897894054e-06
+      },
+      "radius_delta_m": 0.0013800000000000002,
+      "section_seam_turn_rad": 0.2967059728390366,
+      "slot": 2
+    },
+    {
+      "centroid_delta_m": [
+        0.0032164450605091273,
+        0.0018575549394908818,
+        1.2436083957065442e-19
+      ],
+      "edit": "path",
+      "metric_delta_si": {
+        "area": 0.00028609774341293095,
+        "mass": 0.0008431446551277096,
+        "volume": 8.172382040590379e-07
+      },
+      "radius_delta_m": 0.005074000000000002,
+      "section_seam_turn_rad": 0.0,
+      "slot": 2
+    }
+  ],
+  "method_sha256": {
+    "AuditSavedSweepTopology.py": "d82df8c61405bc6074b18e731650447e55e916a4fe95df3d1b3f25e9c076c609",
+    "SavedTorusActive.py": "578c37c41429d6340d191cf45fd7651aceb7130735fd3bef05cc3182f638d714",
+    "SavedTorusGeometry.py": "12a6956ef53175569220c99cd066cf01bc6eedc1f3dc840d7ec9de81066b0ba1"
+  },
+  "new_cad_processes": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "prior_receipt_sha256": "12d52bafff3388fb6272a013b191f1a1220a9800029949e3aad828a6812c8d24",
+  "published_archives": 0,
+  "python": "3.14.7",
+  "schema": "kit.sw2026.saved-sweep-topology.v1",
+  "shared_archive": "f59507fccdd5907954634489f54ab1364f44580e",
+  "shared_src": "cb9ffb438192f7d803c8ad38428a634ee984ed51",
+  "states": [
+    {
+      "active_replay": {
+        "active_bytes": 3774,
+        "active_nodes": 92,
+        "active_sha256": "cde99b0a85d50ae2b8db9a4d8798fa1272de53cfb52c4b76471ad5c0b9599987",
+        "compressed_sha256": "22273e93eae4cb9f985acd8f950dc61b6c8db58ef55654478f1db57819ac348f",
+        "deltas_sha256": "dfaa521a915457b3c6f8f5ee17f105e44d741b4c3b0396e4087c2f1e6ec52752",
+        "read_marks": [
+          7,
+          3
+        ],
+        "torus_index": 58,
+        "torus_node_id": 15,
+        "torus_span": [
+          2519,
+          2627
+        ]
+      },
+      "file_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+      "geometry": {
+        "measures": {
+          "analytic": {
+            "area": 0.0013413978398737732,
+            "com": [
+              0.018376426172304436,
+              0.010326573827695563,
+              0.0
+            ],
+            "mass": 0.002728468874693221,
+            "volume": 2.6446339776031996e-06
+          },
+          "bounds_m": [
+            [
+              0.0,
+              -0.004321,
+              -0.004321
+            ],
+            [
+              0.033024,
+              0.028703,
+              0.004321
+            ]
+          ],
+          "native": {
+            "area": 0.0013413978398737734,
+            "com": [
+              0.018376426172304432,
+              0.010326573827695567,
+              -3.21654835513637e-19
+            ],
+            "mass": 0.0027284688746932215,
+            "volume": 2.6446339776032e-06
+          },
+          "native_face_areas_m2": [
+            5.8656805240473824e-05,
+            5.8656805240473824e-05,
+            0.0012240842293928258
+          ]
+        },
+        "radii_m": [
+          0.028703,
+          0.004321
+        ],
+        "shared_geometry_matches": true,
+        "signed_rims": [
+          {
+            "cap_center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cap_face": 39,
+            "cap_fin": 49,
+            "cap_fin_dangle": -1,
+            "curve": 45,
+            "curve_to_torus_v": -1,
+            "edge": 44,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "outward_dot_du_sign": -1,
+            "side_fin": 48,
+            "u": -1.5707963267948966,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": -1
+          },
+          {
+            "cap_center_m": [
+              0.028703,
+              0.028703000000000006,
+              0.0
+            ],
+            "cap_face": 53,
+            "cap_fin": 42,
+            "cap_fin_dangle": 1,
+            "curve": 8,
+            "curve_to_torus_v": -1,
+            "edge": 10,
+            "outward": [
+              -1.8369701987210297e-16,
+              1.0,
+              0.0
+            ],
+            "outward_dot_du_sign": 1,
+            "side_fin": 50,
+            "u": 2.4174803692670554e-16,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": 1
+          }
+        ],
+        "torus_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "torus_center_m": [
+          0.0,
+          0.028703,
+          0.0
+        ],
+        "torus_reference": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "dbb121b2c996b4c09bf7590108a4a0ad9f1652f5bbe089048a2cc04273c69f27"
+      },
+      "role": "original",
+      "runtime_accesses": 0,
+      "saved_sketches": [
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "center_index": 0,
+          "diameter_m": 0.008642,
+          "dimension": 27,
+          "feature": 26,
+          "permanent_marks": [
+            2,
+            1
+          ],
+          "same_start_end_index": 1,
+          "seam_angle_rad": 0.0,
+          "seam_local_m": [
+            0.004321,
+            0.0
+          ],
+          "seam_model_m": [
+            0.0,
+            0.0,
+            -0.004321
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "dimension": 29,
+          "feature": 28,
+          "radius_m": 0.028703
+        }
+      ],
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "9b4cbcbb99feed59282d1437bfb4476159ede877cdcd13ab204caaf668d89f3a"
+        },
+        "Contents/Config-0": {
+          "bytes": 26010,
+          "sha256": "0621ed1a2d143166267e81e87d43453d0ec3999ab0ad1d198e0f02efdbec2ad1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2457,
+          "sha256": "95d5ca24f9f93f078b6be294ae11eb3ada8271bf604a54f703fce454caefa644"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14602,
+          "sha256": "f3425a79bcb18b2ea553d31aabf8c28cda9576b2dce8bfec296c414f49838a80"
+        }
+      },
+      "topology": {
+        "atom": 101,
+        "body": 2,
+        "body_match": 1757,
+        "density": 1031.7,
+        "face_ids": [
+          39,
+          53,
+          51
+        ],
+        "face_producer": 31,
+        "native_result_counts": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "region": 37,
+        "resident_classes": {
+          "101": 1,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 2,
+          "17": 4,
+          "19": 2,
+          "31": 2,
+          "50": 2,
+          "54": 1,
+          "70": 1,
+          "74": 1,
+          "79": 13,
+          "80": 13,
+          "81": 19,
+          "82": 17,
+          "83": 3,
+          "98": 1
+        },
+        "shell": 6
+      }
+    },
+    {
+      "active_replay": {
+        "active_bytes": 3774,
+        "active_nodes": 92,
+        "active_sha256": "ef10ddf0e4fcf16f24b634cbc16087532dd4b181ec9131b786bfe8f2981e4bb9",
+        "compressed_sha256": "de9f3bab4402ef675ec18636bd896c6a7b212ffa9f8a41c17ab9d597e3470053",
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "read_marks": [
+          11,
+          3
+        ],
+        "torus_index": 58,
+        "torus_node_id": 15,
+        "torus_span": [
+          2519,
+          2627
+        ]
+      },
+      "file_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+      "geometry": {
+        "measures": {
+          "analytic": {
+            "area": 0.0020120029330689426,
+            "com": [
+              0.018488732793555826,
+              0.010214267206444173,
+              0.0
+            ],
+            "mass": 0.005688273144072013,
+            "volume": 5.5134953417388895e-06
+          },
+          "bounds_m": [
+            [
+              0.0,
+              -0.006239,
+              -0.006239
+            ],
+            [
+              0.034942,
+              0.028703,
+              0.006239
+            ]
+          ],
+          "native": {
+            "area": 0.0020120029330689426,
+            "com": [
+              0.018488732793555823,
+              0.010214267206444177,
+              -2.823317518802231e-19
+            ],
+            "mass": 0.005688273144072014,
+            "volume": 5.51349534173889e-06
+          },
+          "native_face_areas_m2": [
+            0.0001222868741736938,
+            0.0001222868741736938,
+            0.001767429184721555
+          ]
+        },
+        "radii_m": [
+          0.028703,
+          0.006239
+        ],
+        "shared_geometry_matches": true,
+        "signed_rims": [
+          {
+            "cap_center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cap_face": 39,
+            "cap_fin": 49,
+            "cap_fin_dangle": -1,
+            "curve": 45,
+            "curve_to_torus_v": -1,
+            "edge": 44,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "outward_dot_du_sign": -1,
+            "side_fin": 48,
+            "u": -1.5707963267948966,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": -1
+          },
+          {
+            "cap_center_m": [
+              0.028703,
+              0.028703000000000006,
+              0.0
+            ],
+            "cap_face": 53,
+            "cap_fin": 42,
+            "cap_fin_dangle": 1,
+            "curve": 8,
+            "curve_to_torus_v": -1,
+            "edge": 10,
+            "outward": [
+              -1.8369701987210297e-16,
+              1.0,
+              0.0
+            ],
+            "outward_dot_du_sign": 1,
+            "side_fin": 50,
+            "u": 2.4174803692670554e-16,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": 1
+          }
+        ],
+        "torus_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "torus_center_m": [
+          0.0,
+          0.028703,
+          0.0
+        ],
+        "torus_reference": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "a73acdcda461c9d0f5e0d94c3a6d71e4852df6762f23d5aed08b9381f9f68b5e"
+      },
+      "role": "section",
+      "runtime_accesses": 0,
+      "saved_sketches": [
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "center_index": 0,
+          "diameter_m": 0.012478,
+          "dimension": 27,
+          "feature": 26,
+          "permanent_marks": [
+            2,
+            1
+          ],
+          "same_start_end_index": 1,
+          "seam_angle_rad": 0.2967059728390366,
+          "seam_local_m": [
+            0.005966385372453377,
+            0.001824107065765158
+          ],
+          "seam_model_m": [
+            0.0,
+            0.001824107065765158,
+            -0.005966385372453377
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "dimension": 29,
+          "feature": 28,
+          "radius_m": 0.028703
+        }
+      ],
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "e01ff9e6290ab4f3c3c3a0bfd7cb2ecb222e398d76f15dfed8b8e2ea9bcf2b3b"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "d6d45f9b69568de40eff000e1093f47c9938ef31d14b614664b804b594c447ab"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "704092dfaf8364fcaa161ce3026b973367a5d91eb62c850a251bf5b34a9444ee"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14730,
+          "sha256": "b314344b452e6e3918219e51ee396dfd39fb700f81122f5f13a52ba69d0d4d0d"
+        }
+      },
+      "topology": {
+        "atom": 101,
+        "body": 2,
+        "body_match": 1953,
+        "density": 1031.7,
+        "face_ids": [
+          39,
+          53,
+          51
+        ],
+        "face_producer": 31,
+        "native_result_counts": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "region": 37,
+        "resident_classes": {
+          "101": 1,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 2,
+          "17": 4,
+          "19": 2,
+          "31": 2,
+          "50": 2,
+          "54": 1,
+          "70": 1,
+          "74": 1,
+          "79": 13,
+          "80": 13,
+          "81": 19,
+          "82": 17,
+          "83": 3,
+          "98": 1
+        },
+        "shell": 6
+      }
+    },
+    {
+      "active_replay": {
+        "active_bytes": 3774,
+        "active_nodes": 92,
+        "active_sha256": "db95921eacb028e392b711fa5cc6e7d11524c9d91ab8d1549dc743798fbc991a",
+        "compressed_sha256": "3e41e5a7c8d06d2be3207f7c09df180567e6303d103dc90abbc1a50fa6105f29",
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "read_marks": [
+          11,
+          3
+        ],
+        "torus_index": 58,
+        "torus_node_id": 15,
+        "torus_span": [
+          2519,
+          2627
+        ]
+      },
+      "file_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+      "geometry": {
+        "measures": {
+          "analytic": {
+            "area": 0.0015447366408961399,
+            "com": [
+              0.02139708138946724,
+              0.01207391861053276,
+              0.0
+            ],
+            "mass": 0.0031817085916056444,
+            "volume": 3.0839474572120233e-06
+          },
+          "bounds_m": [
+            [
+              0.0,
+              -0.004321,
+              -0.004321
+            ],
+            [
+              0.037792,
+              0.033471,
+              0.004321
+            ]
+          ],
+          "native": {
+            "area": 0.00154473664089614,
+            "com": [
+              0.021397081389467238,
+              0.012073918610532763,
+              -2.962966374453883e-19
+            ],
+            "mass": 0.003181708591605645,
+            "volume": 3.0839474572120237e-06
+          },
+          "native_face_areas_m2": [
+            5.8656805240473824e-05,
+            5.8656805240473824e-05,
+            0.0014274230304151924
+          ]
+        },
+        "radii_m": [
+          0.033471,
+          0.004321
+        ],
+        "shared_geometry_matches": true,
+        "signed_rims": [
+          {
+            "cap_center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cap_face": 39,
+            "cap_fin": 49,
+            "cap_fin_dangle": -1,
+            "curve": 45,
+            "curve_to_torus_v": -1,
+            "edge": 44,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "outward_dot_du_sign": -1,
+            "side_fin": 48,
+            "u": -1.5707963267948966,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": -1
+          },
+          {
+            "cap_center_m": [
+              0.033471,
+              0.03347100000000001,
+              0.0
+            ],
+            "cap_face": 53,
+            "cap_fin": 42,
+            "cap_fin_dangle": 1,
+            "curve": 8,
+            "curve_to_torus_v": -1,
+            "edge": 10,
+            "outward": [
+              -1.8369701987210297e-16,
+              1.0,
+              0.0
+            ],
+            "outward_dot_du_sign": 1,
+            "side_fin": 50,
+            "u": 2.0731062423910931e-16,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": 1
+          }
+        ],
+        "torus_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "torus_center_m": [
+          0.0,
+          0.033471,
+          0.0
+        ],
+        "torus_reference": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "34ab1364b2f2951816d9dfd7f78d06a1684176178f889c4236fa9ebd57afc82d"
+      },
+      "role": "path",
+      "runtime_accesses": 0,
+      "saved_sketches": [
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "center_index": 0,
+          "diameter_m": 0.008642,
+          "dimension": 27,
+          "feature": 26,
+          "permanent_marks": [
+            2,
+            1
+          ],
+          "same_start_end_index": 1,
+          "seam_angle_rad": 0.0,
+          "seam_local_m": [
+            0.004321,
+            0.0
+          ],
+          "seam_model_m": [
+            0.0,
+            0.0,
+            -0.004321
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "dimension": 29,
+          "feature": 28,
+          "radius_m": 0.033471
+        }
+      ],
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "616f9883f8fac1aec012f8328ddfd8d9f71a9ad8a9b04f92e5da0153cd168c99"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "fd662e0a547a78e0684d3eba84aae3c305506bb39443c1c6c5a56d2f989cea2b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "0ff5df5aa2427ba0b7f545d4ea2371a4c6e8b0581a6e140d19c57951f25fc63c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14732,
+          "sha256": "b6fa9053c1aa4f3c104746e2f97558a50927496557f5c8945e0841cfe4bcc46d"
+        }
+      },
+      "topology": {
+        "atom": 101,
+        "body": 2,
+        "body_match": 1953,
+        "density": 1031.7,
+        "face_ids": [
+          39,
+          53,
+          51
+        ],
+        "face_producer": 31,
+        "native_result_counts": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "region": 37,
+        "resident_classes": {
+          "101": 1,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 2,
+          "17": 4,
+          "19": 2,
+          "31": 2,
+          "50": 2,
+          "54": 1,
+          "70": 1,
+          "74": 1,
+          "79": 13,
+          "80": 13,
+          "81": 19,
+          "82": 17,
+          "83": 3,
+          "98": 1
+        },
+        "shell": 6
+      }
+    },
+    {
+      "active_replay": {
+        "active_bytes": 3774,
+        "active_nodes": 92,
+        "active_sha256": "b645d71d5619a67dbd6c70278cad31df9669e68694954ed336c553f5299ba763",
+        "compressed_sha256": "4eee78475422655b554584a10e2c9c2d0cd8132b8dc9b6f54fbcb95a3cae4dca",
+        "deltas_sha256": "dfaa521a915457b3c6f8f5ee17f105e44d741b4c3b0396e4087c2f1e6ec52752",
+        "read_marks": [
+          7,
+          3
+        ],
+        "torus_index": 58,
+        "torus_node_id": 15,
+        "torus_span": [
+          2519,
+          2627
+        ]
+      },
+      "file_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "geometry": {
+        "measures": {
+          "analytic": {
+            "area": 0.002533606328064666,
+            "com": [
+              0.026416272093383354,
+              0.014880727906616646,
+              0.0
+            ],
+            "mass": 0.006862306823572917,
+            "volume": 6.651455678562486e-06
+          },
+          "bounds_m": [
+            [
+              0.0,
+              -0.005713,
+              -0.005713
+            ],
+            [
+              0.04701,
+              0.041297,
+              0.005713
+            ]
+          ],
+          "native": {
+            "area": 0.0025336063280646665,
+            "com": [
+              0.026416272093383354,
+              0.01488072790661665,
+              -1.2436083957065442e-19
+            ],
+            "mass": 0.006862306823572918,
+            "volume": 6.651455678562487e-06
+          },
+          "native_face_areas_m2": [
+            0.00010253646027555284,
+            0.00010253646027555284,
+            0.002328533407513561
+          ]
+        },
+        "radii_m": [
+          0.041297,
+          0.005713
+        ],
+        "shared_geometry_matches": true,
+        "signed_rims": [
+          {
+            "cap_center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cap_face": 39,
+            "cap_fin": 49,
+            "cap_fin_dangle": -1,
+            "curve": 45,
+            "curve_to_torus_v": -1,
+            "edge": 44,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "outward_dot_du_sign": -1,
+            "side_fin": 48,
+            "u": -1.5707963267948966,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": -1
+          },
+          {
+            "cap_center_m": [
+              0.041297,
+              0.04129700000000001,
+              0.0
+            ],
+            "cap_face": 53,
+            "cap_fin": 42,
+            "cap_fin_dangle": 1,
+            "curve": 8,
+            "curve_to_torus_v": -1,
+            "edge": 10,
+            "outward": [
+              -1.83697019872103e-16,
+              1.0,
+              0.0
+            ],
+            "outward_dot_du_sign": 1,
+            "side_fin": 50,
+            "u": 1.680241640774688e-16,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": 1
+          }
+        ],
+        "torus_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "torus_center_m": [
+          0.0,
+          0.041297,
+          0.0
+        ],
+        "torus_reference": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0"
+      },
+      "role": "original",
+      "runtime_accesses": 0,
+      "saved_sketches": [
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "center_index": 0,
+          "diameter_m": 0.011426,
+          "dimension": 27,
+          "feature": 26,
+          "permanent_marks": [
+            2,
+            1
+          ],
+          "same_start_end_index": 1,
+          "seam_angle_rad": 0.0,
+          "seam_local_m": [
+            0.005713,
+            0.0
+          ],
+          "seam_model_m": [
+            0.0,
+            0.0,
+            -0.005713
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "dimension": 29,
+          "feature": 28,
+          "radius_m": 0.041297
+        }
+      ],
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "46a58ceadce90a6bcb60690a28f1bd38bb5739837d680971fffee6d79ae57b00"
+        },
+        "Contents/Config-0": {
+          "bytes": 26010,
+          "sha256": "05de99627331bf93709af0de110695be6889044c10b2407b93dfbc511044c867"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2457,
+          "sha256": "bb1be8d61f6cf421fa70384a96e8bd18fd1a9a671397f9b56dccc1b37befbb78"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14601,
+          "sha256": "5a98f672aa95cf0b39f9fb3be02603c1071b15f7aa9b8c5a3c1413f4160e9c02"
+        }
+      },
+      "topology": {
+        "atom": 101,
+        "body": 2,
+        "body_match": 1757,
+        "density": 1031.7,
+        "face_ids": [
+          39,
+          53,
+          51
+        ],
+        "face_producer": 31,
+        "native_result_counts": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "region": 37,
+        "resident_classes": {
+          "101": 1,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 2,
+          "17": 4,
+          "19": 2,
+          "31": 2,
+          "50": 2,
+          "54": 1,
+          "70": 1,
+          "74": 1,
+          "79": 13,
+          "80": 13,
+          "81": 19,
+          "82": 17,
+          "83": 3,
+          "98": 1
+        },
+        "shell": 6
+      }
+    },
+    {
+      "active_replay": {
+        "active_bytes": 3774,
+        "active_nodes": 92,
+        "active_sha256": "880eb2aaae507f41ea648997952d87ebf17ce9933e8774906fc1972ff54f4bb9",
+        "compressed_sha256": "ff2244c44391b256461a9d33c0cf932a6f83feee0ccf56e018ff95d989b4ebb8",
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "read_marks": [
+          11,
+          3
+        ],
+        "torus_index": 58,
+        "torus_node_id": 15,
+        "torus_span": [
+          2519,
+          2627
+        ]
+      },
+      "file_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "geometry": {
+        "measures": {
+          "analytic": {
+            "area": 0.0032071119111784963,
+            "com": [
+              0.026484379479336427,
+              0.014812620520663573,
+              0.0
+            ],
+            "mass": 0.010577952284658647,
+            "volume": 1.0252934268351892e-05
+          },
+          "bounds_m": [
+            [
+              0.0,
+              -0.007093,
+              -0.007093
+            ],
+            [
+              0.04839,
+              0.041297,
+              0.007093
+            ]
+          ],
+          "native": {
+            "area": 0.0032071119111784963,
+            "com": [
+              0.026484379479336427,
+              0.014812620520663573,
+              -5.725646499251364e-19
+            ],
+            "mass": 0.010577952284658647,
+            "volume": 1.0252934268351892e-05
+          },
+          "native_face_areas_m2": [
+            0.00015805556529573466,
+            0.00015805556529573466,
+            0.0028910007805870268
+          ]
+        },
+        "radii_m": [
+          0.041297,
+          0.007093
+        ],
+        "shared_geometry_matches": true,
+        "signed_rims": [
+          {
+            "cap_center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cap_face": 39,
+            "cap_fin": 49,
+            "cap_fin_dangle": -1,
+            "curve": 45,
+            "curve_to_torus_v": -1,
+            "edge": 44,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "outward_dot_du_sign": -1,
+            "side_fin": 48,
+            "u": -1.5707963267948966,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": -1
+          },
+          {
+            "cap_center_m": [
+              0.041297,
+              0.04129700000000001,
+              0.0
+            ],
+            "cap_face": 53,
+            "cap_fin": 42,
+            "cap_fin_dangle": 1,
+            "curve": 8,
+            "curve_to_torus_v": -1,
+            "edge": 10,
+            "outward": [
+              -1.83697019872103e-16,
+              1.0,
+              0.0
+            ],
+            "outward_dot_du_sign": 1,
+            "side_fin": 50,
+            "u": 1.680241640774688e-16,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": 1
+          }
+        ],
+        "torus_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "torus_center_m": [
+          0.0,
+          0.041297,
+          0.0
+        ],
+        "torus_reference": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40"
+      },
+      "role": "section",
+      "runtime_accesses": 0,
+      "saved_sketches": [
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "center_index": 0,
+          "diameter_m": 0.014186,
+          "dimension": 27,
+          "feature": 26,
+          "permanent_marks": [
+            2,
+            1
+          ],
+          "same_start_end_index": 1,
+          "seam_angle_rad": 0.2967059728390366,
+          "seam_local_m": [
+            0.00678306963404581,
+            0.0020737925015983758
+          ],
+          "seam_model_m": [
+            0.0,
+            0.0020737925015983758,
+            -0.00678306963404581
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "dimension": 29,
+          "feature": 28,
+          "radius_m": 0.041297
+        }
+      ],
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "92d903aa74e4f309bfafc0cd8b09d752a77f12a5e43ed179f7ba3f9788b12b12"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "def8c32cbcc2616bf770e0c88c93673d5c2dab317a6e922e920b47a242f46e83"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "9c7ea60c2872cbf98c0477c9464d97563dd8fb9d3dc10d5b0e5000bbdf39d2ed"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14730,
+          "sha256": "e634947e5e06ded00b5706f01327cfde953cf4d482f09a8500148a1ee3b73d8d"
+        }
+      },
+      "topology": {
+        "atom": 101,
+        "body": 2,
+        "body_match": 1953,
+        "density": 1031.7,
+        "face_ids": [
+          39,
+          53,
+          51
+        ],
+        "face_producer": 31,
+        "native_result_counts": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "region": 37,
+        "resident_classes": {
+          "101": 1,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 2,
+          "17": 4,
+          "19": 2,
+          "31": 2,
+          "50": 2,
+          "54": 1,
+          "70": 1,
+          "74": 1,
+          "79": 13,
+          "80": 13,
+          "81": 19,
+          "82": 17,
+          "83": 3,
+          "98": 1
+        },
+        "shell": 6
+      }
+    },
+    {
+      "active_replay": {
+        "active_bytes": 3774,
+        "active_nodes": 92,
+        "active_sha256": "2502af1ce85e475905bafe836ba8e2b0e9eab0d0bc7020d912c147ce14e2bcc7",
+        "compressed_sha256": "0d298ca65848977c58f3d7df00e966233e1a90c226bef62ad96be54b69c3f1a4",
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "read_marks": [
+          11,
+          3
+        ],
+        "torus_index": 58,
+        "torus_node_id": 15,
+        "torus_span": [
+          2519,
+          2627
+        ]
+      },
+      "file_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+      "geometry": {
+        "measures": {
+          "analytic": {
+            "area": 0.002819704071477597,
+            "com": [
+              0.02963271715389248,
+              0.01673828284610752,
+              0.0
+            ],
+            "mass": 0.007705451478700626,
+            "volume": 7.468693882621524e-06
+          },
+          "bounds_m": [
+            [
+              0.0,
+              -0.005713,
+              -0.005713
+            ],
+            [
+              0.052084000000000005,
+              0.046371,
+              0.005713
+            ]
+          ],
+          "native": {
+            "area": 0.0028197040714775974,
+            "com": [
+              0.02963271715389248,
+              0.01673828284610753,
+              0.0
+            ],
+            "mass": 0.007705451478700627,
+            "volume": 7.468693882621525e-06
+          },
+          "native_face_areas_m2": [
+            0.00010253646027555284,
+            0.00010253646027555284,
+            0.002614631150926492
+          ]
+        },
+        "radii_m": [
+          0.046371,
+          0.005713
+        ],
+        "shared_geometry_matches": true,
+        "signed_rims": [
+          {
+            "cap_center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cap_face": 39,
+            "cap_fin": 49,
+            "cap_fin_dangle": -1,
+            "curve": 45,
+            "curve_to_torus_v": -1,
+            "edge": 44,
+            "outward": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "outward_dot_du_sign": -1,
+            "side_fin": 48,
+            "u": -1.5707963267948966,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": -1
+          },
+          {
+            "cap_center_m": [
+              0.046371,
+              0.04637100000000001,
+              0.0
+            ],
+            "cap_face": 53,
+            "cap_fin": 42,
+            "cap_fin_dangle": 1,
+            "curve": 8,
+            "curve_to_torus_v": -1,
+            "edge": 10,
+            "outward": [
+              -1.83697019872103e-16,
+              1.0,
+              0.0
+            ],
+            "outward_dot_du_sign": 1,
+            "side_fin": 50,
+            "u": 1.4963865139650273e-16,
+            "v_at_curve_zero": -1.5707963267948966,
+            "wall_fin_dv": 1
+          }
+        ],
+        "torus_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "torus_center_m": [
+          0.0,
+          0.046371,
+          0.0
+        ],
+        "torus_reference": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "28b9e460f1a165d10420a19d047c0c8308291e9ebf92192dc313b98691f1cf82"
+      },
+      "role": "path",
+      "runtime_accesses": 0,
+      "saved_sketches": [
+        {
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "center_index": 0,
+          "diameter_m": 0.011426,
+          "dimension": 27,
+          "feature": 26,
+          "permanent_marks": [
+            2,
+            1
+          ],
+          "same_start_end_index": 1,
+          "seam_angle_rad": 0.0,
+          "seam_local_m": [
+            0.005713,
+            0.0
+          ],
+          "seam_model_m": [
+            0.0,
+            0.0,
+            -0.005713
+          ]
+        },
+        {
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "dimension": 29,
+          "feature": 28,
+          "radius_m": 0.046371
+        }
+      ],
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "793f4475cde334bdedd9a11cca7965bc3191f4983e40b2dfcd0672e61d58e97f"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "72bc86c6b01b01c087909dd303be218fb84b573f06a80d70ae95ed54b351f5cc"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "20a60980fd6a27e8cdbe12c30e595017c14bf78343993c6afeb626aac54dc169"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14731,
+          "sha256": "de0908376ec65b7509aa1fe35d63e423c590671508559c53a0097f665f9dc576"
+        }
+      },
+      "topology": {
+        "atom": 101,
+        "body": 2,
+        "body_match": 1953,
+        "density": 1031.7,
+        "face_ids": [
+          39,
+          53,
+          51
+        ],
+        "face_producer": 31,
+        "native_result_counts": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "region": 37,
+        "resident_classes": {
+          "101": 1,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 2,
+          "17": 4,
+          "19": 2,
+          "31": 2,
+          "50": 2,
+          "54": 1,
+          "70": 1,
+          "74": 1,
+          "79": 13,
+          "80": 13,
+          "81": 19,
+          "82": 17,
+          "83": 3,
+          "98": 1
+        },
+        "shell": 6
+      }
+    }
+  ],
+  "zlib": "1.2.12"
+}

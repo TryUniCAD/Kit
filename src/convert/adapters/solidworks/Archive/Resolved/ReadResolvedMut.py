@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModel
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSavedSwMut import (
+    UseSavedSwMut,
+)
 from convert.adapters.solidworks.Archive.Resolved.Sweeps.ReadSwSchema import (
     ReadSwSchema,
 )
@@ -40,10 +43,20 @@ def ReadResolvedMut(
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     ReadSweeps: bool = False,
+    SavedSweep: bool = False,
 ) -> ResolvedGraph:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
-    if ReadSweeps:
+    ContextValue = MakeResolvedCtx(
+        VersionValue, SeedValue, LinkContext, UsageValue, SavedSweep=SavedSweep
+    )
+    if SavedSweep:
+        UseSavedSwMut(ContextValue)
+    elif ReadSweeps:
         UseSweepCtxMut(ContextValue)
+    SchemaReader = (
+        PartialValue(ReadSwSchema, SavedResult=SavedSweep)
+        if ReadSweeps or SavedSweep
+        else None
+    )
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:
@@ -55,14 +68,16 @@ def ReadResolvedMut(
     ReaderValue = GraphReader(
         Cursor,
         ArchiveMaps(BaseValue, SeedValue),
-        PartialValue(
-            ReadBodyMut, ContextValue, SchemaReader=ReadSwSchema if ReadSweeps else None
-        ),
+        PartialValue(ReadBodyMut, ContextValue, SchemaReader=SchemaReader),
         NodeFactory=NodeMaker,
     )
     RootsValue = tuple(ReadNodeMut(ReaderValue) for _ in range(CountValue))
     FieldsValue = ReadMbsMut(ContextValue, ReaderValue, FindModelRoot(SeedValue))
-    if ReadSweeps:
+    if SavedSweep and FieldsValue != {"n": 0, "fcd8": []}:
+        raise BodyUnsupported(
+            "saved SOLIDWORKS sweep has alternate configuration body mappings"
+        )
+    if ReadSweeps or SavedSweep:
         CheckSweepUse(ContextValue)
     if Cursor.GetRemaining():
         raise BodyUnsupported(

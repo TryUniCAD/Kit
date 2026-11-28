@@ -1,0 +1,594 @@
+{
+  "disclosed_saved_receipt_sha256": "a68f335fcbecec2f5e27fbd8019bdee6f1e770bbbc8d40a632a6ddf7b8115474",
+  "disclosed_saved_rows_unchanged": true,
+  "disclosed_source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "fixture_report_sha256": [
+    "4d99e42d1fe46dd1c210882ef22e1c6061b05ed3f9d0ceadd3f0074eb043dddf",
+    "e4f55baf8edcd07e0ac16ea698a75b090830570b818d95b3fc34978ff753ebe2"
+  ],
+  "fresh_disclosed_saved_processes": 6,
+  "fresh_fixture_workers": 2,
+  "historical_cold_archive_hashes": [
+    "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+    "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da"
+  ],
+  "historical_cold_receipt_sha256": "996e1d0fbebb38f97cd32eec7d81fe84da2032552c1a2c2c45216a8162888222",
+  "historical_disclosed_saved_receipt_sha256": "f99827c82500e6adbec197f83def500d011216b365a6ebbdee2c891f2178ec56",
+  "method_sha256": {
+    "AuditWarmSweepWrite.py": "5470b2750d06854ff9ce8269c5481a923b357cceb27d921d575b0969972be654",
+    "CheckSweepReadEdges.py": "64f15160a746bdc3beb5ef3a68891642790d32908d0467c91eef6a6dfd0e26f6",
+    "CheckTrackedSweepSdk.py": "db451c321eee2e37df0cb846ac18683919c9de5ccad35c4af3a9b257aeb97b99",
+    "SavedSweepReplay.py": "34f19e0e2899744ae78fe00298bde119b8ca9c08b295be438a81e93ac98ccabc",
+    "SavedSweepSdkModel.py": "9ddbf4d206a0f4b27843479da173f6ecc1bad1df900192dcdd47fc6d9f0d75ca"
+  },
+  "ordinary_scope_parent": "85f1fe90bf1be75f0e6b0bc7339bdef8ec72429f",
+  "prior_review_head": "02b6e39c0e3077d986477e85f324f2bbea4c3b9d",
+  "schema": "kit.sw2026.saved-sweep-review-boundaries.v1",
+  "source_manifest": {
+    "base": "b05889d997f67a8f862265ee236678610dfe4eef",
+    "files": 57,
+    "sha256": "b1de8da2ae04b27d97e8ace04e8a29b5953666c7c4916d07227541eba04a89dd"
+  },
+  "tracked_fixture_workers": [
+    {
+      "current_geometry": {
+        "area_m2": 0.0025336063280646656,
+        "center_m": [
+          0.026416272093383358,
+          0.014880727906616643,
+          0.0
+        ],
+        "mass_kg": 0.006862306823572918,
+        "native_counts": [
+          1,
+          1,
+          3,
+          2,
+          0
+        ],
+        "volume_m3": 6.651455678562486e-06
+      },
+      "density_kg_m3": 1031.7,
+      "fixture_sha256": "46a8faf1e54be5e312c0ab9f0e739c60cd4cd473bca09ae72369a552ef41675c",
+      "independent_drivers_mm": [
+        11.426,
+        41.297
+      ],
+      "matched_direct_registry_explicit_default_and_design_only": true,
+      "native_body_name": "OrdinarySweptBoss",
+      "native_launches": 0,
+      "native_source_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "oriented_rims": [
+        {
+          "cap_fin": 49,
+          "oriented_cap_angle": -1,
+          "oriented_dv": -1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 44,
+          "u": -1.5707963267948966,
+          "verified_quarter_points": 4,
+          "wall_fin": 48
+        },
+        {
+          "cap_fin": 42,
+          "oriented_cap_angle": 1,
+          "oriented_dv": 1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 10,
+          "u": 1.680241640774688e-16,
+          "verified_quarter_points": 4,
+          "wall_fin": 50
+        }
+      ],
+      "permissive_legacy_layout_reads": 3,
+      "review_boundaries": {
+        "geometry_call_counts": {
+          "design": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 0,
+            "ReadSwBrep": 0,
+            "ReadSwFrames": 1
+          },
+          "full": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 1,
+            "ReadSwBrep": 1,
+            "ReadSwFrames": 1
+          }
+        },
+        "malformed_optional_xml": {
+          "docProps/Config-0-Properties.xml": {
+            "legacy_layout_reads": 1,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/core.xml": {
+            "legacy_layout_reads": 1,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/custom.xml": {
+            "legacy_layout_reads": 1,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          }
+        },
+        "saved_grammar_scope": {
+          "isolated_alternate_layouts": 4,
+          "isolated_new_classes": 4,
+          "ordinary_resolved_map": 225,
+          "saved_resolved_map": 278
+        }
+      },
+      "role": "original",
+      "runtime_accesses": 0,
+      "sketches": {
+        "center_index": 0,
+        "local_seam_angle_rad": 0.0,
+        "periodic_seam_mm": [
+          5.713,
+          0.0
+        ],
+        "point_marks": [
+          2,
+          1
+        ],
+        "start_end_index": 1
+      },
+      "strict_reader_routes": 3,
+      "typed_result_atom": "101"
+    },
+    {
+      "current_geometry": {
+        "area_m2": 0.003207111911178496,
+        "center_m": [
+          0.026484379479336427,
+          0.014812620520663572,
+          0.0
+        ],
+        "mass_kg": 0.010577952284658644,
+        "native_counts": [
+          1,
+          1,
+          3,
+          2,
+          0
+        ],
+        "volume_m3": 1.0252934268351889e-05
+      },
+      "density_kg_m3": 1031.7,
+      "fixture_sha256": "2e1db56ec1100add9c8f086a8a77d48e52bc573827972b194bde64261f5cfa37",
+      "independent_drivers_mm": [
+        14.186,
+        41.297
+      ],
+      "matched_direct_registry_explicit_default_and_design_only": true,
+      "native_body_name": "OrdinarySweptBoss",
+      "native_launches": 0,
+      "native_source_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "oriented_rims": [
+        {
+          "cap_fin": 49,
+          "oriented_cap_angle": -1,
+          "oriented_dv": -1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 44,
+          "u": -1.5707963267948966,
+          "verified_quarter_points": 4,
+          "wall_fin": 48
+        },
+        {
+          "cap_fin": 42,
+          "oriented_cap_angle": 1,
+          "oriented_dv": 1,
+          "phase": -1.5707963267948966,
+          "physical_edge": 10,
+          "u": 1.680241640774688e-16,
+          "verified_quarter_points": 4,
+          "wall_fin": 50
+        }
+      ],
+      "permissive_legacy_layout_reads": 3,
+      "review_boundaries": {
+        "geometry_call_counts": {
+          "design": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 0,
+            "ReadSwBrep": 0,
+            "ReadSwFrames": 1
+          },
+          "full": {
+            "CheckSwTorus": 1,
+            "CheckSwTrims": 1,
+            "DecodeBrep": 1,
+            "ReadSwBrep": 1,
+            "ReadSwFrames": 1
+          }
+        },
+        "malformed_optional_xml": {
+          "docProps/Config-0-Properties.xml": {
+            "legacy_layout_reads": 1,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/core.xml": {
+            "legacy_layout_reads": 1,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          },
+          "docProps/custom.xml": {
+            "legacy_layout_reads": 1,
+            "permissive_bodies": 1,
+            "permissive_feature_rows": 27,
+            "strict_refused": true
+          }
+        },
+        "saved_grammar_scope": {
+          "isolated_alternate_layouts": 4,
+          "isolated_new_classes": 4,
+          "ordinary_resolved_map": 225,
+          "saved_resolved_map": 278
+        }
+      },
+      "role": "section",
+      "runtime_accesses": 0,
+      "sketches": {
+        "center_index": 0,
+        "local_seam_angle_rad": 0.2967059728390366,
+        "periodic_seam_mm": [
+          6.78306963404581,
+          2.073792501598376
+        ],
+        "point_marks": [
+          2,
+          1
+        ],
+        "start_end_index": 1
+      },
+      "strict_reader_routes": 3,
+      "typed_result_atom": "101"
+    }
+  ],
+  "warm_writer_frontier": {
+    "cases": [
+      {
+        "cold_section_seam_retained": false,
+        "geometry_only_candidate_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+        "identical_neutral_part_name": false,
+        "literal_property_counts": {
+          "configuration": 0,
+          "custom_properties": 0,
+          "document_summary": 0
+        },
+        "measured_cold_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+        "native_part_publication_refusals": [
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": true,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": true,
+            "route": "direct"
+          },
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": false,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": false,
+            "route": "direct"
+          }
+        ],
+        "retained_body_fields_absent_from_cold_projection": [
+          "native_atom_id",
+          "native_rgb",
+          "native_translucency"
+        ],
+        "role": "original",
+        "same_archive_as_measured_cold": true,
+        "section_seam_rad": 0.0,
+        "slot": 1,
+        "source_body_atom": "101",
+        "source_body_rgb": [
+          0.8941176470588235,
+          0.8941176470588235,
+          0.8941176470588235
+        ],
+        "source_body_translucency": 0.0,
+        "source_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185"
+      },
+      {
+        "cold_section_seam_retained": false,
+        "geometry_only_candidate_sha256": "c38e8875e99e92ab8869f4acbb60ff7e984738a9ee583972e5abd3127dc52a5a",
+        "identical_neutral_part_name": true,
+        "literal_property_counts": {
+          "configuration": 0,
+          "custom_properties": 0,
+          "document_summary": 0
+        },
+        "measured_cold_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+        "native_part_publication_refusals": [
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": true,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": true,
+            "route": "direct"
+          },
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": false,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": false,
+            "route": "direct"
+          }
+        ],
+        "retained_body_fields_absent_from_cold_projection": [
+          "native_atom_id",
+          "native_rgb",
+          "native_translucency"
+        ],
+        "role": "section",
+        "same_archive_as_measured_cold": false,
+        "section_seam_rad": 0.2967059728390366,
+        "slot": 1,
+        "source_body_atom": "101",
+        "source_body_rgb": [
+          0.8941176470588235,
+          0.8941176470588235,
+          0.8941176470588235
+        ],
+        "source_body_translucency": 0.0,
+        "source_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b"
+      },
+      {
+        "cold_section_seam_retained": false,
+        "geometry_only_candidate_sha256": "b45a05e155b98ac47ff69bc709459baaba4c6ed9155a9c51364d5609aca07623",
+        "identical_neutral_part_name": true,
+        "literal_property_counts": {
+          "configuration": 0,
+          "custom_properties": 0,
+          "document_summary": 0
+        },
+        "measured_cold_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+        "native_part_publication_refusals": [
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": true,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": true,
+            "route": "direct"
+          },
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": false,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": false,
+            "route": "direct"
+          }
+        ],
+        "retained_body_fields_absent_from_cold_projection": [
+          "native_atom_id",
+          "native_rgb",
+          "native_translucency"
+        ],
+        "role": "path",
+        "same_archive_as_measured_cold": false,
+        "section_seam_rad": 0.0,
+        "slot": 1,
+        "source_body_atom": "101",
+        "source_body_rgb": [
+          0.8941176470588235,
+          0.8941176470588235,
+          0.8941176470588235
+        ],
+        "source_body_translucency": 0.0,
+        "source_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb"
+      },
+      {
+        "cold_section_seam_retained": false,
+        "geometry_only_candidate_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+        "identical_neutral_part_name": false,
+        "literal_property_counts": {
+          "configuration": 0,
+          "custom_properties": 0,
+          "document_summary": 0
+        },
+        "measured_cold_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+        "native_part_publication_refusals": [
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": true,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": true,
+            "route": "direct"
+          },
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": false,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": false,
+            "route": "direct"
+          }
+        ],
+        "retained_body_fields_absent_from_cold_projection": [
+          "native_atom_id",
+          "native_rgb",
+          "native_translucency"
+        ],
+        "role": "original",
+        "same_archive_as_measured_cold": true,
+        "section_seam_rad": 0.0,
+        "slot": 2,
+        "source_body_atom": "101",
+        "source_body_rgb": [
+          0.8941176470588235,
+          0.8941176470588235,
+          0.8941176470588235
+        ],
+        "source_body_translucency": 0.0,
+        "source_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c"
+      },
+      {
+        "cold_section_seam_retained": false,
+        "geometry_only_candidate_sha256": "486d425a5c574344038b15d91a7d6f4804dbe02a7dc6b0226562fa731ff803a7",
+        "identical_neutral_part_name": true,
+        "literal_property_counts": {
+          "configuration": 0,
+          "custom_properties": 0,
+          "document_summary": 0
+        },
+        "measured_cold_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+        "native_part_publication_refusals": [
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": true,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": true,
+            "route": "direct"
+          },
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": false,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": false,
+            "route": "direct"
+          }
+        ],
+        "retained_body_fields_absent_from_cold_projection": [
+          "native_atom_id",
+          "native_rgb",
+          "native_translucency"
+        ],
+        "role": "section",
+        "same_archive_as_measured_cold": false,
+        "section_seam_rad": 0.2967059728390366,
+        "slot": 2,
+        "source_body_atom": "101",
+        "source_body_rgb": [
+          0.8941176470588235,
+          0.8941176470588235,
+          0.8941176470588235
+        ],
+        "source_body_translucency": 0.0,
+        "source_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084"
+      },
+      {
+        "cold_section_seam_retained": false,
+        "geometry_only_candidate_sha256": "d88753968b0d22179a59e37d3ff751cd4262a8de7620677b482fef0c647ad255",
+        "identical_neutral_part_name": true,
+        "literal_property_counts": {
+          "configuration": 0,
+          "custom_properties": 0,
+          "document_summary": 0
+        },
+        "measured_cold_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+        "native_part_publication_refusals": [
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": true,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": true,
+            "route": "direct"
+          },
+          {
+            "category": "AdapterNotFoundError",
+            "diagnostic": "solidworks.sldprt does not support the destination",
+            "include_brep": false,
+            "route": "registry"
+          },
+          {
+            "category": "ValueError",
+            "diagnostic": "sweep requires an ordinary millimetre part with editable geometry only",
+            "include_brep": false,
+            "route": "direct"
+          }
+        ],
+        "retained_body_fields_absent_from_cold_projection": [
+          "native_atom_id",
+          "native_rgb",
+          "native_translucency"
+        ],
+        "role": "path",
+        "same_archive_as_measured_cold": false,
+        "section_seam_rad": 0.0,
+        "slot": 2,
+        "source_body_atom": "101",
+        "source_body_rgb": [
+          0.8941176470588235,
+          0.8941176470588235,
+          0.8941176470588235
+        ],
+        "source_body_translucency": 0.0,
+        "source_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521"
+      }
+    ],
+    "native_calls": 0,
+    "protected_inputs": 0,
+    "published_archives": 0,
+    "runtime_accesses": 0,
+    "schema": "kit.sw2026.saved-sweep-writer-frontier.v1"
+  },
+  "warm_writer_frontier_sha256": "320f60b042740401baa41e0e47ccf5191c32c0ca007f4ffa2db6347cb3a97208"
+}

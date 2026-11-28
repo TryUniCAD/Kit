@@ -1,4 +1,4 @@
-from math import pi as PiValue
+from math import atan2 as TurnAngle, pi as PiValue
 
 from convert.adapters.solidworks.Core.Native import KRefSupportSource
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
@@ -94,6 +94,7 @@ def MakeSwSketch(
         EntityId,
         GeometryKind.KCircle if SectionValue else GeometryKind.KArcGeometry,
         GeometryValue,
+        attributes=SwSeamAttrs(ProfileValue, ParamValue.id),
     )
     return (
         Sketch(
@@ -114,3 +115,23 @@ def MakeSwSketch(
         ),
         ParamValue,
     )
+
+
+# the editable seam uses an angle so saved coordinates remain source evidence
+def SwSeamAttrs(ProfileValue: SwReadProfile, DiameterId: str) -> dict[str, object]:
+    SeamValue = ProfileValue.SeamValue
+    if SeamValue is None:
+        return {}
+    return {
+        "periodic_seam": {
+            "angle_rad": TurnAngle(SeamValue.PointValue.y, SeamValue.PointValue.x),
+            "diameter_parameter_id": DiameterId,
+            "saved_point_mm": (
+                SeamValue.PointValue.x * 1000.0,
+                SeamValue.PointValue.y * 1000.0,
+            ),
+            "center_index": SeamValue.CenterIndex,
+            "start_end_index": SeamValue.SeamIndex,
+            "point_marks": SeamValue.MarkValues,
+        }
+    }

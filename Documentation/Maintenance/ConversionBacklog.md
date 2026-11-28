@@ -88,11 +88,20 @@ The PR #121 takeover team owns the isolated Standard sweep writer delivery on
 measured quarter-arc recipe and exact offline native attestation.
 The scoped SDK streams reproduce both disclosed measured parts with all
 six inferred domains transferred. Both strict cold projections reproduce
-the measured archive on re-export. The delivery exits after [PR #238](https://github.com/TryUniCAD/Kit/pull/238) passes
-current-head review, CI and queue acceptance. Native-saved and broader
-sweep variants remain separate work.
+the measured archive on re-export. The writer delivery exits after
+[PR #238](https://github.com/TryUniCAD/Kit/pull/238) passes current-head
+review, CI and queue acceptance. The isolated saved reader
+([PR #245](https://github.com/TryUniCAD/Kit/pull/245)) is stacked on that
+writer and uses the shared linked body grammar. Its six disclosed sources
+pass strict SDK readback. The hosted integration uses the privacy-scrubbed
+original and Section edit, with native observations bound to the separate
+original digests. Broader saved sweep variants remain separate work. Warm
+publication remains a separate exit requiring the model-owned Section seam
+and appearance and exact native measurement for newly generated edited
+output. Saved-reader review and queue acceptance remain pending.
 [Format and evidence record](../../re/solidworks/records/ScopedSweepWriter2026.md)
 [Cold readback and exact re-export](../../re/solidworks/records/ScopedSweepReadback2026.md)
+[Saved reader evidence](../../re/solidworks/records/ScopedSavedSweepSdk2026.md)
 
 ### B10-RunDefaults
 

@@ -4,6 +4,7 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadDatumFrame
     ReadDatumFrame,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
@@ -11,8 +12,14 @@ from convert.adapters.solidworks.Core.TypedResolved.Sweeps.MakeSwBody import Mak
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.MakeSwSketch import (
     MakeSwSketch,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSwResult import (
+    SwSavedBody,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwState import (
     SwReadState,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.SwReadGraph import (
+    SwReadGraph,
 )
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
@@ -32,7 +39,7 @@ from interchange.Records.RecordSource import CadSource
 
 
 # standard datum planes preserve actual orthonormal tangent axes from typed native records
-def MakeSwDatum(StateValue: SwReadState, DatumValue: ArchiveNode) -> SupportPlane:
+def MakeSwDatum(StateValue: SwReadGraph, DatumValue: ArchiveNode) -> SupportPlane:
     FrameValue, _ = ReadDatumFrame(DatumValue)
     NativeId = NativeNodeId(DatumValue)
     TransformValue = Transform(
@@ -51,9 +58,22 @@ def MakeSwDatum(StateValue: SwReadState, DatumValue: ArchiveNode) -> SupportPlan
     )
 
 
-# preserve the actual sweep owner and each independent sketch in the portable design
+# cold publication still compares the same strict projection it generated before any saved read support
 def MakeSwDoc(
     StateValue: SwReadState, SourceValue: CadSource, IncludeBrep: bool
+) -> CadDocument:
+    return MakeSwDesign(
+        StateValue, SourceValue, StateValue.IntentValue.NameValue, IncludeBrep
+    )
+
+
+# portable history retains the ordered profile owners independent of result framing
+def MakeSwDesign(
+    StateValue: SwReadGraph,
+    SourceValue: CadSource,
+    NameValue: str,
+    IncludeBrep: bool,
+    SavedBody: SwSavedBody | None = None,
 ) -> CadDocument:
     LinkValue = StateValue.LinkValue
     SectionValue, Diameter = MakeSwSketch(LinkValue, StateValue.SectionValue)
@@ -72,12 +92,14 @@ def MakeSwDoc(
             NativeNodeSpan(LinkValue, FeatureOwner), str(NativeId)
         ),
     )
-    BodyValue, BrepValue = MakeSwBody(StateValue, FeatureValue, IncludeBrep)
+    BodyValue, BrepValue = MakeSwBody(StateValue, FeatureValue, IncludeBrep, SavedBody)
     DensityValue = Parameter(
         f"{BodyValue.id}:density",
         "Density",
         ParameterValue(
-            StateValue.IntentValue.DensityValue, ValueKind.KQuantity, "kg/m3"
+            RequireScalar(StateValue.DensityValue.FieldsValue.get("f58")),
+            ValueKind.KQuantity,
+            "kg/m3",
         ),
         owner_id=BodyValue.id,
         provenance=TypedProvenance(
@@ -92,6 +114,11 @@ def MakeSwDoc(
                 f"sldprt:configuration:{NativeNodeId(ConfigValue)}",
                 ReadNativeName(ConfigValue),
                 True,
+                attributes=(
+                    {"native_configuration_id": NativeNodeId(ConfigValue)}
+                    if SavedBody is not None
+                    else {}
+                ),
             ),
         ),
         (Diameter, Radius, DensityValue),
@@ -100,7 +127,7 @@ def MakeSwDoc(
         (),
         (FeatureValue,),
         (BodyValue,),
-        metadata={"name": StateValue.IntentValue.NameValue},
+        metadata={"name": NameValue},
         brep=BrepValue,
     )
     return ReplaceValue(DocValue, capabilities=InferCaps(DocValue))

@@ -9,10 +9,12 @@ active section and path transport, distinct from a solved result
 partition. Both strict and permissive reads now take the typed path when
 the complete cold graph matches.
 
-The strict SDK read refuses a recognized sweep with a saved result
-partition. Use explicit permissive inspection to view a partial inventory
-for those files. For the cold profile, the SDK validates both transport
-bodies and derives the solid from the two editable contours. The neutral
-B-rep includes one representational seam anchor per full rim because Kit
-edges require endpoints. The ordinary native topology reports zero vertices.
+The strict saved reader accepts the verified single-configuration Standard
+sweep and checks its active result and the separate Section seam. Use
+explicit permissive inspection to view a partial inventory when a saved
+sweep falls outside that profile. The cold reader validates both transport
+bodies and derives the solid from the two editable contours. Both neutral
+B-rep projections use a representational seam anchor per full rim because
+Kit edges require endpoints. The native result reports zero vertices.
 [Exact readback proof](../../../../re/solidworks/records/ScopedSweepReadback2026.md)
+[Saved sweep readback](../../../../re/solidworks/records/ScopedSavedSweepSdk2026.md)

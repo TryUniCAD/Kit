@@ -1,0 +1,2083 @@
+{
+  "base": "ab4c5b98b5fdb7b49146601ffc5731aa0b6a095d",
+  "base_src": "31a7a096ee8ba9efdb78042bfa25a7d9aaf20e96",
+  "exact_streams": 24,
+  "fresh_processes": 6,
+  "lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "native_controls": {
+    "after": "153d209162df7aa964082c3b3aa53a464615b82da933f4b8c6efcece7139dcca",
+    "before": "959b5ccefa657a6f51c08077e4cddd113911d0a7fe867d78b43e8552646983d3"
+  },
+  "native_launches": 0,
+  "new_heldout_credit": 0,
+  "older_replay_revision": "daebc428bffb80ab45ca6f2ddb17984c8f155f7a",
+  "older_replay_sha256": "bfc8631fc701568435fcf68ee3f8881b6bdc632a0886a864578c38ecf9262da7",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "python": "3.14.7",
+  "schema": "kit.sw2026.scoped-saved-sweep-replay.v1",
+  "shared": "f59507fccdd5907954634489f54ab1364f44580e",
+  "shared_archive_files": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/FileRefFields.py": "7bf69ab083f9ce96b377744333dc99279f69c8fedb369173ebc1cd94a2813ca9",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/HeaderBodyFields.py": "063263bad3adebc025b734dcb47d7e073f09909c3028cbdc7a5e454f7b99bd8d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/BodyFields.py": "bae6201584197201b1a634baebc65817d6e2b6b76ff3b39d271180dfc870b2e5",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/CoreFields.py": "3042a268f9b58173b275353f73b62b7b84cf75703757e3eb601ad5788622d02c",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/DimensionFields.py": "0e3e9e9b95b60876189aa0445f38c0cb63da362980c9701e43ab2715b482528a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/FeatureFields.py": "1b038db9524a4ea62cfbdd91bb168e30f22b1ce957a405e67b57cc3682bb223c",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ProfileFields.py": "4f75b149d295921038d76016a41bc78f3198b6e5b5573fcbfbfca66f3a30279c",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedLayouts.py": "6e3b9524f4da682982ecb255945653630e6d0e2470c484c7075f4020a6aeb912",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py": "5234788b0029989b6175cf2a1a945c3384e448a3af3e9b2b5f36b2cbda75563e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedVirtuals.py": "e85dd19da7cc4932626488f057863d391411ff9e4c98297d416995fc3ca8499a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/SavedFolderFields.py": "c6e0a16c0af206ee6493bb8fe1c0a75e1372d8af302e64446fce8bab1fa70997",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/SavedRefFields.py": "f8c0538c0ae560fca7b486bcc04c986b11ea8fff2ac4418b30bf035c1bc74817",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/SavedShapeFields.py": "b774802911c5752745bc9f56379db022f22784cd64dab00c03c3aad0ec28f641",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/SavedSketchChainFields.py": "da2f817ba81fe7f11ca04bf1038b1f5ea29ac6f970c32525aaea2f908b731762",
+    "src/convert/adapters/solidworks/Archive/Cmgr/Layouts/LinkedAtomFields.py": "9e3507dc30bc5cc248b21821c7fba53d6e54896881f193a85fb64475d4c082e1",
+    "src/convert/adapters/solidworks/Archive/Cmgr/MakeCmgrContext.py": "8404c4e2a8db85efa4c1074947952f07de988979d6d857cc266c9bb562be8165",
+    "src/convert/adapters/solidworks/Archive/Cmgr/ManagerFields.py": "822bdb86ee1dcda6d345b989ecf2ee4da977ced28b7efa459c682138478016e5"
+  },
+  "shared_src": "cb9ffb438192f7d803c8ad38428a634ee984ed51",
+  "states": [
+    {
+      "atom": {
+        "class": "moAtom_c",
+        "id": 101,
+        "map": 58,
+        "schema": 1,
+        "span": [
+          3070,
+          3170
+        ]
+      },
+      "drivers": [
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.004321,
+              0.0
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 192,
+            "schema": 1,
+            "span": [
+              6645,
+              6842
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 202,
+            "schema": 1,
+            "span": [
+              6923,
+              8531
+            ]
+          },
+          "display_f2b0": [
+            200
+          ],
+          "feature_id": 26,
+          "metres_hex": "0x1.1b2e59af9ebeap-7",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 194,
+            "schema": 1,
+            "span": [
+              6666,
+              6732
+            ]
+          },
+          "persistent_dimension_id": 27
+        },
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.028703
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.028703,
+              0.028703
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 217,
+            "schema": 1,
+            "span": [
+              9889,
+              10033
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 228,
+            "schema": 1,
+            "span": [
+              10336,
+              11855
+            ]
+          },
+          "display_f2b0": [
+            201
+          ],
+          "feature_id": 28,
+          "metres_hex": "0x1.d6451b93037d6p-6",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 218,
+            "schema": 1,
+            "span": [
+              9895,
+              9938
+            ]
+          },
+          "persistent_dimension_id": 29
+        }
+      ],
+      "drivers_m": [
+        0.008642,
+        0.028703
+      ],
+      "face_references": [
+        {
+          "class": "moFaceRef_c",
+          "map": 241,
+          "schema": 1,
+          "span": [
+            12605,
+            12947
+          ]
+        },
+        {
+          "class": "moFaceRef_c",
+          "map": 256,
+          "schema": 1,
+          "span": [
+            12947,
+            13057
+          ]
+        }
+      ],
+      "feature": {
+        "class": "moSweep_c",
+        "map": 236,
+        "schema": 1,
+        "span": [
+          12325,
+          14598
+        ]
+      },
+      "feature_id": 31,
+      "file_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+      "history": [
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 122,
+            "schema": 1,
+            "span": [
+              657,
+              771
+            ]
+          },
+          "feature_id": 26,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 120,
+            "schema": 1,
+            "span": [
+              606,
+              771
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 125,
+            "schema": 1,
+            "span": [
+              795,
+              890
+            ]
+          },
+          "feature_id": 28,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 124,
+            "schema": 1,
+            "span": [
+              771,
+              890
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 128,
+            "schema": 1,
+            "span": [
+              914,
+              1009
+            ]
+          },
+          "feature_id": 31,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 127,
+            "schema": 1,
+            "span": [
+              890,
+              1009
+            ]
+          }
+        }
+      ],
+      "manager": {
+        "body_id": 101,
+        "f658": 1,
+        "inline_mbs_count": 0,
+        "linked_atom": {
+          "class": "moLinkedAtomIdNode_c",
+          "map": 10,
+          "schema": 1,
+          "span": [
+            1670,
+            1724
+          ]
+        }
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "dbb121b2c996b4c09bf7590108a4a0ad9f1652f5bbe089048a2cc04273c69f27"
+      },
+      "older_stream_digests": {
+        "Contents/Config-0": "0621ed1a2d143166267e81e87d43453d0ec3999ab0ad1d198e0f02efdbec2ad1",
+        "Contents/Config-0-ResolvedFeatures": "f3425a79bcb18b2ea553d31aabf8c28cda9576b2dce8bfec296c414f49838a80"
+      },
+      "per_body_chooser": {
+        "class": "moPerBodyChooserData_c",
+        "map": 239,
+        "schema": 1,
+        "span": [
+          12575,
+          13139
+        ]
+      },
+      "physical_result": {
+        "body_atom_id": 101,
+        "coedges": 4,
+        "counts": [
+          1,
+          3,
+          2,
+          2
+        ],
+        "deltas_sha256": "dfaa521a915457b3c6f8f5ee17f105e44d741b4c3b0396e4087c2f1e6ec52752",
+        "full_kernel_boundary": {
+          "body_offset": 2521,
+          "diagnostic": "kernel class is outside the mapped current schema",
+          "kind_offset": 2519,
+          "next_kind": 54,
+          "read_objects": 49
+        },
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "cde99b0a85d50ae2b8db9a4d8798fa1272de53cfb52c4b76471ad5c0b9599987",
+        "radii_mm": [
+          28.703,
+          4.321
+        ],
+        "radius_display_delta_ulp": [
+          0.0,
+          -1.0
+        ],
+        "stored_pcurves_exposed_by_sdk": 0
+      },
+      "picked_ghost_ids": [
+        10001,
+        10002
+      ],
+      "result_ids": [
+        101
+      ],
+      "role": "original",
+      "runtime_accesses": 0,
+      "section_sheet": {
+        "nonresident_next": 2,
+        "resident_nodes": 10,
+        "sha256": "0e21e3d798f7a41fb90ac24d06eb3d1d872e83b10f50f1b6e223d0f34ef81cce",
+        "span": [
+          13659,
+          14189
+        ]
+      },
+      "side_reps": [
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 243,
+          "schema": 1,
+          "span": [
+            12660,
+            12851
+          ]
+        },
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 259,
+          "schema": 1,
+          "span": [
+            13011,
+            13035
+          ]
+        }
+      ],
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "9b4cbcbb99feed59282d1437bfb4476159ede877cdcd13ab204caaf668d89f3a"
+        },
+        "Contents/Config-0": {
+          "bytes": 26010,
+          "sha256": "0621ed1a2d143166267e81e87d43453d0ec3999ab0ad1d198e0f02efdbec2ad1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2457,
+          "sha256": "95d5ca24f9f93f078b6be294ae11eb3ada8271bf604a54f703fce454caefa644"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14602,
+          "sha256": "f3425a79bcb18b2ea553d31aabf8c28cda9576b2dce8bfec296c414f49838a80"
+        }
+      },
+      "warm_words": {
+        "f2b4": 1,
+        "f2b8": 1
+      }
+    },
+    {
+      "atom": {
+        "class": "moAtom_c",
+        "id": 101,
+        "map": 58,
+        "schema": 1,
+        "span": [
+          3084,
+          3184
+        ]
+      },
+      "drivers": [
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.005966385372453377,
+              0.001824107065765158
+            ]
+          ],
+          "cold_incidence": "SOLIDWORKS sweep arc disagrees with its ordered driver incidence",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 192,
+            "schema": 1,
+            "span": [
+              6645,
+              6842
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 202,
+            "schema": 1,
+            "span": [
+              6923,
+              8531
+            ]
+          },
+          "display_f2b0": [
+            200
+          ],
+          "feature_id": 26,
+          "metres_hex": "0x1.98e10cf5b1c86p-7",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 194,
+            "schema": 1,
+            "span": [
+              6666,
+              6732
+            ]
+          },
+          "persistent_dimension_id": 27
+        },
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.028703
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.028703,
+              0.028703
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 217,
+            "schema": 1,
+            "span": [
+              9889,
+              10033
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 228,
+            "schema": 1,
+            "span": [
+              10336,
+              11855
+            ]
+          },
+          "display_f2b0": [
+            201
+          ],
+          "feature_id": 28,
+          "metres_hex": "0x1.d6451b93037d6p-6",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 218,
+            "schema": 1,
+            "span": [
+              9895,
+              9938
+            ]
+          },
+          "persistent_dimension_id": 29
+        }
+      ],
+      "drivers_m": [
+        0.012478,
+        0.028703
+      ],
+      "face_references": [
+        {
+          "class": "moFaceRef_c",
+          "map": 241,
+          "schema": 1,
+          "span": [
+            12605,
+            13077
+          ]
+        },
+        {
+          "class": "moFaceRef_c",
+          "map": 256,
+          "schema": 1,
+          "span": [
+            13077,
+            13187
+          ]
+        }
+      ],
+      "feature": {
+        "class": "moSweep_c",
+        "map": 236,
+        "schema": 1,
+        "span": [
+          12325,
+          14726
+        ]
+      },
+      "feature_id": 31,
+      "file_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+      "history": [
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 122,
+            "schema": 1,
+            "span": [
+              657,
+              771
+            ]
+          },
+          "feature_id": 26,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 120,
+            "schema": 1,
+            "span": [
+              606,
+              771
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 125,
+            "schema": 1,
+            "span": [
+              795,
+              890
+            ]
+          },
+          "feature_id": 28,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 124,
+            "schema": 1,
+            "span": [
+              771,
+              890
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 128,
+            "schema": 1,
+            "span": [
+              914,
+              1009
+            ]
+          },
+          "feature_id": 31,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 127,
+            "schema": 1,
+            "span": [
+              890,
+              1009
+            ]
+          }
+        }
+      ],
+      "manager": {
+        "body_id": 101,
+        "f658": 1,
+        "inline_mbs_count": 0,
+        "linked_atom": {
+          "class": "moLinkedAtomIdNode_c",
+          "map": 10,
+          "schema": 1,
+          "span": [
+            1670,
+            1724
+          ]
+        }
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "a73acdcda461c9d0f5e0d94c3a6d71e4852df6762f23d5aed08b9381f9f68b5e"
+      },
+      "older_stream_digests": {
+        "Contents/Config-0": "d6d45f9b69568de40eff000e1093f47c9938ef31d14b614664b804b594c447ab",
+        "Contents/Config-0-ResolvedFeatures": "b314344b452e6e3918219e51ee396dfd39fb700f81122f5f13a52ba69d0d4d0d"
+      },
+      "per_body_chooser": {
+        "class": "moPerBodyChooserData_c",
+        "map": 239,
+        "schema": 1,
+        "span": [
+          12575,
+          13269
+        ]
+      },
+      "physical_result": {
+        "body_atom_id": 101,
+        "coedges": 4,
+        "counts": [
+          1,
+          3,
+          2,
+          2
+        ],
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "full_kernel_boundary": {
+          "body_offset": 2521,
+          "diagnostic": "kernel class is outside the mapped current schema",
+          "kind_offset": 2519,
+          "next_kind": 54,
+          "read_objects": 49
+        },
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "ef10ddf0e4fcf16f24b634cbc16087532dd4b181ec9131b786bfe8f2981e4bb9",
+        "radii_mm": [
+          28.703,
+          6.239
+        ],
+        "radius_display_delta_ulp": [
+          0.0,
+          0.0
+        ],
+        "stored_pcurves_exposed_by_sdk": 0
+      },
+      "picked_ghost_ids": [
+        10001,
+        10002
+      ],
+      "result_ids": [
+        101
+      ],
+      "role": "section",
+      "runtime_accesses": 0,
+      "section_sheet": {
+        "nonresident_next": 2,
+        "resident_nodes": 10,
+        "sha256": "9ddb7f1f7b473e32849a3dfb138ba7d27cde5d9797b6e74a501806146b090ecf",
+        "span": [
+          13789,
+          14317
+        ]
+      },
+      "side_reps": [
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 243,
+          "schema": 1,
+          "span": [
+            12660,
+            12981
+          ]
+        },
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 259,
+          "schema": 1,
+          "span": [
+            13141,
+            13165
+          ]
+        }
+      ],
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "e01ff9e6290ab4f3c3c3a0bfd7cb2ecb222e398d76f15dfed8b8e2ea9bcf2b3b"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "d6d45f9b69568de40eff000e1093f47c9938ef31d14b614664b804b594c447ab"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "704092dfaf8364fcaa161ce3026b973367a5d91eb62c850a251bf5b34a9444ee"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14730,
+          "sha256": "b314344b452e6e3918219e51ee396dfd39fb700f81122f5f13a52ba69d0d4d0d"
+        }
+      },
+      "warm_words": {
+        "f2b4": 1,
+        "f2b8": 1
+      }
+    },
+    {
+      "atom": {
+        "class": "moAtom_c",
+        "id": 101,
+        "map": 58,
+        "schema": 1,
+        "span": [
+          3084,
+          3184
+        ]
+      },
+      "drivers": [
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.004321,
+              0.0
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 192,
+            "schema": 1,
+            "span": [
+              6645,
+              6842
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 202,
+            "schema": 1,
+            "span": [
+              6923,
+              8531
+            ]
+          },
+          "display_f2b0": [
+            200
+          ],
+          "feature_id": 26,
+          "metres_hex": "0x1.1b2e59af9ebeap-7",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 194,
+            "schema": 1,
+            "span": [
+              6666,
+              6732
+            ]
+          },
+          "persistent_dimension_id": 27
+        },
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.033471
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.033471,
+              0.033471
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 217,
+            "schema": 1,
+            "span": [
+              9889,
+              10033
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 228,
+            "schema": 1,
+            "span": [
+              10336,
+              11855
+            ]
+          },
+          "display_f2b0": [
+            201
+          ],
+          "feature_id": 28,
+          "metres_hex": "0x1.1231c64ba94bcp-5",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 218,
+            "schema": 1,
+            "span": [
+              9895,
+              9938
+            ]
+          },
+          "persistent_dimension_id": 29
+        }
+      ],
+      "drivers_m": [
+        0.008642,
+        0.033471
+      ],
+      "face_references": [
+        {
+          "class": "moFaceRef_c",
+          "map": 241,
+          "schema": 1,
+          "span": [
+            12605,
+            13077
+          ]
+        },
+        {
+          "class": "moFaceRef_c",
+          "map": 256,
+          "schema": 1,
+          "span": [
+            13077,
+            13187
+          ]
+        }
+      ],
+      "feature": {
+        "class": "moSweep_c",
+        "map": 236,
+        "schema": 1,
+        "span": [
+          12325,
+          14728
+        ]
+      },
+      "feature_id": 31,
+      "file_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+      "history": [
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 122,
+            "schema": 1,
+            "span": [
+              657,
+              771
+            ]
+          },
+          "feature_id": 26,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 120,
+            "schema": 1,
+            "span": [
+              606,
+              771
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 125,
+            "schema": 1,
+            "span": [
+              795,
+              890
+            ]
+          },
+          "feature_id": 28,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 124,
+            "schema": 1,
+            "span": [
+              771,
+              890
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 128,
+            "schema": 1,
+            "span": [
+              914,
+              1009
+            ]
+          },
+          "feature_id": 31,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 127,
+            "schema": 1,
+            "span": [
+              890,
+              1009
+            ]
+          }
+        }
+      ],
+      "manager": {
+        "body_id": 101,
+        "f658": 1,
+        "inline_mbs_count": 0,
+        "linked_atom": {
+          "class": "moLinkedAtomIdNode_c",
+          "map": 10,
+          "schema": 1,
+          "span": [
+            1670,
+            1724
+          ]
+        }
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "34ab1364b2f2951816d9dfd7f78d06a1684176178f889c4236fa9ebd57afc82d"
+      },
+      "older_stream_digests": {
+        "Contents/Config-0": "fd662e0a547a78e0684d3eba84aae3c305506bb39443c1c6c5a56d2f989cea2b",
+        "Contents/Config-0-ResolvedFeatures": "b6fa9053c1aa4f3c104746e2f97558a50927496557f5c8945e0841cfe4bcc46d"
+      },
+      "per_body_chooser": {
+        "class": "moPerBodyChooserData_c",
+        "map": 239,
+        "schema": 1,
+        "span": [
+          12575,
+          13269
+        ]
+      },
+      "physical_result": {
+        "body_atom_id": 101,
+        "coedges": 4,
+        "counts": [
+          1,
+          3,
+          2,
+          2
+        ],
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "full_kernel_boundary": {
+          "body_offset": 2521,
+          "diagnostic": "kernel class is outside the mapped current schema",
+          "kind_offset": 2519,
+          "next_kind": 54,
+          "read_objects": 49
+        },
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "db95921eacb028e392b711fa5cc6e7d11524c9d91ab8d1549dc743798fbc991a",
+        "radii_mm": [
+          33.471,
+          4.321
+        ],
+        "radius_display_delta_ulp": [
+          -1.0,
+          -1.0
+        ],
+        "stored_pcurves_exposed_by_sdk": 0
+      },
+      "picked_ghost_ids": [
+        10001,
+        10002
+      ],
+      "result_ids": [
+        101
+      ],
+      "role": "path",
+      "runtime_accesses": 0,
+      "section_sheet": {
+        "nonresident_next": 2,
+        "resident_nodes": 10,
+        "sha256": "0e21e3d798f7a41fb90ac24d06eb3d1d872e83b10f50f1b6e223d0f34ef81cce",
+        "span": [
+          13789,
+          14319
+        ]
+      },
+      "side_reps": [
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 243,
+          "schema": 1,
+          "span": [
+            12660,
+            12981
+          ]
+        },
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 259,
+          "schema": 1,
+          "span": [
+            13141,
+            13165
+          ]
+        }
+      ],
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "616f9883f8fac1aec012f8328ddfd8d9f71a9ad8a9b04f92e5da0153cd168c99"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "fd662e0a547a78e0684d3eba84aae3c305506bb39443c1c6c5a56d2f989cea2b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "0ff5df5aa2427ba0b7f545d4ea2371a4c6e8b0581a6e140d19c57951f25fc63c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14732,
+          "sha256": "b6fa9053c1aa4f3c104746e2f97558a50927496557f5c8945e0841cfe4bcc46d"
+        }
+      },
+      "warm_words": {
+        "f2b4": 1,
+        "f2b8": 1
+      }
+    },
+    {
+      "atom": {
+        "class": "moAtom_c",
+        "id": 101,
+        "map": 58,
+        "schema": 1,
+        "span": [
+          3070,
+          3170
+        ]
+      },
+      "drivers": [
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.005713,
+              0.0
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 192,
+            "schema": 1,
+            "span": [
+              6645,
+              6842
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 202,
+            "schema": 1,
+            "span": [
+              6923,
+              8531
+            ]
+          },
+          "display_f2b0": [
+            200
+          ],
+          "feature_id": 26,
+          "metres_hex": "0x1.76683c297bfa5p-7",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 194,
+            "schema": 1,
+            "span": [
+              6666,
+              6732
+            ]
+          },
+          "persistent_dimension_id": 27
+        },
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.041297
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.041297,
+              0.041297
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 217,
+            "schema": 1,
+            "span": [
+              9889,
+              10033
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 228,
+            "schema": 1,
+            "span": [
+              10336,
+              11855
+            ]
+          },
+          "display_f2b0": [
+            201
+          ],
+          "feature_id": 28,
+          "metres_hex": "0x1.524e160d887ecp-5",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 218,
+            "schema": 1,
+            "span": [
+              9895,
+              9938
+            ]
+          },
+          "persistent_dimension_id": 29
+        }
+      ],
+      "drivers_m": [
+        0.011426,
+        0.041297
+      ],
+      "face_references": [
+        {
+          "class": "moFaceRef_c",
+          "map": 241,
+          "schema": 1,
+          "span": [
+            12605,
+            12947
+          ]
+        },
+        {
+          "class": "moFaceRef_c",
+          "map": 256,
+          "schema": 1,
+          "span": [
+            12947,
+            13057
+          ]
+        }
+      ],
+      "feature": {
+        "class": "moSweep_c",
+        "map": 236,
+        "schema": 1,
+        "span": [
+          12325,
+          14597
+        ]
+      },
+      "feature_id": 31,
+      "file_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "history": [
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 122,
+            "schema": 1,
+            "span": [
+              657,
+              771
+            ]
+          },
+          "feature_id": 26,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 120,
+            "schema": 1,
+            "span": [
+              606,
+              771
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 125,
+            "schema": 1,
+            "span": [
+              795,
+              890
+            ]
+          },
+          "feature_id": 28,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 124,
+            "schema": 1,
+            "span": [
+              771,
+              890
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 128,
+            "schema": 1,
+            "span": [
+              914,
+              1009
+            ]
+          },
+          "feature_id": 31,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 127,
+            "schema": 1,
+            "span": [
+              890,
+              1009
+            ]
+          }
+        }
+      ],
+      "manager": {
+        "body_id": 101,
+        "f658": 1,
+        "inline_mbs_count": 0,
+        "linked_atom": {
+          "class": "moLinkedAtomIdNode_c",
+          "map": 10,
+          "schema": 1,
+          "span": [
+            1670,
+            1724
+          ]
+        }
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0"
+      },
+      "older_stream_digests": {
+        "Contents/Config-0": "05de99627331bf93709af0de110695be6889044c10b2407b93dfbc511044c867",
+        "Contents/Config-0-ResolvedFeatures": "5a98f672aa95cf0b39f9fb3be02603c1071b15f7aa9b8c5a3c1413f4160e9c02"
+      },
+      "per_body_chooser": {
+        "class": "moPerBodyChooserData_c",
+        "map": 239,
+        "schema": 1,
+        "span": [
+          12575,
+          13139
+        ]
+      },
+      "physical_result": {
+        "body_atom_id": 101,
+        "coedges": 4,
+        "counts": [
+          1,
+          3,
+          2,
+          2
+        ],
+        "deltas_sha256": "dfaa521a915457b3c6f8f5ee17f105e44d741b4c3b0396e4087c2f1e6ec52752",
+        "full_kernel_boundary": {
+          "body_offset": 2521,
+          "diagnostic": "kernel class is outside the mapped current schema",
+          "kind_offset": 2519,
+          "next_kind": 54,
+          "read_objects": 49
+        },
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "b645d71d5619a67dbd6c70278cad31df9669e68694954ed336c553f5299ba763",
+        "radii_mm": [
+          41.297,
+          5.713
+        ],
+        "radius_display_delta_ulp": [
+          0.0,
+          0.0
+        ],
+        "stored_pcurves_exposed_by_sdk": 0
+      },
+      "picked_ghost_ids": [
+        10001,
+        10002
+      ],
+      "result_ids": [
+        101
+      ],
+      "role": "original",
+      "runtime_accesses": 0,
+      "section_sheet": {
+        "nonresident_next": 2,
+        "resident_nodes": 10,
+        "sha256": "7262934c5d1fd87df8757d6cab8ae45cede95832d8fdd40083bd61d582871463",
+        "span": [
+          13659,
+          14188
+        ]
+      },
+      "side_reps": [
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 243,
+          "schema": 1,
+          "span": [
+            12660,
+            12851
+          ]
+        },
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 259,
+          "schema": 1,
+          "span": [
+            13011,
+            13035
+          ]
+        }
+      ],
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "46a58ceadce90a6bcb60690a28f1bd38bb5739837d680971fffee6d79ae57b00"
+        },
+        "Contents/Config-0": {
+          "bytes": 26010,
+          "sha256": "05de99627331bf93709af0de110695be6889044c10b2407b93dfbc511044c867"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2457,
+          "sha256": "bb1be8d61f6cf421fa70384a96e8bd18fd1a9a671397f9b56dccc1b37befbb78"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14601,
+          "sha256": "5a98f672aa95cf0b39f9fb3be02603c1071b15f7aa9b8c5a3c1413f4160e9c02"
+        }
+      },
+      "warm_words": {
+        "f2b4": 1,
+        "f2b8": 1
+      }
+    },
+    {
+      "atom": {
+        "class": "moAtom_c",
+        "id": 101,
+        "map": 58,
+        "schema": 1,
+        "span": [
+          3084,
+          3184
+        ]
+      },
+      "drivers": [
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.00678306963404581,
+              0.0020737925015983758
+            ]
+          ],
+          "cold_incidence": "SOLIDWORKS sweep arc disagrees with its ordered driver incidence",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 192,
+            "schema": 1,
+            "span": [
+              6645,
+              6842
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 202,
+            "schema": 1,
+            "span": [
+              6923,
+              8531
+            ]
+          },
+          "display_f2b0": [
+            200
+          ],
+          "feature_id": 26,
+          "metres_hex": "0x1.d0d8cb07d0aeep-7",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 194,
+            "schema": 1,
+            "span": [
+              6666,
+              6732
+            ]
+          },
+          "persistent_dimension_id": 27
+        },
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.041297
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.041297,
+              0.041297
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 217,
+            "schema": 1,
+            "span": [
+              9889,
+              10033
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 228,
+            "schema": 1,
+            "span": [
+              10336,
+              11855
+            ]
+          },
+          "display_f2b0": [
+            201
+          ],
+          "feature_id": 28,
+          "metres_hex": "0x1.524e160d887ecp-5",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 218,
+            "schema": 1,
+            "span": [
+              9895,
+              9938
+            ]
+          },
+          "persistent_dimension_id": 29
+        }
+      ],
+      "drivers_m": [
+        0.014186,
+        0.041297
+      ],
+      "face_references": [
+        {
+          "class": "moFaceRef_c",
+          "map": 241,
+          "schema": 1,
+          "span": [
+            12605,
+            13077
+          ]
+        },
+        {
+          "class": "moFaceRef_c",
+          "map": 256,
+          "schema": 1,
+          "span": [
+            13077,
+            13187
+          ]
+        }
+      ],
+      "feature": {
+        "class": "moSweep_c",
+        "map": 236,
+        "schema": 1,
+        "span": [
+          12325,
+          14726
+        ]
+      },
+      "feature_id": 31,
+      "file_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "history": [
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 122,
+            "schema": 1,
+            "span": [
+              657,
+              771
+            ]
+          },
+          "feature_id": 26,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 120,
+            "schema": 1,
+            "span": [
+              606,
+              771
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 125,
+            "schema": 1,
+            "span": [
+              795,
+              890
+            ]
+          },
+          "feature_id": 28,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 124,
+            "schema": 1,
+            "span": [
+              771,
+              890
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 128,
+            "schema": 1,
+            "span": [
+              914,
+              1009
+            ]
+          },
+          "feature_id": 31,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 127,
+            "schema": 1,
+            "span": [
+              890,
+              1009
+            ]
+          }
+        }
+      ],
+      "manager": {
+        "body_id": 101,
+        "f658": 1,
+        "inline_mbs_count": 0,
+        "linked_atom": {
+          "class": "moLinkedAtomIdNode_c",
+          "map": 10,
+          "schema": 1,
+          "span": [
+            1670,
+            1724
+          ]
+        }
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40"
+      },
+      "older_stream_digests": {
+        "Contents/Config-0": "def8c32cbcc2616bf770e0c88c93673d5c2dab317a6e922e920b47a242f46e83",
+        "Contents/Config-0-ResolvedFeatures": "e634947e5e06ded00b5706f01327cfde953cf4d482f09a8500148a1ee3b73d8d"
+      },
+      "per_body_chooser": {
+        "class": "moPerBodyChooserData_c",
+        "map": 239,
+        "schema": 1,
+        "span": [
+          12575,
+          13269
+        ]
+      },
+      "physical_result": {
+        "body_atom_id": 101,
+        "coedges": 4,
+        "counts": [
+          1,
+          3,
+          2,
+          2
+        ],
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "full_kernel_boundary": {
+          "body_offset": 2521,
+          "diagnostic": "kernel class is outside the mapped current schema",
+          "kind_offset": 2519,
+          "next_kind": 54,
+          "read_objects": 49
+        },
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "880eb2aaae507f41ea648997952d87ebf17ce9933e8774906fc1972ff54f4bb9",
+        "radii_mm": [
+          41.297,
+          7.093
+        ],
+        "radius_display_delta_ulp": [
+          0.0,
+          0.0
+        ],
+        "stored_pcurves_exposed_by_sdk": 0
+      },
+      "picked_ghost_ids": [
+        10001,
+        10002
+      ],
+      "result_ids": [
+        101
+      ],
+      "role": "section",
+      "runtime_accesses": 0,
+      "section_sheet": {
+        "nonresident_next": 2,
+        "resident_nodes": 10,
+        "sha256": "9a30751f5feffbb7a803268139ac5636f9eaf17d69b0fe6d0c70268af4a7e32c",
+        "span": [
+          13789,
+          14317
+        ]
+      },
+      "side_reps": [
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 243,
+          "schema": 1,
+          "span": [
+            12660,
+            12981
+          ]
+        },
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 259,
+          "schema": 1,
+          "span": [
+            13141,
+            13165
+          ]
+        }
+      ],
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "92d903aa74e4f309bfafc0cd8b09d752a77f12a5e43ed179f7ba3f9788b12b12"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "def8c32cbcc2616bf770e0c88c93673d5c2dab317a6e922e920b47a242f46e83"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "9c7ea60c2872cbf98c0477c9464d97563dd8fb9d3dc10d5b0e5000bbdf39d2ed"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14730,
+          "sha256": "e634947e5e06ded00b5706f01327cfde953cf4d482f09a8500148a1ee3b73d8d"
+        }
+      },
+      "warm_words": {
+        "f2b4": 1,
+        "f2b8": 1
+      }
+    },
+    {
+      "atom": {
+        "class": "moAtom_c",
+        "id": 101,
+        "map": 58,
+        "schema": 1,
+        "span": [
+          3084,
+          3184
+        ]
+      },
+      "drivers": [
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.005713,
+              0.0
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 192,
+            "schema": 1,
+            "span": [
+              6645,
+              6842
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 202,
+            "schema": 1,
+            "span": [
+              6923,
+              8531
+            ]
+          },
+          "display_f2b0": [
+            200
+          ],
+          "feature_id": 26,
+          "metres_hex": "0x1.76683c297bfa5p-7",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 194,
+            "schema": 1,
+            "span": [
+              6666,
+              6732
+            ]
+          },
+          "persistent_dimension_id": 27
+        },
+        {
+          "actual_points_m": [
+            [
+              0.0,
+              0.046371
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.046371,
+              0.046371
+            ]
+          ],
+          "cold_incidence": "matched",
+          "dimension": {
+            "class": "sgCircleDim",
+            "map": 217,
+            "schema": 1,
+            "span": [
+              9889,
+              10033
+            ]
+          },
+          "display": {
+            "class": "moDisplayRadialDim_c",
+            "map": 228,
+            "schema": 1,
+            "span": [
+              10336,
+              11855
+            ]
+          },
+          "display_f2b0": [
+            201
+          ],
+          "feature_id": 28,
+          "metres_hex": "0x1.7bdf090f733a9p-5",
+          "parameter": {
+            "class": "moLengthParameter_c",
+            "map": 218,
+            "schema": 1,
+            "span": [
+              9895,
+              9938
+            ]
+          },
+          "persistent_dimension_id": 29
+        }
+      ],
+      "drivers_m": [
+        0.011426,
+        0.046371
+      ],
+      "face_references": [
+        {
+          "class": "moFaceRef_c",
+          "map": 241,
+          "schema": 1,
+          "span": [
+            12605,
+            13077
+          ]
+        },
+        {
+          "class": "moFaceRef_c",
+          "map": 256,
+          "schema": 1,
+          "span": [
+            13077,
+            13187
+          ]
+        }
+      ],
+      "feature": {
+        "class": "moSweep_c",
+        "map": 236,
+        "schema": 1,
+        "span": [
+          12325,
+          14727
+        ]
+      },
+      "feature_id": 31,
+      "file_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+      "history": [
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 122,
+            "schema": 1,
+            "span": [
+              657,
+              771
+            ]
+          },
+          "feature_id": 26,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 120,
+            "schema": 1,
+            "span": [
+              606,
+              771
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 125,
+            "schema": 1,
+            "span": [
+              795,
+              890
+            ]
+          },
+          "feature_id": 28,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 124,
+            "schema": 1,
+            "span": [
+              771,
+              890
+            ]
+          }
+        },
+        {
+          "component": {
+            "class": "moCompFeature_c",
+            "map": 128,
+            "schema": 1,
+            "span": [
+              914,
+              1009
+            ]
+          },
+          "feature_id": 31,
+          "item": {
+            "class": "moHistoryFeatItemData_c",
+            "map": 127,
+            "schema": 1,
+            "span": [
+              890,
+              1009
+            ]
+          }
+        }
+      ],
+      "manager": {
+        "body_id": 101,
+        "f658": 1,
+        "inline_mbs_count": 0,
+        "linked_atom": {
+          "class": "moLinkedAtomIdNode_c",
+          "map": 10,
+          "schema": 1,
+          "span": [
+            1670,
+            1724
+          ]
+        }
+      },
+      "maps": {
+        "config": 110,
+        "manager": 19,
+        "resolved": 278
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "28b9e460f1a165d10420a19d047c0c8308291e9ebf92192dc313b98691f1cf82"
+      },
+      "older_stream_digests": {
+        "Contents/Config-0": "72bc86c6b01b01c087909dd303be218fb84b573f06a80d70ae95ed54b351f5cc",
+        "Contents/Config-0-ResolvedFeatures": "de0908376ec65b7509aa1fe35d63e423c590671508559c53a0097f665f9dc576"
+      },
+      "per_body_chooser": {
+        "class": "moPerBodyChooserData_c",
+        "map": 239,
+        "schema": 1,
+        "span": [
+          12575,
+          13269
+        ]
+      },
+      "physical_result": {
+        "body_atom_id": 101,
+        "coedges": 4,
+        "counts": [
+          1,
+          3,
+          2,
+          2
+        ],
+        "deltas_sha256": "7ed533b9e1b0b5206ec870a285173bd9628e664d40eef0b2461364f892f5f824",
+        "full_kernel_boundary": {
+          "body_offset": 2521,
+          "diagnostic": "kernel class is outside the mapped current schema",
+          "kind_offset": 2519,
+          "next_kind": 54,
+          "read_objects": 49
+        },
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "2502af1ce85e475905bafe836ba8e2b0e9eab0d0bc7020d912c147ce14e2bcc7",
+        "radii_mm": [
+          46.371,
+          5.713
+        ],
+        "radius_display_delta_ulp": [
+          0.0,
+          0.0
+        ],
+        "stored_pcurves_exposed_by_sdk": 0
+      },
+      "picked_ghost_ids": [
+        10001,
+        10002
+      ],
+      "result_ids": [
+        101
+      ],
+      "role": "path",
+      "runtime_accesses": 0,
+      "section_sheet": {
+        "nonresident_next": 2,
+        "resident_nodes": 10,
+        "sha256": "7262934c5d1fd87df8757d6cab8ae45cede95832d8fdd40083bd61d582871463",
+        "span": [
+          13789,
+          14318
+        ]
+      },
+      "side_reps": [
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 243,
+          "schema": 1,
+          "span": [
+            12660,
+            12981
+          ]
+        },
+        {
+          "class": "moSweepSideSurfIdRep_c",
+          "map": 259,
+          "schema": 1,
+          "span": [
+            13141,
+            13165
+          ]
+        }
+      ],
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "793f4475cde334bdedd9a11cca7965bc3191f4983e40b2dfcd0672e61d58e97f"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "72bc86c6b01b01c087909dd303be218fb84b573f06a80d70ae95ed54b351f5cc"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "20a60980fd6a27e8cdbe12c30e595017c14bf78343993c6afeb626aac54dc169"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14731,
+          "sha256": "de0908376ec65b7509aa1fe35d63e423c590671508559c53a0097f665f9dc576"
+        }
+      },
+      "warm_words": {
+        "f2b4": 1,
+        "f2b8": 1
+      }
+    }
+  ],
+  "tool_sha256": {
+    "AuditSavedSweepMain.py": "c261c580000fc0b910f44790483699c9ba8c29298b757b885c41bcf0d5c05f3b",
+    "SavedSweepOwners.py": "c528e26bef4c9a51a780120dc836f2063ef352b4b864aba9073273d2ce1768e3",
+    "SavedSweepReplay.py": "756312fd58ccf4661fc5031d4652e87cb5356abdbf6af560494bc919096ff3c3"
+  },
+  "written_archives": 0,
+  "zlib": "1.2.12"
+}
