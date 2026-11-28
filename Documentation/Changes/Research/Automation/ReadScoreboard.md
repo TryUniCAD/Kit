@@ -44,4 +44,9 @@ The command writes `Scoreboard.json` with every file row and `Scoreboard.md` wit
 - `tests/Research/Census/ReadScoreboardTests.py` runs the command on a strict Fusion file, a partial Fusion file and a SOLIDWORKS part whose accented path is supplied in NFD form. It checks totals, read modes, area attribution, the SOLIDWORKS decode and the Markdown page. It also checks that a reused output directory and an unpinned path are refused. Both cases passed locally.
 - All 64 pinned SOLIDWORKS files were read with the default limit. Only the four assemblies exceeded it, with or without tessellation. Measured entries: `ENSAMBLE 3_IZQUIERDO.SLDASM` 896,894; `Cylinder Head Assy 1.SLDASM` 958,093; `Turbo Assy KF.SLDASM` 1,230,790; `Engine Assy KF EDIT 2.SLDASM` 5,828,609.
 - Scored alone with the raised limit, `ENSAMBLE 3_IZQUIERDO.SLDASM` decodes as a partial read.
-- The complete 778-file run has not been recorded yet. Its totals will be added to this entry when it runs.
+- The F3Z package regression exercises the exact pinned archive through the scoreboard CLI and checks its archive refusal.
+- The complete 778-file replay ran offline with CPython 3.14.6 at code commit `00d863b95a15b40efd999cadd71c4741bf650393` against corpus revision `74a0bc353421c25f7a6c539897baadf593a05766`.
+  Fusion recorded 16 strict reads, 681 partial reads, 17 refusals, zero reader errors and 16 fully read files by the scoreboard definition.
+  SOLIDWORKS recorded 61 strict reads, two partial reads, one refusal, zero reader errors and zero fully read files.
+  Compared with `571fd114b58395a848d47e5256b62182f0826fec`, the other 777 per-file records matched after excluding elapsed time.
+  The resulting `Scoreboard.json` SHA-256 is `bff4560823bb4f371e4dca80bc561b21ea54d0028a20b457a21a0e73368c754d`.
