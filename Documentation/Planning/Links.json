@@ -296,6 +296,11 @@
       "Blocker": "App identity, permissions, protected environment secrets and installation token access are verified; PR399 CI, initial workflow deployment, hosted credential rotation and current head approval remain pending; native project sync requires unavailable project token scopes",
       "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
       "VerificationRevision": "115109aa9a6b19d0592567dd8096c1b578e583cf",
+      "SteeringRepair": {
+        "Revision": "88449027bb947b4e94d35c6a2e1a17b8920e0850",
+        "Report": "https://github.com/TryUniCAD/Kit/actions/runs/46152804159/job/141002910376",
+        "Change": "Rename the scheduler run inventory to satisfy the mandatory identifier length rule"
+      },
       "RepairEvidence": {
         "Revision": "a06b12cf0f0144933abb17030d25b5a24dfad911",
         "Failures": [

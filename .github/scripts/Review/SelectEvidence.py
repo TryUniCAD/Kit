@@ -13,12 +13,12 @@ def SelectEvidence(
 ) -> dict[str, object] | None:
     if "inputs" in EventData:
         return ReadEvidence(RepoName, int(str(ObjectMap(EventData["inputs"])["id"])))
-    Runs = ObjectMap(
+    RunList = ObjectMap(
         ApiCall(
             f"repos/{RepoName}/actions/workflows/PullRequest.yml/runs?event=pull_request_target&status=success&per_page=30"
         )
     )
-    for Entry in cast(list[object], Runs["workflow_runs"]):
+    for Entry in cast(list[object], RunList["workflow_runs"]):
         try:
             Evidence = ReadEvidence(RepoName, int(str(ObjectMap(Entry)["id"])))
             CheckPull(RepoName, Evidence)
