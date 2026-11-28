@@ -116,6 +116,7 @@ def open_document(
     include_brep: bool = True,
     include_tessellation: bool = True,
     strict: bool = True,
+    include_native_appearance: bool = False,
 ) -> CadDocument:
     return OpenDocument(
         source,
@@ -124,6 +125,7 @@ def open_document(
         IncludeBrep=include_brep,
         IncludeTess=include_tessellation,
         StrictMode=strict,
+        IncludeNativeAppearance=include_native_appearance,
     )
 
 

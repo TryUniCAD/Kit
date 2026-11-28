@@ -8,6 +8,7 @@ from interchange import CadDocument
 
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
+from convert.adapters.base.Materials.CheckPartLook import CheckPartLook
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.Staging.PathStaging import WritePathStaged
 from convert.adapters.registry.EquationWrite import CheckEquations
@@ -124,6 +125,8 @@ class WriteApi(WriteLookup):
             else self.PickWriter(DocumentData, TargetData)
         )
         CheckMatWrites(DocumentData, AdapterData)
+        if AdapterData.info.format_id != "interchange.json":
+            CheckPartLook(DocumentData)
         CheckResearch(DocumentData)
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)

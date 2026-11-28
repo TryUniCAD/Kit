@@ -428,8 +428,10 @@ The same team owns the separate part visual prefix on
 `codex/solidworks-part-visual-member`. It uses the physical ModelHeader
 handoff and lightweight node grammar. The disclosed prefix evidence is
 complete for that bounded scope. Hosted review and queue checks remain
-pending. Linking the active configuration, physical density and
-material tree remains separate.
+pending. Public SOLIDWORKS inspection can retain its bounded part-level
+visual record as source evidence. The typed physical assignment and
+effective body appearance still have separate ownership and admission.
+[Public appearance inspection](../Changes/Solidworks/Inspection/Parts/SolidworksStoredPartAppearance.md)
 [Part visual prerequisite](../../re/solidworks/records/PartMaterialVisualRead2026.md)
 
 ### B04-SW2026-CONFIG-CACHES

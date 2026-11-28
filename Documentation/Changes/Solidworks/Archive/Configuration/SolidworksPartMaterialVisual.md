@@ -19,4 +19,5 @@ A separately authored structural archive verifies all 19 fields of a
 present primary texture and exact prefix replay in a fresh process.
 [Format and process evidence](../../../../../re/solidworks/records/PartMaterialVisualRead2026.md)
 
-[Adapter guide](../../../../Reference/Adapters/Solidworks.md)
+[Adapter guide](../../../../Reference/Adapters/Solidworks.md) ·
+[Public inspection evidence](../../Inspection/Parts/SolidworksStoredPartAppearance.md)

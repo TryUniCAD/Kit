@@ -130,6 +130,9 @@ part root to the ordinary lightweight `f78` visual record. It preserves
 the part-owned name, material and rendering fields, the shared map
 and the exact next cursor. The physical material assignment reader
 also needs the active configuration, density and material tree.
+Opt-in SDK inspection keeps stored colors and texture fields separate from
+effective body appearance.
+[Stored part appearance](../../Changes/Solidworks/Inspection/Parts/SolidworksStoredPartAppearance.md) ·
 [Part material visual scope](../../Changes/Solidworks/Archive/Configuration/SolidworksPartMaterialVisual.md)
 
 The internal part-start reader loads the named
