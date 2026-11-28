@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "job": "decode-partial",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/OffsetStart20261127/Worker.py\", line 35, in <module>\n    record['summary']=json.loads((output/'Decode/summary.json').read_text())\n                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/pathlib/__init__.py\", line 787, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/pathlib/__init__.py\", line 771, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/KitOffsetStart20261127/decode-partial/Decode/summary.json'\n",
+      "reader_log": "{\"error\": \"asset bytes differ from the pinned digest/prefix\", \"portable_complete\": false}\nkit: offline decoding only; native verification pending; vendor acceptance not established\n",
+      "receipt_sha256": "072575beb0b07baf1594b4eb6bd3ba39aa1bd951b6c6f3d187ed2011db7206a4"
+    },
+    {
+      "job": "decode-strict",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/OffsetStart20261127/Worker.py\", line 35, in <module>\n    record['summary']=json.loads((output/'Decode/summary.json').read_text())\n                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/pathlib/__init__.py\", line 787, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/pathlib/__init__.py\", line 771, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/KitOffsetStart20261127/decode-strict/Decode/summary.json'\n",
+      "reader_log": "{\"error\": \"asset bytes differ from the pinned digest/prefix\", \"portable_complete\": false}\nkit: offline decoding only; native verification pending; vendor acceptance not established\n",
+      "receipt_sha256": "c5502d39639f0a6d1e3588c03a4cfc6927b0cfaa89bfd1da8f13f09f6f167852"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "pid": 74341,
+  "started": 1795647959.766598,
+  "updated": 1795648742.8084428,
+  "state": "settled",
+  "events": [
+    {
+      "name": "discovery-01-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/AutomaticRetries/discovery-01-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648700.3229618,
+      "original_log_sha256": "4a9302a540a7b3f4cc0413138baaecdcb890b978edb3415452ab01c44d35e6b7",
+      "pid": 9133,
+      "exit_code": 2,
+      "end": 1795648718.5219111
+    },
+    {
+      "name": "discovery-01-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "--directory",
+        "<campaign-output>/AutomaticRetries/discovery-01-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648718.5226738,
+      "original_log_sha256": "d980c6ca86c90b0d3d7af90fa466dece4fb4a4b059d45cdcf90b91b7342af9eb",
+      "pid": 9868,
+      "exit_code": 2,
+      "end": 1795648725.307998
+    },
+    {
+      "name": "discovery-02-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/AutomaticRetries/discovery-02-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648725.308567,
+      "original_log_sha256": "557a7c4e0f8154838ca1bdec9a096899ff42ac0e244f37a73e11b0e162836f14",
+      "pid": 10252,
+      "exit_code": 2,
+      "end": 1795648742.808086
+    }
+  ]
+}

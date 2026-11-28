@@ -2,7 +2,8 @@
 
 The breaking change label workflow uses a separate concurrency group for each PR event type.
 An edit no longer displaces a run from opening, reopening, or updating the PR branch.
-Running jobs finish when another event of the same type arrives.
+Newer events of the same type cancel superseded runs.
+See [superseded label runs](Ci/Scheduling/SupersededLabelRuns.md) for the measured backlog and repair.
 The workflow retains its triggers, check name, and CI allowlist entry.
 
 Use the existing breaking change markers in the PR title or description.

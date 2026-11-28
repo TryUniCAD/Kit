@@ -1,5 +1,6 @@
 from typing import cast as CastValue
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasNum import ReadMeasNum
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasReal import ReadMeasReal
 
 
 # recorded frame and solid measurements must be present for every accepted observation
@@ -17,12 +18,6 @@ def MeasState(
         or TreeCount < 1
         or type(Center) is not list
         or len(CastValue(list[object], Center)) != 3
-        or any(
-            not isinstance(Coord, (int, float))
-            or isinstance(Coord, bool)
-            or not -float("inf") < Coord < float("inf")
-            for Coord in CastValue(list[object], Center)
-        )
     ):
         raise ValueError(
             "native measurement has an incomplete or unclean solid observation"
@@ -31,5 +26,5 @@ def MeasState(
         ReadMeasNum(StateValue.get("depth_m")),
         ReadMeasNum(StateValue.get("volume_m3")),
         ReadMeasNum(StateValue.get("area_m2")),
-        *(float(Coord) for Coord in CastValue(list[float], Center)),
+        *(ReadMeasReal(Coord) for Coord in CastValue(list[object], Center)),
     )

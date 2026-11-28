@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -24,10 +24,10 @@ from tests.Research.Inference.Authoring.Contracts.CompiledCase import CompiledCa
 from tests.Research.Inference.Authoring.Contracts.PreparedData import PreparedData
 
 # the native compiler remains a runtime research import with an explicit returned case contract
-KCompileRecipe = CastValue(
+KValidateSolid = CastValue(
     Callable[[object], CompiledCase],
     getattr(
-        ImportModule("CaptureTools.Catalogue.Recipes.CompileRecipe"), "CompileRecipe"
+        ImportModule("CaptureTools.Catalogue.SolidWorks.ValidateSolid"), "ValidateSolid"
     ),
 )
 
@@ -43,7 +43,7 @@ KPrepareBatch = CastValue(
 # native disk preparation can cross its real process boundary without entering an application runner
 def PrepareInput() -> None:
     Payload = DecodeJson(ResolveTemp(ArgValues[1]).read_bytes())
-    Cases = [KCompileRecipe(CaseValue) for CaseValue in Payload["cases"]]
+    Cases = [KValidateSolid(CaseValue) for CaseValue in Payload["cases"]]
     Prepared = KPrepareBatch(Cases, ResolveTemp(Payload["directory"]))
     print(
         EncodeJson(

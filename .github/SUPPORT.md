@@ -1,9 +1,10 @@
 # Support
 
-Kit is confidential, internal Parashell software (see
-[README.md](../README.md)). Support is provided to Parashell only.
+Kit is an open-source CAD interchange SDK distributed under the [MIT License](../LICENSE).
 
-- Bug reports: <https://github.com/TryParashell/Kit/issues>
-- Direct contact: odin.glynn@parashell.cloud
+Report bugs through [GitHub issues](https://github.com/TryUniCAD/Kit/issues).
+Use the [documentation index](../Documentation/Index.md) for installation, usage, and format limits.
+Report suspected vulnerabilities through the [security policy](SECURITY.md).
 
-Do not open pull requests; see [CONTRIBUTING.md](CONTRIBUTING.md) for why.
+Contributions are welcome through focused pull requests.
+See [contribution guidance](CONTRIBUTING.md).

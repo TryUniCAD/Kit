@@ -1,0 +1,22 @@
+{
+  "swapped_sides": {
+    "baseline_volume_cm3": 23.67263393411779,
+    "swapped_volume_cm3": 23.67263393411779,
+    "baseline_centroid_cm": [
+      0.6999999997290033,
+      -1.0999999999999999,
+      -0.36077460432033553
+    ],
+    "swapped_centroid_cm": [
+      0.6999999997290033,
+      -1.0999999999999999,
+      0.3607746043203358
+    ],
+    "equal_volume": true,
+    "centroid_distinguishes_sides": true
+  },
+  "draft_is_not_cylindrical": {
+    "native_volume_cm3": 23.67263393411779,
+    "untapered_same_distance_volume_cm3": 24.42274128900705
+  }
+}

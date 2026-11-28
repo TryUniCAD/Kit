@@ -1,0 +1,265 @@
+name: Account review
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "3-58/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      id:
+        description: Legacy successful PR CI workflow run ID
+        required: false
+        type: string
+      pull:
+        description: Pull request number to review independently of CI
+        required: false
+        type: string
+      comment:
+        description: Authorized PR conversation comment to process
+        required: false
+        type: string
+      force:
+        description: Reassess an already reported snapshot
+        required: false
+        default: false
+        type: boolean
+
+permissions: {}
+
+concurrency:
+  group: account-review-auth
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  admit:
+    name: Authorize review request
+    if: vars.ACCOUNT_REVIEW_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read # Reads public comment commands and verifies commenter permissions without app credentials.
+      checks: read # Reads the app's native request receipts without granting publication access.
+    outputs:
+      allowed: ${{ steps.admission.outputs.allowed }}
+      mention: ${{ steps.poll.outputs.mention }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Poll authorized mention requests
+        id: poll
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/Review/PollMentions.py
+      - name: Verify comment command and live collaborator permission
+        id: admission
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVIEW_EVENT_NAME: ${{ steps.poll.outputs.mention == 'true' && 'issue_comment' || github.event_name }}
+          REVIEW_EVENT_PATH: ${{ steps.poll.outputs.mention == 'true' && format('{0}/ReviewRequest/Event.json', github.workspace) || github.event_path }}
+        run: python .github/scripts/Review/Admit.py
+      - name: Preserve admitted request data
+        if: steps.admission.outputs.allowed == 'true' && steps.poll.outputs.mention == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ReviewRequest
+          path: ReviewRequest/Event.json
+          if-no-files-found: error
+          retention-days: 1
+
+  prepare:
+    name: Select verified PR input
+    needs: admit
+    if: needs.admit.outputs.allowed == 'true'
+    environment: AccountReview
+    outputs:
+      ready: ${{ steps.input.outputs.ready }}
+      selected: ${{ steps.input.outputs.selected }}
+      mention: ${{ needs.admit.outputs.mention }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Obtain bounded input report token
+        id: input-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-pull-requests: read
+          permission-checks: write
+          permission-actions: read
+          permission-contents: read
+      - name: Read the admitted mention request
+        if: needs.admit.outputs.mention == 'true'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewRequest
+          path: ReviewRequest
+      - name: Obtain mention reaction token
+        if: needs.admit.outputs.mention == 'true'
+        id: reaction-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-issues: write
+      - name: Acknowledge review in progress
+        if: needs.admit.outputs.mention == 'true'
+        env:
+          GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
+        run: python .github/scripts/Review/ReactMention.py started
+      - name: Prepare revision bound review input
+        id: input
+        env:
+          GH_TOKEN: ${{ steps.input-token.outputs.token }}
+        run: python .github/scripts/Review/Prepare.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always() && steps.input.outputs.selected == 'true'
+        with:
+          name: ReviewInput
+          path: ReviewInput/Context.json
+          if-no-files-found: error
+          retention-days: 1
+
+  review:
+    name: Review with isolated account runtime
+    needs: prepare
+    if: needs.prepare.outputs.ready == 'true'
+    environment: AccountReview
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewInput
+          path: ReviewInput
+      - name: Build trusted isolated runtime
+        run: docker build --tag kit-review-runtime .github/scripts/Review
+      - name: Review data without executing PR code
+        env:
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+        run: python .github/scripts/Review/RunModel.py
+      - name: Obtain credential persistence token
+        if: always()
+        id: auth-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-environments: write
+      - name: Persist refreshed login and remove local credentials
+        if: always() && steps.auth-token.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ steps.auth-token.outputs.token }}
+        run: python .github/scripts/Review/SaveAuth.py
+      - name: Validate untrusted report
+        run: python .github/scripts/Review/Validate.py ReviewOutput/Report.json ReviewInput/Context.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ReviewOutput
+          path: ReviewOutput/Report.json
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    name: Publish verified app review
+    needs: review
+    environment: AccountReview
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewInput
+          path: ReviewInput
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewOutput
+          path: ReviewOutput
+      - name: Obtain review publisher token
+        id: review-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-pull-requests: write
+          permission-checks: write
+          permission-actions: read
+          permission-contents: read
+      - name: Publish current head review and native report
+        env:
+          GH_TOKEN: ${{ steps.review-token.outputs.token }}
+          REVIEW_APP_ID: ${{ vars.REVIEW_APP_ID }}
+        run: python .github/scripts/Review/Publish.py
+
+  react:
+    name: Complete review outcome
+    needs: [admit, prepare, review, publish]
+    if: always() && (needs.prepare.outputs.selected == 'true' || needs.admit.outputs.mention == 'true')
+    environment: AccountReview
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        if: needs.prepare.outputs.selected == 'true'
+        with:
+          name: ReviewInput
+          path: ReviewInput
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        if: needs.admit.outputs.mention == 'true'
+        with:
+          name: ReviewRequest
+          path: ReviewRequest
+      - name: Obtain completion report and reaction token
+        id: reaction-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-issues: write
+          permission-pull-requests: read
+          permission-checks: write
+      - name: Publish failed native report when the workflow did not complete
+        if: needs.prepare.outputs.selected == 'true' && (needs.prepare.result != 'success' || (needs.prepare.outputs.ready == 'true' && needs.publish.result != 'success'))
+        env:
+          GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
+        run: python .github/scripts/Review/FailReview.py
+      - name: Replace progress reaction with verified outcome
+        if: always() && steps.reaction-token.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
+          REVIEW_SUCCEEDED: ${{ needs.publish.result == 'success' }}
+        run: python .github/scripts/Review/ReactMention.py complete

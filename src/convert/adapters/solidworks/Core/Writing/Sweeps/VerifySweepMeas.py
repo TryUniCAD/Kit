@@ -1,7 +1,9 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Construction.Sweeps.SweepPart import SweepPart
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import (
+    KOracleSpFive,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
@@ -32,7 +34,7 @@ def VerifySweepMeas(
                     "native_result_sha256": ReadMeasSha(
                         Receipt.get("native_result_sha256")
                     ),
-                    "oracle_build": KOraclePart["build"],
+                    "oracle_build": KOracleSpFive["build"],
                     "phase_record_sha256": PhaseHashes,
                     "independent_source_sha256": ReadSwHashes(
                         CaseValue.get("independent_source_sha256")

@@ -1,0 +1,53 @@
+{
+  "scope": "Worker lifetimes, including native transport waits; not a CPU throughput claim",
+  "readers": [
+    {
+      "group": "initial",
+      "reader_job": "decode-strict-valid-prefix",
+      "reader_receipt_sha256": "7616f959131967f917f244d1130712f5edc77afc8911c421e36f5be1d2d50d09",
+      "models": false,
+      "witnesses": [
+        {
+          "native_job": "verify-baseline",
+          "worker_lifetime_overlap_seconds": 5.726420879364014
+        }
+      ]
+    },
+    {
+      "group": "initial",
+      "reader_job": "decode-partial-valid-prefix",
+      "reader_receipt_sha256": "c9f59cd55fdda72db996d6c030da4892136c3ef0262e48dea187ed983d3798e1",
+      "models": false,
+      "witnesses": [
+        {
+          "native_job": "verify-baseline",
+          "worker_lifetime_overlap_seconds": 5.569828033447266
+        }
+      ]
+    },
+    {
+      "group": "Expansion",
+      "reader_job": "expand-decode-strict-valid-prefix",
+      "reader_receipt_sha256": "bfe615f523fb249e245a3d4af8b32760a41ac2c4c719b45d69231330f228e923",
+      "models": false,
+      "witnesses": [
+        {
+          "native_job": "verify-wide_first_small",
+          "worker_lifetime_overlap_seconds": 1.5175507068634033
+        }
+      ]
+    },
+    {
+      "group": "Expansion",
+      "reader_job": "expand-decode-partial-valid-prefix",
+      "reader_receipt_sha256": "e1e3bf4997d148557eba24a805ae7d6a9d4dd930dc9aa6fda292eefaa12221cd",
+      "models": false,
+      "witnesses": [
+        {
+          "native_job": "verify-wide_first_small",
+          "worker_lifetime_overlap_seconds": 3.2389397621154785
+        }
+      ]
+    }
+  ]
+}

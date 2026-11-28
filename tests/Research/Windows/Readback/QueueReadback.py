@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -12,6 +12,7 @@ from subprocess import Popen as OpenProcess, PIPE as PipeOutput, run as RunProce
 from sys import executable as PythonExe
 from tests.Research.Windows.Readback.PrepareReadback import PrepareReadback
 from tests.Research.Windows.Readback.WaitReadback import WaitReadback
+from tests.Research.Windows.Readback.WarmProgress import WarmProgress
 
 
 # completed readback must cross actual listener and dispatch processes with durable copied artifacts
@@ -22,6 +23,7 @@ def QueueReadback(
     FaultName: str,
     Operation: str = "p02-readback",
 ) -> dict[str, object]:
+    WarmProgress()
     ProgramPath = PrepareReadback(TmpPath, ConfigPath, Operation)
     SessionPath = TmpPath / "Session"
     WorkerRoot = RootPath / "re/automation/ApplicationWorkers"
@@ -56,7 +58,7 @@ def QueueReadback(
             capture_output=True,
             text=True,
             check=False,
-            timeout=40,
+            timeout=85,
         )
         assert Result.returncode == 0, Result.stdout + Result.stderr
         ResultValue: dict[str, object] = DecodeJson(

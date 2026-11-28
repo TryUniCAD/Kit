@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1787" role="img" aria-labelledby="title description">
+<title id="title">Kit dependency Gantt</title>
+<desc id="description">Ordinal dependency tiers, not elapsed time or promised delivery dates. Every bar is one task, not a duration. Status and ownership are dated register observations.</desc>
+<rect width="1200" height="1787" fill="#faf9f6"/>
+<g font-family="sans-serif" font-size="12" fill="#242321">
+<text x="16" y="24" font-size="17">Dependency Gantt — no calendar estimates assigned</text>
+<text x="16" y="45">Register observations; source gates and evidence still apply · red blocked · ochre active/checking · green recorded complete</text>
+<text x="610.0" y="70">Tier 0</text>
+<path d="M610.0 80V1787" stroke="#dedbd5"/>
+<text x="680.0" y="70">Tier 1</text>
+<path d="M680.0 80V1787" stroke="#dedbd5"/>
+<text x="750.0" y="70">Tier 2</text>
+<path d="M750.0 80V1787" stroke="#dedbd5"/>
+<text x="820.0" y="70">Tier 3</text>
+<path d="M820.0 80V1787" stroke="#dedbd5"/>
+<text x="890.0" y="70">Tier 4</text>
+<path d="M890.0 80V1787" stroke="#dedbd5"/>
+<text x="960.0" y="70">Tier 5</text>
+<path d="M960.0 80V1787" stroke="#dedbd5"/>
+<text x="1030.0" y="70">Tier 6</text>
+<path d="M1030.0 80V1787" stroke="#dedbd5"/>
+<text x="1100.0" y="70">Tier 7</text>
+<path d="M1100.0 80V1787" stroke="#dedbd5"/>
+<text x="16" y="100">B01 · Supported version, feature and route matrix</text>
+<text x="16" y="114" fill="#66615b" font-size="10">active · Codex B01 matrix worker; scoped delivery below</text>
+<rect x="610.0" y="89" width="62.0" height="22" rx="2" fill="#9b773f"><title>B01: Every intended family has explicit file types, vendor versions, feature scope and directional routes, with evidence or named gaps.</title></rect>
+<text x="16" y="136">B02 · Independent paired semantic qualification</text>
+<text x="16" y="150" fill="#66615b" font-size="10">blocked · PR #94 register: A02d, A04c, A05c</text>
+<rect x="610.0" y="125" width="62.0" height="22" rx="2" fill="#8b554e"><title>B02: Initial paired sketches, bosses and cuts have independent inventories, resolved bindings and measured controls.</title></rect>
+<text x="16" y="172">B03 · Graph comparison and proven format rules</text>
+<text x="16" y="186" fill="#66615b" font-size="10">blocked · PR #94 register: A06, A07, A09</text>
+<rect x="680.0" y="161" width="62.0" height="22" rx="2" fill="#8b554e"><title>B03: Ambiguities, field rules and counterexamples are traceable. Qualified comparisons and held-out codecs pass remote gates.</title></rect>
+<text x="16" y="208">B04 · Portable neutral-to-native writers</text>
+<text x="16" y="222" fill="#66615b" font-size="10">blocked · PR #94 register: A11, A12; coordinate PR #121</text>
+<rect x="750.0" y="197" width="62.0" height="22" rx="2" fill="#8b554e"><title>B04: Both writers derive every byte and required relationship from portable semantics, without donor blocks or a CAD runtime.</title></rect>
+<text x="16" y="244">B05 · First bidirectional editable conversion</text>
+<text x="16" y="258" fill="#66615b" font-size="10">planned · PR #94 register: A13</text>
+<rect x="820.0" y="233" width="62.0" height="22" rx="2" fill="#77716a"><title>B05: Both initial directions pass public SDK, preservation, independent edits, restore, rebuild, save and fresh-process reopen.</title></rect>
+<text x="16" y="280">B06 · Ordinary part histories and schema coverage</text>
+<text x="16" y="294" fill="#66615b" font-size="10">planned · PR #94 register: A16; child owners unassigned</text>
+<rect x="890.0" y="269" width="62.0" height="22" rx="2" fill="#77716a"><title>B06: Qualified sketches, constraints, expressions, cuts, revolutions, finishing operations, patterns and geometry pass held-out route acceptance.</title></rect>
+<text x="16" y="316">B07 · Complete assembly, configuration and drawing semantics</text>
+<text x="16" y="330" fill="#66615b" font-size="10">planned · PR #94 register: A16; coordinate drawing PRs</text>
+<rect x="960.0" y="305" width="62.0" height="22" rx="2" fill="#77716a"><title>B07: Supported documents preserve all occurrences, mates, variants, dependencies, drawing dimensions and links through edit/rebuild and reopen.</title></rect>
+<text x="16" y="352">B08 · Integrate existing native-format and evidence work</text>
+<text x="16" y="366" fill="#66615b" font-size="10">active · Each existing PR below owns its scoped delivery</text>
+<rect x="610.0" y="341" width="62.0" height="22" rx="2" fill="#9b773f"><title>B08: Accepted implementations are integrated without reviving donor writers. Their exact capability limits enter B01 and B12.</title></rect>
+<text x="16" y="388">B09 · Remaining CAD family adapters</text>
+<text x="16" y="402" fill="#66615b" font-size="10">planned · PR #94 register: A16 child claims</text>
+<rect x="890.0" y="377" width="62.0" height="22" rx="2" fill="#77716a"><title>B09: All nine roadmap families have qualified native reads and independent writes for their declared version scope.</title></rect>
+<text x="16" y="424">B10 · CLI workflow and error usability</text>
+<text x="16" y="438" fill="#66615b" font-size="10">available · Unassigned; separate scoped PR</text>
+<rect x="610.0" y="413" width="62.0" height="22" rx="2" fill="#77716a"><title>B10: Representative users install, select formats, convert, inspect results and recover from refusal without undocumented assistance.</title></rect>
+<text x="16" y="460">B11 · Documentation accuracy, accessibility and evaluation</text>
+<text x="16" y="474" fill="#66615b" font-size="10">available · Unassigned; separate scoped PR</text>
+<rect x="610.0" y="449" width="62.0" height="22" rx="2" fill="#77716a"><title>B11: Task guides match source and support limits. Rendered/narrow-view and representative-user findings are resolved or recorded explicitly.</title></rect>
+<text x="16" y="496">B12 · Directional conversion acceptance matrix</text>
+<text x="16" y="510" fill="#66615b" font-size="10">planned · Unassigned release owner; reuse PR #94&#x27;s A13 evidence</text>
+<rect x="680.0" y="485" width="62.0" height="22" rx="2" fill="#77716a"><title>B12: Every promised direction/version passes all CAD criteria on independent cases. Unsupported combinations refuse before output mutation.</title></rect>
+<text x="16" y="532">B13 · Unattended research and operating evidence</text>
+<text x="16" y="546" fill="#66615b" font-size="10">planned · PR #94 register: A15</text>
+<rect x="890.0" y="521" width="62.0" height="22" rx="2" fill="#77716a"><title>B13: The two-week pilot records recovery, parked jobs, interventions and independently accepted documents unlocked.</title></rect>
+<text x="16" y="568">B14 · Release, runtime and security qualification</text>
+<text x="16" y="582" fill="#66615b" font-size="10">planned · Unassigned release owner; separate scoped PRs</text>
+<rect x="750.0" y="557" width="62.0" height="22" rx="2" fill="#77716a"><title>B14: Clean supported installations, runtime isolation, bounded inputs, destination safety, required security gates and reproducible release evidence pass.</title></rect>
+<text x="16" y="604">A01 · Neutral contract and capability audit</text>
+<text x="16" y="618" fill="#66615b" font-size="10">complete · jdharcourt</text>
+<rect x="610.0" y="593" width="62.0" height="22" rx="2" fill="#526d50"><title>A01: Existing fields, demonstrated gaps, version scope and independent acceptance requirements documented</title></rect>
+<text x="16" y="640">A02 · Pinned corpus and paired authoring specifications</text>
+<text x="16" y="654" fill="#66615b" font-size="10">blocked · jdharcourt</text>
+<rect x="680.0" y="629" width="62.0" height="22" rx="2" fill="#8b554e"><title>A02: Hashed inputs, actual measurements, missing dependencies and independent holdout families recorded</title></rect>
+<text x="16" y="676">A03 · Durable evidence store and job controller</text>
+<text x="16" y="690" fill="#66615b" font-size="10">complete · jdharcourt</text>
+<rect x="680.0" y="665" width="62.0" height="22" rx="2" fill="#526d50"><title>A03: Transactional jobs, dependency invalidation, leases, bounded retries and interruption recovery verified remotely</title></rect>
+<text x="16" y="712">A04 · SOLIDWORKS → neutral reader integration</text>
+<text x="16" y="726" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="680.0" y="701" width="62.0" height="22" rx="2" fill="#9b773f"><title>A04: Initial sketches and feature variants preserve required semantics and report unresolved records accurately</title></rect>
+<text x="16" y="748">A05 · Fusion → neutral reader integration</text>
+<text x="16" y="762" fill="#66615b" font-size="10">active · Stephen316</text>
+<rect x="680.0" y="737" width="62.0" height="22" rx="2" fill="#9b773f"><title>A05: Equivalent initial designs serialize through the same contract with independently supported meaning</title></rect>
+<text x="16" y="784">A06 · Semantic graph comparison</text>
+<text x="16" y="798" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="750.0" y="773" width="62.0" height="22" rx="2" fill="#9b773f"><title>A06: Equal, intentionally different and ambiguous paired cases report correctly without broad identity masking</title></rect>
+<text x="16" y="820">A07 · Bounded deterministic inference and priority scheduler</text>
+<text x="16" y="834" fill="#66615b" font-size="10">blocked · Codex A07</text>
+<rect x="820.0" y="809" width="62.0" height="22" rx="2" fill="#8b554e"><title>A07: Real shared gaps yield traceable hypotheses, counterexamples and affected-file rescans without models</title></rect>
+<text x="16" y="856">A08 · Controlled sample and trace workers</text>
+<text x="16" y="870" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="845" width="62.0" height="22" rx="2" fill="#9b773f"><title>A08: Exact recipes and versioned receipts work with healthy controls; absent workers block only dependent jobs</title></rect>
+<text x="16" y="892">A09 · Scoped field maps and typed codec candidates</text>
+<text x="16" y="906" fill="#66615b" font-size="10">blocked · Unassigned</text>
+<rect x="890.0" y="881" width="62.0" height="22" rx="2" fill="#8b554e"><title>A09: Solved pad-then-pad family is reproduced without model calls, with independent proof and zero donor blocks</title></rect>
+<text x="16" y="928">A10 · Optional model investigation packets</text>
+<text x="16" y="942" fill="#66615b" font-size="10">planned · Unassigned</text>
+<rect x="960.0" y="917" width="62.0" height="22" rx="2" fill="#77716a"><title>A10: Models-off operation, fixed two-step escalation, a failure log, repeat-failure start-step routing, validated responses, cost limits and false-proposal rejection verified</title></rect>
+<text x="16" y="964">A11 · Portable neutral → Fusion writer</text>
+<text x="16" y="978" fill="#66615b" font-size="10">blocked · jdharcourt</text>
+<rect x="960.0" y="953" width="62.0" height="22" rx="2" fill="#8b554e"><title>A11: Qualified portable graphs generate native files without source replay, proprietary runtime or opaque replacements</title></rect>
+<text x="16" y="1000">A12 · Portable neutral → SOLIDWORKS writer</text>
+<text x="16" y="1014" fill="#66615b" font-size="10">blocked · Codex</text>
+<rect x="960.0" y="989" width="62.0" height="22" rx="2" fill="#8b554e"><title>A12: Qualified portable graphs generate native files from understood fields and reject unsupported required semantics</title></rect>
+<text x="16" y="1036">A13 · Bidirectional native acceptance</text>
+<text x="16" y="1050" fill="#66615b" font-size="10">planned · Unassigned</text>
+<rect x="1030.0" y="1025" width="62.0" height="22" rx="2" fill="#77716a"><title>A13: Both routes match body count, volume, center of mass and feature history, preserve all required constraints/dependencies, and pass independent driving-parameter edits, restoration, rebuild and save/reopen with healthy controls</title></rect>
+<text x="16" y="1072">A14 · Independent remote compatibility and regression gates</text>
+<text x="16" y="1086" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="750.0" y="1061" width="62.0" height="22" rx="2" fill="#9b773f"><title>A14: Exact-revision checks reject stale receipts, shared-reader/writer mistakes and unsupported input through real boundaries</title></rect>
+<text x="16" y="1108">A15 · Unattended operation, reports and forecast pilot</text>
+<text x="16" y="1122" fill="#66615b" font-size="10">planned · Unassigned</text>
+<rect x="890.0" y="1097" width="62.0" height="22" rx="2" fill="#77716a"><title>A15: Two-week operating evidence records recovery, no-progress parking, blockers and verified documents unlocked. Record model spend when enabled</title></rect>
+<text x="16" y="1144">A16 · Broader features and additional CAD families</text>
+<text x="16" y="1158" fill="#66615b" font-size="10">blocked · jdharcourt</text>
+<rect x="1100.0" y="1133" width="62.0" height="22" rx="2" fill="#8b554e"><title>A16: Each scoped feature/version/route has independent native acceptance; FreeCAD and CATIA use the same contract</title></rect>
+<text x="16" y="1180">ReviewerContinuous · Review each proposed revision independently of approva…</text>
+<text x="16" y="1194" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="1169" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerContinuous: Commit changes dispatch a new current-head model review even with failed CI or conflicts; app approval remains gated by current successful CI and mergeability; mentions acknowledge processing and use current trusted policy</title></rect>
+<text x="16" y="1216">ReviewerLiveEvidence · Live review base and mergeability qualification</text>
+<text x="16" y="1230" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="1205" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerLiveEvidence: Review snapshots bind live head and target revision; approval alone additionally requires successful matching CI and mergeability</title></rect>
+<text x="16" y="1252">ReviewerReactions · Mention review lifecycle reactions</text>
+<text x="16" y="1266" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="1241" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerReactions: Authorized mention receives an app reaction when model review starts and a native outcome reaction after publication or failure without exposing credentials to the model</title></rect>
+<text x="16" y="1288">ReviewerRuntime · Explicit default review model and reasoning</text>
+<text x="16" y="1302" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="1277" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerRuntime: Every hosted review passes the configured model and medium reasoning explicitly and reports the requested runtime without fallback</title></rect>
+<text x="16" y="1324">ReviewerBranding · Organization reviewer app name and logo</text>
+<text x="16" y="1338" fill="#66615b" font-size="10">complete · jdharcourt</text>
+<rect x="610.0" y="1313" width="62.0" height="22" rx="2" fill="#526d50"><title>ReviewerBranding: GitHub verifies the requested app display name and organization logo and the reviewer registry matches the actual resulting app and bot identities</title></rect>
+<text x="16" y="1360">ReviewerMentions · Trusted collaborator mention review requests</text>
+<text x="16" y="1374" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="1349" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerMentions: Live authorized mentions select the commented PR with current successful CI while rejected public comments never reach protected app or account credential jobs</title></rect>
+<text x="16" y="1396">AccountReviewer · Account authenticated review and GitHub App approval</text>
+<text x="16" y="1410" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="1385" width="62.0" height="22" rx="2" fill="#9b773f"><title>AccountReviewer: Revision bound end to end review posts priority findings and a five point score and approves only complete clean current head reviews after verified PR CI</title></rect>
+<text x="16" y="1432">PlanningViews · Repository planning register and dependency Gantt</text>
+<text x="16" y="1446" fill="#66615b" font-size="10">active · Codex planning agent</text>
+<rect x="610.0" y="1421" width="62.0" height="22" rx="2" fill="#9b773f"><title>PlanningViews: Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR</title></rect>
+<text x="16" y="1468">FusionRevolveContrast · Unequal two-sided construction-axis revolve contrasts</text>
+<text x="16" y="1482" fill="#66615b" font-size="10">checking · jdharcourt</text>
+<rect x="610.0" y="1457" width="62.0" height="22" rx="2" fill="#9b773f"><title>FusionRevolveContrast: Bounded A08h-FusionUnequalAxis20261127 evidence and unresolved findings are recorded in PR393; strict reads, general constraints, complete reconstruction and editable conversion remain open</title></rect>
+<text x="16" y="1504">UiInspector · Local decoded-document and evidence inspector</text>
+<text x="16" y="1518" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="680.0" y="1493" width="62.0" height="22" rx="2" fill="#77716a"><title>UiInspector: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1540">UiConversion · Conversion setup and route eligibility interface</text>
+<text x="16" y="1554" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="750.0" y="1529" width="62.0" height="22" rx="2" fill="#77716a"><title>UiConversion: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1576">UiPreservation · Preservation differences and refusal explanation interface</text>
+<text x="16" y="1590" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="750.0" y="1565" width="62.0" height="22" rx="2" fill="#77716a"><title>UiPreservation: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1612">UiResearch · Research queue and blocked-work interface</text>
+<text x="16" y="1626" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="750.0" y="1601" width="62.0" height="22" rx="2" fill="#77716a"><title>UiResearch: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1648">UxAccessibility · Keyboard navigation and accessible status reporting</text>
+<text x="16" y="1662" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="750.0" y="1637" width="62.0" height="22" rx="2" fill="#77716a"><title>UxAccessibility: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1684">UxCli · CLI workflow and recovery improvements</text>
+<text x="16" y="1698" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="680.0" y="1673" width="62.0" height="22" rx="2" fill="#77716a"><title>UxCli: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1720">UiPlanning · Planning board schedule editing and scope discovery</text>
+<text x="16" y="1734" fill="#66615b" font-size="10">checking · jdharcourt</text>
+<rect x="610.0" y="1709" width="62.0" height="22" rx="2" fill="#9b773f"><title>UiPlanning: React scope discovery, status filters, prompt copying and optional schedule exports are implemented in PR392; source generation and bundle build pass, configured review and queue acceptance remain pending</title></rect>
+<text x="16" y="1756">AgentDispatch · Direct local and Hoplite agent dispatch</text>
+<text x="16" y="1770" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="750.0" y="1745" width="62.0" height="22" rx="2" fill="#77716a"><title>AgentDispatch: Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client</title></rect>
+</g></svg>

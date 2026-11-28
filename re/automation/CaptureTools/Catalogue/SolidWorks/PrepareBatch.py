@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -10,19 +10,29 @@ from hashlib import sha256
 from json import dumps
 from pathlib import Path
 
+from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import KSolidBatchCases
 from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
 
 
 # native filenames must fit application limits before a licensed process is started
 def CheckBatchPaths(CaseValue, CaseOutput):
     Recipe = CaseValue["recipe"]
-    Program = CaseValue["options"]["program"]
     Suffixes = ["baseline-a", "baseline-b"]
-    Suffixes.extend(
-        "edit-" + Edit["parameter"] + "-" + format(Edit["value"], ".17g")
-        for Edit in Program["edits"]
-    )
-    Suffixes.extend(Variant["name"] for Variant in Program["variants"])
+    if "program" in CaseValue["options"]:
+        Program = CaseValue["options"]["program"]
+        Suffixes.extend(
+            "edit-" + Edit["parameter"] + "-" + format(Edit["value"], ".17g")
+            for Edit in Program["edits"]
+        )
+        Suffixes.extend(Variant["name"] for Variant in Program["variants"])
+    else:
+        Suffixes.extend(
+            "edit-" + Parameter + "-" + "0" * 32
+            for Parameter in CaseValue["parameters"]
+        )
+        Suffixes.extend(
+            ("units-inch", "plane-yz", "direction-negative", "termination-through-all")
+        )
     for Suffix in Suffixes:
         NativePath = (
             CaseOutput / Recipe / (Recipe + "-solidworks-" + Suffix + ".SLDPRT")
@@ -35,13 +45,11 @@ def CheckBatchPaths(CaseValue, CaseOutput):
 
 # real disk preparation can be verified without launching the native application boundary
 def PrepareBatch(Cases, OutputDirectory):
-    if not isinstance(Cases, list) or not 1 <= len(Cases) <= 3:
-        raise ValueError("SOLIDWORKS native batch requires one to three written cases")
-    Normal = [ValidateSolid(CaseValue) for CaseValue in Cases]
-    if any("program" not in CaseValue["options"] for CaseValue in Normal):
+    if not isinstance(Cases, list) or not 1 <= len(Cases) <= KSolidBatchCases:
         raise ValueError(
-            "SOLIDWORKS batching requires source pinned written recipe programs"
+            f"SOLIDWORKS native batch requires one to {KSolidBatchCases} configured cases"
         )
+    Normal = [ValidateSolid(CaseValue) for CaseValue in Cases]
     OutputPath = Path(OutputDirectory).resolve()
     SourceRoot = Path(__file__).resolve().parents[5]
     if OutputPath.is_relative_to(SourceRoot) or OutputPath.exists():

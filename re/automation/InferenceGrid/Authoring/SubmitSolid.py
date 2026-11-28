@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -20,7 +20,10 @@ def SubmitSolid(Directory, PlanValue, Resource):
     for Identity, Selection in PlanValue["samples"].items():
         if Selection["application"] != "solidworks":
             continue
-        if Selection["case"]["recipe"] in KRecipeBuilders:
+        if (
+            PlanValue.get("solidworks_batch_version") == 1
+            or Selection["case"]["recipe"] in KRecipeBuilders
+        ):
             continue
         CaseValue = {
             NameValue: Value

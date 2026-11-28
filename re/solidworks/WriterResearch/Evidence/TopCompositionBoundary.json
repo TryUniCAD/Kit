@@ -1,0 +1,199 @@
+{
+  "application_usable": false,
+  "archive": {
+    "bytes": 9390,
+    "sha256": "3ab3578b5a67f9c131b8744ab1c39de3799de2c7cdcf254cc62c956dc75213ba"
+  },
+  "body": {
+    "edge_count": 12,
+    "face_count": 6,
+    "solid_count": 1,
+    "vertex_count": 8,
+    "volume": 7584.3
+  },
+  "checkout_revision": "9bee1b97d5298977b21b98e54b78f93bbc65c6c6",
+  "composition_sha256": "35dc75f89a9ef4970c6bc3514d8eb2522e53130f6a6d3c3ca89e8bcd704d2d89",
+  "custody_identity_not_reused": true,
+  "emission_external_events": [],
+  "loaded_project_methods": {
+    "count": 3555,
+    "sha256": "7c3600f8b3ab5c60c7d05b7cfa365ecd364ca98e8da217e3d1d6fe11ae685fe4"
+  },
+  "method_sha256": "c1a4d0cd80272964e71b8bf8973015b35bf8d468681846aea85a781eba1e97c9",
+  "models_used": false,
+  "named_input_reads": [
+    "named_json_request"
+  ],
+  "process": {
+    "fresh_child": true,
+    "python_version": "3.14.6",
+    "returncode": 0
+  },
+  "readback_grammar": {
+    "reads": [
+      "src/convert/adapters/solidworks/Config/RootLayout.json"
+    ],
+    "sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29"
+  },
+  "refusals": [
+    {
+      "case": "extra_root",
+      "exception": "ValueError",
+      "message": "expected a version-1 Top annotation candidate request"
+    },
+    {
+      "case": "nonnull_aliases",
+      "exception": "ValueError",
+      "message": "expected exact configuration-owned annotation view fields"
+    },
+    {
+      "case": "wrong_configuration",
+      "exception": "ValueError",
+      "message": "Top annotation must bind the active neutral configuration"
+    },
+    {
+      "case": "unknown_view",
+      "exception": "ValueError",
+      "message": "expected a Top orthographic view-to-model frame with millimetre origin"
+    },
+    {
+      "case": "perspective",
+      "exception": "ValueError",
+      "message": "expected a Top orthographic view-to-model frame with millimetre origin"
+    },
+    {
+      "case": "inverse_frame",
+      "exception": "ValueError",
+      "message": "expected a Top orthographic view-to-model frame with millimetre origin"
+    },
+    {
+      "case": "metre_origin",
+      "exception": "ValueError",
+      "message": "expected a Top orthographic view-to-model frame with millimetre origin"
+    },
+    {
+      "case": "translated_origin",
+      "exception": "ValueError",
+      "message": "Top annotation requires zero translation and the exact Top cardinal frame"
+    },
+    {
+      "case": "opposite_normal",
+      "exception": "ValueError",
+      "message": "Top annotation requires zero translation and the exact Top cardinal frame"
+    },
+    {
+      "case": "wrong_up",
+      "exception": "ValueError",
+      "message": "Top annotation requires zero translation and the exact Top cardinal frame"
+    },
+    {
+      "case": "scaled_axis",
+      "exception": "ValueError",
+      "message": "Top annotation requires zero translation and the exact Top cardinal frame"
+    },
+    {
+      "case": "bool_component",
+      "exception": "ValueError",
+      "message": "Top annotation Transform requires numeric vector components"
+    },
+    {
+      "case": "foreign_document_metadata",
+      "exception": "ValueError",
+      "message": "plain boss candidate does not admit unprojected document metadata"
+    },
+    {
+      "case": "retained_native_archive",
+      "exception": "ValueError",
+      "message": "prepared writer document retains a native byte payload"
+    },
+    {
+      "case": "foreign_transform_field",
+      "exception": "TypeError",
+      "message": "Transform.__init__() got an unexpected keyword argument 'Foreign'"
+    },
+    {
+      "case": "source_attributes",
+      "exception": "ValueError",
+      "message": "plain part preparation does not admit unresolved or extended source state"
+    },
+    {
+      "case": "configuration_attributes",
+      "exception": "ValueError",
+      "message": "plain boss requires one active unmodified independent configuration"
+    },
+    {
+      "case": "feature_provenance",
+      "exception": "ValueError",
+      "message": "plain part preparation does not yet map source record provenance"
+    }
+  ],
+  "request_bytes": 4903,
+  "request_sha256": "d170becd392602a8ebbbb9c882dad887ea905304553aeaf9e0022f385e5b8411",
+  "schema": "kit.sw2026.top-composition-boundary.v1",
+  "source_intent_unchanged": true,
+  "streams": {
+    "Contents/CMgr": {
+      "bytes": 1145,
+      "sha256": "f3b11cbf30380b28fc7c0ae1c8bd08009d58e88a1720833bea0b59853508145a"
+    },
+    "Contents/CMgrHdr2": {
+      "bytes": 169,
+      "sha256": "aa8869aeb4e007d267727bd03b46ce0a9a97a18a03a8e40f0b233bad97ea2a86"
+    },
+    "Contents/Config-0": {
+      "bytes": 22540,
+      "sha256": "1f68e960008d422d7e9d59f5c489a50dfe07a99d8c2d88ff6ee52ec69da8e104"
+    },
+    "Contents/Config-0-ModelHeader": {
+      "bytes": 641,
+      "sha256": "ebfad394582cc72498d317115e063558acf198ab2671f9ae0dfa98ca8329d39d"
+    },
+    "Contents/Config-0-ResolvedFeatures": {
+      "bytes": 13867,
+      "sha256": "72bd9d98db52a4b282dbf81f17f4ed37609297c9a8c48de303897e228b20b523"
+    },
+    "Contents/Definition": {
+      "bytes": 459,
+      "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+    },
+    "Header2": {
+      "bytes": 641,
+      "sha256": "6e9395e33980955f6bb753b9b24cae842c8652dca7e2d0a6727091b3bcfee250"
+    },
+    "_MO_VERSION_19000/Biography": {
+      "bytes": 23,
+      "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+    },
+    "_MO_VERSION_19000/History": {
+      "bytes": 187,
+      "sha256": "f4131f5d7fbf41459585b8dbeadf6bc8d56f62150598bc1a9817b505a0329b0c"
+    },
+    "swXmlContents/KeyWords": {
+      "bytes": 1426,
+      "sha256": "9d9e86773e73583a283afea01887b329a6e1a99f36e2ad9fd3d5037113411b71"
+    }
+  },
+  "typed_readback": {
+    "annotation_id": 200,
+    "config_next_slot": 89,
+    "configuration_id": "sldprt:configuration:0",
+    "display_high_water": 200,
+    "independent_view_seed": 199,
+    "matrix_binary64": [
+      "0x1.0000000000000p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x1.0000000000000p+0",
+      "-0x0.0p+0",
+      "-0x1.0000000000000p+0",
+      "-0x0.0p+0"
+    ],
+    "resolved_base": 89,
+    "resolved_next_slot": 204,
+    "resolved_roots": 19,
+    "role": "top"
+  },
+  "vendor_loadable": false
+}
