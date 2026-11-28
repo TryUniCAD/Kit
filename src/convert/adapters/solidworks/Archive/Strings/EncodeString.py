@@ -1,5 +1,18 @@
-from struct import pack as PackValue
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
+
+from convert.adapters.solidworks.Archive.Strings.StringField import (
+    KTextByte,
+    KTextWord,
+    KTextLong,
+    KTextWordMark,
+    KTextWideMark,
+    KTextLongMark,
+    KTextLengthMax,
+    KWideEncoding,
+    KWideErrors,
+    KByteEncoding,
+    KWideUnitBytes,
+)
 
 
 # native strings must derive every header and payload byte from supplied text
@@ -12,20 +25,32 @@ def EncodeString(StringValue: CStringValue, *, IsSourceFrame: bool = False) -> b
         raise ValueError("native wide string output requires Unicode text")
     try:
         PayloadValue = (
-            StringValue.TextValue.encode("utf-16-le", "surrogatepass")
+            StringValue.TextValue.encode(KWideEncoding, KWideErrors)
             if StringValue.IsUnicode
-            else StringValue.TextValue.encode("latin-1")
+            else StringValue.TextValue.encode(KByteEncoding)
         )
     except UnicodeEncodeError:
         raise ValueError("archive ANSI text is outside the byte domain") from None
-    UnitCount = len(PayloadValue) // 2 if StringValue.IsUnicode else len(PayloadValue)
-    if UnitCount > 0x7FFFFFFF:
+    UnitCount = (
+        len(PayloadValue) // KWideUnitBytes
+        if StringValue.IsUnicode
+        else len(PayloadValue)
+    )
+    if UnitCount > KTextLengthMax:
         raise ValueError("archive string length exceeds the signed CString domain")
-    if UnitCount < 0xFF:
-        LengthValue = PackValue("<B", UnitCount)
-    elif UnitCount < 0xFFFE:
-        LengthValue = PackValue("<BH", 0xFF, UnitCount)
+    if UnitCount < KTextWordMark:
+        LengthValue = KTextByte.pack(UnitCount)
+    elif UnitCount < KTextWideMark:
+        LengthValue = KTextByte.pack(KTextWordMark) + KTextWord.pack(UnitCount)
     else:
-        LengthValue = PackValue("<BHI", 0xFF, 0xFFFF, UnitCount)
-    PrefixValue = PackValue("<BH", 0xFF, 0xFFFE) if StringValue.IsUnicode else b""
+        LengthValue = (
+            KTextByte.pack(KTextWordMark)
+            + KTextWord.pack(KTextLongMark)
+            + KTextLong.pack(UnitCount)
+        )
+    PrefixValue = (
+        (KTextByte.pack(KTextWordMark) + KTextWord.pack(KTextWideMark))
+        if StringValue.IsUnicode
+        else b""
+    )
     return PrefixValue + LengthValue + PayloadValue

@@ -1,10 +1,14 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 
+from convert.adapters.solidworks.Archive.Bodies.Fields.FixedByteField import (
+    KFixedByteSize,
+)
+
 
 # explicit native fixed width fields need bounded ownership rather than a residual byte tail
 def ReadBytesMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
-    if RuleValue.MaskValue != 16:
+    if RuleValue.MaskValue != KFixedByteSize:
         raise ValueError("unsupported native fixed byte field width")
     Value = FrameValue.ReaderValue.Cursor.TakeBytes(RuleValue.MaskValue)
     FrameValue.ScopeValue.FieldsValue[RuleValue.NameValue] = Value

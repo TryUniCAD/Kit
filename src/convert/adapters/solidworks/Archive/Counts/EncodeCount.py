@@ -1,4 +1,11 @@
-from struct import pack as PackValue
+from convert.adapters.solidworks.Archive.Counts.CountField import (
+    KCountShort,
+    KCountLong,
+    KCountWide,
+    KCountLongMark,
+    KCountWideMark,
+    KCountWideMax,
+)
 
 
 # native count widths must follow model cardinality without saved payloads
@@ -7,11 +14,15 @@ def EncodeCount(CountValue: int, *, IsFramework: bool = False) -> bytes:
         raise TypeError(
             "archive counts require an integer and an explicit boolean domain"
         )
-    UpperLimit = (1 << 64) - 1 if IsFramework else (1 << 32) - 1
+    UpperLimit = KCountWideMax if IsFramework else KCountWideMark
     if not 0 <= CountValue <= UpperLimit:
         raise ValueError("archive count exceeds its unsigned domain")
-    if CountValue < 0xFFFF:
-        return PackValue("<H", CountValue)
-    if not IsFramework or CountValue < 0xFFFFFFFF:
-        return PackValue("<HI", 0xFFFF, CountValue)
-    return PackValue("<HIQ", 0xFFFF, 0xFFFFFFFF, CountValue)
+    if CountValue < KCountLongMark:
+        return KCountShort.pack(CountValue)
+    if not IsFramework or CountValue < KCountWideMark:
+        return KCountShort.pack(KCountLongMark) + KCountLong.pack(CountValue)
+    return (
+        KCountShort.pack(KCountLongMark)
+        + KCountLong.pack(KCountWideMark)
+        + KCountWide.pack(CountValue)
+    )

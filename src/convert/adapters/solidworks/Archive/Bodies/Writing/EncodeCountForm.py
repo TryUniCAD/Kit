@@ -1,6 +1,12 @@
-from struct import pack as PackValue
-
 from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
+
+from convert.adapters.solidworks.Archive.Counts.CountField import (
+    KCountShort,
+    KCountLong,
+    KCountWide,
+    KCountLongMark,
+    KCountWideMark,
+)
 
 
 # equivalent source counts may require a length beyond the canonical emitted form
@@ -12,8 +18,18 @@ def EncodeCountForm(
     Canonical = EncodeCount(CountValue, IsFramework=IsFramework)
     if WidthValue == len(Canonical):
         return Canonical
-    if WidthValue == 6 and len(Canonical) == 2:
-        return PackValue("<HI", 0xFFFF, CountValue)
-    if WidthValue == 14 and IsFramework:
-        return PackValue("<HIQ", 0xFFFF, 0xFFFFFFFF, CountValue)
+    if (
+        WidthValue == KCountShort.size + KCountLong.size
+        and len(Canonical) == KCountShort.size
+    ):
+        return KCountShort.pack(KCountLongMark) + KCountLong.pack(CountValue)
+    if (
+        WidthValue == KCountShort.size + KCountLong.size + KCountWide.size
+        and IsFramework
+    ):
+        return (
+            KCountShort.pack(KCountLongMark)
+            + KCountLong.pack(KCountWideMark)
+            + KCountWide.pack(CountValue)
+        )
     raise ValueError("archive count width conflicts with its value or domain")

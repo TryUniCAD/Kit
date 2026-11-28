@@ -1,13 +1,18 @@
 from collections.abc import Mapping
-from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Header.HeaderFields import (
     KHeaderLayout,
     KHeaderScalars,
-    KHeaderWords,
 )
-from convert.adapters.solidworks.Archive.Header.ReadHeaderBounds import KHeaderBox
+from convert.adapters.solidworks.Archive.Header.HeaderBoundsField import (
+    HasFiniteBounds,
+    KBoundsAbsent,
+    KBoundsPresence,
+    KBoundsPresent,
+    KBoundsRadiusIndex,
+    KHeaderBox,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.ObjectStore import ObjectStore
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -27,19 +32,17 @@ def StoreTextMut(Buffer: bytearray, Value: object) -> None:
 # optional bounds derive their presence and numeric wire values from the model
 def StoreBoundsMut(Buffer: bytearray, Value: object) -> None:
     if Value is None:
-        Buffer.extend(KHeaderWords["I"].pack(0))
+        Buffer.extend(KBoundsPresence.pack(KBoundsAbsent))
         return
     if not isinstance(Value, tuple):
         raise ValueError("SOLIDWORKS header requires ten bounding box values")
     Numbers = CastValue(tuple[object, ...], Value)
-    if len(Numbers) != 10 or not all(
-        isinstance(Number, (int, float)) and IsFinite(Number) for Number in Numbers
-    ):
+    if not HasFiniteBounds(Numbers):
         raise ValueError("invalid SOLIDWORKS header bounding box")
     Bounds = CastValue(tuple[float, ...], Numbers)
-    if Bounds[9] < 0:
+    if Bounds[KBoundsRadiusIndex] < 0:
         raise ValueError("invalid SOLIDWORKS header bounding sphere radius")
-    Buffer.extend(KHeaderWords["I"].pack(1))
+    Buffer.extend(KBoundsPresence.pack(KBoundsPresent))
     Buffer.extend(KHeaderBox.pack(*Bounds))
 
 

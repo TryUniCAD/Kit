@@ -1,6 +1,14 @@
-from struct import unpack_from as UnpackValue
-
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
+
+from convert.adapters.solidworks.Archive.Tags.TagField import (
+    KTagShort,
+    KTagLong,
+    KTagNull,
+    KTagNewClass,
+    KTagWideMark,
+    KTagClassBit,
+    KTagWideClass,
+)
 
 
 # native tag boundaries must remain independent of descriptor and object allocation
@@ -12,25 +20,27 @@ def ReadTag(
     if type(OffsetValue) is not int:
         raise TypeError("archive tag position must be an integer")
     EndValue = len(BufferValue) if LimitValue is None else LimitValue
-    if OffsetValue < 0 or not OffsetValue + 2 <= EndValue <= len(BufferValue):
+    if OffsetValue < 0 or not OffsetValue + KTagShort.size <= EndValue <= len(
+        BufferValue
+    ):
         raise ValueError("archive tag has no complete unsigned short")
-    TagWord = int(UnpackValue("<H", BufferValue, OffsetValue)[0])
-    NextOffset = OffsetValue + 2
-    if TagWord == 0xFFFF:
+    TagWord = int(KTagShort.unpack_from(BufferValue, OffsetValue)[0])
+    NextOffset = OffsetValue + KTagShort.size
+    if TagWord == KTagNewClass:
         return ArchiveTag("NewClass", None), NextOffset
-    if TagWord == 0x7FFF:
-        if NextOffset + 4 > EndValue:
+    if TagWord == KTagWideMark:
+        if NextOffset + KTagLong.size > EndValue:
             raise ValueError("archive tag has no complete unsigned dword")
-        TagWord = int(UnpackValue("<I", BufferValue, NextOffset)[0])
-        NextOffset += 4
-        ClassMask = 0x80000000
+        TagWord = int(KTagLong.unpack_from(BufferValue, NextOffset)[0])
+        NextOffset += KTagLong.size
+        ClassMask = KTagWideClass
     else:
-        ClassMask = 0x8000
+        ClassMask = KTagClassBit
     IndexValue = TagWord & (ClassMask - 1)
     if TagWord & ClassMask:
-        if IndexValue == 0:
+        if IndexValue == KTagNull:
             raise ValueError("archive class reference cannot use reserved index zero")
         return ArchiveTag("ClassRef", IndexValue), NextOffset
-    if IndexValue == 0:
+    if IndexValue == KTagNull:
         return ArchiveTag("Null", None), NextOffset
     return ArchiveTag("ObjectRef", IndexValue), NextOffset
