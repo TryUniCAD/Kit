@@ -23,10 +23,10 @@
       "author": "jdharcourt",
       "headBranch": "fix/reviewer-hosted-runtime-20261128",
       "baseBranch": "main",
-      "state": "open",
+      "state": "merged",
       "isDraft": false,
       "reviewDecision": "review-required",
-      "checksState": "failing",
+      "checksState": "passing",
       "updatedAt": "2026-11-28T18:02:03Z"
     },
     {
@@ -77,9 +77,9 @@
       "baseBranch": "main",
       "state": "open",
       "isDraft": false,
-      "reviewDecision": "review-required",
+      "reviewDecision": "changes-requested",
       "checksState": "failing",
-      "updatedAt": "2026-11-28T17:50:21Z"
+      "updatedAt": "2026-11-28T18:58:52Z"
     },
     {
       "number": 404,

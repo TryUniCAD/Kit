@@ -83,6 +83,7 @@ flowchart LR
   A16["A16: Broader features and additional CAD families"]
   A13 --> A16
   A15 --> A16
+  ReviewerCoverage["ReviewerCoverage: Verified generated planning coverage for account reviews"]
   ReviewerHosted["ReviewerHosted: Hosted reviewer runtime and message lifecycle acceptance"]
   ReviewerContinuous["ReviewerContinuous: Review each proposed revision independently of approval gates"]
   ReviewerLiveEvidence["ReviewerLiveEvidence: Live review base and mergeability qualification"]

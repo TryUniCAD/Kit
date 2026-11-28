@@ -126,6 +126,9 @@ CI evidence must match the live target branch ref, and GitHub must report the PR
 An old `base.sha` in PR metadata does not establish the current target branch revision.
 Model input is bounded to forty files and 900,000 encoded bytes; individual sources are bounded to 160,000 bytes.
 Code is prioritized before generated views. Binary, oversized, and omitted sources are explicitly identified as unavailable.
+The two generated planning BoardData outputs can instead carry exact reconstruction receipts under the [strict generated coverage requirements](../Changes/Review/GeneratedPlanningCoverage.md).
+This requires an unchanged trusted generator, unchanged other dependencies, fully supplied supported input changes, matching before and after bytes, and a current trusted base.
+Failed or unsupported reconstruction retains partial coverage and never authorizes approval.
 The available source can still receive a partial review, but the trusted publisher refuses approval whenever source coverage is incomplete.
 The model must report incomplete review when surrounding context is insufficient.
 Before-content comes from the merge base; target-content shows concurrent changes on the live target.
