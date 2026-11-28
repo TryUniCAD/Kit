@@ -140,9 +140,31 @@ public static class SheetMetalCapture
         var features = Features(doc);
         var configuration = doc.ConfigurationManager.ActiveConfiguration;
         Check(configuration != null && !String.IsNullOrEmpty(configuration.Name), "Missing active configuration");
-        return Row("configuration", configuration.Name, "rebuild", true, "bodies",
-            bodies.Select(body => BodyRow(doc, body)).ToArray(), "features",
-            features.Select(feature => FeatureRow(doc, feature)).ToArray());
+        var flatOwners = new Dictionary<int, IFeature>();
+        foreach (var flat in features.Where(feature => feature.GetTypeName2() == "FlatPattern"))
+        {
+            var descendants = new List<IFeature>();
+            AddFeature(descendants, flat, 0);
+            foreach (var folder in descendants.Where(feature => feature.GetTypeName2() == "FoldUpDownSketchFolder"))
+            {
+                IFeature previous;
+                if (flatOwners.TryGetValue(folder.GetID(), out previous))
+                    Check(previous.GetID() == flat.GetID(), "The native fold folder has ambiguous flat-pattern owners");
+                else
+                    flatOwners.Add(folder.GetID(), flat);
+            }
+        }
+        var rows = features.Select(feature =>
+        {
+            var row = FeatureRow(doc, feature);
+            IFeature flat;
+            if (flatOwners.TryGetValue(feature.GetID(), out flat))
+                row.Add("fold_folder_owner", Row("name", flat.Name, "feature_id", flat.GetID(),
+                    "persist_reference", Identity(doc, flat), "suppressed", flat.IsSuppressed()));
+            return row;
+        }).ToArray();
+        return Row("configuration", configuration.Name, "configuration_id", configuration.GetID(),
+            "rebuild", true, "bodies", bodies.Select(body => BodyRow(doc, body)).ToArray(), "features", rows);
     }
 
     static double[] InSketch(ISldWorks app, ISketch sketch, double[] xy, double worldZ)

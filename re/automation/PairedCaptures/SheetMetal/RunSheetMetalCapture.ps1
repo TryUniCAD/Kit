@@ -81,10 +81,26 @@ function Assert-EquivalentObservation($Authored, $Reopened) {
             }
         }
     }
-    $featureKey = { "$($_.name)|$($_.type)|$($_.suppressed)|$($_.body_members.name -join ',')" }
-    $expectedFeatures = ($Authored.features | ForEach-Object $featureKey) -join [Environment]::NewLine
-    $actualFeatures = ($Reopened.features | ForEach-Object $featureKey) -join [Environment]::NewLine
-    if ($expectedFeatures -cne $actualFeatures) { throw 'Native feature order, suppression or cut-list membership changed on reopen.' }
+    if ($Authored.configuration_id -ne $Reopened.configuration_id) { throw 'Native configuration ID changed on reopen.' }
+    if ($Authored.features.Count -ne $Reopened.features.Count) { throw 'Native feature count changed on reopen.' }
+    for ($index = 0; $index -lt $Authored.features.Count; ++$index) {
+        $left = $Authored.features[$index]
+        $right = $Reopened.features[$index]
+        if ($left.name -cne $right.name -or $left.type -cne $right.type -or $left.feature_id -ne $right.feature_id -or
+            $left.error -ne $right.error -or $left.warning -ne $right.warning -or
+            ($left.body_members.name -join ',') -cne ($right.body_members.name -join ',') -or
+            ($left.parents.feature_id -join ',') -cne ($right.parents.feature_id -join ',')) {
+            throw "Native feature identity, order, diagnostics, parents or cut-list membership changed at index $index."
+        }
+        if ($left.suppressed -eq $right.suppressed) { continue }
+        $from = $left.fold_folder_owner
+        $to = $right.fold_folder_owner
+        if ($left.type -cne 'FoldUpDownSketchFolder' -or !$from -or !$to -or !$from.suppressed -or !$to.suppressed -or
+            $from.feature_id -ne $to.feature_id -or $from.name -cne $to.name -or
+            [string]::IsNullOrEmpty($from.persist_reference) -or $from.persist_reference -cne $to.persist_reference) {
+            throw "Native feature suppression changed at index $index for $($left.name)."
+        }
+    }
 }
 
 $repository = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../../..')).Path
