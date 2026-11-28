@@ -13,7 +13,11 @@ This diagnostic does not verify the Rust Codex client's transport, account authe
 The [review guide](../../Tasks/AccountReviewer.md#probe-hosted-connectivity) gives the dispatch procedure.
 
 Local verification covered patch applicability, the YAML job dependency structure, Bash and Node syntax, and pinned formatting.
-The local Windows process reported successful DNS and TLS checks, followed by HTTP 405 for both hosts.
-This local result does not establish hosted-container reachability. The hosted probe has not run.
+The local Windows Node 24.14.0 process reported successful DNS and TLS checks, followed by HTTP 405 for both hosts.
+This local result does not establish hosted-container reachability. The [hosted run](https://github.com/TryUniCAD/Kit/actions/runs/46177424027) passed on probe revision `b940314f169c7e97f42c0723033dbd2ea6fea269`.
+Its pinned container also reported DNS and TLS success, followed by HTTP 405 for both hosts.
+All five credentialed review-path jobs were skipped.
+The [receipt](../../../re/automation/ReviewConnectivity/HostedReceipt.json) retains the exact run, job and source identities.
+The authenticated review failure remains unresolved; this probe establishes no review approval.
 
 See [transport evidence limits](../../Gotchas/Ci/Review/ReviewTransportEvidence.md).

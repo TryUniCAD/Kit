@@ -610,7 +610,7 @@
       "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/121",
       "Branch": "codex/solidworks-2026-native",
       "Exit": "No conflicts, preserved fixture modes, passing affected process regressions and current-head CI plus configured approval; broader CAD qualification and merge-group acceptance remain separate",
-      "Blocker": "Trusted full-review coverage and account-runtime transport remain unresolved; credential-free hosted reachability probe prepared on the existing delivery; project sync pending"
+      "Blocker": "Trusted full-review coverage and the authenticated runtime failure remain unresolved; credential-free hosted Node reachability passed at b940314f169c7e97f42c0723033dbd2ea6fea269; project sync pending"
     }
   ],
   "Dependencies": {

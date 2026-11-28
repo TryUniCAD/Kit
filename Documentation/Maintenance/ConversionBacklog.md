@@ -391,7 +391,7 @@ Merge repair `3c9743257cb77b508666b7d68ff56a2b5af46e86` is conflict-free and pas
 The current reviewer selects at most 40 changed files. The repair comparison reports 9,906 local diff entries; GitHub reports 9,914 changed files at documentation head `623c9b7dfc627eb76cff74506dd0764fec84ce5b`.
 Its publisher requires complete source coverage, so this parent cannot receive approval under that collector.
 Complete review support or prior delivery integration is required without reducing coverage or hiding files.
-The current account-review service also has connection failures on other inspected heads. The [credential-free probe](../Changes/Review/ReviewerConnectivityProbe.md) investigates DNS, TLS and HTTP reachability; native review and complete coverage remain required.
+The current account-review service also has connection failures on other inspected heads. The [credential-free hosted probe](../Changes/Review/ReviewerConnectivityProbe.md) passed on `b940314f169c7e97f42c0723033dbd2ea6fea269`, with both hosts reaching HTTP 405. The actual authenticated review path and complete source coverage remain unresolved.
 Merge-group acceptance remains deferred. Broader B08 and CAD qualification remain unfinished.
 The [merge record](../Changes/Ci/Testing/SolidworksReadinessFixtureMerge.md) records verification and limitations.
 Native project synchronization is pending because this session has no project mutation connection.
