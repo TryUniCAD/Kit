@@ -188,7 +188,9 @@ def CheckSchedule(TmpPath: FilePath, Scope: str) -> None:
 
 
 # authored binary streams distinguish the generic numeric search from any native format grammar
-def WriteFieldPlan(RootPath: FilePath, Refute: bool) -> dict[str, dict[str, str]]:
+def WriteFieldPlan(
+    RootPath: FilePath, Refute: bool, HoldoutValues: tuple[float, float] | None = None
+) -> dict[str, dict[str, str]]:
     Samples: list[dict[str, object]] = []
     Provenance: dict[str, dict[str, str]] = {}
     Inputs: dict[str, dict[str, str]] = {}
@@ -196,7 +198,11 @@ def WriteFieldPlan(RootPath: FilePath, Refute: bool) -> dict[str, dict[str, str]
         ((1.25, "discovery"), (2.75, "discovery"), (4.5, "holdout"))
     ):
         Identity = f"sample-{Index}"
-        Content = PackValue("<d", 6.25 if Refute and Split == "holdout" else Value)
+        StoredValue = 6.25 if Refute and Split == "holdout" else Value
+        StoredValues = (StoredValue,)
+        if HoldoutValues is not None:
+            StoredValues = HoldoutValues if Split == "holdout" else (Value, Value)
+        Content = PackValue(f"<{len(StoredValues)}d", *StoredValues)
         Descriptor = WriteInput(RootPath, Identity, Content)
         Inputs[Identity] = Descriptor
         Provenance[Identity] = {
@@ -214,7 +220,7 @@ def WriteFieldPlan(RootPath: FilePath, Refute: bool) -> dict[str, dict[str, str]
                 "sha256": Descriptor["sha256"],
                 "stream": "authored.numeric",
                 "start": 0,
-                "length": 8,
+                "length": len(Content),
                 "value": Value,
                 "controls": {},
                 "role": Identity,
@@ -256,6 +262,40 @@ def CheckFields(TmpPath: FilePath, Refute: bool) -> None:
     assert len(Hypotheses) == 1 and Hypotheses[0]["relative_offset"] == 0
     assert Hypotheses[0]["confidence"] == ("refuted" if Refute else "partial")
     assert Records["plan_sha256"] == Inputs["plan"]["sha256"]
+
+
+# an independent sample can distinguish frozen offsets while codec admission remains blocked
+def CheckHoldoutSelection(TmpPath: FilePath) -> None:
+    Assessments: list[dict[str, object]] = []
+    for Index, Values in enumerate(((4.5, 6.25), (6.25, 4.5), (4.5, 4.5))):
+        Session = TmpPath / f"Holdout{Index}"
+        Session.mkdir()
+        Inputs = WriteFieldPlan(Session, False, Values)
+        _ = WriteSession(Session, "inference.fields", "authored-generic-fields", Inputs)
+        Result = AssertReceipt(Session, InvokeWorker(Session))
+        Records = CastValue(dict[str, object], Result["records"])
+        Assessments.append(CastValue(dict[str, object], Records["assessment"]))
+
+    First, Second, Tie = Assessments
+    Hypotheses = CastValue(list[dict[str, object]], Tie["hypotheses"])
+    assert [Row["relative_offset"] for Row in Hypotheses] == [0, 8]
+    CandidateIds = [Row["id"] for Row in Hypotheses]
+    for Assessment in Assessments:
+        assert Assessment["status"] == "ambiguous"
+        assert Assessment["discovery_sha256"] == Tie["discovery_sha256"]
+        assert [
+            Row["id"]
+            for Row in CastValue(list[dict[str, object]], Assessment["hypotheses"])
+        ] == CandidateIds
+    assert "provisional_holdout_selection" not in Tie and not Tie["counterexamples"]
+    for Assessment, Survivor, Refuted in (
+        (First, CandidateIds[0], CandidateIds[1]),
+        (Second, CandidateIds[1], CandidateIds[0]),
+    ):
+        assert Assessment["provisional_holdout_selection"] == Survivor
+        assert Assessment["counterexamples"] == [
+            {"hypothesis": Refuted, "split": "holdout", "sample": "sample-2"}
+        ]
 
 
 # the rescan fixture uses the unchanged main control through its real git content boundary
