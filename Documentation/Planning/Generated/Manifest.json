@@ -2,12 +2,12 @@
   "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
   "ObservedOn": "2026-11-27",
   "SourceHashes": {
-    "Documentation/Planning/Links.json": "ed1c28d1b343fc88c80e675d333ee01e0cbfc5fd937d1b5f5ac38f1dedd8752d",
-    "Documentation/Planning/PullRequests.json": "18368359f24a1042fd901f0fef211dee3b2e44d2ff76aeb7cdf9f6b663e19650",
+    "Documentation/Planning/Links.json": "dcee817bdf2e2c1a5f75c93dd0bdbac76a72dd7f0910c49a0213dc26138d8754",
+    "Documentation/Planning/PullRequests.json": "400f87a682961d7e3ed7d438a545e9408b044dc17f4e0e4e42507f4f26e7ba7a",
     "Documentation/Planning/SdkScopes.json": "f4b9157b835e504d914d71160ee65e19305e69409261226e1179905df12027b5",
     "Documentation/Planning/TaskIdentities.json": "6171959aadd12abdc62c9c7c8099c2de93fc5cc0cb9c8689ebdcab02d9bf31f2",
-    "Documentation/Maintenance/ConversionBacklog.md": "9a9335c8c16486d8235730f53efd611b8d212f345600e7e00b2e3939f2b29118",
-    "Documentation/Reference/Research/AutomationSteps.md": "5f61fe848f74c523e62bf9f80e2f770f5e4a836c496b0e74bced7d6f91a80bd1",
+    "Documentation/Maintenance/ConversionBacklog.md": "cb9503971dd7dc4592d075d745cc4787b001f1420cf89a95a89cb87ceb59023e",
+    "Documentation/Reference/Research/AutomationSteps.md": "4698d019016ecf1a10eea2c0b1c960c987af10faf6b006242e87b2cef339c71e",
     "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1",
     "re/Fusion/PlannerCatalog/Data/Catalog.sqlite": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718",
     "re/automation/Planning/Board/Board.jsx": "f621e0d9972d3ac35c09aaea97658b3e5d13b96f18d14d356cde3d3c04c47d5e",
@@ -21,7 +21,7 @@
   "ParentTasks": 40,
   "RegisterRows": 80,
   "Scopes": 4580,
-  "OpenPullRequests": 78,
+  "OpenPullRequests": 77,
   "DeliveryRecords": 83,
-  "ProseClaims": 70
+  "ProseClaims": 74
 }

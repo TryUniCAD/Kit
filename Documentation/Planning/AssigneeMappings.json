@@ -11,7 +11,9 @@
     "A08g:19": ["jdharcourt"],
     "A08i:20": ["Stephen316"],
     "A06e:56": ["jdharcourt"],
-    "A06f:57": ["jdharcourt"]
+    "A06f:57": ["jdharcourt"],
+    "claim:A08h-FusionTwoSidedDraft20261127:7a677951": ["jdharcourt"],
+    "claim:A08h-FusionUnequalAxis20261127:04d99153": ["jdharcourt"]
   },
   "Aliases": {},
   "Evidence": {
@@ -63,6 +65,16 @@
     "A06f:57": {
       "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
       "Url": "https://github.com/TryUniCAD/Kit/commit/22075ee5e77c3db9b56bd8c2bc8c415d6baf237d",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "claim:A08h-FusionTwoSidedDraft20261127:7a677951": {
+      "Basis": "Verified author of the exact bounded campaign delivery",
+      "Url": "https://github.com/TryUniCAD/Kit/pull/394",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "claim:A08h-FusionUnequalAxis20261127:04d99153": {
+      "Basis": "Verified author of the exact bounded campaign delivery",
+      "Url": "https://github.com/TryUniCAD/Kit/pull/393",
       "Source": "Documentation/Reference/Research/AutomationSteps.md"
     }
   }

@@ -725,6 +725,18 @@
         "Stephen316"
       ],
       "Basis": "explicit owning-register account"
+    },
+    "claim:A08h-FusionTwoSidedDraft20261127:7a677951": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "claim:A08h-FusionUnequalAxis20261127:04d99153": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
     }
   },
   "UnknownAccountMappings": [
@@ -778,8 +790,8 @@
     "claim:A08h-RimFillet20261125:a3d868c3"
   ],
   "Applied": [
-    "UiPlanning",
-    "PR395"
+    "claim:A08h-FusionTwoSidedDraft20261127:7a677951",
+    "claim:A08h-FusionUnequalAxis20261127:04d99153"
   ],
   "Blocked": {},
   "UnavailableAccounts": {}

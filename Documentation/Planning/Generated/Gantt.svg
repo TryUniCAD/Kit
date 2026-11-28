@@ -65,7 +65,7 @@
 <text x="16" y="1090">A16 · Broader features and additional CAD families</text>
 <text x="610" y="1090" fill="#615c54">blocked · no date asserted</text>
 <text x="16" y="1124">PlanningViews · Repository planning register and dependency Gantt</text>
-<text x="610" y="1124" fill="#615c54">active · no date asserted</text>
+<text x="610" y="1124" fill="#615c54">checking · no date asserted</text>
 <text x="16" y="1158">FusionRevolveContrast · Unequal two-sided construction-axis revolve contrasts</text>
 <text x="610" y="1158" fill="#615c54">checking · no date asserted</text>
 <text x="16" y="1192">UiInspector · Local decoded-document and evidence inspector</text>
