@@ -125,6 +125,14 @@ density parameter, model data with an absent scene and empty body visual
 counts. Each concrete owner retains its actual archive slot.
 [Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
 
+The ordinary SDK reader links the selected design body to a material
+record with the verified name and density. The body's
+`solidworks.assigned_part_material` attribute retains its native owners.
+Both strict read modes check part and configuration density, the actual
+active partition atom and material XML. Incomplete assignment and
+appearance evidence prevents publication.
+[Assigned material scope](../../Changes/Solidworks/Inspection/Parts/SolidworksAssignedPartMaterial.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects
