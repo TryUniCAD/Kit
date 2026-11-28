@@ -66,7 +66,8 @@ Its mapping keyword is `values`, not `write_values`.
 
 For SOLIDWORKS part inspection, pass `include_native_appearance=True` to
 `open_document`. This adds stored appearance evidence when the active
-configuration has the supported visual record. The default is `False`.
+configuration has the supported visual record. When inspection cannot resolve
+the record, it returns an unsupported status and diagnostic. The default is `False`.
 See [stored part appearance](../../Changes/Solidworks/Inspection/Parts/SolidworksStoredPartAppearance.md).
 
 ## Results

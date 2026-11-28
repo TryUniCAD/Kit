@@ -539,11 +539,12 @@ def FinishPartDoc(
     DocValue.assert_valid()
     ValidateSource(Label, False)
     Result = WithPartProps(DocValue, Archive)
-    if (
-        Model.active_configuration_id == 0
-        and Settings.values.get("include_native_appearance") is True
-    ):
-        Result = WithPartLook(Result, Archive)
+    Result = WithPartLook(
+        Result,
+        Archive,
+        Model.active_configuration_id,
+        Settings.values.get("include_native_appearance") is True,
+    )
     return RetainSource(Result, DataValue)
 
 

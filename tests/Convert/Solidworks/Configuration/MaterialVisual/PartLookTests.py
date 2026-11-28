@@ -58,3 +58,20 @@ def TestLookRefusal() -> None:
     with RaisesError(ValueError, match="stored SOLIDWORKS part appearance"):
         _ = SldprtWriter().write(Document, OutputSink)
     assert OutputSink.getvalue() == b"existing destination"
+
+
+# an explicit request stays observable on an ordinary supported read outside the visual envelope
+def TestMissingLook() -> None:
+    Source = KVisualRoot / "re/solidworks/examples/.SLDPRT/example.SLDPRT"
+    Default = OpenDocument(Source, include_brep=False)
+    Document = OpenDocument(Source, include_brep=False, include_native_appearance=True)
+    assert "solidworks.part_visual" not in Default.metadata
+    StoredLook = CastValue(
+        dict[str, object], Document.metadata["solidworks.part_visual"]
+    )
+    assert StoredLook["status"] == "unsupported"
+    assert Document.diagnostics[:-1] == Default.diagnostics
+    assert Document.diagnostics[-1].code == "solidworks.part_visual_unavailable"
+    assert StoredLook["diagnostic"] == Document.diagnostics[-1].message
+    assert Document.bodies == Default.bodies
+    assert not Document.validate()
