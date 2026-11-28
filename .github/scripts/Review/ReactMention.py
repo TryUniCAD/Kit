@@ -41,10 +41,12 @@ def ReactMention(StateName: str) -> None:
     Reaction = ObjectMap(ApiCall(RouteName, {"content": Content}))
     if ObjectMap(Reaction["user"])["id"] != UserIdent:
         raise ValueError("Unexpected reaction publishing identity")
-    if StateName == "started":
-        return
     for Entry in ReadPages(RouteName):
-        if Entry["content"] == "eyes" and ObjectMap(Entry["user"])["id"] == UserIdent:
+        if (
+            Entry["content"] in ("eyes", "+1", "-1", "confused", "hooray")
+            and Entry["content"] != Content
+            and ObjectMap(Entry["user"])["id"] == UserIdent
+        ):
             ApiCall(f"{RouteName}/{Entry['id']}", MethodName="DELETE")
 
 

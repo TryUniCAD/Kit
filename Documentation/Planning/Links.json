@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 1,
   "ObservedOn": "2026-11-28",
-  "MainRevision": "9415b79e4e2c23171440fe43560a39575d34aed5",
+  "MainRevision": "68cec987d0b720762ae95f2f92799eb113d23b44",
   "ScopeLinks": [
     {
       "ScopeId": "sw:family:sketchconics:circle",
@@ -300,6 +300,68 @@
   "Schedules": [],
   "ExtraTasks": [
     {
+      "Id": "ReviewerHosted",
+      "Name": "Hosted reviewer runtime and message lifecycle acceptance",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session fix/reviewer-hosted-runtime-20261128",
+      "Runner": "OpenAI",
+      "Parent": "AccountReviewer",
+      "Dependencies": [],
+      "Source": "Documentation/Changes/Review/HostedReviewerRuntime.md",
+      "Exit": "Hosted model returns validated review data and the installed app publishes findings ratings and current head approval; real authorized mentions and source commits trigger unattended review and verified progress and completion reactions",
+      "Branch": "fix/reviewer-hosted-runtime-20261128",
+      "Blocker": "Reaction tokens need both accepted write scopes; pinned Linux runtime lacks a system CA bundle; fixes and real TLS smoke are implemented locally and await protected default branch deployment and full hosted acceptance; native project sync lacks project permission",
+      "Evidence": "https://github.com/TryUniCAD/Kit/actions/runs/46171114534",
+      "DeploymentRevision": "68cec987d0b720762ae95f2f92799eb113d23b44",
+      "RuntimeEvidence": {
+        "Run": "https://github.com/TryUniCAD/Kit/actions/runs/46171251547",
+        "DeploymentRevision": "68cec987d0b720762ae95f2f92799eb113d23b44",
+        "Outcome": "Tiny fixture input and container build passed; model reported account service connection failed; no model review or approval",
+        "LinuxManifest": "sha256:d20a7b8b4184bf74fe77499b5460a3d69e582bc733d50287e40c3fe791764851",
+        "VerifiedImageLayers": 5,
+        "SystemCaBundlePresent": false
+      },
+      "ReactionEvidence": {
+        "Comment": "https://github.com/TryUniCAD/Kit/pull/398#issuecomment-7241935072",
+        "IssuesWriteStatus": 403,
+        "IssuesWritePullReadStatus": 403,
+        "BothWriteStatus": 201,
+        "BotIdentityMatchesRegistry": true,
+        "AllProbeTokensRevoked": true,
+        "Limitation": "Direct app API probe establishes permissions only; automated reaction lifecycle remains unverified"
+      },
+      "LocalTrustSmoke": {
+        "AuthorityCount": 146,
+        "VerifiedTlsStatus": 403,
+        "ExporterSha256": "f5379964f774f4d1b99f509cb7aa53aa15554c95bcbcab5bf8d470ee67dbbb1a",
+        "Limitation": "Public HTTP response verifies TLS only; not authenticated model execution"
+      },
+      "AutomaticMention": {
+        "Comment": "https://github.com/TryUniCAD/Kit/pull/401#issuecomment-7243325861",
+        "DispatcherRun": "https://github.com/TryUniCAD/Kit/actions/runs/46172610068",
+        "Outcome": "Real issue comment automatically started the trusted metadata dispatcher and its job passed; protected worker reaction and model acceptance remain pending runtime repair",
+        "ProtectedWorkerRun": "https://github.com/TryUniCAD/Kit/actions/runs/46172619822"
+      },
+      "QueueGuardEvidence": {
+        "SourceRun": "https://github.com/TryUniCAD/Kit/actions/runs/46171251547",
+        "Head": "c9682038719ade0661f43b74bf69943d7a4b70d8",
+        "AutomaticProcessResult": "run=false",
+        "ExplicitForcedProcessResult": "run=true",
+        "GuardSha256": "7e16689f5828c84e78869510b9bb7b999577636f6e1bb1efe55fc0f2fe741132",
+        "Boundary": "Real guard process with actual hosted input and actual live GitHub native receipts; no account credentials or mocked APIs"
+      },
+      "Scope": "Restore pinned runtime TLS and valid PR reaction token scopes; acknowledge new messages independently of another account job; preserve serialized auth persistence and publication with queued native receipt reuse",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/407",
+      "CiRepair": {
+        "Revision": "e230f7d889d7eb7a063cbd1f355c698d5a4bd931",
+        "Job": "https://github.com/TryUniCAD/Kit/actions/runs/46173892991/job/141068162816",
+        "Finding": "Pyright reportUnusedCallResult on the real certificate exporter smoke subprocess",
+        "Repair": "Capture the process result and assert its successful exit before TLS verification; no type check or test assertion is disabled",
+        "Status": "Repair implemented; current revision remote validation pending"
+      }
+    },
+    {
       "Id": "ReviewerContinuous",
       "Name": "Review each proposed revision independently of approval gates",
       "Status": "active",
@@ -311,7 +373,7 @@
       "Source": "Documentation/Tasks/AccountReviewer.md",
       "Exit": "Commit changes dispatch a new current-head model review even with failed CI or conflicts; app approval remains gated by current successful CI and mergeability; mentions acknowledge processing and use current trusted policy",
       "Branch": "fix/reviewer-review-on-change-20261128",
-      "Blocker": "Owner authorized one time bootstrap merge after all other CI and native queue gates pass; protected default branch deployment and hosted runtime diagnosis remain pending; native project sync lacks read project permission",
+      "Blocker": "Owner merged PR 402; deployed reviewer failed during progress reaction; live runtime and automatic behavior acceptance continues under ReviewerHosted; native project synchronization remains unavailable",
       "Evidence": "https://github.com/TryUniCAD/Kit/actions/runs/46163285662",
       "HostedSmoke": {
         "PullRequest": "https://github.com/TryUniCAD/Kit/pull/401",
@@ -383,7 +445,8 @@
         "Scope": "One time bootstrap merge only; failed account reviewer check and missing app approval waived",
         "Requirements": "All other CI checks pass; native merge queue acceptance passes; do not alter protections or bypass pending or failed queue acceptance",
         "Continuation": "Authorization persists through ordinary task repairs; hosted runtime verification remains incomplete after merge"
-      }
+      },
+      "DeploymentRevision": "68cec987d0b720762ae95f2f92799eb113d23b44"
     },
     {
       "Id": "ReviewerLiveEvidence",
