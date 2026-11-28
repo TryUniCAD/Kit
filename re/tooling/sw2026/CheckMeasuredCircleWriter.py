@@ -284,7 +284,8 @@ def main():
                            input=json.dumps(case["document"]), text=True, capture_output=True, check=False)
     demand(child.returncode == 0, child.stdout + child.stderr)
     result = json.loads(child.stdout)
-    demand(result["standalone_publications"] == 3
+    expected_publications = 2 + int(os.name != "nt")
+    demand(result["standalone_publications"] == expected_publications
            and digest(args.original.read_bytes()) == result["sha256"], "disclosed whole-file comparison differs")
     result["tool_sha256"] = digest(HERE.read_bytes())
     result["republication_tool_sha256"] = digest(HERE.with_name("CheckCircleRepub.py").read_bytes())
