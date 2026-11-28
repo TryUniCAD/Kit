@@ -10,6 +10,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartSchemas 
 )
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
 from convert.adapters.solidworks.Archive.Cmgr.ManagerFields import KManagerRecordRules
+from convert.adapters.solidworks.Archive.Cmgr.UseLinkedCtxMut import UseLinkedCtxMut
 
 # manager and part configuration records use distinct section and feature dispatch
 KManagerVirtuals = MappingProxyType(
@@ -27,8 +28,10 @@ KManagerVirtuals = MappingProxyType(
 
 
 # manager admission retains its distinct registry while sharing ordinary version and evidence guards
-def MakeCmgrContext(VersionValue: int, UsageValue: BodyUsage | None) -> BodyContext:
-    return BodyContext(
+def MakeCmgrContext(
+    VersionValue: int, UsageValue: BodyUsage | None, *, ReadLinked: bool = False
+) -> BodyContext:
+    ContextValue = BodyContext(
         VersionValue,
         KPartLayouts | KManagerRecordRules,
         KManagerVirtuals,
@@ -40,3 +43,6 @@ def MakeCmgrContext(VersionValue: int, UsageValue: BodyUsage | None) -> BodyCont
         },
         NewBodyUsage(VersionValue, UsageValue),
     )
+    if ReadLinked:
+        UseLinkedCtxMut(ContextValue)
+    return ContextValue

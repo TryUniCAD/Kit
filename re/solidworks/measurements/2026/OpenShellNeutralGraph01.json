@@ -1,0 +1,109 @@
+{
+  "schema": "kit-sw2026-open-shell-construction-plan-v1",
+  "plans": [
+    {
+      "source": "e61479e318e5186bd1faf52d8f91db283f516867543d618efc67725754e088d4",
+      "shell_class": "moShell_c",
+      "cap_roles": [
+        1,
+        4,
+        1,
+        2,
+        3,
+        null
+      ],
+      "stock_id": 19,
+      "shell_id": 26,
+      "atom_id": 101,
+      "driver_m": 0.0028,
+      "dimension_id": 25,
+      "outer_witness": {
+        "x": -0.0265,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "inner_witness": {
+        "x": -0.0237,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "display_point": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.028
+      }
+    },
+    {
+      "source": "c3fdda0bc78b2be251ef54b74b90ca1406fee7b364529424f99de1c1c5dfcc72",
+      "shell_class": "moShell_c",
+      "cap_roles": [
+        1,
+        4,
+        1,
+        2,
+        3,
+        null
+      ],
+      "stock_id": 19,
+      "shell_id": 26,
+      "atom_id": 101,
+      "driver_m": 0.00415,
+      "dimension_id": 25,
+      "outer_witness": {
+        "x": -0.0225,
+        "y": -0.01225,
+        "z": 0.0
+      },
+      "inner_witness": {
+        "x": -0.018349999999999998,
+        "y": -0.01225,
+        "z": 0.0
+      },
+      "display_point": {
+        "x": 0.0085,
+        "y": -0.01225,
+        "z": 0.036000000000000004
+      }
+    },
+    {
+      "source": "946c78378063a9ea38e1864d1dd6b5b97a0a7d7b1bd691d60afc837e35f71db5",
+      "shell_class": "moShell_c",
+      "cap_roles": [
+        1,
+        4,
+        1,
+        2,
+        3,
+        null
+      ],
+      "stock_id": 19,
+      "shell_id": 26,
+      "atom_id": 101,
+      "driver_m": 0.001875,
+      "dimension_id": 25,
+      "outer_witness": {
+        "x": -0.025500000000000002,
+        "y": 0.007500000000000003,
+        "z": 0.0
+      },
+      "inner_witness": {
+        "x": -0.023625,
+        "y": 0.007500000000000003,
+        "z": 0.0
+      },
+      "display_point": {
+        "x": -0.0030000000000000027,
+        "y": 0.007500000000000003,
+        "z": 0.023
+      }
+    }
+  ],
+  "refusals": {
+    "Wrong end": "open shell needs the actual upper stock cap and result body",
+    "Outward wall": "open shell requires one active inward shell on its stock",
+    "Consumed cavity": "open shell wall would remove its rectangular cavity"
+  },
+  "runtime_accesses": [],
+  "native_files_emitted": 0,
+  "heldout_sources_read": 0
+}

@@ -19,6 +19,7 @@ from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModel
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseShellCtxMut import UseShellCtxMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
 
 
@@ -32,11 +33,20 @@ def ReadResolvedMut(
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     ReadChamfers: bool = False,
+    ReadShells: bool = False,
 ) -> ResolvedGraph:
+    if ReadChamfers and ReadShells:
+        raise BodyUnsupported("combined shell and chamfer archives are unqualified")
     ContextValue = MakeResolvedCtx(
-        VersionValue, SeedValue, LinkContext, UsageValue, ChamferLayout=ReadChamfers
+        VersionValue,
+        SeedValue,
+        LinkContext,
+        UsageValue,
+        ChamferLayout=ReadChamfers or ReadShells,
     )
-    if ReadChamfers:
+    if ReadShells:
+        UseShellCtxMut(ContextValue)
+    elif ReadChamfers:
         UseChmfCtxMut(ContextValue)
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)

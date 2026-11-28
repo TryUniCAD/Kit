@@ -1,6 +1,9 @@
 from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Shells.ShellFieldRule import (
+    ShellFieldRule,
+)
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KFeatureFields = MappingProxyType(
@@ -31,7 +34,12 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
+                BodyValue=(
+                    ShellFieldRule(
+                        "alternate moEndSpec_c Branch",
+                        NativeField("Embed", "f28", "rf.suObArray"),
+                    ),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -56,7 +64,12 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
+                BodyValue=(
+                    ShellFieldRule(
+                        "alternate moEndSpec_c Branch",
+                        NativeField("Embed", "f48", "rf.suObArray"),
+                    ),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",

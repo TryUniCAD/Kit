@@ -1,0 +1,65 @@
+from dataclasses import replace as ReplaceValue
+
+from convert.adapters.solidworks.Archive.Construction.Metadata.MakeMgrHeader import (
+    MakeMgrHeader,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.CheckPartInput import (
+    CheckPartInput,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import (
+    EmitPartStreams,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import (
+    MakeBlindByPlan,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
+    PartBuildInput,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
+    PartCandidate,
+)
+from convert.adapters.solidworks.Archive.Construction.Shells.MakeShellMut import (
+    MakeShellMut,
+)
+from convert.adapters.solidworks.Archive.Construction.Shells.OpenShellPlan import (
+    OpenShellPlan,
+)
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Container.Container import BuildSldprt
+from interchange.document.Models.DocumentModel import CadDocument
+from convert.adapters.solidworks.Archive.Construction.Shells.MakeShellKey import (
+    MakeShellKey,
+)
+
+
+# a complete shell archive uses the ordinary part stream writers with the additional related feature
+def EmitShellPart(
+    DocumentValue: CadDocument, PlanValue: OpenShellPlan, Settings: PartBuildInput
+) -> PartCandidate:
+    Stock = PlanValue.StockValue
+    CheckPartInput(DocumentValue, Settings, Stock, (PlanValue.FeatureName,))
+    Candidate = MakeBlindByPlan(DocumentValue, Settings, Stock)
+    Feature, Driver = MakeShellMut(Candidate, PlanValue, Settings)
+    Manager = MakeMgrHeader(
+        Candidate.SystemValue.ManagerValue, Settings.OutputValue.SavedAt
+    )
+    Roots = tuple(
+        ArchiveNode.RequireNode(Value) for Value in Candidate.ResolvedValue.RootsValue
+    )
+    Streams, Config, Resolved = EmitPartStreams(
+        Candidate.SystemValue,
+        Roots,
+        (Candidate.HeaderValue, Candidate.TopHeader, Manager),
+        Candidate.DefinitionValue,
+        Settings,
+        Stock,
+        ShellValue=(Feature, MakeShellKey(Feature, Driver)),
+    )
+    return ReplaceValue(
+        Candidate,
+        ManagerHeader=Manager,
+        ConfigValue=Config,
+        ResolvedValue=Resolved,
+        StreamsValue=Streams,
+        BytesValue=BuildSldprt(Streams, FormatVersion=4),
+    )

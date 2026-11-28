@@ -51,7 +51,10 @@ def EmitPartStreams(
     SketchDims: tuple[KeywordDim, ...] = (),
     *,
     Chamfer: tuple[ArchiveNode, KeywordFeature] | None = None,
+    ShellValue: tuple[ArchiveNode, KeywordFeature] | None = None,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
+    if Chamfer is not None and ShellValue is not None:
+        raise ValueError("part stream emission requires one terminal feature")
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
     ContextValue = {
@@ -59,9 +62,12 @@ def EmitPartStreams(
         "model_is_part": 1,
         "cmgr_f658": CastValue(int, SystemValue.ManagerValue.FieldsValue["f658"]),
     }
-    RootsValue = (*FeatureValues, Chamfer[0]) if Chamfer is not None else FeatureValues
+    EndFeature = Chamfer or ShellValue
+    RootsValue = (
+        (*FeatureValues, EndFeature[0]) if EndFeature is not None else FeatureValues
+    )
     BodyMap: dict[str, object] | None = (
-        {"n": 0, "fcd8": []} if Chamfer is not None else None
+        {"n": 0, "fcd8": []} if EndFeature is not None else None
     )
     ResolvedBytes, ResolvedValue = WriteResolMut(
         RootsValue,
@@ -70,6 +76,7 @@ def EmitPartStreams(
         ConfigValue.MapValue,
         ContextValue,
         WriteChamfers=Chamfer is not None,
+        WriteShell=ShellValue is not None,
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),
@@ -89,7 +96,7 @@ def EmitPartStreams(
             InputValue,
             PlanValue,
             SketchDims,
-            AdditionalRows=() if Chamfer is None else (Chamfer[1],),
+            AdditionalRows=() if EndFeature is None else (EndFeature[1],),
         ),
     }
     return StreamsValue, ConfigValue, ResolvedValue

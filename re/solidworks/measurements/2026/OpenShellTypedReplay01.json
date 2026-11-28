@@ -1,0 +1,56 @@
+{
+  "cases": {
+    "OpenShell.SLDPRT": {
+      "config_base": 109,
+      "resolved_end": 313,
+      "sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd",
+      "shell_span": [
+        11424,
+        14106
+      ],
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2175,
+          "sha256": "02b7d4b422055f417d209ca019badffffee7ee283411416d23e6ce08b264ed8c"
+        },
+        "Contents/Config-0": {
+          "bytes": 25484,
+          "sha256": "f3d0f8a42187c98cd0faeac7ceb69dce97f1f96c94557243b2cf90efadebe7f3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14110,
+          "sha256": "801703a38a5869983abbae6e5194eea6c2418c2a70f130c71d0ba7380f4f280e"
+        }
+      },
+      "thickness_metres": 0.0028
+    },
+    "OpenShellEdited.SLDPRT": {
+      "config_base": 109,
+      "resolved_end": 313,
+      "sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810",
+      "shell_span": [
+        11532,
+        14214
+      ],
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2283,
+          "sha256": "e333e1b885ade4e06fd1f238c4e8f9412f85adf2becb1cbced0cac155b97b7fd"
+        },
+        "Contents/Config-0": {
+          "bytes": 25492,
+          "sha256": "75ae2bd4e88338be330aef5f488a11f47d9745be9c174837280d88ae5fab894e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14218,
+          "sha256": "a04a3e9c95cb378231f71d20300c17198c4682e471f957b5518d4512ffd184bf"
+        }
+      },
+      "thickness_metres": 0.00353
+    }
+  },
+  "heldout_sources_read": 0,
+  "read_replay_identical": 6,
+  "schema": "kit-open-shell-typed-archive-replay-v1",
+  "writer_publications": 0
+}

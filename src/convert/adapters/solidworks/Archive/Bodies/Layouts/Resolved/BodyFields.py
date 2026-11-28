@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Chamfers.ChmfFi
     ChmfFieldRule,
 )
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Shells.ShellFieldRule import (
+    ShellFieldRule,
+)
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KBodyFields = MappingProxyType(
@@ -175,7 +178,12 @@ KBodyFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Fail", "alternate moAtomFeature_c Branch"),),
+                BodyValue=(
+                    ShellFieldRule(
+                        "alternate moAtomFeature_c Branch",
+                        NativeField("Embed", "f4a8", "moBodyChooser_c"),
+                    ),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -189,7 +197,12 @@ KBodyFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Fail", "alternate moAtomFeature_c Branch"),),
+                BodyValue=(
+                    ShellFieldRule(
+                        "alternate moAtomFeature_c Branch",
+                        NativeField("Embed", "f4b0", "moBodyChooser_c"),
+                    ),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -203,7 +216,12 @@ KBodyFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Fail", "alternate moAtomFeature_c Branch"),),
+                BodyValue=(
+                    ShellFieldRule(
+                        "alternate moAtomFeature_c Branch",
+                        NativeField("Embed", "f4c0", "moBodyChooser_c"),
+                    ),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -248,7 +266,13 @@ KBodyFields = MappingProxyType(
                         "Branch",
                         "",
                         BodyValue=(
-                            NativeField("Fail", "alternate moAtomFeature_c Branch"),
+                            ShellFieldRule(
+                                "alternate moAtomFeature_c Branch",
+                                NativeField("Node", "f3d0", "moPMarkRecord_c"),
+                                NativeField("Scalar", "f3c0", "i32"),
+                                NativeField("Scalar", "f3c8", "i32"),
+                                NativeField("Scalar", "f580", "i32"),
+                            ),
                         ),
                         ModeValue="Expression",
                         ExpressionValue=(

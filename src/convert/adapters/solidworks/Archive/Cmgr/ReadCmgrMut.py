@@ -22,9 +22,10 @@ def ReadCmgrMut(
     VersionValue: int,
     *,
     UsageValue: BodyUsage | None = None,
+    ReadLinked: bool = False,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
 ) -> CmgrGraph:
-    ContextValue = MakeCmgrContext(VersionValue, UsageValue)
+    ContextValue = MakeCmgrContext(VersionValue, UsageValue, ReadLinked=ReadLinked)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),

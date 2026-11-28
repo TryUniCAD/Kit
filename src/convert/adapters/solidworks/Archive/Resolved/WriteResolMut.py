@@ -1,6 +1,7 @@
 from collections.abc import Mapping, MutableMapping
 
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
 from convert.adapters.solidworks.Archive.Bodies.NormalizeCount import NormalizeCount
@@ -14,6 +15,7 @@ from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModel
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseShellCtxMut import UseShellCtxMut
 from convert.adapters.solidworks.Archive.Resolved.WriteMbsMut import WriteMbsMut
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
@@ -28,12 +30,21 @@ def WriteResolMut(
     *,
     UsageValue: BodyUsage | None = None,
     WriteChamfers: bool = False,
+    WriteShell: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
+    if WriteChamfers and WriteShell:
+        raise BodyUnsupported("combined shell and chamfer archives are unqualified")
     ContextValue = MakeResolvedCtx(
-        VersionValue, SeedValue, LinkContext, UsageValue, ChamferLayout=WriteChamfers
+        VersionValue,
+        SeedValue,
+        LinkContext,
+        UsageValue,
+        ChamferLayout=WriteChamfers or WriteShell,
     )
     if WriteChamfers:
         UseChmfCtxMut(ContextValue)
+    if WriteShell:
+        UseShellCtxMut(ContextValue)
     _ = NormalizeCount(len(RootsValue), "")
     WriterValue = BodyWriter(
         ArchiveMaps(SeedValue.CounterValue, SeedValue), ContextValue, WriteBodyMut
