@@ -1,0 +1,52 @@
+{
+  "schema": "kit.sw2026.saved-thin-suite-process.v1",
+  "sdk_revision": "2a97e062fed0ae3e1bedd88ba138ff3dfc3e1bf1",
+  "cases_passed": 4,
+  "duration_seconds": 23.57,
+  "strict_refusals": 8,
+  "partial_permissive_reads": 8,
+  "raw_payload_reads": 4,
+  "raw_payloads": 8,
+  "native_launches": 0,
+  "cad_input_reads_in_guarded_phase": 0,
+  "output_opens": 0,
+  "full_module_result": {
+    "passed": 4,
+    "failed": 1,
+    "duration_seconds": 30.72,
+    "failure": "unchanged TestThinRevolve: regenerated SOLIDWORKS thin revolve has no matching native measurement"
+  },
+  "files_sha256": {
+    "re/tooling/sw2026/revolve/CheckSavedThinSuite.py": "09f8a5d7aa2479fc910042d8edac3e2419a10ebeb8d8bbe584df421fc1806574",
+    "tests/Convert/Solidworks/RevolveWriting/ThinRevolveTests.py": "aad4b0468045f2e92f03bed103b65577186cb6b44889171fab4f16b5b02ac03e",
+    "re/solidworks/v2026/corpus/revolve/SavedThinQueue20261128/Manifest.json": "5bdd5ef5823b0fb0dc41485d36d31ebc1108e3732ee13beda005d07874ff653a"
+  },
+  "approval_claimed": false,
+  "all_native_receipts_and_control_hashes_verified": true,
+  "stock_backend_processes": {
+    "python": "3.13.0",
+    "zlib": "1.3.1",
+    "front": {
+      "stream_publications": 6,
+      "file_publications": 2,
+      "name_contrasts": 4,
+      "unmeasured_refusals": 2,
+      "native_launches": 0
+    },
+    "right": {
+      "stream_publications": 6,
+      "file_publications": 2,
+      "name_contrasts": 4,
+      "unmeasured_refusals": 2,
+      "native_launches": 0
+    }
+  },
+  "backend_disposition": "exact measured archives and all ten logical streams reproduced on stock zlib; zlib-ng differs in compression and retains its correct public measurement refusal",
+  "stock_full_module": {
+    "python": "3.13.0",
+    "zlib": "1.3.1",
+    "passed": 5,
+    "failed": 0,
+    "duration_seconds": 42.74
+  }
+}

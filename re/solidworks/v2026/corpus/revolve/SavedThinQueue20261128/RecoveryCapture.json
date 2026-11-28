@@ -1,0 +1,52 @@
+{
+    "schema":  1,
+    "research_only":  true,
+    "build":  "34.4.1.1011",
+    "status":  "native_reopen_discovery_after_author_shutdown_timeout",
+    "preparation_sha256":  "c7e0afac8161c55d7e84c918b6dee3d441d52dbd5ba9569acef2bef542335870",
+    "original_campaign_sha256":  "29f3fe40cb987b2bfbb6c2be4bb2beb7a7ce623351d1c9d45778def18d1d4ca2",
+    "stock_before":  1932,
+    "variants":  {
+                     "ThinQueueFrontOriginal":  {
+                                                    "variant":  "ThinQueueFrontOriginal",
+                                                    "initial_source_sha256":  "90f63f4376950fe42d4b50ca84990a786d1b5fbaddccef04b7f955ce79c63a58",
+                                                    "original_status":  "failed",
+                                                    "author_pid":  17020,
+                                                    "author_checkpoint_sha256":  "1810d0cfe4f93e49549d2153557fe6133ddfabdd063e1dd2d26259833969cc70",
+                                                    "archive_sha256":  "ad302cf926c755b57262a7420e8ca0c935850de61cbb2dac311d47ae880efa41",
+                                                    "status":  "observed_read_only",
+                                                    "reopen_pid":  24568
+                                                },
+                     "ThinQueueFrontEdited":  {
+                                                  "variant":  "ThinQueueFrontEdited",
+                                                  "initial_source_sha256":  "64320e3e0741d04951d63a8f67f62c4b56ef2f3ac30399db48be1feeeb66503c",
+                                                  "original_status":  "observed",
+                                                  "status":  "observed_read_only",
+                                                  "reused_existing_distinct_reopen":  true,
+                                                  "archive_sha256":  "a45e577bfec3b6a40ecd1c82389aa2697b156703d749e7103865303dcf8e812b",
+                                                  "author_pid":  26776,
+                                                  "reopen_pid":  37100
+                                              },
+                     "ThinQueueRightOriginal":  {
+                                                    "variant":  "ThinQueueRightOriginal",
+                                                    "initial_source_sha256":  "cac1f7be7801c589852095ab1a136d7b2b4224d47f909d604f86a392e112b1e3",
+                                                    "original_status":  "observed",
+                                                    "status":  "observed_read_only",
+                                                    "reused_existing_distinct_reopen":  true,
+                                                    "archive_sha256":  "3da5fa5771df5f07fd8d0f2bc7f1ff6bbf0831e2d1236069e016137bd853eade",
+                                                    "author_pid":  30924,
+                                                    "reopen_pid":  5808
+                                                },
+                     "ThinQueueRightEdited":  {
+                                                  "variant":  "ThinQueueRightEdited",
+                                                  "initial_source_sha256":  "516cb99a797e4ebef59d132350b63309c117d062a307afb583adc34d911f47e3",
+                                                  "original_status":  "failed",
+                                                  "author_pid":  39304,
+                                                  "author_checkpoint_sha256":  "4452292f1445c89fc86b7df6930632d7bea2c3fdb7233dd4283aeca4a04e4feb",
+                                                  "archive_sha256":  "df54c327cada0e61c08f055b0c7748542ee1c06be29903d5ace3c374b8453f33",
+                                                  "status":  "observed_read_only",
+                                                  "reopen_pid":  27128
+                                              }
+                 },
+    "stock_after":  13472
+}
