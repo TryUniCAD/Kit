@@ -35,6 +35,32 @@ The full saved-cuboid compatibility roster passed all 52 cases in 72.34 seconds 
 
 The title repair follows the [asset-title rule](../../../Gotchas/Conversion/Fusion/Geometry/Snapshots/FusionSnapshotAssetTitle.md). The [member path](../../../Gotchas/Conversion/Fusion/Geometry/Snapshots/FusionSnapshotMemberPrefix.md) and [parameter observer order](../../../Gotchas/Conversion/Fusion/Geometry/Snapshots/FusionSnapshotParameterObservers.md) describe two further boundaries exercised by this generator.
 
+## Native snapshot lifecycle
+
+The first Windows application-control attempt stopped during initialization.
+A later run on Fusion `2706.1.17` opened the three exact generated archives
+listed above. Each baseline, JSON height edit and independent holdout had
+its own stock control before, candidate open and rebuild, saved copy reopen,
+and stock control after. All 12 stages used distinct processes and began
+and ended with zero open documents.
+
+In each candidate the three driving dimensions were edited and restored
+independently. The native result preserved its material label, density,
+mass and effective color alongside the measured geometry. The three
+original, edited and restored saves for each candidate passed strict
+SDK readback, complete typed state comparison and neutral JSON equality.
+
+The producer was `382af3ea57c5fdbe74b8271c9cb6711aa96ec18a`. The strict
+readbacks used `9566030dad95fc7c30a377c0a0f5ee18428f95d9`, whose production
+source tree is byte-identical to that producer. The
+[native lifecycle receipt index](../../../../re/Fusion/GeneratedSnapshot/NativeLifecycleEvidence.json)
+records the archive, manifest and stage digests and the saved-volume
+measurements.
+
+These observations cover the generated snapshot cohort without separately
+regenerated graphics. Native graphics regeneration, viewport and archived
+previews, face selection, and public native publication remain open.
+
 ## Limits
 
-The authored request has one supported cuboid and one generic physical material. The generator does not ingest a vendor-saved design. The three candidate files were prepared for direct native measurements. The Windows application control tool failed to initialize before Fusion opened, so no native stages ran. Full preservation of a saved source's graphics, previews, visibility, configuration, face selection and procedural material state remains open. Version-2 readback retains `fusion.read_only`.
+The authored request has one supported cuboid and one generic physical material. The generator does not ingest a vendor-saved design. Full preservation of a saved source's graphics, previews, visibility, configuration, face selection and procedural material state remains open. Version-2 readback retains `fusion.read_only`.
