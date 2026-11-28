@@ -98,6 +98,11 @@ def verify(name):
                 raise AssertionError('a genuine saved thin part lost its strict history guard')
             document = audit.run(lambda: read(raw, full, strict=False))
             assert len(document.bodies) == 1 and (document.brep is not None) is full
+            if full:
+                geometry = document.brep
+                assert geometry is not None
+                assert tuple(len(getattr(geometry, field)) for field in
+                             ('bodies', 'shells', 'faces', 'edges', 'vertices')) == (1, 1, 6, 12, 8)
             assert all(not isinstance(step.definition, ThinRevolve) for step in document.feature_timeline)
         document = audit.run(lambda: SldprtAdapter().read(
             BytesIO(raw), ReadOptions(extract_raw_brep=True, include_brep=True, strict=True),
