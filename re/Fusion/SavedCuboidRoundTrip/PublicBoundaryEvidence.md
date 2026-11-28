@@ -35,7 +35,8 @@ these tests without a separate workflow or native application runner.
 
 `PublicBoundaryCheck.py` accepts repeated `--source` and an unused `--output`
 directory. With this reader-only boundary it preserves the complete document
-JSON and report, and exits 3 to keep native writing explicitly unqualified.
+JSON and report, and exits 3 when the read-only guard refuses export without
+creating a destination. Unexpected results exit 1.
 Example from the repository with its SDK on `PYTHONPATH`:
 
 ```powershell
