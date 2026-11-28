@@ -2,6 +2,18 @@
 
 ## Status and ownership
 
+Task `A08c-SolidWorksVerifyDispatch` is active and owned by the reader
+verification swarm on `codex/solidworks-native-com-accessors`.
+Delivery is [PR #405](https://github.com/TryUniCAD/Kit/pull/405).
+It depends on the pinned P03 control, SOLIDWORKS 2026, and the native reader
+verifier. The scope is late-bound member access, native sketch transforms, and
+part selection and save argument marshaling.
+Exit requires healthy bracketing controls, a measured candidate and saved edit
+readbacks, and current-revision CI and configured review. At `2897ecc002`, both
+controls passed. The candidate reached its native edit and failed at `SaveAs`.
+The [change entry](../../Changes/Research/Workers/SolidWorks/Verification/SolidWorksVerificationDispatch.md)
+retains the acceptance boundary. B02 and editable conversion stay open.
+
 Task `A08c-SolidWorksOpenRetry` is active, owned by Codex on `codex/solidworks-open-retry`.
 Scope: three bounded startup and part-open attempts, retained failure evidence and separate native stage measurements.
 It depends on continuous capture in [PR #288](https://github.com/TryUniCAD/Kit/pull/288).

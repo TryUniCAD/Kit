@@ -64,7 +64,7 @@ Missing decoded measurements cannot pass comparison.
 An unavailable API returns setup instructions and leaves verification incomplete.
 
 The SOLIDWORKS collector distinguishes methods from values returned by dynamic
-dispatch. See the [verification dispatch correction](../Workers/SolidWorks/SolidWorksVerificationDispatch.md).
+dispatch. See the [verification dispatch correction](../Workers/SolidWorks/Verification/SolidWorksVerificationDispatch.md).
 
 | Reader exit status | Meaning                                                  |
 | ------------------ | -------------------------------------------------------- |

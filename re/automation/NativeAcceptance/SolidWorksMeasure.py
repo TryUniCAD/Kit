@@ -71,6 +71,7 @@ def MeasureSource(app, work, request):
         if any(item["health"] for item in result["rebuilt"]["features"]):
             raise ValueError("SOLIDWORKS feature tree contains a rebuild error or warning")
         if request["role"] == "candidate":
+            export_data = VARIANT(pythoncom.VT_DISPATCH, None)
             parameters = {item["name"]: item for item in result["rebuilt"]["parameters"]}
             driving = {item["name"] for item in result["rebuilt"]["semantics"]["parameters"] if item["role"] == "driving"}
             independent = [item for item in parameters.values() if item["driving"] and item["name"] in driving]
@@ -86,7 +87,7 @@ def MeasureSource(app, work, request):
                         raise ValueError("SOLIDWORKS driving edit was not applied or did not rebuild")
                     measured = MeasurePart(document, app)
                     saved = work / f"edit-{index}.SLDPRT"
-                    if not document.Extension.SaveAs(str(saved), 0, 1, None, errors, warnings) or errors.value or warnings.value:
+                    if not document.Extension.SaveAs(str(saved), 0, 1, export_data, errors, warnings) or errors.value or warnings.value:
                         raise ValueError("SOLIDWORKS could not save the edited candidate without warnings")
                     if sum(path.stat().st_size for path in work.glob("edit-*.SLDPRT")) > 256 * 1024 * 1024:
                         raise ValueError("edited native output exceeds 256 MiB")
