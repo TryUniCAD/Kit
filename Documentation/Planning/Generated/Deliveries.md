@@ -4,14 +4,18 @@ Observed 2026-11-28; contacts are PR authors, not inferred owners. Refresh live 
 
 | PR | Scope | Contact | Head → base |
 | --- | --- | --- | --- |
-| [#402](https://github.com/TryUniCAD/Kit/pull/402) | fix(review): review each revision independently of approval readiness | jdharcourt | fix/reviewer-review-on-change-20261128 → main |
+| [#299](https://github.com/TryUniCAD/Kit/pull/299) | feat(fusion): read saved fixed-corner cuboids | Stephen316 | codex/fusion-saved-cuboid-roundtrip → main |
+| [#407](https://github.com/TryUniCAD/Kit/pull/407) | fix(review): restore hosted TLS and responsive mention reactions | jdharcourt | fix/reviewer-hosted-runtime-20261128 → main |
+| [#405](https://github.com/TryUniCAD/Kit/pull/405) | fix(research): restore solidworks native verification dispatch | Stephen316 | codex/solidworks-native-com-accessors → main |
+| [#406](https://github.com/TryUniCAD/Kit/pull/406) | fix(fusion): bind writer acceptance to exact native measurements | Stephen316 | codex/fusion-writer-native-measurement → main |
+| [#403](https://github.com/TryUniCAD/Kit/pull/403) | fix(research): report provisional holdout selections | Stephen316 | codex/provisional-inference-survivor → main |
 | [#401](https://github.com/TryUniCAD/Kit/pull/401) | test(review): temporary live JSON contract review fixture | jdharcourt | feat/reviewer-live-smoke-20261128 → main |
+| [#404](https://github.com/TryUniCAD/Kit/pull/404) | fix(solidworks): honor assembly tessellation opt-out | Stephen316 | codex/solidworks-assembly-tessellation → main |
 | [#384](https://github.com/TryUniCAD/Kit/pull/384) | refactor(solidworks): share proven archive field rules | usehoplite | codex/sw-header-bounds → main |
 | [#383](https://github.com/TryUniCAD/Kit/pull/383) | docs: audit solidworks later-phase coverage | usehoplite | hoplite/tegea-f1d4ae13--later-phases → main |
 | [#398](https://github.com/TryUniCAD/Kit/pull/398) | docs(planning): publish completed project import receipts | jdharcourt | feat/planning-import-receipts-20261128 → main |
 | [#396](https://github.com/TryUniCAD/Kit/pull/396) | feat(fusion): read owned offset-start circular extrusions through sdk and cli | jdharcourt | feat/fusion-offset-sdk-reader-20261127 → main |
 | [#397](https://github.com/TryUniCAD/Kit/pull/397) | feat(cad): qualify Fusion draft and rim reads with measured CLI parity | jdharcourt | feat/decoded-cad-read-write-20261127 → main |
-| [#299](https://github.com/TryUniCAD/Kit/pull/299) | feat(fusion): read saved fixed-corner cuboids | Stephen316 | codex/fusion-saved-cuboid-roundtrip → main |
 | [#121](https://github.com/TryUniCAD/Kit/pull/121) | feat(solidworks): build generative archives and native construction research | odinglyn0 | codex/solidworks-2026-native → main |
 | [#385](https://github.com/TryUniCAD/Kit/pull/385) | fix(ci): fail queue CI Agg as soon as a candidate job fails | usehoplite | hoplite/sybaris-29ba7c65 → main |
 | [#239](https://github.com/TryUniCAD/Kit/pull/239) | Write measured SOLIDWORKS 2026 circular blind bosses | odinglyn0 | codex/solidworks-circle-measured-main → main |
@@ -85,6 +89,7 @@ Observed 2026-11-28; contacts are PR authors, not inferred owners. Refresh live 
 | [#370](https://github.com/TryUniCAD/Kit/pull/370) | docs(research): audit the November 25 capture-failure records | usehoplite | codex/nov25-capture-failures → main |
 | [#365](https://github.com/TryUniCAD/Kit/pull/365) | chore(deps-dev): bump ruff from 0.17.5 to 0.17.6 | dependabot | dependabot/uv/ruff-0.17.6 → main |
 | [#364](https://github.com/TryUniCAD/Kit/pull/364) | test(supervisor): make CheckWindow wait for a memory sample and outlast slow passes | usehoplite | codex/supervisor-window-sampling → main |
+| [#402](https://github.com/TryUniCAD/Kit/pull/402) | fix(review): review each revision independently of approval readiness | jdharcourt | fix/reviewer-review-on-change-20261128 → main |
 | [#400](https://github.com/TryUniCAD/Kit/pull/400) | feat(review): pin review runtime and react to mention requests | jdharcourt | feat/reviewer-model-reactions-20261128 → main |
 | [#399](https://github.com/TryUniCAD/Kit/pull/399) | feat(review): replace comment reviews with an account authenticated github app | jdharcourt | feat/codex-reviewer-20261128-setup → main |
 | [#395](https://github.com/TryUniCAD/Kit/pull/395) | feat(research): decode signed offset starts on unequal two-sided extrusions | jdharcourt | feat/fusion-offset-start-20261127 → main |
@@ -103,5 +108,3 @@ Observed 2026-11-28; contacts are PR authors, not inferred owners. Refresh live 
 | [#388](https://github.com/TryUniCAD/Kit/pull/388) | perf(ci): run redundant queue gates in parallel | usehoplite | codex/queue-gate-tail → main |
 | [#389](https://github.com/TryUniCAD/Kit/pull/389) | perf(ci): select trusted phases inside light check jobs | usehoplite | codex/pr-inline-phase → main |
 | [#375](https://github.com/TryUniCAD/Kit/pull/375) | docs(planning): consolidate format and route support evidence | jdharcourt | feat/project-next-steps-20261127 → main |
-| [#359](https://github.com/TryUniCAD/Kit/pull/359) | ci: give each queue candidate its own aggregation slot | usehoplite | hoplite/lilaia-59618fe9--queue-agg-per-candidate → main |
-| [#322](https://github.com/TryUniCAD/Kit/pull/322) | fix(ci): restore required Python verification on the catalogue branch | Stephen316 | codex/catalogue-base-python-checks → wip/pr158-cad-catalogue-runner |
