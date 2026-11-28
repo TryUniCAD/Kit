@@ -294,7 +294,7 @@
       "Source": "Documentation/Tasks/AccountReviewer.md",
       "Exit": "Commit changes dispatch a new current-head model review even with failed CI or conflicts; app approval remains gated by current successful CI and mergeability; mentions acknowledge processing and use current trusted policy",
       "Branch": "fix/reviewer-review-on-change-20261128",
-      "Blocker": "Hosted model process failed after successful input preparation and container build; safe runtime diagnosis awaits protected default branch deployment; native project sync lacks read project permission",
+      "Blocker": "Deployed reviewer refuses repair PR above its complete input file limit before starting the model; protected default branch deployment and an explicit owner bootstrap decision are required; earlier hosted model failure still needs safe diagnosis; native project sync lacks read project permission",
       "Evidence": "https://github.com/TryUniCAD/Kit/actions/runs/46163285662",
       "HostedSmoke": {
         "PullRequest": "https://github.com/TryUniCAD/Kit/pull/401",
@@ -349,6 +349,14 @@
         "Scope": "Only dangerous-triggers annotations on pull_request_target and issue_comment in .github/workflows/ReviewRequest.yml",
         "Constraints": "Metadata only; no PR code checkout or private credentials; live comment authorization; dispatch only the protected default branch reviewer; CI approval and merge queue gates unchanged",
         "Verification": "Pinned Zizmor 1.32.0 pedantic offline audit passed both reviewer workflows with exactly two approved findings ignored"
+      },
+      "BootstrapReview": {
+        "PullRequest": "https://github.com/TryUniCAD/Kit/pull/402",
+        "Revision": "781797694e2d2ebf7a10bc907ec3f2908dd80e7d",
+        "Run": "https://github.com/TryUniCAD/Kit/actions/runs/46169826495",
+        "CheckId": 141055892952,
+        "Outcome": "PR exceeds the complete review file limit; input preparation published failure and skipped model review and publication",
+        "Approval": "No actual approving app review; no exemption from approval or merge authorization has been granted"
       }
     },
     {

@@ -40,6 +40,12 @@ The isolated hosted smoke [46166204811](https://github.com/TryUniCAD/Kit/actions
 The same account, model, reasoning setting and tool-free CLI invocation succeeded locally.
 No completed hosted model review or approving app review is claimed by this entry.
 
+The deployed reviewer attempted this repair at `781797694e2d2ebf7a10bc907ec3f2908dd80e7d` in [run 46169826495](https://github.com/TryUniCAD/Kit/actions/runs/46169826495).
+Its native check `141055892952` reported `PR exceeds the complete review file limit`.
+The model and review publisher were skipped; this result contains no model code findings or approval.
+The repair therefore has a bootstrap dependency on protected default-branch deployment.
+No approval waiver or merge authorization is established by the dispatcher exception.
+
 [PR #401](https://github.com/TryUniCAD/Kit/pull/401) is a disposable live fixture at `c9682038719ade0661f43b74bf69943d7a4b70d8`.
 Its uppercase JSON contract fails in the real CLI process before repair.
 It must be closed after the finding and approval sequence; it must not merge.
