@@ -1,20 +1,14 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
-from convert.adapters.solidworks.Archive.Bodies.Layouts.ExternalFields import (
-    KExternalFields,
-)
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Chamfers.ChmfRefFields import (
-    KChmfRefFields,
-)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Chamfers.ChamferFields import (
     KChamferFields,
-)
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Fillets.EdgeFields import (
-    KEdgeFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Fillets.KeeperFields import (
     KKeeperFields,
 )
+
+
+from convert.adapters.solidworks.Archive.Resolved.UseEdgeCtxMut import UseEdgeCtxMut
 
 
 # the measured ordinary chamfer context shares edge and keeper layouts with retained edge fillets
@@ -25,24 +19,15 @@ def UseChmfCtxMut(ContextValue: BodyContext) -> None:
         "cmgr_f658": 1,
     }:
         raise BodyUnsupported("unsupported ordinary SOLIDWORKS chamfer archive context")
+    UseEdgeCtxMut(ContextValue)
     ContextValue.LayoutsValue = {
         **ContextValue.LayoutsValue,
-        **KExternalFields,
-        **KChmfRefFields,
-        **KEdgeFields,
         **KKeeperFields,
         **KChamferFields,
     }
     ContextValue.SchemasValue = {
         **ContextValue.SchemasValue,
         "Chamfer_c": (1,),
-        "moCStringHandle_c": (1,),
-        "moEndFaceSurfIdRep_c": (1,),
-        "moExtObject_c": (1,),
-        "moFR_c": (1,),
-        "moFromSktEntSurfIdRep_c": (1,),
-        "moCompEdge_c": (1,),
-        "moEdgeRef_c": (1,),
         "moFilletSurfIdRep_c": (1,),
         "moSurfaceIdRep_c": (1,),
     }

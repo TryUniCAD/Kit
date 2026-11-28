@@ -40,7 +40,7 @@ def LineEntity(
                 "typed_archive_owner": {
                     **LoopValue.OwnerValue,
                     "embedded_array": "lines",
-                    "row_index": LineValue.IndexValue,
+                    "row_index": LineValue.IndexValue + LoopValue.RowBase,
                 },
             }
         ),

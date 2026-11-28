@@ -4,14 +4,17 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.LinePoint import LineP
 
 # adjacency handles must resolve to actual incident lines while retaining distinct tagged object ownership
 def CheckHandles(
-    PointsValue: tuple[LinePoint, ...], Incident: tuple[set[int], ...]
+    PointsValue: tuple[LinePoint, ...],
+    Incident: tuple[set[int], ...],
+    *,
+    LineBase: int = 0,
 ) -> None:
     Handles = tuple(Handle for Point in PointsValue for Handle in Point.HandlesValue)
     if len({id(Handle) for Handle in Handles}) != 2 * len(PointsValue):
         raise ValueError("typed line ring reuses an endpoint handle object")
     for Point in PointsValue:
         HandleIndices = {
-            LineIndex(Handle.FieldsValue, "idx", "f18", 30591)
+            LineIndex(Handle.FieldsValue, "idx", "f18", 30591) - LineBase
             for Handle in Point.HandlesValue
         }
         if (

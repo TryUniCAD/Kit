@@ -1,0 +1,62 @@
+{
+  "history": {
+    "active_sha256": "88de93180e79df6ad22bff44aca85dcb6646594932910460f2784594ae6ffd03",
+    "body_slots": [
+      2,
+      2,
+      0,
+      0
+    ],
+    "delete_only_control_marks": [
+      7,
+      3
+    ],
+    "delete_only_refusal": "current kernel framing differs",
+    "history_sha256": "75132a3e1cfd947c6425b4b5987c3f892c32895ea3c4abb50c09f610bcdf1428",
+    "marks": [
+      13,
+      10,
+      3,
+      1
+    ],
+    "node_counts": [
+      207,
+      169,
+      27,
+      27
+    ],
+    "other_controller_refused": "rollback mark differs from its actual controller",
+    "retained_rows": [
+      6,
+      44,
+      32,
+      35
+    ],
+    "runtime_data_reads": 0,
+    "source_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7"
+  },
+  "rounding": {
+    "complete_topology": [
+      11,
+      24,
+      16
+    ],
+    "extent_differences_mm": [
+      0.0,
+      1.4210854715202004e-14,
+      2.8421709430404007e-13
+    ],
+    "mass_properties": {
+      "area_mm2": 12364.873749999999,
+      "centroid_mm": [
+        7.337500000000027,
+        11.612500000000002,
+        11.470092954692655
+      ],
+      "volume_mm3": 8198.485031250017
+    },
+    "out_of_budget_refusal": "SOLIDWORKS shell corner does not have one matching footprint position",
+    "runtime_data_reads": 0,
+    "tolerance_mm": 1.1368683772161603e-13
+  }
+}
