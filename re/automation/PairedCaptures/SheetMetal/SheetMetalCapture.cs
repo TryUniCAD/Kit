@@ -196,14 +196,16 @@ public static class SheetMetalCapture
         allowance.Type = (int)swBendAllowanceTypes_e.swBendAllowanceKFactor;
         allowance.KFactor = .5;
         int noRelief = (int)swSheetMetalReliefTypes_e.swSheetMetalReliefNone;
-        var flange = doc.FeatureManager.InsertSheetMetalBaseFlange2(thickness, false, radius, .02, .01, false,
+        const bool thickenTowardPositiveZ = true;
+        var flange = doc.FeatureManager.InsertSheetMetalBaseFlange2(thickness, thickenTowardPositiveZ, radius, .02, .01, false,
             0, 0, 1, allowance, false, noRelief, 0, 0, .5, false, false, true, true);
         Check(flange != null, "Base flange returned no feature for " + id);
         flange.Name = "Base-" + id;
         Check(doc.ForceRebuild3(false), "Base flange could not rebuild for " + id);
         var expected = DesiredBounds(body);
         var initial = Bodies(doc);
-        var evidence = Row("id", id, "intended_bounds_m", expected, "initial_bodies", initial.Select(candidate =>
+        var evidence = Row("id", id, "requested_thicken_direction", thickenTowardPositiveZ,
+            "intended_bounds_m", expected, "initial_bodies", initial.Select(candidate =>
             Row("name", candidate.Name, "bounds_m", Bounds(candidate), "sheet_metal", candidate.IsSheetMetal())).ToArray());
         try
         {
@@ -213,30 +215,13 @@ public static class SheetMetalCapture
             evidence.Add("initial_thickness_m", definition.Thickness);
             evidence.Add("initial_radius_m", definition.BendRadius);
             var solid = initial.SingleOrDefault(candidate => HasBounds(candidate, expected));
-            var reverse = false;
-            if (solid == null)
-            {
-                var mirrored = new[] { new[] { expected[0][0], expected[0][1], -thickness },
-                    new[] { expected[1][0], expected[1][1], 0.0 } };
-                var negative = initial.SingleOrDefault(candidate => candidate.IsSheetMetal() && HasBounds(candidate, mirrored));
-                if (negative != null)
-                {
-                    reverse = true;
-                    ReverseBaseThickness(doc, flange, definition, thickness, radius);
-                    var revised = Bodies(doc);
-                    evidence.Add("revised_bodies", revised.Select(candidate =>
-                        Row("name", candidate.Name, "bounds_m", Bounds(candidate), "sheet_metal", candidate.IsSheetMetal())).ToArray());
-                    solid = revised.SingleOrDefault(candidate => HasBounds(candidate, expected));
-                    definition = flange.GetDefinition() as IBaseFlangeFeatureData;
-                }
-            }
             Check(solid != null && solid.IsSheetMetal(), "No distinct positive-Z sheet-metal body matched " + id);
             Check(definition != null && Near(definition.Thickness, thickness) && Near(definition.BendRadius, radius),
                 "Base flange did not report the requested thickness and radius for " + id);
             return Row("id", id, "body", BodyRow(doc, solid), "feature", Identity(doc, flange),
-                "direction_reversed_after_mirrored_bounds", reverse, "direction_evidence", evidence,
-            "base_flange2_arguments", new object[] { thickness, false, radius, .02, .01, false, 0, 0, 1,
-                Row("type", allowance.Type, "k_factor", allowance.KFactor), false, noRelief, 0, 0, .5, false, false, true, true },
+                "direction_evidence", evidence,
+                "base_flange2_arguments", new object[] { thickness, thickenTowardPositiveZ, radius, .02, .01, false, 0, 0, 1,
+                    Row("type", allowance.Type, "k_factor", allowance.KFactor), false, noRelief, 0, 0, .5, false, false, true, true },
                 "base_readback", Row("thickness_m", definition.Thickness, "bend_radius_m", definition.BendRadius,
                     "reverse_thickness", definition.ReverseThickness),
                 "sketch_constraint_status", status);
@@ -246,26 +231,6 @@ public static class SheetMetalCapture
             error.GetBaseException().Data["sheet_metal_base_evidence"] = Json.Serialize(evidence);
             throw;
         }
-    }
-
-    static void ReverseBaseThickness(IModelDoc2 doc, IFeature flange, IBaseFlangeFeatureData definition,
-        double thickness, double radius)
-    {
-        var reverse = !definition.ReverseThickness;
-        Check(definition.IAccessSelections2((ModelDoc2)doc, null), "Cannot access base flange to reverse measured mirrored thickness");
-        bool committed = false;
-        try
-        {
-            Check(!definition.UseMaterialSheetMetalParameters, "The base flange thickness is governed by material parameters");
-            definition.OverrideDefaultSheetMetalParameters = true;
-            definition.ReverseThickness = reverse;
-            definition.Thickness = thickness;
-            definition.BendRadius = radius;
-            committed = flange.IModifyDefinition2(definition, (ModelDoc2)doc, null);
-            Check(committed, "Native base flange declined the exact mirrored-thickness correction");
-        }
-        finally { if (!committed) definition.ReleaseSelectionAccess(); }
-        Check(doc.ForceRebuild3(false), "The mirrored-thickness correction could not rebuild");
     }
 
     static double[][] Endpoints(IEdge edge)
