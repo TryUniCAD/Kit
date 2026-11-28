@@ -6,7 +6,7 @@ from convert.Formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 
 
 # face appearance must follow a reciprocal attribute chain in each live revision
-def CheckMaterialLinks(
+def CheckFaceMat(
     Records: tuple[AsmRecord, ...],
     Versions: dict[int, int],
     Aliases: tuple[int, ...],
@@ -23,28 +23,28 @@ def CheckMaterialLinks(
             raise ValueError("Fusion journal face material requires a face owner")
         Owner = Records[Versions[OwnerId]]
         Current = SlotId
-        Seen: set[int] = set()
+        Visited: set[int] = set()
         while Current != -1:
-            Link = Records[Versions[Current]]
-            Prior = ReadLiveRef(Link, 3, Aliases)
+            Linked = Records[Versions[Current]]
+            Prior = ReadLiveRef(Linked, 3, Aliases)
             if (
-                Current in Seen
-                or ReadLiveRef(Link, 4, Aliases) != OwnerId
+                Current in Visited
+                or ReadLiveRef(Linked, 4, Aliases) != OwnerId
                 or (
                     Prior != -1
                     and ReadLiveRef(Records[Versions[Prior]], 2, Aliases) != Current
                 )
             ):
                 raise ValueError("Fusion journal face material chain is not reciprocal")
-            Seen.add(Current)
+            Visited.add(Current)
             if Prior == -1 and ReadLiveRef(Owner, 0, Aliases) != Current:
                 raise ValueError("Fusion journal face material chain is not reciprocal")
             Current = Prior
-        Next = ReadLiveRef(Record, 2, Aliases)
-        if Next != -1:
-            Link = Records[Versions[Next]]
+        NextId = ReadLiveRef(Record, 2, Aliases)
+        if NextId != -1:
+            Linked = Records[Versions[NextId]]
             if (
-                ReadLiveRef(Link, 3, Aliases) != SlotId
-                or ReadLiveRef(Link, 4, Aliases) != OwnerId
+                ReadLiveRef(Linked, 3, Aliases) != SlotId
+                or ReadLiveRef(Linked, 4, Aliases) != OwnerId
             ):
                 raise ValueError("Fusion journal face material chain is not reciprocal")

@@ -7,13 +7,13 @@ from convert.Formats.Fusion.BrepCodec.Journal.Attributes.AttribLinks import Attr
 KMaterialFamily = "NEUTRON_Material_attrib_def"
 
 
-# the native tag spelling must survive exact journal re-emission
+# the native tag spelling must survive exact journal emission
 @MakeDataClass(frozen=True, slots=True)
 class MaterialAttrib:
     Links: AttribLinks
     Tag: str
 
-    # the journal tag must name a UUID before it can bind a design face appearance
+    # the journal tag must name a uuid before it can bind a design face appearance
     def __post_init__(self) -> None:
         if (
             MatchText(r"[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}", self.Tag)

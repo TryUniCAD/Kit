@@ -164,3 +164,47 @@ IDs and qualifiers are evidence and do not act as writer constants.
 The renderer produced distinct images, but fixed-view metrics, picking
 and extended property measurements remain open. Extended inspection
 failed unit validation in all three controls.
+
+### Observed Design owner record
+
+The two controlled cuboids above and the independent cut each contain one
+622-byte Design `VMBrepRef` v0 group. The plain cuboid has none.
+The current lower codec preserves that group's bytes without interpreting
+its fields, and strict public projection refuses
+`BFB592FE-03DD-4DAA-A4AC-14D02ABB672A`.
+Matching serialized values in the associated typed records establish the
+following observations.
+
+| Observed byte offset | Cross-checked field |
+| ---: | --- |
+| 1, 28 | Immediate feature and Protein asset manager references |
+| 43, 119, 199, 297 | Asset identifier, library identifier, inherited alias, face-tag UUID |
+| 372 | `ASMRecipe` link to a v3 `BoundFaceRecipe` |
+| 390, 466, 538, 542 | Scope asset, component persistent identity, scope type and segment |
+| 555, 596, 610 | `DcBody`, status and reciprocal dynamic update references |
+
+The cut separates the immediate feature from the body producer. Both
+coincide in the cuboids. The dependency graph tracks them with separate
+edge roles. Record framing and status fields around the observed links
+remain unqualified. No writer uses these sample offsets or opaque groups.
+
+Before implementing further rules, two geometry holdouts received frozen
+style intents. The manifest SHA-256 is
+`19617ea0a0603a39fbc0831a427362795f621e9e957616ab9234a071dd77b298`.
+The first retains the negative-Y face at RGBA `37,181,89,255` while
+changing 21.75 to 48.825 mm. The second retains the positive-X face at
+RGBA `108,47,211,255` while changing 29.125 to 15.675 mm. Four
+experimental archives regenerated the journal and typed material and
+scene joins, retaining all written semantic fields on typed reread.
+They remain in private scratch. The unresolved Design reference has
+no generative rule and the body-scene baseline stopped during Fusion
+import. Neither result establishes native writer acceptance.
+
+The exact graphics and no-graphics baseline archives have identical
+existing member bytes. The graphics variant adds only
+`OGS.BlobFolder/OGS/DefaultScene/world`. The minimal world has no leaf
+links or mesh records, while the independent native control has 18
+linked, mesh-bearing leaves. A control after the import stall and a
+separate no-graphics comparison before viewport changes are required
+to distinguish a scene import defect from an invalid bracket and to
+measure any regenerated presentation.
