@@ -38,6 +38,8 @@ KResolvedSchemas = MappingProxyType(
         "moRefPlane_c": (1,),
         "moRevEndSpec_c": (1,),
         "moRevolution_c": (1,),
+        "moRevolutionThin_c": (1,),
+        "moThinSpec_c": (1,),
         "moSelectionSetFolder_c": (1,),
         "moSensorFolder_c": (1,),
         "moSolidBodyFolder_c": (1,),

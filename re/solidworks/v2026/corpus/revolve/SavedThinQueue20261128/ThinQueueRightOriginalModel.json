@@ -1,0 +1,340 @@
+{
+  "$type": "CadDocument",
+  "assembly": null,
+  "bodies": {
+    "$tuple": [
+      {
+        "$type": "Body",
+        "attributes": {},
+        "final_feature_id": "feature/revolve",
+        "id": "body/revolve",
+        "material_id": null,
+        "name": "ThinBossRevolve",
+        "provenance": null,
+        "topology": {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 0,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      }
+    ]
+  },
+  "brep": null,
+  "brep_payloads": {
+    "$tuple": []
+  },
+  "capabilities": {
+    "$frozenset": []
+  },
+  "configurations": {
+    "$tuple": [
+      {
+        "$type": "Configuration",
+        "active": true,
+        "attributes": {},
+        "id": "configuration/default",
+        "name": "Default",
+        "overrides": {
+          "$tuple": []
+        },
+        "parent_id": null,
+        "suppressed_feature_ids": {
+          "$tuple": []
+        }
+      }
+    ]
+  },
+  "diagnostics": {
+    "$tuple": []
+  },
+  "feature_timeline": {
+    "$tuple": [
+      {
+        "$type": "FeatureStep",
+        "attributes": {},
+        "configuration_states": {
+          "$tuple": []
+        },
+        "definition": {
+          "$type": "ThinRevolve",
+          "first_wall_id": "parameter/D3",
+          "second_wall_id": null,
+          "sweep_value": {
+            "$type": "AngularRevolve",
+            "against_parameter_id": null,
+            "along_parameter_id": "parameter/D1",
+            "axis_direction": {
+              "$type": "Vector3",
+              "x": 0,
+              "y": 1,
+              "z": 0
+            },
+            "axis_origin": {
+              "$type": "Vector3",
+              "x": 0,
+              "y": -18.0,
+              "z": 6.0
+            },
+            "axis_selection_id": "selection/axis",
+            "side_mode": "one_sided"
+          },
+          "wall_mode": "midplane"
+        },
+        "id": "feature/revolve",
+        "input_feature_ids": {
+          "$tuple": []
+        },
+        "kind": {
+          "$enum": "FeatureKind",
+          "value": "revolution"
+        },
+        "name": "ThinBossRevolve",
+        "operation": {
+          "$enum": "BooleanOperation",
+          "value": "create"
+        },
+        "order": 0,
+        "output_body_ids": {
+          "$tuple": []
+        },
+        "parameter_ids": {
+          "$tuple": [
+            "parameter/D1",
+            "parameter/D3"
+          ]
+        },
+        "provenance": null,
+        "selection_ids": {
+          "$tuple": [
+            "selection/axis"
+          ]
+        },
+        "sketch_id": "sketch/profile",
+        "suppressed": false
+      }
+    ]
+  },
+  "materials": {
+    "$tuple": []
+  },
+  "meshes": {
+    "$tuple": []
+  },
+  "metadata": {
+    "name": "ThinQueueRightOriginal"
+  },
+  "parameters": {
+    "$tuple": [
+      {
+        "$type": "Parameter",
+        "attributes": {},
+        "expression": null,
+        "id": "parameter/D1",
+        "name": "D1",
+        "owner_id": "feature/revolve",
+        "provenance": null,
+        "role": {
+          "$enum": "ParameterRole",
+          "value": "driving"
+        },
+        "value": {
+          "$type": "ParameterValue",
+          "kind": {
+            "$enum": "ValueKind",
+            "value": "angle"
+          },
+          "unit": "rad",
+          "value": 1.3788101090755203
+        }
+      },
+      {
+        "$type": "Parameter",
+        "attributes": {},
+        "expression": null,
+        "id": "parameter/D3",
+        "name": "D3",
+        "owner_id": "feature/revolve",
+        "provenance": null,
+        "role": {
+          "$enum": "ParameterRole",
+          "value": "driving"
+        },
+        "value": {
+          "$type": "ParameterValue",
+          "kind": {
+            "$enum": "ValueKind",
+            "value": "length"
+          },
+          "unit": "mm",
+          "value": 2.4
+        }
+      }
+    ]
+  },
+  "schema_version": "1.0",
+  "selections": {
+    "$tuple": [
+      {
+        "$type": "Selection",
+        "attributes": {},
+        "id": "selection/axis",
+        "name": "Selected construction axis",
+        "path": {
+          "$tuple": [
+            {
+              "$type": "SelectionPathElement",
+              "entity_id": "sketch/profile",
+              "entity_kind": "sketch",
+              "subelement": ""
+            },
+            {
+              "$type": "SelectionPathElement",
+              "entity_id": "axis/centre",
+              "entity_kind": "sketch_entity",
+              "subelement": ""
+            }
+          ]
+        },
+        "point": null,
+        "provenance": null,
+        "query": {}
+      }
+    ]
+  },
+  "sketches": {
+    "$tuple": [
+      {
+        "$type": "Sketch",
+        "attributes": {},
+        "closed_profile_entity_ids": {
+          "$tuple": []
+        },
+        "constraints": {
+          "$tuple": []
+        },
+        "entities": {
+          "$tuple": [
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": 11.000000000000002,
+                  "y": 15.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": 11.000000000000002,
+                  "y": -9.0
+                }
+              },
+              "id": "profile/open",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            },
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": true,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": -6.0,
+                  "y": 26.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": -6.0,
+                  "y": -18.0
+                }
+              },
+              "id": "axis/centre",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            }
+          ]
+        },
+        "id": "sketch/profile",
+        "name": "RevolveSketch",
+        "parameter_ids": {
+          "$tuple": []
+        },
+        "provenance": null,
+        "support_plane_id": "plane/profile",
+        "suppressed": false
+      }
+    ]
+  },
+  "source": {
+    "$type": "CadSource",
+    "application_version": "",
+    "attributes": {},
+    "container_version": "",
+    "format_id": "kit-neutral",
+    "path": "<authored-thin-research>",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "support_planes": {
+    "$tuple": [
+      {
+        "$type": "SupportPlane",
+        "attributes": {},
+        "id": "plane/profile",
+        "name": "Right Plane",
+        "offset_parameter_id": null,
+        "provenance": null,
+        "support_selection_id": null,
+        "transform": {
+          "$type": "Transform",
+          "origin": {
+            "$type": "Vector3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "x_axis": {
+            "$type": "Vector3",
+            "x": 0,
+            "y": 0,
+            "z": -1
+          },
+          "y_axis": {
+            "$type": "Vector3",
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "z_axis": {
+            "$type": "Vector3",
+            "x": 1,
+            "y": 0,
+            "z": 0
+          }
+        }
+      }
+    ]
+  },
+  "units": {
+    "$enum": "UnitSystem",
+    "value": "mm"
+  }
+}

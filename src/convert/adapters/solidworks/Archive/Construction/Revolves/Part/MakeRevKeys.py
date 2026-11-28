@@ -1,10 +1,5 @@
-from math import degrees as Degrees
-
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import (
     KeywordConfig,
-)
-from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import (
-    KeywordDim,
 )
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import (
     KeywordFeature,
@@ -17,6 +12,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePlan import (
     RevolvePlan,
+)
+from convert.adapters.solidworks.Archive.Construction.Revolves.Part.MakeRevKeyRows import (
+    MakeRevKeyRows,
 )
 from convert.adapters.solidworks.Archive.Construction.System.PartSystem import (
     PartSystem,
@@ -55,28 +53,7 @@ def MakeRevKeys(
         for NodeValue in FeatureValues[:-2]
     )
     ProfileValue, FeatureValue = FeatureValues[-2:]
-    RowsValue += (
-        KeywordFeature(
-            FieldInt(ProfileValue.FieldsValue, "f08"),
-            ReadNodeName(ProfileValue),
-            None,
-            "Sketch",
-            (),
-            (),
-            True,
-            None,
-        ),
-        KeywordFeature(
-            FieldInt(FeatureValue.FieldsValue, "f08"),
-            ReadNodeName(FeatureValue),
-            "Revolve",
-            "Feature",
-            (KeywordDim("D1", Degrees(PlanValue.AngleValue), "degree"),),
-            (),
-            None,
-            None,
-        ),
-    )
+    RowsValue += MakeRevKeyRows(ProfileValue, FeatureValue, PlanValue)
     return MakeKeywords(
         PlanValue.NameValue, InputValue.HeaderValue.ModifiedAt, ConfigValues, RowsValue
     )

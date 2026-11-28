@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Sketch.AddRevAxis
 from convert.adapters.solidworks.Archive.Construction.Revolves.Sketch.AddRevRulesMut import (
     AddRevRulesMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.Sketch.MakeThinProfMut import (
+    MakeThinProfMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Sketch.PolygonInput import (
     PolygonInput,
 )
@@ -35,6 +38,8 @@ def MakeRevProfMut(
     PlanValue: RevolvePlan,
     Allocator: PersistentIds,
 ) -> tuple[ProfileGraph, ArchiveNode]:
+    if PlanValue.ThinWalls is not None:
+        return MakeThinProfMut(SystemValue, InputValue, PlanValue, Allocator)
     ProfileValue = MakeProfileMut(
         PlanValue.SketchName,
         SystemValue.RootValue,

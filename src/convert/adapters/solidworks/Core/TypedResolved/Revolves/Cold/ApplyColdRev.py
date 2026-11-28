@@ -9,6 +9,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Cold.ColdRevolve im
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.ApplyRevDoc import (
     ApplyRevDoc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.BindThinDoc import (
+    BindThinDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinRevOwner import (
+    ThinRevOwner,
+)
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
 )
@@ -17,7 +23,12 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # the single derived body carries the same owner in both geometry and design only reads
 def ApplyColdRev(Document: CadDocument, ColdValue: ColdRevolve) -> CadDocument:
-    FeatureValue = ColdValue.OwnerValue.NodeValue
+    OwnerValue = ColdValue.OwnerValue
+    if isinstance(OwnerValue, ThinRevOwner):
+        return BindThinDoc(
+            Document, ColdValue.LinkValue, OwnerValue, ColdValue.ShapeValue
+        )
+    FeatureValue = OwnerValue.NodeValue
     NativeId = NativeNodeId(FeatureValue)
     (BodyValue,) = Document.bodies
     if BodyValue.final_feature_id != f"sldprt:feature:{NativeId}":
@@ -33,5 +44,5 @@ def ApplyColdRev(Document: CadDocument, ColdValue: ColdRevolve) -> CadDocument:
     return ApplyRevDoc(
         ReplaceValue(Document, bodies=(Bound,)),
         ColdValue.LinkValue,
-        ColdValue.OwnerValue,
+        OwnerValue,
     )

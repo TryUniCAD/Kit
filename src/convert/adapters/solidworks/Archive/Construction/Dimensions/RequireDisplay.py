@@ -31,6 +31,7 @@ def RequireDisplay(
             RuntimeClass("moMateDistanceDim_c", 1),
             RuntimeClass("moExtrusion_c", 1),
             RuntimeClass("moRevolution_c", 1),
+            RuntimeClass("moRevolutionThin_c", 1),
         )
         or FieldInt(OwnerValue.FieldsValue, "f2b0") != 19000
     ):

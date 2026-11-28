@@ -1,0 +1,43 @@
+{
+    "schema":  1,
+    "research_only":  true,
+    "build":  "34.4.1.1011",
+    "runner_tool_revision":  "c6c80926e1666229844a02bdba38221557372b50",
+    "preparation_sha256":  "c7e0afac8161c55d7e84c918b6dee3d441d52dbd5ba9569acef2bef542335870",
+    "stock_before":  27524,
+    "variants":  {
+                     "ThinQueueFrontOriginal":  {
+                                                    "source_sha256":  "90f63f4376950fe42d4b50ca84990a786d1b5fbaddccef04b7f955ce79c63a58",
+                                                    "model_sha256":  "5413a4fa6abc56cb1a4fc55f70372e5e8a0595c062d44d306a9aca7263589f3b",
+                                                    "variant":  "ThinQueueFrontOriginal",
+                                                    "status":  "failed",
+                                                    "error":  "Exception calling \"MeasureAndSave\" with \"11\" argument(s): \"The owned SOLIDWORKS process did not exit\""
+                                                },
+                     "ThinQueueFrontEdited":  {
+                                                  "source_sha256":  "64320e3e0741d04951d63a8f67f62c4b56ef2f3ac30399db48be1feeeb66503c",
+                                                  "model_sha256":  "91b60635b424a01e4626569a7aa5ffcf237559aebc1e42b1770c6ebb84cc037c",
+                                                  "variant":  "ThinQueueFrontEdited",
+                                                  "saved_sha256":  "a45e577bfec3b6a40ecd1c82389aa2697b156703d749e7103865303dcf8e812b",
+                                                  "status":  "observed",
+                                                  "author_pid":  26776,
+                                                  "reopen_pid":  37100
+                                              },
+                     "ThinQueueRightOriginal":  {
+                                                    "source_sha256":  "cac1f7be7801c589852095ab1a136d7b2b4224d47f909d604f86a392e112b1e3",
+                                                    "model_sha256":  "cc0f1d2df423f20cedbe64a616507e6e4f8b5c47540dc8c4706e8992e58b7509",
+                                                    "variant":  "ThinQueueRightOriginal",
+                                                    "saved_sha256":  "3da5fa5771df5f07fd8d0f2bc7f1ff6bbf0831e2d1236069e016137bd853eade",
+                                                    "status":  "observed",
+                                                    "author_pid":  30924,
+                                                    "reopen_pid":  5808
+                                                },
+                     "ThinQueueRightEdited":  {
+                                                  "source_sha256":  "516cb99a797e4ebef59d132350b63309c117d062a307afb583adc34d911f47e3",
+                                                  "model_sha256":  "43a3665ed26eb3581b0ca75d4406da11d331954e53bbaaa9fc60447d31c219ba",
+                                                  "variant":  "ThinQueueRightEdited",
+                                                  "status":  "failed",
+                                                  "error":  "Exception calling \"MeasureAndSave\" with \"11\" argument(s): \"The owned SOLIDWORKS process did not exit\""
+                                              }
+                 },
+    "stock_after":  7488
+}

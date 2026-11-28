@@ -11,7 +11,10 @@ from interchange.geometry.Models.VectorPlane import PlaneVector
 
 # each endpoint must come from the public line and its actual typed native point index
 def ReadColdEdge(
-    Entity: SketchEntity, Points: tuple[Mapping[str, object], ...]
+    Entity: SketchEntity,
+    Points: tuple[Mapping[str, object], ...],
+    *,
+    IsScaled: bool = False,
 ) -> SketchEntity:
     PairValue = Entity.attributes.get("native_point_indices")
     Geometry = Entity.geometry
@@ -33,12 +36,12 @@ def ReadColdEdge(
         Entity,
         geometry=LineGeometry(
             PlaneVector(
-                ExactMm(StartValue.get("x"), Geometry.start.x),
-                ExactMm(StartValue.get("y"), Geometry.start.y),
+                ExactMm(StartValue.get("x"), Geometry.start.x, IsScaled=IsScaled),
+                ExactMm(StartValue.get("y"), Geometry.start.y, IsScaled=IsScaled),
             ),
             PlaneVector(
-                ExactMm(Finish.get("x"), Geometry.end.x),
-                ExactMm(Finish.get("y"), Geometry.end.y),
+                ExactMm(Finish.get("x"), Geometry.end.x, IsScaled=IsScaled),
+                ExactMm(Finish.get("y"), Geometry.end.y, IsScaled=IsScaled),
             ),
         ),
         attributes=FreezeMapping(),

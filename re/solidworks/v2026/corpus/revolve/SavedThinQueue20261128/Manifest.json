@@ -1,0 +1,120 @@
+{
+  "schema": "kit.sw2026.saved-thin-suite-fixtures.v1",
+  "task_id": "B08-PR247-SAVED-THIN-COVERAGE",
+  "source_revision": "2a97e062fed0ae3e1bedd88ba138ff3dfc3e1bf1",
+  "build": "34.4.1.1011",
+  "cases": [
+    {
+      "name": "ThinQueueFrontOriginal",
+      "file": "ThinQueueFrontOriginal.SLDPRT",
+      "sha256": "ad302cf926c755b57262a7420e8ca0c935850de61cbb2dac311d47ae880efa41",
+      "bytes": 53580,
+      "author_pid": 17020,
+      "reopen_pid": 24568,
+      "volume_m3": 4.071612987597701e-06,
+      "driving_edits": 3,
+      "receipt_sha256": {
+        "Author.json": "d513a95ff6d4b2815f7be19d5cce1d0975efa66d5d2b3c08a922504d92162492",
+        "Reopen.json": "cb5535974fb092491bad46ea7c6ba3c1886ef58eb20fc161f01f755012018e3a",
+        "Model.json": "5413a4fa6abc56cb1a4fc55f70372e5e8a0595c062d44d306a9aca7263589f3b"
+      }
+    },
+    {
+      "name": "ThinQueueFrontEdited",
+      "file": "ThinQueueFrontEdited.SLDPRT",
+      "sha256": "a45e577bfec3b6a40ecd1c82389aa2697b156703d749e7103865303dcf8e812b",
+      "bytes": 55350,
+      "author_pid": 26776,
+      "reopen_pid": 37100,
+      "volume_m3": 5.922367805861193e-06,
+      "driving_edits": 3,
+      "receipt_sha256": {
+        "Author.json": "a77cd4642ea67cf25f8f552384ca528d811cbfaa5377269c994a635d84b34186",
+        "Reopen.json": "7d4f8240eaad9ab041672aae9601c32b2e537703e3d6db60ccadd152340870d1",
+        "Model.json": "91b60635b424a01e4626569a7aa5ffcf237559aebc1e42b1770c6ebb84cc037c"
+      }
+    },
+    {
+      "name": "ThinQueueRightOriginal",
+      "file": "ThinQueueRightOriginal.SLDPRT",
+      "sha256": "3da5fa5771df5f07fd8d0f2bc7f1ff6bbf0831e2d1236069e016137bd853eade",
+      "bytes": 49065,
+      "author_pid": 30924,
+      "reopen_pid": 5808,
+      "volume_m3": 1.3501308588067497e-06,
+      "driving_edits": 2,
+      "receipt_sha256": {
+        "Author.json": "bad7623d0c9faf40ed249c87d80ea9485022c0304f48b8e937342e0020217d66",
+        "Reopen.json": "eb7693458db890676bfdbfa118ee4a9bf357d9b683febbcd23018e751ae343dc",
+        "Model.json": "cc0f1d2df423f20cedbe64a616507e6e4f8b5c47540dc8c4706e8992e58b7509"
+      }
+    },
+    {
+      "name": "ThinQueueRightEdited",
+      "file": "ThinQueueRightEdited.SLDPRT",
+      "sha256": "df54c327cada0e61c08f055b0c7748542ee1c06be29903d5ace3c374b8453f33",
+      "bytes": 50797,
+      "author_pid": 39304,
+      "reopen_pid": 27128,
+      "volume_m3": 2.141267664784755e-06,
+      "driving_edits": 2,
+      "receipt_sha256": {
+        "Author.json": "664096f580958a0b4bf1195b69bdcc6fad2da385296f4cb1d67c5fe38adc2d90",
+        "Reopen.json": "36e4ca2a560d3382dc1021cbc8ce47ae4cc3adc6361eed2f784fd68bd3036099",
+        "Model.json": "43a3665ed26eb3581b0ca75d4406da11d331954e53bbaaa9fc60447d31c219ba"
+      }
+    }
+  ],
+  "original_receipt_sha256": {
+    "ThinQueueFrontOriginalAuthor.json": "1810d0cfe4f93e49549d2153557fe6133ddfabdd063e1dd2d26259833969cc70",
+    "ThinQueueFrontOriginalReopen.json": "d4bbf3f49ecc2eb57a1271cfc0ed2fb47283aae1ccbf66448c9978d30a90bc14",
+    "ThinQueueFrontOriginalModel.json": "5413a4fa6abc56cb1a4fc55f70372e5e8a0595c062d44d306a9aca7263589f3b",
+    "ThinQueueFrontEditedAuthor.json": "657ed74924938653f333e6431ef20f554538ffde6340af36064e24ae6ab4f061",
+    "ThinQueueFrontEditedReopen.json": "8b8fcb625901b01d27f05f710c6786cb2cea19148da2f50e6913447ac61f8510",
+    "ThinQueueFrontEditedModel.json": "91b60635b424a01e4626569a7aa5ffcf237559aebc1e42b1770c6ebb84cc037c",
+    "ThinQueueRightOriginalAuthor.json": "91dceab68fd0650274260384acbeeffaee1af48cd223ee634a3cea955f8b3f1f",
+    "ThinQueueRightOriginalReopen.json": "0b3e0c9a16964e071518dc9f834029794512d9355df432ebb2edcfecdc2fae59",
+    "ThinQueueRightOriginalModel.json": "cc0f1d2df423f20cedbe64a616507e6e4f8b5c47540dc8c4706e8992e58b7509",
+    "ThinQueueRightEditedAuthor.json": "4452292f1445c89fc86b7df6930632d7bea2c3fdb7233dd4283aeca4a04e4feb",
+    "ThinQueueRightEditedReopen.json": "859b19ce5cc1677270163bca032f9e611a5f4530f42017391888d66a073fa50d",
+    "ThinQueueRightEditedModel.json": "43a3665ed26eb3581b0ca75d4406da11d331954e53bbaaa9fc60447d31c219ba",
+    "AuthorCapture.json": "29f3fe40cb987b2bfbb6c2be4bb2beb7a7ce623351d1c9d45778def18d1d4ca2",
+    "AuthorStock-before.json": "bab928d6934db45dde278ca6da80b8700619ff08f337f2686ad92386ed08b442",
+    "AuthorStock-after.json": "b3be670b3bcfb7d83ce2dcb7a74f4644e874b32d3dc82421fdedb44938a31076",
+    "RecoveryCapture.json": "9b4ac5c1ab0bff27d7f898d283225cc1892d05286881c45b41901224e45eb324",
+    "RecoveryStock-before.json": "d8b671499773b08d26a085b14b29257d65c23bd444fbdb785beb42b848add32d",
+    "RecoveryStock-after.json": "6f05b91b3e2370c82ab2d5081df0ab9952316655dbd655b6f3e168ffbba89353",
+    "Preparation.json": "c7e0afac8161c55d7e84c918b6dee3d441d52dbd5ba9569acef2bef542335870"
+  },
+  "paths_redacted": true,
+  "scope": "genuine saved inputs for strict refusal, explicit partial inspection and raw extraction",
+  "limitations": [
+    "original front and edited right author shutdowns timed out after the save checkpoint",
+    "all four saved copies refused by strict SDK in both modes",
+    "native publication and suite acceptance remain open"
+  ],
+  "native_publication_qualified": false,
+  "file_bytes_unchanged_from_reopen_measurement": true,
+  "retained_receipt_sha256": {
+    "AuthorCapture.json": "e64c9aa35440a6908c33cccf9938db578c091a0056af2eaa85ab2ca58c88fd4a",
+    "AuthorStock-after.json": "b3be670b3bcfb7d83ce2dcb7a74f4644e874b32d3dc82421fdedb44938a31076",
+    "AuthorStock-before.json": "bab928d6934db45dde278ca6da80b8700619ff08f337f2686ad92386ed08b442",
+    "Preparation.json": "550909ab2e3543f4f240f800a19874ba033fdf6c3f79bd689e265acbfceaa3f2",
+    "RecoveryCapture.json": "89689d9159c5d8aebb0f1ea15c7d412ab8017db71b5474bbdd187dd85212ddf7",
+    "RecoveryStock-after.json": "6f05b91b3e2370c82ab2d5081df0ab9952316655dbd655b6f3e168ffbba89353",
+    "RecoveryStock-before.json": "d8b671499773b08d26a085b14b29257d65c23bd444fbdb785beb42b848add32d",
+    "ThinQueueFrontEditedAuthor.json": "a77cd4642ea67cf25f8f552384ca528d811cbfaa5377269c994a635d84b34186",
+    "ThinQueueFrontEditedModel.json": "91b60635b424a01e4626569a7aa5ffcf237559aebc1e42b1770c6ebb84cc037c",
+    "ThinQueueFrontEditedReopen.json": "7d4f8240eaad9ab041672aae9601c32b2e537703e3d6db60ccadd152340870d1",
+    "ThinQueueFrontOriginalAuthor.json": "d513a95ff6d4b2815f7be19d5cce1d0975efa66d5d2b3c08a922504d92162492",
+    "ThinQueueFrontOriginalModel.json": "5413a4fa6abc56cb1a4fc55f70372e5e8a0595c062d44d306a9aca7263589f3b",
+    "ThinQueueFrontOriginalReopen.json": "cb5535974fb092491bad46ea7c6ba3c1886ef58eb20fc161f01f755012018e3a",
+    "ThinQueueRightEditedAuthor.json": "664096f580958a0b4bf1195b69bdcc6fad2da385296f4cb1d67c5fe38adc2d90",
+    "ThinQueueRightEditedModel.json": "43a3665ed26eb3581b0ca75d4406da11d331954e53bbaaa9fc60447d31c219ba",
+    "ThinQueueRightEditedReopen.json": "36e4ca2a560d3382dc1021cbc8ce47ae4cc3adc6361eed2f784fd68bd3036099",
+    "ThinQueueRightOriginalAuthor.json": "bad7623d0c9faf40ed249c87d80ea9485022c0304f48b8e937342e0020217d66",
+    "ThinQueueRightOriginalModel.json": "cc0f1d2df423f20cedbe64a616507e6e4f8b5c47540dc8c4706e8992e58b7509",
+    "ThinQueueRightOriginalReopen.json": "eb7693458db890676bfdbfa118ee4a9bf357d9b683febbcd23018e751ae343dc"
+  },
+  "receipt_normalization": "host research roots redacted; UTF-8 and LF line endings; CAD file bytes unchanged"
+}

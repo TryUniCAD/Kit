@@ -1,0 +1,223 @@
+{
+  "application_usable": false,
+  "cases": [
+    {
+      "analytic_expected": {
+        "angle_radians": 1.9722220547535925,
+        "body_count": 1,
+        "centroid_m": [
+          0.013561735444176128,
+          0.006999999999999999,
+          -0.014446206421096303
+        ],
+        "volume_m3": 4.071612987597697e-06,
+        "wall_metres": [
+          0.0017,
+          0.0029
+        ]
+      },
+      "authored_case": {
+        "angle_deg": 113,
+        "axial_m": [
+          -0.004,
+          0.018
+        ],
+        "axis_axial_m": [
+          -0.013,
+          0.028
+        ],
+        "axis_x_m": 0.004,
+        "edit_angle_deg": 131,
+        "edit_wall_m": [
+          0.0022,
+          0.0036
+        ],
+        "name": "ThinQueueFrontOriginal",
+        "plane": "front",
+        "profile_radius_m": 0.021,
+        "reverse": false,
+        "wall_m": [
+          0.0017,
+          0.0029
+        ],
+        "wall_mode": "two"
+      },
+      "bytes": 9534,
+      "candidate": "Candidates\\ThinQueueFrontOriginal.SLDPRT",
+      "model_sha256": "5413a4fa6abc56cb1a4fc55f70372e5e8a0595c062d44d306a9aca7263589f3b",
+      "name": "ThinQueueFrontOriginal",
+      "sha256": "90f63f4376950fe42d4b50ca84990a786d1b5fbaddccef04b7f955ce79c63a58"
+    },
+    {
+      "analytic_expected": {
+        "angle_radians": 2.2863813201125716,
+        "body_count": 1,
+        "centroid_m": [
+          0.010746392713240172,
+          0.006999999999999999,
+          -0.014803607716996679
+        ],
+        "volume_m3": 5.922367805861191e-06,
+        "wall_metres": [
+          0.0022,
+          0.0036
+        ]
+      },
+      "authored_case": {
+        "angle_deg": 131,
+        "axial_m": [
+          -0.004,
+          0.018
+        ],
+        "axis_axial_m": [
+          -0.013,
+          0.028
+        ],
+        "axis_x_m": 0.004,
+        "edit_angle_deg": 131,
+        "edit_wall_m": [
+          0.0022,
+          0.0036
+        ],
+        "name": "ThinQueueFrontEdited",
+        "plane": "front",
+        "profile_radius_m": 0.021,
+        "reverse": false,
+        "wall_m": [
+          0.0022,
+          0.0036
+        ],
+        "wall_mode": "two"
+      },
+      "bytes": 9527,
+      "candidate": "Candidates\\ThinQueueFrontEdited.SLDPRT",
+      "model_sha256": "91b60635b424a01e4626569a7aa5ffcf237559aebc1e42b1770c6ebb84cc037c",
+      "name": "ThinQueueFrontEdited",
+      "sha256": "64320e3e0741d04951d63a8f67f62c4b56ef2f3ac30399db48be1feeeb66503c"
+    },
+    {
+      "analytic_expected": {
+        "angle_radians": 1.3788101090755203,
+        "body_count": 1,
+        "centroid_m": [
+          -0.00999346808811142,
+          0.003,
+          -0.006123046198186294
+        ],
+        "volume_m3": 1.350130858806749e-06,
+        "wall_metres": [
+          0.0024,
+          0.0
+        ]
+      },
+      "authored_case": {
+        "angle_deg": 79,
+        "axial_m": [
+          -0.009,
+          0.015
+        ],
+        "axis_axial_m": [
+          -0.018,
+          0.026
+        ],
+        "axis_x_m": -0.006,
+        "edit_angle_deg": 97,
+        "edit_wall_m": [
+          0.0031,
+          0.0
+        ],
+        "name": "ThinQueueRightOriginal",
+        "plane": "right",
+        "profile_radius_m": 0.017,
+        "reverse": false,
+        "wall_m": [
+          0.0024,
+          0.0
+        ],
+        "wall_mode": "midplane"
+      },
+      "bytes": 9526,
+      "candidate": "Candidates\\ThinQueueRightOriginal.SLDPRT",
+      "model_sha256": "cc0f1d2df423f20cedbe64a616507e6e4f8b5c47540dc8c4706e8992e58b7509",
+      "name": "ThinQueueRightOriginal",
+      "sha256": "cac1f7be7801c589852095ab1a136d7b2b4224d47f909d604f86a392e112b1e3"
+    },
+    {
+      "analytic_expected": {
+        "angle_radians": 1.6929693744344996,
+        "body_count": 1,
+        "centroid_m": [
+          -0.011296499494756258,
+          0.003,
+          -0.003994298504054314
+        ],
+        "volume_m3": 2.1412676647847537e-06,
+        "wall_metres": [
+          0.0031,
+          0.0
+        ]
+      },
+      "authored_case": {
+        "angle_deg": 97,
+        "axial_m": [
+          -0.009,
+          0.015
+        ],
+        "axis_axial_m": [
+          -0.018,
+          0.026
+        ],
+        "axis_x_m": -0.006,
+        "edit_angle_deg": 97,
+        "edit_wall_m": [
+          0.0031,
+          0.0
+        ],
+        "name": "ThinQueueRightEdited",
+        "plane": "right",
+        "profile_radius_m": 0.017,
+        "reverse": false,
+        "wall_m": [
+          0.0031,
+          0.0
+        ],
+        "wall_mode": "midplane"
+      },
+      "bytes": 9516,
+      "candidate": "Candidates\\ThinQueueRightEdited.SLDPRT",
+      "model_sha256": "43a3665ed26eb3581b0ca75d4406da11d331954e53bbaaa9fc60447d31c219ba",
+      "name": "ThinQueueRightEdited",
+      "sha256": "516cb99a797e4ebef59d132350b63309c117d062a307afb583adc34d911f47e3"
+    }
+  ],
+  "heldout_acceptance": false,
+  "native_requirements": [
+    "healthy control before and after",
+    "fresh candidate process",
+    "open without repair and rebuild",
+    "measure bodies, volume, centroid and feature owners",
+    "edit actual angle and both active walls, restore and save to a new path",
+    "fresh reopen saved file and compare owners and geometry",
+    "retain exact saved bytes and all receipts"
+  ],
+  "native_run": "unrun",
+  "publication_gate": "unchanged; these are unqualified research candidates only",
+  "purpose": "native save captures for strict refusal, permissive inspection and raw extraction coverage",
+  "runtime": {
+    "external_launches": 0,
+    "input_file_reads": 0,
+    "output_opens": 0
+  },
+  "schema": "kit.sw2026.saved-thin-queue-preparation.v1",
+  "sdk_tree": "91e7dd125360501038807493e568bac0c9cc2f52",
+  "task_id": "B08-PR247-SAVED-THIN-COVERAGE",
+  "tool_sha256": {
+    "PrepareSavedThinQueue.py": "3350666faf87fa46ffd5200e35ef9bfc0dec9a5d7dbdd81ed374db892072c509",
+    "ProveMeasuredPrincipalRevolve.py": "fd6467ed89872de4afd1785b4bd4bc4c28f46751bd447a4ec6bef246f62f3019",
+    "ProveMeasuredThinRevolve.py": "89c6c13ea63a09b5c8e71444bd7b6e915eeb0678fa4989417004c98dc0c66835",
+    "ThinProofModel.py": "2991e0ad8a384ca8ec369752c4d4b64fa5f9e22fe1e11334c3b6659291d7f000"
+  },
+  "vendor_loadable": false,
+  "writer_revision": "2a97e062fed0ae3e1bedd88ba138ff3dfc3e1bf1",
+  "written_at": 1795893600
+}

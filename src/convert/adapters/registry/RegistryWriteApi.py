@@ -39,6 +39,25 @@ class WriteCatalog(Protocol):
     ) -> tuple[CadWriterAdapter, ...]: ...  # lgtm[py/ineffectual-statement]
 
 
+# only the matching measured solidworks writer may validate its own typed readback
+def CheckWriteHist(DocumentData: CadDocument, AdapterData: CadWriterAdapter) -> None:
+    from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
+        IsColdRead,
+    )
+    from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
+        IsRevRead,
+    )
+    from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsThinRead import (
+        IsThinRead,
+    )
+    from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+
+    if type(AdapterData) is not SldprtWriter or not (
+        IsColdRead(DocumentData) or IsRevRead(DocumentData) or IsThinRead(DocumentData)
+    ):
+        CheckHistory(DocumentData)
+
+
 # write orchestration needs only lookup and destination selection from its composed host
 class WriteLookup(Protocol):
 
@@ -112,14 +131,6 @@ class WriteApi(WriteLookup):
         TargetData: KTargetType,
         **NamedValues: object,
     ) -> WriteResult:
-        from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
-            IsColdRead,
-        )
-        from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
-            IsRevRead,
-        )
-        from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
-
         FormatId, OptionsData = GetWriteArgs(NamedValues)
         AdapterData = (
             self.GetWriter(FormatId)
@@ -132,10 +143,7 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not (
-            IsColdRead(DocumentData) or IsRevRead(DocumentData)
-        ):
-            CheckHistory(DocumentData)
+        CheckWriteHist(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)

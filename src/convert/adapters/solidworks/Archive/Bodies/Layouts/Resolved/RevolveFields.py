@@ -32,6 +32,22 @@ KRevolveFields = MappingProxyType(
             NativeField("Node", "f8d8", "moRevEndSpec_c"),
             NativeField("Scalar", "f8e8", "u8"),
         ),
+        "moRevolutionThin_c": (
+            NativeField("Base", "moRevolution_c"),
+            NativeField("Node", "f8f0", "moThinSpec_c"),
+        ),
+        "moThinSpec_c": (
+            NativeField("Node", "f08", "moDisplayDim_c"),
+            NativeField("Node", "f10", "moDisplayDim_c"),
+            NativeField("Scalar", "f2c", "i32"),
+            NativeField("Scalar", "f30", "f64"),
+            NativeField("Scalar", "f38", "f64"),
+            NativeField("Scalar", "f28", "i32"),
+            NativeField("Scalar", "f40", "i32"),
+            NativeField("Node", "f48", "moDisplayRadialDim_c"),
+            NativeField("Scalar", "f50", "i32"),
+            NativeField("Scalar", "f54", "i32"),
+        ),
         "moRevEndSpec_c": (
             NativeField("Scalar", "f08", "i32"),
             NativeField("Scalar", "f138", "i32"),

@@ -1,0 +1,102 @@
+{
+  "new_historical_corpus_credit": 0,
+  "new_native_launches": 0,
+  "original_full_tree_comparison_equal": true,
+  "path_workers": [
+    {
+      "case": "ThinUnequal",
+      "file_routes": 2,
+      "name_contrasts": 4,
+      "native_launches": 0,
+      "path_runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 2
+      },
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "stream_routes": 6,
+      "unmeasured_refusals": 2
+    },
+    {
+      "case": "ThinRightCenterControl",
+      "file_routes": 2,
+      "name_contrasts": 4,
+      "native_launches": 0,
+      "path_runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 2
+      },
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+      "stream_routes": 6,
+      "unmeasured_refusals": 2
+    }
+  ],
+  "preflight_worker_sha256": "2f70041d4a395926b183161ea853687458592c2571ea3d0e23a93bc4449d0a4d",
+  "restored_sources": [
+    {
+      "bytes": 8227,
+      "candidate": "ThinUnequal.SLDPRT",
+      "members": 74,
+      "sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207"
+    },
+    {
+      "bytes": 8257,
+      "candidate": "ThinRightCenterControl.SLDPRT",
+      "members": 48,
+      "sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa"
+    }
+  ],
+  "runtime": {
+    "machine": "ARM64",
+    "python": "3.12.7",
+    "zlib": "1.3.1"
+  },
+  "schema": "kit.sw2026.thin-measured-windows-publication.v1",
+  "sdk_bundle_sha256": "585d82ab2dedbb0f5bb688cff275f993419c9c6efc8f8d35af6c2c83066ffe94",
+  "source_revision": "500f8a6d559cbbd05e2bd2395d73a768a76cc2fd",
+  "source_tree": "43e7ace0c0198e4557769e01e580c2b367d0e1a6",
+  "stream_preflight": [
+    {
+      "case": "ThinUnequal",
+      "file_routes": 0,
+      "name_contrasts": 4,
+      "native_launches": 0,
+      "path_runtime": null,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "stream_routes": 6,
+      "unmeasured_refusals": 2
+    },
+    {
+      "case": "ThinRightCenterControl",
+      "file_routes": 0,
+      "name_contrasts": 4,
+      "native_launches": 0,
+      "path_runtime": null,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+      "stream_routes": 6,
+      "unmeasured_refusals": 2
+    }
+  ],
+  "transport_sha256": "ef60cc527db554103e7e97b43cae59cc3378d0ed1f5312c5b703b084aa750fe6"
+}

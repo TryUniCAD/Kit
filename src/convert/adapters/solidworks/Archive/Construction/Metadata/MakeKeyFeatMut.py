@@ -49,10 +49,25 @@ def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
         raise ValueError(
             "ordinary revolve keyword requires its single D1 degree driver"
         )
+    if InputValue.KindValue == "Revolve-Thin" and (
+        InputValue.TagValue != "Feature"
+        or tuple(
+            (DimValue.NameValue, DimValue.UnitValue)
+            for DimValue in InputValue.DimensionValues
+        )
+        not in (
+            (("D3", None), ("D1", "degree")),
+            (("D1", "degree"), ("D4", None), ("D3", None)),
+        )
+    ):
+        raise ValueError(
+            "thin revolve keyword requires its active angle and wall drivers"
+        )
     FeatureValue = SubElement(RootValue, InputValue.TagValue, Attributes)
     for DimValue in InputValue.DimensionValues:
-        if DimValue.UnitValue is not None and InputValue.KindValue != "Revolve":
-            raise ValueError(
-                "keyword degree suffix requires an ordinary revolve feature"
-            )
+        if DimValue.UnitValue is not None and InputValue.KindValue not in (
+            "Revolve",
+            "Revolve-Thin",
+        ):
+            raise ValueError("keyword degree suffix requires a revolve feature")
         MakeKeyDimMut(FeatureValue, DimValue)

@@ -1,0 +1,56 @@
+{
+  "disclosed_fixture_sha256": "f72de5faf4bc7f849dd0bc48443312700b06641d6cd06aa817f8249bac06edba",
+  "host_platform": "darwin",
+  "host_suite_workers": [
+    {
+      "case": "ThinUnequal",
+      "file_routes": 0,
+      "name_contrasts": 4,
+      "native_launches": 0,
+      "path_runtime": null,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "stream_routes": 6,
+      "unmeasured_refusals": 2
+    },
+    {
+      "case": "ThinRightCenterControl",
+      "file_routes": 0,
+      "name_contrasts": 4,
+      "native_launches": 0,
+      "path_runtime": null,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+      "stream_routes": 6,
+      "unmeasured_refusals": 2
+    }
+  ],
+  "native_calls": 0,
+  "ordinary_outputs": {
+    "Skew": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+    "Step": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+    "revolve_0": "dfbefdfc55e8b2354f277a2bfa0192874fb40792f75124596250c11bc26812a7",
+    "revolve_1": "08c42819d33e9796c3090e06daa82025a483796161e37546911d78e715d4f864"
+  },
+  "ordinary_receipt_sha256": "0a2ab22116b56fb0e120fbadaeacedb338135ea477d076f2e2a478073f7b868d",
+  "prior_review_head": "a9d40f275bd32b602d4a28460eb7a73e21bcb577",
+  "protected_inputs": 0,
+  "schema": "kit.sw2026.thin-revolve-complete-suite-review.v1",
+  "six_thin_archives_and_streams_match_prior": true,
+  "six_thin_receipt_sha256": "e503da5cbe4b3cb52aa15197ea0d84a9adb7da3bc0d6b043540172915d4c21c2",
+  "source_fingerprint": {
+    "files": 4444,
+    "sha256": "0c729c09f7a9a1f59170f181f0c841366db03d132ee73631ca7c4de064c746e3"
+  },
+  "windows_file_execution": "pending",
+  "windows_selector": "tests/Convert/Solidworks/RevolveWriting/ThinRevolveTests.py::TestThinRevolve",
+  "worker_sha256": "a864edaba199e329da310a22eb97b15aaed3bc2bc1ef17a1211e9930c89643db"
+}

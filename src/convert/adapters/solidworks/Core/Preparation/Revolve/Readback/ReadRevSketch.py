@@ -10,12 +10,13 @@ from interchange.geometry.Models.Sketch import Sketch
 
 
 # the finite axis uses two distinct native points in the same typed table as the contour
-def ReadRevSketch(SketchValue: Sketch) -> Sketch:
+def ReadRevSketch(SketchValue: Sketch, *, IsThin: bool = False) -> Sketch:
     RowsValue = NativeRows(SketchValue.attributes.get("native_point_rows"))
+    FrameKey = "typed_thin_revolve_profile" if IsThin else "typed_revolve_profile"
     if (
-        SketchValue.attributes.get("typed_revolve_profile") is not True
-        or len(RowsValue) != 6
-        or len(SketchValue.entities) != 5
+        SketchValue.attributes.get(FrameKey) is not True
+        or len(RowsValue) != (4 if IsThin else 6)
+        or len(SketchValue.entities) != (2 if IsThin else 5)
         or any(
             RowValue.get("array_index") != IndexValue
             for IndexValue, RowValue in enumerate(RowsValue)
@@ -29,7 +30,8 @@ def ReadRevSketch(SketchValue: Sketch) -> Sketch:
     return ReplaceValue(
         SketchValue,
         entities=tuple(
-            ReadColdEdge(Entity, PointsValue) for Entity in SketchValue.entities
+            ReadColdEdge(Entity, PointsValue, IsScaled=IsThin)
+            for Entity in SketchValue.entities
         ),
         constraints=tuple(
             ReplaceValue(Relation, provenance=None, attributes=FreezeMapping())

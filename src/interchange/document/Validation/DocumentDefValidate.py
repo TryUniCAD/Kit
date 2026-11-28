@@ -6,7 +6,9 @@ from interchange.document.Validation.AngleRevValidate import GetAngleRevErrs
 from interchange.document.Validation.BoundPlaneValidate import CheckBoundPlane
 from interchange.document.Validation.PlaneAxisValidate import GetAxisErrors
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
+from interchange.document.Validation.ThinRevValidate import GetThinRevErrs
 from interchange.Features.FeatureAngleRev import AngularRevolve
+from interchange.Features.ThinRevolve import ThinRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
 from interchange.Features.Axes.AxisExtentConfig import AxisConfigView
 from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
@@ -46,6 +48,18 @@ def GetScopeErrors(
     return GetExtrudeErrs(StepValue, Definition.Extrusion)
 
 
+# thin walls and ordinary angular drivers require distinct typed validation
+def GetRevErrors(
+    StepValue: FeatureStep,
+    Definition: ThinRevolve | AngularRevolve,
+    Selections: TypeMap[str, Selection],
+    Params: TypeMap[str, Parameter],
+) -> tuple[str, ...]:
+    if isinstance(Definition, ThinRevolve):
+        return GetThinRevErrs(StepValue, Definition, Selections, Params)
+    return GetAngleRevErrs(StepValue, Definition, Selections, Params)
+
+
 # supported editable definitions require checks beyond generic dependency validation
 def GetDefErrors(
     StepValue: FeatureStep,
@@ -65,8 +79,8 @@ def GetDefErrors(
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]
         )
-    if isinstance(Definition, AngularRevolve):
-        return GetAngleRevErrs(StepValue, Definition, Selections, Params)
+    if isinstance(Definition, (ThinRevolve, AngularRevolve)):
+        return GetRevErrors(StepValue, Definition, Selections, Params)
     if isinstance(Definition, (DistanceExtrude, DistanceCut)):
         return GetDistanceErrs(
             StepValue,

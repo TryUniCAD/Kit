@@ -1,0 +1,83 @@
+{
+  "schema": "kit.sw2026.saved-thin-suite-process.v1",
+  "sdk_revision": "2a97e062fed0ae3e1bedd88ba138ff3dfc3e1bf1",
+  "cases_passed": 4,
+  "duration_seconds": 22.6,
+  "strict_refusals": 8,
+  "partial_permissive_reads": 8,
+  "raw_payload_reads": 4,
+  "raw_payloads": 8,
+  "native_launches": 0,
+  "cad_input_reads_in_guarded_phase": 0,
+  "output_opens": 0,
+  "files_sha256": {
+    "re/tooling/sw2026/revolve/CheckSavedThinSuite.py": "0e31eb7cb279e487d5788eb1135d4b71bdf6097ad1dbcc03680c8f9088e48621",
+    "tests/Convert/Solidworks/RevolveWriting/ThinRevolveTests.py": "4a61861202911b302671c8852ced18cc31835c31ed7ef98a164677cc497f6435",
+    "re/solidworks/v2026/corpus/revolve/SavedThinQueue20261128/Manifest.json": "5bdd5ef5823b0fb0dc41485d36d31ebc1108e3732ee13beda005d07874ff653a",
+    "re/tooling/sw2026/revolve/CheckThinSuiteCase.py": "2de1c20fc1b5a7b884af4a8ab1117905792771237cea2cb55f9159befc8d281e"
+  },
+  "approval_claimed": false,
+  "all_native_receipts_and_control_hashes_verified": true,
+  "stock_backend_processes": {
+    "python": "3.13.0",
+    "zlib": "1.3.1",
+    "front": {
+      "stream_publications": 6,
+      "file_publications": 2,
+      "name_contrasts": 4,
+      "unmeasured_refusals": 2,
+      "native_launches": 0
+    },
+    "right": {
+      "stream_publications": 6,
+      "file_publications": 2,
+      "name_contrasts": 4,
+      "unmeasured_refusals": 2,
+      "native_launches": 0
+    }
+  },
+  "backend_disposition": "exact measured archives and all ten logical streams reproduced on stock zlib; zlib-ng differs in compression and retains its correct public measurement refusal",
+  "stock_full_module": {
+    "python": "3.13.0",
+    "zlib": "1.3.1",
+    "passed": 5,
+    "failed": 0,
+    "duration_seconds": 55.35,
+    "stream_publications": 12,
+    "file_publications": 4
+  },
+  "partial_global_brep": {
+    "bodies": 1,
+    "shells": 1,
+    "faces": 6,
+    "edges": 12,
+    "vertices": 8
+  },
+  "partial_body_summary": {
+    "solid_count": 0,
+    "volume": null,
+    "qualified": false
+  },
+  "initial_full_module_result": {
+    "passed": 4,
+    "failed": 1,
+    "duration_seconds": 30.72,
+    "failure": "unchanged TestThinRevolve: regenerated SOLIDWORKS thin revolve has no matching native measurement"
+  },
+  "zlib_ng_full_module": {
+    "python": "3.14.6",
+    "zlib": "1.3.1.zlib-ng",
+    "zlib_ng": "2.2.4",
+    "passed": 5,
+    "failed": 0,
+    "duration_seconds": 44.32,
+    "stream_publications": 0,
+    "file_publications": 0,
+    "stream_measurement_refusals": 24,
+    "file_refusals": 8,
+    "empty_and_occupied_streams_and_files_preserved": true,
+    "stream_positions_preserved": true
+  },
+  "encoder_contract": "both cold profiles require all ten authenticated logical stream hashes and strict typed readback; exact complete digests still require publication, identified zlib-ng differences require refusal; production admission and native evidence unchanged",
+  "direct_result_contract": "existing CheckTransfers normalizes optional raw transfers; all successful source capabilities must be native, independent exact byte and ownership checks remain required"
+}

@@ -22,6 +22,9 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Feature.MakeRevEn
 from convert.adapters.solidworks.Archive.Construction.Revolves.Feature.MakeRevNodeMut import (
     MakeRevNodeMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Revolves.Feature.MakeThinSpecMut import (
+    MakeThinSpecMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePlan import (
     RevolvePlan,
 )
@@ -41,8 +44,13 @@ def MakeRevFeatMut(
     PlanValue: RevolvePlan,
     Allocator: PersistentIds,
 ) -> tuple[ArchiveNode, ArchiveNode, ArchiveNode, DimensionGraph]:
+    WallsValue = PlanValue.ThinWalls
     FeatureValue = MakeRevNodeMut(
-        PlanValue.FeatureName, SystemValue.RootValue, InputValue.TargetValue, Allocator
+        PlanValue.FeatureName,
+        SystemValue.RootValue,
+        InputValue.TargetValue,
+        Allocator,
+        IsThin=WallsValue is not None,
     )
     Reference = MakeRevAxisRef(SystemValue, ProfileValue, AxisValue, PlanValue)
     AngleValue = MakeRevAngleMut(FeatureValue, InputValue, PlanValue, Allocator)
@@ -58,11 +66,20 @@ def MakeRevFeatMut(
             "f810": None,
             "f820": 0,
             "f818": ArchiveNode(RuntimeClass("suObList", 1), {"n": 0, "items": []}),
-            "f828": 3,
+            "f828": 5 if WallsValue is not None else 3,
             "f870": 1,
             "f830": Reference,
             "f8d8": EndValue,
             "f8e8": 0,
         }
     )
+    if WallsValue is not None:
+        FeatureValue.FieldsValue["f8f0"] = MakeThinSpecMut(
+            FeatureValue,
+            InputValue,
+            Allocator,
+            ProfileValue.FrameValue,
+            PlanValue,
+            WallsValue,
+        )
     return FeatureValue, Reference, EndValue, AngleValue
