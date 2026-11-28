@@ -4,6 +4,7 @@ from pathlib import Path as FilePath
 import re as Regex
 import sys as SystemLib
 from typing import Mapping as TypeMap
+from typing import TypedDict, Unpack
 
 from interchange import CadDocument as KCadDocument
 from interchange import PayloadRole as KPayloadRole
@@ -107,6 +108,12 @@ def extract_brep(
     )
 
 
+# typed keyword options retain the public spelling of the native inspection flag
+KNativeOpenOpts = TypedDict(
+    "KNativeOpenOpts", {"include_native_appearance": bool}, total=False
+)
+
+
 # document opening keeps compatibility options explicit rather than manufacturing a callable
 def open_document(
     source: Source,
@@ -116,7 +123,14 @@ def open_document(
     include_brep: bool = True,
     include_tessellation: bool = True,
     strict: bool = True,
+    **NativeOptions: Unpack[KNativeOpenOpts],
 ) -> CadDocument:
+    for KeywordName in NativeOptions:
+        if KeywordName != "include_native_appearance":
+            raise TypeError(
+                f"open_document() got an unexpected keyword argument {KeywordName!r}"
+            )
+    IncludeLook = NativeOptions.get("include_native_appearance", False)
     return OpenDocument(
         source,
         SourceFormat=source_format,
@@ -124,6 +138,7 @@ def open_document(
         IncludeBrep=include_brep,
         IncludeTess=include_tessellation,
         StrictMode=strict,
+        IncludeNativeAppearance=IncludeLook,
     )
 
 

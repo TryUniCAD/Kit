@@ -1,6 +1,7 @@
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.Materials.CheckPartLook import CheckPartLook
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.Staging.WriteWholeMut import WriteWholeMut
 from convert.adapters.base.WriteOptions import WriteOptions
@@ -22,6 +23,7 @@ def EmitNativeMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
+    CheckPartLook(DocumentValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     WrittenAt, Receipt = ReadPartMeas(SettingsValue)
     OutputPath = (

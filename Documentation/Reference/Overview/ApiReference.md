@@ -52,17 +52,23 @@ The public API translates `allow_carrier` into writer values.
 
 ## Options by operation
 
-| Operation            | Accepted keyword options                                                                  |
-| -------------------- | ----------------------------------------------------------------------------------------- |
-| `open_document`      | `source_format`, `configuration`, `include_brep`, `include_tessellation`, `strict`        |
-| `write_document`     | `destination_format`, `configuration`, `overwrite`, `validate`, `allow_carrier`, `values` |
-| `extract_brep`       | `source_format`, `overwrite`                                                              |
-| `available_adapters` | None                                                                                      |
+| Operation | Accepted keyword options |
+| --- | --- |
+| `open_document` | `source_format`, `configuration`, `include_brep`, `include_tessellation`, `strict`, `include_native_appearance` |
+| `write_document` | `destination_format`, `configuration`, `overwrite`, `validate`, `allow_carrier`, `values` |
+| `extract_brep` | `source_format`, `overwrite` |
+| `available_adapters` | None |
 
 Shared options retain the defaults in the conversion table.
 `write_document` uses `validate=True` and `values=None`.
 Its mapping keyword is `values`, not `write_values`.
 `convert` always constructs writer options with validation enabled.
+
+For SOLIDWORKS part inspection, pass `include_native_appearance=True` to
+`open_document`. This adds stored appearance evidence when the active
+configuration has the supported visual record. When inspection cannot resolve
+the record, it returns an unsupported status and diagnostic. The default is `False`.
+See [stored part appearance](../../Changes/Solidworks/Inspection/Parts/SolidworksStoredPartAppearance.md).
 
 ## Results
 

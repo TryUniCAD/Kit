@@ -160,6 +160,7 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.Properties.WithPartLook import WithPartLook
 from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
     FindLocalOwner,
@@ -523,9 +524,28 @@ def ReadNativePart(
         units=UnitSystem.MILLIMETER,
     )
     DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    return FinishPartDoc(DocValue, Model, Archive, DataValue, Label, Settings)
+
+
+# inspection metadata is applied only after the reconstructed document passes validation
+def FinishPartDoc(
+    DocValue: CadDoc,
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    DataValue: bytes,
+    Label: str,
+    Settings: ReadOptions,
+) -> CadDoc:
     DocValue.assert_valid()
     ValidateSource(Label, False)
-    return RetainSource(WithPartProps(DocValue, Archive), DataValue)
+    Result = WithPartProps(DocValue, Archive)
+    Result = WithPartLook(
+        Result,
+        Archive,
+        Model.active_configuration_id,
+        Settings.values.get("include_native_appearance") is True,
+    )
+    return RetainSource(Result, DataValue)
 
 
 # cached payloads keep priority over geometry derived from a qualified cold archive

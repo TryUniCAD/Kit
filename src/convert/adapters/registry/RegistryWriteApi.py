@@ -8,6 +8,7 @@ from interchange import CadDocument
 
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
+from convert.adapters.base.Materials.CheckPartLook import CheckPartLook
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.Staging.PathStaging import WritePathStaged
 from convert.adapters.registry.EquationWrite import CheckEquations
@@ -112,25 +113,13 @@ class WriteApi(WriteLookup):
         TargetData: KTargetType,
         **NamedValues: object,
     ) -> WriteResult:
-        from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
-            IsColdRead,
-        )
-        from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
-
         FormatId, OptionsData = GetWriteArgs(NamedValues)
         AdapterData = (
             self.GetWriter(FormatId)
             if FormatId
             else self.PickWriter(DocumentData, TargetData)
         )
-        CheckMatWrites(DocumentData, AdapterData)
-        CheckResearch(DocumentData)
-        CheckInchWrite(DocumentData)
-        CheckEquations(DocumentData)
-        CheckSupports(DocumentData)
-        CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
-            CheckHistory(DocumentData)
+        CheckSourceDoc(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)
@@ -162,3 +151,22 @@ class WriteApi(WriteLookup):
             AllowCarrier,
             NeedSelfContained,
         )
+
+
+# source restrictions must run in order before validating or staging the destination
+def CheckSourceDoc(DocumentData: CadDocument, AdapterData: CadWriterAdapter) -> None:
+    from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
+        IsColdRead,
+    )
+    from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+
+    CheckMatWrites(DocumentData, AdapterData)
+    if AdapterData.info.format_id != "interchange.json":
+        CheckPartLook(DocumentData)
+    CheckResearch(DocumentData)
+    CheckInchWrite(DocumentData)
+    CheckEquations(DocumentData)
+    CheckSupports(DocumentData)
+    CheckSourceText(DocumentData)
+    if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+        CheckHistory(DocumentData)
