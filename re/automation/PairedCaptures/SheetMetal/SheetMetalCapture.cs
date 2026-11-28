@@ -475,9 +475,8 @@ public static class SheetMetalCapture
         AddFeature(descendants, flange, 0);
         var inspected = new List<string>();
         var found = new Dictionary<string, IDimension>(StringComparer.Ordinal);
-        foreach (var feature in descendants)
+        foreach (var feature in descendants.Where(feature => feature.GetSpecificFeature2() is ISketch))
         {
-            if (!(feature.GetSpecificFeature2() is ISketch)) continue;
             inspected.Add(feature.GetID() + ":" + feature.Name);
             var dimension = feature.IParameter(dimensionName) as IDimension;
             if (dimension != null && dimension.Name == dimensionName)
@@ -612,7 +611,14 @@ public static class SheetMetalCapture
         Check(!String.IsNullOrEmpty(name) && !Path.IsPathRooted(name) && name == Path.GetFileName(name) &&
             name != "." && name != ".." && name.IndexOfAny(Path.GetInvalidFileNameChars()) < 0,
             "Capture output requires a plain file or directory name");
-        return Path.Combine(directory, name);
+        var separators = new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar };
+        var expectedParent = Path.GetFullPath(directory);
+        var path = Path.GetFullPath(Path.Combine(expectedParent, name));
+        var actualParent = Path.GetDirectoryName(path);
+        Check(actualParent != null && String.Equals(expectedParent.TrimEnd(separators),
+            actualParent.TrimEnd(separators), StringComparison.OrdinalIgnoreCase),
+            "Capture output escaped its immediate parent directory");
+        return path;
     }
 
     static Dictionary<string, object> SaveDiagnostic(IModelDoc2 doc, string directory, string caseId, string baseId, int count)
