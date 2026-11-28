@@ -27,6 +27,11 @@ span, source and stream digest, conflicting observation and unresolved control
 axis. A matching candidate remains partial evidence pending loader and
 application proof.
 
+When a withheld sample distinguishes between otherwise ambiguous locations,
+the [provisional selection](ProvisionalHoldoutSelection.md) identifies the
+surviving candidate. The selection requires a separate independent replay
+before it can support qualification.
+
 ## Run an assessment
 
 Use Python 3.14 with the locked development dependency group. Register

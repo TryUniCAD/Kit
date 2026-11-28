@@ -349,6 +349,13 @@ def search_fields(
         "hypotheses": hypotheses,
         "counterexamples": counterexamples,
     }
+    if status == "ambiguous" and holdout:
+        survivors = [row for row in hypotheses if row["confidence"] == "partial"]
+        holdout_refutations = {
+            row["hypothesis"] for row in counterexamples if row["split"] == "holdout"
+        }
+        if len(survivors) == 1 and len(holdout_refutations) == len(hypotheses) - 1:
+            result["provisional_holdout_selection"] = survivors[0]["id"]
     if len(canonical(result).encode("utf-8")) > MAX_REPORT_BYTES:
         raise ValueError("inference result exceeds the bounded report budget")
     return result
