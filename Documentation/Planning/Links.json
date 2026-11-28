@@ -303,7 +303,46 @@
         "Outcome": "Input preparation and container build passed; model exited with status 1; no model report or approving review",
         "Disposition": "Disposable fixture must not merge and must close after finding and approval verification"
       },
-      "LocalRuntime": "Same authenticated model reasoning and tool free CLI invocation returned a schema compliant report; hosted runtime acceptance remains unverified"
+      "LocalRuntime": "Same authenticated model reasoning and tool free CLI invocation returned a schema compliant report; hosted runtime acceptance remains unverified",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/402",
+      "PreparationEvidence": [
+        {
+          "pull": 330,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "c5665fc5edd894cf80cea207be76dfc29a77c659",
+          "base": "91069da35b02ccbd0c7cc7a543c9a6fd016adb52",
+          "mergeable": true,
+          "input_complete": true,
+          "context_bytes": 422112,
+          "collected_files": 14,
+          "omitted_file_count": 0,
+          "omitted_sources": 0
+        },
+        {
+          "pull": 384,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "1c189c4bcb0b06166e3773941d1f82d81cbd6f7f",
+          "base": "9415b79e4e2c23171440fe43560a39575d34aed5",
+          "mergeable": true,
+          "input_complete": false,
+          "context_bytes": 339220,
+          "collected_files": 40,
+          "omitted_file_count": 3,
+          "omitted_sources": 0
+        },
+        {
+          "pull": 398,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "cc22eadb06daa508b51b2b4f513298ad95f3f33f",
+          "base": "9415b79e4e2c23171440fe43560a39575d34aed5",
+          "mergeable": false,
+          "input_complete": false,
+          "context_bytes": 880876,
+          "collected_files": 20,
+          "omitted_file_count": 0,
+          "omitted_sources": 7
+        }
+      ]
     },
     {
       "Id": "ReviewerLiveEvidence",

@@ -4,6 +4,7 @@ Observed 2026-11-28; contacts are PR authors, not inferred owners. Refresh live 
 
 | PR | Scope | Contact | Head → base |
 | --- | --- | --- | --- |
+| [#402](https://github.com/TryUniCAD/Kit/pull/402) | fix(review): review each revision independently of approval readiness | jdharcourt | fix/reviewer-review-on-change-20261128 → main |
 | [#401](https://github.com/TryUniCAD/Kit/pull/401) | test(review): temporary live JSON contract review fixture | jdharcourt | feat/reviewer-live-smoke-20261128 → main |
 | [#384](https://github.com/TryUniCAD/Kit/pull/384) | refactor(solidworks): share proven archive field rules | usehoplite | codex/sw-header-bounds → main |
 | [#383](https://github.com/TryUniCAD/Kit/pull/383) | docs: audit solidworks later-phase coverage | usehoplite | hoplite/tegea-f1d4ae13--later-phases → main |

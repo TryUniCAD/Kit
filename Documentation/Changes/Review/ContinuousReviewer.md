@@ -28,7 +28,7 @@ Runtime errors expose fixed diagnostic categories without publishing raw model o
 
 ## Verification
 
-Live input preparation selected PR #330 with complete bounded coverage and selected PRs #384 and #398 with explicit omissions.
+Live input preparation at `a384ed232df29a34ea6818ebedc09b78629aed4f` selected PR #330 with complete bounded coverage and selected PRs #384 and #398 with explicit omissions.
 PR #398 remained reviewable despite merge conflicts.
 The initial deployed run [46163285662](https://github.com/TryUniCAD/Kit/actions/runs/46163285662) established the old stacked-base policy failure.
 The isolated hosted smoke [46166204811](https://github.com/TryUniCAD/Kit/actions/runs/46166204811) prepared source and built the container, then failed in the model process.

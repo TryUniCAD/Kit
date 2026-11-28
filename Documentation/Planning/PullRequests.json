@@ -4,6 +4,19 @@
   "Purpose": "Dated open PR and recent delivery collision inventory; authors are contacts, not inferred scope owners; checks and approvals require fresh revision-bound evidence",
   "PullRequests": [
     {
+      "number": 402,
+      "title": "fix(review): review each revision independently of approval readiness",
+      "url": "https://github.com/TryUniCAD/Kit/pull/402",
+      "author": "jdharcourt",
+      "headBranch": "fix/reviewer-review-on-change-20261128",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": true,
+      "reviewDecision": "review-required",
+      "checksState": "pending",
+      "updatedAt": "2026-11-28T16:52:17Z"
+    },
+    {
       "number": 401,
       "title": "test(review): temporary live JSON contract review fixture",
       "url": "https://github.com/TryUniCAD/Kit/pull/401",
