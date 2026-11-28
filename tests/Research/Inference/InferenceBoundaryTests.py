@@ -265,7 +265,7 @@ def CheckFields(TmpPath: FilePath, Refute: bool) -> None:
 
 
 # an independent sample can distinguish frozen offsets while codec admission remains blocked
-def CheckHoldoutSelection(TmpPath: FilePath) -> None:
+def CheckSelection(TmpPath: FilePath) -> None:
     Assessments: list[dict[str, object]] = []
     for Index, Values in enumerate(((4.5, 6.25), (6.25, 4.5), (4.5, 4.5))):
         Session = TmpPath / f"Holdout{Index}"
@@ -276,18 +276,21 @@ def CheckHoldoutSelection(TmpPath: FilePath) -> None:
         Records = CastValue(dict[str, object], Result["records"])
         Assessments.append(CastValue(dict[str, object], Records["assessment"]))
 
-    First, Second, Tie = Assessments
-    Hypotheses = CastValue(list[dict[str, object]], Tie["hypotheses"])
-    assert [Row["relative_offset"] for Row in Hypotheses] == [0, 8]
-    CandidateIds = [Row["id"] for Row in Hypotheses]
+    First, Second, TieResult = Assessments
+    Hypotheses = CastValue(list[dict[str, object]], TieResult["hypotheses"])
+    assert [Candidate["relative_offset"] for Candidate in Hypotheses] == [0, 8]
+    CandidateIds = [Candidate["id"] for Candidate in Hypotheses]
     for Assessment in Assessments:
         assert Assessment["status"] == "ambiguous"
-        assert Assessment["discovery_sha256"] == Tie["discovery_sha256"]
+        assert Assessment["discovery_sha256"] == TieResult["discovery_sha256"]
         assert [
-            Row["id"]
-            for Row in CastValue(list[dict[str, object]], Assessment["hypotheses"])
+            Candidate["id"]
+            for Candidate in CastValue(
+                list[dict[str, object]], Assessment["hypotheses"]
+            )
         ] == CandidateIds
-    assert "provisional_holdout_selection" not in Tie and not Tie["counterexamples"]
+    assert "provisional_holdout_selection" not in TieResult
+    assert not TieResult["counterexamples"]
     for Assessment, Survivor, Refuted in (
         (First, CandidateIds[0], CandidateIds[1]),
         (Second, CandidateIds[1], CandidateIds[0]),
