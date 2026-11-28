@@ -1874,7 +1874,7 @@ Inventory declarations are research obligations, not qualified support. No autom
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtendFeatures | ExtendFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtentDefinition | ExtentDefinition | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtentDirections | ExtentDirections | Unmapped — check current claims |
-| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeature | ExtrudeFeature | PR299, PR303, PR339, PR394 |
+| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeature | ExtrudeFeature | PR299, PR303, PR339, PR394, A05c-FusionOffsetReader20261127 |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeatureInput | ExtrudeFeatureInput | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeatures | ExtrudeFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FaceGroup | FaceGroup | Unmapped — check current claims |

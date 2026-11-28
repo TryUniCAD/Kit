@@ -1,35 +1,38 @@
 # Open delivery collision inventory
 
-Observed 2026-11-27; contacts are PR authors, not inferred owners. Refresh live head/base/checks before starting work.
+Observed 2026-11-28; contacts are PR authors, not inferred owners. Refresh live head/base/checks before starting work.
 
 | PR | Scope | Contact | Head → base |
 | --- | --- | --- | --- |
+| [#398](https://github.com/TryUniCAD/Kit/pull/398) | docs(planning): publish completed project import receipts | jdharcourt | feat/planning-import-receipts-20261128 → main |
+| [#397](https://github.com/TryUniCAD/Kit/pull/397) | feat(cad): qualify Fusion draft and rim reads with measured CLI parity | jdharcourt | feat/decoded-cad-read-write-20261127 → main |
+| [#396](https://github.com/TryUniCAD/Kit/pull/396) | feat(fusion): read owned offset-start circular extrusions through sdk and cli | jdharcourt | feat/fusion-offset-sdk-reader-20261127 → main |
 | [#395](https://github.com/TryUniCAD/Kit/pull/395) | feat(research): decode signed offset starts on unequal two-sided extrusions | jdharcourt | feat/fusion-offset-start-20261127 → main |
 | [#394](https://github.com/TryUniCAD/Kit/pull/394) | feat(research): record independent two-sided Fusion drafts | jdharcourt | feat/fusion-two-sided-draft-20261127 → main |
 | [#393](https://github.com/TryUniCAD/Kit/pull/393) | feat(research): record unequal construction-axis Fusion revolutions | jdharcourt | feat/fusion-unequal-revolve-20261127 → main |
 | [#392](https://github.com/TryUniCAD/Kit/pull/392) | feat(planning): add scheduled scope board and organization project | jdharcourt | feat/project-todo-review-20261127 → main |
-| [#391](https://github.com/TryUniCAD/Kit/pull/391) | fix(tests): cache Windows fixture assembly across processes | app/usehoplite | codex/windows-fixture-cache → main |
-| [#385](https://github.com/TryUniCAD/Kit/pull/385) | fix(ci): fail queue CI Agg as soon as a candidate job fails | app/usehoplite | hoplite/sybaris-29ba7c65 → main |
-| [#384](https://github.com/TryUniCAD/Kit/pull/384) | refactor(solidworks): share proven archive field rules | app/usehoplite | codex/sw-header-bounds → main |
-| [#383](https://github.com/TryUniCAD/Kit/pull/383) | docs: audit solidworks later-phase coverage | app/usehoplite | hoplite/tegea-f1d4ae13--later-phases → main |
-| [#382](https://github.com/TryUniCAD/Kit/pull/382) | feat(research): report offline timings and verify advisor opt-in | app/usehoplite | codex/offline-research-metrics → main |
-| [#381](https://github.com/TryUniCAD/Kit/pull/381) | fix(research): recover owned SOLIDWORKS capture sessions | app/usehoplite | codex/capture-resilience → main |
-| [#380](https://github.com/TryUniCAD/Kit/pull/380) | Verify SOLIDWORKS sketch dimension record bindings | app/usehoplite | offline-sketch-dimension-records → main |
-| [#379](https://github.com/TryUniCAD/Kit/pull/379) | test: verify solidworks analytic carriers offline | app/usehoplite | hoplite/solidworks-brep-carriers → main |
-| [#378](https://github.com/TryUniCAD/Kit/pull/378) | docs(solidworks): identify unresolved feature definition evidence | app/usehoplite | offline/feature-definitions → main |
+| [#391](https://github.com/TryUniCAD/Kit/pull/391) | fix(tests): cache Windows fixture assembly across processes | usehoplite | codex/windows-fixture-cache → main |
+| [#385](https://github.com/TryUniCAD/Kit/pull/385) | fix(ci): fail queue CI Agg as soon as a candidate job fails | usehoplite | hoplite/sybaris-29ba7c65 → main |
+| [#384](https://github.com/TryUniCAD/Kit/pull/384) | refactor(solidworks): share proven archive field rules | usehoplite | codex/sw-header-bounds → main |
+| [#383](https://github.com/TryUniCAD/Kit/pull/383) | docs: audit solidworks later-phase coverage | usehoplite | hoplite/tegea-f1d4ae13--later-phases → main |
+| [#382](https://github.com/TryUniCAD/Kit/pull/382) | feat(research): report offline timings and verify advisor opt-in | usehoplite | codex/offline-research-metrics → main |
+| [#381](https://github.com/TryUniCAD/Kit/pull/381) | fix(research): recover owned SOLIDWORKS capture sessions | usehoplite | codex/capture-resilience → main |
+| [#380](https://github.com/TryUniCAD/Kit/pull/380) | Verify SOLIDWORKS sketch dimension record bindings | usehoplite | offline-sketch-dimension-records → main |
+| [#379](https://github.com/TryUniCAD/Kit/pull/379) | test: verify solidworks analytic carriers offline | usehoplite | hoplite/solidworks-brep-carriers → main |
+| [#378](https://github.com/TryUniCAD/Kit/pull/378) | docs(solidworks): identify unresolved feature definition evidence | usehoplite | offline/feature-definitions → main |
 | [#377](https://github.com/TryUniCAD/Kit/pull/377) | docs(guides): clarify first-use discovery and recovery | jdharcourt | feat/b11-documentation-usability-20261127 → main |
 | [#376](https://github.com/TryUniCAD/Kit/pull/376) | feat(cli): add focused format discovery and alias guidance | jdharcourt | feat/b10-cli-usability-20261127 → main |
-| [#374](https://github.com/TryUniCAD/Kit/pull/374) | docs(research): inventory SOLIDWORKS sketch streams | app/usehoplite | codex/sketch-stream-inventory → main |
-| [#373](https://github.com/TryUniCAD/Kit/pull/373) | docs(research): SOLIDWORKS sketch circle and relation field candidates | app/usehoplite | codex/sketch-circle-relation-fields → main |
-| [#372](https://github.com/TryUniCAD/Kit/pull/372) | docs(research): group committed SOLIDWORKS unresolved decodes | app/usehoplite | codex/nov25-unresolved-decodes → main |
-| [#371](https://github.com/TryUniCAD/Kit/pull/371) | docs(solidworks): admit the 2026 captured controls | app/usehoplite | codex/v2026-control-admission → main |
-| [#370](https://github.com/TryUniCAD/Kit/pull/370) | docs(research): audit the November 25 capture-failure records | app/usehoplite | codex/nov25-capture-failures → main |
-| [#369](https://github.com/TryUniCAD/Kit/pull/369) | docs(research): record SOLIDWORKS sketch dimension field search | app/usehoplite | codex/sketch-dimension-fields → main |
-| [#368](https://github.com/TryUniCAD/Kit/pull/368) | docs(solidworks): add feature-family and version coverage table | app/usehoplite | codex/solidworks-family-version-coverage → main |
-| [#367](https://github.com/TryUniCAD/Kit/pull/367) | docs(research): reconcile the automation register with merged PR 288 | app/usehoplite | codex/automation-register-pr288-status → main |
-| [#366](https://github.com/TryUniCAD/Kit/pull/366) | feat(solidworks): prepare offline blind-boss milestone candidates and tests | app/usehoplite | hoplite/olynthos-8e5509c7 → main |
-| [#365](https://github.com/TryUniCAD/Kit/pull/365) | chore(deps-dev): bump ruff from 0.17.5 to 0.17.6 | app/dependabot | dependabot/uv/ruff-0.17.6 → main |
-| [#364](https://github.com/TryUniCAD/Kit/pull/364) | test(supervisor): make CheckWindow wait for a memory sample and outlast slow passes | app/usehoplite | codex/supervisor-window-sampling → main |
+| [#374](https://github.com/TryUniCAD/Kit/pull/374) | docs(research): inventory SOLIDWORKS sketch streams | usehoplite | codex/sketch-stream-inventory → main |
+| [#373](https://github.com/TryUniCAD/Kit/pull/373) | docs(research): SOLIDWORKS sketch circle and relation field candidates | usehoplite | codex/sketch-circle-relation-fields → main |
+| [#372](https://github.com/TryUniCAD/Kit/pull/372) | docs(research): group committed SOLIDWORKS unresolved decodes | usehoplite | codex/nov25-unresolved-decodes → main |
+| [#371](https://github.com/TryUniCAD/Kit/pull/371) | docs(solidworks): admit the 2026 captured controls | usehoplite | codex/v2026-control-admission → main |
+| [#370](https://github.com/TryUniCAD/Kit/pull/370) | docs(research): audit the November 25 capture-failure records | usehoplite | codex/nov25-capture-failures → main |
+| [#369](https://github.com/TryUniCAD/Kit/pull/369) | docs(research): record SOLIDWORKS sketch dimension field search | usehoplite | codex/sketch-dimension-fields → main |
+| [#368](https://github.com/TryUniCAD/Kit/pull/368) | docs(solidworks): add feature-family and version coverage table | usehoplite | codex/solidworks-family-version-coverage → main |
+| [#367](https://github.com/TryUniCAD/Kit/pull/367) | docs(research): reconcile the automation register with merged PR 288 | usehoplite | codex/automation-register-pr288-status → main |
+| [#366](https://github.com/TryUniCAD/Kit/pull/366) | feat(solidworks): prepare offline blind-boss milestone candidates and tests | usehoplite | hoplite/olynthos-8e5509c7 → main |
+| [#365](https://github.com/TryUniCAD/Kit/pull/365) | chore(deps-dev): bump ruff from 0.17.5 to 0.17.6 | dependabot | dependabot/uv/ruff-0.17.6 → main |
+| [#364](https://github.com/TryUniCAD/Kit/pull/364) | test(supervisor): make CheckWindow wait for a memory sample and outlast slow passes | usehoplite | codex/supervisor-window-sampling → main |
 | [#348](https://github.com/TryUniCAD/Kit/pull/348) | fix(solidworks): recover attributed active partition geometry | Stephen316 | codex/sw-p03-attributed-active-brep → codex/sw-active-partition-vertex-read (stack parent #340) |
 | [#345](https://github.com/TryUniCAD/Kit/pull/345) | docs(research): trace the complete saved SOLIDWORKS active owner graph | Stephen316 | codex/sw-p03-active-owner-boundary → codex/sw-p03-trimmed-carrier-boundary (stack parent #343) |
 | [#344](https://github.com/TryUniCAD/Kit/pull/344) | feat(research): author Fusion legacy property streams | Stephen316 | codex/fusion-legacy-appearance-descriptor → codex/fusion-design-texture-placement (stack parent #341) |

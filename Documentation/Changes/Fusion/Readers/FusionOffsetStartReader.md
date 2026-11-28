@@ -58,3 +58,9 @@ Current-head hosted checks and configured approval remain required.
 
 XZ/YZ and other placed frames, tapered offset starts, one-sided offset starts, modifying operations, general profiles, constraints and editable target acceptance remain outside this scope.
 Same-generator parameter holdouts do not establish independent generator-lineage coverage or a broader vendor-version promise.
+
+## Queue integration repair
+
+The 2026-11-28 repair moves the existing reader entries in the backlog and automation register beside the earlier reader work. PR #395 and this reader had inserted independent sections at the same positions. The entries retain their stable IDs and links; the source campaign remains a separate delivery. The [shared-register queue gotcha](../../../Gotchas/Git/Queues/SharedRegisterInsertions.md) describes this failure mode. Main itself was conflict-free; the observed PR #395 candidate `2df599a77d33a9c994855766f4471d88539bf394` exposed the two register conflicts. The repair does not import the unmerged source campaign or change production readers, tests or native evidence.
+
+The zero-offset refusal described by PR #395 applies to its frozen reader `91a73de348894a5791a51b977cd6fe0fe677a617`; this bounded SDK reader admits those qualified XY source semantics. Configured approval, fresh PR CI and merge-group acceptance remain separate requirements. Planning links and generated views are refreshed; remote project synchronization remains pending because project read access is unavailable.

@@ -453,6 +453,23 @@ The scope is the supported vendor-resaved constrained cuboid family.
 The exit requires exact saved-state reading and deterministic native generation from JSON alone.
 Independent source controls and held-out native open, edit, rebuild, save, and reopen evidence remain required.
 
+## A05c-FusionOffsetReader20261127
+
+Codex owns this checking production-reader extension on `feat/fusion-offset-sdk-reader-20261127`, based on fresh main `91a73de348894a5791a51b977cd6fe0fe677a617`.
+Dependencies are A05a/A05c, the signed-offset native campaign on PR #395, the existing typed native graph and circular journal/snapshot proof, and the shared CLI/test planner.
+The child claim is recorded on PR #94; delivery is [PR #396](https://github.com/TryUniCAD/Kit/pull/396).
+Scope is identity-XY single-circle, untapered NewBody, positive unequal two-sided distance extents and an independently owned signed OffsetStart.
+The [package](../../../re/Fusion/OffsetAdmission20261127/README.md) pins both native source groups, production candidates, reader outcomes and retained failures.
+The first candidate `23be702fd32d3092d98974c725bcc9d3b95fe0ee` admits 109 XY files, preserves 30 placement refusals and passes 1,447 native geometry/role/receipt comparisons.
+Final binding decomposition `7ce58d3962f89c5c184e1fd993126e4927f9d73d` repeats 109 strict reads, 30 refusals and 1,447 passing comparisons; all sixteen prior-corpus documents retain their baseline hashes.
+All graphs retain read-only status; no writer, target acceptance or broader frame/operation/taper support is added.
+The local integration run at `e1bd1b2a5dada493309f5b94e0f2a8b4561d4f30` passes all 64 SDK/CLI/archive/export cases; independent production and provenance audits are complete, including refusal-control provenance repair.
+Current-head hosted CI and configured approval remain required; the configured review service reports exhausted credits.
+Exit requires current-head CI/review and preserves broader source and target acceptance gaps.
+The [change entry](../../Changes/Fusion/Readers/FusionOffsetStartReader.md) records usage and limits.
+Planning PR #392 is merged; this existing child is linked in [repository planning](../../Planning/Links.json). Remote project synchronization remains pending because the available credential lacks project read access.
+The 2026-11-28 queue repair retains this same child, owner and delivery branch. Its entry was moved beside the A05 reader work to avoid the independent PR #395 insertion; no decoder or worker behavior changes. Requeue requires fresh current-head CI and configured approval. The prior 68 passing PR checks do not qualify the repaired head or queue candidate.
+
 ## A06 comparison implementation and qualification
 
 ### A06g-BulkDecodedComparison: standalone bulk command
@@ -906,22 +923,6 @@ The exit requires a real CLI run with strict features, source-bound partial span
 The existing partial-only P04 run must preserve its recipe selection and incomplete coverage result.
 Both installed CLI cases passed on Windows at `d3b2cb982c` in 84.79 seconds. Hosted verification and review remain pending.
 See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) for the range and qualification limits.
-
-## A05c-FusionOffsetReader20261127
-
-Codex owns this checking production-reader extension on `feat/fusion-offset-sdk-reader-20261127`, based on fresh main `91a73de348894a5791a51b977cd6fe0fe677a617`.
-Dependencies are A05a/A05c, the signed-offset native campaign on PR #395, the existing typed native graph and circular journal/snapshot proof, and the shared CLI/test planner.
-The child claim is recorded on PR #94; delivery is [PR #396](https://github.com/TryUniCAD/Kit/pull/396).
-Scope is identity-XY single-circle, untapered NewBody, positive unequal two-sided distance extents and an independently owned signed OffsetStart.
-The [package](../../../re/Fusion/OffsetAdmission20261127/README.md) pins both native source groups, production candidates, reader outcomes and retained failures.
-The first candidate `23be702fd32d3092d98974c725bcc9d3b95fe0ee` admits 109 XY files, preserves 30 placement refusals and passes 1,447 native geometry/role/receipt comparisons.
-Final binding decomposition `7ce58d3962f89c5c184e1fd993126e4927f9d73d` repeats 109 strict reads, 30 refusals and 1,447 passing comparisons; all sixteen prior-corpus documents retain their baseline hashes.
-All graphs retain read-only status; no writer, target acceptance or broader frame/operation/taper support is added.
-The local integration run at `e1bd1b2a5dada493309f5b94e0f2a8b4561d4f30` passes all 64 SDK/CLI/archive/export cases; independent production and provenance audits are complete, including refusal-control provenance repair.
-Current-head hosted CI and configured approval remain required; the configured review service reports exhausted credits.
-Exit requires current-head CI/review and preserves broader source and target acceptance gaps.
-The [change entry](../../Changes/Fusion/Readers/FusionOffsetStartReader.md) records usage and limits.
-Planning PR #392 remains separate and unmerged; retain the existing child claim until stable scope links and views can be regenerated.
 
 ## A08h-FusionTwoSidedDraft20261127
 

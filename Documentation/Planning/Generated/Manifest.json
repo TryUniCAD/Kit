@@ -1,13 +1,13 @@
 {
-  "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
-  "ObservedOn": "2026-11-27",
+  "MainRevision": "c090f4f4c62944575d70d79247a3fd18b98d2752",
+  "ObservedOn": "2026-11-28",
   "SourceHashes": {
-    "Documentation/Planning/Links.json": "ed1c28d1b343fc88c80e675d333ee01e0cbfc5fd937d1b5f5ac38f1dedd8752d",
-    "Documentation/Planning/PullRequests.json": "18368359f24a1042fd901f0fef211dee3b2e44d2ff76aeb7cdf9f6b663e19650",
+    "Documentation/Planning/Links.json": "ec3d9dd8792ad30ae940262884b40aba24101c98eac571432b7e5edd5104c241",
+    "Documentation/Planning/PullRequests.json": "b0594d723b8dc4aef77146d2963bade7863505a72c87d76ff3acf0ea1da0bf17",
     "Documentation/Planning/SdkScopes.json": "f4b9157b835e504d914d71160ee65e19305e69409261226e1179905df12027b5",
     "Documentation/Planning/TaskIdentities.json": "6171959aadd12abdc62c9c7c8099c2de93fc5cc0cb9c8689ebdcab02d9bf31f2",
-    "Documentation/Maintenance/ConversionBacklog.md": "9a9335c8c16486d8235730f53efd611b8d212f345600e7e00b2e3939f2b29118",
-    "Documentation/Reference/Research/AutomationSteps.md": "5f61fe848f74c523e62bf9f80e2f770f5e4a836c496b0e74bced7d6f91a80bd1",
+    "Documentation/Maintenance/ConversionBacklog.md": "05a22aa9fa5b17e78b78f53e4ea337e2d00120a2720aa20e87570baa69d4814c",
+    "Documentation/Reference/Research/AutomationSteps.md": "42481a72d05d214b4d6ce32283a56411a7b3ed91d2ff7e9c4b808edb054f6085",
     "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1",
     "re/Fusion/PlannerCatalog/Data/Catalog.sqlite": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718",
     "re/automation/Planning/Board/Board.jsx": "f621e0d9972d3ac35c09aaea97658b3e5d13b96f18d14d356cde3d3c04c47d5e",
@@ -18,10 +18,10 @@
     "Documentation/Planning/Generated/Board.js": "415a3e54efd1b737c0884c31d1f9c30ecd66b0878b95d9eee1b8f61089f3797b",
     "Documentation/Planning/Generated/Board.css": "53461e6dd36d9ca1d06a9ae0f3c6af2538e8146cd88bf01f5cbc184664b59dd9"
   },
-  "ParentTasks": 40,
+  "ParentTasks": 41,
   "RegisterRows": 80,
   "Scopes": 4580,
-  "OpenPullRequests": 78,
-  "DeliveryRecords": 83,
-  "ProseClaims": 70
+  "OpenPullRequests": 80,
+  "DeliveryRecords": 86,
+  "ProseClaims": 76
 }

@@ -102,6 +102,7 @@ flowchart LR
   AgentDispatch["AgentDispatch: Direct local and Hoplite agent dispatch"]
   A03 --> AgentDispatch
   UiPlanning --> AgentDispatch
+  A05c-FusionOffsetReader20261127["A05c-FusionOffsetReader20261127: Bounded signed offset circular SDK and CLI reader"]
 ```
 
 Source gates and detailed child prerequisites remain binding.

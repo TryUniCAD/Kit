@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 1,
-  "ObservedOn": "2026-11-27",
-  "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
+  "ObservedOn": "2026-11-28",
+  "MainRevision": "c090f4f4c62944575d70d79247a3fd18b98d2752",
   "ScopeLinks": [
     {
       "ScopeId": "sw:family:sketchconics:circle",
@@ -278,6 +278,18 @@
           "Revision": ""
         }
       }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A05c-FusionOffsetReader20261127",
+      "Boundary": "Identity XY single-circle untapered NewBody unequal two-sided distances with signed OffsetStart; read-only inspection only",
+      "Stages": {
+        "decode": {
+          "Status": "checking",
+          "Evidence": "re/Fusion/OffsetAdmission20261127/README.md",
+          "Revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d"
+        }
+      }
     }
   ],
   "Schedules": [],
@@ -386,6 +398,24 @@
       "Source": "Documentation/Planning/README.md",
       "Area": "UI/UX",
       "Exit": "Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client"
+    },
+    {
+      "Id": "A05c-FusionOffsetReader20261127",
+      "Name": "Bounded signed offset circular SDK and CLI reader",
+      "Status": "checking",
+      "Owner": "jdharcourt / Codex root",
+      "Dependencies": [],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a05c-fusionoffsetreader20261127",
+      "Area": "SDK",
+      "Exit": "Current-head CI and configured approval for the recorded bounded read-only source reader; broader frames, writing and editable target conversion remain unfinished",
+      "Branch": "feat/fusion-offset-sdk-reader-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/396",
+      "Agent": "Codex root / 33af0133-b3fe-4d25-a682-469cd8ed95bc",
+      "SourceDependencies": "Owning register A05a/A05c detail rows, PR395 signed-offset native corpus, complete existing graph journal snapshot parameter and mass proofs; parent completion is not a prerequisite for contributing this bounded reader",
+      "ExternalResource": "No native call or oracle lease for the queue documentation repair",
+      "Evidence": "re/Fusion/OffsetAdmission20261127/README.md",
+      "ParentTask": "A05",
+      "ProjectSync": "Pending project read access; existing remote claims unchanged; delivery PR assignee jdharcourt verified"
     }
   ],
   "Dependencies": {

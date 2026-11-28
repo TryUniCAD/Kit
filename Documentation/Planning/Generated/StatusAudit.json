@@ -54,8 +54,10 @@
     "A14b"
   ],
   "OpenDeliveryPRs": [
+    398,
+    397,
+    396,
     395,
-    392,
     385,
     384,
     383,
@@ -407,6 +409,18 @@
           "Status": "checking",
           "Evidence": "https://github.com/TryUniCAD/Kit/pull/394",
           "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A05c-FusionOffsetReader20261127",
+      "Boundary": "Identity XY single-circle untapered NewBody unequal two-sided distances with signed OffsetStart; read-only inspection only",
+      "Stages": {
+        "decode": {
+          "Status": "checking",
+          "Evidence": "re/Fusion/OffsetAdmission20261127/README.md",
+          "Revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d"
         }
       }
     }
