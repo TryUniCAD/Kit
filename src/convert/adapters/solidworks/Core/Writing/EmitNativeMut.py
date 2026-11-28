@@ -7,12 +7,9 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
-from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
-from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
-from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
-    MatchPartMeas,
+from convert.adapters.solidworks.Core.Writing.PrepPartPublish import (
+    PrepPartPublish,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import ReadPartMeas
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -23,17 +20,14 @@ def EmitNativeMut(
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
     SettingsValue = CheckPartOpts(OptionsValue)
-    WrittenAt, Receipt = ReadPartMeas(SettingsValue)
     OutputPath = (
         FilePath(TargetValue).expanduser().resolve()
         if isinstance(TargetValue, (str, FilePath))
         else None
     )
-    Candidate = PrepareNative(
-        DocumentValue, OutputPath or TargetValue, WrittenAt, SettingsValue
+    Payload, Evidence, IsReadback = PrepPartPublish(
+        DocumentValue, OutputPath or TargetValue, SettingsValue
     )
-    Payload = Candidate.BytesValue
-    Evidence = MatchPartMeas(Receipt, Payload)
     if OutputPath is not None:
         with OutputPath.open("wb" if SettingsValue.overwrite else "xb") as OutputFile:
             if OutputFile.write(Payload) != len(Payload):
@@ -50,7 +44,7 @@ def EmitNativeMut(
                 CapTransfer(CapabilityValue, TransferMode.KNative)
                 for CapabilityValue in sorted(DocumentValue.capabilities)
             )
-            if IsColdRead(DocumentValue)
+            if IsReadback
             else ()
         ),
         vendor_loadable=True,

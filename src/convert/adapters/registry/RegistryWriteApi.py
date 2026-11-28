@@ -115,6 +115,9 @@ class WriteApi(WriteLookup):
         from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
             IsColdRead,
         )
+        from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
+            IsRevRead,
+        )
         from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 
         FormatId, OptionsData = GetWriteArgs(NamedValues)
@@ -129,7 +132,9 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+        if type(AdapterData) is not SldprtWriter or not (
+            IsColdRead(DocumentData) or IsRevRead(DocumentData)
+        ):
             CheckHistory(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:

@@ -227,6 +227,18 @@ coverage, and revision-bound CI and review. Neutral graph projection and
 part and assembly writer qualification have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
 
+### B04-SW2026-PRINCIPAL-REVOLVE
+
+The PR #121 takeover team owns the main-target measured partial Top/Right
+revolve delivery on `codex/solidworks-measured-principal-revolve`. It depends on
+the standalone part construction and exact measurement publication contract.
+The local candidate reproduces both measured macOS-generated archives and their
+complete strict readbacks. Exit requires the current-head review and queue
+acceptance. Native-saved input, other end modes and other output hashes remain
+separate qualifications.
+[Scope and process evidence](../../re/solidworks/records/MeasuredPrincipalRevolvePublication2026.md)
+[Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredPrincipalRevolve.md)
+
 ### B04-SW2026-CONFIG-ATOM-EMISSION
 
 The PR #121 takeover team owns bounded kind-zero atom manager writing

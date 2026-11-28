@@ -174,6 +174,15 @@ from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Cold.ApplyColdRev import (
+    ApplyColdRev,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Cold.IsColdRev import (
+    IsColdRev,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Cold.ReadColdRev import (
+    ReadColdRev,
+)
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
@@ -362,10 +371,13 @@ def ReadNativePart(
     *,
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = (
+    Model, ColdValue = ReadColdRev(
+        Archive,
         NativePartModel(Archive, Settings.configuration)
         if ModelValue is None
-        else ModelValue
+        else ModelValue,
+        Settings,
+        KPartBodyId,
     )
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
@@ -375,7 +387,12 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep = PartBrepData(
+        Archive,
+        Model,
+        Settings,
+        ColdValue.ShapeValue.BrepValue if ColdValue is not None else None,
+    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -522,7 +539,11 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    DocValue = (
+        ApplyColdRev(DocValue, ColdValue)
+        if ColdValue is not None
+        else ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    )
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(WithPartProps(DocValue, Archive), DataValue)
@@ -530,10 +551,13 @@ def ReadNativePart(
 
 # cached payloads keep priority over geometry derived from a qualified cold archive
 def PartBrepData(
-    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    Settings: ReadOptions,
+    DerivedValue: BrepModel | None = None,
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
     ColdBrep = (
-        ColdPrism(Model, KPartBodyId)
+        DerivedValue or ColdPrism(Model, KPartBodyId)
         if Settings.include_brep and not Settings.extract_raw_brep
         else None
     )
@@ -2256,7 +2280,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         configuration_stream=ConfigStream,
         Display=ParseDisplay(Archive.get(KInformationStream) or b""),
     )
-    if SelectedStream == KitResolvedStream:
+    if SelectedStream == KitResolvedStream or IsColdRev(Archive, Model):
         return Model
 
     Model = WithTypedNative(Model, Archive)

@@ -9,9 +9,11 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRe
 
 
 # plain segments must join explicit point indices without borrowing coordinate marker heuristics
-def ReadLineSegment(RowValue: Mapping[str, object], IndexValue: int) -> LineSegment:
+def ReadLineSegment(
+    RowValue: Mapping[str, object], IndexValue: int, ReferenceValue: int = 0
+) -> LineSegment:
     FieldsValue = NativeRecord(RowValue.get("line"))
-    CheckLineEntity(FieldsValue)
+    CheckLineEntity(FieldsValue, ReferenceValue)
     PermanentId, CreationId = FieldsValue.get("f08"), FieldsValue.get("f0c")
     if (
         RowValue.get("flags") != 0

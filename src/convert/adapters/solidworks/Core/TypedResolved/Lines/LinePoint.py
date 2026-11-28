@@ -10,5 +10,5 @@ class LinePoint:
     IndexValue: int
     CreationId: int
     PositionValue: tuple[float, float]
-    HandlesValue: tuple[ArchiveNode, ArchiveNode]
+    HandlesValue: tuple[ArchiveNode] | tuple[ArchiveNode, ArchiveNode]
     FieldsValue: Mapping[str, object]

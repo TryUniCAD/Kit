@@ -17,3 +17,8 @@ class BlindPlan:
     DepthValue: float
     WidthValue: float
     HeightValue: float
+
+    # a plain blind extrusion uses the canonical front support
+    @property
+    def AxisValue(self) -> str:
+        return "z"
