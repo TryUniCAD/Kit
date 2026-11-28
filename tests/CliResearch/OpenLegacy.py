@@ -3,10 +3,15 @@ from collections.abc import Iterator
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 
+# reader compatibility must remain bound to the verified preverification checkout
+KLegacyRevision = "520f0f5a9a96d3bcc0364c97b1add413ccac86ab"
+
 
 # linked fixtures must release repository registrations even when a reader assertion fails
 @Contextmanager
-def OpenLegacy(RootPath: FilePath, ParentPath: FilePath) -> Iterator[FilePath]:
+def OpenLegacy(
+    RootPath: FilePath, ParentPath: FilePath, Revision: str = KLegacyRevision
+) -> Iterator[FilePath]:
     Checkout = ParentPath / "LegacyCheckout"
     try:
         Result = RunProcess(
@@ -19,7 +24,7 @@ def OpenLegacy(RootPath: FilePath, ParentPath: FilePath) -> Iterator[FilePath]:
                 "--detach",
                 "--no-checkout",
                 str(Checkout),
-                "520f0f5a9a96d3bcc0364c97b1add413ccac86ab",
+                Revision,
             ],
             capture_output=True,
             text=True,

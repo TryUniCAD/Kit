@@ -1,0 +1,2616 @@
+{
+  "ObservedAt": "2026-11-27T17:48:41.734911+00:00",
+  "SourceRevision": "deaf10fd15401d88c1654c75b9880ffe2743e66a",
+  "AcceptedSourceRevisions": [
+    "deaf10fd15401d88c1654c75b9880ffe2743e66a",
+    "8754dedca81a6a0753ddfd7081df5a9d961b2f35",
+    "c217967da65a4c41d164dd7d133101a4b9b886b3"
+  ],
+  "Project": "https://github.com/orgs/TryUniCAD/projects/1",
+  "Applied": true,
+  "Candidates": [
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcOW8",
+      "ScopeId": "B10"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcOdc",
+      "ScopeId": "B11"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcOkA",
+      "ScopeId": "B12"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcOrc",
+      "ScopeId": "B13"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcOxY",
+      "ScopeId": "B14"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO2k",
+      "ScopeId": "A02"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO3c",
+      "ScopeId": "A04"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO4M",
+      "ScopeId": "A05"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO5E",
+      "ScopeId": "A06"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO5s",
+      "ScopeId": "A07"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO6Y",
+      "ScopeId": "A08"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO6w",
+      "ScopeId": "A09"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO7Y",
+      "ScopeId": "A10"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO78",
+      "ScopeId": "A11"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcO9E",
+      "ScopeId": "A12"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcR5A",
+      "ScopeId": "A13"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSB4",
+      "ScopeId": "A14"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSW0",
+      "ScopeId": "A16"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSXM",
+      "ScopeId": "FusionRevolveContrast"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSXo",
+      "ScopeId": "A15"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSYQ",
+      "ScopeId": "PlanningViews"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSmA",
+      "ScopeId": "UiConversion"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSpQ",
+      "ScopeId": "UiPreservation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcSyU",
+      "ScopeId": "UiResearch"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcS20",
+      "ScopeId": "UxAccessibility"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcS5g",
+      "ScopeId": "UiPlanning"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcS58",
+      "ScopeId": "UxCli"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcTHU",
+      "ScopeId": "A11c:14"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcTNA",
+      "ScopeId": "A12a:15"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcTQM",
+      "ScopeId": "A13a:16"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcTgE",
+      "ScopeId": "A08i:20"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcTpo",
+      "ScopeId": "A02d:40"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcT1A",
+      "ScopeId": "A04c:48"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcT30",
+      "ScopeId": "A05c:51"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcT5k",
+      "ScopeId": "A06a:52"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcT58",
+      "ScopeId": "A06b:53"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcT7E",
+      "ScopeId": "A06c:54"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcT74",
+      "ScopeId": "A06d:55"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcT_Q",
+      "ScopeId": "A11a:58"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUAc",
+      "ScopeId": "A11b:59"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUAw",
+      "ScopeId": "A16a:60"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUD0",
+      "ScopeId": "A16b:61"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUE4",
+      "ScopeId": "A16c:62"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUFU",
+      "ScopeId": "A16d:63"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUHQ",
+      "ScopeId": "A16e:64"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcULM",
+      "ScopeId": "A16f:65"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcULo",
+      "ScopeId": "A16g:66"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUUY",
+      "ScopeId": "A08c:69"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUVo",
+      "ScopeId": "A08e:71"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUWA",
+      "ScopeId": "A10a:72"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUbI",
+      "ScopeId": "A10b:73"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUc0",
+      "ScopeId": "A10c:74"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUeM",
+      "ScopeId": "A10d:75"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUj0",
+      "ScopeId": "A14b:77"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUkU",
+      "ScopeId": "A15a:79"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcUko",
+      "ScopeId": "A14c:78"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVZU",
+      "ScopeId": "sw:family:reference:mate-reference"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVc8",
+      "ScopeId": "sw:family:planes:coincident-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVdM",
+      "ScopeId": "sw:family:planes:offset-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVdY",
+      "ScopeId": "sw:family:planes:mid-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVfU",
+      "ScopeId": "sw:family:planes:angled-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVhU",
+      "ScopeId": "sw:family:planes:parallel-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVhs",
+      "ScopeId": "sw:family:planes:perpendicular-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVh8",
+      "ScopeId": "sw:family:planes:tangent-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVjs",
+      "ScopeId": "sw:family:planes:projected-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVmM",
+      "ScopeId": "sw:family:planes:view-parallel-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVmw",
+      "ScopeId": "sw:family:sketch:planar-sketch"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVnI",
+      "ScopeId": "sw:family:sketch:three-dimensional-sketch"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVog",
+      "ScopeId": "sw:family:sketch:three-dimensional-sketch-on-plane"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVqE",
+      "ScopeId": "sw:family:sketch:sketch-support"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVq4",
+      "ScopeId": "sw:family:sketch:closed-contour"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVrc",
+      "ScopeId": "sw:family:sketch:multiple-contours"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVrw",
+      "ScopeId": "sw:family:sketch:open-contour"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVuY",
+      "ScopeId": "sw:family:sketch:construction-geometry"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVwo",
+      "ScopeId": "sw:family:sketchlines:line"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVxg",
+      "ScopeId": "sw:family:sketchlines:centerline"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVyM",
+      "ScopeId": "sw:family:sketchlines:midpoint-line"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcVys",
+      "ScopeId": "sw:family:sketchlines:point"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV3s",
+      "ScopeId": "sw:family:sketchlines:corner-rectangle"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV34",
+      "ScopeId": "sw:family:sketchlines:center-rectangle"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV4I",
+      "ScopeId": "sw:family:sketchlines:three-point-center-rectangle"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV4k",
+      "ScopeId": "sw:family:sketchlines:three-point-corner-rectangle"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV8o",
+      "ScopeId": "sw:family:sketchlines:parallelogram"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV9o",
+      "ScopeId": "sw:family:sketchlines:polygon"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV98",
+      "ScopeId": "sw:family:sketchconics:circle"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcV-M",
+      "ScopeId": "sw:family:sketchconics:perimeter-circle"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWA8",
+      "ScopeId": "sw:family:sketchconics:centerpoint-arc"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWBk",
+      "ScopeId": "sw:family:sketchconics:tangent-arc"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWCc",
+      "ScopeId": "sw:family:sketchconics:three-point-arc"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWCw",
+      "ScopeId": "sw:family:sketchconics:ellipse"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWGs",
+      "ScopeId": "sw:family:sketchconics:partial-ellipse"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWHI",
+      "ScopeId": "sw:family:sketchconics:parabola"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWHw",
+      "ScopeId": "sw:family:sketchconics:conic"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWIM",
+      "ScopeId": "sw:family:sketchslots:straight-slot"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWMg",
+      "ScopeId": "sw:family:sketchslots:three-point-arc-slot"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWM4",
+      "ScopeId": "sw:family:sketchslots:centerpoint-straight-slot"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWNc",
+      "ScopeId": "sw:family:sketchslots:centerpoint-arc-slot"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWOU",
+      "ScopeId": "sw:family:sketchsplines:spline"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWR4",
+      "ScopeId": "sw:family:sketchsplines:spline-on-surface"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWSM",
+      "ScopeId": "sw:family:sketchsplines:style-spline"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWS8",
+      "ScopeId": "sw:family:sketchsplines:equation-driven-sketch-curve"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWT4",
+      "ScopeId": "sw:family:sketchsplines:spline-handles"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWW4",
+      "ScopeId": "sw:family:sketchsplines:spline-curvature-control"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWW8",
+      "ScopeId": "sw:family:sketchrelations:coincident-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWXk",
+      "ScopeId": "sw:family:sketchrelations:horizontal-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWYs",
+      "ScopeId": "sw:family:sketchrelations:vertical-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWaw",
+      "ScopeId": "sw:family:sketchrelations:parallel-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWbw",
+      "ScopeId": "sw:family:sketchrelations:perpendicular-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWck",
+      "ScopeId": "sw:family:sketchrelations:tangent-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWeE",
+      "ScopeId": "sw:family:sketchrelations:concentric-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWgI",
+      "ScopeId": "sw:family:sketchrelations:equal-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWg0",
+      "ScopeId": "sw:family:sketchrelations:collinear-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWiM",
+      "ScopeId": "sw:family:sketchrelations:midpoint-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWik",
+      "ScopeId": "sw:family:sketchrelations:symmetric-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWko",
+      "ScopeId": "sw:family:sketchrelations:fixed-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWlI",
+      "ScopeId": "sw:family:sketchrelations:pierce-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWmM",
+      "ScopeId": "sw:family:sketchrelations:normal-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWnU",
+      "ScopeId": "sw:family:sketchrelations:equal-curvature-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWoo",
+      "ScopeId": "sw:family:sketchrelations:along-axis-relation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWps",
+      "ScopeId": "sw:family:sketchdimensions:linear-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWqo",
+      "ScopeId": "sw:family:sketchdimensions:angular-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWsM",
+      "ScopeId": "sw:family:sketchdimensions:diameter-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWto",
+      "ScopeId": "sw:family:sketchdimensions:radius-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWvk",
+      "ScopeId": "sw:family:sketchdimensions:arc-length-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWxo",
+      "ScopeId": "sw:family:sketchdimensions:ordinate-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcWzA",
+      "ScopeId": "sw:family:sketchdimensions:driving-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW0A",
+      "ScopeId": "sw:family:sketchdimensions:driven-reference-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW3c",
+      "ScopeId": "sw:family:sketchdimensions:dimension-tolerance"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW4o",
+      "ScopeId": "sw:family:sketchdimensions:linked-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW5Q",
+      "ScopeId": "sw:family:sketchedit:trim-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW6Y",
+      "ScopeId": "sw:family:sketchedit:extend-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW9k",
+      "ScopeId": "sw:family:sketchedit:split-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW98",
+      "ScopeId": "sw:family:sketchedit:sketch-fillet"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW-Q",
+      "ScopeId": "sw:family:sketchedit:sketch-chamfer"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcW_c",
+      "ScopeId": "sw:family:sketchedit:offset-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXCs",
+      "ScopeId": "sw:family:sketchedit:convert-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXDE",
+      "ScopeId": "sw:family:sketchedit:offset-on-surface"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXD0",
+      "ScopeId": "sw:family:sketchedit:silhouette-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXFs",
+      "ScopeId": "sw:family:sketchedit:intersection-curve"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXI0",
+      "ScopeId": "sw:family:sketchedit:face-curves"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXJU",
+      "ScopeId": "sw:family:sketchedit:move-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXJ8",
+      "ScopeId": "sw:family:sketchedit:copy-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXQ4",
+      "ScopeId": "sw:family:sketchedit:rotate-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXSg",
+      "ScopeId": "sw:family:sketchedit:scale-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXSs",
+      "ScopeId": "sw:family:sketchedit:stretch-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXUo",
+      "ScopeId": "sw:family:sketchedit:replace-entity"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXW0",
+      "ScopeId": "sw:family:sketchedit:segment-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXXs",
+      "ScopeId": "sw:family:sketchedit:make-path"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXYE",
+      "ScopeId": "sw:family:sketchpattern:linear-sketch-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXZo",
+      "ScopeId": "sw:family:sketchpattern:circular-sketch-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXbg",
+      "ScopeId": "sw:family:sketchpattern:mirror-entities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXbo",
+      "ScopeId": "sw:family:sketchpattern:dynamic-mirror"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXdM",
+      "ScopeId": "sw:family:sketchpattern:sketch-block-definition"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXjw",
+      "ScopeId": "sw:family:extrude:boss-base-extrude"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcXw8",
+      "ScopeId": "sw:family:revolve:boss-base-revolve"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcX2I",
+      "ScopeId": "sw:family:revolve:thin-revolve"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcX9M",
+      "ScopeId": "sw:family:sweep:boss-base-sweep"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcYr4",
+      "ScopeId": "sw:family:chamfer:distance-distance-chamfer"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcYxw",
+      "ScopeId": "sw:family:prismatic:shell"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcZhI",
+      "ScopeId": "sw:family:pattern:linear-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcauc",
+      "ScopeId": "sw:family:sketch:sketch-transform"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcavA",
+      "ScopeId": "sw:family:sheetcorner:normal-cut"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcaww",
+      "ScopeId": "sw:family:sheetflatten:unfold"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcaxM",
+      "ScopeId": "sw:family:sheetflatten:fold"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMca00",
+      "ScopeId": "sw:family:sheetflatten:flat-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMca4Y",
+      "ScopeId": "sw:family:sheetflatten:bend-lines"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMca5s",
+      "ScopeId": "sw:family:sheetflatten:bend-notes"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMca70",
+      "ScopeId": "sw:family:sheetflatten:flat-pattern-configuration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMca9U",
+      "ScopeId": "sw:family:weldment:weldment-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMca9o",
+      "ScopeId": "sw:family:weldment:structural-member"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMca_g",
+      "ScopeId": "sw:family:weldment:structural-member-group"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbAs",
+      "ScopeId": "sw:family:weldment:trim-extend"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbBs",
+      "ScopeId": "sw:family:weldment:gusset"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbCU",
+      "ScopeId": "sw:family:weldment:end-cap"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbEk",
+      "ScopeId": "sw:family:weldment:fillet-bead"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbF0",
+      "ScopeId": "sw:family:weldment:weld-bead"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbGM",
+      "ScopeId": "sw:family:weldment:groove-bead"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbIA",
+      "ScopeId": "sw:family:structure:primary-member"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbJQ",
+      "ScopeId": "sw:family:structure:secondary-member"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbKE",
+      "ScopeId": "sw:family:structure:corner-management"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbLI",
+      "ScopeId": "sw:family:structure:member-split"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbLs",
+      "ScopeId": "sw:family:structure:member-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbOM",
+      "ScopeId": "sw:family:structure:connection-element"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbOY",
+      "ScopeId": "sw:family:structure:structure-system-folder"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbPM",
+      "ScopeId": "sw:family:cutlist:cut-list-folder"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbPg",
+      "ScopeId": "sw:family:cutlist:cut-list-item"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbRs",
+      "ScopeId": "sw:family:cutlist:cut-list-sorting"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbSc",
+      "ScopeId": "sw:family:cutlist:bounding-box-properties"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbUQ",
+      "ScopeId": "sw:family:cutlist:as-welded-configuration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbUY",
+      "ScopeId": "sw:family:cutlist:as-machined-configuration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbWA",
+      "ScopeId": "sw:family:mold:parting-line"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbXc",
+      "ScopeId": "sw:family:mold:shut-off-surface"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbXo",
+      "ScopeId": "sw:family:mold:parting-surface"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbX8",
+      "ScopeId": "sw:family:mold:tooling-split"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbZc",
+      "ScopeId": "sw:family:mold:core"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbaY",
+      "ScopeId": "sw:family:mold:cavity"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbbA",
+      "ScopeId": "sw:family:mold:interlock-surface"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbbY",
+      "ScopeId": "sw:family:mold:mold-folders"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbd0",
+      "ScopeId": "sw:family:mesh:imported-mesh-body"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbeA",
+      "ScopeId": "sw:family:mesh:graphics-body"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbek",
+      "ScopeId": "sw:family:mesh:mesh-brep-body"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbe4",
+      "ScopeId": "sw:family:mesh:hybrid-body"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbiA",
+      "ScopeId": "sw:family:mesh:convert-to-mesh-body"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbiM",
+      "ScopeId": "sw:family:mesh:segment-mesh"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbjE",
+      "ScopeId": "sw:family:mesh:decimate-mesh"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbjY",
+      "ScopeId": "sw:family:mesh:convert-mesh-to-standard-brep"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbmI",
+      "ScopeId": "sw:family:mesh:surface-from-mesh"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbnM",
+      "ScopeId": "sw:family:mesh:three-dimensional-texture"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcboM",
+      "ScopeId": "sw:family:scantothree:scanto3d-mesh-preparation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcboY",
+      "ScopeId": "sw:family:scantothree:scanto3d-curve-generation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbqM",
+      "ScopeId": "sw:family:scantothree:scanto3d-surface-generation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbrA",
+      "ScopeId": "sw:family:scantothree:featureworks-recognition"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbsQ",
+      "ScopeId": "sw:family:scantothree:recognition-diagnostics"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbsg",
+      "ScopeId": "sw:family:assembly:component-instance"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbus",
+      "ScopeId": "sw:family:assembly:subassembly"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbvI",
+      "ScopeId": "sw:family:assembly:virtual-component"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbxI",
+      "ScopeId": "sw:family:assembly:flexible-subassembly"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcbxg",
+      "ScopeId": "sw:family:assembly:fixed-component"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb0A",
+      "ScopeId": "sw:family:assembly:floating-component"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb0c",
+      "ScopeId": "sw:family:assembly:referenced-configuration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb3A",
+      "ScopeId": "sw:family:assembly:component-transform"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb4A",
+      "ScopeId": "sw:family:assembly:envelope-component"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb6o",
+      "ScopeId": "sw:family:assemblyrefs:in-context-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb7M",
+      "ScopeId": "sw:family:assemblyrefs:external-reference"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb8Y",
+      "ScopeId": "sw:family:assemblyrefs:assembly-layout"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb8o",
+      "ScopeId": "sw:family:assemblyrefs:layout-sketch"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb_M",
+      "ScopeId": "sw:family:assemblyrefs:smart-component"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcb_k",
+      "ScopeId": "sw:family:assemblyrefs:mate-reference"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccAA",
+      "ScopeId": "sw:family:assemblyrefs:derived-assembly"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccBQ",
+      "ScopeId": "sw:family:standardmate:coincident-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccDs",
+      "ScopeId": "sw:family:standardmate:parallel-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccD8",
+      "ScopeId": "sw:family:standardmate:perpendicular-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccEg",
+      "ScopeId": "sw:family:standardmate:tangent-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccFw",
+      "ScopeId": "sw:family:standardmate:concentric-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccI0",
+      "ScopeId": "sw:family:standardmate:distance-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccJY",
+      "ScopeId": "sw:family:standardmate:lock-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccJs",
+      "ScopeId": "sw:family:standardmate:angle-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccLU",
+      "ScopeId": "sw:family:advancedmate:profile-center-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccOE",
+      "ScopeId": "sw:family:advancedmate:width-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccOc",
+      "ScopeId": "sw:family:advancedmate:limit-distance-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccPM",
+      "ScopeId": "sw:family:advancedmate:symmetric-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccRY",
+      "ScopeId": "sw:family:advancedmate:limit-angle-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccTQ",
+      "ScopeId": "sw:family:advancedmate:path-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccT0",
+      "ScopeId": "sw:family:advancedmate:linear-coupler-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccUU",
+      "ScopeId": "sw:family:mechanicalmate:cam-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccWY",
+      "ScopeId": "sw:family:mechanicalmate:slot-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccXI",
+      "ScopeId": "sw:family:mechanicalmate:gear-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccYs",
+      "ScopeId": "sw:family:mechanicalmate:rack-and-pinion-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccY8",
+      "ScopeId": "sw:family:mechanicalmate:screw-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccbM",
+      "ScopeId": "sw:family:mechanicalmate:universal-joint-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccb4",
+      "ScopeId": "sw:family:mechanicalmate:hinge-mate"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccdI",
+      "ScopeId": "sw:family:mechanicalmate:belt-chain-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccdw",
+      "ScopeId": "sw:family:assemblypattern:linear-component-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcchA",
+      "ScopeId": "sw:family:assemblypattern:circular-component-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccig",
+      "ScopeId": "sw:family:assemblypattern:curve-component-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccjo",
+      "ScopeId": "sw:family:assemblypattern:pattern-driven-component-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcckI",
+      "ScopeId": "sw:family:assemblypattern:sketch-component-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcclw",
+      "ScopeId": "sw:family:assemblypattern:chain-component-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccnY",
+      "ScopeId": "sw:family:assemblypattern:mirror-components"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccoo",
+      "ScopeId": "sw:family:assemblyfeatures:assembly-hole"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccpY",
+      "ScopeId": "sw:family:assemblyfeatures:assembly-cut"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccro",
+      "ScopeId": "sw:family:assemblyfeatures:assembly-hole-series"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccrw",
+      "ScopeId": "sw:family:assemblyfeatures:assembly-fillet"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcctY",
+      "ScopeId": "sw:family:assemblyfeatures:assembly-chamfer"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcct8",
+      "ScopeId": "sw:family:assemblyfeatures:assembly-weld-bead"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccvc",
+      "ScopeId": "sw:family:assemblyfeatures:exploded-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccv0",
+      "ScopeId": "sw:family:assemblyfeatures:explode-line-sketch"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccyk",
+      "ScopeId": "sw:family:assemblyfeatures:clearance-verification"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccy4",
+      "ScopeId": "sw:family:assemblyfeatures:interference-detection"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMccz8",
+      "ScopeId": "sw:family:assemblyrepresentation:lightweight-component"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc0Y",
+      "ScopeId": "sw:family:assemblyrepresentation:resolved-component"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc1Q",
+      "ScopeId": "sw:family:assemblyrepresentation:speedpak"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc10",
+      "ScopeId": "sw:family:assemblyrepresentation:large-design-review"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc3w",
+      "ScopeId": "sw:family:assemblyrepresentation:simplified-configuration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc4g",
+      "ScopeId": "sw:family:assemblyrepresentation:display-state"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc5k",
+      "ScopeId": "sw:family:assemblyrepresentation:alternate-position"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc50",
+      "ScopeId": "sw:family:motion:animation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc7w",
+      "ScopeId": "sw:family:motion:basic-motion"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc88",
+      "ScopeId": "sw:family:motion:mate-controller"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc9c",
+      "ScopeId": "sw:family:motion:motion-analysis"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcc_Q",
+      "ScopeId": "sw:family:motion:motor"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdBY",
+      "ScopeId": "sw:family:motion:spring"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdCI",
+      "ScopeId": "sw:family:motion:damper"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdCU",
+      "ScopeId": "sw:family:motion:force"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdDY",
+      "ScopeId": "sw:family:motion:torque"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdFg",
+      "ScopeId": "sw:family:motion:gravity"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdIQ",
+      "ScopeId": "sw:family:motion:contact"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdIw",
+      "ScopeId": "sw:family:motion:motion-plot"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdJM",
+      "ScopeId": "sw:family:configuration:configuration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdLs",
+      "ScopeId": "sw:family:configuration:derived-configuration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdPE",
+      "ScopeId": "sw:family:configuration:design-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdPs",
+      "ScopeId": "sw:family:configuration:configuration-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdRc",
+      "ScopeId": "sw:family:configuration:global-variable"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdTk",
+      "ScopeId": "sw:family:configuration:equation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdV4",
+      "ScopeId": "sw:family:configuration:dimension-link"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdWc",
+      "ScopeId": "sw:family:configuration:configuration-specific-parameter"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdX8",
+      "ScopeId": "sw:family:configuration:configuration-specific-suppression"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdag",
+      "ScopeId": "sw:family:configuration:design-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcda0",
+      "ScopeId": "sw:family:properties:part-material"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdbU",
+      "ScopeId": "sw:family:properties:body-material"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdcg",
+      "ScopeId": "sw:family:properties:density"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdfs",
+      "ScopeId": "sw:family:properties:mass-override"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdgg",
+      "ScopeId": "sw:family:properties:custom-property"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdg8",
+      "ScopeId": "sw:family:properties:configuration-property"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdiE",
+      "ScopeId": "sw:family:properties:linked-property"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdkU",
+      "ScopeId": "sw:family:properties:attribute"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdmc",
+      "ScopeId": "sw:family:properties:sensor"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdm8",
+      "ScopeId": "sw:family:appearance:appearance"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdoI",
+      "ScopeId": "sw:family:appearance:decal"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdp8",
+      "ScopeId": "sw:family:appearance:texture"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdrg",
+      "ScopeId": "sw:family:appearance:scene"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdr8",
+      "ScopeId": "sw:family:appearance:light"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdtQ",
+      "ScopeId": "sw:family:appearance:camera"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdws",
+      "ScopeId": "sw:family:appearance:display-mode"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdxo",
+      "ScopeId": "sw:family:appearance:color"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdyQ",
+      "ScopeId": "sw:family:appearance:named-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcdyw",
+      "ScopeId": "sw:family:appearance:transparency"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd0c",
+      "ScopeId": "sw:family:drawing:drawing-sheet"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd2Y",
+      "ScopeId": "sw:family:drawing:sheet-format"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd20",
+      "ScopeId": "sw:family:drawing:sheet-size"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd3A",
+      "ScopeId": "sw:family:drawing:sheet-scale"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd5I",
+      "ScopeId": "sw:family:drawing:projection-convention"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd7Y",
+      "ScopeId": "sw:family:drawing:sheet-properties"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd70",
+      "ScopeId": "sw:family:drawing:drawing-blocks"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd8I",
+      "ScopeId": "sw:family:drawing:layers"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcd98",
+      "ScopeId": "sw:family:drawing:detached-drawing"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceAU",
+      "ScopeId": "sw:family:baseview:model-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceAw",
+      "ScopeId": "sw:family:drawing:detailing-mode"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceB4",
+      "ScopeId": "sw:family:baseview:standard-three-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceDo",
+      "ScopeId": "sw:family:baseview:relative-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceFU",
+      "ScopeId": "sw:family:baseview:predefined-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceGI",
+      "ScopeId": "sw:family:baseview:empty-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceHg",
+      "ScopeId": "sw:family:baseview:flat-pattern-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceJw",
+      "ScopeId": "sw:family:baseview:named-orientation-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceK0",
+      "ScopeId": "sw:family:viewderived:projected-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceLg",
+      "ScopeId": "sw:family:viewderived:auxiliary-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceMs",
+      "ScopeId": "sw:family:viewderived:detail-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceOY",
+      "ScopeId": "sw:family:viewderived:crop-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcePU",
+      "ScopeId": "sw:family:viewderived:section-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceRo",
+      "ScopeId": "sw:family:viewderived:aligned-section-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceTk",
+      "ScopeId": "sw:family:viewderived:broken-out-section"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceUs",
+      "ScopeId": "sw:family:viewderived:break-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceWk",
+      "ScopeId": "sw:family:viewderived:alternate-position-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceXY",
+      "ScopeId": "sw:family:viewdisplay:hidden-lines-removed-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceY4",
+      "ScopeId": "sw:family:viewdisplay:hidden-lines-visible-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcebY",
+      "ScopeId": "sw:family:viewdisplay:shaded-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcecc",
+      "ScopeId": "sw:family:viewdisplay:tangent-edges"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcedI",
+      "ScopeId": "sw:family:viewdisplay:view-alignment"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceec",
+      "ScopeId": "sw:family:viewdisplay:view-focus"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceiA",
+      "ScopeId": "sw:family:viewdisplay:view-lock"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceis",
+      "ScopeId": "sw:family:viewdisplay:view-labels"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcejQ",
+      "ScopeId": "sw:family:viewdisplay:model-break-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcekA",
+      "ScopeId": "sw:family:annotation:model-items"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcenc",
+      "ScopeId": "sw:family:annotation:linear-drawing-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceok",
+      "ScopeId": "sw:family:annotation:angular-drawing-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceqQ",
+      "ScopeId": "sw:family:annotation:ordinate-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcerQ",
+      "ScopeId": "sw:family:annotation:chamfer-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcetA",
+      "ScopeId": "sw:family:annotation:hole-callout"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcetc",
+      "ScopeId": "sw:family:annotation:note"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMceuE",
+      "ScopeId": "sw:family:annotation:balloon"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcewE",
+      "ScopeId": "sw:family:annotation:stacked-balloon"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcexQ",
+      "ScopeId": "sw:family:annotation:center-mark"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcex8",
+      "ScopeId": "sw:family:annotation:centerline"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcez0",
+      "ScopeId": "sw:family:annotation:virtual-sharp"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce08",
+      "ScopeId": "sw:family:symbols:geometric-tolerance"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce2w",
+      "ScopeId": "sw:family:symbols:datum-feature-symbol"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce3M",
+      "ScopeId": "sw:family:symbols:datum-target"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce6E",
+      "ScopeId": "sw:family:symbols:surface-finish"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce7w",
+      "ScopeId": "sw:family:symbols:weld-symbol"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce9Y",
+      "ScopeId": "sw:family:symbols:area-hatch"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce9s",
+      "ScopeId": "sw:family:symbols:revision-cloud"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMce_0",
+      "ScopeId": "sw:family:symbols:dowel-symbol"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfAg",
+      "ScopeId": "sw:family:symbols:location-label"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfB4",
+      "ScopeId": "sw:family:tables:bill-of-materials"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfC0",
+      "ScopeId": "sw:family:tables:hole-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfEg",
+      "ScopeId": "sw:family:tables:general-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfE0",
+      "ScopeId": "sw:family:tables:revision-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfGw",
+      "ScopeId": "sw:family:tables:weldment-cut-list-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfHs",
+      "ScopeId": "sw:family:tables:bend-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfI0",
+      "ScopeId": "sw:family:tables:punch-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfJI",
+      "ScopeId": "sw:family:tables:weld-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfLM",
+      "ScopeId": "sw:family:tables:title-block-table"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfMs",
+      "ScopeId": "sw:family:tables:design-table-display"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfM8",
+      "ScopeId": "sw:family:mbd:annotation-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfNc",
+      "ScopeId": "sw:family:mbd:three-dimensional-view"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfPo",
+      "ScopeId": "sw:family:mbd:dimxpert-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfRg",
+      "ScopeId": "sw:family:mbd:dimxpert-size-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfSE",
+      "ScopeId": "sw:family:mbd:dimxpert-location-dimension"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfTE",
+      "ScopeId": "sw:family:mbd:datum-system"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfUQ",
+      "ScopeId": "sw:family:mbd:geometric-tolerance"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfWo",
+      "ScopeId": "sw:family:mbd:tolerance-pattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfYU",
+      "ScopeId": "sw:family:mbd:three-dimensional-pdf-publication"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfY0",
+      "ScopeId": "sw:family:mbd:tolanalyst"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfak",
+      "ScopeId": "sw:family:routing:piping-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfic",
+      "ScopeId": "sw:family:routing:flexible-tubing-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfkI",
+      "ScopeId": "sw:family:routing:cable-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfkc",
+      "ScopeId": "sw:family:routing:electrical-wire-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfmU",
+      "ScopeId": "sw:family:routing:cable-tray-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfpQ",
+      "ScopeId": "sw:family:routing:ducting-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfps",
+      "ScopeId": "sw:family:routing:trunking-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfqM",
+      "ScopeId": "sw:family:routing:conduit-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfsA",
+      "ScopeId": "sw:family:routing:ribbon-cable-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfuk",
+      "ScopeId": "sw:family:routing:flex-cable-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfvw",
+      "ScopeId": "sw:family:routing:user-defined-route"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfwU",
+      "ScopeId": "sw:family:routing:connection-point"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcfyE",
+      "ScopeId": "sw:family:routing:route-point"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcf0Y",
+      "ScopeId": "sw:family:routing:route-fitting"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcf1M",
+      "ScopeId": "sw:family:routing:route-flattening"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcf2o",
+      "ScopeId": "sw:family:simulation:static-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcf4A",
+      "ScopeId": "sw:family:simulation:frequency-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcf_Y",
+      "ScopeId": "sw:family:simulation:nonlinear-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgAc",
+      "ScopeId": "sw:family:simulation:buckling-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgAw",
+      "ScopeId": "sw:family:simulation:thermal-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgDU",
+      "ScopeId": "sw:family:simulation:dynamic-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgHo",
+      "ScopeId": "sw:family:simulation:fatigue-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgIk",
+      "ScopeId": "sw:family:simulation:drop-test-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgJI",
+      "ScopeId": "sw:family:simulation:design-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgJc",
+      "ScopeId": "sw:family:simulation:topology-study"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgOA",
+      "ScopeId": "sw:family:simulation:mesh-definition"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgOg",
+      "ScopeId": "sw:family:simulation:fixture"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgP8",
+      "ScopeId": "sw:family:simulation:load"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgSQ",
+      "ScopeId": "sw:family:simulation:contact-set"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgVQ",
+      "ScopeId": "sw:family:simulation:connector"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgVk",
+      "ScopeId": "sw:family:simulation:result-plot"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgWQ",
+      "ScopeId": "sw:family:extended:flow-simulation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgYw",
+      "ScopeId": "sw:family:extended:plastics"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgbQ",
+      "ScopeId": "sw:family:extended:circuitworks"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgbs",
+      "ScopeId": "sw:family:extended:toolbox"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgb8",
+      "ScopeId": "sw:family:extended:inspection"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgek",
+      "ScopeId": "sw:family:extended:design-checker"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgfg",
+      "ScopeId": "sw:family:extended:utilities"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgf4",
+      "ScopeId": "sw:family:extended:costing"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgg0",
+      "ScopeId": "sw:family:extended:sustainability"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgis",
+      "ScopeId": "sw:family:extended:pdm-integration"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgkM",
+      "ScopeId": "sw:family:extended:render-tooling"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgk0",
+      "ScopeId": "sw:family:interchange:step-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgmk",
+      "ScopeId": "sw:family:interchange:iges-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgnw",
+      "ScopeId": "sw:family:interchange:parasolid-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgo4",
+      "ScopeId": "sw:family:interchange:acis-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgpw",
+      "ScopeId": "sw:family:interchange:three-dimensional-interconnect"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgqw",
+      "ScopeId": "sw:family:interchange:dxf-dwg-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgvU",
+      "ScopeId": "sw:family:interchange:stl-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgwE",
+      "ScopeId": "sw:family:interchange:obj-import"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcgwU",
+      "ScopeId": "sw:family:interchange:ply-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcg7c",
+      "ScopeId": "sw:family:interchange:ifc-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcg78",
+      "ScopeId": "sw:family:interchange:three-mf-import-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcg_o",
+      "ScopeId": "sw:family:interchange:pdf-export"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchAY",
+      "ScopeId": "sw:family:interchange:edrawings-publication"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchAk",
+      "ScopeId": "sw:family:interchange:foreign-cad-import"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchBQ",
+      "ScopeId": "sw:family:interchange:imported-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchEg",
+      "ScopeId": "sw:family:interchange:external-import-link"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchGc",
+      "ScopeId": "sw:family:custom:library-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchHM",
+      "ScopeId": "sw:family:custom:macro-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchHk",
+      "ScopeId": "sw:family:custom:third-party-feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchIg",
+      "ScopeId": "sw:family:custom:custom-property-page"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchLw",
+      "ScopeId": "sw:family:custom:add-in-command"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchMM",
+      "ScopeId": "sw:family:custom:embedded-object"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchM4",
+      "ScopeId": "sw:family:custom:custom-attribute"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchNw",
+      "ScopeId": "sw:family:custom:third-party-storage"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchQo",
+      "ScopeId": "sw:family:strictdata:alternate-configuration-cache"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchRE",
+      "ScopeId": "sw:family:strictdata:native-metadata"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchRY",
+      "ScopeId": "sw:family:strictdata:display-tessellation"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchRo",
+      "ScopeId": "sw:family:strictdata:thumbnail"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchUM",
+      "ScopeId": "sw:family:strictdata:annotation-layout"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchV0",
+      "ScopeId": "sw:family:strictdata:font-and-arrow-settings"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchWQ",
+      "ScopeId": "sw:family:strictdata:precision-and-formatting"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchWw",
+      "ScopeId": "sw:family:strictdata:save-history"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcha4",
+      "ScopeId": "sw:family:strictdata:unknown-record-retention"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchcg",
+      "ScopeId": "sw:family:strictdata:external-embedded-data"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchdI",
+      "ScopeId": "fusion:api:adsk.fusion.ArrangeFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcheE",
+      "ScopeId": "fusion:api:adsk.fusion.BaseFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchh8",
+      "ScopeId": "fusion:api:adsk.fusion.BossFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchio",
+      "ScopeId": "fusion:api:adsk.fusion.BoundaryFillFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchj8",
+      "ScopeId": "fusion:api:adsk.fusion.BoxFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchms",
+      "ScopeId": "fusion:api:adsk.fusion.ChamferFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchoc",
+      "ScopeId": "fusion:api:adsk.fusion.CircularPatternFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchp0",
+      "ScopeId": "fusion:api:adsk.fusion.CombineFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchqQ",
+      "ScopeId": "fusion:api:adsk.fusion.CoilFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchsE",
+      "ScopeId": "fusion:api:adsk.fusion.CopyPasteBody"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchuo",
+      "ScopeId": "fusion:api:adsk.fusion.CornerClosureFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchwM",
+      "ScopeId": "fusion:api:adsk.fusion.CosmeticBendFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchxo",
+      "ScopeId": "fusion:api:adsk.fusion.CustomFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMchyo",
+      "ScopeId": "fusion:api:adsk.fusion.CutPasteBody"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch1c",
+      "ScopeId": "fusion:api:adsk.fusion.CylinderFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch2M",
+      "ScopeId": "fusion:api:adsk.fusion.DeleteFaceFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch5Q",
+      "ScopeId": "fusion:api:adsk.fusion.DeriveFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch58",
+      "ScopeId": "fusion:api:adsk.fusion.DraftFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch7w",
+      "ScopeId": "fusion:api:adsk.fusion.EmbossFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch9A",
+      "ScopeId": "fusion:api:adsk.fusion.ExtendFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch-U",
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMch_s",
+      "ScopeId": "fusion:api:adsk.fusion.Feature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciAo",
+      "ScopeId": "fusion:api:adsk.fusion.FilletFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciBY",
+      "ScopeId": "fusion:api:adsk.fusion.FlangeFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciC4",
+      "ScopeId": "fusion:api:adsk.fusion.FlatPattern"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciEw",
+      "ScopeId": "fusion:api:adsk.fusion.FoldFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciFk",
+      "ScopeId": "fusion:api:adsk.fusion.FormFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciF4",
+      "ScopeId": "fusion:api:adsk.fusion.HemFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciHs",
+      "ScopeId": "fusion:api:adsk.fusion.HoleFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciJY",
+      "ScopeId": "fusion:api:adsk.fusion.JoinByBendFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciLQ",
+      "ScopeId": "fusion:api:adsk.fusion.LoftFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciLs",
+      "ScopeId": "fusion:api:adsk.fusion.LoftedFlangeFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciMs",
+      "ScopeId": "fusion:api:adsk.fusion.MeshCombineFaceGroupsFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciNs",
+      "ScopeId": "fusion:api:adsk.fusion.MeshCombineFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciPs",
+      "ScopeId": "fusion:api:adsk.fusion.MeshConvertFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciQM",
+      "ScopeId": "fusion:api:adsk.fusion.MeshFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciRA",
+      "ScopeId": "fusion:api:adsk.fusion.MeshGenerateFaceGroupsFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciSs",
+      "ScopeId": "fusion:api:adsk.fusion.MeshReduceFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciVE",
+      "ScopeId": "fusion:api:adsk.fusion.MeshRemeshFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciVc",
+      "ScopeId": "fusion:api:adsk.fusion.MeshRemoveFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciWQ",
+      "ScopeId": "fusion:api:adsk.fusion.MeshRepairFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciYY",
+      "ScopeId": "fusion:api:adsk.fusion.MeshReverseNormalFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciZs",
+      "ScopeId": "fusion:api:adsk.fusion.MeshSeparateFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciac",
+      "ScopeId": "fusion:api:adsk.fusion.MeshShellFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcibM",
+      "ScopeId": "fusion:api:adsk.fusion.MeshSmoothFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcidw",
+      "ScopeId": "fusion:api:adsk.fusion.MirrorFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcif8",
+      "ScopeId": "fusion:api:adsk.fusion.MoveFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcigc",
+      "ScopeId": "fusion:api:adsk.fusion.OffsetFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcihM",
+      "ScopeId": "fusion:api:adsk.fusion.OffsetFacesFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcikQ",
+      "ScopeId": "fusion:api:adsk.fusion.PatchFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcilY",
+      "ScopeId": "fusion:api:adsk.fusion.PathPatternFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcilw",
+      "ScopeId": "fusion:api:adsk.fusion.PipeFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcimE",
+      "ScopeId": "fusion:api:adsk.fusion.RectangularPatternFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcipY",
+      "ScopeId": "fusion:api:adsk.fusion.RefoldFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciq8",
+      "ScopeId": "fusion:api:adsk.fusion.RemoveFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcirk",
+      "ScopeId": "fusion:api:adsk.fusion.ReplaceFaceFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcisI",
+      "ScopeId": "fusion:api:adsk.fusion.ReverseNormalFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciv0",
+      "ScopeId": "fusion:api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciyE",
+      "ScopeId": "fusion:api:adsk.fusion.RibFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMciys",
+      "ScopeId": "fusion:api:adsk.fusion.RipFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci0M",
+      "ScopeId": "fusion:api:adsk.fusion.RuledSurfaceFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci20",
+      "ScopeId": "fusion:api:adsk.fusion.ScaleFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci38",
+      "ScopeId": "fusion:api:adsk.fusion.SheetMetalChamferFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci5c",
+      "ScopeId": "fusion:api:adsk.fusion.SheetMetalFilletFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci7E",
+      "ScopeId": "fusion:api:adsk.fusion.ShellFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci8k",
+      "ScopeId": "fusion:api:adsk.fusion.SilhouetteSplitFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci9c",
+      "ScopeId": "fusion:api:adsk.fusion.SphereFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMci_Y",
+      "ScopeId": "fusion:api:adsk.fusion.SplitBodyFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjAE",
+      "ScopeId": "fusion:api:adsk.fusion.SplitFaceFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjBs",
+      "ScopeId": "fusion:api:adsk.fusion.StitchFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjCo",
+      "ScopeId": "fusion:api:adsk.fusion.SurfaceDeleteFaceFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjFE",
+      "ScopeId": "fusion:api:adsk.fusion.SweepFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjFs",
+      "ScopeId": "fusion:api:adsk.fusion.TessellateFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjG8",
+      "ScopeId": "fusion:api:adsk.fusion.ThickenFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjH0",
+      "ScopeId": "fusion:api:adsk.fusion.ThreadFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjKg",
+      "ScopeId": "fusion:api:adsk.fusion.TrimFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjLQ",
+      "ScopeId": "fusion:api:adsk.fusion.TorusFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjMQ",
+      "ScopeId": "fusion:api:adsk.fusion.UnfoldFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjMs",
+      "ScopeId": "fusion:api:adsk.fusion.UnstitchFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjP0",
+      "ScopeId": "fusion:api:adsk.fusion.UntrimFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjQI",
+      "ScopeId": "fusion:api:adsk.fusion.VolumetricCustomFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjSQ",
+      "ScopeId": "fusion:api:adsk.fusion.VolumetricModelToMeshFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjS4",
+      "ScopeId": "fusion:api:adsk.fusion.VolumetricModelFeature"
+    },
+    {
+      "ItemId": "PVTI_lADOFJcHKs4BtfoKzhMcjV0",
+      "ScopeId": "fusion:api:adsk.fusion.WebFeature"
+    }
+  ],
+  "SkippedManual": [
+    "PVTI_lADOFJcHKs4BtfoKzhMcXes",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXhU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXiQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXk4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXpA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXqU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXqw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXs4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXvU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXwE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcXx4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcX3M",
+    "PVTI_lADOFJcHKs4BtfoKzhMcX44",
+    "PVTI_lADOFJcHKs4BtfoKzhMcX5Y",
+    "PVTI_lADOFJcHKs4BtfoKzhMcX-g",
+    "PVTI_lADOFJcHKs4BtfoKzhMcX-4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcX_o",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYD0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYEo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYGE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYGg",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYKo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYL0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYNM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYOU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYP8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYRE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYS4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYTo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYWc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYXg",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYYs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYZk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYbw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYdY",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYeQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYfM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYg0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYjA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYjk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYko",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYm8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYo0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYqM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYs0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYt8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYus",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYw4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYzU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcYz8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY1Y",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY28",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY38",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY40",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY5Q",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY74",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY8A",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY9o",
+    "PVTI_lADOFJcHKs4BtfoKzhMcY-0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZBs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZC0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZDQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZFs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZHc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZIE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZIo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZKw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZMY",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZN4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZOQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZPc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZSE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZSk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZTM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZTs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZXA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZXw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZYQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZYo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZbw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZcE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZdg",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZeM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZgw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZiI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZik",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZmM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZmk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZm8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZoo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZsA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZsg",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZtA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZuw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZws",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZxo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZx8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ0I",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ1g",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ2I",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ3U",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ4Q",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ4w",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ6o",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ9E",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ94",
+    "PVTI_lADOFJcHKs4BtfoKzhMcZ-Q",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaA8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaCc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaDE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaEI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaIQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaI8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaK0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaLs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaQE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaQc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaQ4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaRU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaUk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaVE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaV4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaWg",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaZc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaZ4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcabw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcacc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcae4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaf8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcag4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaiA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcajw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcalQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcamE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcamU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaqA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaqQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcaq8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcarI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcawg",
+    "PVTI_lADOFJcHKs4BtfoKzhMca14",
+    "PVTI_lADOFJcHKs4BtfoKzhMca24"
+  ],
+  "ClearedIds": [
+    "PVTI_lADOFJcHKs4BtfoKzhMcU9c",
+    "PVTI_lADOFJcHKs4BtfoKzhMcU94",
+    "PVTI_lADOFJcHKs4BtfoKzhMcU-c",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVBU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVDo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVEE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVFQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVHk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVK4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVLA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcMWc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcNSs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcNbI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcNoc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcNs0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcNyY",
+    "PVTI_lADOFJcHKs4BtfoKzhMcN4g",
+    "PVTI_lADOFJcHKs4BtfoKzhMcN_o",
+    "PVTI_lADOFJcHKs4BtfoKzhMcOOU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSiI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUk0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUq0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUrk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUsA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUs0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcU18",
+    "PVTI_lADOFJcHKs4BtfoKzhMcU2I",
+    "PVTI_lADOFJcHKs4BtfoKzhMcU2Q",
+    "PVTI_lADOFJcHKs4BtfoKzhMcU2k",
+    "PVTI_lADOFJcHKs4BtfoKzhMcU8U",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVLg",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVMk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVPA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVPk",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVPw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVQQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVVA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVWI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVW0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVXo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO2k",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO3c",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO4M",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO5E",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO5s",
+    "PVTI_lADOFJcHKs4BtfoKzhMcOW8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcOdc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcOkA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcOrc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcOxY",
+    "PVTI_lADOFJcHKs4BtfoKzhMcR5A",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSB4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSW0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSXM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSXo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO6Y",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO6w",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO7Y",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO78",
+    "PVTI_lADOFJcHKs4BtfoKzhMcO9E",
+    "PVTI_lADOFJcHKs4BtfoKzhMcS5g",
+    "PVTI_lADOFJcHKs4BtfoKzhMcS58",
+    "PVTI_lADOFJcHKs4BtfoKzhMcTHU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcTNA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcTQM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSYQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSmA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSpQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcSyU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcS20",
+    "PVTI_lADOFJcHKs4BtfoKzhMcT58",
+    "PVTI_lADOFJcHKs4BtfoKzhMcT7E",
+    "PVTI_lADOFJcHKs4BtfoKzhMcT74",
+    "PVTI_lADOFJcHKs4BtfoKzhMcT_Q",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUAc",
+    "PVTI_lADOFJcHKs4BtfoKzhMcTgE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcTpo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcT1A",
+    "PVTI_lADOFJcHKs4BtfoKzhMcT30",
+    "PVTI_lADOFJcHKs4BtfoKzhMcT5k",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUAw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUD0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUE4",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUFU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUHQ",
+    "PVTI_lADOFJcHKs4BtfoKzhMcULM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcULo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUUY",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUVo",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUWA",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUbI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUc0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUeM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUj0",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUkU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcUko",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVZU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVc8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVdM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVdY",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVmM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVmw",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVnI",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVog",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVqE",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVfU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVhU",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVhs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVh8",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVjs",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVxg",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVyM",
+    "PVTI_lADOFJcHKs4BtfoKzhMcVys",
+    "PVTI_lADOFJcHKs4BtfoKzhMcV3s",
+    "PVTI_lADOFJcHKs4BtfoKzhMcV34"
+  ],
+  "ClearedScopes": [
+    "sw:family:selection:face-references",
+    "sw:family:selection:loop-and-coedge-orientation",
+    "sw:family:selection:body-identity",
+    "sw:family:selection:selection-marks",
+    "sw:family:selection:persistent-reference-rebinding",
+    "sw:family:selection:selection-sets",
+    "sw:family:state:feature-order",
+    "sw:family:state:suppression",
+    "sw:family:state:frozen-features",
+    "sw:family:state:rebuild-state",
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "UiInspector",
+    "sw:family:document:part-document",
+    "sw:family:document:document-units",
+    "sw:family:document:assembly-document",
+    "sw:family:document:drawing-document",
+    "sw:family:document:origin-and-primary-planes",
+    "sw:family:document:document-tolerances",
+    "sw:family:document:persistent-identity",
+    "sw:family:document:document-properties",
+    "sw:family:selection:vertex-references",
+    "sw:family:selection:edge-references",
+    "sw:family:state:rollback",
+    "sw:family:state:feature-errors-and-warnings",
+    "sw:family:state:parent-child-dependencies",
+    "sw:family:state:feature-folders",
+    "sw:family:reference:reference-axis",
+    "sw:family:reference:reference-plane",
+    "sw:family:reference:reference-point",
+    "sw:family:reference:coordinate-system",
+    "sw:family:reference:center-of-mass-reference",
+    "sw:family:reference:bounding-box",
+    "A02",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "B10",
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "A13",
+    "A14",
+    "A16",
+    "FusionRevolveContrast",
+    "A15",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "UiPlanning",
+    "UxCli",
+    "A11c:14",
+    "A12a:15",
+    "A13a:16",
+    "PlanningViews",
+    "UiConversion",
+    "UiPreservation",
+    "UiResearch",
+    "UxAccessibility",
+    "A06b:53",
+    "A06c:54",
+    "A06d:55",
+    "A11a:58",
+    "A11b:59",
+    "A08i:20",
+    "A02d:40",
+    "A04c:48",
+    "A05c:51",
+    "A06a:52",
+    "A16a:60",
+    "A16b:61",
+    "A16c:62",
+    "A16d:63",
+    "A16e:64",
+    "A16f:65",
+    "A16g:66",
+    "A08c:69",
+    "A08e:71",
+    "A10a:72",
+    "A10b:73",
+    "A10c:74",
+    "A10d:75",
+    "A14b:77",
+    "A15a:79",
+    "A14c:78",
+    "sw:family:reference:mate-reference",
+    "sw:family:planes:coincident-plane",
+    "sw:family:planes:offset-plane",
+    "sw:family:planes:mid-plane",
+    "sw:family:planes:view-parallel-plane",
+    "sw:family:sketch:planar-sketch",
+    "sw:family:sketch:three-dimensional-sketch",
+    "sw:family:sketch:three-dimensional-sketch-on-plane",
+    "sw:family:sketch:sketch-support",
+    "sw:family:planes:angled-plane",
+    "sw:family:planes:parallel-plane",
+    "sw:family:planes:perpendicular-plane",
+    "sw:family:planes:tangent-plane",
+    "sw:family:planes:projected-plane",
+    "sw:family:sketchlines:centerline",
+    "sw:family:sketchlines:midpoint-line",
+    "sw:family:sketchlines:point",
+    "sw:family:sketchlines:corner-rectangle",
+    "sw:family:sketchlines:center-rectangle"
+  ],
+  "PreviouslyClearedCount": 40,
+  "Partial": {},
+  "Errors": [
+    "Post \"https://api.github.com/graphql\": dial tcp 4.208.26.200:443: connect: operation timed out\n"
+  ],
+  "PriorErrors": [
+    {
+      "ObservedAt": "2026-11-27T17:44:53.411273+00:00",
+      "Errors": [
+        "gh: HTTP 502\n"
+      ]
+    }
+  ]
+}

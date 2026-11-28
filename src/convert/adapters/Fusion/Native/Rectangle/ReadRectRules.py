@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -36,10 +36,10 @@ def ReadRectRules(
     Geometric = Graph.ByClass("SketchGeomConstraint")
     Linear = Graph.ByClass("FusionSketchLinearDim")
     if not Geometric and not Linear:
-        if Reverse:
-            raise ValueError("Native reverse prism requires a constrained rectangle")
-        if YzDatum:
-            raise ValueError("Native YZ prism requires a constrained rectangle")
+        if (Reverse or YzDatum) and ReadRectUnits(Graph) is not UnitSystem.KMillimeter:
+            raise ValueError(
+                "Native unconstrained datum and reverse prisms require millimeter display units"
+            )
         return None
     if len(Geometric) != 5 or len(Linear) != 2:
         raise ValueError(

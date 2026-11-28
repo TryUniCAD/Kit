@@ -1,0 +1,77 @@
+name: Request account review
+
+on:
+  pull_request_target: # zizmor: ignore[dangerous-triggers] Owner approved metadata only dispatch without secrets or PR code.
+    types:
+      [
+        opened,
+        reopened,
+        synchronize,
+        edited,
+        ready_for_review,
+        converted_to_draft,
+      ]
+  issue_comment: # zizmor: ignore[dangerous-triggers] Owner approved live permission checks and protected default branch dispatch only.
+    types: [created]
+
+permissions: {}
+
+concurrency:
+  group: review-request-${{ github.event.pull_request.number || github.event.issue.number || github.run_id }}
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  request:
+    name: Dispatch protected account review
+    if: vars.ACCOUNT_REVIEW_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      actions: write # Dispatches only the protected default branch review workflow.
+      contents: read # Reads the fixed reviewer registry from the trusted default branch.
+      pull-requests: read # Validates the PR repository and live requester permission.
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const RepoName = `${context.repo.owner}/${context.repo.repo}`;
+            const PullNumber = context.payload.pull_request?.number || context.payload.issue?.number;
+            if (!Number.isSafeInteger(PullNumber) || PullNumber < 1) return;
+            const BranchName = context.payload.repository.default_branch;
+            const RegistryFile = await github.rest.repos.getContent({
+              ...context.repo,
+              path: '.agents/skills/standard-pr-practice/ReviewBot.json',
+              ref: BranchName,
+            });
+            if (Array.isArray(RegistryFile.data) || RegistryFile.data.type !== 'file')
+              throw new Error('Reviewer registry is unavailable');
+            const Registry = JSON.parse(Buffer.from(RegistryFile.data.content, 'base64').toString('utf8'));
+            if (Registry.AccountReview.RequestProtocol !== 2) {
+              core.notice('Review request protocol is awaiting default branch deployment');
+              return;
+            }
+            let CommentId = null;
+            if (context.eventName === 'issue_comment') {
+              const Comment = context.payload.comment;
+              if (!context.payload.issue.pull_request || Comment.user.type !== 'User' ||
+                  context.payload.sender.id !== Comment.user.id ||
+                  Comment.created_at !== Comment.updated_at || typeof Comment.body !== 'string' ||
+                  Comment.body.length > 128 || !Registry.AccountReview.MentionCommands.some(
+                    (Command) => Command.toLowerCase() === Comment.body.trim().toLowerCase())) return;
+              const LoginName = Comment.user.login;
+              if (!/^[A-Za-z0-9-]{1,39}$/.test(LoginName)) return;
+              const Permission = await github.rest.repos.getCollaboratorPermissionLevel({
+                ...context.repo, username: LoginName,
+              });
+              if (!['write', 'maintain', 'admin'].includes(Permission.data.permission)) return;
+              CommentId = Comment.id;
+            }
+            const PullInfo = await github.rest.pulls.get({...context.repo, pull_number: PullNumber});
+            if (PullInfo.data.state !== 'open' || PullInfo.data.head.repo?.full_name !== RepoName) return;
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo,
+              workflow_id: Registry.AccountReview.Workflow.split('/').pop(),
+              ref: BranchName,
+              inputs: CommentId === null ? {pull: String(PullNumber)} : {comment: String(CommentId)},
+            });

@@ -62,12 +62,14 @@ def fixed_inputs(request):
     model, options = load_model(request)
     epoch = request["neutral"]["epoch"]
     candidate = PrepChmfPart(model, BytesIO(), epoch, options)
-    positive = candidate.BytesValue
     expected = request["case"]
-    demand({name: digest(raw) for name, raw in candidate.StreamsValue.items()} == expected["streams"],
-           "fixed source streams differ from measured inputs")
-    demand(digest(positive) == expected["archive_sha256"] or "zlib-ng" in ZLIB_RUNTIME_VERSION,
-           "fixed original payload is unavailable on this host")
+    basename = PureWindowsPath(request["neutral"]["locator"]).name
+    measured = ROOT / "re/solidworks/v2026/corpus/chamfer-distance-measured" / basename
+    positive = measured.read_bytes()
+    demand(digest(positive) == expected["archive_sha256"], "fixed measured input digest changed")
+    measured_streams = SldprtArchive.from_bytes(positive).streams
+    demand({name: digest(raw) for name, raw in candidate.StreamsValue.items()} == expected["streams"]
+           and candidate.StreamsValue == measured_streams, "fixed source streams differ from measured inputs")
     history = WriteHistGraph(MakeFreshHist(HistoryInput(epoch + 1, "Logical comparison", 1, 0, 0, False)), 19000)[0]
     logical = dict(candidate.StreamsValue) | {"_MO_VERSION_19000/History": history}
     changed = BuildSldprt(logical, FormatVersion=4)
@@ -90,7 +92,7 @@ def bad_snapshots(snapshot, other_sha):
 
 def guard_imports():
     for module in ("interchange.brep.Validation.BrepValidate", "interchange.document.Behavior.DocumentIo",
-                   "interchange.document.Models.DocumentProvenance", "interchange.document.Validation.DocumentAssemblyValidate",
+                   "interchange.document.Models.DocumentProvenance", "interchange.document.Models.FilterMetadata", "interchange.document.Validation.DocumentAssemblyValidate",
                    "interchange.document.Validation.DocumentFeatureValidate", "interchange.document.Validation.DocumentReferenceValidate"):
         import_module(module)
     for codec in ("ascii", "utf-8", "utf-8-sig", "utf-16-le", "utf-16-be", "latin-1", "cp1252"):

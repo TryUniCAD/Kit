@@ -43,7 +43,7 @@ def TestJsonDeflate() -> None:
         assert Report["alternate_sha256"] != Report["original_sha256"]
         assert Report["ordered_rows"] == 20 and Report["native_rows"] == 18
         assert Report["logical_streams"] == 10 and Report["json_routes"] == 2
-        assert Report["cli_repeated_exact"] == Report["measured_original"]
+        assert Report["measured_original"] is Report["cli_repeated_exact"] is True
         assert (
             Report["first_checks"]
             == Report["repeated_checks"]

@@ -2,6 +2,7 @@ from collections.abc import Mapping
 from typing import cast as CastValue
 
 from convert.Commands.CheckFeatures import CheckFeatures
+from convert.Commands.Qualified.CheckDocHistory import CheckDocHistory
 from convert.Commands.CheckRetained import CheckRetained
 from convert.Commands.Qualified.CheckGeometry import CheckGeometry
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfSnapDoc import (
@@ -132,5 +133,4 @@ def CheckPortable(
     for PartValue in WalkDocuments(Document):
         if PartValue.assembly is not None and PartValue.assembly.instances:
             raise ValueError("UnqualifiedAssembly" + KInspectText)
-        if not PartValue.feature_timeline:
-            raise ValueError("MissingFeatureHistory" + KInspectText)
+        CheckDocHistory(PartValue)

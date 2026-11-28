@@ -4,6 +4,14 @@ from pathlib import Path as FilePath
 import struct as Struct
 from typing import Iterable, Mapping, TypeAlias, cast as CastValue
 import zlib as ZlibValue
+from convert.adapters.solidworks.Container.EncodeArcEnd import (
+    EncodeArcEnd,
+    KMaxArchiveOffset,
+)
+from convert.adapters.solidworks.Container.EncodeLocalHead import (
+    EncodeLocalHead,
+    KLocalSignaturePrefix as KLocalSignaturePrefix,
+)
 from convert.adapters.solidworks.Container.Format import (
     CONTENT_TYPES_STREAM as ContentTypesStream,
     CONTAINER_VERSIONS as ContainerVersions,
@@ -20,9 +28,6 @@ from convert.adapters.solidworks.Container.StreamLimits import (
     KMaxUncompressedStream,
 )
 from convert.adapters.solidworks.Container.RotateBytes import RotateBytes
-
-# this binding exists because shared behavior needs one stable value
-KLocalSignaturePrefix = bytes.fromhex("140006000800")
 
 # this binding exists because shared behavior needs one stable value
 KLocalSignatureSize = 10
@@ -54,10 +59,6 @@ KMaxStreamCount = 100000
 
 # this binding exists because shared behavior needs one stable value
 KMaxFolderStreamCount = 65535
-
-# this binding exists because shared behavior needs one stable value
-KMaxArchiveOffset = 4294967295
-
 
 # local and central records must agree on the same directory fields
 KDirectoryRow: TypeAlias = tuple[int, str, int, int, int, int]
@@ -350,20 +351,6 @@ def FinishArcMut(
     return bytes(Output)
 
 
-# the archive end rule is shared by writing and complete framing verification
-def EncodeArcEnd(
-    EndBytes: bytes,
-    EntryCount: int,
-    CentralSize: int,
-    CentralOffset: int,
-) -> bytes:
-    if CentralSize > KMaxArchiveOffset:
-        raise ValueError("SLDPRT directory exceeds the native size range")
-    return EndBytes + Struct.pack(
-        "<HHHHIIH", 0, 0, EntryCount, EntryCount, CentralSize, CentralOffset, 0
-    )
-
-
 # this definition exists because focused behavior needs one stable owner
 def ScanRecords(
     BlobValue: bytes, SizeLimit: int = KMaxUncompressedStream
@@ -443,41 +430,13 @@ def EncodeRecord(
     Compressed = Compressor.compress(DataValue) + Compressor.flush()
     CrcThreeTwoValue = ZlibValue.crc32(DataValue) & 4294967295
     Header = EncodeLocalHead(
-        NameValue,
+        EncodedName(NameValue, FormatVersion),
         TypeId,
         CrcThreeTwoValue,
         len(Compressed),
         len(DataValue),
-        FormatVersion,
     )
     return (Header + Compressed, CrcThreeTwoValue, len(Compressed))
-
-
-# local framing is calculated independently of the compressor implementation
-def EncodeLocalHead(
-    NameValue: str,
-    TypeId: int,
-    CrcThreeTwoValue: int,
-    CompressedSize: int,
-    SizeValue: int,
-    FormatVersion: int,
-) -> bytes:
-    EncodedBytes = EncodedName(NameValue, FormatVersion)
-    return b"".join(
-        (
-            KLocalSignaturePrefix,
-            Struct.pack("<I", TypeId),
-            Struct.pack(
-                "<IIIHH",
-                CrcThreeTwoValue,
-                CompressedSize,
-                SizeValue,
-                len(EncodedBytes),
-                0,
-            ),
-            EncodedBytes,
-        )
-    )
 
 
 # this definition exists because focused behavior needs one stable owner

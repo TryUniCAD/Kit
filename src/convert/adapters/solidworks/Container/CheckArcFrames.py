@@ -1,7 +1,7 @@
+from convert.adapters.solidworks.Container.CheckArcTail import CheckArcTail, KFrameError
+from convert.adapters.solidworks.Container.EncodeLocalHead import EncodeLocalHead
 from convert.adapters.solidworks.Container.Container import (
-    EncodeArcEnd,
-    EncodeFolder,
-    EncodeLocalHead,
+    EncodedName,
     KArchiveOffset,
     KDefaultTypeId,
     KDirectoryRow,
@@ -9,9 +9,6 @@ from convert.adapters.solidworks.Container.Container import (
     Signature,
     SldprtArchive,
 )
-
-# the framing diagnostic stays specific to the source container being verified
-KFrameError = "SLDPRT source container framing differs from its generated part"
 
 
 # source attestation must account for every non deflate byte even when inspection scans for streams
@@ -32,7 +29,11 @@ def CheckArcFrames(BlobValue: bytes, Archive: SldprtArchive) -> None:
             Record.uncompressed_size,
         )
         Header = Local + EncodeLocalHead(
-            NameValue, TypeId, Checksum, CompressedSize, SizeValue, VersionValue
+            EncodedName(NameValue, VersionValue),
+            TypeId,
+            Checksum,
+            CompressedSize,
+            SizeValue,
         )
         if Record.payload_offset != Cursor + len(Header) or not BlobValue.startswith(
             Header, Cursor
@@ -50,27 +51,3 @@ def CheckArcFrames(BlobValue: bytes, Archive: SldprtArchive) -> None:
         )
         Cursor = Record.payload_offset + CompressedSize
     CheckArcTail(BlobValue, Directory, Cursor, Central, EndBytes, VersionValue)
-
-
-# the directory must cover the complete file and describe the same local records
-def CheckArcTail(
-    BlobValue: bytes,
-    Directory: list[KDirectoryRow],
-    Start: int,
-    Central: bytes,
-    EndBytes: bytes,
-    VersionValue: int,
-) -> None:
-    Cursor = Start
-    for Record in Directory:
-        Entry = EncodeFolder(*Record, Central, VersionValue)
-        if not BlobValue.startswith(Entry, Cursor):
-            raise ValueError(KFrameError)
-        Cursor += len(Entry)
-    Trailer = EncodeArcEnd(
-        EndBytes, len(Directory), Cursor - Start, Start - KArchiveOffset
-    )
-    if len(BlobValue) != Cursor + len(Trailer) or not BlobValue.startswith(
-        Trailer, Cursor
-    ):
-        raise ValueError(KFrameError)

@@ -1,6 +1,6 @@
 [
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 12.104500500005088,
     "opened": true,
@@ -144,7 +144,7 @@
     "role": "control-before"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\nboss5.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\sw\\sldprt\\nboss5.SLDPRT",
     "returncode": 0,
     "seconds": 13.201748300009058,
     "opened": true,
@@ -358,7 +358,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\nboss6.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\sw\\sldprt\\nboss6.SLDPRT",
     "returncode": 0,
     "seconds": 13.41136589999951,
     "opened": true,
@@ -589,7 +589,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 13.039380899994285,
     "opened": true,

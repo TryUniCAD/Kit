@@ -16,6 +16,8 @@ MAX_BYTES = 256 * 1024 * 1024
 MAX_SPOOL_BYTES = 520 * 1024 * 1024
 MAX_SPOOL_FILES = 32
 ACKNOWLEDGEMENT = "acceptance-journal.json"
+# workers stop dispatch this long before stop_at so fsynced timeout records finish before the supervisor break
+STOP_MARGIN_SECONDS = 3
 CANCEL_REASON = "requesting worker stopped before application completion"
 FUSION_PROVIDER = "autodesk.fusion.addin"
 PROTOCOL = "re/automation/ApplicationWorkers/ApplicationProtocol.py"
@@ -836,7 +838,13 @@ class QueueClient:
         response_path = self.directory / f"{operation}.done"
         while time.time() < deadline:
             if response_path.exists():
-                response = record(response_path)
+                try:
+                    response = record(response_path)
+                except BlockingIOError as error:
+                    if getattr(error, "winerror", None) != 32:
+                        raise
+                    time.sleep(0.05)
+                    continue
                 require(
                     response.get("version") == 1
                     and response.get("request_sha256") == request_hash

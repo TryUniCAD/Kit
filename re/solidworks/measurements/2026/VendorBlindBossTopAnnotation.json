@@ -1,0 +1,99 @@
+{
+  "format": "KitSolidworksTopAnnotationDiscovery/1",
+  "independent_vendor_captures": {
+    "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d": {
+      "case": "Author04/BaselineSource"
+    },
+    "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc": {
+      "case": "A12bDiscovery02/NoOpAfter"
+    }
+  },
+  "legacy": {
+    "cases": 14,
+    "replay_sha256": "8a2cec83cdf5292b293cab777f8c11290a5b477c9bfb7a090158e51a2fabfc9d"
+  },
+  "native": {
+    "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d": {
+      "annotation": {
+        "id": 200,
+        "name": "*Top",
+        "schema": 1
+      },
+      "annotation_matrix": [
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0"
+      ],
+      "annotation_owner": "moPart_c.fa48",
+      "config_sha256": "53219df31eba0cd8420ae48c113c007aaaf4b3460261252968423206696c899d",
+      "display_high_water": 200,
+      "following_offset": 24946,
+      "list_sha256": "e9c26947b8066ed8f7898ead9a29f878eb2befcf65c58047d3eaf0d10f79d381",
+      "list_slot": 99,
+      "list_span": [
+        24500,
+        24782
+      ],
+      "next_slots": [
+        102,
+        107
+      ],
+      "object_slot": 101,
+      "object_span": [
+        24504,
+        24782
+      ]
+    },
+    "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc": {
+      "annotation": {
+        "id": 200,
+        "name": "*Top",
+        "schema": 1
+      },
+      "annotation_matrix": [
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0"
+      ],
+      "annotation_owner": "moPart_c.fa48",
+      "config_sha256": "7cbed65014652b21b08748eb6c46ee130f3eacaa711475ac036a28c12dedc567",
+      "display_high_water": 200,
+      "following_offset": 24946,
+      "list_sha256": "e9c26947b8066ed8f7898ead9a29f878eb2befcf65c58047d3eaf0d10f79d381",
+      "list_slot": 99,
+      "list_span": [
+        24500,
+        24782
+      ],
+      "next_slots": [
+        102,
+        107
+      ],
+      "object_slot": 101,
+      "object_span": [
+        24504,
+        24782
+      ]
+    }
+  },
+  "python_version": "3.14.6",
+  "synthetic": {
+    "duplicate_top_refused": true,
+    "following_bytes": 164,
+    "list_bytes": 282,
+    "list_sha256": "e4530e36f48152b696e6a16cb8fc916b8be169daf68407c1a9e614bf67c0674a"
+  },
+  "tool": "re/solidworks/WriterResearch/VerifyConfigAnnotViews.py"
+}

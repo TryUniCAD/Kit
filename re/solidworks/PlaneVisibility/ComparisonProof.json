@@ -1,0 +1,990 @@
+{
+  "application_usable": false,
+  "cases": {
+    "Diagnostic": {
+      "after": {
+        "bytes": 44361,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 0
+          },
+          {
+            "type": "int",
+            "value": 0
+          }
+        ],
+        "sha256": "8d6e26316ad089f786ab40c8687358004b7550fe545c52b6a1bf97964033a1a2",
+        "stream_inventory_sha256": "217652fb87c7b12ad586233714df308bb90f5a2650b6062cd2d33eb4f0ebca9a",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 122,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 11,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": false,
+            "refused": "BodyUnsupported: SOLIDWORKS part Definition has an alternate renderer profile"
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 5118,
+            "next_index": 122,
+            "owners": 83
+          },
+          "definition_schema_only": {
+            "leaves": 238,
+            "next_index": 11,
+            "owners": 6
+          }
+        },
+        "typed_inventory_sha256": "ea3f52d9f31ae85f8c4100eba8ece9f40f3fdeadd2c8cbc47b52d11c8ff71b9e"
+      },
+      "before": {
+        "bytes": 45703,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 1067879674
+          },
+          {
+            "type": "int",
+            "value": 1610617865
+          }
+        ],
+        "sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+        "stream_inventory_sha256": "6669715f7550bc8c7e883f3ee2d8bb5948b34c247ed6ed88afedba284f91cf30",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 109,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 60,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": false,
+            "refused": "BodyUnsupported: SOLIDWORKS part Definition has an alternate renderer profile"
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 4830,
+            "next_index": 109,
+            "owners": 67
+          },
+          "definition_schema_only": {
+            "leaves": 626,
+            "next_index": 60,
+            "owners": 53
+          }
+        },
+        "typed_inventory_sha256": "23b6ad42c046574e62428c8735148040f9a302dedf356ce5891972afaf3bff4a"
+      },
+      "capture_receipt": null,
+      "changed_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-Partition",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/CusProps",
+        "Contents/Definition",
+        "Contents/DisplayLists",
+        "Contents/PMISemanticDataDB",
+        "Header2",
+        "ModelStamps",
+        "Preview",
+        "PreviewPNG",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPtyStore/VisualStates",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/core.xml",
+        "swXmlContents/Features",
+        "swXmlContents/KeyWords"
+      ],
+      "full_artifacts": {
+        "after_inventory": {
+          "path": "AfterInventory.json",
+          "sha256": "d827c653e72368e2bdd1e3d3a28fe0e574146906956d808c786ae2efc648dd19",
+          "size_bytes": 324724
+        },
+        "before_inventory": {
+          "path": "BeforeInventory.json",
+          "sha256": "17bc5f71b9421b53546bc4b0b6e7f492071762335044ad2b65ac3e02a20ef0f4",
+          "size_bytes": 343302
+        },
+        "typed_comparison": {
+          "path": "TypedComparison.json",
+          "sha256": "53e44ebd281b338d1fd1a9efb6f7298416ce945bfdaf97a709569103b83628ec",
+          "size_bytes": 183143
+        }
+      },
+      "purpose": "diagnostic",
+      "report_sha256": "1e19b834088b8dcd1fe04e5a97e5c45e620de9bb4aff96faedd6d079723f219d",
+      "typed_changes": {
+        "config": {
+          "map_equal": false,
+          "row_count": 781
+        },
+        "definition_schema_only": {
+          "map_equal": false,
+          "row_count": 465
+        }
+      }
+    },
+    "LegacyNoise": {
+      "after": {
+        "bytes": 47406,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 1067879674
+          },
+          {
+            "type": "int",
+            "value": 1610617865
+          }
+        ],
+        "sha256": "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc",
+        "stream_inventory_sha256": "7cca8f40952421769925c0347c1383ec2d814c775e45a226282bb2f8425c58fe",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 109,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 60,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": true
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 4880,
+            "next_index": 109,
+            "owners": 67
+          },
+          "definition_schema_only": {
+            "leaves": 626,
+            "next_index": 60,
+            "owners": 53
+          }
+        },
+        "typed_inventory_sha256": "f0c70b9b39439e47a13fcf4ef8f517cc27e529a85a3f5c3d2e3bb3d869f95696"
+      },
+      "before": {
+        "bytes": 47858,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 1067879674
+          },
+          {
+            "type": "int",
+            "value": 1610617865
+          }
+        ],
+        "sha256": "aed6df2efb84e04cf9104742742c8845f054f890376f52ecd8ede26890a56445",
+        "stream_inventory_sha256": "41ef9a53ab053f8f581bb81e8de7d8b4decd7018be175f0cf80e89411524be2b",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 109,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 60,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": true
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 4830,
+            "next_index": 109,
+            "owners": 67
+          },
+          "definition_schema_only": {
+            "leaves": 626,
+            "next_index": 60,
+            "owners": 53
+          }
+        },
+        "typed_inventory_sha256": "9d840c28e70e43b431960555b1a7be4ef2fbb7b78e9c2224466cec0a9e231d19"
+      },
+      "capture_receipt": {
+        "bytes": 54265,
+        "controls_healthy": null,
+        "phase_custody": null,
+        "preflight": null,
+        "record_passed": true,
+        "schema": null,
+        "scope": "hash custody only; no native acceptance inferred",
+        "sha256": "4af9a9eb2e2c69e4c556494333ab6fba9ed49fdd259c99a8b6ffceb8580928ae"
+      },
+      "changed_streams": [
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-Partition",
+        "Header2",
+        "_MO_VERSION_19000/Biography",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/core.xml"
+      ],
+      "full_artifacts": {
+        "after_inventory": {
+          "path": "AfterInventory.json",
+          "sha256": "3fdbe6e9422949bc63447d700e78745c85abba6a40f4586ddb63bf7501be7854",
+          "size_bytes": 346023
+        },
+        "before_inventory": {
+          "path": "BeforeInventory.json",
+          "sha256": "76e055f8d4db7e58e04f90da8211cdc600f4dcedb46351b3d59d6edc0abe02f9",
+          "size_bytes": 343306
+        },
+        "typed_comparison": {
+          "path": "TypedComparison.json",
+          "sha256": "614e6db49286d3fc7abe2d785e5281cb69623b31b4f75d055b881ee91e194050",
+          "size_bytes": 24488
+        }
+      },
+      "purpose": "noise",
+      "report_sha256": "a0efd3528cb8367c853f456a9ac08f8d3001948e9ae5299381feaed56f749d9a",
+      "typed_changes": {
+        "config": {
+          "map_equal": true,
+          "row_count": 53
+        }
+      }
+    },
+    "SameSessionNoise": {
+      "after": {
+        "bytes": 46454,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 1067879674
+          },
+          {
+            "type": "int",
+            "value": 1610617865
+          }
+        ],
+        "sha256": "a8bb1aae363e0dbaead760803f7e9e1928ebdbf0d6fa400e714e0c9c3c39420d",
+        "stream_inventory_sha256": "5326c134daca70a23757e770ac425ed3b1a7bf483c16d5fb4738854a00b77707",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 109,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 60,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": false,
+            "refused": "BodyUnsupported: SOLIDWORKS part Definition has an alternate renderer profile"
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 4883,
+            "next_index": 109,
+            "owners": 67
+          },
+          "definition_schema_only": {
+            "leaves": 626,
+            "next_index": 60,
+            "owners": 53
+          }
+        },
+        "typed_inventory_sha256": "06a01edae538ac0686d06f700fef1d54d549e068830db13d0e061ce3f188ef70"
+      },
+      "before": {
+        "bytes": 46542,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 1067879674
+          },
+          {
+            "type": "int",
+            "value": 1610617865
+          }
+        ],
+        "sha256": "344fdf1a902dcb84b13d4ab1d6e87fd3a40a357443d87c70e396b8115fbe207b",
+        "stream_inventory_sha256": "ce287f38f69bea05a2d9825232c1d520daf7c23ab986d2e85968bf16aed66f8a",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 109,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 60,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": false,
+            "refused": "BodyUnsupported: SOLIDWORKS part Definition has an alternate renderer profile"
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 4833,
+            "next_index": 109,
+            "owners": 67
+          },
+          "definition_schema_only": {
+            "leaves": 626,
+            "next_index": 60,
+            "owners": 53
+          }
+        },
+        "typed_inventory_sha256": "154669e03bb2695c8ef0726a237f6b5c23a38f2825b1106e346ddaa554f26dc5"
+      },
+      "capture_receipt": {
+        "bytes": 105219,
+        "controls_healthy": true,
+        "phase_custody": {
+          "Author": {
+            "exit_code": 0,
+            "record_sha256": "fcf5a82d594b04a4199c087a3605f717e2be2d73fdfafb087ccc4f2bb2ce5693",
+            "request_sha256": "939688f8daa2c0bd08e2d23a44f47b742ddee903d6b2ccfe084ab93a78669fb2",
+            "reused_preflight_role": null,
+            "snapshots_checked": 2,
+            "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a"
+          },
+          "ControlAfter": {
+            "exit_code": 0,
+            "record_sha256": "5f9da93462f6ff891e7ff1873d9cdc7dea0ab330a41a48411e4a033ab946758e",
+            "request_sha256": "602e7c4a4a2b4fac9856e5d7fcb5844d55d71ea0445235623fe68e10f37a8f27",
+            "reused_preflight_role": null,
+            "snapshots_checked": 0,
+            "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+          },
+          "ControlBefore": {
+            "exit_code": 0,
+            "record_sha256": "5e6a81a24aa919c0890fcb3af24af25e27b7a1cd568a70352746792320de502c",
+            "request_sha256": "7d9b3b8d625f69d01e2146f38abd3e247d2788877349181c24b17dc834f80a7e",
+            "reused_preflight_role": null,
+            "snapshots_checked": 0,
+            "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+          }
+        },
+        "preflight": null,
+        "record_passed": false,
+        "schema": "kit.sw2026.vendor-boss-plane-visibility.v1",
+        "scope": "hash custody only; no native acceptance inferred",
+        "sha256": "043b23d558141202f8fd2571c7a32dc793905ed736766a8742c50e201f9d5a75"
+      },
+      "changed_streams": [
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/Config-0",
+        "Contents/Config-0-Partition",
+        "_MO_VERSION_19000/Biography"
+      ],
+      "full_artifacts": {
+        "after_inventory": {
+          "path": "AfterInventory.json",
+          "sha256": "4b66e7fab3ee61bd3958371c932d6831d5eb5c88779c3de9b2420ae7d78e9fda",
+          "size_bytes": 346176
+        },
+        "before_inventory": {
+          "path": "BeforeInventory.json",
+          "sha256": "c1ad86a0c3b14d0056632ec6f271ccd491a6d74bdc310c2c6e86205155a06c5e",
+          "size_bytes": 343458
+        },
+        "typed_comparison": {
+          "path": "TypedComparison.json",
+          "sha256": "fc9b2290fec0c9ac5fe9dadb2457142d86574a718ecb7b1608b42f11d6235b6f",
+          "size_bytes": 24489
+        }
+      },
+      "purpose": "noise",
+      "report_sha256": "f1cdea705a63d12c864984c0e079b761d6df505581ccfb6f639536c09450c718",
+      "typed_changes": {
+        "config": {
+          "map_equal": true,
+          "row_count": 53
+        }
+      }
+    },
+    "ToggleFirst": {
+      "after": {
+        "bytes": 47164,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 1067748602
+          },
+          {
+            "type": "int",
+            "value": 1610617865
+          }
+        ],
+        "sha256": "c076af4a2397f4b58456196f25f91feac791ca11b5e21b8d591f51820996e159",
+        "stream_inventory_sha256": "60bd597ee762a52b57a5917d11a021b7c8eefe35df5b17b251005d20d921ee69",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 109,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 60,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": false,
+            "refused": "BodyUnsupported: SOLIDWORKS part Definition has an alternate renderer profile"
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 4883,
+            "next_index": 109,
+            "owners": 67
+          },
+          "definition_schema_only": {
+            "leaves": 626,
+            "next_index": 60,
+            "owners": 53
+          }
+        },
+        "typed_inventory_sha256": "3901fd36930af551d30b12ab315995166ce81d3424009c8da3d0aac597a8aa6b"
+      },
+      "before": {
+        "bytes": 46454,
+        "clear_streams": 36,
+        "display_words_observed": [
+          {
+            "type": "int",
+            "value": 1067879674
+          },
+          {
+            "type": "int",
+            "value": 1610617865
+          }
+        ],
+        "sha256": "a8bb1aae363e0dbaead760803f7e9e1928ebdbf0d6fa400e714e0c9c3c39420d",
+        "stream_inventory_sha256": "5326c134daca70a23757e770ac425ed3b1a7bf483c16d5fb4738854a00b77707",
+        "typed": {
+          "config": {
+            "exact_reemit": true,
+            "map_base": 4,
+            "missing_schemas": [],
+            "native_byte_fields": [
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f784",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f7a4",
+                "length_rule": "fixed_native_field",
+                "object_class": "moPart_c",
+                "observed_length": 16,
+                "schema": "moModel_c.FUN_4c22ec80"
+              },
+              {
+                "completed": true,
+                "declared_length": 16,
+                "field": "f380",
+                "length_rule": "fixed_native_field",
+                "object_class": "moSketchBlockMgr_c",
+                "observed_length": 16,
+                "schema": "moSketchBlockMgr_c"
+              }
+            ],
+            "next_index": 109,
+            "schema_complete": true,
+            "version": 19000
+          },
+          "definition_schema_only": {
+            "all_bytes_consumed": true,
+            "canonical_tags": true,
+            "missing_schemas": [],
+            "next_index": 60,
+            "production_scope_checked": false
+          },
+          "definition_strict": {
+            "admitted": false,
+            "refused": "BodyUnsupported: SOLIDWORKS part Definition has an alternate renderer profile"
+          }
+        },
+        "typed_counts": {
+          "config": {
+            "leaves": 4883,
+            "next_index": 109,
+            "owners": 67
+          },
+          "definition_schema_only": {
+            "leaves": 626,
+            "next_index": 60,
+            "owners": 53
+          }
+        },
+        "typed_inventory_sha256": "06a01edae538ac0686d06f700fef1d54d549e068830db13d0e061ce3f188ef70"
+      },
+      "capture_receipt": {
+        "bytes": 175311,
+        "controls_healthy": true,
+        "phase_custody": {
+          "Author": {
+            "exit_code": 0,
+            "record_sha256": "8b729fc5b9d605b9fbc805fd3e99f5fb1127ac0d5aeb2859c518a07dc43c4508",
+            "request_sha256": "3a5e837255b0d74998c9cfe61d8e0ffd2292fafb34b9d1a59fadf07d733d4a75",
+            "reused_preflight_role": null,
+            "snapshots_checked": 1,
+            "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a"
+          },
+          "ControlAfter": {
+            "exit_code": 0,
+            "record_sha256": "edc95578b298c190b5032be93a620d932fa74227e3b51f14e499d3f956a84734",
+            "request_sha256": "9bcd62f73602efb42f34d064cba462851511689d6debb03a5782212d48d2441d",
+            "reused_preflight_role": null,
+            "snapshots_checked": 0,
+            "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+          },
+          "ControlBefore": {
+            "exit_code": 0,
+            "record_sha256": "5f9da93462f6ff891e7ff1873d9cdc7dea0ab330a41a48411e4a033ab946758e",
+            "request_sha256": "602e7c4a4a2b4fac9856e5d7fcb5844d55d71ea0445235623fe68e10f37a8f27",
+            "reused_preflight_role": "ControlAfter",
+            "snapshots_checked": 0,
+            "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+          },
+          "NoOp": {
+            "exit_code": 0,
+            "record_sha256": "13e6257402078fd2fa979f357a92c0137949db8f2706597cef6a6c862f060803",
+            "request_sha256": "82a8fdcb361aa0ac728a0381b7e46e1961e02a831955057a959478f0bc64925a",
+            "reused_preflight_role": null,
+            "snapshots_checked": 0,
+            "source_sha256": "a8bb1aae363e0dbaead760803f7e9e1928ebdbf0d6fa400e714e0c9c3c39420d"
+          },
+          "Toggled": {
+            "exit_code": 0,
+            "record_sha256": "70d1f838645ba56340623b1ade40c03f2936bdad3e80a73c7f0496221ac326c7",
+            "request_sha256": "de4309a6dccf090013027e93cdd35126630c85e2906d7f0df3cb49f6816a950b",
+            "reused_preflight_role": null,
+            "snapshots_checked": 0,
+            "source_sha256": "c076af4a2397f4b58456196f25f91feac791ca11b5e21b8d591f51820996e159"
+          }
+        },
+        "preflight": {
+          "bytes": 105219,
+          "controls_healthy": true,
+          "link_checked": true,
+          "phase_custody": {
+            "Author": {
+              "exit_code": 0,
+              "record_sha256": "fcf5a82d594b04a4199c087a3605f717e2be2d73fdfafb087ccc4f2bb2ce5693",
+              "request_sha256": "939688f8daa2c0bd08e2d23a44f47b742ddee903d6b2ccfe084ab93a78669fb2",
+              "reused_preflight_role": null,
+              "snapshots_checked": 2,
+              "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a"
+            },
+            "ControlAfter": {
+              "exit_code": 0,
+              "record_sha256": "5f9da93462f6ff891e7ff1873d9cdc7dea0ab330a41a48411e4a033ab946758e",
+              "request_sha256": "602e7c4a4a2b4fac9856e5d7fcb5844d55d71ea0445235623fe68e10f37a8f27",
+              "reused_preflight_role": null,
+              "snapshots_checked": 0,
+              "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+            },
+            "ControlBefore": {
+              "exit_code": 0,
+              "record_sha256": "5e6a81a24aa919c0890fcb3af24af25e27b7a1cd568a70352746792320de502c",
+              "request_sha256": "7d9b3b8d625f69d01e2146f38abd3e247d2788877349181c24b17dc834f80a7e",
+              "reused_preflight_role": null,
+              "snapshots_checked": 0,
+              "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+            }
+          },
+          "record_passed": false,
+          "same_author_process": false,
+          "sha256": "043b23d558141202f8fd2571c7a32dc793905ed736766a8742c50e201f9d5a75"
+        },
+        "record_passed": true,
+        "schema": "kit.sw2026.vendor-boss-plane-visibility.v1",
+        "scope": "hash custody only; no native acceptance inferred",
+        "sha256": "84e928b8f611d107fccb4e2b9604e6503e1ef8ec6f53c2c8013b66f2d77836cf"
+      },
+      "changed_streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/3DExperienceExchange_ConfigHeader",
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-LWDATA",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-Partition",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Definition",
+        "Contents/DisplayLists",
+        "Contents/PMISemanticDataDB",
+        "Header2",
+        "ModelStamps",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/core.xml",
+        "swXmlContents/Features"
+      ],
+      "full_artifacts": {
+        "after_inventory": {
+          "path": "AfterInventory.json",
+          "sha256": "d1ead03fb3831015aad453e15dc3b58a31e2dfb4ce0b266b7d5564fdd27d13e0",
+          "size_bytes": 346176
+        },
+        "before_inventory": {
+          "path": "BeforeInventory.json",
+          "sha256": "4b66e7fab3ee61bd3958371c932d6831d5eb5c88779c3de9b2420ae7d78e9fda",
+          "size_bytes": 346176
+        },
+        "typed_comparison": {
+          "path": "TypedComparison.json",
+          "sha256": "089eac04b34029a0108469e7978d72872f195cfca907249db71250935089cf5a",
+          "size_bytes": 59905
+        }
+      },
+      "purpose": "controlled_toggle",
+      "report_sha256": "148b4ea156c675faa46f90dffe751c6031cba46652dc1c873bf02d432c035663",
+      "typed_changes": {
+        "config": {
+          "map_equal": true,
+          "row_count": 109
+        },
+        "definition_schema_only": {
+          "map_equal": true,
+          "row_count": 84
+        }
+      }
+    }
+  },
+  "confidence": "not_found",
+  "field_rule_established": false,
+  "fresh_comparison_processes": 5,
+  "limits": [
+    "discovery only; no reserved holdout read",
+    "toggle capture crosses authoring lifetimes",
+    "strict Definition admission remains refused",
+    "schema-only parsing does not establish portable semantics",
+    "full inventories remain in ignored output with exact hashes"
+  ],
+  "method_sha256": {
+    "CompareCapture.py": "f73400095a9eea51b96702d8de8fd358ba736364cd297b70fd46291a8feea353",
+    "TypedInventory.py": "8dec13acbdb05281964857fb939fb1c1881fcffbcfd9b3c582f266f538604b24"
+  },
+  "process_refusals": [
+    {
+      "case": "WrongSourceHash",
+      "expected_refusal": "source archive differs from its expected SHA-256",
+      "no_output_directory": true,
+      "returncode": 1
+    },
+    {
+      "case": "WrongPreflightLink",
+      "expected_refusal": "continuation does not bind the exact stopped preflight",
+      "no_output_directory": true,
+      "returncode": 1
+    }
+  ],
+  "process_refusals_sha256": "1aa4faf05bea9afe0bf68e0d94b50ea6813fde8c2abc7e68511f316e1207e669",
+  "python": "3.14.6",
+  "schema": "kit.sw2026.plane-display-comparison-proof.v1",
+  "sdk": {
+    "git_source_tree": "b68c559a08150287313a951e2f4bddd95677e69f",
+    "source_files": 4364,
+    "sources_sha256": "05d73d02c21b0f0da6c946a5847a6f76cbb9b8df5f7cf2c538a1481598272723"
+  },
+  "summary_method_sha256": "ab8906065b656df9167de2a24fe8b908d6ff0c7adad821e94b045a43723f6afb",
+  "toggle_repeat_exact": true,
+  "toggle_repeated_report_sha256": "148b4ea156c675faa46f90dffe751c6031cba46652dc1c873bf02d432c035663",
+  "vendor_loadable": false
+}

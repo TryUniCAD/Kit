@@ -3,7 +3,7 @@
 ## Purpose
 
 Identify the failure boundary before you change an input or option.
-Use this procedure for public API calls and their output checks.
+Use this procedure for public API calls, CLI failures, and output checks.
 
 ## Before you start
 
@@ -42,6 +42,24 @@ Repeated execution of an unchanged unsupported input does not supply new accepta
 The symptom table is diagnostic guidance.
 The actual exception and source path determine the cause.
 
+## Read a CLI failure
+
+CLI exit status `1` indicates an operational failure. Structured operational errors are written as JSON to standard error.
+Exit status `2` indicates invalid usage. Read the usage message and the command's `--help` output.
+An interrupt returns `130`.
+
+For a real input named `bracket.SLDPRT`, retain the error separately from standard output.
+Choose unused paths for both `bracket.FCStd` and `conversion-error.json` before running this example:
+
+```sh
+kit convert bracket.SLDPRT bracket.FCStd --json 2> conversion-error.json
+```
+
+Read the error's `error` and `message` fields and any available structured details.
+Keep the source unchanged. Record the installed version with `kit --version`.
+Use `kit formats` to check registration and [format limitations](SelectFormat.md) to check scope.
+Do not retry with weaker policy settings to hide missing semantics.
+
 ## Read a usability error
 
 This example requires a real `bracket.SLDPRT` source and an unused destination.
@@ -51,8 +69,10 @@ from convert import ApplicationUsabilityError
 from convert import convert as ConvertDoc
 
 try:
+    # keep the rejected request separate from successful conversion evidence
     Result = ConvertDoc("bracket.SLDPRT", "bracket.FCStd", allow_carrier=False)
 except ApplicationUsabilityError as ErrorData:
+    # retain structured policy reasons for the implementation report
     ErrorReport = ErrorData.to_dict()
     print(ErrorReport)
 ```

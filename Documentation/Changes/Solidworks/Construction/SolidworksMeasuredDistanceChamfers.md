@@ -46,3 +46,13 @@ checks. Both original candidates reproduce all ten streams. Each private
 changed-driver comparison changes the recovered solid and fails public
 publication with the old receipt.
 [JSON and native compression evidence](../../../../re/solidworks/records/ChamferDistanceMain2026.md#json-compression-boundary)
+
+The current-base compatibility replay uses the same measured chamfer
+oracle identity and retains both qualified standalone part builds. The
+shared archive header, directory tail and trailer rules have separate
+modules. The cross-compression JSON test uses the two
+[exact measured fixtures](../../../../re/solidworks/v2026/corpus/chamfer-distance-measured/README.md).
+It requires repeated byte-free JSON export from both verified source
+archives, even when local compression produces different native bytes.
+Those different bytes still require their own native measurements.
+See the [fixture compression gotcha](../../../Gotchas/Conversion/Solidworks/ChamferMeasuredCompressionFixtures.md).

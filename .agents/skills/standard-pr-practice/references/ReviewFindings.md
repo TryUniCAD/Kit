@@ -22,7 +22,12 @@ Reply inside an existing review thread, then resolve it only after the finding i
 
 ## Request review for the current head
 
-Follow the [review timing in the main skill](../SKILL.md#2-start-ci-and-schedule-review). Once review is due, post a separate top-level PR comment for each reviewer whose entire body is that entry’s current `Comment` string loaded from [ReviewBot.json](../ReviewBot.json), unless that reviewer already has a request or review for that revision. Record the accepted head SHA and the request URL separately. A posted comment or reaction does not establish that a review ran. Verify the responding GitHub account or app and the revision it reviewed. Do not send a duplicate request for the same head or fall back to another reviewer.
+The account reviewer also accepts the exact commands in `AccountReview.MentionCommands` from the registry.
+For explicit reassessment on its current proposed head independently of CI status, post one command as the complete new PR comment.
+Only commenters with current write, maintain, or admin permission can start protected review jobs.
+Record the comment URL and resulting workflow separately; a posted mention is not proof that review started or approved.
+
+Follow the [review timing in the main skill](../SKILL.md#2-start-ci-and-schedule-review). Read each entry’s trigger from [ReviewBot.json](../ReviewBot.json). For `Trigger: schedule`, follow the configured automatic workflow on each proposed head through event dispatch and scheduled recovery regardless of CI failures or merge conflicts. Use only the configured mention commands for an explicit comment request. If a manual dispatch retry is needed, dispatch the configured workflow with input `pull` and optional `force`, or input `comment` for an authorized mention. For a comment-triggered reviewer, post its exact `Comment` once per accepted head unless a request or review already exists. Record the accepted head SHA and the request URL separately. A posted comment or reaction does not establish that a review ran. Verify the responding GitHub account or app and the revision it reviewed. Do not send a duplicate request for the same head or fall back to another reviewer.
 
 Request each reviewer once for the first reviewable head. On later heads, a verified native run from that reviewer already
 queued or in progress on that exact SHA counts as an existing automatic review

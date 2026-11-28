@@ -1,0 +1,324 @@
+{
+  "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+  "planned_batches": 30,
+  "controller_states": {
+    "completed": 18,
+    "waiting_evidence": 2,
+    "failed": 3,
+    "queued": 3,
+    "waiting_application": 5
+  },
+  "native_receipts": {
+    "completed": 20,
+    "blocked": 1,
+    "failed": 2
+  },
+  "initial_strict_outcomes": {
+    "strict_rejected_or_failed": 51,
+    "strict_decoded": 9
+  },
+  "available_native_files": 64,
+  "planned_native_files": 90,
+  "elapsed_native_seconds": 752.9364008903503,
+  "parameter_holdouts_only": true,
+  "fresh_process_reopen": true,
+  "complete_semantics": false,
+  "editable_conversion_accepted": false,
+  "model_advice": false,
+  "controller_attempts": 31,
+  "repeatability_summary": {
+    "inspected_sources": 46,
+    "byte_identical_successes": 9,
+    "exit_codes": {
+      "1": 33,
+      "0": 13
+    }
+  },
+  "logical_parameter_cases": 24,
+  "native_requests_submitted": 22,
+  "batches_with_passing_recorded_controls": 18,
+  "sources_from_batches_with_passing_recorded_controls": 54,
+  "fresh_verification_reports": 2,
+  "logical_case_outcomes": {
+    "controls_passed": 18,
+    "failed": 2,
+    "not_dispatched_fenced": 4
+  },
+  "logical_cases": [
+    {
+      "case": "fusion-000",
+      "final_attempt": "fusion-000",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-001",
+      "final_attempt": "fusion-001",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-002",
+      "final_attempt": "fusion-002",
+      "status": "controls_passed",
+      "split": "parameter_holdout",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-003",
+      "final_attempt": "fusion-003",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-004",
+      "final_attempt": "fusion-004",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-005",
+      "final_attempt": "fusion-005",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-006",
+      "final_attempt": "fusion-006",
+      "status": "controls_passed",
+      "split": "parameter_holdout",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-007",
+      "final_attempt": "fusion-007",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "fusion-008",
+      "final_attempt": "fusion-008",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.RevolveFeature"
+    },
+    {
+      "case": "solidworks-000",
+      "final_attempt": "solidworks-000",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-001",
+      "final_attempt": "solidworks-001",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-002",
+      "final_attempt": "solidworks-002",
+      "status": "failed",
+      "split": "parameter_holdout",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-003",
+      "final_attempt": "solidworks-003",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-004",
+      "final_attempt": "solidworks-004",
+      "status": "failed",
+      "split": "discovery",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-005",
+      "final_attempt": "solidworks-005",
+      "status": "not_dispatched_fenced",
+      "split": "discovery",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-006",
+      "final_attempt": "solidworks-006",
+      "status": "not_dispatched_fenced",
+      "split": "parameter_holdout",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-007",
+      "final_attempt": "solidworks-007",
+      "status": "not_dispatched_fenced",
+      "split": "discovery",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "solidworks-008",
+      "final_attempt": "solidworks-008",
+      "status": "not_dispatched_fenced",
+      "split": "discovery",
+      "feature": "family:revolve:boss-base-revolve"
+    },
+    {
+      "case": "fusion-cut-000",
+      "final_attempt": "fusion-repair-000",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.ExtrudeFeature"
+    },
+    {
+      "case": "fusion-cut-001",
+      "final_attempt": "fusion-repair-001",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.ExtrudeFeature"
+    },
+    {
+      "case": "fusion-cut-002",
+      "final_attempt": "fusion-repair-002",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.ExtrudeFeature"
+    },
+    {
+      "case": "fusion-cut-003",
+      "final_attempt": "fusion-repair-003",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.ExtrudeFeature"
+    },
+    {
+      "case": "fusion-cut-004",
+      "final_attempt": "fusion-repair-004",
+      "status": "controls_passed",
+      "split": "discovery",
+      "feature": "api:adsk.fusion.ExtrudeFeature"
+    },
+    {
+      "case": "fusion-cut-005",
+      "final_attempt": "fusion-repair-005b",
+      "status": "controls_passed",
+      "split": "parameter_holdout",
+      "feature": "api:adsk.fusion.ExtrudeFeature"
+    }
+  ],
+  "automatic_unique_inputs": 17,
+  "automatic_command_attempts": 17,
+  "automatic_exit_codes": {
+    "2": 17
+  },
+  "automatic_reports": {
+    "coverage_incomplete": 17
+  },
+  "unique_source_strict_outcomes": {
+    "strict_rejected_or_failed": 51,
+    "strict_decoded": 13
+  },
+  "native_verification": [
+    {
+      "run": "FusionOffline",
+      "application": "solidworks",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 6,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "FusionOffline",
+      "application": "fusion",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 1,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "SolidOffline512",
+      "application": "solidworks",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 14,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "SolidOffline512",
+      "application": "fusion",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 1,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "fusion-repair-000",
+      "application": "fusion",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 3,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "fusion-repair-001",
+      "application": "fusion",
+      "status": "api_unavailable",
+      "measurement_status": null,
+      "controls_healthy": null,
+      "cases": 0,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "fusion-repair-005b",
+      "application": "fusion",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 3,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "fusion-repair-004",
+      "application": "fusion",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 3,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "fusion-repair-003",
+      "application": "fusion",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 3,
+      "full_semantics_verified": false
+    },
+    {
+      "run": "fusion-repair-002",
+      "application": "fusion",
+      "status": "failed",
+      "measurement_status": "failed",
+      "controls_healthy": true,
+      "cases": 3,
+      "full_semantics_verified": false
+    }
+  ],
+  "execution_wall_seconds": 4189.202023983002,
+  "automatic_wall_seconds": 2290.0,
+  "native_capture_partial_fallback": false
+}

@@ -16,6 +16,9 @@ Production conversion must not import this research code.
 
 You need Python 3.11 or later on Linux or macOS.
 Windows requires Windows 10 or newer, Python 3.14 and the existing locked `pywin32` development extra.
+The installed `kit research --root CHECKOUT supervisor ...` command supports this Windows path.
+Its launcher forwards handled console cancellation to the supervisor and waits for worker cleanup.
+Use a shared Windows console for this cancellation path. Forced launcher termination still requires lease and recovery controls.
 The Windows path uses private Job Objects, restricted handle inheritance and process creation-time fencing.
 An owned built-in A03 supervisor reuses one bounded Windows helper for single-job claims. [Warm Windows claim helper](../../Changes/Research/Supervisor/WindowsWarmClaim.md)
 Linux and macOS retain their process-group and `wait4` paths.
@@ -120,13 +123,15 @@ It must also support the existing single-job contract.
 Groups contain 2–20 members with the same kind, tool version and rule version.
 The combined input footprint must be below `group_limit_bytes`, which defaults to 1 MiB.
 Set `group_max_members` from 2 to 20 to lower the member ceiling. The default is 20.
-The catalogue runner uses groups of up to four rescans.
+Fresh catalogue runs use groups of up to eight rescans and a strict 16 MiB combined footprint limit.
+Resumed runs use their saved runner settings. [Catalogue rescan throughput](../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md)
 The supervisor retains single-job fallback when a job cannot group or the group estimate cannot fit.
 
 A grouped worker receives `group.json` with `group_session_version: 1` and ordered member paths such as `jobs/00/job.json`.
 Each member has its own inputs, private `work/` directory and `result.json`.
 Tokens remain outside the worker manifests.
 A03 renews all member leases in one controller invocation and renews remaining members during bounded output intake.
+Group staging renews when due and the launch gate checks every member again after durable process publication.
 The controller counts every logical job and resource while CPU and memory count one physical process tree.
 The total declared output limit is 256 MiB for the group.
 
@@ -238,7 +243,12 @@ See [versioned memory estimates](../../Changes/Research/Supervisor/VersionedMemo
 Adaptive concurrency is enabled by default through the strict boolean `adaptive_limits` field.
 Each pool starts at half its calculated capacity, with a minimum of one when capacity exists.
 After the first actual start, healthy increases are bounded to one slot per 60 seconds and require measured load, available memory and applicable Linux PSI guards.
-Missing metrics block upward increases explicitly; Windows has no load-average equivalent yet.
+Missing metrics block upward increases explicitly.
+Windows uses the observed CPU busy fraction over a 60- to 70-second interval.
+The interval requires unrestricted affinity on a host with one Windows processor group.
+At or above 85 percent busy time, the pool holds its current target.
+Admission events report the measurement as `host.cpu_busy_fraction_1m`.
+[Windows adaptive CPU measurement](../../Changes/Research/Supervisor/Adaptive/WindowsAdaptiveCpu.md)
 Memory-limit stops, independently matched Linux memory-cgroup OOM receipts, two deadline stops within 600 seconds and below-reserve memory episodes reduce the target conservatively. [Hosted Linux OOM evidence](../../Changes/Research/Supervisor/HostedSupervisorOom.md)
 Existing sessions drain normally when the target falls.
 Set `adaptive_limits` to `false` to use the measured capacity directly.

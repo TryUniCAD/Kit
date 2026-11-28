@@ -93,7 +93,7 @@ def sdk_worker(request):
     from interchange.Features.FeatureKinds import NativeFeature
     for module in (
         "convert.Commands.CheckRetained", "interchange.brep.Validation.BrepValidate",
-        "interchange.document.Behavior.DocumentIo", "interchange.document.Models.DocumentProvenance",
+        "interchange.document.Behavior.DocumentIo", "interchange.document.Models.DocumentProvenance", "interchange.document.Models.FilterMetadata",
         "interchange.document.Validation.DocumentAssemblyValidate",
         "interchange.document.Validation.DocumentFeatureValidate",
         "interchange.document.Validation.DocumentReferenceValidate",

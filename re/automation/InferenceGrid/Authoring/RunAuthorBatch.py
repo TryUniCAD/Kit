@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -8,6 +8,7 @@
 
 from pathlib import Path
 from contextlib import nullcontext
+from sys import platform
 
 from InferenceGrid.Authoring.AuthorConfig import AuthorConfig
 from InferenceGrid.Authoring.AuthorOutcome import AuthorOutcome
@@ -19,7 +20,7 @@ from InferenceGrid.CatalogueRuntime import HoldCatalogue
 from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
 from Pilot.PilotFiles import WriteRecord
-from Records import digest, read_record
+from Records import digest, label, read_record
 from Sessions import write_private
 
 
@@ -46,6 +47,13 @@ def RunAuthorBatch(
     if Directory.is_relative_to(SourceRoot):
         raise ValueError("use an authoring run directory outside the source checkout")
     PlanValue = BuildAuthorPlan(Catalogues, Revision, CasePath, ModeValue, GridValue)
+    if (
+        HostPath is not None
+        and read_record(HostPath).get("verification_mode", "document_reopen")
+        == "document_reopen"
+    ):
+        PlanValue["solidworks_batch_size"] = 1
+        PlanValue["solidworks_verification_mode"] = "document_reopen"
     Applications = {Value["application"] for Value in PlanValue["samples"].values()}
     if not PrepareOnly and (
         ("fusion" in Applications and Native is None)
@@ -174,7 +182,38 @@ def FinishAuthor(
             Path(RunValue["lifecycle"]),
             Resume=Resume,
         )
-    with Lifecycle as GuardValue:
+    from InferenceGrid.Authoring.SolidRoutine import OwnSolidRoutine
+
+    SolidResource = RunValue["resources"].get("solidworks")
+    if SolidResource is not None:
+        with Ledger(Directory / "Store") as StateValue:
+            Row = StateValue.db.execute(
+                "SELECT available FROM resources WHERE name=?", (label(SolidResource),)
+            ).fetchone()
+        # native capture jobs wait while the resource is unavailable, and they cannot run off Windows
+        SolidCaptures = platform == "win32" and Row is not None and bool(Row[0])
+    else:
+        SolidCaptures = False
+    SolidLife = (
+        OwnSolidRoutine(
+            Directory,
+            SourceRoot,
+            Directory / "SolidWorksHost.json",
+            PlanValue["source_revision"],
+        )
+        if SolidCaptures
+        else nullcontext()
+    )
+    with SolidLife as SolidOwner, Lifecycle as GuardValue:
+        # both native coordinators must remain alive while the independent decoder pool executes
+        def CheckOwners():
+            if SolidOwner is not None and SolidOwner.poll() is not None:
+                raise RuntimeError(
+                    "persistent SOLIDWORKS owner exited; inspect SolidWorksQueue"
+                )
+            if GuardValue is not None:
+                GuardValue.CheckAlive()
+
         FailureValue = RunSupervisor(
             Directory,
             SourceRoot,
@@ -183,7 +222,7 @@ def FinishAuthor(
             "Authoring",
             Reserve=RunValue["reserve"],
             Resume=Resume,
-            CheckRunning=None if GuardValue is None else GuardValue.CheckAlive,
+            CheckRunning=CheckOwners,
         )
     ResultValue = AuthorOutcome(
         Directory,

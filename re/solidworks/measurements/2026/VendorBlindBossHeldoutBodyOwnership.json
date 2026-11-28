@@ -1,0 +1,92 @@
+{
+  "authoring_row_sha256": "459dd1f686b6a0696e117e75ae49974e04812ed207c638774b130c898a2526e9",
+  "command": [
+    "python",
+    "-B",
+    "re/solidworks/EncoderBoundary/InspectVendorBodyOwners.py",
+    "--dependency-root",
+    "<pinned-pr121-checkout>",
+    "--source-record",
+    "<sealed-authoring-record>",
+    "--output",
+    "<fresh-result-json>"
+  ],
+  "comparison_columns": [
+    "offline_proof",
+    "native_api",
+    "status"
+  ],
+  "comparisons": {
+    "active_solids": [
+      1,
+      1,
+      "passed"
+    ],
+    "centroid_x_mm": [
+      -0.5247204733871698,
+      -0.5247204733871718,
+      "passed"
+    ],
+    "centroid_y_mm": [
+      5.994747901463704,
+      5.994747901463707,
+      "passed"
+    ],
+    "centroid_z_mm": [
+      8.904499999999999,
+      8.904499999999999,
+      "passed"
+    ],
+    "depth_mm": [
+      17.808999999999997,
+      17.808999999999997,
+      "passed"
+    ],
+    "driving_d1": [
+      true,
+      true,
+      "passed"
+    ],
+    "edges": [
+      33,
+      33,
+      "passed"
+    ],
+    "faces": [
+      13,
+      13,
+      "passed"
+    ],
+    "surface_area_mm2": [
+      6453.014671995341,
+      6453.014671995341,
+      "passed"
+    ],
+    "vertices": [
+      22,
+      22,
+      "passed"
+    ],
+    "volume_mm3": [
+      31847.030314995984,
+      31847.030314995984,
+      "passed"
+    ]
+  },
+  "dependency_git_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+  "directed_boundary_match": true,
+  "full_proof_output_sha256": "d44af732105bc9da3bdf8c0b58b7ac28d05c3bae63c9efe3edb038644f498207",
+  "full_proof_row_sha256": "32342c86c2441fde8180f1e33ab2637ee85fddc3f8bc7defcf6183e7a74799e3",
+  "independent_comparisons_passed": 11,
+  "native_terminal_sha256": "15a758c62e96c2ceb3e7531ef3c21bee13c55c02596e9da8765abd52c5f56bc5",
+  "partition_sha256": "8dfc6a62c87835cc82804ae037454b694529391132eef4f2c11b3234a9560105",
+  "process_exit_code": 0,
+  "profile_lines": 11,
+  "proof_git_revision": "ae2df5a0ef8fc7a5c63815afe40f5b17173b6a3d",
+  "public_equals_active_partition": true,
+  "row_digest_convention": "UTF-8 sorted compact JSON without a terminal newline",
+  "schema": "kit.research.vendor-blind-boss-frozen-holdout.v1",
+  "scope": "offline_active_body_ownership_and_geometry",
+  "source_record_sha256": "d16227a8ee662e4b71802dc678c45a7cd249c743e7f723e2ee8b7def627e1c22",
+  "source_sha256": "0de0b983f46e1a0a2553efd192f916b13227b23a95a62b806e1795a7fa8ff3f1"
+}

@@ -1,0 +1,69 @@
+{
+  "Policy": "For historical generic Codex ownership, use the verified GitHub author of the feature/task introduction or exact delivery PR, as requested by the user; preserve existing native assignees and retain evidence",
+  "Explicit": {
+    "PlanningViews": ["jdharcourt"],
+    "B01": ["jdharcourt"],
+    "A11c:14": ["Stephen316"],
+    "A12a:15": ["Stephen316"],
+    "A13a:16": ["Stephen316"],
+    "A07d:17": ["jdharcourt"],
+    "A08f:18": ["jdharcourt"],
+    "A08g:19": ["jdharcourt"],
+    "A08i:20": ["Stephen316"],
+    "A06e:56": ["jdharcourt"],
+    "A06f:57": ["jdharcourt"]
+  },
+  "Aliases": {},
+  "Evidence": {
+    "B01": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/4cd56377585ef4e38cb96c789f6aa35607a53497",
+      "Source": "Documentation/Maintenance/ConversionBacklog.md"
+    },
+    "A11c:14": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/e8169d9b175f7211362cbba0bf716bbb0a2495e7",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A12a:15": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/e8169d9b175f7211362cbba0bf716bbb0a2495e7",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A13a:16": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/e8169d9b175f7211362cbba0bf716bbb0a2495e7",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A07d:17": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/22075ee5e77c3db9b56bd8c2bc8c415d6baf237d",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A08f:18": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/22075ee5e77c3db9b56bd8c2bc8c415d6baf237d",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A08g:19": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/22075ee5e77c3db9b56bd8c2bc8c415d6baf237d",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A08i:20": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/ac003be16678fcf47989dfdda6c2d08d1dc8777e",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A06e:56": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/22075ee5e77c3db9b56bd8c2bc8c415d6baf237d",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    },
+    "A06f:57": {
+      "Basis": "GitHub author of commit introducing the named task record; historical attribution, not a new claim",
+      "Url": "https://github.com/TryUniCAD/Kit/commit/22075ee5e77c3db9b56bd8c2bc8c415d6baf237d",
+      "Source": "Documentation/Reference/Research/AutomationSteps.md"
+    }
+  }
+}

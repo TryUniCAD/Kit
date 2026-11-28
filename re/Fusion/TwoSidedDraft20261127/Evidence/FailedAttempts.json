@@ -1,0 +1,59 @@
+{
+  "attempts": [
+    {
+      "job": "verify-baseline",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "4c61a33f0aceaf7283019d30985aa0aec79ad42b6e7f5364e445659bb31c444e"
+    },
+    {
+      "job": "verify-draft_first",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "21d749b95e30d64b2c19a9930baef09316c12b0d85451b4ed2941cd4a3797fc1"
+    },
+    {
+      "job": "verify-draft_second",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "60f76f8f6ad82010990f5e78d805b814b61d902b00b7a5b6b1781228bac971f5"
+    },
+    {
+      "job": "verify-first",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "5b54d266d63affec2b5acab1a2419fed626f5a8fb097dbc0f211f7cae6657e03"
+    },
+    {
+      "job": "verify-frame",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "5e9a60b6ad24ad0dcff137912670ef764284cfc4f24701c089d3c2699967f733"
+    },
+    {
+      "job": "verify-holdout_a",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "46223ca3e0e3feddf784962636df1e84b9a226393301297789f24c990ec40013"
+    },
+    {
+      "job": "verify-holdout_b",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "14ff19684f44addd2e35864b08e171a6766d6e803837dc4ab5306eb75478bc6f"
+    },
+    {
+      "job": "verify-placement",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "639052fc1434c43723336d2ec2c179a1bb5fd203c51c69dae5509b4ebc8dc849"
+    },
+    {
+      "job": "verify-radius",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "f226e3b39dbf2874b38aeba059016a1ee1b606650abd5aa01e18cefd2b8ee581"
+    },
+    {
+      "job": "verify-second",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "9c3340d443c7fad6368409cb42bd68492ce2ad97035cee1239c042afeb47521b"
+    },
+    {
+      "job": "verify-swapped",
+      "error": "Traceback (most recent call last):\n  File \"<home>/.t3/worktrees/Kit/t3-50c68b05-ba73d86a8780e026/re/Fusion/TwoSidedDraft20261127/Worker.py\", line 49, in <module>\n    submitted=client.request('/v1/jobs',dict(application='fusion',operation='script',script=script,source=base64.b64encode(raw).decode(),source_sha256=digest))\n  File \"<home>/.kit/remote-cad/client.py\", line 32, in request\n    raise ValueError(f'remote CAD HTTP {response.status}: {payload[:4096].decode(errors=\"replace\")}')\nValueError: remote CAD HTTP 400: {\"error\":\"script must be UTF-8 Python source of at most 256 KiB\"}\n",
+      "receipt_sha256": "6ff1a3193dd9fa41142b86e737aaa20e62f6a4856a2003ee0b2b5d3ba5ebb825"
+    }
+  ]
+}
