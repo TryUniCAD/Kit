@@ -1,10 +1,13 @@
-# PR conversation reactions require Issues write permission
+# PR conversation reactions can require both write permissions
 
-Pull requests write permission can publish a review but does not authorize reactions to its conversation comments.
-GitHub classifies those comments under the issue-comment reaction API, which requires Issues write.
-Add that permission to the installed app and accept the installation update before enabling reaction steps.
+GitHub documents Issues write for the issue-comment reaction API.
+The installed app nevertheless received HTTP 403 when reacting to the PR #398 conversation with Issues write alone.
+Issues write plus Pull requests read also received HTTP 403.
+The same operation with Issues write and Pull requests write returned HTTP 201 and the registered bot identity.
+All diagnostic tokens were restricted to Kit and revoked after the probe.
 
-The starting reaction token requests only Issues write.
-The completion token also requests Pull requests read to verify the terminal review and Checks write to report workflow failure.
+Request both write scopes on starting and completion reaction tokens.
+The installation already needs both for its review and reaction responsibilities.
+The completion token also requests Checks write to report workflow failure.
 They are separate from account authentication and publishing credentials.
 See [the GitHub reaction permission contract](https://docs.github.com/en/rest/reactions/reactions#create-reaction-for-an-issue-comment).

@@ -5,6 +5,6 @@ During the PR #398 rollout check, both retained an earlier commit after main had
 The earlier reviewer accepted that metadata pair even though it did not qualify the live target revision.
 
 Read the target Git ref independently during both selection and publication.
-Require its current SHA to equal the CI evidence base and require GitHub mergeability to be true.
-Reject conflicts and indeterminate mergeability instead of approving from old metadata.
-Refresh the branch and applicable CI before retrying that request.
+Bind the review snapshot to that revision even when the PR has conflicts or unsuccessful CI.
+Before approval, require the CI evidence base to match the live target and require GitHub mergeability to be true.
+Refresh the branch and applicable CI to qualify approval; analysis does not wait for that qualification.

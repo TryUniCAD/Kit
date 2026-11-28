@@ -13,6 +13,12 @@ Include a changed file path, positive line number, concise title, and evidence f
 Return an integer soundness score from 1 to 5: 1 unsafe, 2 major concerns, 3 unresolved concerns, 4 sound, 5 exceptionally well supported.
 The score is a review assessment, not a probability or guarantee.
 
+Review even when CI fails, the PR is a draft, or its branches conflict. Those conditions restrict approval, not code analysis.
+Before is the proposed change's merge-base content; target is the current target branch; after is the proposed head.
+Project policy comes from the recorded trusted workflow revision, independently of older PR branches.
+When input_complete is false, set complete=false, identify the omitted files or count, and review the available evidence without claiming complete coverage.
+Do not invent defects in omitted source or report CI status alone as a code defect.
+
 Set complete=false when source, caller context, binary inspection, requirements, or verification evidence is insufficient for a reliable review.
 Set scope_matches=false for incomplete delivery or unexplained scope expansion.
 Do not hide findings to increase the score. A clean review needs no unresolved findings at any priority.

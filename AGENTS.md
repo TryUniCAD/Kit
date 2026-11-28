@@ -136,9 +136,9 @@ read its complete standards index and every applicable rule before coding.
 - Read every entry in `Reviewers` from
   [ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json), the sole
   source of reviewer identities, report names, and trigger configuration.
-  For `Trigger: schedule`, follow automatic review after successful PR CI.
-  Use the configured workflow dispatch with CI run input `id` for manual retries.
-  Use configured `AccountReview.MentionCommands` for explicit reassessment after successful current-head CI.
+  For `Trigger: schedule`, follow automatic review on each proposed head regardless of CI failures or merge conflicts.
+  Use the configured workflow dispatch with PR input `pull` and optional `force` for manual retries.
+  Use configured `AccountReview.MentionCommands` for explicit reassessment on its current proposed head independently of CI status.
   Never invoke removed reviewers.
   For a comment-triggered entry, submit its exact `Comment` once per accepted head.
   Verify every responding

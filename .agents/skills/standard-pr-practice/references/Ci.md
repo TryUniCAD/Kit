@@ -32,7 +32,7 @@ An evidenced transient runner/service error allows one justified rerun. Record t
 
 ## Publication and final evidence
 
-Before publishing a fix, review the staged paths and outgoing commits, preserve unrelated work, validate within the local execution rules, and refetch head/base. Integrate concurrent work without rewriting published history. Use a conventional commit and a normal push with the user's required `--no-verify`, read back the accepted SHA, and follow each configured trigger from [ReviewBot.json](../ReviewBot.json) for the accepted head as described in [ReviewFindings.md](ReviewFindings.md). Scheduled reviewers run automatically after successful CI. Use only configured mention commands for explicit reassessment.
+Before publishing a fix, review the staged paths and outgoing commits, preserve unrelated work, validate within the local execution rules, and refetch head/base. Integrate concurrent work without rewriting published history. Use a conventional commit and a normal push with the user's required `--no-verify`, read back the accepted SHA, and follow each configured trigger from [ReviewBot.json](../ReviewBot.json) for the accepted head as described in [ReviewFindings.md](ReviewFindings.md). Automatic reviewers analyze each proposed head independently of CI status; passing CI gates approval only. Use only configured mention commands for explicit reassessment.
 
 Wait for checks to schedule for that revision, rediscovering them as they appear. Use yielding sessions or discrete reads separated by responsive 30–60 second waits. `gh pr checks` may initially report no checks after a push; that means wait and investigate scheduling. A watcher is an intermediate signal, not the complete inventory.
 
