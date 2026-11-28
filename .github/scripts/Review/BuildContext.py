@@ -3,6 +3,7 @@ import sys as SysTools
 from pathlib import Path
 
 from ReviewSources import ReviewSources
+from Budget.AddSourceMut import AddSourceMut
 from Input.MakeContext import MakeContext
 from Input.ReadSource import ReadSource
 from Planning.PlanCoverage import PlanCoverage
@@ -31,17 +32,7 @@ def BuildContext(
     Sources: list[dict[str, object]] = []
     Context["files"] = Sources
     for Source in ReviewSources(FileList, Evidence):
-        Sources.append(Source)
-        if len(JsonTools.dumps(Context).encode()) > 900000:
-            Source.update(
-                {
-                    "before": None,
-                    "after": None,
-                    "target": None,
-                    "patch": None,
-                    "omitted": "Complete source exceeds the review context budget",
-                }
-            )
+        AddSourceMut(Context, Source, Sources)
     ProofData = PlanCoverage(Evidence, Settings, Sources)
     if ProofData is not None:
         Context["generated_verification"] = ProofData

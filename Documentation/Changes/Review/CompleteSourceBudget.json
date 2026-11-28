@@ -1,0 +1,42 @@
+{
+  "code_revision": "a58a128400947b1e4efa237d5e0fa8e8ba57810a",
+  "head": "9f2f570a1e83e93fd6b1e9df5c8fdd85c799b498",
+  "policy": "2a11680d389beebd999619fb763b2c7df121b3b6",
+  "source_paths": 40,
+  "changed_file_count": 42,
+  "omitted_file_count": 2,
+  "input_complete": false,
+  "source_omissions": [],
+  "full_snapshots_verified_against_git": 120,
+  "patches_removed": 38,
+  "encoded_json_bytes": 789581,
+  "approval_claimed": false,
+  "baseline_source_omissions": [
+    "re/automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1",
+    "re/solidworks/records/SheetMetalCapture2026.md"
+  ],
+  "fixed_source_omissions": [],
+  "baseline_encoded_json_bytes": 889696,
+  "fixed_encoded_json_bytes": 789581,
+  "baseline_builder_sha256": "8435e9abbb5f3b1f39f8cae5d9e1333b9351bfa303885e78d31678bfe2254047",
+  "same_policy_and_source_order": true,
+  "implementation_sha256": {
+    ".github/scripts/Review/BuildContext.py": "155d89191b82a44569b5b5c715c0235986c23dbbe00b6b5c1ee0bd1ee07a4df2",
+    ".github/scripts/Review/Budget/AddSourceMut.py": "093f86b44405f3798ae23a51eb5a804569aa65df6e259cb224a8027d2564f35f",
+    ".github/scripts/Review/Budget/TrimPatches.py": "1bd1da7fae26dae956de24df8cefb5a0aefb86a0de7cee9da6cec087141c0ed6"
+  },
+  "input_sha256": {
+    "Evidence": "90139012c1f7419517e44ef986147cde25f3e3fd6cfea22a281712b84a645f84",
+    "PullData": "a1e40964bc1b059af97245dbc56875938cbfbec297633b1c9703088f92d1d11c",
+    "FileList": "42536fd2733e7e0228d5210ab6485c0e4744c79fd33b70fb5332e6219ac864bc",
+    "Settings": "206ff520df0bcb11b2b5235b2565a17cb9d88919634388006972dd7790953b07"
+  },
+  "process_checks": {
+    "cases": 6,
+    "passed": 6,
+    "duration_seconds": 29.92,
+    "boundary": "real private git repositories and production context CLI",
+    "model_execution": false,
+    "account_authentication": false
+  }
+}

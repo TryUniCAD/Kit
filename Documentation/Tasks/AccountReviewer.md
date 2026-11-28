@@ -172,3 +172,9 @@ At the owner's explicit request, initial seeding uses the existing local account
 Local and CI refreshes can conflict; reseed CI if either copy can no longer refresh.
 Hosted execution, live credential rotation, and review acceptance remain pending.
 Project synchronization is pending because this session's token lacks project scopes.
+
+## Recover redundant patch capacity
+
+The source collector keeps patches when the context fits. Before rejecting source snapshots for the 900,000-byte encoded budget, it removes duplicate patches for entries whose complete before and after text is retained. Proposed and live-target source text is unchanged. Partial or unavailable source keeps its omission status, and a context that still cannot fit remains incomplete or fails the final byte guard.
+
+This does not increase the forty-file or 160,000-byte limits. It does not qualify binary input, change generated-source verification or replace an actual approving review. [Change and verification](../Changes/Review/CompleteSourceBudget.md) · [Duplicate patch gotcha](../Gotchas/Review/RedundantPatchCapacity.md)
