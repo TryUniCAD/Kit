@@ -12,6 +12,26 @@ For an authorized repository change, implement the user's requested change, open
 
 This incorporates CI repair, review follow-up, and merge-conflict resolution; no separate skills need to be installed or invoked. Read [ReviewBot.json](ReviewBot.json) at activation and again before requesting review. Its `Reviewers` array is the sole source of reviewer identities, native report names, and trigger configuration. For an entry with `Trigger: schedule`, follow the automatic workflow on each proposed head through event dispatch and scheduled recovery regardless of CI failures or merge conflicts. For explicit reassessment, post one exact command from `AccountReview.MentionCommands` as the complete new PR comment; the commenter must have current write, maintain, or admin permission. Use the configured workflow dispatch with input `pull` and optional `force` for manual retries or input `comment` for an authorized mention. For a comment-triggered entry, submit its `Comment` verbatim once per accepted head. Follow the review timing below and never invoke a removed reviewer as a fallback. Add or change reviewers in that file alone. Missing, invalid, or empty configuration is a blocker, never permission to guess a trigger. Keep reviewer brands, handles, app slugs, account IDs, report names, and wake words out of other instructions, scripts, tests, and docs. All configured reviewers must pass their native reports and submit an actual `APPROVED` review on the current head before the PR is ready. Address every finding from every verified account or app, including top-level and advisory reports. Do not invoke an unconfigured fallback. Report independently enforced repository requirements separately. The canonical skill lives in `.agents/skills/standard-pr-practice`; Claude Code follows the root `CLAUDE.md` link to that same canonical skill. This repo does not register a separate native Claude Code slash command; use the plain-text request `use standard-pr-practice to <requested change>`. Keep one repository source rather than separate global Codex or Claude Code copies.
 
+## Review coverage and bounded delivery
+
+Assess the claimed bounded PR delivery separately from unfinished parent scopes.
+Explicitly unclaimed acceptance stages do not alone establish a defect or scope mismatch.
+Preserve every applicable evidence obligation and do not claim broader acceptance.
+A review acceptance fixture does not need its own future app approval before its code repair can be assessed.
+
+Large generated planning outputs count as covered only when the trusted host rebuilds
+both previous and proposed bytes with the unchanged default-branch generator,
+unchanged remaining dependencies and fully supplied changed inputs.
+The live base and merge base must match that trusted revision.
+Retain revision, byte-count and hash receipts; hashes alone do not prove reconstruction.
+Changed generators, unsupported inputs, stale bases, incomplete input coverage and
+any byte mismatch retain partial coverage and block automatic approval.
+The model still assesses semantics and every other readiness gate remains required.
+
+Publish reviews with the actual native verdict, a score out of five, explicit coverage,
+findings grouped by P1/P2/P3 and collapsible revision and approval verification.
+Preserve the final canonical mention and snapshot receipts used for deduplication.
+
 ## Complete coding and quality standards
 
 The previous repository standards are incorporated into this skill **in full**,

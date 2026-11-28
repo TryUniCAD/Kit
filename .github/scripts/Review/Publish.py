@@ -54,8 +54,14 @@ def PublishRun() -> None:
     )
     Context["approval_gate"] = GateInfo
     Context["settings"] = Settings
+    Context["repository_name"] = RepoName
     WriteReview(
-        RepoName, Context, Report, Reviewer, ReviewBody(Report, Context), Verdict
+        RepoName,
+        Context,
+        Report,
+        Reviewer,
+        ReviewBody(Report, Context, Verdict),
+        Verdict,
     )
 
 
