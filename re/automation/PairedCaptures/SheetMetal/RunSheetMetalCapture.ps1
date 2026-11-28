@@ -92,13 +92,8 @@ function Assert-EquivalentObservation($Authored, $Reopened) {
             ($left.parents.feature_id -join ',') -cne ($right.parents.feature_id -join ',')) {
             throw "Native feature identity, order, diagnostics, parents or cut-list membership changed at index $index."
         }
-        if ($left.suppressed -eq $right.suppressed) { continue }
-        $from = $left.fold_folder_owner
-        $to = $right.fold_folder_owner
-        if ($left.type -cne 'FoldUpDownSketchFolder' -or !$from -or !$to -or !$from.suppressed -or !$to.suppressed -or
-            $from.feature_id -ne $to.feature_id -or $from.name -cne $to.name -or
-            [string]::IsNullOrEmpty($from.persist_reference) -or $from.persist_reference -cne $to.persist_reference) {
-            throw "Native feature suppression changed at index $index for $($left.name)."
+        if ($left.suppressed -ne $right.suppressed) {
+            throw "Native feature suppression changed at index $index for $($left.name): authored $($left.suppressed), reopened $($right.suppressed)."
         }
     }
 }

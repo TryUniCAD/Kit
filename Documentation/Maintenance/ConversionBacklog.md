@@ -342,6 +342,8 @@ now binds the six native saves and the edit and restoration to the owned-process
 Two independently authored base discovery saves now replay their configuration manager and full resolved streams, including one modern per-body record each. Both modern controls lack a direct master in Config-0. The installed cover and plate tutorials supply offline exact direct-master replay with two and one allocated legacy rows, respectively, and a nonnull inherited name link in each. The native feature and topology observations remain pending. The positive-Z file rebuilt in an independent read-only process bracketed by healthy stock controls. Both independent two-body orderings replay exactly and match the native feature IDs. Native edit and restore, clean capture and reopen of the full batch, direct populated master admission and held-out correlation remain pending.
 [Capture recipe change](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalNativeCaptureRecipe.md)
 [Linked manager inspection](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalLinkedManagerInspection.md)
+The legacy plate now replays its complete linked archive with final resolved map count 372. The cover replays three typed folder payloads and first refuses at the bend-allowance record. Raw fold-folder suppression differs on a retained reopen and remains a native acceptance discrepancy.
+[Legacy linked replay](../Changes/Solidworks/Archive/Configuration/SolidworksLegacySheetMetalLinkedReplay.md)
 
 ### B04-SW2026-CONFIG-VIEWS
 
